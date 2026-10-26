@@ -1,35 +1,34 @@
 id: open-xddx
 name: Open-XDDx
 kind: benchmark
-year: 2025
-summary: 570 English clinical notes across nine specialties, each annotated by physicians with differential diagnoses and explanations, for evaluating LLM differential diagnosis explanations with text-similarity metrics and manual review.
+year: 2024
+summary: 570 clinical notes derived from USMLE-style exercises across nine specialties, each annotated by physicians with a set of differential diagnoses and the supporting interpretation (symptom reasons), for evaluating LLM interpretable differential diagnosis.
 readme_section: open_ended
 links:
   paper: https://www.nature.com/articles/s44401-025-00015-6
-  doi: 10.1038/s44401-025-00015-6
+  arxiv: "2407.07330"
   code: https://github.com/betterzhou/Dual-Inf
 license: null
 open_data: open
 geography:
   item_languages: [English]
-  item_origin_countries: [UNKNOWN]
-  item_origin_note: Notes were taken from publicly available medical diagnosis exercises; the paper does not name the source exams or country.
-  rater_countries: [UNKNOWN]
-  localization: unknown
+  item_origin_countries: [USA]
+  item_origin_note: Notes were rewritten from MedQA-USMLE questions and USMLE preparation books (First Aid for USMLE Step 2 CS and Step 1 Q&A).
+  localization: native
   lead_institution_countries: [USA]
 origin:
   builder_types: [academic]
-  item_provenance: [adapted_dataset, clinician_written]
+  item_provenance: [exam_questions, adapted_dataset]
   venue: peer_reviewed
 facets:
-  health_areas: [general_medicine]
+  health_areas: [general_medicine, cardiology]
   intended_users: [clinician]
-  eval_methods: [automatic_metric, expert_human_rating]
+  eval_methods: [rubric_llm_judge, automatic_metric, expert_human_rating]
   modality: [text]
-  size: 570 clinical notes
+  size: 570 clinical notes (nine specialties; mean 4.6 diagnoses and 14.5 interpretation reasons per note)
 provenance:
-  records: [r_5d67e281e9]
+  records: [r_e25ea2a185]
   extracted: 2026-10-26
   read_full_text: true
-  confidence: medium
-  notes: "Dataset (Open-XDDx.xlsx) is in the Dual-Inf GitHub repository; the paper says data are in the supplementary files. No dataset license stated (the article itself is CC BY 4.0). Notes come from diagnosis exercises with multiple-choice options removed; three physicians annotated (two per note, a third resolved disagreements), at the University of Minnesota. Explanations are scored with BERTScore and METEOR, plus manual review of 100 cases. The same paper proposes the Dual-Inf prompting method, which is not part of the benchmark."
+  confidence: high
+  notes: "Dataset introduced alongside the Dual-Inf prompting framework (a method; only the dataset is the entry). Multiple-choice exercises were converted to free-text notes; three physicians annotated differentials and interpretations (two per item, a third resolving disagreements; Jaccard agreement 0.885 for diagnoses and 0.859 for interpretation). Scoring: diagnosis accuracy by automatic comparison, interpretation accuracy judged by GPT-4o, BERTScore, SentenceBERT, METEOR, and clinician ratings on 100 notes. The paper says the dataset is in Supplementary Data 6 and the GitHub README says it is in the repo; no license was seen. Peer-reviewed version is in npj Health Systems 2025 (from the repo README). Physician rater countries not stated. Lead-institution country is the University of Minnesota. health_areas lists cardiology as the first-listed specialty in the paper's table, but the set spans nine specialties."

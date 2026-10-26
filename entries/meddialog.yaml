@@ -1,0 +1,39 @@
+id: meddialog
+name: MedDialog
+kind: benchmark
+year: 2020
+summary: Large-scale doctor-patient consultation dialogues scraped from online medical sites, 3.4 million Chinese conversations (172 specialties) and 0.26 million English conversations (96 specialties), released for training and evaluating medical dialogue generation.
+readme_section: multilingual_regional
+links:
+  paper: https://aclanthology.org/2020.emnlp-main.743/
+  arxiv: "2004.03329"
+  doi: 10.18653/v1/2020.emnlp-main.743
+  huggingface: [UCSD26/medical_dialog]
+  code: https://github.com/UCSD-AI4H/Medical-Dialogue-System
+license: null
+open_data: open
+geography:
+  item_languages: [Chinese, English]
+  item_origin_countries: [CHN, UNKNOWN]
+  item_origin_note: "Chinese dialogues come from haodf.com, a Chinese online consultation site. English dialogues come from healthcaremagic.com and icliniq.com (the Hugging Face card also lists healthtap.com); the sources do not state the country of the patients or doctors."
+  localization: native
+  lead_institution_countries: [USA]
+  subsets:
+    - {name: MedDialog-CN, languages: [Chinese], countries: [CHN], localization: native}
+    - {name: MedDialog-EN, languages: [English], countries: [UNKNOWN], localization: native}
+origin:
+  builder_types: [academic]
+  item_provenance: [real_user_queries]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public, clinician]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: "3.4M Chinese conversations (11.3M utterances) and 0.26M English conversations (0.51M utterances)"
+provenance:
+  records: [r_78c3cc63e1]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: medium
+  notes: "Read the ACL Anthology abstract, the arXiv abstract page, and the Hugging Face dataset card; the full paper was not read. The arXiv preprint (2004.03329) and the EMNLP version report different dataset sizes (preprint: 1.1M Chinese and 0.3M English conversations; the Hugging Face card lists 1.9M Chinese and 0.23M English raw dialogues); sizes above follow the EMNLP abstract. The card gives license as unknown and says copyright belongs to the source websites, so license is null. Pre-LLM resource: baselines are Transformer, GPT, and BERT-GPT dialogue generators; the metrics used were not checked. The GitHub repository returned 404 when checked, so the code link comes from the dataset card and arXiv abstract. Lead-institution country (UC San Diego) comes from the arXiv author list and was not verified against the PDF."
