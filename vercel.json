@@ -1,7 +1,7 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
-  "installCommand": "pip install jsonschema pycountry pyyaml requests",
+  "installCommand": "pip install --break-system-packages jsonschema pycountry pyyaml requests",
   "buildCommand": "python3 scripts/build_site.py",
   "outputDirectory": "site/dist",
   "headers": [
