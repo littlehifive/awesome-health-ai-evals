@@ -1,8 +1,15 @@
 """Build the static site in site/dist from entries, terms, the taxonomy, and site/src.
 
-Writes site/dist/data/catalog.json (entries with derived labels, terms, and
-construct mappings) and copies the app shell from site/src. The site is plain
-HTML, CSS, and JavaScript; Vercel serves site/dist as-is (see vercel.json).
+Writes three data files and copies the app shell from site/src:
+
+- data/entries.json: entries with derived labels but no terms, plus everything the
+  site needs up front (countries, taxonomy, families, glossary, pipeline counts).
+  Home, Catalog, Map and Coverage load only this.
+- data/details.json: each entry's terms (with their construct mappings) and extraction
+  notes, loaded only by views that need them (entry pages, Constructs, Compare).
+- data/catalog.json: both combined, as the single-file download.
+
+The site is plain HTML, CSS, and JavaScript; Vercel serves site/dist as-is (see vercel.json).
 
 Usage:
     uv run scripts/build_site.py
@@ -20,12 +27,18 @@ from datetime import date
 import pycountry
 import yaml
 
-from common import ROOT, load_yaml
+from common import ROOT, load_yaml, search_stats
 from derive import country_name, grounding, income_groups, item_countries, research_or_practice, who_regions
 from validate import load_entries
 
 SRC = ROOT / "site" / "src"
 DIST = ROOT / "site" / "dist"
+SITE_URL = "https://awesome-health-ai-evals-iota.vercel.app"
+
+# derive.grounding() values -> the site's origin keys. "global or unknown" is split by
+# whether the entry says its items are general (GLOBAL) or doesn't say at all.
+ORIGIN = {"native LMIC": "lmic", "adapted": "adapted", "translated only": "translated",
+          "high-income only": "high"}
 
 
 def countries() -> dict[str, dict]:
@@ -46,15 +59,29 @@ def load_terms() -> dict[str, list[dict]]:
     return terms
 
 
-def load_taxonomy() -> dict:
-    path = ROOT / "taxonomy" / "constructs.yaml"
+def load_data_yaml(name: str) -> dict:
+    path = ROOT / name
     return yaml.safe_load(path.read_text()) if path.exists() else {}
+
+
+def origin_of(e: dict, codes: list[str]) -> str:
+    g = grounding(e)
+    if g in ORIGIN:
+        return ORIGIN[g]
+    return "global" if "GLOBAL" in codes else "unstated"
+
+
+def top_related(items: list[dict], n: int = 15) -> list[dict]:
+    top = sorted(items, key=lambda x: -(x.get("cited_by") or 0))[:n]
+    return [{k: it.get(k) for k in ("title", "url", "year", "by", "cited_by")} for it in top]
 
 
 def main() -> None:
     entries = load_entries()
     terms = load_terms()
-    taxonomy = load_taxonomy()
+    taxonomy = load_data_yaml("taxonomy/constructs.yaml")
+    related = load_data_yaml("data/related.yaml")
+    glossary = load_data_yaml("data/glossary.yaml")
     # term mappings: (entry id, term) -> [{construct, relationship, status}]
     mapped = {}
     for m in taxonomy.get("mappings", []):
@@ -62,11 +89,12 @@ def main() -> None:
             {"construct": m["construct"], "relationship": m.get("relationship", "same"),
              "status": m.get("status", "agreed")})
 
-    rows = []
+    rows, details = [], {}
     for eid, e in sorted(entries.items()):
         codes = item_countries(e)
         geo, origin, facets = e["geography"], e["origin"], e["facets"]
         entry_terms = [{**t, "constructs": mapped.get((eid, t["term"]), [])} for t in terms.get(eid, [])]
+        details[eid] = {"terms": entry_terms, "notes": e["provenance"].get("notes") or ""}
         rows.append({
             "id": eid, "name": e["name"], "kind": e["kind"], "year": e["year"], "summary": e["summary"],
             "section": e["readme_section"], "featured": bool(e.get("featured")),
@@ -79,34 +107,54 @@ def main() -> None:
             "origin_note": geo.get("item_origin_note") or "", "localization": geo["localization"],
             "subsets": geo.get("subsets") or [],
             "income": income_groups(codes), "regions": who_regions(codes), "grounding": grounding(e),
-            "setting": research_or_practice(e),
+            "origin": origin_of(e, codes), "setting": research_or_practice(e),
             "builders": origin["builder_types"], "provenance": origin["item_provenance"], "venue": origin["venue"],
             "health_areas": facets["health_areas"], "users": facets["intended_users"],
             "methods": facets["eval_methods"], "modality": facets["modality"], "size": facets.get("size") or "",
             "signals": e.get("signals") or {},
             "confidence": e["provenance"]["confidence"], "read_full_text": e["provenance"].get("read_full_text"),
-            "notes": e["provenance"].get("notes") or "",
-            "terms": entry_terms,
+            "n_terms": len(entry_terms),
             "constructs": sorted({m["construct"] for t in entry_terms for m in t["constructs"]}),
         })
 
-    catalog = {
+    # adaptation families: original id -> ids of entries adapted from it (only originals in the catalog)
+    ids = {r["id"] for r in rows}
+    families: dict[str, list[str]] = {}
+    for r in rows:
+        for parent in r["adapted_from"]:
+            if parent in ids:
+                families.setdefault(parent, []).append(r["id"])
+
+    stats = search_stats()
+    meta = {
         "built": date.today().isoformat(),
-        "entries": rows,
+        "site_url": SITE_URL,
         "countries": countries(),
         "constructs": taxonomy.get("constructs", []),
         "domains": taxonomy.get("domains", []),
-        "counts": {"entries": len(rows), "terms": sum(len(r["terms"]) for r in rows),
-                   "by_section": Counter(r["section"] for r in rows)},
+        "families": families,
+        "glossary": glossary,
+        "related": {"guidance": top_related(related.get("guidance", [])),
+                    "surveys": top_related(related.get("surveys", [])),
+                    "counts": {k: len(v) for k, v in related.items()}},
+        "counts": {"entries": len(rows), "terms": sum(r["n_terms"] for r in rows),
+                   "entries_with_terms": sum(1 for d in details.values() if d["terms"]), "constructs": len(taxonomy.get("constructs", [])),
+                   "domains": len(taxonomy.get("domains", [])), "by_section": Counter(r["section"] for r in rows)},
+        "pipeline": stats,
     }
 
     if DIST.exists():
         shutil.rmtree(DIST)
     shutil.copytree(SRC, DIST)
-    (DIST / "data").mkdir(exist_ok=True)
-    (DIST / "data" / "catalog.json").write_text(json.dumps(catalog, ensure_ascii=False, separators=(",", ":")))
-    print(f"site/dist: {len(rows)} entries, {catalog['counts']['terms']} terms, "
-          f"{len(catalog['constructs'])} constructs", file=sys.stderr)
+    out = DIST / "data"
+    out.mkdir(exist_ok=True)
+    dump = lambda obj: json.dumps(obj, ensure_ascii=False, separators=(",", ":"))  # noqa: E731
+    (out / "entries.json").write_text(dump({**meta, "entries": rows}))
+    (out / "details.json").write_text(dump(details))
+    full = [{**r, **details[r["id"]]} for r in rows]
+    (out / "catalog.json").write_text(dump({**meta, "entries": full}))
+    print(f"site/dist: {len(rows)} entries, {meta['counts']['terms']} terms, "
+          f"{len(meta['constructs'])} constructs, {len(families)} families", file=sys.stderr)
 
 
 if __name__ == "__main__":

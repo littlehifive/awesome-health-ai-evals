@@ -3,41 +3,79 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Health AI Evals Map</title>
-  <meta name="description" content="A map of health benchmarks and evaluation frameworks for generative-AI chatbots, with attention to low- and middle-income countries.">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23F1B505'/%3E%3Cpath d='M13 8h6v5h5v6h-5v5h-6v-5H8v-6h5z' fill='%23111'/%3E%3C/svg%3E">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <title>awesome health ai evals</title>
+  <meta name="description" content="A catalog of health AI benchmarks and evaluation frameworks for chatbots, sorted by where their questions come from and what they judge.">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css">
   <link rel="stylesheet" href="styles.css">
   <script>
     try { const t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
   </script>
 </head>
 <body>
+  <a class="skip" href="#app">Skip to content</a>
   <header class="site-header">
     <div class="wrap header-row">
-      <a class="brand" href="#/">health<span>·</span>ai<span>·</span>evals</a>
-      <nav class="nav" aria-label="Main">
-        <a href="#/" data-route="catalog">Catalog</a>
+      <a class="brand" href="#/" aria-label="awesome health ai evals, home">
+        <svg viewBox="0 0 32 32" aria-hidden="true">
+          <g fill="none" stroke="currentColor" stroke-opacity="0.45" stroke-width="1.5">
+            <rect x="2.75" y="2.75" width="6.5" height="6.5" rx="1.6"/><rect x="22.75" y="2.75" width="6.5" height="6.5" rx="1.6"/>
+            <rect x="2.75" y="22.75" width="6.5" height="6.5" rx="1.6"/><rect x="22.75" y="22.75" width="6.5" height="6.5" rx="1.6"/>
+          </g>
+          <rect x="12" y="2" width="8" height="8" rx="2" fill="var(--heat-2)"/><rect x="2" y="12" width="8" height="8" rx="2" fill="var(--heat-2)"/>
+          <rect x="22" y="12" width="8" height="8" rx="2" fill="var(--heat-3)"/><rect x="12" y="22" width="8" height="8" rx="2" fill="var(--heat-3)"/>
+          <rect x="12" y="12" width="8" height="8" rx="2" fill="var(--accent)"/>
+        </svg>
+        <span class="word"><span>awesome</span> health ai evals</span>
+      </a>
+      <nav class="nav" id="nav" aria-label="Main">
+        <a href="#/catalog" data-route="catalog">Catalog</a>
         <a href="#/map" data-route="map">Map</a>
-        <a href="#/heatmap" data-route="heatmap">Heatmap</a>
+        <a href="#/coverage" data-route="coverage">Coverage</a>
         <a href="#/constructs" data-route="constructs">Constructs</a>
         <a href="#/compare" data-route="compare">Compare</a>
+        <a href="#/glossary" data-route="glossary">Glossary</a>
         <a href="#/about" data-route="about">About</a>
       </nav>
-      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch light or dark theme">◐</button>
+      <div class="header-actions">
+        <a class="icon-btn" href="https://github.com/littlehifive/awesome-health-ai-evals" title="Source on GitHub" aria-label="Source on GitHub"><i class="ph ph-github-logo"></i></a>
+        <button class="icon-btn" id="theme-toggle" type="button" title="Switch between light and dark" aria-label="Switch between light and dark"><i class="ph ph-moon"></i></button>
+        <button class="icon-btn menu-btn" id="menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav"><i class="ph ph-list"></i></button>
+      </div>
     </div>
   </header>
+
   <main id="app" class="wrap" tabindex="-1">
-    <p class="muted">Loading the catalog…</p>
+    <div class="skeleton" aria-label="Loading"><div style="width:40%"></div><div style="width:70%"></div><div style="width:55%"></div></div>
   </main>
+
   <footer class="site-footer">
     <div class="wrap">
-      <p>An exploratory, LLM-assisted map, not a systematic review. Facts may be wrong; each entry says how confident its extraction is.
-        Code MIT, content CC BY 4.0. <a href="https://github.com/littlehifive/awesome-health-ai-evals">Source and corrections on GitHub</a>.</p>
+      <div class="foot-grid">
+        <div class="foot-brand">
+          <a class="brand" href="#/" id="foot-brand" aria-label="awesome health ai evals, home"></a>
+          <p>An exploratory catalog of health AI benchmarks and evaluation frameworks, built with LLM help. Found a mistake? <a href="https://github.com/littlehifive/awesome-health-ai-evals/issues/new">Open an issue</a>.</p>
+        </div>
+        <div>
+          <h2>Explore</h2>
+          <ul><li><a href="#/catalog">Catalog</a></li><li><a href="#/map">Map</a></li><li><a href="#/coverage">Coverage</a></li><li><a href="#/constructs">Constructs</a></li><li><a href="#/compare">Compare</a></li></ul>
+        </div>
+        <div>
+          <h2>Project</h2>
+          <ul><li><a href="#/about">About</a></li><li><a href="#/glossary">Glossary</a></li><li><a href="https://github.com/littlehifive/awesome-health-ai-evals">GitHub</a></li><li><a href="https://github.com/littlehifive/awesome-health-ai-evals/issues/new">Report a mistake</a></li></ul>
+        </div>
+      </div>
+      <div class="foot-line">
+        <span id="foot-built">Updated recently</span>
+        <a href="data/catalog.json" download>Download the data (JSON)</a>
+        <span>Code MIT, content CC BY 4.0</span>
+      </div>
     </div>
   </footer>
-  <script src="app.js" type="module"></script>
+
+  <div class="pop" id="pop" role="tooltip"></div>
+  <div id="tray"></div>
+  <script src="js/main.js" type="module"></script>
 </body>
 </html>

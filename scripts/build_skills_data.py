@@ -16,9 +16,8 @@ from collections import Counter
 
 import yaml
 
-from build_readme import url_of
 from common import ROOT
-from derive import country_name, grounding, income_groups, item_countries, who_regions
+from derive import country_name, grounding, income_groups, item_countries, url_of, who_regions
 from validate import load_entries
 
 OUT = ROOT / "skills" / "find-health-benchmarks" / "references"
