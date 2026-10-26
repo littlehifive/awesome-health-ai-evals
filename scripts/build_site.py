@@ -33,7 +33,7 @@ def countries() -> dict[str, dict]:
     with (ROOT / "data" / "countries.csv").open() as f:
         for row in csv.DictReader(f):
             c = pycountry.countries.get(alpha_3=row["iso3"])
-            out[row["iso3"]] = {"name": row["name"], "income": row["income_group"],
+            out[row["iso3"]] = {"name": country_name(row["iso3"]), "income": row["income_group"],
                                 "region": row["who_region"], "numeric": c.numeric if c else None}
     return out
 

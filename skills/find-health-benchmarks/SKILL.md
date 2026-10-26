@@ -55,19 +55,27 @@ Ask for anything the user hasn't said. Don't ask for what they have.
 
 ## What it draws on
 
-- `references/catalog.csv`: every catalog entry with its item languages, item-origin countries, World Bank income group, item-origin label (native LMIC, adapted, translated only, high-income only, global or unknown), scoring methods, intended users, health areas, open-data status, link, and the constructs it judges. Regenerate it from the repository with `uv run scripts/build_skills_data.py`.
+- `references/catalog.csv`: every catalog entry with its item languages, item-origin countries, World Bank income group, WHO region, item-origin label (native LMIC, adapted, translated only, high-income only, global or unknown), scoring methods, intended users, health areas, open-data status, license, link, entry URL, the constructs it judges, and extraction confidence. Regenerate it from the repository with `uv run scripts/build_skills_data.py`.
+- `scripts/filter_catalog.py`: ranks the catalog for a setting.
 - `references/constructs.md`: the construct taxonomy (what evaluations judge) with definitions, built from the terms entries use.
 - The live catalog at the project site, if available, for detail pages.
 
 ## How to do it
 
 1. **Write the profile.** One line each: users, country and income group, languages, health areas, modality, the top three risks.
-2. **Filter the catalog.** Load `references/catalog.csv`. Keep entries whose health areas or intended users overlap the profile. Then rank, best first:
+2. **Filter the catalog.** `references/catalog.csv` has about 1,000 rows, too many to read whole. Rank it with `python scripts/filter_catalog.py` (in this skill's folder; standard library only), passing the profile, for example `--countries Nigeria --regions AFR --income lower-middle --languages Hausa English --areas maternal_newborn primary_care --users patient_public`. It scores place, language, area, user, scoring method, and open data, and prints the top rows. Read the top 20 to 30, then look up any other rows you need in the CSV. List-valued columns are separated by `; `. Blank `income_groups` and `who_regions` mean the entry's items have no country (global) or an unknown one. Values:
+   - `health_areas`: general_medicine, primary_care, maternal_newborn, child_health, srh, hiv, tb, malaria, infectious_other, ncd, oncology, cardiology, mental_health, nutrition, pharmacy_medication, nursing, dentistry, ophthalmology, emergency_triage, public_health, traditional_medicine, other_specialty
+   - `intended_users`: patient_public, chw, nurse_midwife, pharmacist, clinician, medical_student, unspecified
+   - `eval_methods`: mcq_exact_match, automatic_metric, rubric_llm_judge, expert_human_rating, simulated_multi_turn, real_user_data
+   - `item_origin`: native LMIC, adapted, translated only, high-income only, global or unknown
+   - `open_data`: open, gated, closed, described_only, unknown
+
+   Then judge the ranking yourself, best first:
    - item origin in the same country, then the same WHO region, then the same income group (native LMIC beats adapted beats translated only);
    - item languages that match;
    - scoring that fits the risks (rubric or expert rating for advice quality and safety; multiple choice only tests recall);
    - open data, then gated, then closed.
-3. **Check constructs, not just topics.** For the top candidates, list the constructs each judges. Compare against what the risks need (for example safety of advice, appropriate referral, resource-appropriate recommendations, language fit). Constructs no candidate covers are gaps.
+3. **Check constructs, not just topics.** For the top candidates, list the constructs each judges (the `constructs` column; definitions in `references/constructs.md`). Compare against what the risks need (for example danger-sign recognition and escalation, care-level disposition, local context fit, parity across languages). Constructs no candidate covers are gaps. A blank `constructs` cell means no terms were recorded for that entry (common for multiple-choice or automatic-metric benchmarks), not that it judges nothing: read its summary and say "not recorded" rather than counting it as a gap.
 4. **Be honest about fit.** For each pick, write one line on why it fits and one on what it misses here (for example "Nigerian and Kenyan exam questions in English; no Hausa, no consumer phrasing").
 5. **Name the gaps and the next step.** If no entry has items from the setting, say so first. Point to `adapt-benchmark-rubric` for a rubric and to `score-transcripts-with-rubric` for scoring real conversations, which is usually the most valid test.
 
@@ -80,7 +88,9 @@ Ask for anything the user hasn't said. Don't ask for what they have.
 ## Closest matches (best first)
 | Benchmark | Why it fits | What it misses here | Data |
 |---|---|---|---|
-| <name (year)> | <items/language/country/scoring> | <gap> | open / gated / closed |
+| <name (year)> | <items/language/country/scoring> | <gap> | open / gated / closed / described only / unknown |
+
+Considered but not shortlisted: <name: one-line reason>, ...
 
 ## Constructs these cover / don't cover
 Covered: <constructs>
@@ -92,7 +102,7 @@ Not covered by anything in the catalog: <constructs>
 
 ## What to check before relying on this
 
-- Open each pick's entry: the catalog was built with LLM assistance, and each entry states its extraction confidence. Treat `low` confidence entries as leads, not facts.
+- Open each pick's entry (the `entry_url` column): the catalog was built with LLM assistance, and `confidence` is how sure the extraction agent was of the entry's facts (high: facts checked in the full text; medium: abstract plus dataset card; low: thin sources, some fields guessed or unknown). Treat `low` entries as leads, not facts. When `open_data` is `unknown` or `license` is blank, say the team must check access before planning on it.
 - Check the license before using a dataset in a product.
 - A benchmark score is not a deployment decision. Exam accuracy says little about advice to patients in another country.
 

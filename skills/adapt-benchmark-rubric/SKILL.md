@@ -44,19 +44,19 @@ Rubrics written in high-income settings often reward advice like "get an MRI" or
 
 ## Before you start
 
-1. **Required.** The source rubric: its criteria, definitions, and scale (from the catalog entry's `terms` file, the paper, or the repository), and its license.
+1. **Required.** The source rubric: its criteria, definitions, and scale (from the paper or repository, or the entry's terms file in the awesome-health-ai-evals repository, `terms/<id>.yaml`), and its license.
 2. **Required.** The setting: country, level of care (community, primary, hospital), users, languages, and literacy.
 3. **Required.** The national or WHO guidelines the bot should follow, and the essential medicines and tests available at that level of care.
 4. **Helpful.** Two or three real conversations from the bot, and access to local clinicians for review.
 
 ## What it draws on
 
-- The catalog's construct taxonomy (`references/constructs.md` in `find-health-benchmarks`), especially constructs about resource-appropriate advice, guideline adherence, referral, language and literacy fit, and cultural appropriateness.
+- The catalog's construct taxonomy (`../find-health-benchmarks/references/constructs.md`), especially constructs about resource-appropriate advice, guideline adherence, referral, language and literacy fit, and cultural appropriateness.
 - WHO guidance for the health area (for example WHO IMCI, mhGAP, or antenatal care guidelines) and the country's essential medicines list.
 
 ## How to do it
 
-1. **Map each criterion.** List every criterion in the source rubric with its definition and the construct it measures.
+1. **Map each criterion.** List every criterion in the source rubric with its definition and the construct it measures. Note the constructs the taxonomy marks as contested (scope boundaries, test use and cost of care, fairness across groups): these are where high-income rubrics most often reward the wrong answer for a low-resource setting.
 2. **Mark each one keep, rewrite, or drop.** Rewrite criteria that assume resources the setting lacks (imaging, specialists, lab tests, ambulances, paid leave), that cite another country's guideline, or that judge tone by another culture's norms. Drop criteria that cannot be judged in this setting. Keep the rest unchanged.
 3. **Add what is missing.** Add criteria for constructs the setting needs and the source lacks. Common ones: recommends only medicines and tests available at this level of care; follows the national guideline; refers to care that exists and says how to reach it; matches the user's language and reading level; avoids costly or unnecessary steps; respects local beliefs without endorsing harmful practice.
 4. **Write anchors.** For each criterion, write what a 1 (or "fail") and a top score look like, with an example drawn from the setting.

@@ -19,11 +19,18 @@ def countries() -> dict[str, dict]:
         return {row["iso3"]: row for row in csv.DictReader(f)}
 
 
+# display names where cutting the World Bank name at the comma would be ambiguous or odd
+DISPLAY = {"COD": "DR Congo", "COG": "Republic of the Congo", "KOR": "South Korea", "PRK": "North Korea",
+           "HKG": "Hong Kong", "MAC": "Macao"}
+
+
 def country_name(code: str) -> str:
     if code == "GLOBAL":
         return "Global"
     if code == "UNKNOWN":
         return "Unknown"
+    if code in DISPLAY:
+        return DISPLAY[code]
     name = countries().get(code, {}).get("name", code)
     return name.split(",")[0]
 

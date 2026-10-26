@@ -663,7 +663,7 @@ Columns: **Item origin** is where the questions or conversations came from. **In
 | [JMedQA](https://github.com/yamagishi0824/jmedqa-eval) | 2026 | Japanese | Japan | high | MCQ | open | academic |
 | [JMLE2026-Bench](https://github.com/naoto-iwase/jmle2026-bench) | 2026 | Japanese | Japan | high | MCQ | open | academic |
 | [KampoBench](https://doi.org/10.64898/2026.10.07.26365005) | 2026 | Japanese | Japan | high | LLM judge | gated | academic |
-| [Korean National Health-Checkup Determination Benchmark](https://doi.org/10.2196/preprints.110836) | 2026 | UNKNOWN | Korea | high | MCQ | ? | academic |
+| [Korean National Health-Checkup Determination Benchmark](https://doi.org/10.2196/preprints.110836) | 2026 | UNKNOWN | South Korea | high | MCQ | ? | academic |
 | [LingLanMedBench](https://arxiv.org/abs/2602.01779) | 2026 | Mandarin Chinese | China | upper-mid | MCQ, metric | open | academic |
 | [LungCURE](https://arxiv.org/abs/2604.06925) | 2026 | Chinese, English | China | upper-mid | metric, LLM judge, expert rating | gated | academic |
 | [mamabench and mamaretrieval](https://arxiv.org/abs/2606.29467) | 2026 | English | 4 countries | lower-mid, high | MCQ, LLM judge, metric | open | academic |
@@ -764,7 +764,7 @@ Columns: **Item origin** is where the questions or conversations came from. **In
 | [SaudeBR-QA](https://doi.org/10.5753/ercemapi.2025.17571) | 2025 | Portuguese | Brazil | upper-mid | metric | open | academic |
 | [Sepedi Rabies QA](https://upjournals.up.ac.za/index.php/dhasa/article/view/6740) | 2025 | Sepedi | South Africa | upper-mid | expert rating | ? | academic |
 | [ShizhenGPT TCM benchmarks (TCM-Text-Exams and TCM-Vision-Benchmark)](https://arxiv.org/abs/2508.14706) | 2025 | Chinese | China | upper-mid | MCQ, expert rating | open | academic |
-| SNUH ClinicalQA | 2025 | Korean | Korea | high | MCQ | open | academic |
+| SNUH ClinicalQA | 2025 | Korean | South Korea | high | MCQ | open | academic |
 | [Swedish Medical LLM Benchmark (SMLB)](https://doi.org/10.3389/frai.2025.1557920) | 2025 | Swedish | Sweden, United States | high | MCQ | open | academic |
 | [TCM-3CEval](https://doi.org/10.1038/s43856-026-01631-5) | 2025 | Mandarin Chinese | China | upper-mid | MCQ | ? | academic |
 | [TCM-5CEval](http://arxiv.org/abs/2511.13169) | 2025 | Mandarin Chinese | China | upper-mid | MCQ, metric | gated | academic |
@@ -796,7 +796,7 @@ Columns: **Item origin** is where the questions or conversations came from. **In
 | [IndoCareer](https://aclanthology.org/2025.naacl-industry.69/) | 2024 | Indonesian | Indonesia | upper-mid | MCQ | open | academic |
 | [Italian National Medical Education Pathway Tests (ITMSA, ITMLE)](https://doi.org/10.1371/journal.pdig.0001363) | 2024 | Italian | Italy | high | MCQ | gated | academic |
 | [JMedBench](https://arxiv.org/abs/2409.13317) | 2024 | Japanese | Japan, United States, India | lower-mid, high | MCQ, metric | open | academic |
-| [KorMedMCQA](https://arxiv.org/abs/2403.01469) | 2024 | Korean | Korea | high | MCQ | open | academic |
+| [KorMedMCQA](https://arxiv.org/abs/2403.01469) | 2024 | Korean | South Korea | high | MCQ | open | academic |
 | [MedChain](https://arxiv.org/abs/2412.01605) | 2024 | Mandarin Chinese | China | upper-mid | multi-turn, metric | open | academic |
 | [MedExpQA](https://doi.org/10.1016/j.artmed.2024.102938) | 2024 | 4 languages | Spain | high | MCQ | open | academic |
 | [MedFrenchmark](https://doi.org/10.3233/shti240486) | 2024 | French | Unknown | ? | expert rating | ? | academic |
@@ -901,7 +901,7 @@ Columns: **Item origin** is where the questions or conversations came from. **In
 | [Decomposed LLM-as-Judges Clinical Safety Evaluation](https://doi.org/10.2139/ssrn.7230054) | 2026 | English | Unknown | ? | LLM judge, real users | ? | ? |
 | [Empathy on a Budget (ETA harness)](https://doi.org/10.5281/zenodo.22099065) | 2026 | English | India | lower-mid | LLM judge | open | academic |
 | [ETD instrument](https://doi.org/10.5281/zenodo.22172343) | 2026 | English | Unknown | ? | LLM judge | open | academic |
-| [EvaluationPlus](https://doi.org/10.2196/87887) | 2026 | Korean, English | Korea | high | expert rating, LLM judge | ? | academic |
+| [EvaluationPlus](https://doi.org/10.2196/87887) | 2026 | Korean, English | South Korea | high | expert rating, LLM judge | ? | academic |
 | [FAITH](https://doi.org/10.1609/aaai.v40i46.41317) | 2026 | English | Global | global | metric, expert rating | ? | academic |
 | [Five-axis mental health AI evaluation framework](https://arxiv.org/abs/2604.23445) | 2026 | English | Unknown | ? | LLM judge | described | academic |
 | [HCAI quality evaluation index system](https://doi.org/10.2196/83188) | 2026 | UNKNOWN | Unknown | ? | expert rating | described | academic, industry |

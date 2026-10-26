@@ -24,7 +24,8 @@ from validate import load_entries
 OUT = ROOT / "skills" / "find-health-benchmarks" / "references"
 FIELDS = ["id", "name", "kind", "year", "summary", "item_languages", "item_countries", "income_groups",
           "who_regions", "item_origin", "eval_methods", "intended_users", "health_areas", "modality",
-          "open_data", "license", "link", "constructs", "confidence"]
+          "open_data", "license", "link", "entry_url", "constructs", "confidence"]
+REPO = "https://github.com/littlehifive/awesome-health-ai-evals/blob/main"
 
 
 def main() -> None:
@@ -51,7 +52,7 @@ def main() -> None:
                 "item_origin": grounding(e), "eval_methods": "; ".join(facets["eval_methods"]),
                 "intended_users": "; ".join(facets["intended_users"]),
                 "health_areas": "; ".join(facets["health_areas"]), "modality": "; ".join(facets["modality"]),
-                "open_data": e["open_data"], "license": e.get("license") or "", "link": url_of(e) or "",
+                "open_data": e["open_data"], "license": e.get("license") or "", "link": url_of(e) or "", "entry_url": f"{REPO}/entries/{eid}.yaml",
                 "constructs": "; ".join(sorted(by_entry.get(eid, ()))),
                 "confidence": e["provenance"]["confidence"],
             })
