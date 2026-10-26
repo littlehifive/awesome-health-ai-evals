@@ -15,7 +15,7 @@ geography:
   item_origin_countries: [USA]
   item_origin_note: Source QA pairs come from the NIH-derived MedQuAD corpus (US); the Galician versions were made by machine translation with expert post-editing.
   localization: translated
-  lead_institution_countries: [UNKNOWN]
+  lead_institution_countries: [ESP]
 origin:
   builder_types: [academic]
   item_provenance: [adapted_dataset, llm_generated]
@@ -31,4 +31,4 @@ provenance:
   extracted: 2026-10-26
   read_full_text: false
   confidence: low
-  notes: "Based on the Zenodo record description and file list only; the README file was not retrievable and no paper was read. Author affiliations were not seen, so lead country is UNKNOWN. The record also holds instruction-tuned response formats for fine-tuning, and no model-scoring protocol is described; the metrics (COMETKiwi, LaBSE, human 0 to 5 scores) assess translation quality, so eval_methods is a weak fit. A human should decide whether this is a benchmark or mainly a training and translation resource. Derived from MedQuAD, which has no entry here, so adapted_from is omitted."
+  notes: "Based on the Zenodo record description and file list only; the README file was not retrievable and no paper was read. Zenodo lists Universidade de Vigo (Spain) for the lead authors. The record also holds instruction-tuned response formats for fine-tuning, and no model-scoring protocol is described; the metrics (COMETKiwi, LaBSE, human 0 to 5 scores) assess translation quality, so eval_methods is a weak fit. A human should decide whether this is a benchmark or mainly a training and translation resource. Derived from MedQuAD, which has no entry here, so adapted_from is omitted."

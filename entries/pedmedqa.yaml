@@ -1,0 +1,36 @@
+id: pedmedqa
+name: PedMedQA
+kind: benchmark
+year: 2025
+adapted_from: [medqa]
+summary: 2,683 pediatric multiple-choice questions filtered from MedQA and grouped into age bands, used to compare LLM accuracy on pediatric versus adult questions.
+readme_section: knowledge_exam
+links:
+  paper: https://doi.org/10.1542/pedsos.2025-000485
+  doi: 10.1542/pedsos.2025-000485
+  huggingface: [yma94/PedMedQA]
+  code: https://github.com/yma-94/PedMedQA
+license: CC-BY-NC-ND-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: "Items are a subset of MedQA, whose English questions are USMLE-style; the card says only that the question is in the local language, so the English/USA assumption follows from MedQA and was not stated for this subset."
+  localization: adapted
+  lead_institution_countries: [CAN]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, exam_questions]
+  venue: peer_reviewed
+facets:
+  health_areas: [child_health, general_medicine]
+  intended_users: [clinician, medical_student]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 2,683 pediatric questions (plus an adult MedQA comparison set)
+provenance:
+  records: [r_2923f60c2a]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: medium
+  notes: "Read the Hugging Face dataset card (size, age bands, CSV format, license, download links); the paper text was not reachable (publisher returned 403), so the screening abstract was the only paper source. The card lists four age groups under a heading that says five. Lead country CAN is from the Polytechnique Montreal repository record, not checked against author affiliations. The card reports GPT-4 Turbo accuracy of 78.1% pediatric versus 75.7% adult."

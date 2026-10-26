@@ -1,0 +1,36 @@
+id: healthdial
+name: HEALTHDIAL
+kind: benchmark
+year: 2026
+summary: 6,000 information-seeking spoken dialogues (1,500 each in Arabic, Chinese, English, and Spanish) grounded in 12,045 WHO knowledge snippets, with 163 hours of speaker-annotated user speech and baseline tasks for ASR, TTS, retrieval, and knowledge filtering.
+readme_section: voice
+links:
+  paper: https://doi.org/10.18653/v1/2026.findings-acl.1275
+  arxiv: "2605.30107"
+  doi: 10.18653/v1/2026.findings-acl.1275
+  huggingface: [cambridgeltl/HealthDial]
+  code: https://github.com/cambridgeltl/healthdial
+license: custom
+open_data: open
+geography:
+  item_languages: [Arabic, Chinese, English, Spanish]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Dialogue outlines were LLM-generated hypothetical scenarios and knowledge comes from the WHO website; native-speaker annotators from diverse language varieties realised the user turns.
+  localization: native
+  lead_institution_countries: [GBR]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated, clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [public_health]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric]
+  modality: [voice, text]
+  size: 6,000 dialogues, 41,988 turns, 163 hours of user speech
+provenance:
+  records: [r_1a59c14968]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Record r_1a59c14968 is the Cambridge PhD thesis that contains HEALTHDIAL; the dataset paper (arXiv 2605.30107) was read for the facts and may sit in another candidate. Text and code are MIT; audio is under a custom non-commercial data use agreement; the HF card could not be fetched, so the HF license tag is unseen. Annotators wrote the user utterances (not clinicians); WHO snippets are not clinically validated. Baselines are WER/CER, retrieval recall, and exact-match filtering; a small TAM2 user study of a prototype system is also reported. The thesis also contains Multi3WOZ (not health)."

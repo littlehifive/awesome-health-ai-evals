@@ -1,0 +1,35 @@
+id: stampsy
+name: STAMPsy
+kind: benchmark
+year: 2024
+summary: 5,006 Chinese mixed-type psychological-counseling dialogues (61,832 utterances) stamped with spatiotemporal state and counselor helping skills, with benchmark tasks for helping-skill selection, spatiotemporal processing, and retrieval-augmented response generation.
+readme_section: mental_health
+links:
+  paper: https://arxiv.org/abs/2412.16674
+  arxiv: "2412.16674"
+  doi: 10.1609/aaai.v39i24.34725
+  code: https://github.com/JOY-SWang/STAMPsy
+license: null
+open_data: gated
+geography:
+  item_languages: [Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: "Dialogues were generated from Chinese counseling books, counselor exam papers and the PsyQA dataset, then revised by psychological experts; no real counseling records were used."
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature, llm_generated, adapted_dataset]
+  venue: peer_reviewed
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric, mcq_exact_match]
+  modality: [text]
+  size: 5,006 dialogues; 61,832 utterances
+provenance:
+  records: [r_03f12dc728]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Full dataset is released only after a signed user agreement emailed to the authors (GitHub README); only a small sample is public. License not stated. Metrics: precision/recall/F1 for helping-skill classification, accuracy for spatiotemporal processing, NLG metrics for responses, plus a GHSC helping-skill benchmark. Dialogue data is also used for fine-tuning, so it is partly a training resource. Quality audit by two senior psychologists on 1,000 dialogues."

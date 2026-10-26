@@ -1,0 +1,33 @@
+id: cdle-dental-licensing
+name: Chinese Dental Licensing Examination (CDLE) LLM test set
+kind: benchmark
+year: 2025
+summary: 2,400 five-option multiple-choice questions from four past Chinese dental licensing examinations, scored by accuracy against official answers, with prompts that add an unknown option and error penalty.
+readme_section: multilingual_regional
+links:
+  paper: https://doi.org/10.21203/rs.3.rs-7968968/v1
+  doi: 10.21203/rs.3.rs-7968968/v1
+  code: https://github.com/linchundan88/chinese_dental_licensing_examinations
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [CHN]
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions]
+  venue: preprint
+facets:
+  health_areas: [dentistry]
+  intended_users: [clinician, medical_student]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 2,400 questions (4 exams)
+provenance:
+  records: [r_b0349faf0b]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Questions are taken from a commercially published preparation book (Liaoning University Press, 2024), so redistribution rights are unclear. Apache-2.0 is the license on the GitHub repository that holds the xlsx question files and model predictions (datafiles/ and results/); the repo name in the paper (Chinese_professional_dental_licensing_examinations) returns 404, the live repo is lowercase chinese_dental_licensing_examinations and was found via the author's account. The Research Square preprint is not peer reviewed. Lead institution country (CHN) is assumed from the funder and exam context, not from an affiliation line I read."

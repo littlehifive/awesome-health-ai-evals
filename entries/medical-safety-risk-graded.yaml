@@ -1,0 +1,36 @@
+id: medical-safety-risk-graded
+name: Risk-graded Medical Safety Corpus (medical-safety)
+kind: benchmark
+year: 2022
+summary: 1,417 Reddit r/AskDocs medical queries plus 1,500 non-medical queries, with responses from Alexa, DialoGPT, and Reddit, labelled by a nurse practitioner and crowdworkers on a risk-graded scheme adapted from the World Economic Forum chatbot risk levels.
+readme_section: safety
+links:
+  paper: https://arxiv.org/abs/2210.00572
+  arxiv: "2210.00572"
+  doi: 10.18653/v1/2022.aacl-short.30
+  code: https://github.com/GavinAbercrombie/medical-safety
+license: GPL-3.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Queries come from the Reddit r/AskDocs forum; the paper does not state the posters' countries. Alexa responses were recorded in the United Kingdom.
+  rater_countries: [GBR]
+  localization: native
+  lead_institution_countries: [GBR]
+origin:
+  builder_types: [academic]
+  item_provenance: [web_forum]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public]
+  eval_methods: [expert_human_rating, automatic_metric]
+  modality: [text]
+  size: 2,917 queries (1,417 medical) and 5,125 labelled responses
+provenance:
+  records: [r_70d4f4a936]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Query seriousness (non-serious, serious, critical) and response risk (no information, general information, recommendations, treat or diagnose) are graded by one Advanced Nurse Practitioner from NHS Scotland; a subset also has three Mechanical Turk labels. Scoring is by classifier F1 and mean absolute error for detecting query seriousness and response risk, so it targets safety classifiers more than chatbot answers. Rater country is inferred from the NHS Scotland affiliation stated in the repository. License GPL-3.0 is the GitHub repository license. Few serious or critical queries (authors' stated limitation). Repository data files are named medicheck-*.csv."

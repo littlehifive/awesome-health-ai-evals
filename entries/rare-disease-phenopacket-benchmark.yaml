@@ -1,0 +1,34 @@
+id: rare-disease-phenopacket-benchmark
+name: Rare-disease phenopacket LLM benchmark
+kind: benchmark
+year: 2024
+summary: 5,213 solved rare genetic disease case reports (378 diseases) from phenopacket-store, converted to differential-diagnosis prompts and scored automatically by ontology-based matching of the model's ranked diagnoses, with Exomiser as a non-LLM baseline.
+readme_section: knowledge_exam
+links:
+  paper: https://doi.org/10.1101/2024.07.22.24310816
+  doi: 10.1101/2024.07.22.24310816
+  code: https://github.com/monarch-initiative/pheval.llm
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: "Cases come from 726 published case and cohort reports; the paper does not state countries of origin."
+  localization: native
+  lead_institution_countries: [USA, DEU]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature]
+  venue: preprint
+facets:
+  health_areas: [other_specialty]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 5,213 case reports
+provenance:
+  records: [r_d53b56cf97]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Data (phenopackets, prompts, LLM and Exomiser outputs) on Zenodo record 15324355, stated as CC-BY; phenopacket2prompt (MIT) and pheval.llm (BSD-3) on GitHub. Seven LLMs evaluated; scored by Top-1/3/10 diagnosis rank. Related to the multilingual-rare-disease-phenopackets entry (a different paper using the same phenopacket source); not merged. Marked preprint (medRxiv record; the text shows an acceptance date, so a journal version may exist). Lead institutions: Lawrence Berkeley National Lab (USA) first author, Charite Berlin (DEU) last author per the affiliation block."

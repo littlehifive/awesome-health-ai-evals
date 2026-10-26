@@ -1,0 +1,36 @@
+id: pregnant-questions
+name: Pregnant Questions (pragmatic inferences in maternal health QA)
+kind: benchmark
+year: 2023
+summary: 2,727 expert-annotated assumptions and implications from 500 maternal and infant health questions (Reddit, Natural Questions, a maternal-health QA system), each with a veracity label, for testing whether QA systems address implicit false assumptions.
+readme_section: safety
+links:
+  paper: https://aclanthology.org/2024.naacl-long.403/
+  arxiv: "2311.09542"
+  doi: 10.18653/v1/2024.naacl-long.403
+  code: https://github.com/nehasrikn/pragmatic-inferences-qa
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: "Questions come from five maternal-health subreddits, Natural Questions, and queries to the ROSIE maternal-health QA system; the paper does not state the askers' countries."
+  rater_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [web_forum, real_user_queries, adapted_dataset]
+  venue: peer_reviewed
+facets:
+  health_areas: [maternal_newborn, child_health]
+  intended_users: [patient_public]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: "2,727 inferences from 500 questions (200 ROSIE, 200 Reddit, 100 Natural Questions)"
+provenance:
+  records: [r_d7a8da780d]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Twenty health experts recruited on Upwork (OB/GYNs, nurses, lactation consultants, public health experts) wrote answers and identified assumptions and implications; their countries are not stated. The repository README only says it holds resources for the paper; the top level shows annotation and experiments folders and no explicit data file or license, so open_data is unknown. The paper's QA-pipeline experiments judge answer completeness; the exact scoring protocol was not read in detail. The ROSIE system is a maternal-health QA service from an earlier paper."

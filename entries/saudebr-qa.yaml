@@ -1,0 +1,34 @@
+id: saudebr-qa
+name: SaudeBR-QA
+kind: benchmark
+year: 2025
+summary: 23,382 Brazilian Portuguese question-answer pairs scraped from a public health Q&A portal, with real patient questions, answers from verified health professionals, 72 specialties, and 0 to 5 user ratings.
+readme_section: multilingual_regional
+links:
+  paper: https://doi.org/10.5753/ercemapi.2025.17571
+  doi: 10.5753/ercemapi.2025.17571
+  code: https://github.com/CarlHenry670/SaudeBR-QA
+license: null
+open_data: open
+geography:
+  item_languages: [Portuguese]
+  item_origin_countries: [BRA]
+  item_origin_note: Scraped from the CatalogoMed portal (Brazilian Portuguese); poster countries are not stated beyond that.
+  localization: native
+  lead_institution_countries: [BRA]
+origin:
+  builder_types: [academic]
+  item_provenance: [web_forum, real_user_queries]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 23,382 question-answer pairs (17,769 unique questions, 72 specialties)
+provenance:
+  records: [r_ff3d228fdd]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "A corpus more than a scored benchmark: the paper's only experiment is a binary answer-usefulness classifier (3,010 pairs, label from user likes), and 92.5% of items have rating 0. The GitHub repository's license is NOASSERTION and none is on the README, so license is null. Scraped from a public portal, so reuse terms are unclear. The GitHub README describes the corpus CSV as public."

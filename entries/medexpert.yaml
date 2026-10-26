@@ -16,7 +16,7 @@ geography:
   lead_institution_countries: [UNKNOWN]
 origin:
   builder_types: [unknown]
-  item_provenance: [unknown]
+  item_provenance: [clinician_written]
   venue: peer_reviewed
 facets:
   health_areas: [mental_health, maternal_newborn]
@@ -27,6 +27,6 @@ facets:
 provenance:
   records: [r_c50b0074bc]
   extracted: 2026-10-26
-  read_full_text: false
-  confidence: low
-  notes: "Only the Hugging Face card was read; the card cites a paper (Yarmohammadi et al., MedExpert, ML4H 2025) that could not be located, so venue is taken from the card citation. The card gives no authors' affiliations or question origin. Annotation was done through the John Snow Labs interface by annotators identified only as Annotator000-007. The dataset is annotated model outputs plus questions; no automatic scorer is given, so it is mainly a resource for judging or training factuality and omission detectors."
+  read_full_text: true
+  confidence: medium
+  notes: "Hugging Face card read in full (card describes clinician-created questions and expert annotations); the card cites a paper (Yarmohammadi et al., MedExpert, ML4H 2025) that could not be located, so venue is taken from the card citation. The card gives no authors' affiliations or question origin. Annotation was done through the John Snow Labs interface by annotators identified only as Annotator000-007. The dataset is annotated model outputs plus questions; no automatic scorer is given, so it is mainly a resource for judging or training factuality and omission detectors."

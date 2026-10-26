@@ -1,0 +1,35 @@
+id: quiet-emergency-triage-suite
+name: Quiet-Emergency Cannot-Miss Triage Suite
+kind: benchmark
+year: 2026
+summary: Synthetic triage vignettes (76 subtle or atypical emergencies, 40 overt emergencies, 44 non-emergencies, plus 45 external Semigran vignettes) scored for whether a model escalates to the top acuity tier, used to test a cannot-miss prompt across eight LLMs.
+readme_section: safety
+links:
+  paper: https://doi.org/10.64898/2026.09.02.26362074
+  doi: 10.64898/2026.09.02.26362074
+license: null
+open_data: unknown
+geography:
+  item_languages: [English, Spanish]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Vignettes are author- and LLM-written, anchored to published guidelines; no country origin. The external cohort is the Semigran et al. 2015 vignettes. A Spanish replication used one framing.
+  localization: native
+  lead_institution_countries: [USA]
+  subsets:
+    - {name: Spanish replication, languages: [Spanish], countries: [GLOBAL], localization: translated}
+origin:
+  builder_types: [industry_lab]
+  item_provenance: [llm_generated, literature]
+  venue: preprint
+facets:
+  health_areas: [emergency_triage]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 76 subtle emergencies, 40 overt emergencies, 44 non-emergency stems, 45 Semigran vignettes
+provenance:
+  records: [r_1830426e86]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Authors are from Certuma (USA), which sells the MedCanon runtime discussed in the paper; the study tests a governance prompt, not the runtime. The abstract says the apparatus was released as an open evaluation suite, but the data availability statement says all data are available on reasonable request, and no repository link was found in the text, so open_data is unknown. Ground truth tiers (EMERGENCY, URGENT, ROUTINE) come from LLM-simulated physician panels, a cross-family Gemini panel, and guideline anchors; no human adjudication. The suite has no official name; the id is descriptive."

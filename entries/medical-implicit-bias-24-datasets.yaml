@@ -1,0 +1,35 @@
+id: medical-implicit-bias-24-datasets
+name: Medical implicit bias evaluation (24 datasets)
+kind: benchmark
+year: 2026
+summary: 24 bias datasets across six categories (gender, race, socioeconomic status, health conditions, religion, healthcare systems) with 50 randomized prompt variations each, used for word-association and relative-decision tests of implicit bias in 10 LLMs.
+readme_section: safety
+links:
+  paper: https://doi.org/10.1371/journal.pone.0348819
+  doi: 10.1371/journal.pone.0348819
+  pmcid: PMC13186359
+  code: https://github.com/Luna-naa/LLM_MedBias_Replication
+license: MIT
+open_data: open
+geography:
+  item_languages: [English, Mandarin Chinese]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Prompt templates written by the authors; no country origin stated. The repository also has a Chinese cross-lingual robustness set.
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [unknown]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician, patient_public]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 24 datasets; 50 prompt variations per dataset per task (1,200 queries per model per task)
+provenance:
+  records: [r_a3a3e91086]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Authors at Chengdu University of Traditional Chinese Medicine (College of Nursing). Methods are an adapted LLM Word Association Test, a Relative Decision Test, and paired-prompt analysis, scored by bias scores and odds ratios rather than a rubric. The repository carries the data, query scripts, and analysis code under the MIT license; the license applies to the repository, not necessarily the prompt sets. item_provenance is unknown: the paper says datasets were guided by NCCC bias domains but does not say who wrote the term lists."

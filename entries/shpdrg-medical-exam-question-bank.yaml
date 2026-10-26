@@ -1,0 +1,32 @@
+id: shpdrg-medical-exam-question-bank
+name: SHPDRG Medical Exam Question Bank (JSON)
+kind: benchmark
+year: 2026
+summary: 39,307 Chinese medical exam questions across 346 subjects, each with options, an answer key, and an explanation, released as JSON files by a data vendor.
+readme_section: multilingual_regional
+links:
+  huggingface: [SHPDRG/medical-exam-question-bank-json]
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: The card says the questions come from medical exam question banks and subject names reflect Chinese health-professional titles and residency training exams; it does not name the exams or country explicitly.
+  localization: native
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [unknown]
+  item_provenance: [exam_questions]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine, pharmacy_medication]
+  intended_users: [clinician, medical_student]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 39,307 questions in 7,902 JSON files, 346 subjects
+provenance:
+  records: [r_c816e7d5cd]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: low
+  notes: "Dataset card only, no paper. The card lists uses including exam retrieval, QA training, and explanation generation; it defines no test split or scoring protocol (the default config points at a file manifest), so use as a benchmark is inferred from the answer keys. Origin country and exam names are not stated (inferred from Chinese-language content), and copyright of the underlying exam banks is not addressed. Uploader also published SHPDRG/medical-model-evaluation-benchmark (separate entry). Lead institution is a vendor with contact email on the card; its country is not stated."

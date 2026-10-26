@@ -1,0 +1,38 @@
+id: health-pariksha
+name: HEALTH-PARIKSHA
+kind: benchmark
+year: 2024
+summary: 749 patient questions (666 English, plus Hindi, Tamil, Telugu, and Kannada) sent to a cataract-surgery WhatsApp chatbot in India, with doctor-approved reference answers, used to compare 24 LLMs in a RAG setup on LLM-judged factual correctness, semantic similarity, coherence, and conciseness.
+readme_section: multilingual_regional
+links:
+  paper: https://arxiv.org/abs/2410.13671
+  arxiv: "2410.13671"
+  doi: 10.48550/arxiv.2410.13671
+license: null
+open_data: unknown
+geography:
+  item_languages: [English, Hindi, Kannada, Tamil, Telugu]
+  item_origin_countries: [IND]
+  item_origin_note: Questions came from patients and attendants at one large urban hospital in India; code-mixed and Indian-English phrasing is retained.
+  rater_countries: [IND]
+  localization: native
+  lead_institution_countries: [USA]
+  subsets:
+    - {name: English (Indian English), languages: [English], countries: [IND], localization: native}
+    - {name: Indic languages, languages: [Hindi, Kannada, Tamil, Telugu], countries: [IND], localization: native}
+origin:
+  builder_types: [industry_lab, academic]
+  item_provenance: [real_user_queries]
+  venue: preprint
+facets:
+  health_areas: [ophthalmology]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge, expert_human_rating, real_user_data]
+  modality: [text]
+  size: 749 question-answer pairs; 183 queries human-annotated
+provenance:
+  records: [r_35c132ee9a]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Authors at Microsoft and the University of Washington; the paper does not name author countries, so USA is from the affiliations. Reference answers are GPT-4 RAG answers approved without edits by doctors, so GPT-4 is favored. Scoring is GPT-4o as LLM judge on four 0-2 metrics, with human checks on semantic similarity by native-speaker annotators from KARYA. The paper does not state a dataset release or license; open_data is unknown. Speech inputs were transcribed and translated to English before the bot saw them."

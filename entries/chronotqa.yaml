@@ -16,7 +16,7 @@ geography:
   item_origin_countries: [GLOBAL]
   item_origin_note: Questions derive from a knowledge graph extracted from PubMed and PMC literature with PrimeKG disease schema; no country origin.
   localization: native
-  lead_institution_countries: [UNKNOWN]
+  lead_institution_countries: [DEU]
 origin:
   builder_types: [academic]
   item_provenance: [llm_generated, literature]
@@ -24,12 +24,12 @@ origin:
 facets:
   health_areas: [general_medicine, other_specialty]
   intended_users: [clinician]
-  eval_methods: [mcq_exact_match]
+  eval_methods: [mcq_exact_match, automatic_metric]
   modality: [text]
   size: 3,341 questions plus a 12-question supplementary probe
 provenance:
   records: [r_6faf31956e, r_4b06ca0faf]
   extracted: 2026-10-26
-  read_full_text: false
-  confidence: medium
-  notes: From the arXiv abstract and Zenodo description. ChronoTQA is released under MIT (the graph is CC BY 4.0). Question format (assumed multiple choice) and scoring, how questions were generated, and author affiliations were not confirmed. Borderline scope, knowledge-graph-derived disease-knowledge QA, not conversational health.
+  read_full_text: true
+  confidence: high
+  notes: "Read the arXiv paper (ChronoMedKG, University of Hamburg authors). ChronoTQA is the benchmark half of a knowledge-graph paper: mixed formats, with bounded multiple-choice subtasks, binary comparisons, and a free-text age-range onset subtask. Paper states ChronoMedKG is CC BY 4.0 and code is MIT; the exact license of the question set on Zenodo was not checked, so license MIT from the earlier read is kept unverified. Scope is borderline: disease-knowledge QA derived from a KG, tested on LLMs via chat and retrieval."

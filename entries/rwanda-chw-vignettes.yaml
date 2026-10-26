@@ -5,30 +5,32 @@ year: 2026
 summary: 524 clinical vignette questions written by Rwandan community health workers (from 5,609 collected), with clinician and LLM answers rated on an 11-metric expert rubric.
 readme_section: multilingual_regional
 links:
-  paper: https://doi.org/10.6084/m9.figshare.29213147
-  doi: 10.6084/m9.figshare.29213147
+  paper: https://doi.org/10.1038/s44360-025-00038-1
+  doi: 10.1038/s44360-025-00038-1
+  pmcid: PMC12880909
+  dataset: https://doi.org/10.6084/m9.figshare.29213147
 license: CC-BY-4.0
 open_data: open
 geography:
-  item_languages: [UNKNOWN]
+  item_languages: [Kinyarwanda, English]
   item_origin_countries: [RWA]
-  item_origin_note: Vignettes contributed by 101 CHWs across four Rwandan districts.
+  item_origin_note: Vignettes recorded as audio in Kinyarwanda by 101 CHWs across four Rwandan districts, transcribed and then translated to English by linguists.
   rater_countries: [RWA]
   localization: native
   lead_institution_countries: [RWA]
 origin:
   builder_types: [government, academic]
   item_provenance: [real_user_queries]
-  venue: grey_literature
+  venue: peer_reviewed
 facets:
   health_areas: [primary_care, general_medicine]
   intended_users: [chw]
-  eval_methods: [rubric_llm_judge, expert_human_rating]
+  eval_methods: [expert_human_rating]
   modality: [text]
   size: 524 questions released (5,609 vignettes available on request)
 provenance:
-  records: [r_cdd46cf0c0]
+  records: [r_cdd46cf0c0, r_908cff6978, r_ec7540e19c]
   extracted: 2026-10-26
-  read_full_text: false
-  confidence: low
-  notes: Source is the Figshare dataset record only. The companion paper ("How Good Are Large Language Models at Supporting Frontline Healthcare Workers in Low-Resource Settings") was not read, so the question language (English vs Kinyarwanda), rater countries, and whether ratings were by LLM judge or humans are not confirmed; rubric of 11 metrics on a 5-point Likert scale. Full set held by the Centre for the Fourth Industrial Revolution Rwanda (government innovation lab), available on request.
+  read_full_text: true
+  confidence: high
+  notes: "Paper is Nature Health 2026 (preprint on medRxiv 2025, doi 10.1101/2025.08.26.25333975). Data availability: the 524 benchmark questions with answers and individual ratings are on Figshare; the full 5,609-vignette set is held by the Rwanda Biomedical Centre and shared with researchers on request. Five LLMs (Gemini-2-Flash, GPT-4o, o3-mini, DeepSeek R1, Meditron-70B) and 20 clinicians (6 senior nurses, 14 GPs) answered; 11 criteria rated on a 5-point Likert scale by clinician evaluators, in English and Kinyarwanda. Lead institution countries not checked beyond Rwanda-based Digital Umuganda and C4IR Rwanda; funded by the Gates Foundation."

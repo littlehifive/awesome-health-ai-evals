@@ -1,0 +1,34 @@
+id: meddx
+name: MedDDx
+kind: benchmark
+year: 2024
+summary: 1,769 four-option multiple-choice medical questions (drug, disease, and gene/protein queries) built from STaRK-Prime, with distractors chosen by semantic similarity and three difficulty tiers (Basic 483, Intermediate 1,041, Expert 245).
+readme_section: knowledge_exam
+links:
+  paper: https://arxiv.org/abs/2410.04660
+  arxiv: "2410.04660"
+  code: https://github.com/mims-harvard/KGARevion
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Questions come from the STaRK-Prime test set (knowledge-graph-derived queries); no country origin.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 1,769 questions
+provenance:
+  records: [r_cbf7afc5a5]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Introduced inside the KGARevion agent paper (Harvard, Zitnik lab); the benchmark is a side contribution. The repository dataset folder holds MedDDx.json; no license seen on the repo. Questions are knowledge-graph style (find drugs, genes, or proteins matching a description), so the content leans biomedical-knowledge rather than clinical vignettes; scope is borderline. The paper also uses AfriMed-QA, MedQA, MMLU-Med, PubMedQA, and BioASQ, which are not part of this entry. Venue: arXiv preprint (a conference version may exist; not checked)."

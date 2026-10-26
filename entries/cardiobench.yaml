@@ -6,20 +6,21 @@ summary: 2,263 items from 13 task-specific datasets built from de-identified car
 readme_section: open_ended
 links:
   paper: https://arxiv.org/abs/2607.25186
+  dataset: https://medbench.opencompass.org.cn/track-detail/12
   arxiv: "2607.25186"
   doi: 10.48550/arxiv.2607.25186
 license: null
-open_data: unknown
+open_data: gated
 geography:
   item_languages: [UNKNOWN]
-  item_origin_countries: [UNKNOWN]
+  item_origin_countries: [CHN]
   item_origin_note: Records are described as de-identified cardiovascular records and examination data; the sources checked do not state the country or language.
   rater_countries: [UNKNOWN]
   localization: unknown
   lead_institution_countries: [CHN]
 origin:
   builder_types: [academic]
-  item_provenance: [clinician_written, exam_questions]
+  item_provenance: [clinician_written]
   venue: preprint
 facets:
   health_areas: [cardiology, emergency_triage]
@@ -30,6 +31,6 @@ facets:
 provenance:
   records: [r_e2269455c2]
   extracted: 2026-10-26
-  read_full_text: false
+  read_full_text: true
   confidence: low
-  notes: Based on the abstract and first page of the arXiv PDF. No data or code link, license, language, or item-origin country was found. Lead institutions are Zhongshan Hospital, Fudan University, and Shanghai institutes (from the PDF affiliations). The paper mentions ECG and image inputs, but the scored tasks are listed as text; whether the open-ended tasks are scored by an LLM judge or physicians was not checked. Human check suggested.
+  notes: Read the arXiv PDF. Source records come from Zhongshan Hospital, Fudan University (China); item language is not stated. Data availability statement says the dataset is publicly available on the MedBench platform for model evaluation; set to gated because access is via that platform (not verified). No license found. Lead institutions are Zhongshan Hospital, Fudan University, and Shanghai institutes (from the PDF affiliations). The paper mentions ECG and image inputs, but the scored tasks are listed as text; whether the open-ended tasks are scored by an LLM judge or physicians was not checked. Human check suggested.
