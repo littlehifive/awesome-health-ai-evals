@@ -1,0 +1,47 @@
+id: healthbench
+name: HealthBench
+kind: benchmark
+year: 2025
+summary: 5,000 multi-turn health conversations between a model and a layperson or health professional, each with physician-written rubric criteria (48,562 in all), scored by a model-based grader validated against physicians.
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2505.08775
+  arxiv: "2505.08775"
+  doi: 10.48550/arXiv.2505.08775
+  huggingface: [openai/healthbench]
+  code: https://github.com/openai/simple-evals
+  website: https://openai.com/index/healthbench/
+license: MIT
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Mostly synthetic conversations generated to span many languages, countries, and resource settings, plus physician red-teaming conversations and rewritten HealthSearchQA queries. The paper lists the 49 languages its physicians contributed in (Appendix A) but gives no per-language count of conversations.
+  localization: native
+  lead_institution_countries: [USA]
+  subsets:
+    - {name: HealthBench Hard, languages: [English]}
+    - {name: HealthBench Consensus, languages: [English]}
+origin:
+  builder_types: [industry_lab]
+  item_provenance: [llm_generated, clinician_written, adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [general_medicine, emergency_triage, public_health]
+  intended_users: [patient_public, clinician]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: 5,000 conversations; 48,562 rubric criteria
+signals:
+  citations: 27
+  citations_source: OpenAlex
+  hf_downloads: 7112
+  github_stars: 4673
+  uptake: []
+  updated: '2026-10-26'
+provenance:
+  records: [r_6f416a0039, r_156db86cde]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: Rubrics were written by 262 physicians with practice experience in 60 countries; the country list is in a figure only, so rater_countries is omitted. MIT is the license on the Hugging Face dataset and the simple-evals code. Record r_6f416a0039 also carries mindbench-ai/healthbench-psych, a derived dataset that is not part of HealthBench.

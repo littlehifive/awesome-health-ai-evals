@@ -1,0 +1,51 @@
+id: mmedbench
+name: MMedBench
+kind: benchmark
+year: 2024
+summary: 53,566 medical multiple-choice questions in six languages (English, Chinese, Japanese, French, Russian, Spanish), pooled from existing national exam datasets and given GPT-4-written rationales that were human-checked for the test set; scored by accuracy and rationale quality.
+readme_section: multilingual_regional
+links:
+  paper: https://doi.org/10.1038/s41467-024-52417-z
+  arxiv: "2402.13963"
+  doi: 10.1038/s41467-024-52417-z
+  huggingface: [Henrychur/MMedBench]
+  code: https://github.com/MAGIC-AI4Med/MMedLM
+license: CC-BY-NC-4.0
+open_data: open
+adapted_from: [medqa]
+geography:
+  item_languages: [English, Mandarin Chinese, Japanese, French, Russian, Spanish]
+  item_origin_countries: [USA, CHN, JPN, FRA, RUS, ESP]
+  item_origin_note: Pooled from MedQA (US and mainland China sections), IgakuQA (Japan), FrenchMedMCQA (France), RuMedDaNet (Russia), and HEAD-QA (Spain).
+  localization: adapted
+  lead_institution_countries: [CHN]
+  subsets:
+    - {name: English (MedQA), languages: [English], countries: [USA], localization: adapted}
+    - {name: Chinese (MedQA), languages: [Mandarin Chinese], countries: [CHN], localization: adapted}
+    - {name: Japanese (IgakuQA), languages: [Japanese], countries: [JPN], localization: adapted}
+    - {name: French (FrenchMedMCQA), languages: [French], countries: [FRA], localization: adapted}
+    - {name: Russian (RuMedDaNet), languages: [Russian], countries: [RUS], localization: adapted}
+    - {name: Spanish (HEAD-QA), languages: [Spanish], countries: [ESP], localization: adapted}
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, exam_questions, llm_generated]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician, medical_student]
+  eval_methods: [mcq_exact_match, automatic_metric]
+  modality: [text]
+  size: 53,566 questions with rationales
+signals:
+  citations: 146
+  citations_source: OpenAlex
+  hf_downloads: 309
+  github_stars: 283
+  uptake: []
+  updated: '2026-10-26'
+provenance:
+  records: [r_395fe57823]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: Shanghai Jiao Tong University and Shanghai AI Laboratory; released with the MMedLM model and the MMedC training corpus. CC-BY-NC-4.0 is the Hugging Face dataset license. Only MedQA is an entry so far; the other source datasets should be linked through adapted_from once they have entries.

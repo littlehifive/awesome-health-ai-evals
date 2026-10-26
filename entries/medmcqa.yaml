@@ -1,0 +1,44 @@
+id: medmcqa
+name: MedMCQA
+kind: benchmark
+year: 2022
+summary: More than 194,000 four-option multiple-choice questions from Indian postgraduate medical entrance exams (AIIMS PG and NEET PG) and mock exams, covering 21 subjects and 2,400 topics, with explanations; scored by accuracy.
+readme_section: multilingual_regional
+links:
+  paper: https://proceedings.mlr.press/v174/pal22a.html
+  arxiv: "2203.14371"
+  doi: 10.48550/arXiv.2203.14371
+  huggingface: [openlifescienceai/medmcqa]
+  code: https://github.com/medmcqa/medmcqa
+  website: https://medmcqa.github.io
+license: MIT
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [IND]
+  item_origin_note: AIIMS PG and NEET PG entrance exam questions plus mock-exam questions; the test set is AIIMS PG and the dev set NEET PG.
+  localization: native
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [industry_lab]
+  item_provenance: [exam_questions]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine, pharmacy_medication]
+  intended_users: [medical_student, clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 194,000+ questions (train, dev, and test splits)
+signals:
+  citations: 117
+  citations_source: OpenAlex
+  hf_downloads: 79620
+  github_stars: 305
+  uptake: []
+  updated: '2026-10-26'
+provenance:
+  records: [r_eb995962bf, r_bebaf2507d]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: Published at CHIL 2022 (PMLR volume 174). The authors' affiliation isn't stated in the paper text or OpenAlex; the GitHub contact address is at saama.com, a company, so builder type is industry_lab, but the institution's country is left UNKNOWN. MIT is the GitHub license; the Hugging Face card says Apache-2.0.

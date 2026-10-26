@@ -1,0 +1,43 @@
+id: medhelm
+name: MedHELM
+kind: eval_framework
+year: 2025
+summary: An extensible evaluation framework with a clinician-validated taxonomy of medical tasks (5 categories, 22 subcategories, 121 tasks) and a suite of 35 benchmarks scored by exact match, automatic metrics, and a three-model LLM jury validated against clinicians.
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.1038/s41591-025-04151-2
+  arxiv: "2505.23802"
+  doi: 10.1038/s41591-025-04151-2
+  code: https://github.com/stanford-crfm/helm
+license: null
+open_data: gated
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA, GLOBAL]
+  item_origin_note: 17 existing public benchmarks, 5 reformulated datasets, and 13 new benchmarks, 12 of them built from Stanford EHR data. 14 datasets are not publicly released.
+  rater_countries: [USA]
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written, adapted_dataset, real_user_queries]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician, patient_public]
+  eval_methods: [mcq_exact_match, automatic_metric, rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 121-task taxonomy; 35 benchmarks (13 open-ended)
+signals:
+  citations: 52
+  citations_source: OpenAlex
+  hf_downloads: null
+  github_stars: 2958
+  uptake: []
+  updated: '2026-10-26'
+provenance:
+  records: [r_c8a05a92b9, r_a55309da89]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: Stanford-led; the taxonomy was built with 29 clinicians, 26 of them from Stanford. The LLM jury (GPT-4o, Claude 3.7 Sonnet, Llama 3.3 70B) rates open-ended outputs 1-5 on three axes, and 20 clinicians rated a subset to validate it. Much of the suite covers EHR and documentation tasks, which this catalog otherwise leaves out of scope; it is listed for its task taxonomy. real_user_queries refers to the EHR-derived benchmarks. The paper doesn't state a license.

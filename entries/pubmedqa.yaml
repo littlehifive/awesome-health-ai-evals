@@ -1,0 +1,43 @@
+id: pubmedqa
+name: PubMedQA
+kind: benchmark
+year: 2019
+summary: Biomedical research questions taken from PubMed article titles, answered yes, no, or maybe from the abstract; 1,000 expert-annotated test items plus 61,200 unlabeled and 211,300 automatically generated items; scored by accuracy and macro-F1.
+readme_section: knowledge_exam
+links:
+  paper: https://aclanthology.org/D19-1259/
+  arxiv: "1909.06146"
+  doi: 10.18653/v1/D19-1259
+  code: https://github.com/pubmedqa/pubmedqa
+  website: https://pubmedqa.github.io
+license: MIT
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Questions come from the titles of PubMed articles, with no country origin.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 1,000 expert-annotated, 61,200 unlabeled, 211,300 generated items
+signals:
+  citations: 678
+  citations_source: OpenAlex
+  hf_downloads: null
+  github_stars: 445
+  uptake: []
+  updated: '2026-10-26'
+provenance:
+  records: [r_e4dd9e3a26]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: University of Pittsburgh and Carnegie Mellon (EMNLP 2019). MIT is the GitHub license.

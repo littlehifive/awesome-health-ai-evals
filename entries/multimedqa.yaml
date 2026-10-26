@@ -1,0 +1,43 @@
+id: multimedqa
+name: MultiMedQA
+kind: benchmark
+year: 2022
+summary: A suite of seven English medical QA datasets (MedQA, MedMCQA, PubMedQA, MMLU clinical topics, LiveQA, MedicationQA, and the new HealthSearchQA of 3,173 commonly searched consumer questions), with a human evaluation framework for long-form answers rated by clinicians and lay users.
+readme_section: open_ended
+adapted_from: [medqa, medmcqa, pubmedqa]
+links:
+  paper: https://doi.org/10.1038/s41586-023-06291-2
+  arxiv: "2212.13138"
+  doi: 10.1038/s41586-023-06291-2
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA, IND, GLOBAL]
+  item_origin_note: Exam questions from the US (MedQA) and India (MedMCQA), PubMed-based questions, and consumer questions. HealthSearchQA questions were retrieved from a search engine using seed conditions; their country of origin is not stated.
+  rater_countries: [GBR, USA, IND]
+  localization: mixed
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [industry_lab]
+  item_provenance: [adapted_dataset, exam_questions, real_user_queries]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine, pharmacy_medication]
+  intended_users: [patient_public, clinician]
+  eval_methods: [mcq_exact_match, expert_human_rating]
+  modality: [text]
+  size: 7 datasets; HealthSearchQA has 3,173 questions
+signals:
+  citations: 4040
+  citations_source: OpenAlex
+  hf_downloads: null
+  github_stars: null
+  uptake: []
+  updated: '2026-10-26'
+provenance:
+  records: [r_d34a1088df, r_e889b9d3c6]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: Google Research (the Med-PaLM paper). The clinician framework's axes came from focus groups and interviews with clinicians in the UK, USA, and India; the five lay raters were all in India. HealthSearchQA is published as an open benchmark; the paper states no license. HealthBench reuses HealthSearchQA queries.

@@ -19,6 +19,8 @@ These are the instructions given to each Claude extraction agent. Each agent get
 
    A dataset mirror or a paper's companion repo is not a separate entry: add its links and record IDs to the main entry. A translation or adaptation by a different team is its own entry, with `adapted_from`.
 
+   A record's Hugging Face dataset is sometimes not the paper's own: dedup merges a dataset into any paper its card cites. Check that a dataset belongs to the benchmark before listing it in `links`, and note strays in `provenance.notes`.
+
 3. **Check for an existing entry.** Other agents work in parallel. Before writing, `ls entries/` and `grep -il "<name>" entries/*.yaml`. If the benchmark already has an entry, add your record IDs to its `provenance.records` and any missing links; don't create a second file. If `entries/<id>.yaml` exists for a different benchmark, pick a more specific `id`.
 
 4. **Write `entries/<id>.yaml`** following `schema/README.md` exactly. Record only what the sources say:
@@ -38,5 +40,9 @@ These are the instructions given to each Claude extraction agent. Each agent get
    `decision` is `entry` (new file), `merged` (added to an existing entry; give its `entry_id`), or `exclude` (give the `reason` code and a few words).
 
 ## Limits
+
+A Hugging Face dataset or GitHub repo with no paper needs one call: read the card or README. Make it an entry only if the card describes test items and how to score them for an in-scope task; exclude it if the card is empty, is a copy of another benchmark (`mirror`), or holds model outputs, training data, or agent traces. Don't search for a paper that the card doesn't link.
+
+The entries already in `entries/` (for example `healthbench.yaml`, `afrimed-qa.yaml`, `quest.yaml`, `medmcqa.yaml`) show the expected level of detail.
 
 Spend about five tool calls per candidate; go further only for benchmarks that are clearly in scope and missing key facts. Don't edit files outside `entries/` and `search/extraction/`. Never read or print `.env`, and don't run git. Finish every candidate in the batch, then report: entries created, merged, excluded, and anything that needs a human look.

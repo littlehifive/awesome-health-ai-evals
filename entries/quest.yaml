@@ -1,0 +1,41 @@
+id: quest
+name: QUEST
+kind: eval_framework
+year: 2024
+summary: A human-evaluation framework for health LLMs, derived from a review of 142 studies, with five principles (Quality of information, Understanding and reasoning, Expression style and persona, Safety and harm, Trust and confidence) and guidance on planning, rating, and scoring.
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.1038/s41746-024-01258-7
+  arxiv: "2405.02559"
+  doi: 10.1038/s41746-024-01258-7
+license: null
+open_data: described_only
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: A framework with no items; derived from a literature review of published studies.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [not_applicable]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine, emergency_triage]
+  intended_users: [clinician, patient_public]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: 5 principles; framework in three phases (planning, implementation and adjudication, scoring and review)
+signals:
+  citations: 414
+  citations_source: OpenAlex
+  hf_downloads: null
+  github_stars: null
+  uptake: []
+  updated: '2026-10-26'
+provenance:
+  records: [r_f1816f7976]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: University of Pittsburgh lead. Recommends at least 130 samples and seven evaluators for clinical use cases; worked examples are emergency-department note summarization and triage decision support.

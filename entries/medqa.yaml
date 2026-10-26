@@ -1,0 +1,46 @@
+id: medqa
+name: MedQA
+kind: benchmark
+year: 2020
+summary: About 61,000 multiple-choice questions from medical licensing exams in the United States (USMLE, English), mainland China (simplified Chinese), and Taiwan (traditional Chinese), with a textbook corpus for retrieval; scored by accuracy.
+readme_section: knowledge_exam
+links:
+  paper: https://doi.org/10.3390/app11146421
+  arxiv: "2009.13081"
+  doi: 10.3390/app11146421
+  code: https://github.com/jind11/MedQA
+license: MIT
+open_data: open
+geography:
+  item_languages: [English, Mandarin Chinese]
+  item_origin_countries: [USA, CHN, TWN]
+  item_origin_note: USMLE questions were scraped from US question-bank websites, mainland Chinese questions from a Chinese exam-prep site, and Taiwanese questions from the official national examination website.
+  localization: native
+  lead_institution_countries: [USA]
+  subsets:
+    - {name: USMLE, languages: [English], countries: [USA], localization: native}
+    - {name: MCMLE, languages: [Mandarin Chinese], countries: [CHN], localization: native}
+    - {name: TWMLE, languages: [Mandarin Chinese], countries: [TWN], localization: native}
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician, medical_student]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 12,723 English, 34,251 simplified Chinese, and 14,123 traditional Chinese questions
+signals:
+  citations: 714
+  citations_source: OpenAlex
+  hf_downloads: null
+  github_stars: 406
+  uptake: []
+  updated: '2026-10-26'
+provenance:
+  records: [r_f943d4a3be, r_f81b064a6c]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: MIT lead (Jin et al.). MIT is the GitHub repository license. Hugging Face copies such as Aurigene-AI/MedQA-USMLE-4-options are mirrors, not separate entries.

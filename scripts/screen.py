@@ -11,8 +11,9 @@ search/work/screen_results.jsonl and summarized in search/screening.csv.
 
 Usage:
     uv run scripts/screen.py test --ids r_abc,r_def [--stage S] [--model M]  # synchronous check
-    uv run scripts/screen.py submit [--stage S] [--model M] [--changed]       # batch the unscreened records
+    uv run scripts/screen.py submit [--stage S] [--model M] [--changed] [--rescue R ...]  # batch unscreened records
     uv run scripts/screen.py collect                                          # download finished batches
+    uv run scripts/screen.py run --batch ID                                   # run a stuck batch synchronously
 """
 
 from __future__ import annotations
@@ -24,6 +25,7 @@ import os
 import sys
 import time
 
+import openai
 from openai import OpenAI
 
 from common import SEARCH, WORK, load_env, read_jsonl, write_jsonl
@@ -191,7 +193,9 @@ def cmd_submit(args) -> None:
     records = read_jsonl(args.input)
     if args.stage == "strict":
         first = {rid: row for rid, row in latest_decisions().items() if row["stage"] == "title_abstract"}
-        records = [r for r in records if r["id"] in first and first[r["id"]]["label"] in KEEP]
+        records = [r for r in records if r["id"] in first and (
+            first[r["id"]]["label"] in KEEP
+            or (first[r["id"]]["label"] == "exclude" and first[r["id"]]["exclude_reason"] in args.rescue))]
     batches = json.loads(BATCHES.read_text()) if BATCHES.exists() else []
     done = screened_ids(args.stage, model) | pending_ids(batches)
     if args.changed:
@@ -223,6 +227,55 @@ def cmd_submit(args) -> None:
     BATCHES.write_text(json.dumps(batches, indent=2))
 
 
+def cmd_run(args) -> None:
+    """Screen the records in a submitted batch's input file through the standard API.
+
+    A fallback for batches stuck in the queue: costs twice the batch price, finishes in minutes.
+    Results are appended as they arrive; the batch is cancelled first so nothing is screened twice.
+    """
+    from concurrent.futures import ThreadPoolExecutor, as_completed
+    c = client()
+    batches = json.loads(BATCHES.read_text())
+    b = next(x for x in batches if x["batch_id"] == args.batch)
+    c.batches.cancel(b["batch_id"])
+    done = {r["id"] for r in read_jsonl(RESULTS)
+            if r["stage"] == b.get("stage", "title_abstract") and r["prompt"] == b["prompt"]}
+    todo = [row for row in read_jsonl(WORK / b["input"]) if row["custom_id"] not in done]
+    print(f"{len(todo)} requests from {b['input']}", file=sys.stderr)
+
+    def call(row):
+        resp = c.chat.completions.create(**row["body"])
+        return row["custom_id"], resp
+
+    rows, usage = [], [0, 0]
+    with ThreadPoolExecutor(args.workers) as pool:
+        futures = [pool.submit(call, row) for row in todo]
+        for i, fut in enumerate(as_completed(futures), 1):
+            try:
+                rid, resp = fut.result()
+            except Exception as err:  # a failed request stays unscreened; `submit` picks it up
+                print(f"  request failed: {type(err).__name__}", file=sys.stderr)
+                continue
+            usage[0] += resp.usage.prompt_tokens
+            usage[1] += resp.usage.completion_tokens
+            rows.append({"id": rid, "model": b["model"], "prompt": b["prompt"],
+                         "stage": b.get("stage", "title_abstract"),
+                         **parse_choice(resp.choices[0].message.content)})
+            if len(rows) >= 200 or i == len(futures):
+                append_results(rows)
+                rows = []
+                print(f"  {i}/{len(futures)}", file=sys.stderr)
+    append_results(rows)
+    # Re-read: `collect` may have updated other batches while this ran.
+    batches = json.loads(BATCHES.read_text())
+    b = next(x for x in batches if x["batch_id"] == args.batch)
+    b["collected"], b["status"] = True, "run_sync"
+    b["tokens"] = {"input": usage[0], "output": usage[1]}
+    BATCHES.write_text(json.dumps(batches, indent=2))
+    write_csv()
+    print(f"tokens in={usage[0]} out={usage[1]}", file=sys.stderr)
+
+
 def cmd_collect(args) -> None:
     c = client()
     batches = json.loads(BATCHES.read_text())
@@ -230,20 +283,25 @@ def cmd_collect(args) -> None:
     for b in batches:
         if b["collected"] or b.get("status") in FAILED:
             continue
-        batch = c.batches.retrieve(b["batch_id"])
-        counts = batch.request_counts
-        print(f"{b['batch_id']}: {batch.status} "
-              f"({counts.completed}/{counts.total} done, {counts.failed} failed)", file=sys.stderr)
-        if batch.status not in ("completed", *FAILED):
+        try:
+            batch = c.batches.retrieve(b["batch_id"])
+            counts = batch.request_counts
+            print(f"{b['batch_id']}: {batch.status} "
+                  f"({counts.completed}/{counts.total} done, {counts.failed} failed)", file=sys.stderr)
+            if batch.status not in ("completed", *FAILED):
+                pending += 1
+                continue
+            text = c.files.content(batch.output_file_id).text if batch.output_file_id else ""
+        except openai.APIError as err:
+            print(f"{b['batch_id']}: {type(err).__name__}, will retry", file=sys.stderr)
             pending += 1
             continue
         if batch.status != "completed":
             # Records that didn't finish become unscreened again; `submit` resubmits them.
             b["status"] = batch.status
-            if not batch.output_file_id:
+            if not text:
                 continue
         rows, usage = [], [0, 0]
-        text = c.files.content(batch.output_file_id).text
         for line in text.splitlines():
             item = json.loads(line)
             resp = item["response"]
@@ -293,11 +351,16 @@ def main() -> None:
     s.add_argument("--model")
     s.add_argument("--input", default=str(WORK / "records.jsonl"), type=lambda p: __import__("pathlib").Path(p))
     s.add_argument("--limit", type=int)
+    s.add_argument("--rescue", nargs="*", default=[], choices=EXCLUDE_REASONS,
+                   help="strict stage: also re-screen first-pass exclusions with these reasons")
     s.add_argument("--changed", action="store_true",
                    help="also re-screen records whose text changed since they were screened")
     sub.add_parser("collect")
+    r = sub.add_parser("run")
+    r.add_argument("--batch", required=True)
+    r.add_argument("--workers", type=int, default=16)
     args = parser.parse_args()
-    {"test": cmd_test, "submit": cmd_submit, "collect": cmd_collect}[args.cmd](args)
+    {"test": cmd_test, "submit": cmd_submit, "collect": cmd_collect, "run": cmd_run}[args.cmd](args)
 
 
 if __name__ == "__main__":

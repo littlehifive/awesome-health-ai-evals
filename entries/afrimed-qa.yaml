@@ -1,0 +1,43 @@
+id: afrimed-qa
+name: AfriMed-QA
+kind: benchmark
+year: 2024
+summary: About 15,000 English medical questions from 16 countries, mostly in sub-Saharan Africa (multiple choice, short answer, and consumer queries), written by clinicians and medical trainees, scored by accuracy, text-similarity metrics, and clinician and lay ratings.
+readme_section: multilingual_regional
+links:
+  paper: https://aclanthology.org/2025.acl-long.96/
+  arxiv: "2411.15640"
+  doi: 10.18653/v1/2025.acl-long.96
+  huggingface: [intronhealth/afrimedqa_v2]
+license: CC-BY-NC-SA-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [NGA, KEN, ZAF, GHA, MWI, PHL, UGA, MOZ, TZA, LSO, USA, ZWE, AUS, BWA, SWZ, ZMB]
+  item_origin_note: Contributor countries from Table 9; Nigeria, Kenya, South Africa, and Ghana supply most questions. Contributors were told to write questions that need African medical knowledge and to use African sources only.
+  rater_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [NGA, USA]
+origin:
+  builder_types: [industry_lab, academic]
+  item_provenance: [exam_questions, clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine, infectious_other, maternal_newborn, child_health]
+  intended_users: [clinician, medical_student, patient_public]
+  eval_methods: [mcq_exact_match, automatic_metric, expert_human_rating]
+  modality: [text]
+  size: about 15,000 questions (MCQ, short answer, consumer queries); 37,435 human ratings
+signals:
+  citations: 13
+  citations_source: OpenAlex
+  hf_downloads: 242
+  github_stars: null
+  uptake: []
+  updated: '2026-10-26'
+provenance:
+  records: [r_862784586a]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: Built with Intron Health (Nigeria) and Georgia Tech, among others. Short-answer questions are scored with BERTScore, QuestEval, and ROUGE-Lsum; 379 raters (58 clinicians, 321 non-clinicians) rated model answers, but the paper does not give the raters' countries. Related Hugging Face datasets under afrimedqa/ (afrimed-qa-parallel, TRINDS) are later releases and are not part of this entry.

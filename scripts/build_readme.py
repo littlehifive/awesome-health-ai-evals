@@ -162,8 +162,11 @@ def main() -> None:
         f"GitHub returned {records:,} unique records (queries in [`search/queries.yaml`](search/queries.yaml), "
         f"hit counts in [`search/log.csv`](search/log.csv)). The OpenAlex search also followed citations of "
         f"anchor benchmarks and the reference lists of surveys. A small model screened {screened:,} titles and "
-        f"abstracts ([`search/screening.csv`](search/screening.csv)); Claude agents then read the included and "
-        f"borderline records and filled in each entry. Decisions and scope are in [`docs/plan.md`](docs/plan.md).",
+        f"abstracts, keeping anything uncertain, and a larger model re-screened what it kept with a stricter "
+        f"prompt ([`search/screening.csv`](search/screening.csv)). Claude agents then read the full text of the "
+        f"remaining candidates ([`search/candidates.csv`](search/candidates.csv)) and wrote each entry or "
+        f"logged why not ([`search/extraction/`](search/extraction/)). Decisions and scope are in "
+        f"[`docs/plan.md`](docs/plan.md).",
         "",
         "## Known gaps",
         "",
