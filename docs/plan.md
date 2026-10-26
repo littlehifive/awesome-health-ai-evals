@@ -62,14 +62,14 @@ Tracks:
 3. **Hugging Face Hub and GitHub**: health evaluation datasets and repos with no paper.
 4. **Survey reference lists**: the references of every record screened as a survey or review, pulled from OpenAlex. New records go through the same screening.
 
-API keys live in a gitignored `.env`: `OPENALEX_API_KEY` for OpenAlex and `ANTHROPIC_API_KEY` for screening. Raw API responses are cached under `search/raw/`, so re-runs don't spend credits again.
+API keys live in a gitignored `.env`: `OPENALEX_API_KEY` for OpenAlex and `OPENAI_API_KEY` for screening. Raw API responses are cached under `search/raw/`, so re-runs don't spend credits again.
 
 English only. The site states this blind spot. No practitioner outreach in v1, so practice-built benchmarks are undercounted; the site says so and offers an issue form for implementers to submit theirs.
 
 ### Screening pipeline
 
 1. Scripts retrieve records and remove duplicates by DOI, arXiv ID, or normalized title (no LLM).
-2. A screening script sends titles and abstracts through the Anthropic Batch API on a small model (Haiku), with the inclusion criteria above as the rubric. Each record gets one label with a reason: benchmark, eval framework, related guidance, survey or review, borderline, or exclude. When the model is unsure, it labels the record borderline instead of excluding it. Benchmarks and eval frameworks become entries; related guidance and surveys feed their README sections.
+2. A screening script sends titles and abstracts through the OpenAI Batch API on a small model (e.g., `gpt-5.4-mini`; final choice by current price), with the inclusion criteria above as the rubric. Each record gets one label with a reason: benchmark, eval framework, related guidance, survey or review, borderline, or exclude. When the model is unsure, it labels the record borderline instead of excluding it. Benchmarks and eval frameworks become entries; related guidance and surveys feed their README sections.
 3. Claude Code agents read full text for borderline and included records, fill pass-1 fields, and spot-check a sample of exclusions. They also merge a paper, its dataset, and its code repository into one entry.
 
 ## Taxonomy
