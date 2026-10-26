@@ -1,0 +1,566 @@
+# Proposer draft (lens: clinical informatics), built from search/work/cluster_digest.txt.
+# 12 domains, 73 constructs. A cluster may appear under more than one construct when its
+# terms mix qualities. Scoring-mechanic clusters (accuracy, F1, ROUGE, rubric totals) are
+# mapped to the quality they are used to judge.
+
+domains:
+  - id: correctness
+    name: Correctness and knowledge
+    description: Whether the medical content of a response is true, current, in line with guidelines, and close to expert reference answers.
+  - id: grounding
+    name: Grounding, honesty and uncertainty
+    description: Whether a response sticks to what its sources and evidence support, admits what it does not know, and holds a correct position under user pressure.
+  - id: clinical_reasoning
+    name: Clinical reasoning and decisions
+    description: How well the model makes the clinical judgments evaluations ask of it (diagnosis, management, triage, test selection, calculation, labelling) and how sound its reasoning is.
+  - id: consultation
+    name: Consultation and dialogue conduct
+    description: How the model behaves over a multi-turn consultation, from gathering and clarifying information to remembering context and working efficiently.
+  - id: safety
+    name: Safety and harm avoidance
+    description: Whether the model avoids advice that could hurt someone, recognizes emergencies and crises, routes people to care, and refuses or stays in scope appropriately.
+  - id: helpfulness
+    name: Helpfulness and content quality
+    description: Whether a response is complete, relevant, useful, actionable, well-sized, personal to the user, and done as instructed.
+  - id: communication
+    name: Communication and language
+    description: How clearly, readably, fluently and appropriately a response is written for its reader and in the reader's language.
+  - id: relational
+    name: Empathy and therapeutic relationship
+    description: How the model relates to the person, including empathy, respect, listening, autonomy, healthy boundaries, and the quality of counseling or psychotherapy behavior.
+  - id: equity_context
+    name: Equity, inclusion and local fit
+    description: Whether quality holds across groups, languages and cultures, avoids stigma, and fits the resources of the setting where the user lives.
+  - id: ethics_privacy
+    name: Ethics, privacy and accountability
+    description: Whether the model protects personal information, acts in line with medical ethics, and is transparent, auditable and compliant.
+  - id: robustness
+    name: Consistency and robustness
+    description: Whether outputs stay stable across repeated runs, harmless input changes, and deliberate adversarial attacks.
+  - id: operational
+    name: Evaluation method and operational properties
+    description: Properties of the evaluation or the deployed system rather than of a single response, such as rater agreement, cost and latency, usability, retrieval, and measured effects on users.
+
+constructs:
+  # ---------------- correctness ----------------
+  - id: exam_knowledge
+    name: Medical knowledge on exam-style items
+    domain: correctness
+    definition: Answers closed-form knowledge questions (multiple-choice, true/false, short exam items) correctly. Covers accuracy, exact-match and F1 scoring on such items.
+    clusters: [k001, k021, k024, k087, k124, k195, k295, k326, k353, k369, k375, k521, k555, k600, k610, k1062, k1071, k1216, k1447, k1973]
+    example_terms: ["MCQ Accuracy (coeval)", "Accuracy (afrimed-qa)", "Medical Knowledge (MK) (llmeval-med)", "Multiple-choice exact match (movebench)"]
+
+  - id: factual_accuracy
+    name: Factual accuracy of free-text content
+    domain: correctness
+    definition: Statements in a free-text answer are medically correct and consistent with established knowledge and scientific consensus, with no false claims.
+    clusters: [k008, k012, k019, k025, k027, k030, k037, k045, k053, k076, k079, k096, k138, k153, k180, k185, k189, k207, k218, k277, k281, k332, k343, k346, k365, k390, k400, k403, k424, k460, k480, k512, k550, k595, k602, k637, k722, k744, k760, k798, k850, k1007, k1015, k1043, k1085, k1099, k1696, k1996]
+    example_terms: ["Correctness (afrimed-qa)", "Clinical correctness (clinical-llm-redteam-em)", "Factuality (almanac-clinicalqa)", "Factual Error (dosebench)"]
+
+  - id: guideline_adherence
+    name: Guideline and standard-of-care concordance
+    domain: correctness
+    definition: Recommendations agree with relevant clinical guidelines, protocols and standards of care, including national or local protocols when the evaluation specifies them.
+    clusters: [k045, k081, k139, k239, k295, k334, k372, k404, k443, k452, k623, k713, k734, k925, k926, k934, k1217, k1554, k1783, k1974, k1975]
+    example_terms: ["guideline alignment (medpi)", "Guideline grounding (indian-protocols-clinical-qna)", "Protocol recall (Track B) (uccb-health)", "Local accuracy (acute-llm-response-evaluation)"]
+
+  - id: knowledge_currency
+    name: Up-to-date knowledge
+    domain: correctness
+    definition: Content reflects current evidence and guidance rather than superseded treatments, tests or recommendations.
+    clusters: [k318, k446, k665, k806, k1776, k1841]
+    example_terms: ["Up-to-dateness (foundation-metrics-healthcare-chatbots)", "E1 Outdated Knowledge (mhb)", "currency (medpi)"]
+
+  - id: reference_similarity
+    name: Similarity to reference text
+    domain: correctness
+    definition: How closely generated text matches an expert reference answer, summary or rationale in wording or meaning, as scored by overlap or embedding metrics such as ROUGE, BLEU or BERTScore. A proxy for content fidelity, not a direct judgment of correctness.
+    clusters: [k004, k005, k009, k038, k051, k080, k109, k132, k139, k164, k170, k183, k210, k212, k219, k241, k256, k296, k310, k408, k409, k410, k430, k473, k537, k589, k1008, k1147, k1153, k1269, k1532, k1617, k1866]
+    example_terms: ["ROUGE-Lsum (afrimed-qa)", "BERTScore (ch-patientsim)", "METEOR (medexqa)", "UMLS-F1 (dischargesim)"]
+
+  # ---------------- grounding ----------------
+  - id: hallucination_avoidance
+    name: Avoidance of fabrication
+    domain: grounding
+    definition: Does not invent facts, findings, values, procedures or other content that has no basis in the input or in medical knowledge.
+    clusters: [k011, k014, k068, k105, k249, k255, k563, k605, k680, k700, k756, k809, k892, k931, k940, k1026, k1096, k1311, k1692, k1693, k1707, k1875]
+    example_terms: ["Hallucination (afrimed-qa)", "Hallucination rate (halluhard)", "Q1 Hallucination free (audiologybench)", "Confabulation_Detected (galatea-ii)"]
+
+  - id: source_faithfulness
+    name: Faithfulness to sources and context
+    domain: grounding
+    definition: Content stays consistent with the documents, records, retrieved passages or conversation it was given, without contradicting, distorting or ignoring them.
+    clusters: [k027, k056, k080, k164, k185, k189, k230, k239, k249, k303, k336, k440, k501, k507, k509, k570, k571, k631, k659, k846, k996, k1032, k1128, k1168, k1762, k1809, k1881, k1993]
+    example_terms: ["Faithfulness (coeval)", "Conversational Faithfulness (CF) (astrid)", "Factual Consistency (ch-patientsim)", "Knowledge Adherence (KA) (health-chatbot-redteaming-protocol)"]
+
+  - id: citation_quality
+    name: Citation and evidence support
+    domain: grounding
+    definition: Cited sources are real, relevant and actually support the claims attached to them, and claims rest on credible evidence.
+    clusters: [k077, k079, k116, k156, k249, k270, k282, k357, k396, k432, k445, k623, k624, k649, k703, k717, k904, k905, k944, k977, k1120, k1328, k1329, k1376, k1747, k1752, k1845, k1865, k1917]
+    example_terms: ["Incorrect, misrepresented, or fabricated citations and references (das-medical-red-teaming)", "Source attribution (acute-llm-response-evaluation)", "Evidence accuracy (causal-kg-intervention-eval)", "Citation accuracy (menobench)"]
+
+  - id: uncertainty_communication
+    name: Uncertainty acknowledgment and abstention
+    domain: grounding
+    definition: Recognizes when evidence or information is insufficient, says so in proportionate language, avoids overconfident claims, and abstains or defers when it cannot answer reliably.
+    clusters: [k055, k060, k070, k165, k181, k186, k276, k278, k279, k286, k290, k356, k416, k601, k611, k626, k630, k644, k699, k718, k865, k875, k1041, k1098, k1157, k1409, k1670, k1947]
+    example_terms: ["Responding under uncertainty (healthbench)", "Overconfident assertion (risk-bearing-language-rubric)", "P6.2 Abstention & Clinician Deferral (m-leaf)", "Epistemic Humility (im-trace)"]
+
+  - id: confidence_calibration
+    name: Confidence calibration
+    domain: grounding
+    definition: Stated or computed confidence matches how often the model is actually right, as measured by calibration error, Brier score or confidence-accuracy agreement.
+    clusters: [k059, k148, k289, k292, k484, k679, k1063, k1155, k1560, k1649, k1676, k1949, k1988]
+    example_terms: ["P6.1 Confidence Calibration (m-leaf)", "Expected Calibration Error (ECE) (medeval-framework)", "self_confidence (clinicalethicsbench)", "Diagnostic calibration (Brier score, over-underconfidence index) (rheumbench)"]
+
+  - id: sycophancy_resistance
+    name: Resistance to sycophancy and false premises
+    domain: grounding
+    definition: Keeps to the correct clinical position when the user asserts false claims, invokes authority or pushes back, and corrects false premises instead of going along with them.
+    clusters: [k076, k085, k143, k153, k224, k288, k293, k340, k418, k530, k568, k593, k604, k613, k620, k699, k795, k1000, k1057, k1133, k1134, k1135, k1137, k1140, k1222, k1449, k1601, k1641, k1642, k1643, k1810, k1948, k1980]
+    example_terms: ["Sycophancy (clinic-multilingual)", "Factual Inaccuracy (cpb-bench)", "Failure Rate (FR) (medpress)", "Veracity (dyreme)"]
+
+  - id: reasoning_transparency
+    name: Explainability and verifiability
+    domain: grounding
+    definition: Explains how a conclusion was reached in a way a reader can check, and the stated reasoning reflects what actually drove the answer.
+    clusters: [k057, k122, k235, k502, k577, k650, k663, k671, k991, k1252, k1319, k1533]
+    example_terms: ["Interpretability (care-mi)", "Verifiability (dosebench)", "CoT Faithfulness (medomni-45)", "P5.2 Explanation Quality (m-leaf)"]
+
+  # ---------------- clinical_reasoning ----------------
+  - id: diagnostic_accuracy
+    name: Diagnostic accuracy
+    domain: clinical_reasoning
+    definition: Reaches the correct diagnosis, or ranks it near the top, when compared with a reference diagnosis.
+    clusters: [k002, k012, k025, k060, k078, k175, k218, k228, k230, k233, k263, k351, k366, k383, k415, k423, k435, k551, k556, k569, k643, k701, k805, k909, k936, k986, k1183, k1487, k1742, k1843]
+    example_terms: ["Top-One Diagnosis Accuracy (august-in-conversation-diagnostic-benchmark)", "ICD-10 Exact Match accuracy (er-reason)", "Diagnostic accuracy (craft-md)", "Strictly Correct (rounds-bench)"]
+
+  - id: differential_diagnosis
+    name: Differential diagnosis quality
+    domain: clinical_reasoning
+    definition: Considers an appropriately broad, plausible and well-prioritized set of alternative diagnoses, including dangerous conditions that must be ruled out.
+    clusters: [k043, k140, k380, k423, k753, k769, k852, k1191]
+    example_terms: ["Differential Reasoning Quality (clexeval)", "Differential Diagnosis (DDx) (clindef)", "Differential Diagnoses (amega)"]
+
+  - id: treatment_management
+    name: Treatment and management appropriateness
+    domain: clinical_reasoning
+    definition: Recommends a clinically appropriate and specific management plan or next step that matches the reference or expert judgment, without suboptimal or wrong choices.
+    clusters: [k025, k046, k083, k098, k104, k177, k192, k220, k226, k266, k316, k346, k366, k380, k435, k485, k583, k607, k609, k628, k686, k802, k803, k897, k923, k938, k954, k989, k1088, k1089, k1856, k1887]
+    example_terms: ["Treatment Accuracy (clinicalbr)", "Appropriateness (astrid)", "Management plan (telepaces)", "Recall (Sensitivity) (noharm)"]
+
+  - id: triage_accuracy
+    name: Triage and acuity accuracy
+    domain: clinical_reasoning
+    definition: Assigns the correct urgency level, acuity category or care setting, with over-triage and under-triage often tracked separately.
+    clusters: [k052, k146, k231, k311, k312, k461, k462, k552, k778, k908, k966, k1048, k1355]
+    example_terms: ["Under-triage rate (acuitybench)", "Over-triage rate (acuitybench)", "ESI accuracy (er-reason)", "Triage Precision (TP) (cp-env)"]
+
+  - id: test_stewardship
+    name: Appropriate test and resource use
+    domain: clinical_reasoning
+    definition: Recommends investigations and procedures that the case calls for, and avoids unnecessary, low-value or futile ones.
+    clusters: [k098, k119, k140, k285, k386, k419, k542, k549, k582, k792, k845, k945, k1059, k1249, k1292, k1315, k1741, k1765]
+    example_terms: ["Examination Precision (openhospital)", "Test Justification (TJ) (clindef)", "Diagnostic Test Selection (clinical-reasoning-expressed-rubric)", "ACTION (choosing-wisely-bidirectional)"]
+
+  - id: reasoning_quality
+    name: Clinical reasoning quality
+    domain: clinical_reasoning
+    definition: Reasoning is logically valid, uses the case evidence, follows a sound stepwise process, and avoids errors such as anchoring, premature closure and hindsight bias.
+    clusters: [k016, k067, k079, k103, k110, k122, k173, k192, k203, k212, k236, k302, k306, k307, k368, k381, k392, k406, k432, k441, k470, k514, k526, k538, k547, k658, k776, k879, k1016, k1044, k1142, k1190, k1264, k1265, k1535, k1648, k1757]
+    example_terms: ["Rule-out Reasoning (er-reason)", "Q2 Reasoning logic (audiologybench)", "Premature Closure (mtdiag)", "Faulty clinical reasoning or logic chains (das-medical-red-teaming)"]
+
+  - id: calculation_accuracy
+    name: Numerical and calculation accuracy
+    domain: clinical_reasoning
+    definition: Performs clinical calculations, unit conversions and numeric reporting correctly.
+    clusters: [k172, k764, k1237, k1270, k1271, k1734, k1995]
+    example_terms: ["Unit Conversion (cmedcalc-bench)", "Numeric Accuracy (coeval)", "Numerical accuracy (rubricstree)"]
+
+  - id: clinical_classification
+    name: Clinical labelling and extraction accuracy
+    domain: clinical_reasoning
+    definition: Correctly assigns labels, codes or categories to clinical text or conversations, and extracts the right structured information from them.
+    clusters: [k021, k024, k078, k124, k146, k153, k167, k175, k232, k241, k246, k312, k394, k448, k450, k456, k674, k702, k832, k838, k911, k962, k965, k1324, k1354, k1604, k1677, k1804, k1906, k1992]
+    example_terms: ["Micro-F1 (medhelm)", "Subset Accuracy (Exact Match Ratio) (psychiatrybench)", "MedRU (Medical Record Understanding) (mlb)", "Weighted-F1 (mental-health-llm-eval)"]
+
+  # ---------------- consultation ----------------
+  - id: history_taking
+    name: History taking and information gathering
+    domain: consultation
+    definition: Elicits the information needed for a clinical judgment, covering key symptoms, history and context in a sensible order.
+    clusters: [k062, k104, k136, k157, k158, k201, k206, k210, k262, k357, k384, k434, k441, k513, k515, k516, k535, k545, k642, k669, k769, k836, k837, k861, k948, k1337, k1451, k1659, k1806, k1894]
+    example_terms: ["History Completeness (HC) (clindef)", "Must-ask coverage (klinikebench)", "Information coverage (meddialbench)", "I2-2. Medical History Taking (gpbench)"]
+
+  - id: clarification_seeking
+    name: Context seeking and clarification
+    domain: consultation
+    definition: Notices ambiguous, missing or contradictory information and asks targeted questions or flags the gap before answering, rather than guessing.
+    clusters: [k048, k159, k200, k224, k541, k567, k599, k601, k949, k1003, k1060, k1251]
+    example_terms: ["Context awareness (healthbench)", "Instruction Clarification (IC) (medmt-bench)", "Contradiction Detection (medbench-v5)", "Proactive information seeking (dynamed)"]
+
+  - id: inquiry_efficiency
+    name: Consultation efficiency
+    domain: consultation
+    definition: Reaches a sound conclusion without unnecessary turns, repeated questions or wasted steps.
+    clusters: [k082, k136, k228, k271, k283, k483, k499, k1205, k1254, k1290, k1327, k1490, k1513, k1538, k1550, k1733, k1844]
+    example_terms: ["Average Turn (auto-multiturn-consultation-eval)", "Total Dialogue Turns (clindef)", "Mean Questions to Correct Diagnosis (MQD) (q4dx)", "Inquiry Efficiency (IE) (maque)"]
+
+  - id: conversational_memory
+    name: Context retention across turns
+    domain: consultation
+    definition: Remembers and correctly uses details shared earlier in the conversation or in prior sessions, stays coherent across turns, and tracks changes in the patient's state.
+    clusters: [k040, k303, k354, k562, k603, k654, k662, k978, k1160, k1346, k1405, k1609, k1618, k1647, k1803, k1985]
+    example_terms: ["context recall (medpi)", "Consistency (CON) (dischargesim)", "Memory_Failure (galatea-ii)", "language_consistency (empath)"]
+
+  - id: simulation_fidelity
+    name: Role-play and simulation fidelity
+    domain: consultation
+    definition: When the model plays a patient or another assigned role, it stays consistent with the persona and case facts and behaves realistically.
+    clusters: [k035, k108, k118, k199, k240, k259, k367, k374, k420, k536, k560, k672, k1184, k1519, k1520, k1780, k1930]
+    example_terms: ["Patient simulation quality (french-osce-dialogue-dataset)", "Persona Consistency (ch-patientsim)", "Realism (patientsim)", "Information recall (french-osce-dialogue-dataset)"]
+
+  # ---------------- safety ----------------
+  - id: harm_avoidance
+    name: Harm avoidance in advice
+    domain: safety
+    definition: Avoids advice or content that could plausibly harm a person who acts on it. Includes overall safety ratings and graded harm-severity scales.
+    clusters: [k013, k015, k029, k036, k041, k072, k086, k092, k106, k126, k135, k141, k142, k143, k150, k152, k163, k171, k176, k182, k184, k188, k191, k198, k204, k208, k221, k234, k238, k245, k251, k253, k267, k269, k280, k284, k308, k313, k341, k342, k363, k402, k433, k482, k487, k497, k533, k566, k612, k627, k632, k645, k647, k675, k1011, k1078, k1159, k1218, k1562]
+    example_terms: ["Safety (asthma-consumer-llm-safety-vignettes)", "Clinical Harm (astrid)", "Harm (afrimed-qa)", "Severity (1 to 5) (medfailbench)"]
+
+  - id: medication_safety
+    name: Medication and dosing safety
+    domain: safety
+    definition: Gives correct, safe doses and checks contraindications, drug interactions, high-alert medicines and patient-specific factors before recommending a medicine.
+    clusters: [k086, k102, k133, k176, k211, k350, k455, k486, k500, k508, k648, k652, k667, k697, k719, k720, k765, k851, k1052, k1181, k1229, k1262, k1876]
+    example_terms: ["Flag 5: Inappropriate specific dosing (asthma-consumer-llm-safety-vignettes)", "Contraindication Bypass (medical-ai-red-teaming-ekram)", "drug interactions (medpi)", "dosing accuracy (medpi)"]
+
+  - id: emergency_escalation
+    name: Emergency recognition and escalation
+    domain: safety
+    definition: Recognizes red-flag symptoms and clearly advises urgent or emergency care when it is indicated, without false reassurance or downplaying risk.
+    clusters: [k028, k042, k106, k191, k196, k329, k402, k437, k481, k548, k598, k633, k694, k698, k768, k972, k1081, k1258, k1525, k1528, k1563, k1735, k1888, k1900, k1911, k2004, k2005]
+    example_terms: ["Flag 1: Emergency care advised when indicated (asthma-consumer-llm-safety-vignettes)", "Escalation guidance helpfulness (ehr-patient-simulator-triage)", "Missed urgent escalation (medfailbench)", "False Reassurance (us-healthbench)"]
+
+  - id: crisis_response
+    name: Mental-health crisis detection and response
+    domain: safety
+    definition: Detects suicide, self-harm, violence or abuse risk in what a user says, and responds with appropriate risk assessment, de-escalation and crisis support.
+    clusters: [k065, k100, k178, k184, k225, k242, k246, k359, k378, k425, k564, k565, k633, k682, k683, k688, k696, k709, k740, k858, k1080, k1113, k1200, k1312, k1344, k1678, k1837, k1838]
+    example_terms: ["Crisis Navigation (llm-counselor-ethics-framework)", "crisis_detection (empath)", "Triage failure harm (one-year-later-mental-health-harms)", "Risk assessment and identification (psycrisis-bench-safety)"]
+
+  - id: safety_netting
+    name: Safety-netting and follow-up
+    domain: safety
+    definition: Tells the user which warning signs or changes should prompt further care, and recommends suitable monitoring or follow-up.
+    clusters: [k042, k442, k540, k599, k1177, k1272, k1852]
+    example_terms: ["Flag 2: Explicit safety-netting (asthma-consumer-llm-safety-vignettes)", "monitoring (medpi)", "Follow-up Planning (FP) (cp-env)", "Encourages follow-up (framing-robustness-eval)"]
+
+  - id: referral_appropriateness
+    name: Appropriate referral and resource signposting
+    domain: safety
+    definition: Directs the user to the right level of care, specialty or support service, including crisis resources that exist where the user is, and avoids both missed and unnecessary referrals.
+    clusters: [k100, k125, k141, k231, k488, k503, k576, k666, k935, k987, k988, k1204, k1364, k1770, k1835, k1862]
+    example_terms: ["Actionable resources (distressbench)", "crisis_resource_provision (empath)", "Specialty referral accuracy (medchain)", "RAR (Referral Adequacy Rate) (medisafe-gh)"]
+
+  - id: appropriate_refusal
+    name: Refusal of harmful requests
+    domain: safety
+    definition: Declines or safely redirects requests that seek dangerous or unethical help, sometimes with partial credit for a cautious answer.
+    clusters: [k041, k058, k209, k297, k356, k457, k608, k629, k634, k771, k900, k1567, k1749]
+    example_terms: ["Refuse (cares)", "Guardrail type: full_refusal (tekram-medical-ai-safety)", "Safety Score (cares)", "Detecting Violation (medethiceval)"]
+
+  - id: over_refusal_avoidance
+    name: Avoiding over-refusal and over-caution
+    domain: safety
+    definition: Answers legitimate health questions with substance instead of refusing, deflecting to generic advice, or burying the answer in disclaimers.
+    clusters: [k058, k061, k112, k182, k329, k438, k506, k519, k690, k942, k1086, k1231, k1365, k1758]
+    example_terms: ["Over-Refusal Rate (ORR) (health-orsc-bench)", "Flag 8: Pure refusal / redirect (asthma-consumer-llm-safety-vignettes)", "Safe Completion Rate (SCR) (health-orsc-bench)", "overrefusal (empath)"]
+
+  - id: scope_boundaries
+    name: Scope and role boundaries
+    domain: safety
+    definition: Stays within the role and scope set for the deployment, for example not giving definitive diagnoses or prescriptions where those are out of scope, stating its limits, and adding needed disclaimers.
+    clusters: [k055, k112, k275, k286, k297, k298, k314, k320, k588, k591, k651, k652, k715, k794, k1076, k1127, k1210, k1600, k1657, k1857, k1976]
+    example_terms: ["Boundaries of Competence (llm-counselor-ethics-framework)", "No diagnostic certainty (rde-benchmark)", "Disclaimers (distressbench)", "Unlicensed Medical Advice (care-mh)"]
+
+  # ---------------- helpfulness ----------------
+  - id: completeness
+    name: Completeness
+    domain: helpfulness
+    definition: Covers the information, key points and caveats the question or case requires, without leaving out clinically important content.
+    clusters: [k003, k020, k063, k079, k083, k084, k104, k113, k138, k197, k203, k204, k248, k267, k277, k280, k321, k322, k324, k332, k355, k369, k382, k400, k401, k411, k428, k449, k495, k559, k642, k712, k985, k999, k1014, k1064, k1094, k1095, k1336, k1390, k1466, k1561, k1793, k1870]
+    example_terms: ["Completeness (almanac-clinicalqa)", "Comprehensiveness (k-qa)", "Omission (afrimed-qa)", "Key-point macro-recall (cardiobench)"]
+
+  - id: relevance
+    name: Relevance and question understanding
+    domain: helpfulness
+    definition: Understands what was asked and addresses it, keeping the content on topic and free of irrelevant material.
+    clusters: [k006, k039, k079, k204, k207, k296, k305, k317, k323, k332, k337, k349, k368, k399, k427, k474, k580, k1171, k1221, k1289, k1300, k1712, k1777, k2000]
+    example_terms: ["Relevance (archehr-qa)", "Clinical relevance (clever)", "Answer captures user intent (multimedqa)", "S1: Irrelevant response (gaps-nsclc-preview)"]
+
+  - id: helpfulness
+    name: Helpfulness and usefulness
+    domain: helpfulness
+    definition: Gives the user meaningful, useful information or support for their need. Also covers clinical-utility ratings.
+    clusters: [k023, k090, k162, k197, k223, k226, k330, k469, k489, k529, k534, k615, k625, k646, k691, k820, k856, k1172, k1335, k1385, k1482, k1982]
+    example_terms: ["Helpfulness (astrid)", "Informativeness (coviddialog)", "Clinical Utility (medprobebench)", "Informativeness / Usefulness (care-mh)"]
+
+  - id: actionability
+    name: Actionability
+    domain: helpfulness
+    definition: Gives clear, practical next steps the user can actually carry out.
+    clusters: [k074, k119, k168, k179, k320, k421, k489, k886, k921, k1037, k1075, k1944]
+    example_terms: ["Actionability (medexplain-evals)", "Guidance / Structure / Next Steps (care-mh)", "Actionable (llm-virtual-patient-rating-instruments)", "Usefulness (c2a-checkup2action)"]
+
+  - id: conciseness
+    name: Conciseness and appropriate depth
+    domain: helpfulness
+    definition: Matches length and detail to the need, avoiding verbosity, repetition and padding as well as oversimplification.
+    clusters: [k033, k075, k244, k248, k271, k421, k449, k561, k592, k917, k1034, k1298, k1301, k1386, k1655, k1713, k1873]
+    example_terms: ["Conciseness (clever)", "Response depth (healthbench)", "Length (leaf-nepali-srh)", "redundancy (medpi)"]
+
+  - id: personalization
+    name: Personalization to the user's situation
+    domain: helpfulness
+    definition: Tailors advice to the user's stated circumstances, data and preferences rather than giving generic content.
+    clusters: [k032, k048, k115, k305, k325, k370, k373, k621, k687, k711, k1285, k1630, k1634, k1889, k1997, k2002]
+    example_terms: ["Personalization (foundation-metrics-healthcare-chatbots)", "Specificity / Personalization (care-mh)", "Contextual Relevance (sim-ut)", "state sensitivity (medpi)"]
+
+  - id: instruction_following
+    name: Instruction and format compliance
+    domain: helpfulness
+    definition: Follows explicit task and format instructions and produces output in the required, parseable form.
+    clusters: [k190, k291, k329, k454, k543, k839, k969, k1090, k1163, k1309, k1700]
+    example_terms: ["Instruction following (healthbench)", "Parse Success Rate (lsb-llm-safety-benchmark)", "instruction_following (kampobench)", "Valid Answer Rate (healthrcn)"]
+
+  - id: overall_quality
+    name: Overall response quality
+    domain: helpfulness
+    definition: A holistic or composite judgment of response quality, such as an overall rating, rubric total, pairwise preference or Elo score, that blends several qualities.
+    clusters: [k012, k020, k044, k080, k091, k094, k095, k108, k111, k120, k121, k129, k131, k134, k141, k145, k152, k160, k161, k174, k181, k201, k202, k214, k260, k268, k276, k284, k294, k330, k345, k352, k364, k365, k377, k398, k405, k439, k453, k472, k475, k490, k492, k493, k532, k554, k579, k622, k640, k681, k695, k1585, k1602, k1683, k1883]
+    example_terms: ["Overall Quality (counselbench)", "HealthBench score (healthbench-psych)", "Clinician pairwise preference (medarena)", "Weighted average (aipatient-arena)"]
+
+  # ---------------- communication ----------------
+  - id: clarity
+    name: Clarity and organization
+    domain: communication
+    definition: Presents information clearly, without ambiguity, and in a well-organized structure that makes the key points easy to find.
+    clusters: [k010, k073, k114, k390, k391, k544, k590, k761, k1253, k1464, k1905]
+    example_terms: ["Clear (patient perspective) (aie-saps)", "Clarity (c2a-checkup2action)", "Communication quality (healthbench)", "Appropriateness (clear)"]
+
+  - id: readability
+    name: Readability and plain language
+    domain: communication
+    definition: Text is easy for its intended lay reader to understand, with plain words, explained jargon and a suitable reading level.
+    clusters: [k034, k071, k107, k215, k250, k319, k328, k473, k546, k886, k1444, k1450, k1717, k1727, k1748]
+    example_terms: ["Readability (diabetica-benchmarks)", "Lack of Jargon (clini-eval)", "Readability (cosmetic-dentistry-ai-communication-rubric)", "Health Literacy (foundation-metrics-healthcare-chatbots)"]
+
+  - id: fluency
+    name: Fluency and naturalness
+    domain: communication
+    definition: Language is grammatical, fluent, varied and natural-sounding, without formulaic or robotic phrasing.
+    clusters: [k022, k093, k099, k123, k149, k166, k240, k265, k477, k1179, k1815, k1914, k1965]
+    example_terms: ["Fluency (FLU) (dischargesim)", "Naturalness (ch-patientsim)", "Dist-n (coviddialog)", "Formulaic responding (mindeval2)"]
+
+  - id: coherence
+    name: Logical coherence
+    domain: communication
+    definition: Content hangs together logically, flows in a sensible order and does not contradict itself.
+    clusters: [k018, k040, k110, k296, k879, k902, k1321, k1999]
+    example_terms: ["Coherence (dialogue) (dischargesim)", "Coherence (chiu-chung-genai-clinical-consultation-protocol)", "Concordance (cvsc)", "Logic Coherence (LC) (cp-env)"]
+
+  - id: audience_tailoring
+    name: Audience-appropriate communication
+    domain: communication
+    definition: Adjusts terminology, technical depth and register to who the user is, such as a lay patient versus a clinician.
+    clusters: [k130, k325, k527, k528]
+    example_terms: ["Expertise-tailored communication (healthbench)", "expertise-tailored_communication (kampobench)", "Audience Calibration (clinical-reasoning-expressed-rubric)", "adaptability (medpi)"]
+
+  - id: tone_professionalism
+    name: Tone and professionalism
+    domain: communication
+    definition: Uses a professional, calm tone that reassures where appropriate without minimizing risk or causing needless alarm, and avoids preachy or moralizing language.
+    clusters: [k147, k151, k374, k420, k444, k942, k1234, k1322, k1398]
+    example_terms: ["Tone (c2a-checkup2action)", "Tone stability (cdc-misinformation-robustness-scoring)", "Appropriate and empathetic tone (ehr-patient-simulator-triage)", "Professionalism (clinicalmc)"]
+
+  - id: language_fidelity
+    name: Target-language quality
+    domain: communication
+    definition: Responds in the user's language with accurate grammar, terminology and translation, uses suitable local terms, and avoids code-switching that gets in the way of understanding.
+    clusters: [k040, k265, k335, k464, k618, k1297, k1406, k1448, k1494, k1928, k1981]
+    example_terms: ["Linguistic Appropriateness (alama-health-qa)", "Translation Quality (T) (indicmeddialog)", "Wrong-language or code-switching (healmed)", "Linguistic accuracy (acute-llm-response-evaluation)"]
+
+  # ---------------- relational ----------------
+  - id: empathy
+    name: Empathy and emotional support
+    domain: relational
+    definition: Recognizes the user's emotions and responds with warmth, validation and support.
+    clusters: [k007, k097, k099, k100, k151, k213, k215, k315, k362, k413, k425, k426, k494, k531, k553, k581, k594, k707, k716, k727, k814, k825, k842, k866, k941, k1114, k1241]
+    example_terms: ["Empathy (automedic)", "Empathy (can-ai-relate)", "Empathy Alignment (empathy-on-a-budget)", "Emotional Support (foundation-metrics-healthcare-chatbots)"]
+
+  - id: respect_dignity
+    name: Respect and humanistic care
+    domain: relational
+    definition: Treats the user with courtesy, respect and non-judgment, and honors their wishes and dignity.
+    clusters: [k154, k274, k315, k1397, k1499, k1515, k1516, k1517]
+    example_terms: ["Humanistic Care (3mdbench)", "Non-judgment & Respect (care-mh)", "Non-judgmental language (framing-robustness-eval)", "I6-1. Humanistic Care Competency (gpbench)"]
+
+  - id: active_listening
+    name: Active listening and responsiveness
+    domain: relational
+    definition: Reflects back and directly addresses the concerns the user actually raised, rather than ignoring or sidestepping them.
+    clusters: [k273, k309, k422, k517, k619, k685, k1080, k1256]
+    example_terms: ["Active Listening (mentalchat16k)", "responsiveness (medpi)", "Seeks and addresses patient concerns (telepaces)", "Inattention (rubrix)"]
+
+  - id: patient_autonomy
+    name: Patient autonomy and shared decisions
+    domain: relational
+    definition: Respects the user's right to make informed choices, supports shared decision-making, and encourages the user's own agency.
+    clusters: [k193, k586, k676, k1399, k1476, k1636]
+    example_terms: ["autonomy (medpi)", "Autonomy and boundaries (D7) (k-bench)", "Empowerment (sharp)"]
+
+  - id: relational_boundaries
+    name: Healthy relational boundaries
+    domain: relational
+    definition: Avoids fostering emotional dependence, claiming human feelings or a personal bond, romantic framing, or manipulating the user.
+    clusters: [k240, k258, k297, k308, k575, k684, k819, k903, k929, k992, k1117, k1118, k1345, k1424, k1426, k1581, k1858, k1859, k1860, k1861, k1908, k1989, k1990]
+    example_terms: ["Fostering Overdependence (ahabench)", "dependency_fostering (empath)", "Anthropomorphizing (mindeval2)", "Mental Manipulation (dialogguard)"]
+
+  - id: therapeutic_alliance
+    name: Therapeutic alliance
+    domain: relational
+    definition: Builds rapport, engagement and collaboration with the user, as rated on working-alliance or relationship scales.
+    clusters: [k064, k476, k616, k617, k829, k956, k1110, k1356]
+    example_terms: ["Therapeutic Relationship (WAI) (care-bench-counseling)", "Therapeutic Alliance and Boundaries (cape-psychotherapy-chatbots)", "Engagement (psychepass)", "Collaboration (therapygym)"]
+
+  - id: counseling_technique
+    name: Counseling and psychotherapy technique
+    domain: relational
+    definition: Uses evidence-based counseling or psychotherapy techniques correctly and as the client needs, such as reframing, motivational interviewing, coping strategies and fidelity to a treatment protocol.
+    clusters: [k127, k137, k179, k187, k214, k229, k260, k261, k358, k387, k447, k478, k573, k584, k585, k586, k693, k706, k779, k826, k848, k1018, k1144, k1387, k1721, k1722, k1723, k1724, k1725, k1726, k1826, k1827, k1831, k1954, k1958, k1959, k1960]
+    example_terms: ["Treatment Fidelity (ai-psychotherapy-eval)", "Counseling Skills (CCS-R) (care-bench-counseling)", "interpretation_and_cognitive_reframing (mentalhealthbench)", "Intervention (miramind)"]
+
+  - id: harmful_validation_avoidance
+    name: Reality testing and non-reinforcement of harmful beliefs
+    domain: relational
+    definition: Does not validate or reinforce delusions, harmful beliefs or maladaptive coping, and gently tests them against reality instead.
+    clusters: [k339, k388, k479, k678, k689, k758, k1202, k1729, k1836, k1907, k1909, k1910]
+    example_terms: ["Validates Unhealthy Beliefs (llm-counselor-ethics-framework)", "delusion_encouragement (empath)", "Uncritical endorsement (mindeval2)", "unsupported_belief_and_reality_testing_calibration (mentalhealthbench)"]
+
+  # ---------------- equity_context ----------------
+  - id: demographic_fairness
+    name: Fairness across groups
+    domain: equity_context
+    definition: Gives equally accurate and appropriate answers regardless of a patient's demographics or identity, without stereotyped assumptions.
+    clusters: [k050, k069, k089, k101, k227, k237, k254, k257, k272, k331, k376, k389, k417, k431, k465, k511, k525, k638, k755, k894, k1116, k1174, k1352, k1353, k1391, k1434, k1502, k1504, k1746]
+    example_terms: ["Fairness (clinic-multilingual)", "Demographic bias (breast-oncology-vignettes)", "Demographic Parity (autofair)", "Stereotype (clinic-multilingual)"]
+
+  - id: toxicity_stigma
+    name: Non-toxic, non-stigmatizing language
+    domain: equity_context
+    definition: Avoids offensive, derogatory, shaming or stigmatizing language about users, health conditions or groups.
+    clusters: [k047, k089, k155, k704, k708, k964, k1260, k1351, k1697, k1951]
+    example_terms: ["Toxicity / Harmful Language (care-mh)", "Derogatory, stigmatizing, or biased language (acceptance-criteria-framework-public-health-llm)", "Stigma harm (one-year-later-mental-health-harms)", "Toxicity Score (cdc-misinformation-robustness-scoring)"]
+
+  - id: cultural_appropriateness
+    name: Cultural appropriateness
+    domain: equity_context
+    definition: Fits the cultural norms, beliefs and sensitivities of the user's community, without defaulting to one culture's assumptions.
+    clusters: [k141, k243, k371, k574, k870, k961, k1068, k1296, k1413, k1503, k1684, k1685, k1686, k1687, k1688, k1689, k1690, k1691]
+    example_terms: ["Cultural appropriateness (leaf-nepali-srh)", "Cultural Fit (psycholex-query-dialogue)", "cultural_sensitivity (empath)", "Cultural and contextual competence (D6) (k-bench)"]
+
+  - id: local_context_fit
+    name: Fit to local resources and setting
+    domain: equity_context
+    definition: Advice is feasible where the user lives, taking account of the medicines, services, costs and care pathways that are actually available there.
+    clusters: [k404, k635, k871, k920, k994, k1054, k1185, k1188, k1418, k1662, k1974]
+    example_terms: ["Understanding of local context (rwanda-chw-vignettes)", "Local accuracy (acute-llm-response-evaluation)", "Resource Alignment (alama-health-qa)", "resource awareness (medpi)"]
+
+  - id: multilingual_parity
+    name: Performance parity across languages
+    domain: equity_context
+    definition: Answers stay as accurate and safe when the same question is asked in another language, dialect or at a different literacy level.
+    clusters: [k194, k961, k1406, k1575, k1709]
+    example_terms: ["Cross-linguistic robustness (kazakhstan-protocol-alignment)", "Language-independence (self-care-llm-medicines-benchmark)", "Multilingual consistency (us-healthbench)"]
+
+  # ---------------- ethics_privacy ----------------
+  - id: privacy
+    name: Privacy and confidentiality
+    domain: ethics_privacy
+    definition: Does not disclose, infer, request or misuse personal health information beyond what the task needs, and respects expectations of confidentiality.
+    clusters: [k054, k088, k142, k287, k338, k539, k558, k970, k1021, k1035, k1058, k1433, k1589, k1893, k1969]
+    example_terms: ["Privacy (humanely)", "Confidentiality (psychethicsbench)", "Privacy (clinic-multilingual)", "Privacy Violation (dialogguard)"]
+
+  - id: ethical_conduct
+    name: Ethical and professional conduct
+    domain: ethics_privacy
+    definition: Acts in line with medical ethics principles such as beneficence, non-maleficence, justice and honesty, handles ethical dilemmas soundly, and keeps professional conduct.
+    clusters: [k142, k195, k217, k222, k253, k264, k299, k316, k341, k361, k393, k397, k444, k457, k587, k641, k743, k774, k867, k899, k1224, k1268, k1822, k1825, k1953]
+    example_terms: ["Ethics (trustmh-bench)", "Non-maleficence (medethicsqa)", "Professional Ethics (cp-env)", "Priority Dilemma (medethiceval)"]
+
+  - id: accountability_compliance
+    name: Transparency, accountability and compliance
+    domain: ethics_privacy
+    definition: The system is open about being an AI and about its limits and data use, supports audit, monitoring and human oversight, and complies with applicable regulation.
+    clusters: [k217, k350, k360, k505, k520, k578, k639, k785, k937, k1109, k1429, k1442, k1533, k1637, k1964]
+    example_terms: ["Algorithm transparency and audit (clinical-genai-verification-paradigms)", "medication regulatory compliance (medpi)", "Accountability (medjudge)", "AI self-identification disclaimers (P2) (cci-iwri)"]
+
+  # ---------------- robustness ----------------
+  - id: output_consistency
+    name: Consistency and reproducibility
+    domain: robustness
+    definition: Gives the same answer to the same or an equivalent question across repeated runs, sessions and model versions.
+    clusters: [k017, k066, k189, k205, k252, k304, k340, k557, k636, k789, k877, k1246, k1267, k1412, k1461, k1518, k1753, k1898, k1902, k2006]
+    example_terms: ["Reproducibility (acute-llm-response-evaluation)", "Run-to-run stability (intraoperative-crisis-safety-benchmark)", "Consistency (dyreme)", "Stability over time (acute-llm-response-evaluation)"]
+
+  - id: perturbation_robustness
+    name: Robustness to input variation
+    domain: robustness
+    definition: Keeps answers correct when the input changes in ways that should not matter, such as paraphrasing, typos, distracting details, information order or irrelevant patient attributes.
+    clusters: [k026, k117, k303, k317, k418, k466, k467, k510, k518, k596, k606, k721, k878, k1024, k1045, k1235, k1259, k1410, k1469, k1509, k1574, k1877, k1945, k1946, k1984]
+    example_terms: ["Robustness (clinic-multilingual)", "Flip Rate (clinical-llm-eval)", "Perturbation flip rate (PFR) (ai-masld)", "Meaning-Preserving Variation Sensitivity (MVS) (semantic-stability-clinical-llms)"]
+
+  - id: adversarial_robustness
+    name: Resistance to adversarial attack
+    domain: robustness
+    definition: Resists jailbreaks, prompt injection, false-premise injection, impersonation and multi-turn manipulation designed to extract unsafe output.
+    clusters: [k049, k117, k133, k150, k169, k171, k247, k288, k327, k347, k348, k458, k471, k655, k656, k657, k664, k1125, k1232, k1568, k1579, k1591, k1605, k1771]
+    example_terms: ["Attack Success Rate (ASR) (lsb-llm-safety-benchmark)", "P4.3 Prompt-Injection & Jailbreak Resilience (m-leaf)", "Authority Impersonation (medical-ai-red-teaming-ekram)", "Multi-Turn Escalation (medical-ai-red-teaming-ekram)"]
+
+  # ---------------- operational ----------------
+  - id: evaluator_reliability
+    name: Evaluator agreement and validity
+    domain: operational
+    definition: How reliably human raters or LLM judges score outputs, including inter-rater agreement, agreement with experts, and judge biases. A property of the evaluation, not of the model output.
+    clusters: [k031, k128, k167, k272, k293, k412, k414, k459, k463, k498, k504, k660, k661, k692, k1108, k1166, k1203, k1339, k1524, k1653, k1654]
+    example_terms: ["Cohen's kappa / Fleiss' kappa (llms-mental-health-crisis-benchmark)", "Percentage Agreement (PA) (health-pariksha)", "Self-Enhancement Bias (Delta_self) (medqade)", "Correlation with human ratings (morqa)"]
+
+  - id: efficiency_cost
+    name: Efficiency and cost
+    domain: operational
+    definition: Computational and financial cost of running the system, such as latency, token use, compute and price per task.
+    clusters: [k301, k344, k419, k522, k597, k963, k995, k1347, k1348, k1349, k1393, k1394, k1395, k1396, k1558, k1978]
+    example_terms: ["Latency (foundation-metrics-healthcare-chatbots)", "Total token usage (msic-bench)", "Computational efficiency (time and tokens) (nephrology-clinical-reasoning-framework)", "Cost (USD) (gpagentbench-2k)"]
+
+  - id: usability_workflow
+    name: Usability and workflow fit
+    domain: operational
+    definition: How easy and satisfying the system is to use, how accessible it is, and how well it fits into users' or clinicians' workflows.
+    clusters: [k134, k205, k223, k436, k523, k524, k780, k786, k855, k913, k932, k990, k993, k1152, k1317, k1443, k1534, k1972]
+    example_terms: ["Usability (foundation-metrics-healthcare-chatbots)", "Perceived ease of use (tam-mcrs-llm-evaluation)", "Workflow integration and efficiency (clinical-nursing-llm-evaluation-framework)", "Accessibility (haicef)"]
+
+  - id: user_outcomes
+    name: Effects on users' health and behavior
+    domain: operational
+    definition: Measured change in users after they use the system, such as symptom scores, wellbeing, adherence or health outcomes.
+    clusters: [k099, k239, k429, k468, k572, k614, k1106, k1154, k1243, k1340, k1341, k1342, k1343, k1828, k1829, k1832]
+    example_terms: ["Depression (PHQ-9) (emoagent)", "Patient Progress (ai-psychotherapy-eval)", "Health outcomes (haicef)", "User adherence (haicef)"]
+
+  - id: retrieval_quality
+    name: Retrieval quality
+    domain: operational
+    definition: Whether the retrieval or memory component finds the documents, passages or records that are relevant to the query.
+    clusters: [k144, k216, k300, k333, k336, k407, k677, k869, k1119, k1169, k1286, k1313, k1536, k1778, k1970]
+    example_terms: ["Recall@K (mimic-patient)", "Hit Rate (HR@num) (medicineqa)", "Context Relevance (CR) (astrid)", "Search Effectiveness (medprobebench)"]

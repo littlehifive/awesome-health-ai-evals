@@ -124,3 +124,19 @@ Breadth first:
 6. Skills.
 
 No scheduled re-runs in v1; the search scripts can be re-run by hand.
+
+## Status (2026-10-26)
+
+All six build steps have a first version.
+
+1. **Search and screen.** 27,750 records were screened in two stages. Extraction produced 994 entries, and review agents re-checked the weakest of them.
+2. **README.** Generated from the entries, with 13 featured entries.
+3. **Pass 2.** 818 terms files, about 5,950 terms. These cover every framework and every benchmark scored by rubric, expert rating, multi-turn simulation, or real-user data. Multiple-choice-only benchmarks get a generated "Accuracy" term.
+4. **Taxonomy.** `taxonomy/constructs.yaml` has 13 domains and 76 constructs, 3 of them contested. It was reconciled from the proposer's draft and the challenger's 18 objections, and the decisions are in `taxonomy/decisions.md`. Every term is mapped to constructs by `scripts/map_terms.py`. One change from the targets above: there are 13 domains rather than 8 to 12, because measured effects on users got their own domain.
+5. **Site.** `site/src` is built by `scripts/build_site.py` into `site/dist`, and `vercel.json` is in place. It has not been deployed; that needs the maintainer's Vercel account.
+6. **Skills.** `skills/` has four draft skills with evals, packaged as a Claude Code plugin (`.claude-plugin/`). Their reference catalog is rebuilt with `scripts/build_skills_data.py`.
+
+Not done:
+- Copying rubric files into `rubrics/<slug>/`. Each one needs its license checked first.
+- Recording, per term, whose guideline or standard of care the reference represents (see `taxonomy/decisions.md`).
+- Human review of the skills.

@@ -145,6 +145,7 @@ def main() -> None:
     out += [f"- [{title}](#{title.lower().replace(',', '').replace(' ', '-')}) ({len(by_section[key])})"
             for key, title in SECTIONS]
     out += ["- [Related guidance](#related-guidance)", "- [Surveys and reviews](#surveys-and-reviews)",
+            "- [Constructs, site, and skills](#constructs-site-and-skills)",
             "- [How this list was built](#how-this-list-was-built)", "- [Known gaps](#known-gaps)",
             "- [Contributing](#contributing)", ""]
 
@@ -164,6 +165,20 @@ def main() -> None:
         "## Surveys and reviews",
         "",
         related_list(related.get("surveys", [])),
+        "",
+        "## Constructs, site, and skills",
+        "",
+        "- **Constructs.** Agents extracted the evaluation terms each judged benchmark and framework scores outputs "
+        "on ([`terms/`](terms/)), with verbatim definitions where the source gives them. These were clustered and "
+        "turned into a taxonomy of constructs (what evaluations judge) by a proposer agent and a challenger agent "
+        "with a low-resource primary-care lens; see [`taxonomy/`](taxonomy/) and "
+        "[`docs/taxonomy.md`](docs/taxonomy.md).",
+        "- **Site.** A browsable catalog with a world map, heatmaps, a construct explorer, and side-by-side "
+        "comparison is built from the same files (`uv run scripts/build_site.py`, output in `site/dist`).",
+        "- **Skills.** [`skills/`](skills/) holds four Claude Code skills, installable as a plugin: "
+        "`find-health-benchmarks`, `adapt-benchmark-rubric`, `score-transcripts-with-rubric`, and "
+        "`run-open-benchmark`. Install with `/plugin marketplace add littlehifive/awesome-health-ai-evals`, then "
+        "`/plugin install health-ai-evals@health-ai-evals`.",
         "",
         "## How this list was built",
         "",

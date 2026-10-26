@@ -22,6 +22,7 @@ Columns: **Item origin** is where the questions or conversations came from. **In
 - [Evaluation frameworks](#evaluation-frameworks) (199)
 - [Related guidance](#related-guidance)
 - [Surveys and reviews](#surveys-and-reviews)
+- [Constructs, site, and skills](#constructs-site-and-skills)
 - [How this list was built](#how-this-list-was-built)
 - [Known gaps](#known-gaps)
 - [Contributing](#contributing)
@@ -1164,6 +1165,12 @@ The 40 most cited are shown; all 384 are in [`data/related.yaml`](data/related.y
 - [Conversational agents in healthcare: a systematic review](https://doi.org/10.1093/jamia/ocy072) (2018). PMC.
 
 The 40 most cited are shown; all 959 are in [`data/related.yaml`](data/related.yaml).
+
+## Constructs, site, and skills
+
+- **Constructs.** Agents extracted the evaluation terms each judged benchmark and framework scores outputs on ([`terms/`](terms/)), with verbatim definitions where the source gives them. These were clustered and turned into a taxonomy of constructs (what evaluations judge) by a proposer agent and a challenger agent with a low-resource primary-care lens; see [`taxonomy/`](taxonomy/) and [`docs/taxonomy.md`](docs/taxonomy.md).
+- **Site.** A browsable catalog with a world map, heatmaps, a construct explorer, and side-by-side comparison is built from the same files (`uv run scripts/build_site.py`, output in `site/dist`).
+- **Skills.** [`skills/`](skills/) holds four Claude Code skills, installable as a plugin: `find-health-benchmarks`, `adapt-benchmark-rubric`, `score-transcripts-with-rubric`, and `run-open-benchmark`. Install with `/plugin marketplace add littlehifive/awesome-health-ai-evals`, then `/plugin install health-ai-evals@health-ai-evals`.
 
 ## How this list was built
 

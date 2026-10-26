@@ -389,7 +389,7 @@ function renderConstructs() {
   DATA.entries.forEach((e) => e.constructs.forEach((c) => counts.set(c, (counts.get(c) || 0) + 1)));
   const domains = DATA.domains.length ? DATA.domains : [{ id: "all", name: "All constructs" }];
   app.innerHTML = `<h1>Constructs</h1>
-    <p class="prose muted">What health AI evaluations judge, grouped from ${DATA.counts.terms.toLocaleString()} terms across the catalog. Each construct lists the terms mapped to it, with their verbatim definitions, how closely each matches (same, narrower, broader, partial), and whether the proposer and challenger agreed.</p>
+    <p class="prose muted">What health AI evaluations judge, grouped from ${DATA.counts.terms.toLocaleString()} terms across the catalog. Each construct lists the terms mapped to it, with their verbatim definitions, how closely each matches (same, narrower, broader, partial). A proposer agent drafted the constructs and a challenger agent with a low-resource primary-care lens argued against them; <a href="https://github.com/littlehifive/awesome-health-ai-evals/blob/main/taxonomy/decisions.md">decisions</a>. <b>Contested</b> marks constructs where evaluations disagree on what counts as a good output.</p>
     <div class="domains">${domains.map((d) => {
       const cs = DATA.constructs.filter((c) => (c.domain || "all") === d.id).sort((a, b) => (counts.get(b.id) || 0) - (counts.get(a.id) || 0));
       return `<div class="domain"><h3>${esc(d.name)}</h3>${d.description ? `<p class="muted">${esc(d.description)}</p>` : ""}<ul>${cs.map((c) =>
