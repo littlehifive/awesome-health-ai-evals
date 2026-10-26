@@ -1,0 +1,66 @@
+entry: nephrology-clinical-reasoning-framework
+sources:
+- https://doi.org/10.1101/2025.09.04.25334460
+extracted: '2026-10-26'
+terms:
+- term: Summary of the medical problem
+  level: criterion
+  definition: 'Q1: reasoning step in the case-based clinical reasoning sequence; the paper names the question without a longer definition (full prompts and criteria are in Supplementary Table 1, not read).'
+  definition_verbatim: false
+  location: Results, Figure 1B legend
+  scale: 0 = Incorrect, 1 = Reasonable but not the best, 2 = Correct
+- term: Differential diagnoses and rationale
+  level: criterion
+  definition: 'Q2: reasoning step in the case-based clinical reasoning sequence; the paper names the question without a longer definition (full prompts and criteria are in Supplementary Table 1, not read).'
+  definition_verbatim: false
+  location: Results, Figure 1B legend
+  scale: 0 = Incorrect, 1 = Reasonable but not the best, 2 = Correct
+- term: Necessary physical examinations and rationale
+  level: criterion
+  definition: 'Q3: reasoning step in the case-based clinical reasoning sequence; the paper names the question without a longer definition (full prompts and criteria are in Supplementary Table 1, not read).'
+  definition_verbatim: false
+  location: Results, Figure 1B legend
+  scale: 0 = Incorrect, 1 = Reasonable but not the best, 2 = Correct
+- term: Plan for investigations/tests
+  level: criterion
+  definition: 'Q4: reasoning step in the case-based clinical reasoning sequence; the paper names the question without a longer definition (full prompts and criteria are in Supplementary Table 1, not read).'
+  definition_verbatim: false
+  location: Results, Figure 1B legend
+  scale: 0 = Incorrect, 1 = Reasonable but not the best, 2 = Correct
+- term: Interpretation of test results
+  level: criterion
+  definition: 'Q5: reasoning step in the case-based clinical reasoning sequence; the paper names the question without a longer definition (full prompts and criteria are in Supplementary Table 1, not read).'
+  definition_verbatim: false
+  location: Results, Figure 1B legend
+  scale: 0 = Incorrect, 1 = Reasonable but not the best, 2 = Correct
+- term: Reassessment of the differential diagnoses
+  level: criterion
+  definition: 'Q6: reasoning step in the case-based clinical reasoning sequence; the paper names the question without a longer definition (full prompts and criteria are in Supplementary Table 1, not read).'
+  definition_verbatim: false
+  location: Results, Figure 1B legend
+  scale: 0 = Incorrect, 1 = Reasonable but not the best, 2 = Correct
+- term: Treatment planning
+  level: criterion
+  definition: 'Q7: reasoning step in the case-based clinical reasoning sequence; the paper names the question without a longer definition (full prompts and criteria are in Supplementary Table 1, not read).'
+  definition_verbatim: false
+  location: Results, Figure 1B legend
+  scale: 0 = Incorrect, 1 = Reasonable but not the best, 2 = Correct
+- term: Evaluation of treatment
+  level: criterion
+  definition: 'Q8: reasoning step in the case-based clinical reasoning sequence; the paper names the question without a longer definition (full prompts and criteria are in Supplementary Table 1, not read).'
+  definition_verbatim: false
+  location: Results, Figure 1B legend
+  scale: 0 = Incorrect, 1 = Reasonable but not the best, 2 = Correct
+- term: Management in case of clinical worsening
+  level: criterion
+  definition: 'Q9: reasoning step in the case-based clinical reasoning sequence; the paper names the question without a longer definition (full prompts and criteria are in Supplementary Table 1, not read).'
+  definition_verbatim: false
+  location: Results, Figure 1B legend
+  scale: 0 = Incorrect, 1 = Reasonable but not the best, 2 = Correct
+- term: Computational efficiency (time and tokens)
+  level: metric
+  definition: Response time and tokens consumed per case.
+  definition_verbatim: false
+  location: Results, Figure 1D
+  scale: seconds; token count
+notes: Each of nine cases has nine fixed questions; four nephrologists score each answer blind on the 3-point scale, and the sum across questions gives an overall score. Detailed prompts and criteria sit in a separate supplementary file that was not reachable, so question definitions are not verbatim.

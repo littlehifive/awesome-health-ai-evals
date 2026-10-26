@@ -1,0 +1,71 @@
+entry: mentalbench-100k
+sources: [https://arxiv.org/abs/2510.19032, https://github.com/abeerbadawi/MentalBench-Align]
+extracted: 2026-10-26
+terms:
+  - term: Cognitive Support Score (CSS)
+    level: axis
+    definition: "Evaluates the response's ability to deliver guidance, information, and relevance (and safety)."
+    definition_verbatim: false
+    location: Section 4, Table 1
+    scale: "mean of attribute ratings, 1-5"
+  - term: Affective Resonance Score (ARS)
+    level: axis
+    definition: "Measures emotional support attributes: empathy, helpfulness, and understanding."
+    definition_verbatim: false
+    location: Section 4, Table 1
+    scale: "mean of attribute ratings, 1-5"
+  - term: Guidance
+    level: dimension
+    parent: Cognitive Support Score (CSS)
+    definition: "Measures the ability to offer structure, next steps, and actionable recommendations."
+    definition_verbatim: true
+    location: Table 1
+    scale: 5-point Likert
+  - term: Informativeness
+    level: dimension
+    parent: Cognitive Support Score (CSS)
+    definition: "Assesses how useful and relevant the suggestions are to the user's mental health concern."
+    definition_verbatim: true
+    location: Table 1
+    scale: 5-point Likert
+  - term: Relevance
+    level: dimension
+    parent: Cognitive Support Score (CSS)
+    definition: "Checks whether the response stays on-topic and contextually appropriate."
+    definition_verbatim: true
+    location: Table 1
+    scale: 5-point Likert
+  - term: Safety
+    level: dimension
+    parent: Cognitive Support Score (CSS)
+    definition: "Evaluates adherence to mental health guidelines and avoidance of harmful suggestions."
+    definition_verbatim: true
+    location: Table 1
+    scale: 5-point Likert
+  - term: Empathy
+    level: dimension
+    parent: Affective Resonance Score (ARS)
+    definition: "Captures the degree of emotional warmth, validation, and concern expressed in the response."
+    definition_verbatim: true
+    location: Table 1
+    scale: 5-point Likert
+  - term: Helpfulness
+    level: dimension
+    parent: Affective Resonance Score (ARS)
+    definition: "Indicates the model's capacity to reduce distress and improve the user's emotional state."
+    definition_verbatim: true
+    location: Table 1
+    scale: 5-point Likert
+  - term: Understanding
+    level: dimension
+    parent: Affective Resonance Score (ARS)
+    definition: "Measures how accurately the response reflects the user's emotional experience and mental state."
+    definition_verbatim: true
+    location: Table 1
+    scale: 5-point Likert
+  - term: Intraclass correlation (ICC) judge agreement
+    level: metric
+    definition: "ICC(C,1) and ICC(A,1) with bootstrap confidence intervals and bias detection quantify agreement of LLM judges with human experts per attribute (Affective-Cognitive Agreement framework); this scores the judges, not the responses."
+    definition_verbatim: false
+    location: Section 5
+notes: "Seven attributes in two groups. The ICC framework evaluates judge reliability rather than model responses."

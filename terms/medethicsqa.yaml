@@ -1,0 +1,49 @@
+entry: medethicsqa
+sources: [http://arxiv.org/abs/2506.22808]
+extracted: 2026-10-26
+terms:
+  - term: Accuracy
+    level: metric
+    definition: "For MCQs, the paper reports accuracy."
+    definition_verbatim: false
+    location: Section 3.1
+    scale: proportion correct
+  - term: Relative Score (RS)
+    level: metric
+    definition: "For each key point in the reference answer, one score will be awarded if the model has well addressed it. Then, we compute the scores obtained to the total scores, defined as relative scores (RS, %)."
+    definition_verbatim: true
+    location: Section 3.1
+    scale: "percent of reference key points addressed (checklist LLM-as-judge, GPT-4o-mini)"
+  - term: Ethics Score (ES)
+    level: metric
+    definition: "The overall Ethics Score is calculated as ES = (Acc+RS)/2."
+    definition_verbatim: true
+    location: Section 3.1
+    scale: percent
+  - term: Beneficence
+    level: principle
+    definition: "Pillar of the 4P-26C-256G medical ethics taxonomy (44.3% of items); results are reported per pillar."
+    definition_verbatim: false
+    location: Appendix A, Table 6
+  - term: Non-maleficence
+    level: principle
+    definition: "Pillar of the taxonomy meaning \"To do no harm\" (Beauchamp, 1979); includes the category Prevent Patient From Harm."
+    definition_verbatim: true
+    location: Appendix A.2, Table 6
+  - term: Autonomy
+    level: principle
+    definition: "Pillar of the taxonomy (12.0% of items); results are reported per pillar."
+    definition_verbatim: false
+    location: Appendix C, Table 6
+  - term: Justice
+    level: principle
+    definition: "Pillar of the taxonomy (11.3% of items); results are reported per pillar."
+    definition_verbatim: false
+    location: Appendix C, Table 6
+  - term: 26 ethics categories
+    level: category
+    parent: Beneficence/Non-maleficence/Autonomy/Justice
+    definition: "26 categories clustered from 256 guideline principles of medical associations worldwide (for example Prevent Patient From Harm, Provide assistance in emergency, Report unethical and unprofessional conduct); accuracy, RS and ES are reported per category."
+    definition_verbatim: false
+    location: Appendix A.2, Tables 8 and 14
+notes: "The 26 categories are listed in Table 8 (only partly visible in the text read) and not enumerated here. Reasonable Rate (89.15%) is a validation of the LLM judge, not a model score."

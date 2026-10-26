@@ -1,0 +1,59 @@
+entry: lcp-rjua-sps
+sources: [https://arxiv.org/abs/2403.16446]
+extracted: 2026-10-26
+terms:
+  - term: Information Completeness
+    level: criterion
+    definition: "How much SPs' information is retrieved. Capability: enquire medical information of patients."
+    definition_verbatim: true
+    location: Table 1 (LCP metrics)
+    scale: retrieval-based automatic score vs the standardized patient record
+  - term: Behavior Standardization
+    level: criterion
+    definition: "Whether following the retrieved inquiry order. Capability: enquire information by a suitable order."
+    definition_verbatim: true
+    location: Table 1
+    scale: retrieval-based automatic score
+  - term: Guidance Rationality
+    level: criterion
+    definition: "How many reasonable tests/exams are retrieved. Capability: enquire reasonable test/exam reports."
+    definition_verbatim: true
+    location: Table 1
+    scale: retrieval-based automatic score
+  - term: Diagnostic Logicality
+    level: criterion
+    definition: "Generations VS. Retrieved ground-truth. Capability: reason out the correct diagnosis results."
+    definition_verbatim: true
+    location: Table 1
+    scale: retrieval-based automatic score
+  - term: Treatment Logicality
+    level: criterion
+    definition: "Generations VS. Retrieved ground-truth. Capability: reason out the correct treatment plans."
+    definition_verbatim: true
+    location: Table 1
+    scale: retrieval-based automatic score
+  - term: Clinical Applicability
+    level: criterion
+    definition: "Agent's round VS. Retrieved clinician's round. Capability: finishing tasks within reasonable consultation rounds."
+    definition_verbatim: true
+    location: Table 1
+    scale: retrieval-based automatic score
+  - term: Diagnosis accuracy
+    level: metric
+    definition: "Accuracy of the diagnosis in single-turn clinical QA, checked against the SP record by the retrieval-augmented evaluator."
+    definition_verbatim: false
+    location: Section 4.2, Table 2
+    scale: percent
+  - term: Treatment accuracy
+    level: metric
+    definition: "Accuracy of the treatment plan in single-turn clinical QA, checked against the SP record."
+    definition_verbatim: false
+    location: Section 4.2, Table 2
+    scale: percent
+  - term: Diagnostic reasoning accuracy (test and examination recommendation)
+    level: metric
+    definition: "Accuracy of the laboratory tests and examinations the model recommends, retrieved against the SP ground truth."
+    definition_verbatim: false
+    location: Section 4.2, Table 3
+    scale: percent
+notes: "The six LCP metrics (Table 1) are scored in the multi-turn diagnostic dialogue task; the entry's other tasks use the accuracy metrics."

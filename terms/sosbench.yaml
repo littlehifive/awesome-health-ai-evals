@@ -1,0 +1,22 @@
+entry: sosbench
+sources: [https://arxiv.org/abs/2505.21605]
+extracted: 2026-10-26
+terms:
+  - term: Policy Violation Rate (PVR)
+    level: metric
+    definition: "Mean over the prompt set of an indicator that is 1 if the prompt-response pair is a policy violation, judged by an LLM-as-judge with a detailed policy specification."
+    definition_verbatim: false
+    location: Section 4.1, Evaluation Metric
+    scale: "binary per response, averaged to a rate"
+  - term: Risk category
+    level: category
+    definition: "Regulation-grounded hazard categories across six scientific domains (chemistry, biology, medicine, pharmacy, physics, psychology) used to organise the prompts."
+    definition_verbatim: false
+    location: Section 3.3, Figure 2; Appendix B.1
+  - term: Comprehension difficulty / Answering difficulty
+    level: other
+    definition: "Prompt difficulty rubric (easy, medium, hard) judged by GPT-4.1; describes prompts, not model outputs."
+    definition_verbatim: false
+    location: Appendix A.1, Table 4
+    scale: 3-level
+notes: "Model outputs are scored only by the policy-violation judge. The difficulty rubric is a dataset-analysis tool and is not a model-output score. Per-category risk definitions are in Appendix B.1 (not read)."

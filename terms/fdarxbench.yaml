@@ -1,0 +1,29 @@
+entry: fdarxbench
+sources: [https://arxiv.org/abs/2603.19539]
+extracted: 2026-10-26
+terms:
+  - term: Answer correctness
+    level: metric
+    definition: "Similar to past work (Wei et al., 2024), accuracy is evaluated by LLM-as-judge given the benchmark's reference answer."
+    definition_verbatim: true
+    location: Section 4 (evaluation metrics), Table 1 (Acc)
+    scale: LLM-judged correct/incorrect, reported as accuracy for factual and multi-hop questions
+  - term: Refusal behavior
+    level: metric
+    definition: "Automatic evaluation using F1 for predicting abstention on refusal items, and false-refusal behavior on answerable items."
+    definition_verbatim: true
+    location: Section 4 (evaluation metrics), Table 1 (Ref F1)
+    scale: F1
+  - term: Citation quality
+    level: metric
+    definition: "Automatic evaluation using macro-F1 between cited passage ids and gold provenance passage ids recorded during dataset construction."
+    definition_verbatim: true
+    location: Section 4 (evaluation metrics), Table 1 (Cite F1)
+    scale: macro-F1
+  - term: Retrieval quality (F1 against gold provenance)
+    level: metric
+    definition: "We report retrieval quality using F1 calculated between citation overlap against gold provenance."
+    definition_verbatim: true
+    location: Table 2 (retrieval, top-k passages)
+    scale: F1
+notes: "Scored per evidence setting: closed-book, oracle passages, full label (+citations). Question types (factual, multi-hop, refusal) are item categories, not criteria. Construction-time LLM-judge filters (question relevance, QA correctness, question quality) are dataset-quality checks, not model-output scoring, and are omitted."

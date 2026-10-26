@@ -1,0 +1,35 @@
+entry: medkgeval-multiturn
+sources:
+- https://arxiv.org/abs/2510.12224
+extracted: '2026-10-26'
+terms:
+- term: Correctness (Medication Consultation)
+  level: criterion
+  definition: Whether the model's response aligns with established pharmacological knowledge and avoids harmful misinformation.
+  definition_verbatim: true
+  location: Section 3 (Judge Agent), Table 2
+  scale: multi-level per-turn score, normalized 0-1
+- term: Comprehensiveness
+  level: criterion
+  definition: Whether the model delivers a thorough and informative response addressing all key aspects of the user's query.
+  definition_verbatim: true
+  location: Section 3 (Judge Agent), Table 2
+  scale: multi-level per-turn score, normalized 0-1
+- term: Correctness (Disease Diagnosis)
+  level: criterion
+  definition: Whether the model's final prediction aligns semantically or ontologically with the reference disease.
+  definition_verbatim: true
+  location: Section 3 (Judge Agent), Table 2
+  scale: multi-level score, normalized 0-1
+- term: History-taking skill
+  level: criterion
+  definition: Whether the model effectively gathers relevant clinical information across turns to support accurate differential diagnosis.
+  definition_verbatim: true
+  location: Section 3 (Judge Agent), Table 2
+  scale: multi-level score, normalized 0-1
+- term: Clinical appropriateness
+  level: dimension
+  definition: Judge Agent assesses each doctor response for clinical appropriateness, factual correctness and safety as the dialogue progresses (named in the contributions; operationalised through the criteria above).
+  definition_verbatim: false
+  location: Introduction, contributions
+notes: Table 2 (the per-level rubric) was not retrievable as text, so the point values of each level are not recorded. Appendix prompts also mention "interaction quality" and completeness in the Judge Agent prompt. Judge-vs-human agreement reported as MAE per metric (Table 3).

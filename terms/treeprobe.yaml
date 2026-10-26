@@ -1,0 +1,77 @@
+entry: treeprobe
+sources:
+- https://arxiv.org/abs/2608.00640
+extracted: '2026-10-26'
+terms:
+- term: Accuracy (MCQ)
+  level: metric
+  definition: Primary metric for multiple-choice items; each incorrect response is also logged by selected distractor category.
+  definition_verbatim: false
+  location: Section 5.2
+  scale: percent correct
+- term: Open-ended QA rubric
+  level: axis
+  definition: Unified five-dimensional rubric GPT-5.4 uses to score each open-ended answer.
+  definition_verbatim: false
+  location: Section 5.2
+  scale: 1-100
+- term: Accuracy
+  level: dimension
+  parent: Open-ended QA rubric
+  definition: factual consistency with authoritative Tibetan medical sources
+  definition_verbatim: true
+  location: Section 5.2; Appendix C
+  scale: LLM-judge score 1-100 (reported 0-1)
+- term: Helpfulness
+  level: dimension
+  parent: Open-ended QA rubric
+  definition: clinical and educational utility
+  definition_verbatim: true
+  location: Section 5.2; Appendix C
+  scale: LLM-judge score 1-100 (reported 0-1)
+- term: Linguistic Quality
+  level: dimension
+  parent: Open-ended QA rubric
+  definition: Tibetan grammar, terminology, and writing conventions
+  definition_verbatim: true
+  location: Section 5.2; Appendix C
+  scale: LLM-judge score 1-100 (reported 0-1)
+- term: Ontology Fidelity
+  level: dimension
+  parent: Open-ended QA rubric
+  definition: consistency with Tibetan medical reasoning without TCM or biomedical substitution
+  definition_verbatim: true
+  location: Section 5.2; Appendix C
+  scale: LLM-judge score 1-100 (reported 0-1)
+- term: Completeness
+  level: dimension
+  parent: Open-ended QA rubric
+  definition: coverage of the required answer points
+  definition_verbatim: true
+  location: Section 5.2; Appendix C
+  scale: LLM-judge score 1-100 (reported 0-1)
+- term: Ontology Drift Log-Odds (ODLO)
+  level: metric
+  definition: Measures the overall departure from the Tibetan ontology; the denominator represents intra-Tibetan distractor, with ODLO > 0 indicating drift toward external systems.
+  definition_verbatim: true
+  location: Section 5.3, Eq. 1
+  scale: log-odds
+- term: Biomedical-TCM Drift Log-Odds (BTD-LO)
+  level: metric
+  definition: Characterizes the direction of external drift, with BTD-LO > 0 indicating bias toward biomedicine and BTD-LO < 0 toward TCM.
+  definition_verbatim: true
+  location: Section 5.3, Eq. 2
+  scale: log-odds
+- term: Cross-ontology drift (TCM or biomedicine)
+  level: category
+  definition: MCQ error type where the model picks a TCM-based (TCD) or biomedicine-based (BID) distractor; reflects cultural bias.
+  definition_verbatim: false
+  location: Section 5.3
+  scale: count of selected distractors
+- term: Intra-Tibetan confusion
+  level: category
+  definition: MCQ error type where the model picks an intra-Tibetan distractor (ITD); reflects gaps in domain knowledge, not cultural bias.
+  definition_verbatim: false
+  location: Section 5.3
+  scale: count of selected distractors
+notes: Full text read via paperclip. Open-ended QA covers three subtasks (PR, CDR, CTP) judged by GPT-5.4.

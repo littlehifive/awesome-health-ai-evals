@@ -1,0 +1,31 @@
+entry: uphill
+sources:
+- https://arxiv.org/abs/2312.08800
+- https://aclanthology.org/2024.findings-acl.850/
+extracted: '2026-10-26'
+terms:
+- term: Accuracy
+  level: metric
+  definition: The proportion of model responses which agree with true claims, disagree with false claims, and are neutral for mixed claims present in the queries.
+  definition_verbatim: true
+  location: Section 2.4
+  scale: proportion per presupposition level; entailment-model labels agree/disagree/neutral
+- term: Consistency
+  level: metric
+  definition: The proportion of claims for which model’s responses have the same stance across all degrees of presuppositions.
+  definition_verbatim: true
+  location: Section 3 and Appendix A.3
+  scale: proportion
+- term: Abstention
+  level: other
+  definition: Share of responses that decline to answer (for example opening with “As an AI language model, I cannot…”).
+  definition_verbatim: false
+  location: Section 3
+  scale: percent
+- term: Agreement with fabricated claims
+  level: other
+  definition: Percentage of responses that agree, disagree, or are neutral toward fabricated claims.
+  definition_verbatim: false
+  location: Appendix A.5, Figure 4
+  scale: percent
+notes: Presupposition levels 0-4 are an input manipulation, not a scored term. Stance is assigned by an entailment model (GPT-3.5, F1 0.90 on 463 annotated pairs).

@@ -1,0 +1,17 @@
+entry: digital-patients-therapist-eval
+sources: [https://doi.org/10.1038/s44184-025-00159-1, https://pmc.ncbi.nlm.nih.gov/articles/PMC12433451/]
+extracted: 2026-10-26
+terms:
+  - term: "Session satisfaction (Questionnaire 1)"
+    level: dimension
+    definition: "A five-question questionnaire on the patient's overall satisfaction with the therapy session, completed by a patient LLM from the transcript, inspired by an existing satisfaction measure."
+    definition_verbatim: false
+    location: "Methods, Evaluating therapists with digital patients; item list in Supplementary Table 1"
+    scale: "1-5 per item (1 ineffective/unsatisfactory, 5 highly successful; reversed items standardised)"
+  - term: "Working alliance (Questionnaire 2)"
+    level: dimension
+    definition: "A 17-question questionnaire assessing the working alliance between patient and therapist, taken from a published working-alliance instrument."
+    definition_verbatim: false
+    location: "Methods, Evaluating therapists with digital patients; Supplementary Table 1"
+    scale: "1-5 per item"
+notes: "Individual questionnaire items are in Supplementary Table 1, which was not reached (22 items total), so item-level terms are not listed. Cronbach's alpha, Krippendorff's alpha and Pearson correlations validate the scoring method and are not terms. Patient parameters (age, gender, problem, cooperation) are test conditions, not scored."

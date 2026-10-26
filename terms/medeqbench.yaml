@@ -1,0 +1,35 @@
+entry: medeqbench
+sources: [https://github.com/AQ-MedAI/MedEQBench]
+extracted: 2026-10-26
+terms:
+  - term: Empathic Communication Competence
+    level: axis
+    definition: "Rubric domain covering how the response communicates with empathy in clinical conversation: Disease-Related Emotional Responsiveness, Clinical Inquiry Navigation, Therapeutic Affirmation, Jargon-to-Lay Translation, Clinical Register Adaptation, Information Architecture, Content Structuring and Emotionally-Integrated Interaction."
+    definition_verbatim: false
+    location: README, Evaluation Dimensions
+    scale: "per rubric item, anchored 0-4 or 0-5, weighted (e.g. {+6})"
+  - term: Clinical Emotional Literacy
+    level: axis
+    definition: "Rubric domain covering recognition and understanding of patient emotion: Emotional Transition, Mixed Affect States, Counterintuitive Emotional Outcomes, Cultural Contextualization, Personal Value Recognition, Role-Driven Affect Analysis, Implicit Signal Decoding, Attributional Reasoning, Clinical Miscommunication Contexts, Atypical Pathology-Affect Inference and Medical Misconception Resolution."
+    definition_verbatim: false
+    location: README, Evaluation Dimensions
+  - term: Affective Safety Praxis
+    level: axis
+    definition: "Rubric domain covering safe handling of emotional situations: Self-Regulation in Clinical Contexts, Safety-Centric Care Protocols and Personalized Intervention Design."
+    definition_verbatim: false
+    location: README, Evaluation Dimensions
+  - term: Disease-Related Emotional Responsiveness
+    level: dimension
+    parent: Empathic Communication Competence
+    definition: "Rubric item (Chinese label 疾病情绪及时响应): the answer's opening immediately and directly recognizes and responds to the core anxiety and worry, using warm, understanding language to establish emotional connection."
+    definition_verbatim: false
+    location: README, Data Example (rubric 1)
+    scale: weighted points (example {+6})
+  - term: Clinical Inquiry Navigation
+    level: dimension
+    parent: Empathic Communication Competence
+    definition: "Rubric item (诊疗信息引导提问): guides the user to give more information through caring questions that show a wish to understand the whole situation."
+    definition_verbatim: false
+    location: README, Data Example (rubric 2)
+    scale: weighted points (example {+1})
+notes: "README claims 22 dimensions across three domains plus about 20 atomic rubric items per scenario (8,000 in total, 400 scenarios) and lists 21 to 22 dimension names; only the first two are individually described via the data example, the rest are named in the domain bullets. No paper linked, so definitions are README paraphrases. Rubric coverage listed: emotion correctness and granularity, intensity and wording, reflective listening, non-blaming language, risk alerting and referral. Scoring uses anchored 0-4 or 0-5 levels with positive and negative examples; whether a judge model scores is not stated."

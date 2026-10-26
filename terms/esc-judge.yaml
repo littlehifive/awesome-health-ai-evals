@@ -1,0 +1,88 @@
+entry: esc-judge
+sources:
+- https://aclanthology.org/2025.emnlp-main.811/
+- https://aclanthology.org/2025.emnlp-main.811.pdf
+extracted: '2026-10-26'
+terms:
+- term: Exploration
+  level: category
+  definition: First of Hill's three macro-categories; the category score is the mean of its dimension-level pairwise wins.
+  definition_verbatim: false
+  location: Section 3, category-level comparison
+  scale: category preference by mean win rate over dimensions
+- term: Insight
+  level: category
+  definition: Second of Hill's macro-categories; the category score is the mean of its dimension-level pairwise wins.
+  definition_verbatim: false
+  location: Section 3, category-level comparison
+  scale: category preference by mean win rate over dimensions
+- term: Action
+  level: category
+  definition: Third of Hill's macro-categories; the category score is the mean of its dimension-level pairwise wins.
+  definition_verbatim: false
+  location: Section 3, category-level comparison
+  scale: category preference by mean win rate over dimensions
+- term: Empathic Understanding
+  level: dimension
+  parent: Exploration
+  definition: Evaluate how well the model conveys a deep understanding of the user’s inner emotional world, reflecting feelings and aligning with the client’s subjective experience.
+  definition_verbatim: true
+  location: Table 2, Section 3 (ESC-Judge rubric)
+  scale: pairwise preference per dimension (A, B, or tie)
+- term: Encouragement of Emotional Expression
+  level: dimension
+  parent: Exploration
+  definition: Determine if the model invites, explores, and validates emotional experiences—particularly helping the user articulate and tolerate difficult feelings.
+  definition_verbatim: true
+  location: Table 2, Section 3 (ESC-Judge rubric)
+  scale: pairwise preference per dimension (A, B, or tie)
+- term: Exploration of Thoughts and Narratives
+  level: dimension
+  parent: Exploration
+  definition: Judge how well the model facilitates discussion of the user’s thoughts, beliefs, and personal stories through open-ended questions and thoughtful restatements.
+  definition_verbatim: true
+  location: Table 2, Section 3 (ESC-Judge rubric)
+  scale: pairwise preference per dimension (A, B, or tie)
+- term: Establish a Trusting Foundation
+  level: dimension
+  parent: Insight
+  definition: Create rapport and safety through empathic listening before offering deeper insights or interpretations.
+  definition_verbatim: true
+  location: Table 2, Section 3 (ESC-Judge rubric)
+  scale: pairwise preference per dimension (A, B, or tie)
+- term: Assess Readiness for Insight
+  level: dimension
+  parent: Insight
+  definition: Notice cues (e.g., confusion, ambivalence) that signal whether to probe deeper; avoid pushing insight if the user seems unready.
+  definition_verbatim: true
+  location: Table 2, Section 3 (ESC-Judge rubric)
+  scale: pairwise preference per dimension (A, B, or tie)
+- term: Use Gentle Challenges and Interpretations
+  level: dimension
+  parent: Insight
+  definition: Offer new perspectives tentatively, encouraging exploration of contradictions or underlying motives rather than dictating answers.
+  definition_verbatim: true
+  location: Table 2, Section 3 (ESC-Judge rubric)
+  scale: pairwise preference per dimension (A, B, or tie)
+- term: Clarify the Desired Change
+  level: dimension
+  parent: Action
+  definition: Invite exploration of the exact behaviour, situation, or decision the user wants to address, ensuring a specific goal before action planning.
+  definition_verbatim: true
+  location: Table 2, Section 3 (ESC-Judge rubric)
+  scale: pairwise preference per dimension (A, B, or tie)
+- term: Ensure Readiness and Collaboration
+  level: dimension
+  parent: Action
+  definition: Check motivation to change and co-create action plans, respecting self-determination and context.
+  definition_verbatim: true
+  location: Table 2, Section 3 (ESC-Judge rubric)
+  scale: pairwise preference per dimension (A, B, or tie)
+- term: Brainstorm and Evaluate Options
+  level: dimension
+  parent: Action
+  definition: Help generate multiple ideas, weigh feasibility, benefits, and challenges, and align options with values and needs.
+  definition_verbatim: true
+  location: Table 2, Section 3 (ESC-Judge rubric)
+  scale: pairwise preference per dimension (A, B, or tie)
+notes: Judge is o1-mini, sampled twice with positions swapped; disagreement becomes a tie. Results are reported per Hill category, not as one scalar. Judge-human agreement is reported per category and per dimension (Section 4).

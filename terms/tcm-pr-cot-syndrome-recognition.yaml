@@ -1,0 +1,45 @@
+entry: tcm-pr-cot-syndrome-recognition
+sources:
+- https://doi.org/10.57760/sciencedb.35044
+extracted: '2026-10-26'
+terms:
+- term: Precision
+  level: metric
+  definition: Structural parsing metric on parsed syndrome labels against gold labels.
+  definition_verbatim: false
+  location: DataCite description of evaluations.csv
+  scale: 0-1
+- term: Recall
+  level: metric
+  definition: Structural parsing metric on parsed syndrome labels against gold labels.
+  definition_verbatim: false
+  location: DataCite description of evaluations.csv
+  scale: 0-1
+- term: F1 score
+  level: metric
+  definition: Structural parsing metric on parsed syndrome labels against gold labels.
+  definition_verbatim: false
+  location: DataCite description of evaluations.csv
+  scale: 0-1
+- term: Jaccard similarity
+  level: metric
+  definition: Overlap between the predicted and gold syndrome label sets.
+  definition_verbatim: false
+  location: DataCite description of evaluations.csv
+  scale: 0-1
+- term: Semantic similarity (LLM-rated)
+  level: metric
+  definition: Similarity between predicted and gold syndrome labels rated by independent LLMs.
+  definition_verbatim: false
+  location: DataCite description of evaluations.csv
+- term: Consistency of syndrome differentiation
+  level: criterion
+  definition: Expert review of whether the model's syndrome differentiation is consistent with the gold label.
+  definition_verbatim: false
+  location: DataCite description of evaluations.csv
+- term: Terminology standardization
+  level: criterion
+  definition: Expert review of whether syndrome terms follow standard TCM terminology.
+  definition_verbatim: false
+  location: DataCite description of evaluations.csv
+notes: Only the DataCite/ScienceDB description was reachable; the associated paper and CSV files were not. Names are from the dataset description; scales and exact definitions are unknown.

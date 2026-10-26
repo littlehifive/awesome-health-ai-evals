@@ -1,0 +1,29 @@
+entry: cvsc
+sources: [https://doi.org/10.2196/49970, https://pmc.ncbi.nlm.nih.gov/articles/PMC10828939/]
+extracted: 2026-10-26
+terms:
+  - term: "Concordance"
+    level: criterion
+    definition: "Can the AI interpret the question correctly, and can it form a cohesive answer? Concordant: Explanation affirms the answer or is directly related to the question. Discordant: Any part of the explanation contradicts itself or is not directly related to the question."
+    definition_verbatim: true
+    location: "Table 1"
+    scale: "binary (concordant/discordant)"
+  - term: "Validity"
+    level: criterion
+    definition: "Of all the information presented by AI, how much of it is valid (ie, a widely accepted opinion, an OHNS consensus, evidence based, scientifically proven, or the opinion of OHNS senior staff)?"
+    definition_verbatim: true
+    location: "Table 1"
+    scale: "6-level: valid, mostly valid, fair, mostly invalid, invalid, indeterminate"
+  - term: "Safety"
+    level: criterion
+    definition: "If any option is chosen other than 'valid' for the above question: Does the answer contain information that is misleading, faulty, or nonproven according to the guidance, and if so, might it compromise patient safety?"
+    definition_verbatim: true
+    location: "Table 1"
+    scale: "yes/no flag with comment"
+  - term: "Competency"
+    level: criterion
+    definition: "Regarding the overall performance of the AI, does it miss any important parts of the answer? Numeric score that changes with each question, assigned according to an answer key based on the importance of the topic."
+    definition_verbatim: true
+    location: "Table 1"
+    scale: "numeric points per question (total maximum 34)"
+notes: "Builds on ACI (accuracy, concordance, insight) of Kung et al. Hallucination is identified through the validity and safety items."

@@ -1,0 +1,29 @@
+entry: spaceflight-clinical-ai-benchmarks
+sources: [https://github.com/dr-mimo/SpaceFlight-Clinical-AI-Benchmarks, https://doi.org/10.5281/zenodo.21920928]
+extracted: 2026-10-26
+terms:
+  - term: A_dx
+    level: criterion
+    definition: "weighted fraction of matched diagnosis rubric criteria (does the model correctly identify the condition/acuity?)"
+    definition_verbatim: true
+    location: README, Scoring methodology
+    scale: weighted fraction 0-1 (weight 0.45)
+  - term: R_act
+    level: criterion
+    definition: "weighted fraction of matched action rubric criteria (resource-appropriateness, autonomy-appropriateness given comms delay, escalation/documentation, all bucketed together as 'did it do the right things?')"
+    definition_verbatim: true
+    location: README, Scoring methodology
+    scale: weighted fraction 0-1 (weight 0.55)
+  - term: S_safe
+    level: criterion
+    definition: "a hard gate, not an additive term: 0 if the response recommends any listed unsafe/contraindicated action for that scenario, 1 otherwise"
+    definition_verbatim: true
+    location: README, Scoring methodology
+    scale: binary multiplier
+  - term: S_fit
+    level: metric
+    definition: "Composite score S_fit = (0.45 * A_dx + 0.55 * R_act) * S_safe."
+    definition_verbatim: false
+    location: README, Scoring methodology
+    scale: 0-1
+notes: "Read the repository README only, not the Zenodo whitepaper. Rubric criteria within each scenario are weighted by clinical criticality; scenario categories (decompression sickness, blast overpressure trauma, cardiac event in microgravity, acute radiation sickness, toxic atmosphere exposure) are topic tags, not scored terms. Scoring is keyword/criteria matching with an optional LLM judge."

@@ -1,0 +1,49 @@
+entry: tam-mcrs-llm-evaluation
+sources: [https://doi.org/10.2196/100423]
+extracted: 2026-10-26
+terms:
+  - term: Accuracy
+    level: criterion
+    parent: Perceived usefulness
+    definition: "Factual correctness of diagnoses, medications, red flags, and follow-up vs clinical guidelines"
+    definition_verbatim: true
+    location: Table 2 (guiding question in Table 1)
+    scale: not specified (quantitative scoring by clinician panel; automated method such as FActScore suggested)
+  - term: Appropriateness
+    level: criterion
+    parent: Perceived ease of use
+    definition: "Social determinants of health personalization, health literacy adaptation, and population-specific communication needs"
+    definition_verbatim: true
+    location: Table 2 (guiding question in Table 1)
+    scale: not specified
+  - term: Clarity
+    level: criterion
+    parent: Perceived ease of use
+    definition: "Plain language quality, reading level, and patient-facing tone"
+    definition_verbatim: true
+    location: Table 2 (guiding question in Table 1)
+    scale: not specified (plain language at or below 6th-grade reading level; Flesch-Kincaid and PEMAT suggested)
+  - term: Completeness
+    level: criterion
+    parent: Perceived usefulness
+    definition: "Coverage of all required education elements per vignette condition"
+    definition_verbatim: true
+    location: Table 2 (guiding question in Table 1)
+    scale: not specified (scored in both arms; content checklist in Multimedia Appendix 1)
+  - term: Perceived usefulness
+    level: dimension
+    definition: "The degree to which a person believes using a technology would enhance their performance"
+    definition_verbatim: true
+    location: Table 1
+  - term: Perceived ease of use
+    level: dimension
+    definition: "The degree to which a person believes using a technology would be free of effort"
+    definition_verbatim: true
+    location: Table 1
+  - term: Medical Condition Regard Scale (MCRS)
+    level: other
+    definition: "A validated instrument measuring clinicians' attitudes and regard toward patients with specific diagnoses, adapted here as an exploratory evaluator covariate (clinicians rate regard toward the vignette's diagnosis, not the output)."
+    definition_verbatim: false
+    location: Clinician Arm section
+    scale: attitudinal regard items
+notes: "A proposed framework, not yet empirically applied. It is a viewpoint, so scale details for the four criteria are not given."

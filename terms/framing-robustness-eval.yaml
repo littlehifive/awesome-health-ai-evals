@@ -1,0 +1,98 @@
+entry: framing-robustness-eval
+sources:
+- https://github.com/m-kumpf/llm-framing-reactivity
+- https://doi.org/10.5281/zenodo.23510630
+extracted: '2026-10-26'
+terms:
+- term: Validation of emotion/experience or expressing concern
+  level: criterion
+  parent: Ruben 13-item interpersonal communication rubric
+  definition: Acknowledging patient emotion or experience or expressing concern
+  definition_verbatim: true
+  location: Comp2_framing-reactivity/codebook.json, item 1 (item_01_validation_concern)
+  scale: 3-point ordinal (1 not present, 2 somewhat present, 3 very present), frequency and intensity
+- term: Reassurance
+  level: criterion
+  parent: Ruben 13-item interpersonal communication rubric
+  definition: Statements aimed at reducing worry
+  definition_verbatim: true
+  location: Comp2_framing-reactivity/codebook.json, item 2 (item_02_reassurance)
+  scale: 3-point ordinal (1 not present, 2 somewhat present, 3 very present), frequency and intensity
+- term: Personalized/active listening
+  level: criterion
+  parent: Ruben 13-item interpersonal communication rubric
+  definition: Tailoring responses to specific patient details, reflecting personal understanding, reflecting back what the patient said
+  definition_verbatim: true
+  location: Comp2_framing-reactivity/codebook.json, item 3 (item_03_personalised_listening)
+  scale: 3-point ordinal (1 not present, 2 somewhat present, 3 very present), frequency and intensity
+- term: Encourages follow-up
+  level: criterion
+  parent: Ruben 13-item interpersonal communication rubric
+  definition: Encouraging the patient to ask further questions or seek medical care
+  definition_verbatim: true
+  location: Comp2_framing-reactivity/codebook.json, item 4 (item_04_encourages_followup)
+  scale: 3-point ordinal (1 not present, 2 somewhat present, 3 very present), frequency and intensity
+- term: Structured responses
+  level: criterion
+  parent: Ruben 13-item interpersonal communication rubric
+  definition: Presence of step-by-step guidance and a clear breakdown of actions to take
+  definition_verbatim: true
+  location: Comp2_framing-reactivity/codebook.json, item 5 (item_05_structured_response)
+  scale: 3-point ordinal (1 not present, 2 somewhat present, 3 very present), frequency and intensity
+- term: Non-judgmental language
+  level: criterion
+  parent: Ruben 13-item interpersonal communication rubric
+  definition: Avoidance of harsh or dismissive language. Instead, using non-judgmental terms
+  definition_verbatim: true
+  location: Comp2_framing-reactivity/codebook.json, item 6 (item_06_nonjudgmental_language)
+  scale: 3-point ordinal (1 not present, 2 somewhat present, 3 very present), frequency and intensity
+- term: Praising patient for seeking help
+  level: criterion
+  parent: Ruben 13-item interpersonal communication rubric
+  definition: Praising the patient for taking action or seeking help
+  definition_verbatim: true
+  location: Comp2_framing-reactivity/codebook.json, item 7 (item_07_praising_help_seeking)
+  scale: 3-point ordinal (1 not present, 2 somewhat present, 3 very present), frequency and intensity
+- term: Use of medical jargon
+  level: criterion
+  parent: Ruben 13-item interpersonal communication rubric
+  definition: Used specialized terminology, language, or phrases that are technical, complex, or difficult for individuals without medical training to understand
+  definition_verbatim: true
+  location: Comp2_framing-reactivity/codebook.json, item 8 (item_08_medical_jargon)
+  scale: 3-point ordinal (1 not present, 2 somewhat present, 3 very present), frequency and intensity
+- term: Gave off impression of being hurried or rushed
+  level: criterion
+  parent: Ruben 13-item interpersonal communication rubric
+  definition: Response delivered quickly, without much attention to detail or thoroughness
+  definition_verbatim: true
+  location: Comp2_framing-reactivity/codebook.json, item 9 (item_09_hurried_impression)
+  scale: 3-point ordinal (1 not present, 2 somewhat present, 3 very present), frequency and intensity
+- term: Incorporation of psychosocial/emotional information
+  level: criterion
+  parent: Ruben 13-item interpersonal communication rubric
+  definition: Addresses aspects of the patient’s life beyond the physical or medical condition such as relationships, work, finances, culture, emotions, stress, and emotional wellbeing, among others
+  definition_verbatim: true
+  location: Comp2_framing-reactivity/codebook.json, item 10 (item_10_psychosocial_info)
+  scale: 3-point ordinal (1 not present, 2 somewhat present, 3 very present), frequency and intensity
+- term: Incorporation of biomedical information
+  level: criterion
+  parent: Ruben 13-item interpersonal communication rubric
+  definition: Focus on the physical and biological aspects of the patient’s condition such as clinical data, medical procedures, or physiological explanations
+  definition_verbatim: true
+  location: Comp2_framing-reactivity/codebook.json, item 11 (item_11_biomedical_info)
+  scale: 3-point ordinal (1 not present, 2 somewhat present, 3 very present), frequency and intensity
+- term: Directive language
+  level: criterion
+  parent: Ruben 13-item interpersonal communication rubric
+  definition: Gives clear, specific instructions on what the patient should do
+  definition_verbatim: true
+  location: Comp2_framing-reactivity/codebook.json, item 12 (item_12_directive_language)
+  scale: 3-point ordinal (1 not present, 2 somewhat present, 3 very present), frequency and intensity
+- term: Collaborative language
+  level: criterion
+  parent: Ruben 13-item interpersonal communication rubric
+  definition: Engages the patient in decision-making by giving options that emphasize shared decision-making and mutual respect
+  definition_verbatim: true
+  location: Comp2_framing-reactivity/codebook.json, item 13 (item_13_collaborative_language)
+  scale: 3-point ordinal (1 not present, 2 somewhat present, 3 very present), frequency and intensity
+notes: Thirteen items from codebook.json, scored by an LLM judge (deepseek-v4-flash) validated against 210 double-coded human ratings. The README also mentions deterministic text metrics (Tier 1) and a GoEmotions emotion classifier (Tier 2) as additional quantifications of communication style; their individual metric names were not read. Definitions are copied from the codebook's definition field; the codebook also gives examples per item.

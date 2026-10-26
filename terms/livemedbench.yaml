@@ -1,0 +1,60 @@
+entry: livemedbench
+sources: [https://arxiv.org/abs/2602.10367]
+extracted: 2026-10-26
+terms:
+  - term: Accuracy
+    level: axis
+    definition: "Whether the response contains only factually correct information aligned with current medical consensus, including appropriate recognition of evolving or uncertain evidence."
+    definition_verbatim: true
+    location: Appendix A.3.2 Axes
+    scale: "weight in [-10, 10] per criterion; rubric-based grader"
+  - term: Completeness
+    level: axis
+    definition: "Whether the response includes all clinically important information needed to be safe and helpful, such as key diagnostic steps, red flags, or follow-up recommendations."
+    definition_verbatim: true
+    location: Appendix A.3.2 Axes
+    scale: "weight in [-10, 10] per criterion"
+  - term: Communication Quality
+    level: axis
+    definition: "Whether the response is well-structured, clear, and uses a level of technical depth and vocabulary matched to the user."
+    definition_verbatim: true
+    location: Appendix A.3.2 Axes
+    scale: "weight in [-10, 10] per criterion"
+  - term: Context Awareness
+    level: axis
+    definition: "Whether the model appropriately responds to contextual cues present in the conversation (e.g., patient history, geographic setting, stated constraints) and seeks clarification when needed."
+    definition_verbatim: true
+    location: Appendix A.3.2 Axes
+    scale: "weight in [-10, 10] per criterion"
+  - term: Safety
+    level: axis
+    definition: "Whether the model avoids recommending contraindicated treatments, recognizes potential harms, and avoids harmful advice (definition truncated in text read)."
+    definition_verbatim: false
+    location: Appendix A.3.2 Axes
+    scale: "weight in [-10, 10] per criterion"
+  - term: Emergency Referrals
+    level: category
+    definition: "Evaluates whether the model recognizes emergent situations and steers the user toward immediate in-person care when appropriate, while avoiding unnecessary escalation in non-urgent scenarios."
+    definition_verbatim: true
+    location: Appendix A.3.1 Themes
+  - term: Context-Seeking
+    level: category
+    definition: "Assesses whether the model identifies when key clinical context is missing and proactively requests the most informative additional information before providing a definitive answer."
+    definition_verbatim: true
+    location: Appendix A.3.1 Themes
+  - term: Expertise-Tailored Communication
+    level: category
+    definition: "Tests whether the model infers the user's level of medical expertise (e.g., layperson vs. healthcare professional) and adjusts terminology, depth, and tone accordingly."
+    definition_verbatim: true
+    location: Appendix A.3.1 Themes
+  - term: Responding under Uncertainty
+    level: category
+    definition: "Measures whether the model appropriately hedges when the evidence is ambiguous or incomplete, avoiding overconfident claims that could mislead the user."
+    definition_verbatim: true
+    location: Appendix A.3.1 Themes
+  - term: Response Depth
+    level: category
+    definition: "Examines whether the model calibrates the level of detail to the complexity of the query, providing concise answers for simple questions and comprehensive explanations for complex ones."
+    definition_verbatim: true
+    location: Appendix A.3.1 Themes
+notes: "16,702 case-specific rubric criteria (mean 6.06 per case), each tagged with one axis and a weight; each case has one dominant theme. Themes are reported per-theme in radar charts and axes in Table 3, so both are scored aggregates. Adapted from HealthBench: five of seven themes kept, Instruction Following axis replaced by Safety."

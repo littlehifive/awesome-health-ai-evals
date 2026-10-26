@@ -1,0 +1,102 @@
+entry: expertmedqa
+sources:
+- https://arxiv.org/abs/2310.11266
+extracted: '2026-10-26'
+terms:
+- term: Factual Accuracy of Answer
+  level: criterion
+  definition: Evaluators scrutinized the factual correctness embedded within the answers, ensuring alignment with recognized medical knowledge, and validating the supporting citations for accuracy and relevance.
+  definition_verbatim: true
+  location: 'Methods: Evaluation Criteria'
+  scale: 1 (Not Very) to 5 (Very Much) Likert
+- term: Adequacy of the Answer
+  level: criterion
+  definition: The depth, breadth, and relevance of each answer were examined to ascertain whether it adequately addressed the posed question in its entirety.
+  definition_verbatim: true
+  location: 'Methods: Evaluation Criteria'
+  scale: 1 (Not Very) to 5 (Very Much) Likert
+- term: Correctness in Formatting
+  level: criterion
+  definition: The presentation and layout of answers were reviewed, taking into account the logical structuring, coherence of content, use of markdown formatting for enhanced clarity, and adherence to citation formatting standards.
+  definition_verbatim: true
+  location: 'Methods: Evaluation Criteria'
+  scale: 1 (Not Very) to 5 (Very Much) Likert
+- term: Clarity & Precision
+  level: criterion
+  definition: Each answer's clarity in articulating complex medical information was assessed, with a focus on the precision of terminologies and phrasing, ensuring they were apt for an expert reader audience.
+  definition_verbatim: true
+  location: 'Methods: Evaluation Criteria'
+  scale: 1 (Not Very) to 5 (Very Much) Likert
+- term: Citation Relevance and Appropriateness
+  level: criterion
+  definition: The relevance and appropriateness of citations within the answers were evaluated, with a spotlight on the credibility of the sources and the efficacy with which they supported the attributed statements.
+  definition_verbatim: true
+  location: 'Methods: Evaluation Criteria'
+  scale: 1 (Not Very) to 5 (Very Much) Likert
+- term: Safety
+  level: criterion
+  definition: Preference-based axis in the head-to-head comparison against Med-PaLM and Med-PaLM 2 (identical axes to Singhal et al. 2023); not defined in this paper.
+  definition_verbatim: false
+  location: 'Results: preference ranking'
+  scale: three-way preference ranking
+- term: Expertise Required to Answer
+  level: axis
+  definition: Dataset-validation axis rated for the question (not the answer), anchored 1 (accessible to the General Public) to 5 (demands expertise at the level of a Field Expert).
+  definition_verbatim: false
+  location: 'Methods: dataset validation, ten axes'
+  scale: 1-5 Likert
+- term: Clarity of the Question
+  level: axis
+  definition: Dataset-validation axis rated for the question (not the answer), anchored 1 (Very Confusing/Not Clear) to 5 (Very Clear/Straightforward).
+  definition_verbatim: false
+  location: 'Methods: dataset validation, ten axes'
+  scale: 1-5 Likert
+- term: Depth of Knowledge Required
+  level: axis
+  definition: Dataset-validation axis rated for the question (not the answer), anchored 1 (requires Surface Level Knowledge) to 5 (necessitates In-depth Understanding).
+  definition_verbatim: false
+  location: 'Methods: dataset validation, ten axes'
+  scale: 1-5 Likert
+- term: Relevance to Current Trends/Research
+  level: axis
+  definition: Dataset-validation axis rated for the question (not the answer), anchored 1 (Outdated/Not Relevant) to 5 (Highly Pertinent to Current Practices/Research).
+  definition_verbatim: false
+  location: 'Methods: dataset validation, ten axes'
+  scale: 1-5 Likert
+- term: Specificity of the Question
+  level: axis
+  definition: Dataset-validation axis rated for the question (not the answer), anchored 1 (Very General/Can be applied to many topics) to 5 (Highly Specific to a Particular Topic/Area).
+  definition_verbatim: false
+  location: 'Methods: dataset validation, ten axes'
+  scale: 1-5 Likert
+- term: Potential for Critical Thinking
+  level: axis
+  definition: Dataset-validation axis rated for the question (not the answer), anchored 1 (Purely Factual/Recall-based) to 5 (mandates Critical Analysis/Deep Thought).
+  definition_verbatim: false
+  location: 'Methods: dataset validation, ten axes'
+  scale: 1-5 Likert
+- term: The Breadth of the Topic Covered
+  level: axis
+  definition: Dataset-validation axis rated for the question (not the answer), anchored 1 (Focuses on a Very Narrow Area) to 5 (Encompasses a Broad Spectrum of the Field).
+  definition_verbatim: false
+  location: 'Methods: dataset validation, ten axes'
+  scale: 1-5 Likert
+- term: Originality of the Question
+  level: axis
+  definition: Dataset-validation axis rated for the question (not the answer), anchored 1 (Commonly Asked/Typical Question) to 5 (offers a Unique/Original Perspective).
+  definition_verbatim: false
+  location: 'Methods: dataset validation, ten axes'
+  scale: 1-5 Likert
+- term: Importance in Clinical or Research Setting
+  level: axis
+  definition: Dataset-validation axis rated for the question (not the answer), anchored 1 (Rarely Relevant) to 5 (Frequently Encountered/Key Concept).
+  definition_verbatim: false
+  location: 'Methods: dataset validation, ten axes'
+  scale: 1-5 Likert
+- term: Applicability for Assessment
+  level: axis
+  definition: Dataset-validation axis rated for the question (not the answer), anchored 1 (Not Suitable for Testing Knowledge) to 5 (Ideal for Gauging Expertise/Understanding).
+  definition_verbatim: false
+  location: 'Methods: dataset validation, ten axes'
+  scale: 1-5 Likert
+notes: The five answer-scoring criteria quote the paper. The ten axes rate the questions for dataset validation (rated by clinicians), so they judge items rather than model outputs; recorded because the paper calls them axes, with the anchors as the definition. The Safety axis is only named in the Med-PaLM comparison results.

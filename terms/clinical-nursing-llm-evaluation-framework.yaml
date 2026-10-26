@@ -1,0 +1,247 @@
+entry: clinical-nursing-llm-evaluation-framework
+sources:
+- https://doi.org/10.1155/jonm/9524014
+- https://pmc.ncbi.nlm.nih.gov/articles/PMC13538949/
+extracted: '2026-10-26'
+terms:
+- term: Performance and accuracy
+  level: dimension
+  definition: Quantitatively measures a model's effectiveness on clinical nursing tasks against a definitive gold standard (objective classification, prediction and retrieval metrics).
+  definition_verbatim: false
+  location: Section 3.3 (evaluation metrics), Figure 3
+- term: accuracy
+  level: metric
+  parent: Performance and accuracy
+  definition: Metric extracted from the scoping review and grouped under Performance and accuracy; no separate definition is given.
+  definition_verbatim: false
+  location: Section 3.3, Figure 3
+- term: precision/PPV
+  level: metric
+  parent: Performance and accuracy
+  definition: Metric extracted from the scoping review and grouped under Performance and accuracy; no separate definition is given.
+  definition_verbatim: false
+  location: Section 3.3, Figure 3
+- term: NPV
+  level: metric
+  parent: Performance and accuracy
+  definition: Metric extracted from the scoping review and grouped under Performance and accuracy; no separate definition is given.
+  definition_verbatim: false
+  location: Section 3.3, Figure 3
+- term: recall/sensitivity
+  level: metric
+  parent: Performance and accuracy
+  definition: Metric extracted from the scoping review and grouped under Performance and accuracy; no separate definition is given.
+  definition_verbatim: false
+  location: Section 3.3, Figure 3
+- term: specificity
+  level: metric
+  parent: Performance and accuracy
+  definition: Metric extracted from the scoping review and grouped under Performance and accuracy; no separate definition is given.
+  definition_verbatim: false
+  location: Section 3.3, Figure 3
+- term: F1 score
+  level: metric
+  parent: Performance and accuracy
+  definition: Metric extracted from the scoping review and grouped under Performance and accuracy; no separate definition is given.
+  definition_verbatim: false
+  location: Section 3.3, Figure 3
+- term: F2 score
+  level: metric
+  parent: Performance and accuracy
+  definition: Metric extracted from the scoping review and grouped under Performance and accuracy; no separate definition is given.
+  definition_verbatim: false
+  location: Section 3.3, Figure 3
+- term: BERT score
+  level: metric
+  parent: Performance and accuracy
+  definition: Metric extracted from the scoping review and grouped under Performance and accuracy; no separate definition is given.
+  definition_verbatim: false
+  location: Section 3.3, Figure 3
+- term: AUC
+  level: metric
+  parent: Performance and accuracy
+  definition: Metric extracted from the scoping review and grouped under Performance and accuracy; no separate definition is given.
+  definition_verbatim: false
+  location: Section 3.3, Figure 3
+- term: Clinical validity and safety
+  level: dimension
+  definition: Assesses the clinical appropriateness, quality, and potential for harm in the model's generated content, typically by clinical expert judgement.
+  definition_verbatim: false
+  location: Section 3.3 (evaluation metrics), Figure 3
+- term: factuality
+  level: metric
+  parent: Clinical validity and safety
+  definition: Metric extracted from the scoping review and grouped under Clinical validity and safety; no separate definition is given.
+  definition_verbatim: false
+  location: Section 3.3, Figure 3
+- term: consistency
+  level: metric
+  parent: Clinical validity and safety
+  definition: Metric extracted from the scoping review and grouped under Clinical validity and safety; no separate definition is given.
+  definition_verbatim: false
+  location: Section 3.3, Figure 3
+- term: completeness
+  level: metric
+  parent: Clinical validity and safety
+  definition: Metric extracted from the scoping review and grouped under Clinical validity and safety; no separate definition is given.
+  definition_verbatim: false
+  location: Section 3.3, Figure 3
+- term: relevance
+  level: metric
+  parent: Clinical validity and safety
+  definition: Metric extracted from the scoping review and grouped under Clinical validity and safety; no separate definition is given.
+  definition_verbatim: false
+  location: Section 3.3, Figure 3
+- term: clinical prioritization
+  level: metric
+  parent: Clinical validity and safety
+  definition: Metric extracted from the scoping review and grouped under Clinical validity and safety; no separate definition is given.
+  definition_verbatim: false
+  location: Section 3.3, Figure 3
+- term: error type
+  level: metric
+  parent: Clinical validity and safety
+  definition: Metric extracted from the scoping review and grouped under Clinical validity and safety; no separate definition is given.
+  definition_verbatim: false
+  location: Section 3.3, Figure 3
+- term: guidance
+  level: metric
+  parent: Clinical validity and safety
+  definition: Metric extracted from the scoping review and grouped under Clinical validity and safety; no separate definition is given.
+  definition_verbatim: false
+  location: Section 3.3, Figure 3
+- term: Workflow integration and efficiency
+  level: dimension
+  definition: 'Evaluates the model''s impact on existing nursing workflows: streamlining processes, reducing administrative burden, enhancing productivity.'
+  definition_verbatim: false
+  location: Section 3.3 (evaluation metrics), Figure 3
+- term: response time
+  level: metric
+  parent: Workflow integration and efficiency
+  definition: Metric extracted from the scoping review and grouped under Workflow integration and efficiency; no separate definition is given.
+  definition_verbatim: false
+  location: Section 3.3, Figure 3
+- term: task completion efficiency
+  level: metric
+  parent: Workflow integration and efficiency
+  definition: Metric extracted from the scoping review and grouped under Workflow integration and efficiency; no separate definition is given.
+  definition_verbatim: false
+  location: Section 3.3, Figure 3
+- term: communication efficiency
+  level: metric
+  parent: Workflow integration and efficiency
+  definition: Metric extracted from the scoping review and grouped under Workflow integration and efficiency; no separate definition is given.
+  definition_verbatim: false
+  location: Section 3.3, Figure 3
+- term: Usability and user experience
+  level: dimension
+  definition: 'Assesses the subjective experience of clinical end-users: satisfaction, perceived usefulness, ease of use, affective interaction quality and fluency.'
+  definition_verbatim: false
+  location: Section 3.3 (evaluation metrics), Figure 3
+- term: satisfaction
+  level: metric
+  parent: Usability and user experience
+  definition: Metric extracted from the scoping review and grouped under Usability and user experience; no separate definition is given.
+  definition_verbatim: false
+  location: Section 3.3, Figure 3
+- term: perceived usefulness
+  level: metric
+  parent: Usability and user experience
+  definition: Metric extracted from the scoping review and grouped under Usability and user experience; no separate definition is given.
+  definition_verbatim: false
+  location: Section 3.3, Figure 3
+- term: ease of use
+  level: metric
+  parent: Usability and user experience
+  definition: Metric extracted from the scoping review and grouped under Usability and user experience; no separate definition is given.
+  definition_verbatim: false
+  location: Section 3.3, Figure 3
+- term: affective interaction quality
+  level: metric
+  parent: Usability and user experience
+  definition: Metric extracted from the scoping review and grouped under Usability and user experience; no separate definition is given.
+  definition_verbatim: false
+  location: Section 3.3, Figure 3
+- term: fluency
+  level: metric
+  parent: Usability and user experience
+  definition: Metric extracted from the scoping review and grouped under Usability and user experience; no separate definition is given.
+  definition_verbatim: false
+  location: Section 3.3, Figure 3
+- term: Model reliability and ethical considerations
+  level: dimension
+  definition: 'Addresses the soundness and dependability of the LLM: output stability, robustness, fairness/bias, and explainability.'
+  definition_verbatim: false
+  location: Section 3.3 (evaluation metrics), Figure 3
+- term: output stability
+  level: metric
+  parent: Model reliability and ethical considerations
+  definition: Metric extracted from the scoping review and grouped under Model reliability and ethical considerations; no separate definition is given.
+  definition_verbatim: false
+  location: Section 3.3, Figure 3
+- term: robustness
+  level: metric
+  parent: Model reliability and ethical considerations
+  definition: Metric extracted from the scoping review and grouped under Model reliability and ethical considerations; no separate definition is given.
+  definition_verbatim: false
+  location: Section 3.3, Figure 3
+- term: fairness/bias
+  level: metric
+  parent: Model reliability and ethical considerations
+  definition: Metric extracted from the scoping review and grouped under Model reliability and ethical considerations; no separate definition is given.
+  definition_verbatim: false
+  location: Section 3.3, Figure 3
+- term: explainability
+  level: metric
+  parent: Model reliability and ethical considerations
+  definition: Metric extracted from the scoping review and grouped under Model reliability and ethical considerations; no separate definition is given.
+  definition_verbatim: false
+  location: Section 3.3, Figure 3
+- term: speculative vocabulary
+  level: metric
+  parent: Model reliability and ethical considerations
+  definition: Metric extracted from the scoping review and grouped under Model reliability and ethical considerations; no separate definition is given.
+  definition_verbatim: false
+  location: Section 3.3, Figure 3
+- term: variable performance based on seniority
+  level: metric
+  parent: Model reliability and ethical considerations
+  definition: Metric extracted from the scoping review and grouped under Model reliability and ethical considerations; no separate definition is given.
+  definition_verbatim: false
+  location: Section 3.3, Figure 3
+- term: inconsistent accuracy across time periods
+  level: metric
+  parent: Model reliability and ethical considerations
+  definition: Metric extracted from the scoping review and grouped under Model reliability and ethical considerations; no separate definition is given.
+  definition_verbatim: false
+  location: Section 3.3, Figure 3
+- term: Competency development
+  level: dimension
+  definition: 'Evaluates how LLMs influence the professional growth of clinical users: clinical knowledge, skills, and overall competence.'
+  definition_verbatim: false
+  location: Section 3.3 (evaluation metrics), Figure 3
+- term: AI literacy
+  level: metric
+  parent: Competency development
+  definition: Metric extracted from the scoping review and grouped under Competency development; no separate definition is given.
+  definition_verbatim: false
+  location: Section 3.3, Figure 3
+- term: usage rate
+  level: metric
+  parent: Competency development
+  definition: Metric extracted from the scoping review and grouped under Competency development; no separate definition is given.
+  definition_verbatim: false
+  location: Section 3.3, Figure 3
+- term: communication skills improvement
+  level: metric
+  parent: Competency development
+  definition: Metric extracted from the scoping review and grouped under Competency development; no separate definition is given.
+  definition_verbatim: false
+  location: Section 3.3, Figure 3
+- term: critical thinking improvement
+  level: metric
+  parent: Competency development
+  definition: Metric extracted from the scoping review and grouped under Competency development; no separate definition is given.
+  definition_verbatim: false
+  location: Section 3.3, Figure 3
+notes: 37 metrics in six domains per the abstract; the metric list here is taken from the Section 3.3 narrative and the count is approximate (about 35 named), since the Figure 3 and appendix lists were not read. Domain descriptions are condensed paraphrases of the Results text. The paper also gives five scenario categories and a minimum technical reporting checklist, which are not scored terms. No scoring scale; the framework lists what to measure.

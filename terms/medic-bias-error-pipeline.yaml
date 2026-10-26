@@ -1,0 +1,33 @@
+entry: medic-bias-error-pipeline
+sources: [https://arxiv.org/abs/2511.02246, https://github.com/BBN-E/medic-neurips-2025-demo]
+extracted: 2026-10-26
+terms:
+  - term: Hallucination
+    level: criterion
+    definition: "identify any sentences in the ANSWER which are not consistent with current medical literature or might otherwise lead to patient harm"
+    definition_verbatim: true
+    location: Section 3 and Appendix 10.9.1 (hallucination judge prompt)
+    scale: "per-detection harm level and confidence; reported as Average number of Hallucinations per prompt (sentence level)"
+  - term: Omission
+    level: criterion
+    definition: "identify relevant missing information that could cause the answer to be harmful to a patient"
+    definition_verbatim: true
+    location: Section 3 and Appendix 10.9.2 (omission judge prompt)
+    scale: "per-detection harm level and confidence; reported as Average number of Omissions per prompt (whole response)"
+  - term: Treatment category
+    level: category
+    definition: Binary detectors label whether an answer recommends a given treatment category; reported as Average Rate of treatment category X.
+    definition_verbatim: false
+    location: Appendix 10.8 (metrics)
+    scale: binary per category
+  - term: Harm level
+    level: other
+    definition: Judge-assigned severity attached to each detected hallucination or omission, used for threshold tuning.
+    definition_verbatim: false
+    location: Section 3
+  - term: Cohen's kappa (inter-LLM agreement)
+    level: metric
+    definition: Agreement between pairs of LLM judges on detections; mean 0.118.
+    definition_verbatim: false
+    location: Section 4 Case Study, Table 1
+notes: "Treatment categories (such as prescription or lifestyle advice) were not itemized in the text read; only the binary-rate metric. Demographic bias is tested by comparing detection counts across gender, race and style variants of the same prompt. An agentic reviewer workflow re-checks harm levels."

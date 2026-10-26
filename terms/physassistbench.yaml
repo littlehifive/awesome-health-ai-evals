@@ -1,0 +1,51 @@
+entry: physassistbench
+sources: [https://arxiv.org/abs/2606.18613, https://github.com/qgpmzmf/PhysAssistBench]
+extracted: 2026-10-26
+terms:
+  - term: Rubric Score (mean rubric score, mRS)
+    level: metric
+    definition: "Each turn is scored by an LLM judge on several independent rubric items designed for the turn's task type; the score for a turn is the fraction of items passed, and the session-level Rubric Score averages the four turns."
+    definition_verbatim: false
+    location: Section 4, Rubric-Based Scoring
+    scale: "fraction of rubric items passed, 0-1 (reported as %)"
+  - term: Factual accuracy of reported values
+    level: criterion
+    parent: Rubric Score (mean rubric score, mRS)
+    definition: "Rubric item type: whether values reported from the EHR are factually accurate."
+    definition_verbatim: false
+    location: Section 4, Rubric-Based Scoring
+    scale: binary per item
+  - term: Correctness of clinical interpretation
+    level: criterion
+    parent: Rubric Score (mean rubric score, mRS)
+    definition: "Rubric item type: whether the clinical interpretation is correct."
+    definition_verbatim: false
+    location: Section 4, Rubric-Based Scoring
+    scale: binary per item
+  - term: Appropriate integration of prior session context
+    level: criterion
+    parent: Rubric Score (mean rubric score, mRS)
+    definition: "Rubric item type: whether the response appropriately uses earlier turns of the session."
+    definition_verbatim: false
+    location: Section 4, Rubric-Based Scoring
+    scale: binary per item
+  - term: Absence of hallucinated facts
+    level: criterion
+    parent: Rubric Score (mean rubric score, mRS)
+    definition: "Rubric item type: whether the response contains no hallucinated facts."
+    definition_verbatim: false
+    location: Section 4, Rubric-Based Scoring
+    scale: binary per item
+  - term: Pass@Turn
+    level: metric
+    definition: "The fraction of turns whose rubric score meets the threshold tau (binarised rubric score)."
+    definition_verbatim: true
+    location: Section 4, Pass@Turn and Pass@Session
+    scale: "fraction of turns, tau = .60 and .75"
+  - term: Pass@Session
+    level: metric
+    definition: "The fraction of sessions in which all four turns meet the threshold."
+    definition_verbatim: true
+    location: Section 4, Pass@Turn and Pass@Session
+    scale: "fraction of sessions, tau = .60 and .75"
+notes: "Tool use is judged implicitly through rubric scoring (correct EHR values imply correct tool calls). Rubric items are task-type specific (Information Lookup, Data Gathering, Clinical Reasoning, Write/Update) and were not listed individually; only the four item families named in the text are recorded. Judge is GPT-5.4-mini. Scenarios, task types, implicitness subtypes (Nominal Anaphora, Predicate Ellipsis, and a third) and data-richness tiers are slicing variables, not scored terms."

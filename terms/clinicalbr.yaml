@@ -1,0 +1,45 @@
+entry: clinicalbr
+sources:
+- https://arxiv.org/abs/2606.07853
+extracted: '2026-10-26'
+terms:
+- term: Diagnosis Accuracy
+  level: metric
+  definition: Accuracy of the predicted diagnosis against the reference diagnosis; an LLM judge (gpt-oss-120b) verifies semantically similar diagnoses and scores 1 or 0.
+  definition_verbatim: false
+  location: Section 3.3, 4.1.3
+  scale: binary per case, mean accuracy
+- term: Differential Diagnosis precision, recall and F1
+  level: metric
+  definition: Features extracted from the generated differential list are matched to UMLS CUIs and compared with the reference list (reported as precision, Recall@5, F1@5).
+  definition_verbatim: false
+  location: Section 3.4, 4.1.3, Figure 2
+  scale: 0-1
+- term: Exam Recommendation precision, recall and F1
+  level: metric
+  definition: Recommended exams are extracted, mapped to UMLS CUIs, and compared with reference exams using precision, recall and F1.
+  definition_verbatim: false
+  location: Section 3.4, 4.4, Figure 4
+  scale: 0-1
+- term: Treatment Accuracy
+  level: criterion
+  parent: Treatment Planning
+  definition: 'Treatment Accuracy measures the factual correctness of recommended elements, acting as a precision metric when comparing to the reference answer. (Judge prompt: whether the proposed interventions are clinically correct given the diagnosis and case context.)'
+  definition_verbatim: true
+  location: Section 3.5, 4.1.3
+  scale: 1-5 Likert, normalized to 0-1
+- term: Treatment Completeness
+  level: criterion
+  parent: Treatment Planning
+  definition: 'Treatment Completeness functions as a recall metric for the treatment space, comparing to the ground truth response. (Judge prompt: whether the response covers the components present in the gold treatment.)'
+  definition_verbatim: true
+  location: Section 3.5, 4.1.3
+  scale: 1-5 Likert, normalized to 0-1
+- term: Treatment Clarity
+  level: criterion
+  parent: Treatment Planning
+  definition: 'Treatment Clarity evaluates the clarity and organization of the output for usage in clinical contexts. (Judge prompt: whether the response is written in a clinically usable, standard format.)'
+  definition_verbatim: true
+  location: Section 3.5, 4.1.3
+  scale: 1-5 Likert, normalized to 0-1
+notes: Treatment plans are scored by three LLM judges (Qwen-2.5-72B, Llama-3.3-70B, gpt-oss-120b); the mean of the three Likert scores is scaled to 0-1. Reference differential-diagnosis lists are model-generated from the full case.

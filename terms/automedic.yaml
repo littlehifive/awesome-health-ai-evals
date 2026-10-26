@@ -1,0 +1,60 @@
+entry: automedic
+sources: [https://arxiv.org/abs/2512.10195, https://doi.org/10.1109/jbhi.2026.3703097]
+extracted: 2026-10-26
+terms:
+  - term: CARE metric
+    level: metric
+    definition: "Conversation efficiency and strategy, Accuracy, Robustness, and Empathy; quantitatively assesses the agent's performance across four distinct aspects"
+    definition_verbatim: true
+    location: Section 3 (evaluation stage)
+    scale: composite of four sub-scores
+  - term: Accuracy
+    level: dimension
+    parent: CARE metric
+    definition: "evaluate the diagnostic accuracy of the doctor agent, while also accounting for any performance degradation that occurs when moving from a static to a conversational setting"
+    definition_verbatim: true
+    location: Section 3, Eq. 1-2 (S_ACC)
+    scale: S_ACC = Acc_Conv x (Acc_Conv / Acc_QA)
+  - term: Conversational Efficiency & Strategy
+    level: dimension
+    parent: CARE metric
+    definition: "evaluates the doctor agent's conversational efficiency and its adherence to a natural, strategic dialogue flow"
+    definition_verbatim: true
+    location: Section 3 (S_CES)
+    scale: 1 / average words per turn if final answer correct, else 0
+  - term: Empathy
+    level: dimension
+    parent: CARE metric
+    definition: "assesses the empathetic quality of the doctor agent's communication"
+    definition_verbatim: true
+    location: Section 3 (S_EMP)
+    scale: 1-5 rating by the patient agent, averaged and normalized
+  - term: Robustness
+    level: dimension
+    parent: CARE metric
+    definition: "evaluates the conversational robustness of the doctor agent"
+    definition_verbatim: true
+    location: Section 3, Eq. 5 (S_ROB)
+    scale: proportion of conversations without failure
+  - term: Role-Breaking
+    level: criterion
+    parent: Robustness
+    definition: "The doctor agent self-simulates the entire interaction, playing the roles of other agents instead of interacting with them."
+    definition_verbatim: true
+    location: Section 3 (failure cases)
+    scale: binary failure flag
+  - term: Abrupt Termination
+    level: criterion
+    parent: Robustness
+    definition: "The conversation ends prematurely (defined as <= 3 turns) due to the doctor agent's failure to use the required tags, or due to an improperly placed end tag."
+    definition_verbatim: true
+    location: Section 3 (failure cases)
+    scale: binary failure flag
+  - term: Invalid Answer
+    level: criterion
+    parent: Robustness
+    definition: "After a seemingly normal conversation, the doctor agent fails to provide a valid answer to the final question (e.g., by providing an answer not listed in the options)."
+    definition_verbatim: true
+    location: Section 3 (failure cases)
+    scale: binary failure flag
+notes: Human validation uses the same four CARE dimensions rated on a 3-point scale by four licensed medical professionals (Table 3), with percent agreement and Gwet's AC2. Source QA items are multiple choice but the doctor agent is scored on the conversation.

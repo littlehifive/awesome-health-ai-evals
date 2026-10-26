@@ -1,0 +1,66 @@
+entry: medisumqa
+sources:
+- https://arxiv.org/abs/2502.03298
+extracted: '2026-10-26'
+terms:
+- term: ROUGE-1
+  level: metric
+  definition: Unigram lexical overlap between model answer and reference answer.
+  definition_verbatim: false
+  location: Section 3/4.2, Table 1
+  scale: 0-100
+- term: ROUGE-2
+  level: metric
+  definition: Bigram lexical overlap between model answer and reference answer.
+  definition_verbatim: false
+  location: Section 3/4.2, Table 1
+  scale: 0-100
+- term: ROUGE-L
+  level: metric
+  definition: Longest-common-subsequence lexical overlap between model answer and reference answer.
+  definition_verbatim: false
+  location: Section 3/4.2, Table 1
+  scale: 0-100
+- term: BERTScore
+  level: metric
+  definition: Semantic similarity using contextual embeddings (Bio_ClinicalBERT, rescaling baselines tuned for MIMIC-IV discharge summaries); reported as BERT F1.
+  definition_verbatim: false
+  location: Section 3, Table 1
+  scale: F1
+- term: UMLS F1
+  level: metric
+  definition: F1 of biomedical concepts (extracted with the UMLS parser scispaCy) shared between model answer and reference.
+  definition_verbatim: false
+  location: Section 3, Table 1
+  scale: F1
+- term: Factuality
+  level: criterion
+  definition: Manual physician rating of whether the answer is factually correct against the discharge summary (not defined further in the text read).
+  definition_verbatim: false
+  location: Section 4.3, Figure 4
+  scale: 1-5 (scores above 4.0 reported)
+- term: Brevity
+  level: criterion
+  definition: Manual physician rating of answer conciseness.
+  definition_verbatim: false
+  location: Section 4.3, Figure 4
+  scale: 1-5
+- term: Patient-friendliness
+  level: criterion
+  definition: Manual physician rating of whether the answer is phrased in patient-friendly language.
+  definition_verbatim: false
+  location: Section 4.3, Figure 4
+  scale: 1-5
+- term: Relevance
+  level: criterion
+  definition: Manual physician rating of whether the answer addresses the question.
+  definition_verbatim: false
+  location: Section 4.3, Figure 4
+  scale: 1-5
+- term: Safety
+  level: criterion
+  definition: Manual physician rating of the safety of the answer for a patient reader.
+  definition_verbatim: false
+  location: Section 4.3, Figure 4
+  scale: 1-5
+notes: Manual ratings by a physician on 100 answers comparing two models (Llama-3.1-8B-Instruct, Mistral-7B-Instruct-v0.1); definitions of the five manual criteria are paraphrased because the sections read give only the names and scores. Questions are also tagged with five content categories (Treatment & Hospital Course, Procedures & Tests, Medications, Symptoms & Complications, Diagnosis, Post-Discharge Care & Follow-Up), which are topic types and not scored.

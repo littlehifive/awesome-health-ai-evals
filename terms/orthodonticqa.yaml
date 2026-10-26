@@ -1,0 +1,27 @@
+entry: orthodonticqa
+sources:
+- https://doi.org/10.1101/2024.07.05.24309412
+extracted: '2026-10-26'
+terms:
+- term: F1 score
+  level: metric
+  definition: Token-level F1 between predicted and gold answer span (SQuAD-style extractive QA); best
+    model mean 77.61.
+  definition_verbatim: false
+  location: Abstract (medRxiv API); full text not reachable
+  scale: 0-100
+- term: Exact match
+  level: metric
+  definition: Exact string match between predicted and gold answer span.
+  definition_verbatim: false
+  location: Abstract/entry summary; full text not reachable
+  scale: percent
+- term: Human evaluation
+  level: other
+  definition: Human judgement of model answers on the test set; best model scored 100/114 (87.72%).
+  definition_verbatim: false
+  location: Abstract (medRxiv API)
+  scale: count of answers judged acceptable (rubric not seen)
+notes: The medRxiv full text was blocked (Cloudflare); terms come from the abstract and the entry file.
+  The human-evaluation rubric and exact-match reporting were not confirmed in the text. This is an extractive-QA
+  benchmark, so scoring is mostly automatic metrics.

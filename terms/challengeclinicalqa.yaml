@@ -1,0 +1,126 @@
+entry: challengeclinicalqa
+sources:
+- https://arxiv.org/abs/2402.18060
+- https://aclanthology.org/2025.naacl-long.182/
+extracted: '2026-10-26'
+terms:
+- term: Accuracy
+  level: metric
+  definition: Prediction compared to ground truth for the multiple-choice answer.
+  definition_verbatim: false
+  location: Section 4.1
+  scale: proportion correct
+- term: ROUGE-L
+  level: metric
+  parent: Explanation automatic metrics
+  definition: computes the surface-form similarity between model-generated explanations and reference
+    (gold) explanations.
+  definition_verbatim: true
+  location: Section 4.1 / Appendix B.3
+  scale: 0-1
+- term: BERTScore
+  level: metric
+  parent: Explanation automatic metrics
+  definition: computes the semantic similarity between model-generated and reference explanations based
+    on their contextual embeddings from BERT.
+  definition_verbatim: true
+  location: Section 4.1 / Appendix B.3
+  scale: 0-1
+- term: BLEURT
+  level: metric
+  parent: Explanation automatic metrics
+  definition: scores semantic similarity using a BERT model that was pre-trained on synthetic reference-candidate
+    pairs and then fine-tuned.
+  definition_verbatim: true
+  location: Section 4.1 / Appendix B.3
+  scale: learned score
+- term: BARTScore+
+  level: metric
+  parent: Explanation automatic metrics
+  definition: measure semantic similarity using a fine-tuned BART model (BARTScore+ and BARTScore++ variants).
+  definition_verbatim: true
+  location: Section 4.1 / Appendix B.3
+  scale: log-likelihood score
+- term: BARTScore++
+  level: metric
+  parent: Explanation automatic metrics
+  definition: measure semantic similarity using a fine-tuned BART model (BARTScore+ and BARTScore++ variants).
+  definition_verbatim: true
+  location: Section 4.1 / Appendix B.3
+  scale: log-likelihood score
+- term: CTC Consistency
+  level: metric
+  parent: Explanation automatic metrics
+  definition: CTC metrics evaluate the information alignment of model-generated explanations w.r.t. reference
+    explanations or inputs.
+  definition_verbatim: true
+  location: Section 4.1 / Appendix B.3
+  scale: 0-1
+- term: CTC Relevance
+  level: metric
+  parent: Explanation automatic metrics
+  definition: CTC metrics evaluate the information alignment of model-generated explanations w.r.t. reference
+    explanations or inputs.
+  definition_verbatim: true
+  location: Section 4.1 / Appendix B.3
+  scale: 0-1
+- term: CTC Preservation
+  level: metric
+  parent: Explanation automatic metrics
+  definition: CTC metrics evaluate the information alignment of model-generated explanations w.r.t. reference
+    explanations or inputs.
+  definition_verbatim: true
+  location: Section 4.1 / Appendix B.3
+  scale: 0-1
+- term: G-Eval Coherence
+  level: metric
+  parent: Explanation automatic metrics
+  definition: G-Eval utilizes an LLM (e.g., GPT-4) as the backbone model to score the quality of model-generated
+    explanations; coherence checks that the explanation covers the question's main topic and key points
+    in a clear and logical order.
+  definition_verbatim: false
+  location: Section 4.1 / Appendix B.3, Table 13
+  scale: 1-5
+- term: G-Eval Consistency
+  level: metric
+  parent: Explanation automatic metrics
+  definition: the factual alignment between the explanation and the question. A factually consistent explanation
+    contains only statements that are entailed by the question. Annotators were also asked to penalize
+    explanations that contained hallucinated facts.
+  definition_verbatim: true
+  location: Section 4.1 / Appendix B.3, Table 13
+  scale: 1-5
+- term: G-Eval Relevance
+  level: metric
+  parent: Explanation automatic metrics
+  definition: G-Eval LLM-scored relevance of the explanation to the question.
+  definition_verbatim: false
+  location: Section 4.1 / Appendix B.3, Table 13
+  scale: 1-5
+- term: Completeness
+  level: criterion
+  parent: Human evaluation of explanations
+  definition: whether the explanation sufficiently and convincingly justifies each answer choice as correct
+    or incorrect.
+  definition_verbatim: true
+  location: Section 4.4.2; Appendix C.4
+  scale: human rating per property, averaged over 3 annotators
+- term: Correctness
+  level: criterion
+  parent: Human evaluation of explanations
+  definition: whether the information provided in the explanation is correct.
+  definition_verbatim: true
+  location: Section 4.4.2; Appendix C.4
+  scale: human rating per property, averaged over 3 annotators
+- term: Relevance
+  level: criterion
+  parent: Human evaluation of explanations
+  definition: whether the explanation is relevant to the question. A relevant explanation only includes
+    information related to the question and explains how provided information relates to the question.
+  definition_verbatim: true
+  location: Section 4.4.2; Appendix C.4
+  scale: human rating per property, averaged over 3 annotators
+notes: Answer accuracy for the MCQ task plus explanation quality (generated under XY*->R prompting) judged
+  by automatic metrics against gold explanations and by human evaluation on 30 Medbullets-5 examples with
+  Prolific medical-degree crowdworkers. Human rating scale range was not captured. G-Eval Coherence and
+  Relevance wording is paraphrased; Consistency is verbatim from the Table 13 template.

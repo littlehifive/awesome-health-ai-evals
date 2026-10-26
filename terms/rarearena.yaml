@@ -1,0 +1,17 @@
+entry: rarearena
+sources: [https://github.com/zhao-zy15/RareArena, https://doi.org/10.1016/j.landig.2025.100953]
+extracted: 2026-10-26
+terms:
+  - term: Top-1 recall
+    level: metric
+    definition: Share of cases in which the true rare diagnosis is the first diagnosis in the model's list, judged by GPT-4o allowing for synonyms and hypernyms.
+    definition_verbatim: false
+    location: GitHub README, Evaluation section
+    scale: "score 0 (missing), 1 (hypernym), 2 (synonym or exact); total recall = score 2 + score 1"
+  - term: Top-5 recall
+    level: metric
+    definition: Share of cases in which the true rare diagnosis appears among the model's top five diagnoses, judged by GPT-4o allowing for synonyms and hypernyms.
+    definition_verbatim: false
+    location: GitHub README, Evaluation section
+    scale: "score 0 (missing), 1 (hypernym), 2 (synonym or exact); total recall = score 2 + score 1"
+notes: "Two tasks (rare disease screening before diagnostic tests, confirmation at final diagnosis) are scored identically. March 2026 README update added an Orphanet-based hypernym hierarchy to make score 1 stricter. The Lancet Digital Health article was paywalled and not read."

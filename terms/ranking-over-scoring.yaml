@@ -1,0 +1,28 @@
+entry: ranking-over-scoring
+sources: [https://arxiv.org/abs/2409.20565]
+extracted: 2026-10-26
+terms:
+  - term: Proxy Task performance (evaluator accuracy)
+    level: metric
+    definition: Argument quality is estimated indirectly by how much the argument improves a trained LM evaluator's accuracy on a proxy task (medical MCQA, misinformation detection, NLI).
+    definition_verbatim: false
+    location: Section 3 (methodology); Tables 10-11
+    scale: accuracy, used to rank arguments
+  - term: Ranking alignment with human experts
+    level: metric
+    definition: Agreement between the rankings of arguments (gold-standard and LLM-generated) produced by the LM evaluator and by two clinicians.
+    definition_verbatim: false
+    location: Section 4, Figure 3
+    scale: rank order
+  - term: Robustness to Control Cases
+    level: criterion
+    definition: A robust evaluator should rank adversarial Control Cases below the primary arguments.
+    definition_verbatim: false
+    location: Section 4, Figure 4
+    scale: rank order
+  - term: Win rate
+    level: metric
+    definition: "The win rate is calculated based on pairwise comparisons of the reports. If one model's output is preferred over another, it wins that comparison."
+    definition_verbatim: true
+    location: Footnote 2 (Section 3)
+notes: "The paper evaluates argument helpfulness only through proxy-task performance and rankings; it names no rubric dimensions. Win-rate footnote refers to prior work as described; marginal to this method."

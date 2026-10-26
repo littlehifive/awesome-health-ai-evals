@@ -1,0 +1,57 @@
+entry: mentalhospital
+sources: [https://arxiv.org/abs/2607.08257]
+extracted: 2026-10-26
+terms:
+  - term: Communication empathy
+    level: dimension
+    parent: MentalEval
+    definition: "Empathy in psychiatric interviews, defined not as politeness or reassurance, but as the model's ability to understand and respond to the client's emotions and subjective experience accurately, specifically, naturally, and proportionately."
+    definition_verbatim: true
+    location: Appendix I, Figure 24 (Emp.)
+    scale: 1-5 level rubric (top-down from Level 5)
+  - term: Interviewing professionalism
+    level: dimension
+    parent: MentalEval
+    definition: "Whether the model has a clear interview objective, continuously gathers clinically relevant information around psychiatric themes, and converges toward diagnostic questions; not a serious tone or frequent questioning."
+    definition_verbatim: false
+    location: Appendix I, Figure 25 (Prof.)
+    scale: 1-5 level rubric
+  - term: Clinical-note quality
+    level: dimension
+    parent: MentalEval
+    definition: "Model-generated clinical notes assessed for structural completeness, information sufficiency, evidence organization, and diagnostic utility in psychiatric documentation."
+    definition_verbatim: false
+    location: Appendix I, Figure 26 (Qual.)
+    scale: 1-5 level rubric with ceiling rules
+  - term: Diagnostic rigor
+    level: dimension
+    parent: MentalEval
+    definition: "Diagnostic reasoning quality, focusing not on final accuracy but on whether the model builds a clear, standardized, and auditable argument from case information and diagnostic criteria."
+    definition_verbatim: false
+    location: Appendix I (Rigor)
+    scale: 1-5 level rubric
+  - term: Treatment appropriateness
+    level: dimension
+    parent: MentalEval
+    definition: "Whether the treatment plan is clinically appropriate given diagnosis, severity, stage, risk, and patient characteristics, with correct therapeutic direction, complete structure, and individualized decisions."
+    definition_verbatim: false
+    location: Appendix I (App.)
+    scale: 1-5 level rubric
+  - term: Reference coverage
+    level: metric
+    definition: "Coverage(y, K): fraction of EHR-derived reference checkpoints semantically entailed by the generated output; used for examination recommendation, clinical interviewing, and clinical-note generation."
+    definition_verbatim: false
+    location: Section 4, Eq. 13
+    scale: "proportion, percent"
+  - term: Category identification (Cate.)
+    level: metric
+    definition: "Whether the predicted disorder category matches the reference for definitive diagnosis."
+    definition_verbatim: false
+    location: Section 4
+  - term: Disorder-level diagnosis ranking (Diso., nDCG)
+    level: metric
+    definition: "Ranked disorder prediction scored with nDCG to evaluate diagnostic prioritization."
+    definition_verbatim: false
+    location: Section 4
+    scale: nDCG
+notes: "MentalEval = five Qwen3-8B evaluators for the five subjective dimensions; each outputs a rationale and a 1-5 rating. Exam. (examination recommendation), Inter. (interviewing) and Note use reference coverage. Separate 22-clinician fidelity questionnaire (5 dimensions, 5-point Likert) validates the simulation, not model outputs."

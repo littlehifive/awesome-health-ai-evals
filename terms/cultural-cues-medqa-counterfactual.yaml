@@ -1,0 +1,27 @@
+entry: cultural-cues-medqa-counterfactual
+sources: [https://arxiv.org/abs/2601.20102, https://github.com/HIVE-UofT/Evaluating-Cultural-Cues-Medical-LLMs]
+extracted: 2026-10-26
+terms:
+  - term: Accuracy under cultural augmentation
+    level: metric
+    definition: "Multiple-choice accuracy on culturally augmented variants (identifier only, context only, identifier plus context) versus the original and length-matched neutral questions; shifts indicate spurious sensitivity to cultural text because the clinician-verified gold answer is unchanged."
+    definition_verbatim: false
+    location: Section III.B (Counterfactual evaluation metrics)
+    scale: binary correct/incorrect per item
+  - term: Accuracy difference (effect size)
+    level: metric
+    definition: "Mean accuracy difference in percentage points between Identity + Context variants and the original baseline, with bootstrapped 95% confidence intervals."
+    definition_verbatim: true
+    location: Fig. 5
+  - term: Cochran's Q test
+    level: metric
+    definition: "Non-parametric test for repeated binary outcomes used to test whether accuracy differs across cultural variants."
+    definition_verbatim: true
+    location: Results
+  - term: Culturally grounded reasoning
+    level: criterion
+    definition: "LLM-as-judge (GPT-5.2) rubric label flagging explanations that reference the inserted cultural identity or region-specific context; validated on 50 explanations (Cohen's kappa 0.76)."
+    definition_verbatim: false
+    location: Results, Section B (Comparison of identifiers and context)
+    scale: binary flag
+notes: "Culture-induced errors are the main scored outcome; no multi-criterion rubric beyond the culture-reference flag. Three cultural groups and perturbation types (Id, Ctx, Id+Ctx) are experimental conditions, not terms."

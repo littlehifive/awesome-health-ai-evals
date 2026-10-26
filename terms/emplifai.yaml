@@ -1,0 +1,57 @@
+entry: emplifai
+sources: [https://arxiv.org/abs/2601.10033]
+extracted: 2026-10-26
+terms:
+  - term: Content Comprehensibility
+    level: criterion
+    definition: "Assesses how well the responder understands the situation and the patient's statements"
+    definition_verbatim: true
+    location: Section 5.2, Table 3
+    scale: "5-point Likert (LLM judge Gemini-2.5-Flash and crowd raters)"
+  - term: General Empathy
+    level: criterion
+    definition: "Measures how warmly and supportively the responder acknowledges and validates the patient's feelings"
+    definition_verbatim: true
+    location: Section 5.2, Table 3
+    scale: "5-point Likert (LLM judge Gemini-2.5-Flash and crowd raters)"
+  - term: Emotion Specific Empathy
+    level: criterion
+    definition: "Measures how accurately the responder identifies the patient's exact emotion and tailors their response to it"
+    definition_verbatim: true
+    location: Section 5.2, Table 3
+    scale: "5-point Likert (LLM judge Gemini-2.5-Flash and crowd raters)"
+  - term: Consistency to the Context
+    level: criterion
+    definition: "Measures how closely the responder's answers stay aligned with the topic of conversation"
+    definition_verbatim: true
+    location: Section 5.2, Table 3
+    scale: "5-point Likert (LLM judge Gemini-2.5-Flash and crowd raters)"
+  - term: Fluency in Japanese
+    level: criterion
+    definition: "Measures the naturalness and grammatical accuracy of the Japanese in the corresponding conversations"
+    definition_verbatim: true
+    location: Section 5.2, Table 3
+    scale: "5-point Likert (LLM judge Gemini-2.5-Flash and crowd raters)"
+  - term: Harmlessness
+    level: criterion
+    definition: "Measures the potential risk of harm caused by the responder's answers to the patient"
+    definition_verbatim: true
+    location: Section 5.2, Table 3
+    scale: "5-point Likert (LLM judge Gemini-2.5-Flash and crowd raters)"
+  - term: Sense of Security
+    level: criterion
+    definition: "Evaluates how much the responder's answers help calm the patient and provide a feeling of safety"
+    definition_verbatim: true
+    location: Section 5.2, Table 3
+    scale: "5-point Likert (LLM judge Gemini-2.5-Flash and crowd raters)"
+  - term: "BERTScore (precision, recall, F1)"
+    level: metric
+    definition: "Semantic similarity between the emotion label predicted from a situation-dialogue pair and the ground-truth emotion, used to validate the emotion taxonomy."
+    definition_verbatim: false
+    location: Section on emotion taxonomy validation, Table 7
+  - term: "FastText cosine similarity"
+    level: metric
+    definition: "Mean cosine similarity of word embeddings between predicted and ground-truth emotion labels, a stricter coarse-grained comparison."
+    definition_verbatim: false
+    location: Section on emotion taxonomy validation, Table 7
+notes: "Seven Likert metrics from Table 3 (adapted from Ayers et al. 2023, Singhal et al. 2023). Emotion taxonomy has 28 emotion labels adapted from GoEmotions; these label the data, not scored criteria."

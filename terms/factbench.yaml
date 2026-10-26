@@ -1,0 +1,42 @@
+entry: factbench
+sources:
+- https://arxiv.org/abs/2509.02198
+- https://aclanthology.org/2025.icnlsp-1.11/
+extracted: '2026-10-26'
+terms:
+- term: NLI fact-check score
+  level: metric
+  definition: 'Atomic facts are checked with an NLI model (DeBERTa-v3, tasksource): entailment of the fact by the grounding text counts as supported and contradiction as hallucination.'
+  definition_verbatim: false
+  location: Section 3 (methods); Section 4 (human evaluation)
+  scale: share of atomic facts supported (0-1)
+- term: CoT fact-check score (FActScore+)
+  level: metric
+  definition: Chain-of-thought LLM fact-checking by an adapted FActScore (GPT-4o mini backbone) that supports user-provided grounding documents.
+  definition_verbatim: false
+  location: Section 3 (methods); Section 4 (human evaluation)
+  scale: share of atomic facts supported
+- term: Unanimous voting (UnVot)
+  level: metric
+  definition: An atomic fact is only considered to be factually correct if it is supported by both NLI and CoT.
+  definition_verbatim: true
+  location: Section 3 (methods); Section 4 (human evaluation)
+  scale: share of atomic facts supported by both
+- term: FActScore (Wikipedia baseline)
+  level: metric
+  definition: Baseline atomic-fact support rate checked only against Wikipedia.
+  definition_verbatim: false
+  location: Section 3 (methods); Section 4 (human evaluation)
+  scale: share of atomic facts supported
+- term: Intrinsic vs extrinsic fact-checking
+  level: other
+  definition: Facts are checked against the grounding document (intrinsic) and, for unsupported facts, against Wikipedia world knowledge (extrinsic, to detect contradictions).
+  definition_verbatim: false
+  location: Section 3 (methods); Section 4 (human evaluation)
+- term: Domain expert evaluation (human score)
+  level: metric
+  definition: Medical annotators assign a score between 1 and 100 to each generation; used to validate the automatic scores (Cohen's kappa 0.75).
+  definition_verbatim: false
+  location: Section 4.1
+  scale: 1-100
+notes: 'Four tasks: summarization, lay summarization, RAG, open-ended generation. The paper scores factuality only; no other quality axes. Final scores are reported with and without intrinsic checks.'

@@ -1,0 +1,23 @@
+entry: mediq
+sources: [https://arxiv.org/abs/2406.00922]
+extracted: 2026-10-26
+terms:
+  - term: Accuracy
+    level: metric
+    definition: Multiple-choice accuracy of the Expert system after interacting with the simulated Patient.
+    definition_verbatim: false
+    location: Section 3.2
+    scale: proportion correct
+  - term: Factuality Score
+    level: metric
+    definition: "Measures whether the Patient system's response is consistent with the patient record. Each Patient response is first decomposed into a list of atomic statements, then we compute the percentage of atomic statements that are supported by the information in the patient record."
+    definition_verbatim: true
+    location: Section 3.1, Appendix A.4
+    scale: percent of supported atomic statements
+  - term: Relevance Score
+    level: metric
+    definition: "Measures whether the Patient system's response answers the Expert's question; average embedding semantic similarity between the Patient response and the ground-truth atomic statement for a synthetic atomic question."
+    definition_verbatim: true
+    location: Section 3.1, Appendix A.4
+    scale: average embedding similarity
+notes: Factuality and relevance score the simulated Patient component (reliability of the benchmark), not the model under test; the Expert is scored on final accuracy. Confidence-calibration and abstention behaviour is studied but not as named scores in the sections read.

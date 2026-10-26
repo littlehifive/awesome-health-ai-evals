@@ -1,0 +1,49 @@
+entry: hemoqal
+sources:
+- https://doi.org/10.1007/s13755-026-00458-7
+- https://github.com/LabIA-UFBA/HemoQAL
+extracted: '2026-10-26'
+terms:
+- term: Question validity score
+  level: criterion
+  definition: 'Categorical score of each generated question: 0 The question does not make sense or is poorly formulated; 1 The question makes sense but looks focused on a specific subject of the paper; 2 The question makes sense and can be answered by an expert, regardless of the specific subject of the paper; 3 The question is outside the expert''s knowledge.'
+  definition_verbatim: true
+  location: Methods, Human judgment analysis stage 1
+  scale: categorical 0-3
+- term: Correct answer
+  level: criterion
+  definition: Does the answer provide factually accurate information that directly addresses the question?
+  definition_verbatim: true
+  location: Methods, Human judgment analysis stage 2
+  scale: binary (Yes/No)
+- term: Complete answer
+  level: criterion
+  definition: Does the answer include all relevant information that a domain expert would reasonably expect, beyond the minimal correct response (e.g., missing clinical details, conditions, or contextual nuances)?
+  definition_verbatim: true
+  location: Methods, Human judgment analysis stage 2
+  scale: binary (Yes/No)
+- term: Concise answer
+  level: criterion
+  definition: Does the answer provide only the necessary information required to address the question, without including irrelevant or excessive details?
+  definition_verbatim: true
+  location: Methods, Human judgment analysis stage 2
+  scale: binary (Yes/No)
+- term: TF-IDF similarity
+  level: metric
+  definition: Keyword-overlap similarity between pairs (question-answer, LLM-generated context vs source text), emphasising less frequent, contextually important words.
+  definition_verbatim: false
+  location: Methods, semantic similarity analysis
+  scale: similarity score
+- term: Word2Vec similarity
+  level: metric
+  definition: Embedding-based similarity capturing basic semantic relationships between text pairs.
+  definition_verbatim: false
+  location: Methods, semantic similarity analysis
+  scale: similarity score
+- term: BERT similarity
+  level: metric
+  definition: Contextual-embedding similarity capturing deeper contextual understanding between text pairs.
+  definition_verbatim: false
+  location: Methods, semantic similarity analysis
+  scale: similarity score
+notes: Raters are four domain experts and 13 LLMs. The semantic similarity analysis is described as assessing coherence, relevance, and specificity (contextual alignment). Similarity is computed between question and answer, and between generated context and source paper text, not against model outputs of a benchmark task.

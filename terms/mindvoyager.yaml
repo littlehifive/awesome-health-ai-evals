@@ -1,0 +1,25 @@
+entry: mindvoyager
+sources:
+- https://aclanthology.org/2025.findings-acl.1332/
+- https://aclanthology.org/2025.findings-acl.1332.pdf
+extracted: '2026-10-26'
+terms:
+- term: Cognitive Diagram Exposure Rate (CDER)
+  level: metric
+  definition: 'Measures how well LLM therapists help clients recognize elements of the cognitive diagram: the percentage of sessions in which the therapist reveals every element of the initially masked cognition diagram (binary per session).'
+  definition_verbatim: true
+  location: Section 4.2 (metrics), Eq. 6; Table 1
+  scale: percentage of sessions (binary per session)
+- term: Induced Diagram Similarity Score (IDSS)
+  level: metric
+  definition: 'Measures the effectiveness of the LLM therapist in inducing the client simulator to elaborate on the revealed cognition diagram: elements extracted from the session are compared by semantic similarity with the ground-truth elements (relevant history, core beliefs, intermediate beliefs, coping strategies).'
+  definition_verbatim: true
+  location: Section 4.2 (metrics), Eq. 7; Table 2
+  scale: semantic similarity score
+- term: Cognitive Therapy Rating Scale (CTRS)
+  level: metric
+  definition: Existing rating scale used in real-world counseling, applied to compare with CDER and IDSS (RQ4).
+  definition_verbatim: false
+  location: Section 5 RQ4, Table 3
+  scale: CTRS item ratings
+notes: CDER and IDSS are the proposed measures; CTRS is used only as a comparison. Results are reported by client difficulty set (easy, normal, hard) and by diagram part (internal I, external E, whole G).

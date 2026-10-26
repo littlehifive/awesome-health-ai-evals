@@ -1,0 +1,37 @@
+entry: medexqa
+sources: [https://arxiv.org/abs/2406.06331, https://doi.org/10.18653/v1/2024.bionlp-1.14]
+extracted: 2026-10-26
+terms:
+  - term: Classification Accuracy
+    level: metric
+    definition: "MCQ accuracy using logits, and with chat generation using string matching (regular expressions and thefuzz) of the answer choice in the generated response."
+    definition_verbatim: false
+    location: Section 4.3
+    scale: percent correct
+  - term: BLEU
+    level: metric
+    definition: "measures the geometric mean of precision scores of the generated explanations compared to reference explanations based on n-gram matches."
+    definition_verbatim: true
+    location: Section 4.4
+  - term: ROUGE-L
+    level: metric
+    definition: "ROUGE assesses the similarity between generated and reference explanations, with ROUGE-L, providing a score that combines precision and recall based on the longest common subsequence."
+    definition_verbatim: true
+    location: Section 4.4
+  - term: METEOR
+    level: metric
+    definition: "considers the semantic similarity and lexical variations with WordNet."
+    definition_verbatim: true
+    location: Section 4.4
+  - term: BERTScore
+    level: metric
+    definition: "uses contextual embeddings, scibert embedding for our work, to capture nuances in the semantics of the explanations."
+    definition_verbatim: true
+    location: Section 4.4
+  - term: Human evaluation of explanation-answer pairs
+    level: criterion
+    definition: "Score 0: the answer was incorrect, no explanation was provided, and/or the explanation is fully irrelevant. Score 0.5: the answer was correct, but the explanation or rationale was incorrect, or incomplete. Score 1.0: both the answer and explanation were correct."
+    definition_verbatim: true
+    location: Section 4.5
+    scale: "0 / 0.5 / 1.0"
+notes: "Automatic explanation metrics are computed after assigning 0 to responses whose answer is incorrect by string matching. Human evaluation covered 5 dev samples per specialty, by three annotators."

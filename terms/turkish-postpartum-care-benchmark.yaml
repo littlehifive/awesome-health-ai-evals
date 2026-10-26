@@ -1,0 +1,43 @@
+entry: turkish-postpartum-care-benchmark
+sources:
+- https://doi.org/10.5281/zenodo.20984622
+extracted: '2026-10-26'
+terms:
+- term: Objective accuracy
+  level: metric
+  definition: Judge-independent accuracy on the held-out gold test set, scored against guideline-derived must_include_any and must_exclude string criteria.
+  definition_verbatim: false
+  location: Zenodo description and README
+  scale: binary per item; Wilson CI
+- term: Dual-LLM-judge quality
+  level: metric
+  definition: Secondary quality score from two LLM judges (Friedman and Wilcoxon tests; inter-judge Cohen’s kappa).
+  definition_verbatim: false
+  location: Zenodo description
+  scale: judge score
+- term: Platform-vs-local concordance
+  level: metric
+  definition: Agreement between platform-reported evaluation scores and local scoring.
+  definition_verbatim: false
+  location: Zenodo description
+- term: Guideline knowledge
+  level: category
+  definition: Test-set question category scored as an evaluation criterion.
+  definition_verbatim: false
+  location: gold_test_set.jsonl (per entry notes)
+- term: Safety
+  level: category
+  definition: Test-set category covering danger signs and referral.
+  definition_verbatim: false
+  location: gold_test_set.jsonl (per entry notes)
+- term: Out-of-scope refusal
+  level: category
+  definition: Test-set category testing refusal of out-of-scope requests.
+  definition_verbatim: false
+  location: gold_test_set.jsonl (per entry notes)
+- term: Empathy
+  level: category
+  definition: Test-set category testing empathic response.
+  definition_verbatim: false
+  location: gold_test_set.jsonl (per entry notes)
+notes: Companion manuscript not read. Definitions paraphrased from the Zenodo record and entry file; categories are item groupings the entry describes, included because the primary metric is computed per item with category tags.

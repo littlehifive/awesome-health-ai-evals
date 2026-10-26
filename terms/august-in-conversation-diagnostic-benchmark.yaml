@@ -1,0 +1,48 @@
+entry: august-in-conversation-diagnostic-benchmark
+sources: [https://arxiv.org/abs/2412.12538]
+extracted: 2026-10-26
+terms:
+  - term: Accuracy
+    level: category
+    definition: "The outcome measures ... are broadly bucketed into three categories, Accuracy, Real-World Impact, and User Experience, with the accuracy of diagnosis being the most important."
+    definition_verbatim: true
+    location: Section 3 and Section 4.1
+  - term: Top-One Diagnosis Accuracy
+    level: metric
+    parent: Accuracy
+    definition: "Whether the Health AI's first diagnosis matched directly with the gold-standard diagnosis."
+    definition_verbatim: true
+    location: Section 4.1, Table 1
+    scale: binary per vignette, reported as percentage
+  - term: Top-Two Diagnoses Accuracy
+    level: metric
+    parent: Accuracy
+    definition: "Whether either of the Health AI's two suggestions matched the reference diagnosis."
+    definition_verbatim: true
+    location: Section 4.1, Table 2
+    scale: binary per vignette, reported as percentage
+  - term: Real-World Impact
+    level: category
+    definition: Outcome category covering whether the output would lead the user to appropriate care.
+    definition_verbatim: false
+    location: Section 4.2
+  - term: Correct Specialty Identified
+    level: metric
+    parent: Real-World Impact
+    definition: "Would the user have reached the right specialist based on the output given by the Health AI?"
+    definition_verbatim: true
+    location: Section 4.2, Tables 3-4
+    scale: binary per vignette, reported as percentage
+  - term: User Experience
+    level: category
+    definition: Outcome category covering the burden of the conversation on the user.
+    definition_verbatim: false
+    location: Section 4.3
+  - term: Consultation Length
+    level: metric
+    parent: User Experience
+    definition: "defined as the total interaction time between the Health AI and the patient. We aim to minimize the number of questions posed by the AI based on each specialty."
+    definition_verbatim: true
+    location: Section 4.3
+    scale: number of questions asked per specialty
+notes: Diagnosis matching uses criteria adapted from Gilbert et al. (Section 3, matching criteria), judged by physicians. Top-3 and top-5 accuracy are deliberately excluded.

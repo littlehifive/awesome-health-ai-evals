@@ -1,0 +1,44 @@
+entry: hdceval
+sources:
+- https://arxiv.org/abs/2501.06741
+extracted: '2026-10-26'
+terms:
+- term: Patient Question Relevance (REL)
+  level: axis
+  definition: This aspect considers how well the medical response addresses the patient’s specific questions and concerns. It involves assessing the clarity, directness, and appropriateness of the response in relation to the patient’s query.
+  definition_verbatim: true
+  location: Fine-grained Medical Evaluation Guidelines
+  scale: 0-5 per sub-aspect
+- term: Medical Knowledge Correctness (COR)
+  level: axis
+  definition: This aspect ensures the accuracy of the medical information provided. It involves evaluating whether the response aligns with current medical knowledge, guidelines, and evidence-based practices.
+  definition_verbatim: true
+  location: Fine-grained Medical Evaluation Guidelines
+  scale: 0-5 per sub-aspect
+- term: Expression (EXP)
+  level: axis
+  definition: This aspect focuses on the clarity and coherence of the response, assessing the language, structure, and presentation of the information to ensure it is easily understandable and professional.
+  definition_verbatim: true
+  location: Fine-grained Medical Evaluation Guidelines
+  scale: 0-5 per sub-aspect
+- term: Relevance to Patient’s Condition (COND)
+  level: criterion
+  parent: Patient Question Relevance (REL)
+  definition: assesses how directly the response pertains to the patient’s specific medical condition.
+  definition_verbatim: true
+  location: Fine-grained Medical Evaluation Guidelines
+  scale: 0-5
+- term: Factual Accuracy (ACC)
+  level: criterion
+  parent: Medical Knowledge Correctness (COR)
+  definition: ensuring the information aligns with current evidence-based practices.
+  definition_verbatim: true
+  location: Fine-grained Medical Evaluation Guidelines
+  scale: 0-5
+- term: Pairwise Accuracy
+  level: metric
+  definition: Whether the evaluator's relative ranking of two responses agrees with human doctors' labels; primary metric for judging the evaluator models, not the answers.
+  definition_verbatim: false
+  location: Experiments, Automatic Metrics
+  scale: agreement rate
+notes: Each primary aspect has 3-4 sub-aspects (3 REL, 3 COR, 4 EXP; abbreviations in Table 2 include CONT, COND, CONC, ACC, INFO, UNC, CLAR, LANG, TE, INTE) with scoring rules only in the Technical Appendix, which was not accessible; only COND and ACC are named in the main text, so the other sub-aspects are not recorded by name. Evaluator-quality metrics also include Intraclass Correlation and Pearson correlation with human doctors.

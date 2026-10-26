@@ -1,0 +1,13 @@
+entry: mdle
+sources:
+- https://huggingface.co/datasets/Medical-Doctors-Last-Exam/mdle
+- https://www.medlastexam.org
+extracted: '2026-10-26'
+terms:
+- term: Rubric score (0-10)
+  level: criterion
+  definition: Answers are graded by an LLM judge against a reference answer and per-question rubric, scored out of 10 (paraphrase of dataset card).
+  definition_verbatim: false
+  location: Dataset card, Score and prompt versions
+  scale: 0-10; passing score 7 historically
+notes: Dataset card only. Each record holds a golden answer, reasoning, rubric, evidence, taxonomy, and historical evaluations with correctness labels. Rubric criteria are question-specific and not enumerated. Inclusion requires closed-book scores below 6/10 for both Gemini 3.1 Pro Preview and Claude Opus 5.

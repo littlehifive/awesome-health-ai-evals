@@ -23,9 +23,16 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 4,609 questions
+signals:
+  citations: null
+  citations_source: OpenAlex
+  hf_downloads: 142
+  github_stars: null
+  uptake: []
+  updated: '2026-10-26'
 provenance:
   records: [r_f7a7989bae]
   extracted: 2026-10-26
-  read_full_text: false
-  confidence: low
+  read_full_text: true
+  confidence: medium
   notes: "Dataset card only, no paper. The card says the questions come from Taiwan's Ministry of Examination website, years 96 to 111 of the ROC calendar (2007-2022) excluding 110, two exam subject groups; the card text is internally inconsistent on which subjects are included. 4,609 rows (columns question, options A-D, answer) counted from the Hugging Face dataset viewer. No license on the card; builder type and lead country are unknown, academic is a placeholder guess. Exam questions are government publications, so reuse terms may be restricted."

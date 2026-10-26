@@ -1,0 +1,11 @@
+entry: healthbenchx
+sources: [https://huggingface.co/datasets/li-lab/HealthBenchX]
+extracted: 2026-10-26
+terms:
+  - term: Physician-created rubric (inherited from HealthBench)
+    level: criterion
+    definition: "each paired with a custom physician-created rubric for evaluation (description of the original HealthBench; the card says the dataset follows HealthBench's terms)"
+    definition_verbatim: false
+    location: Dataset card, Overview
+    scale: points per rubric criterion (inherited from HealthBench)
+notes: Dataset card only, no paper. The card adds no evaluation terms of its own and shows only translated conversations in its schema. See terms/healthbench.yaml.

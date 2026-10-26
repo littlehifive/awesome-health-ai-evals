@@ -1,0 +1,50 @@
+entry: pia-medical-chatbot-benchmark
+sources: [https://github.com/maybe-im-a-mess/benchmarking-medical-chatbots]
+extracted: 2026-10-26
+terms:
+  - term: Information extraction quality (precision, recall, F1)
+    level: metric
+    definition: "Extracted statements are matched to ground-truth facts by embedding cosine similarity (threshold 0.55); precision is matched extracted over extracted count, recall is matched ground-truth over ground-truth count, F1 is their harmonic mean."
+    definition_verbatim: false
+    location: documentation/evaluation_metrics_taxonomy.md, section 1 Approach A
+    scale: "0-1"
+  - term: SUSWIR
+    level: metric
+    definition: "Adapted summarization-quality score averaging four component factors with equal weight (SSF semantic similarity factor, RDF, REF, BAF); components other than SSF were not expanded in the part read."
+    definition_verbatim: false
+    location: documentation/evaluation_metrics_taxonomy.md, section 1 Approach B
+    scale: "0-1 mean of four factors"
+  - term: Topic coverage (hit rate and weighted critical recall)
+    level: metric
+    definition: "Share of ground-truth topic facts covered by the chatbot dialogue, computed by embedding similarity with Hungarian matching, bi-encoder plus cross-encoder entailment, or an LLM judge; critical facts are weighted."
+    definition_verbatim: false
+    location: evaluation_metrics_taxonomy.md, section 2
+    scale: "0-1"
+  - term: Citation precision (strict)
+    level: metric
+    parent: Citation faithfulness
+    definition: "Full-support citations over total citations, where an LLM judge labels each claim-source pair full_support, partial_support or no_support."
+    definition_verbatim: false
+    location: evaluation_metrics_taxonomy.md, section 3
+    scale: "0-1; 3-way support label per claim"
+  - term: Citation precision (relaxed)
+    level: metric
+    parent: Citation faithfulness
+    definition: "Full plus partial support citations over total citations."
+    definition_verbatim: false
+    location: evaluation_metrics_taxonomy.md, section 3
+    scale: "0-1"
+  - term: Support coverage
+    level: metric
+    parent: Citation faithfulness
+    definition: "Share of factual claims that carry a citation."
+    definition_verbatim: false
+    location: evaluation_metrics_taxonomy.md, section 3
+    scale: "0-1"
+  - term: Mandatory question compliance (strict and acceptable)
+    level: metric
+    definition: "Per conversation, strict compliance requires every mandatory question to be asked; acceptable compliance requires question recall at or above a threshold (default 0.75); aggregated as compliance rates over conversations."
+    definition_verbatim: false
+    location: evaluation_metrics_taxonomy.md, section 4
+    scale: "binary per conversation; rate 0-1"
+notes: "Source is the repository README and documentation/evaluation_metrics_taxonomy.md (thesis text not read). Coverage hit-rate and critical-recall formulas were summarized from the taxonomy file by grep, not read in full."

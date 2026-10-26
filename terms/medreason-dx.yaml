@@ -1,0 +1,22 @@
+entry: medreason-dx
+sources:
+- https://huggingface.co/datasets/medreason/llm-medical-reasoning-steps-benchmark
+extracted: '2026-10-26'
+terms:
+- term: Final answer correctness
+  level: metric
+  definition: Whether the model reaches the reference final answer (answer_idx for the 592 multiple-choice items, answer for the 578 open-ended items).
+  definition_verbatim: false
+  location: HF card, Schema section
+  scale: MCQ exact match; open-ended scoring not described
+- term: Reasoning steps
+  level: criterion
+  definition: Reference reasoning steps (answer_steps) against which a model reasoning chain is compared for medical diagnostic reasoning beyond final-answer correctness.
+  definition_verbatim: false
+  location: HF card, Schema and Notes
+- term: Key points
+  level: criterion
+  definition: Reference key points (answer_key_points) used for reasoning-quality evaluation.
+  definition_verbatim: true
+  location: HF card, Notes
+notes: Dataset card only; no paper linked. The card gives reference fields but not the scoring procedure, scale, or judge, so the term list reflects the fields, not a described rubric.

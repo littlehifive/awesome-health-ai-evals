@@ -1,0 +1,43 @@
+id: uit-vicov19qa
+name: UIT-ViCoV19QA
+kind: benchmark
+year: 2022
+summary: 4,500 Vietnamese COVID-19 question-answer pairs from FAQ pages of health organizations, with up to four paraphrased answers per question, scored with BLEU, METEOR, and ROUGE-L.
+readme_section: multilingual_regional
+links:
+  paper: https://arxiv.org/abs/2209.06668
+  arxiv: "2209.06668"
+  doi: 10.48550/arxiv.2209.06668
+  huggingface: [SEACrowd/uit_vicov19qa]
+  code: https://github.com/triet2397/UIT-ViCoV19QA
+license: null
+open_data: open
+geography:
+  item_languages: [Vietnamese]
+  item_origin_countries: [VNM, USA]
+  item_origin_note: FAQ sources include the Vietnamese Ministry of Health, the Vietnam Government Portal, CDC, and UNICEF; the split by country was not stated.
+  localization: native
+  lead_institution_countries: [VNM]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature]
+  venue: preprint
+facets:
+  health_areas: [infectious_other, public_health]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 4,500 question-answer pairs (3,500 train, 500 dev, 500 test)
+signals:
+  citations: 1
+  citations_source: OpenAlex
+  hf_downloads: 50
+  github_stars: 6
+  uptake: []
+  updated: '2026-10-26'
+provenance:
+  records: [r_e5957ba20e]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "University of Information Technology, VNU-HCM. The paper appeared in PACLIC 2022 (Hugging Face citation), listed here as preprint because only the arXiv version was read. Answers 2 to 4 are manual paraphrases of answer 1 (1,800, 700, and 350 questions respectively). The GitHub README holds the data and statistics; no license was found. SEACrowd/uit_vicov19qa is a loader mirror with license listed as unknown."

@@ -1,0 +1,40 @@
+id: cdialog
+name: CDialog
+kind: benchmark
+year: 2022
+summary: About 1,000 English multi-turn COVID-19 patient-doctor consultations with seven categories of medical entity labels on each utterance, with a test split scored by BLEU and similar response-generation metrics.
+readme_section: open_ended
+links:
+  paper: https://aclanthology.org/2022.emnlp-main.782/
+  doi: 10.18653/v1/2022.emnlp-main.782
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Dialogues were crawled from the online counselling sites iCliniq and HealthcareMagic; the paper does not state patient or doctor countries.
+  localization: unknown
+  lead_institution_countries: [IND]
+origin:
+  builder_types: [academic]
+  item_provenance: [web_forum]
+  venue: peer_reviewed
+facets:
+  health_areas: [infectious_other]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: about 1,000 dialogues (extended from the ~10K-dialog ExtCovidDialog)
+signals:
+  citations: 3
+  citations_source: OpenAlex
+  hf_downloads: null
+  github_stars: null
+  uptake: []
+  updated: '2026-10-26'
+provenance:
+  records: [r_7146c1f3a0]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "EMNLP 2022; authors at IIT Patna. Reconsidered after exclusion as training_data: the paper reports test-split results with BLEU and other metrics, so it works as a benchmark for entity-aware dialogue generation, though it is mainly framed as a training corpus. The paper says it releases the dataset but the text gives no link or license, so open_data is unknown."

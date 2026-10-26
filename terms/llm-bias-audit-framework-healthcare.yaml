@@ -1,0 +1,62 @@
+entry: llm-bias-audit-framework-healthcare
+sources: [https://doi.org/10.1038/s41746-025-01786-w, https://pmc.ncbi.nlm.nih.gov/articles/PMC12234702/]
+extracted: 2026-10-26
+terms:
+  - term: Accuracy
+    level: metric
+    definition: "Model accuracy for the clinical task (for example F1 or ROC-AUC against explicit thresholds such as F1 >= 0.75, ROC-AUC >= 0.80), compared with clinician baseline accuracy."
+    definition_verbatim: false
+    location: Monitoring and thresholds table; Steps 3-4
+    scale: "task metric with stakeholder-set threshold"
+  - term: Bias (disparity across patient groups)
+    level: dimension
+    definition: "Differences in LLM outputs across experimentally varied patient attributes in matched vignettes, tested with statistical models over repeated runs."
+    definition_verbatim: false
+    location: Step 3 (experimental audit)
+  - term: Racial bias
+    level: category
+    parent: Bias (disparity across patient groups)
+    definition: "Bias type in Table 5, for example bias due to inadequate data on underrepresented racial groups."
+    definition_verbatim: false
+    location: Table 5
+  - term: Gender bias
+    level: category
+    parent: Bias (disparity across patient groups)
+    definition: "Bias type in Table 5."
+    definition_verbatim: false
+    location: Table 5
+  - term: Bias due to language
+    level: category
+    parent: Bias (disparity across patient groups)
+    definition: "Bias type in Table 5, for example stereotyping responses to non-standard dialects."
+    definition_verbatim: false
+    location: Table 5
+  - term: Age bias
+    level: category
+    parent: Bias (disparity across patient groups)
+    definition: "Bias type in Table 5."
+    definition_verbatim: false
+    location: Table 5
+  - term: Income bias
+    level: category
+    parent: Bias (disparity across patient groups)
+    definition: "Bias type in Table 5, tied to lower socioeconomic status."
+    definition_verbatim: false
+    location: Table 5
+  - term: Geographic bias
+    level: category
+    parent: Bias (disparity across patient groups)
+    definition: "Bias type in Table 5, tied to concentration of data in North America and Europe."
+    definition_verbatim: false
+    location: Table 5
+  - term: Synthetic-data similarity
+    level: metric
+    definition: "Agreement between synthetic and real patient data distributions, checked with Jensen-Shannon Divergence or Kolmogorov-Smirnov test (p >= 0.05)."
+    definition_verbatim: false
+    location: Step 2 calibration; thresholds table
+  - term: Performance drift
+    level: metric
+    definition: "Percent change in predictive accuracy per quarter in continuous monitoring (suggested threshold <= 5%)."
+    definition_verbatim: false
+    location: Monitoring and thresholds table
+notes: "Process framework: it names no fixed rubric. Terms are outcome measures and bias types it recommends. Stakeholders choose fairness metrics per audit (paper cites algorithmic-fairness metrics without fixing one). Worked CKD example not scanned in detail."

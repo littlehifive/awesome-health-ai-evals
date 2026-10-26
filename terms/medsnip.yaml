@@ -1,0 +1,31 @@
+entry: medsnip
+sources:
+- https://huggingface.co/datasets/MBZUAI/MedSNIP
+- https://openreview.net/forum?id=1vYUGLZnvr
+extracted: '2026-10-26'
+terms:
+- term: Snippet label (in general)
+  level: criterion
+  definition: Annotator label (label_human_general) of whether a snippet is true or false, judged in general.
+  definition_verbatim: false
+  location: HF card, Fields
+  scale: binary true/false
+- term: Snippet label (in patient context)
+  level: criterion
+  definition: Annotator label (label_human_contextual) of whether a snippet is true or false, judged for this patient.
+  definition_verbatim: false
+  location: HF card, Fields
+  scale: binary true/false
+- term: Atom label
+  level: criterion
+  definition: Label projected from the source physician labels of atomic claims grouped into a snippet (label_atomic).
+  definition_verbatim: false
+  location: HF card, Fields
+  scale: binary true/false
+- term: F1 on the false class
+  level: metric
+  definition: 'Primary metric: F1 for detecting false snippets, used because the corpus skews toward true snippets.'
+  definition_verbatim: false
+  location: HF card, Fields section
+  scale: F1
+notes: Dataset card only; the paper was not opened. The six structural pattern codes A-F describe snippet structure, not evaluation criteria, so they are not listed. Responses are scored as true/false factual units.

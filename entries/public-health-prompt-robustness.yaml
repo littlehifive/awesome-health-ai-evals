@@ -1,0 +1,39 @@
+id: public-health-prompt-robustness
+name: Public-health prompt perturbation robustness benchmark
+kind: benchmark
+year: 2026
+summary: A robustness benchmark that perturbs public-health inputs with misinformation framing or layperson rewriting and measures accuracy drop and prediction flip rate (misinformation framing costs 7.2 points on average, flips 9-38%).
+readme_section: safety
+links:
+  paper: https://doi.org/10.1145/3816325.3843642
+  doi: 10.1145/3816325.3843642
+license: null
+open_data: unknown
+geography:
+  item_languages: [UNKNOWN]
+  item_origin_countries: [UNKNOWN]
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: peer_reviewed
+facets:
+  health_areas: [public_health]
+  intended_users: [patient_public]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: not stated in the abstract
+signals:
+  citations: 0
+  citations_source: OpenAlex
+  hf_downloads: null
+  github_stars: null
+  uptake: []
+  updated: '2026-10-26'
+provenance:
+  records: [r_b5b028aff6]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "Abstract only (ACM returned 403). Reconsidered after exclusion as not_found: the abstract proposes a benchmark with two perturbation types and defined metrics, but gives no base dataset, size, release link, or license. item_provenance, eval_methods, and language are guesses from the abstract (accuracy and flip rate imply labeled items)."

@@ -1,0 +1,61 @@
+entry: escalate-clinical-escalation
+sources:
+- https://doi.org/10.5281/zenodo.19224182
+- https://github.com/DavePower-cloud/ESCALATE-dataset
+extracted: '2026-10-26'
+terms:
+- term: ISBAR usage
+  level: criterion
+  definition: Whether the handover uses the ISBAR headings (schema fields isbar_headings_used and isbar_headings_count).
+  definition_verbatim: false
+  location: README "Evaluation Dimensions"; schema/evaluation_schema.json; Zenodo record description
+  scale: integer score per transcript (schema)
+- term: Content completeness
+  level: criterion
+  definition: How completely the conversation conveys the case-card clinical content.
+  definition_verbatim: false
+  location: README "Evaluation Dimensions"; schema/evaluation_schema.json; Zenodo record description
+  scale: integer score per transcript (schema)
+- term: EWS communication
+  level: criterion
+  definition: Whether the early warning score is communicated.
+  definition_verbatim: false
+  location: README "Evaluation Dimensions"; schema/evaluation_schema.json; Zenodo record description
+  scale: integer score per transcript (schema)
+- term: Safety-critical omissions
+  level: criterion
+  definition: Safety-critical case-card information left out of the escalation.
+  definition_verbatim: false
+  location: README "Evaluation Dimensions"; schema/evaluation_schema.json; Zenodo record description
+  scale: integer score per transcript (schema)
+- term: Hallucinations / unsupported inferences
+  level: criterion
+  definition: 'Details or inferences in the conversation that are not supported by the case card (schema: hallucinations_inventions).'
+  definition_verbatim: false
+  location: README "Evaluation Dimensions"; schema/evaluation_schema.json; Zenodo record description
+  scale: integer score per transcript (schema)
+- term: Escalation appropriateness
+  level: criterion
+  definition: Whether the escalation request is appropriate to the case-card clinical state.
+  definition_verbatim: false
+  location: README "Evaluation Dimensions"; schema/evaluation_schema.json; Zenodo record description
+  scale: integer score per transcript (schema)
+- term: Call actionability
+  level: criterion
+  definition: Whether the call ends with an actionable plan for the registrar.
+  definition_verbatim: false
+  location: README "Evaluation Dimensions"; schema/evaluation_schema.json; Zenodo record description
+  scale: integer score per transcript (schema)
+- term: Closed-loop communication
+  level: criterion
+  definition: Whether the receiver confirms and reads back the plan (closed-loop communication).
+  definition_verbatim: false
+  location: README "Evaluation Dimensions"; schema/evaluation_schema.json; Zenodo record description
+  scale: integer score per transcript (schema)
+- term: Overall safety risk
+  level: other
+  definition: A summary safety-risk judgment for the transcript (schema field overall_safety_risk, a string).
+  definition_verbatim: false
+  location: README "Evaluation Dimensions"; schema/evaluation_schema.json; Zenodo record description
+  scale: string label
+notes: Read the Zenodo record, repo README, dataset card and evaluation_schema.json, not the Research Square preprint (full text not opened), so no verbatim definitions. The Zenodo description lists five rubric areas (communication completeness, safety-critical omissions, hallucinations/inventions, escalation appropriateness, actionability and closed-loop communication); the README lists the nine above. Schema also records key_failure_modes and brief_comments per transcript.

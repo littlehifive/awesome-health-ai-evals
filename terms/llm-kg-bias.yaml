@@ -1,0 +1,42 @@
+entry: llm-kg-bias
+sources:
+- https://arxiv.org/abs/2507.21176
+- https://github.com/healthylaife/LLM-KG-Bias
+extracted: '2026-10-26'
+terms:
+- term: Bias score
+  level: metric
+  definition: Judge-LLM score of the severity of implicit bias in a Target LLM's answer, based on the association of age, gender and location (single and combined) with the disease; higher means stronger bias.
+  definition_verbatim: false
+  location: Section 3 (bias evaluation setup) and Section 4.3.3, Figure 2/Table 3
+  scale: 0-1
+- term: Factual consistency
+  level: criterion
+  definition: Whether the perturbed questions contain reliable information that is not supposed to be misleading.
+  definition_verbatim: true
+  location: Section 4.3.1, Table 1
+  scale: 1-5 (judge LLM)
+- term: Clinical relevance
+  level: criterion
+  definition: Assesses whether the perturbed questions are clinically plausible and free from misleading information.
+  definition_verbatim: true
+  location: Section 4.3.1, Table 1
+  scale: 1-5 (judge LLM)
+- term: Coherence
+  level: criterion
+  definition: Evaluates the grammatical structure and semantic fluency of the perturbed questions.
+  definition_verbatim: true
+  location: Section 4.3.1, Table 1
+  scale: 1-5 (judge LLM)
+- term: BERTScore (F1, P, R)
+  level: metric
+  definition: Similarity of answers generated through the pipeline to the ground-truth diagnoses of the Nurse Bias vignettes, by perturbed-attribute subgroup.
+  definition_verbatim: false
+  location: Section 4.3.2, Table 2
+  scale: BERTScore
+- term: Multi-hop reasoning consistency (GPTScore)
+  level: metric
+  definition: Judge-LLM check of the consistency of the Target LLM's multi-hop reasoning and the overall biased response, implemented with GPTScore.
+  definition_verbatim: false
+  location: Section 3 (judge LLM stage)
+notes: Factual consistency, clinical relevance and coherence rate the quality of the generated perturbed questions (validating the pipeline), not the target model's answers; the bias score is the construct applied to medical LLM answers, with demographic dimensions age, gender and location. Also a small human study (RQ4) compares answers; its criteria were not recorded. Judge LLMs include GPT-4o, Mistral-7B and LLaMA variants.

@@ -1,0 +1,48 @@
+entry: medroundsqa
+sources:
+- https://arxiv.org/abs/2609.12851
+- https://huggingface.co/datasets/youssefkhalil320/MedRoundsQA
+extracted: '2026-10-26'
+terms:
+- term: Dx(MT)
+  level: metric
+  definition: 'Multi-turn diagnostic accuracy: share of cases where the doctor agent final provisional diagnosis matches the gold diagnosis, judged by an LLM judge.'
+  definition_verbatim: false
+  location: Section 3.6; Table 2 caption
+  scale: percentage
+- term: Dx(ST)
+  level: metric
+  definition: Single-turn diagnostic accuracy on the standardized record-style input, used as a reference.
+  definition_verbatim: false
+  location: Section 3.6; Table 2
+  scale: percentage
+- term: Drop
+  level: metric
+  definition: Dx(ST) minus Dx(MT); higher indicates larger degradation under interaction.
+  definition_verbatim: false
+  location: Table 2 caption
+- term: SlotCov
+  level: metric
+  definition: Fraction of available clinical information (non-empty gold schema slots) elicited by the doctor questions.
+  definition_verbatim: false
+  location: Section 4, Evaluation metrics
+  scale: percentage
+- term: RelAcc
+  level: metric
+  definition: Fraction of doctor questions judged relevant or grounded in the record by an LLM judge.
+  definition_verbatim: false
+  location: Section 4, Evaluation metrics
+  scale: percentage
+- term: EarlyTerm
+  level: metric
+  definition: Rate of stopping the consultation before the turn budget.
+  definition_verbatim: false
+  location: Section 4, Evaluation metrics
+  scale: percentage
+- term: Turns
+  level: metric
+  definition: Average number of consultation turns used.
+  definition_verbatim: false
+  location: Table 2
+  scale: count
+notes: LLM judge validated against labels from three resident physicians on 300 dialogues. Difficulty labels and patient persona attributes (health literacy, language proficiency, affect, occupation) vary conditions rather than score outputs. Definitions paraphrase the metric descriptions.

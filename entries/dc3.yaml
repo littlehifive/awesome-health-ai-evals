@@ -1,0 +1,42 @@
+id: dc3
+name: DC3
+kind: benchmark
+year: 2019
+summary: 31 very difficult diagnostic case challenges from the New England Journal of Medicine (Massachusetts General Hospital, 2013 to 2018) with temporally ordered physician notes, confirmed diagnoses as UMLS CUIs, and inferred dense relevance judgments over 27 million PubMed abstracts, for clinical decision support.
+readme_section: open_ended
+links:
+  paper: https://doi.org/10.1145/3341981.3344239
+  arxiv: "1908.08581"
+  doi: 10.1145/3341981.3344239
+  code: https://github.com/codiag-public/dc3
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Cases come from Massachusetts General Hospital, Boston, as published in NEJM Case Challenges.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature, clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 31 cases; median 3,597 relevant PubMed documents per case; 6.9 target CUIs per case on average
+signals:
+  citations: 4
+  citations_source: OpenAlex
+  hf_downloads: null
+  github_stars: 4
+  uptake: []
+  updated: '2026-10-26'
+provenance:
+  records: [r_86cce683b1]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "A 2019 information-retrieval and text-classification resource (not built for LLM chatbots), included because it is a small diagnostic-case set with ground-truth diagnoses. Case text is not redistributed because NEJM holds the copyright; a Python script downloads the public case challenges into JSON, and relevance judgments are in trec_eval format (open_data open for the script and judgments). Relevance labels are inferred from NER matches of diagnoses in PubMed abstracts, not manual judgments. No license stated in the paper."

@@ -1,0 +1,131 @@
+entry: aie-saps
+sources:
+- https://arxiv.org/abs/2403.08495
+extracted: '2026-10-26'
+terms:
+- term: COVERAGE
+  level: metric
+  parent: Automatic metrics
+  definition: COVERAGE measures how much patient information is recalled during the consultation conversation process.
+  definition_verbatim: true
+  location: Section 4.4.2 (automatic metrics), Tables 2-3
+  scale: recall over patient information (0-1)
+- term: INQUIRY ACC
+  level: metric
+  parent: Automatic metrics
+  definition: This metric measures the proportion of the EI [effective inquiry] in the inquiry actions.
+  definition_verbatim: true
+  location: Section 4.4.2 (automatic metrics), Tables 2-3
+  scale: proportion
+- term: INQUIRY SPECIFIC
+  level: metric
+  parent: Automatic metrics
+  definition: This metric measures the proportion of the EI/II in the inquiry actions.
+  definition_verbatim: true
+  location: Section 4.4.2 (automatic metrics), Tables 2-3
+  scale: proportion
+- term: INQUIRY LOGIC
+  level: metric
+  parent: Automatic metrics
+  definition: This metric measures the gathering information logic of the doctor LLMs, comparing collected-information order with the typical consultation sequence (edit distance).
+  definition_verbatim: false
+  location: Section 4.4.2 (automatic metrics), Tables 2-3
+  scale: edit-distance based
+- term: ADVICE ACC
+  level: metric
+  parent: Automatic metrics
+  definition: This metric measures the proportion of the EA [effective advice] in the advice actions.
+  definition_verbatim: true
+  location: Section 4.4.2 (automatic metrics), Tables 2-3
+  scale: proportion
+- term: ADVICE SPECIFIC
+  level: metric
+  parent: Automatic metrics
+  definition: Proportion of effective or ineffective advice (EA/IA) among advice actions.
+  definition_verbatim: false
+  location: Section 4.4.2 (automatic metrics), Tables 2-3
+  scale: proportion
+- term: DISTINCT
+  level: metric
+  parent: Automatic metrics
+  definition: The DISTINCT-2 score calculates the proportion of repetitive parts in a dialogue.
+  definition_verbatim: false
+  location: Section 4.4.2 (automatic metrics), Tables 2-3
+  scale: DISTINCT-2
+- term: Diagnostic score
+  level: metric
+  definition: Whether the doctor LLM's final diagnosis matches the case diagnosis (multiple-choice for HospitalCases; compared against MCQ evaluation on MedicalExam).
+  definition_verbatim: false
+  location: Sections 2.5-2.7, Fig. 6b
+  scale: accuracy
+- term: Inquiry (doctor perspective)
+  level: criterion
+  parent: Doctor-perspective metrics
+  definition: Inquiry measures the capacity to gather information, such as which model more effectively collects key patient information, including chief complaints and illness history.
+  definition_verbatim: true
+  location: Section 4.4.3 (human and GPT-4 evaluation)
+  scale: pairwise comparison (win rate)
+- term: Logic (doctor perspective)
+  level: criterion
+  parent: Doctor-perspective metrics
+  definition: Logic assesses which model has a more logical and non-repetitive questioning approach.
+  definition_verbatim: true
+  location: Section 4.4.3 (human and GPT-4 evaluation)
+  scale: pairwise comparison
+- term: Diagnosis (doctor perspective)
+  level: criterion
+  parent: Doctor-perspective metrics
+  definition: Diagnosis determines which model makes accurate diagnoses with adequate information and provides appropriate advice when information is scarce.
+  definition_verbatim: true
+  location: Section 4.4.3 (human and GPT-4 evaluation)
+  scale: pairwise comparison
+- term: Patient (doctor perspective)
+  level: criterion
+  parent: Doctor-perspective metrics
+  definition: Patient evaluates which model better demonstrates empathy, respect, and support for the patient's emotional and psychological needs.
+  definition_verbatim: true
+  location: Section 4.4.3 (human and GPT-4 evaluation)
+  scale: pairwise comparison
+- term: Total (doctor perspective)
+  level: criterion
+  parent: Doctor-perspective metrics
+  definition: Total decide which model excels overall, considering their information gathering, inquiry logic, diagnostic accuracy, and humanistic care.
+  definition_verbatim: true
+  location: Section 4.4.3 (human and GPT-4 evaluation)
+  scale: pairwise comparison
+- term: Effective (patient perspective)
+  level: criterion
+  parent: Patient-perspective metrics
+  definition: Effective measures which model provided more beneficial advice or diagnosis in general terms.
+  definition_verbatim: true
+  location: Section 4.4.3 (human and GPT-4 evaluation)
+  scale: pairwise comparison
+- term: Clear (patient perspective)
+  level: criterion
+  parent: Patient-perspective metrics
+  definition: Clear assesses which model communicated more clearly and was easier to understand, particularly in explaining any medical or technical terms.
+  definition_verbatim: true
+  location: Section 4.4.3 (human and GPT-4 evaluation)
+  scale: pairwise comparison
+- term: Understand (patient perspective)
+  level: criterion
+  parent: Patient-perspective metrics
+  definition: Understand determines which model showed greater consideration of the patient's preferences and engagement with the patient's ideas or concerns.
+  definition_verbatim: true
+  location: Section 4.4.3 (human and GPT-4 evaluation)
+  scale: pairwise comparison
+- term: Empathy (patient perspective)
+  level: criterion
+  parent: Patient-perspective metrics
+  definition: Empathy evaluates which model demonstrated more empathy and a better response to the patient's emotional state and thoughts and feelings.
+  definition_verbatim: false
+  location: Section 4.4.3 (human and GPT-4 evaluation)
+  scale: pairwise comparison
+- term: Total (patient perspective)
+  level: criterion
+  parent: Patient-perspective metrics
+  definition: Total evaluates which model appeared more credible, reliable, and professional overall.
+  definition_verbatim: true
+  location: Section 4.4.3 (human and GPT-4 evaluation)
+  scale: pairwise comparison
+notes: 'Three scoring routes for doctor LLMs: automatic metrics, GPT-4 evaluation and human evaluation (five doctor-perspective and five patient-perspective criteria, modeled on GMC-PQ and PCCBP). Patient-simulator validation uses six separate dimensions (e.g. Accurate, Passive) that score the simulator not the doctor LLM, so they are not listed. ''Parent'' labels are group names, not source terms. Empathy definition is truncated in the text read and completed by paraphrase.'

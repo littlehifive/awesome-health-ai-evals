@@ -1,0 +1,43 @@
+entry: tswap-wellness-benchmark
+sources:
+- https://arxiv.org/abs/2608.22917
+- https://github.com/kobkrit/tswap-wellness-benchmark
+extracted: '2026-10-26'
+terms:
+- term: Recall@5
+  level: metric
+  definition: Retrieval recall of gold document IDs in the top 5 for the 50-question Thai golden set (reported 0.88).
+  definition_verbatim: false
+  location: Section 4.1
+  scale: recall at K
+- term: Answer correctness (PASS/FAIL/ODD)
+  level: criterion
+  definition: Production QA regression cases (429 cases, 15 groups) scored as PASS, FAIL, or ODD for engine answers.
+  definition_verbatim: false
+  location: Section 4.3
+  scale: PASS / FAIL / ODD
+- term: Test-retest consistency
+  level: metric
+  definition: Share of previously passing cases that reproduce PASS on re-execution (236 of 259, 91.1%).
+  definition_verbatim: false
+  location: Section 4.3
+  scale: percent
+- term: User satisfaction
+  level: other
+  definition: Four-week user acceptance testing overall satisfaction (n = 120).
+  definition_verbatim: false
+  location: Section 4.2
+  scale: percent
+- term: User-assessed chatbot accuracy
+  level: other
+  definition: Users’ rating of chatbot accuracy in UAT.
+  definition_verbatim: false
+  location: Section 4.2
+  scale: percent
+- term: Thai herbal-knowledge accuracy
+  level: other
+  definition: UAT rating of herbal knowledge accuracy.
+  definition_verbatim: false
+  location: Section 4.2
+  scale: percent
+notes: Paper is a system paper; the released benchmark is a retrieval golden set scored by Recall@K, plus logs. Section 4.4 frontier no-retrieval probe not read in detail. Definitions are paraphrased.

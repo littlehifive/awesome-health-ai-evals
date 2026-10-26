@@ -1,0 +1,21 @@
+entry: siri-2-llm-benchmark
+sources: [https://github.com/MattMatt27/mental-health-benchmark-tutorial]
+extracted: 2026-10-26
+terms:
+  - term: SIRI-2 total score
+    level: metric
+    definition: "Sum of |model rating - expert mean| across the 48 validated items; lower scores indicate better alignment with expert suicidologists."
+    definition_verbatim: true
+    location: README, Experiment Design (Scoring)
+    scale: absolute deviation from expert panel mean (expert baseline 32.5)
+  - term: Directional bias
+    level: metric
+    definition: "Tendency to rate clinically inappropriate helper responses more favorably than experts did."
+    definition_verbatim: false
+    location: README, Key Findings; src/analysis.py
+  - term: Consistency across repeated administrations
+    level: metric
+    definition: "Consistency of model ratings and of reasoning (embedding consistency) over ten repeated runs per condition."
+    definition_verbatim: false
+    location: README, src/analysis.py and reasoning_analysis.py
+notes: "Read the repository README only. The SIRI-2 instrument itself rates helper responses on a scale against expert consensus; the exact rating scale was not stated in the README."

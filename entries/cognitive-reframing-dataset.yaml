@@ -1,0 +1,42 @@
+id: cognitive-reframing-dataset
+name: Cognitive Reframing of Negative Thoughts
+kind: benchmark
+year: 2023
+summary: "600 situation, negative-thought and reframed-thought triples written and annotated by mental-health practitioners, with a framework of seven linguistic attributes of reframes and automated metrics for them."
+readme_section: mental_health
+links:
+  paper: https://arxiv.org/abs/2305.02466
+  arxiv: "2305.02466"
+  doi: 10.48550/arxiv.2305.02466
+  code: https://github.com/behavioral-data/Cognitive-Reframing-of-Negative-Thoughts
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Situations and thoughts come from Mental Health America website visitors and Amazon Mechanical Turk crowdworkers; countries are not stated.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic, implementer_ngo]
+  item_provenance: [real_user_queries, clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric, expert_human_rating]
+  modality: [text]
+  size: 600 situation-thought-reframe triples
+signals:
+  citations: 6
+  citations_source: OpenAlex
+  hf_downloads: null
+  github_stars: 68
+  uptake: []
+  updated: '2026-10-26'
+provenance:
+  records: [r_a629701461]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "ACL 2023 paper, mostly a method and randomized field study (2,000+ participants on the MHA site); the reusable parts are the 600-item dataset, the seven-attribute framework and the automated attribute metrics. Repo license is not identified by GitHub (NOASSERTION), so license left null. Borderline benchmark."

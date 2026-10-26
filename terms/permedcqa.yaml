@@ -1,0 +1,23 @@
+entry: permedcqa
+sources: [https://arxiv.org/abs/2505.18331]
+extracted: 2026-10-26
+terms:
+  - term: Correctness
+    level: dimension
+    definition: "Correct: Clinically equivalent; no meaningful differences. Partially_correct: Minor deviations, no significant clinical impact. Incorrect: Substantial differences that affect accuracy or completeness. Contradictory: Model advice directly conflicts with the expert reference."
+    definition_verbatim: true
+    location: Section 4.1; Appendix A.1 (Med-Judge rubric)
+    scale: "4-level categorical (Correct, Partially correct, Incorrect, Contradictory)"
+  - term: Coverage
+    level: dimension
+    definition: "Equal: Both answers contain the same key facts. Model_subset: Model omits critical facts present in the expert answer. Expert_subset: Model introduces relevant facts not found in the expert answer. Overlap_none: No substantial factual overlap."
+    definition_verbatim: true
+    location: Section 4.1; Appendix A.1
+    scale: "4-level categorical (equal, model_subset, expert_subset, overlap_none)"
+  - term: Critical_Impact
+    level: dimension
+    definition: "Negligible: No effect on care or understanding. Moderate: Slight effect on treatment or comprehension. Significant: Likely to affect recommendations or outcomes. Critical: May result in unsafe or harmful guidance."
+    definition_verbatim: true
+    location: Section 4.1; Appendix A.1 (called Clinical_impact in the appendix list)
+    scale: "4-level ordinal (Negligible, Moderate, Significant, Critical)"
+notes: "Med-Judge (Gemini-Flash-2.5) compares a model answer with the forum physician answer; criteria adapted from Hosseini et al. 2024. The judge also lists key_missing_facts and key_extra_facts as free-text outputs, not scored terms. BLEU, ROUGE and METEOR are named only as rejected metrics. ICD-11 category and 25 question types are item tags, not scored."

@@ -1,0 +1,123 @@
+entry: opentumorboard
+sources:
+- https://arxiv.org/abs/2609.32810
+extracted: '2026-10-26'
+terms:
+- term: Clinical equivalence
+  level: criterion
+  definition: Assesses whether the LLM generation faithfully preserves the clinical content of the reference
+    specialist response (Specialist Turn).
+  definition_verbatim: false
+  location: Section 3.1, Appendix C.1
+  scale: 1-5 LLM-judge rubric
+- term: Critical error rate
+  level: metric
+  definition: Share of Specialist Turn responses containing clinically consequential errors, as flagged
+    by the LLM judge.
+  definition_verbatim: false
+  location: Section 3.1; Specialist Turn results
+  scale: rate (percent of responses)
+- term: Unsupported claim rate
+  level: metric
+  definition: Share of Specialist Turn responses containing claims not supported by the case evidence,
+    as flagged by the LLM judge.
+  definition_verbatim: false
+  location: Section 3.1; Specialist Turn results
+  scale: rate (percent of responses)
+- term: Conclusion alignment
+  level: criterion
+  definition: Assesses how faithfully the final generated conclusion preserves the tumor board clinical
+    decisions across therapy recommendations, surgical plans, next actions, and clinical trial matching
+    (Board Simulation).
+  definition_verbatim: false
+  location: Section 3.1, Appendix C.2
+  scale: 1-5 LLM-judge rubric
+- term: 'Four-decision rubric: therapy recommendations'
+  level: dimension
+  parent: Four-decision rubric
+  definition: Whether the candidate preserves the reference conclusion decision on therapy recommendations;
+    scored -1 when the reference states no decision.
+  definition_verbatim: false
+  location: Appendix C.3
+  scale: 1-5, -1 if out of scope
+- term: 'Four-decision rubric: surgical plans'
+  level: dimension
+  parent: Four-decision rubric
+  definition: Whether the candidate preserves the reference conclusion decision on surgical plans.
+  definition_verbatim: false
+  location: Appendix C.3
+  scale: 1-5, -1 if out of scope
+- term: 'Four-decision rubric: next actions'
+  level: dimension
+  parent: Four-decision rubric
+  definition: Whether the candidate preserves the reference conclusion decision on next actions.
+  definition_verbatim: false
+  location: Appendix C.3
+  scale: 1-5, -1 if out of scope
+- term: 'Four-decision rubric: clinical trial matching'
+  level: dimension
+  parent: Four-decision rubric
+  definition: Whether the candidate preserves the reference conclusion decision on clinical trial matching.
+  definition_verbatim: false
+  location: Appendix C.3
+  scale: 1-5, -1 if out of scope
+- term: ROUGE-L
+  level: metric
+  definition: Textual overlap between generated and reference board conclusions, reported as a complementary
+    measure.
+  definition_verbatim: false
+  location: Section 3.1
+  scale: 0-1 automatic
+- term: BERTScore
+  level: metric
+  definition: Embedding-based textual similarity between generated and reference board conclusions, reported
+    as a complementary measure.
+  definition_verbatim: false
+  location: Section 3.1
+  scale: 0-1 automatic
+- term: Question relevance
+  level: criterion
+  parent: Expert audit of ground truth
+  definition: Assesses whether the question is relevant to the patient's clinical context.
+  definition_verbatim: true
+  location: Appendix A, expert-audit dimensions (Table 2)
+- term: Response correctness
+  level: criterion
+  parent: Expert audit of ground truth
+  definition: Assesses the clinical accuracy of the extracted specialist response in answering the associated
+    question.
+  definition_verbatim: true
+  location: Appendix A, expert-audit dimensions (Table 2)
+- term: Discussion support
+  level: criterion
+  parent: Expert audit of ground truth
+  definition: Assesses whether the extracted specialist response is supported by the recorded discussion.
+  definition_verbatim: true
+  location: Appendix A, expert-audit dimensions (Table 2)
+- term: Case coverage
+  level: criterion
+  parent: Expert audit of ground truth
+  definition: Assesses whether the case summary includes the key clinical information from the source
+    case presentation.
+  definition_verbatim: true
+  location: Appendix A, expert-audit dimensions (Table 2)
+- term: Case factuality
+  level: criterion
+  parent: Expert audit of ground truth
+  definition: Assesses whether the information in the case summary faithfully reflects the source material,
+    without factual errors or unsupported additions.
+  definition_verbatim: true
+  location: Appendix A, expert-audit dimensions (Table 2)
+- term: Consensus fidelity
+  level: criterion
+  parent: Expert audit of ground truth
+  definition: Assesses whether the extracted consensus conclusion faithfully represents the tumor board's
+    final recommendations and decisions.
+  definition_verbatim: true
+  location: Appendix A, expert-audit dimensions (Table 2)
+notes: The first six terms after the model-output metrics (Question relevance to Consensus fidelity) are
+  expert-audit ratings of the benchmark ground truth by three M.D. experts, not scores of model outputs;
+  they are included because the paper reports them as quality dimensions. Model outputs are judged by
+  Qwen3.8-27B. 'Four-decision rubric' is the parent grouping used for the four management dimensions;
+  it is not scored as a single term. Rubric text read from the arXiv HTML (v1); the 1-5 anchors for clinical
+  equivalence were not fully read.

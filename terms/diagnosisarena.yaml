@@ -1,0 +1,24 @@
+entry: diagnosisarena
+sources: [https://arxiv.org/abs/2505.14107, https://aclanthology.org/2026.findings-acl.151/]
+extracted: 2026-10-26
+terms:
+  - term: "Top-k accuracy"
+    level: metric
+    definition: "We instruct the LLM to generate the k possible diagnostic outcomes in descending order of confidence, and then calculate the Top k accuracy, which is the hit rate of the correct answer within the top k predicted results."
+    definition_verbatim: true
+    location: "Section 4.2, Open-Ended Question Evaluation; Figure 3a"
+    scale: "percent hit rate (k up to 5)"
+  - term: "identical / relevant / irrelevant"
+    level: category
+    parent: "Top-k accuracy"
+    definition: "medical diagnoses are generally classified into three categories: 'identical', 'relevant', and 'irrelevant'... only when the model's result is judged to be 'identical' is it considered correct."
+    definition_verbatim: true
+    location: "Section 4.2"
+    scale: "3-class GPT-4o judgement, correct only if identical"
+  - term: "Multiple-choice accuracy"
+    level: metric
+    definition: "Accuracy on four-option multiple-choice versions with rule-based answer extraction."
+    definition_verbatim: false
+    location: "Section 4.2, Multi-Choice Question Evaluation"
+    scale: "accuracy"
+notes: "Single correctness construct (diagnostic accuracy); no rubric axes."

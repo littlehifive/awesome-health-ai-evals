@@ -1,0 +1,40 @@
+entry: precision-evidence-bench
+sources: [https://huggingface.co/datasets/atroposhealth/precision-evidence-bench, https://doi.org/10.64898/2026.10.07.26364976]
+extracted: 2026-10-26
+terms:
+  - term: single_source_full_pico_match
+    level: criterion
+    parent: Evidence-fit rubric
+    definition: "True or false: is there a single cited source that matches the Population (including any required subgroup or stratification), Intervention, Control, and Outcome of the question, with no meaningful gaps or mismatches on any element? Judge the Intervention, Control, and Outcome strictly here."
+    definition_verbatim: true
+    location: rubric.json (dataset repository)
+    scale: "binary 0/1; highest bar in the rubric"
+  - term: single_source_pic_match
+    level: criterion
+    parent: Evidence-fit rubric
+    definition: "A single cited source matches Population, Intervention and Control, with forgiveness for minor Population inexactness; Outcome need not match."
+    definition_verbatim: false
+    location: rubric.json
+    scale: binary 0/1
+  - term: single_source_pio_match
+    level: criterion
+    parent: Evidence-fit rubric
+    definition: "A single cited source matches Population, Intervention and Outcome, with forgiveness for minor Population inexactness; Control need not match."
+    definition_verbatim: false
+    location: rubric.json
+    scale: binary 0/1
+  - term: single_source_pco_match
+    level: criterion
+    parent: Evidence-fit rubric
+    definition: "A single cited source matches Population, Control and Outcome, with forgiveness for minor Population inexactness; Intervention need not match."
+    definition_verbatim: false
+    location: rubric.json
+    scale: binary 0/1
+  - term: faithful_to_sources
+    level: criterion
+    parent: Evidence-fit rubric
+    definition: "True or false: is the answer faithful to its cited sources, in a way that matters to a clinician deciding whether to trust and act on it? This is not a test of whether every word is traceable to a quote; it is a test of whether the answer could mislead a reader about what the evidence actually shows."
+    definition_verbatim: true
+    location: rubric.json
+    scale: binary 0/1
+notes: "Five-item rubric scored by an LLM jury (from rubric.json); the summary also mentions an overall quality rating of the answer, which the highest tier needs the full-PICO match for. Prompts are long calibration texts with worked examples; only the definitions are captured. Population forgiveness applies only when the answer discloses the mismatch."

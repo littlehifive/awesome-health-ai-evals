@@ -1,0 +1,88 @@
+entry: medical-factuality-verification-taxonomy
+sources: [https://arxiv.org/abs/2609.30467]
+extracted: 2026-10-26
+terms:
+  - term: Entity Match
+    level: dimension
+    parent: Retrieval quality taxonomy
+    definition: Whether the retrieved passage concerns the same medical entities as the claim; one high-quality pattern and several low-quality patterns.
+    definition_verbatim: false
+    location: Appendix, Retrieval Quality Taxonomy, Table 8
+  - term: Scope Match
+    level: dimension
+    parent: Retrieval quality taxonomy
+    definition: Whether the passage matches the claim's scope such as condition and population.
+    definition_verbatim: false
+    location: Appendix, Table 8
+  - term: Content Trustworthiness
+    level: dimension
+    parent: Retrieval quality taxonomy
+    definition: Whether the passage content comes from a trustworthy source.
+    definition_verbatim: false
+    location: Appendix, Table 8
+  - term: Evidence Polarity
+    level: dimension
+    parent: Retrieval quality taxonomy
+    definition: Whether the passage directly affirms or contradicts the claim.
+    definition_verbatim: false
+    location: Appendix, Table 8
+  - term: Chunking Issues
+    level: dimension
+    parent: Retrieval quality taxonomy
+    definition: Data ingestion and chunking problems in the retrieved passage.
+    definition_verbatim: false
+    location: Appendix, Table 8
+  - term: High Quality Rate
+    level: metric
+    parent: Retrieval quality taxonomy
+    definition: "We count each passage as high quality only when it is high quality across all 5 dimensions. We calculate High Quality Rate, which is the portion of retrieved high-quality passages by each retriever"
+    definition_verbatim: true
+    location: Appendix, Retrieval Quality Taxonomy
+  - term: Evidence Selection
+    level: dimension
+    parent: Verifier behavior taxonomy
+    definition: Whether the verifier selects the relevant passages from the evidence (correct pattern is appropriate passage selection).
+    definition_verbatim: false
+    location: Appendix, Table 9
+  - term: Evidence Interpretation
+    level: dimension
+    parent: Verifier behavior taxonomy
+    definition: Whether the verifier comprehends the selected passages correctly.
+    definition_verbatim: false
+    location: Appendix, Table 9
+  - term: Inference Quality
+    level: dimension
+    parent: Verifier behavior taxonomy
+    definition: Quality of the clinical inference drawn from the evidence.
+    definition_verbatim: false
+    location: Appendix, Table 9
+  - term: Verbalized Model Confidence
+    level: dimension
+    parent: Verifier behavior taxonomy
+    definition: Whether the stated confidence is calibrated to the strength of the evidence.
+    definition_verbatim: false
+    location: Appendix, Table 9
+  - term: Label Consistency
+    level: dimension
+    parent: Verifier behavior taxonomy
+    definition: Whether the final label agrees with the reasoning conclusion.
+    definition_verbatim: false
+    location: Appendix, Table 9
+  - term: Grounding
+    level: dimension
+    parent: Verifier behavior taxonomy
+    definition: Whether the information in the reasoning text is traceable to the given evidence.
+    definition_verbatim: false
+    location: Appendix, Table 9
+  - term: Correctness Rate
+    level: metric
+    parent: Verifier behavior taxonomy
+    definition: "We count each reasoning trace as correct only when all 6 steps are correct."
+    definition_verbatim: true
+    location: Appendix, Verifier Behavior Taxonomy
+  - term: Precision, Recall, F1
+    level: metric
+    definition: End-to-end claim-verification metrics under label-mapping strategies.
+    definition_verbatim: false
+    location: Table 2
+notes: "These are failure taxonomies for retrieve-then-verify pipelines, not chatbot output criteria. Each dimension has one correct pattern and several error sub-codes (16 verifier sub-codes in total). The names of the six verifier steps come from the human-machine agreement table (Table 13) and Table 9; definitions are paraphrased from the sub-code descriptions because the table text did not extract cleanly. Human-annotation agreement is reported per category with Krippendorff alpha."

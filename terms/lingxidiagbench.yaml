@@ -1,0 +1,94 @@
+entry: lingxidiagbench
+sources: [https://arxiv.org/abs/2602.09379]
+extracted: 2026-10-26
+terms:
+  - term: Diagnostic accuracy (Acc, Top-1, Top-3)
+    level: metric
+    definition: "Accuracy of psychiatric diagnosis at 2-class (depression vs anxiety), 4-class and 12-class levels; Top-1 and Top-3 accuracy for the 12-class task."
+    definition_verbatim: false
+    location: Section 4 (static and dynamic evaluation), Tables 4 and 6
+    scale: proportion
+  - term: Macro F1 and weighted F1
+    level: metric
+    definition: "F1 scores for the 2, 4 and 12-class diagnosis tasks."
+    definition_verbatim: false
+    location: Tables 4 and 6
+    scale: F1
+  - term: Information completeness
+    level: dimension
+    parent: Doctor Agent consultation quality
+    definition: "Consultation-quality dimension judged by GPT-4o on how complete the information gathered by the doctor agent is."
+    definition_verbatim: false
+    location: Section 4, Doctor Agent Evaluation; Appendix C.2
+    scale: 1-6 Likert
+  - term: Symptom exploration depth
+    level: dimension
+    parent: Doctor Agent consultation quality
+    definition: "Consultation-quality dimension judged by GPT-4o on how deeply the doctor agent explores symptoms."
+    definition_verbatim: false
+    location: Section 4, Doctor Agent Evaluation
+    scale: 1-6 Likert
+  - term: Differential diagnosis awareness
+    level: dimension
+    parent: Doctor Agent consultation quality
+    definition: "Consultation-quality dimension judged by GPT-4o on whether the doctor agent considers alternative diagnoses."
+    definition_verbatim: false
+    location: Section 4, Doctor Agent Evaluation
+    scale: 1-6 Likert
+  - term: Risk assessment
+    level: dimension
+    parent: Doctor Agent consultation quality
+    definition: "Consultation-quality dimension judged by GPT-4o on whether the doctor agent assesses risks such as suicide and self-harm."
+    definition_verbatim: false
+    location: Section 4, Doctor Agent Evaluation
+    scale: 1-6 Likert
+  - term: Communication quality
+    level: dimension
+    parent: Doctor Agent consultation quality
+    definition: "Consultation-quality dimension judged by GPT-4o on the doctor agent's communication."
+    definition_verbatim: false
+    location: Section 4, Doctor Agent Evaluation
+    scale: 1-6 Likert
+  - term: Patient agent accuracy
+    level: dimension
+    parent: Patient Agent quality (factual consistency)
+    definition: "Patient-agent dimension in the factual consistency group; judged by a three-model LLM panel."
+    definition_verbatim: false
+    location: Section 4, Patient Agent Evaluation; Table 3
+    scale: 1-5
+  - term: Patient agent honesty
+    level: dimension
+    parent: Patient Agent quality (factual consistency)
+    definition: "Patient-agent dimension in the factual consistency group."
+    definition_verbatim: false
+    location: Section 4; Appendix C.1
+    scale: 1-5
+  - term: Response brevity
+    level: dimension
+    parent: Patient Agent quality (naturalness)
+    definition: "Patient-agent naturalness dimension (Table 3: Brevity)."
+    definition_verbatim: false
+    location: Section 4; Table 3
+    scale: 1-5
+  - term: Information proactivity
+    level: dimension
+    parent: Patient Agent quality (naturalness)
+    definition: "Patient-agent naturalness dimension (Table 3: Proactivity)."
+    definition_verbatim: false
+    location: Section 4; Table 3
+    scale: 1-5
+  - term: Emotional restraint
+    level: dimension
+    parent: Patient Agent quality (naturalness)
+    definition: "Patient-agent naturalness dimension (Table 3: Restraint)."
+    definition_verbatim: false
+    location: Section 4; Table 3
+    scale: 1-5
+  - term: Language polish
+    level: dimension
+    parent: Patient Agent quality (naturalness)
+    definition: "Patient-agent naturalness dimension (Table 3: Polish)."
+    definition_verbatim: false
+    location: Section 4; Table 3
+    scale: 1-5
+notes: "Definitions are paraphrases from the main text; full dimension definitions are in Appendix C prompts (not transcribed). Patient-agent dimensions rate the simulator, not the evaluated model; they are included because the benchmark scores them. Doctor-agent dimensions score the evaluated model's consultation."

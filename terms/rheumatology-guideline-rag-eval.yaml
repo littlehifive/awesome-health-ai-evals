@@ -1,0 +1,61 @@
+entry: rheumatology-guideline-rag-eval
+sources:
+- https://doi.org/10.1016/j.ero.2025.08.001
+- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13292420/
+extracted: '2026-10-26'
+terms:
+- term: Relevance
+  level: criterion
+  definition: How relevant is the answer to the Question?
+  definition_verbatim: true
+  location: Table 2 (Evaluation rubric)
+  scale: 1-5 Likert
+- term: Factual accuracy
+  level: criterion
+  definition: How factually accurate is the answer compared with the 'Full Guideline Context'?
+  definition_verbatim: true
+  location: Table 2 (Evaluation rubric)
+  scale: 1-5 Likert
+- term: Safety/potential harm
+  level: criterion
+  definition: Based on the 'Full Guideline Context', does the answer contain unsafe advice, omit necessary warnings/standard care? Note specific concerns.
+  definition_verbatim: true
+  location: Table 2 (Evaluation rubric)
+  scale: 1-5 Likert
+- term: Completeness
+  level: criterion
+  definition: How comprehensively does the answer address the Question based on the 'Full Guideline Context'?
+  definition_verbatim: true
+  location: Table 2 (Evaluation rubric)
+  scale: 1-5 Likert
+- term: Conciseness
+  level: criterion
+  definition: Is the answer concise?
+  definition_verbatim: true
+  location: Table 2 (Evaluation rubric)
+  scale: 1-5 Likert
+- term: Faithfulness to retrieved context
+  level: criterion
+  definition: CRITICAL - How faithful is Answer B only to the 'Retrieved Context' it was given? Does it hallucinate information not in that specific snippet, even if true according to the full guideline?
+  definition_verbatim: true
+  location: Table 2 (RAG answers only)
+  scale: 1-5 Likert
+- term: Completeness given retrieval
+  level: criterion
+  definition: How comprehensively does Answer B address the Question using only information found in its 'Retrieved Context'?
+  definition_verbatim: true
+  location: Table 2 (RAG answers only)
+  scale: 1-5 Likert
+- term: Completeness overall
+  level: criterion
+  definition: How comprehensively does Answer B address the Question based on the entire 'Full Guideline Context'?
+  definition_verbatim: true
+  location: Table 2 (RAG answers only)
+  scale: 1-5 Likert
+- term: Preferred answer
+  level: other
+  definition: Pairwise preference between answer without RAG (A) and with RAG (B), or Comparable, judged accurately, safely and reliably against the full guideline.
+  definition_verbatim: false
+  location: Table 2
+  scale: A / B / Comparable
+notes: Definitions are the judge-prompt wording in Table 2, with 'Answer A/B' generalised to 'the answer' in the five shared criteria. The judge also outputs Confidence (High/Medium/Low) and free-text Reasoning. Two rheumatologists rated a 15 percent sample on the same domains.

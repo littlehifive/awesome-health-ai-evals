@@ -1,0 +1,44 @@
+entry: choosing-wisely-bidirectional
+sources:
+- https://osf.io/8qug5
+- https://osf.io/download/u8s54/
+- https://osf.io/download/kce3j/
+extracted: '2026-10-26'
+terms:
+- term: ACTION
+  level: category
+  parent: Response label
+  definition: Recommends or suggests the intervention.
+  definition_verbatim: true
+  location: OSF data dictionary (DATA_DICTIONARY.md), Label values
+- term: RESTRAINT
+  level: category
+  parent: Response label
+  definition: Recommends against it, does not mention it, or offers only conservative management.
+  definition_verbatim: true
+  location: OSF data dictionary (DATA_DICTIONARY.md), Label values
+- term: CONDITIONAL
+  level: category
+  parent: Response label
+  definition: Raises the intervention only as a contingency.
+  definition_verbatim: true
+  location: OSF data dictionary (DATA_DICTIONARY.md), Label values
+- term: Overuse
+  level: metric
+  definition: Rate of ACTION labels on restraint_appropriate scenarios (intervention not indicated; overuse
+    is the error).
+  definition_verbatim: false
+  location: scenario_type definition in data dictionary; README results
+  scale: proportion of responses (5.4%, 146/2700 in the paper)
+- term: False restraint
+  level: metric
+  definition: Rate of RESTRAINT (strict) or RESTRAINT plus CONDITIONAL (inclusive) labels on action_appropriate
+    scenarios (same intervention indicated; false restraint is the error).
+  definition_verbatim: false
+  location: scenario_type definition in data dictionary; README results
+  scale: proportion of responses (0.6% strict, 1.8% inclusive in the paper)
+notes: Each model answer is labeled ACTION, RESTRAINT, or CONDITIONAL by two LLM judges (physician adjudication
+  on disagreement); the two error rates follow from crossing label with scenario_type. Scenario fields
+  also include domain (imaging, prescribing, screening) and evidence_strength_grade, which are stratifiers,
+  not scored terms. The metric definitions are paraphrased from the dictionary and README; the zip was
+  not opened.

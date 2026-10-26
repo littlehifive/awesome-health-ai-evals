@@ -1,0 +1,11 @@
+entry: medagentsim
+sources: [https://arxiv.org/abs/2503.22678]
+extracted: 2026-10-26
+terms:
+  - term: Diagnostic accuracy
+    level: metric
+    definition: "Percentage of simulated cases for which the doctor agent's final diagnosis matches the reference diagnosis (reported per dataset, e.g. MedQA, MedQA Extended, NEJM, NEJM Extended, MIMIC-IV)."
+    definition_verbatim: false
+    location: Section 4, Table 1
+    scale: percent correct
+notes: "The paper scores only diagnostic accuracy of the final diagnosis. A separate bias analysis varies patient cognitive biases, but it reports accuracy under bias rather than adding a scored term. Metric definition is a paraphrase; the paper gives none."

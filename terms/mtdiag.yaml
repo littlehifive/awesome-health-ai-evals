@@ -1,0 +1,94 @@
+entry: mtdiag
+sources:
+- https://aclanthology.org/2026.sigdial-1.58/
+- https://github.com/piachouaifaty/MTDiag
+extracted: '2026-10-26'
+terms:
+- term: Diagnosis Accuracy (Diagacc)
+  level: metric
+  definition: 'The trivial binary baseline: did the examiner model produce a diagnosis matching the ground-truth ICD-10 code?'
+  definition_verbatim: true
+  location: Appendix E.1, Eq. 1
+  scale: binary
+- term: Semantic Diagnostic Distance
+  level: metric
+  definition: Beyond binary accuracy, ICD-10 anchoring allows us to measure categorical severity (for example a different ICD-10 chapter is a severe miss versus a minor underspecification).
+  definition_verbatim: false
+  location: Section 5
+  scale: ICD-10 hierarchy distance
+- term: Harm Index
+  level: metric
+  definition: Diagnostic errors carry varying risk. Harm is clinically categorized into three tiers.
+  definition_verbatim: true
+  location: Section 5
+  scale: 3 tiers
+- term: Tier 1 (Direct Harm)
+  level: category
+  parent: Harm Index
+  definition: Recommending a treatment contraindicated for the ground-truth diagnosis.
+  definition_verbatim: true
+  location: Section 5
+  scale: tier
+- term: Tier 2 (Delay of Care)
+  level: category
+  parent: Harm Index
+  definition: Diagnosing a low-acuity condition when the ground truth is a time-sensitive emergency.
+  definition_verbatim: true
+  location: Section 5
+  scale: tier
+- term: Tier 3 (Instructional Failure)
+  level: category
+  parent: Harm Index
+  definition: Omitting critical advice that the case warrants.
+  definition_verbatim: true
+  location: Section 5
+  scale: tier
+- term: Symptom Elicitation Score (Sdise)
+  level: metric
+  definition: 'Assesses whether the model elicited the clinical evidence required for the diagnosis: frequency-weighted relevance of symptoms the examiner asked about (HPO), adjusted by a turn-efficiency penalty.'
+  definition_verbatim: false
+  location: Section 5; Appendix E.2, Eq. 2-5
+  scale: 0-1
+- term: Symptom Precision
+  level: metric
+  definition: 'Precision penalizes irrelevant or off-topic questioning: |Sdiag intersect Sd| / |Sdiag|.'
+  definition_verbatim: true
+  location: Appendix E.2, Eq. 6
+  scale: proportion
+- term: Symptom Recall
+  level: metric
+  definition: 'Recall captures whether the model elicited a sufficient fraction of the relevant symptom space: |Sdiag intersect Sd| / |Sd|.'
+  definition_verbatim: true
+  location: Appendix E.2, Eq. 7
+  scale: proportion
+- term: Anchoring Bias
+  level: metric
+  definition: A model may pursue a single working hypothesis throughout the dialogue, ignoring evidence that would refocus the differential; detected as queried symptoms contained within Sd of a single candidate diagnosis.
+  definition_verbatim: false
+  location: Section 5; Appendix E.2
+  scale: flag/degree
+- term: Premature Closure
+  level: metric
+  definition: If a model commits to a diagnosis before eliciting a sufficient proportion of the presenting symptoms by symptom-frequency weight, the diagnosis is flagged as premature.
+  definition_verbatim: true
+  location: Appendix E.2
+  scale: flag, configurable threshold
+- term: Pathognomonic and Sine Qua Non Errors
+  level: metric
+  definition: Pathognomonic errors measure whether the model failed to inquire about or recognize a uniquely identifying symptom for its own stated diagnosis; sine qua non errors capture omission of necessary symptoms (diagnostic hallucination).
+  definition_verbatim: true
+  location: Appendix E.2
+  scale: flag
+- term: Reliability Score (Rscore)
+  level: metric
+  definition: 'Unifies diagnostic and symptom performance: a model is credited only if it reached the correct diagnosis and its symptom inquiries were sufficiently relevant (Sdise >= t and Diagacc = 1).'
+  definition_verbatim: true
+  location: Appendix E.3, Eq. 8
+  scale: binary
+- term: Turn Efficiency
+  level: metric
+  definition: Turn count reported directly as a standalone metric; pathologically short or long dialogues are flagged.
+  definition_verbatim: true
+  location: Appendix E.3
+  scale: turn count
+notes: Ontology-grounded, automatic metrics computed from CUI-annotated dialogue logs (UMLS CUI for symptoms, ICD-10 for diagnoses, HPO frequencies). Paper says the suite is not specific to MTDiag. Dataset not released when checked (GitHub says coming soon).

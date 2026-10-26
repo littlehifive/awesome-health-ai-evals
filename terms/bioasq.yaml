@@ -1,0 +1,47 @@
+entry: bioasq
+sources: [https://doi.org/10.1038/s41597-023-02068-4]
+extracted: 2026-10-26
+terms:
+  - term: Information recall
+    level: criterion
+    parent: Ideal answer assessment
+    definition: "does the 'ideal' answer reports all the necessary information?"
+    definition_verbatim: true
+    location: Technical Validation / evaluation of ideal answers
+    scale: 1-5 (1 very poor, 5 excellent)
+  - term: Information precision
+    level: criterion
+    parent: Ideal answer assessment
+    definition: "does the answer contain only relevant information?"
+    definition_verbatim: true
+    location: Technical Validation / evaluation of ideal answers
+    scale: 1-5 (1 very poor, 5 excellent)
+  - term: Information repetition
+    level: criterion
+    parent: Ideal answer assessment
+    definition: "does the 'ideal' answer avoid repeating the same information multiple times?"
+    definition_verbatim: true
+    location: Technical Validation / evaluation of ideal answers
+    scale: 1-5 (1 very poor, 5 excellent)
+  - term: Readability
+    level: criterion
+    parent: Ideal answer assessment
+    definition: "is the 'ideal' answer easily readable and fluent?"
+    definition_verbatim: true
+    location: Technical Validation / evaluation of ideal answers
+    scale: 1-5 (1 very poor, 5 excellent)
+  - term: Macro-averaged F1
+    level: metric
+    parent: Exact answers (Yes/No questions)
+    definition: "The official measure for Yes/No questions since BioASQ6; accuracy, the former official measure, is also presented."
+    definition_verbatim: false
+    location: Challenge results (Task B)
+    scale: 0-1
+  - term: Accuracy
+    level: metric
+    parent: Exact answers (Yes/No questions)
+    definition: "Share of Yes/No questions answered correctly (former official measure)."
+    definition_verbatim: false
+    location: Challenge results (Task B)
+    scale: 0-1
+notes: The data descriptor also reports official challenge measures for factoid and list questions and for document/snippet retrieval (for example MRR, MAP, F-measure) and automatic summary metrics (ROUGE) for ideal answers; those were not found in the text read and are not listed. Only the Nature Scientific Data descriptor was read. The four ideal-answer criteria are the experts' manual assessment of system answers in the challenge.

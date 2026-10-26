@@ -1,0 +1,122 @@
+entry: sharp
+sources: [https://arxiv.org/abs/2512.08936]
+extracted: 2026-10-26
+terms:
+  - term: Safety
+    level: principle
+    definition: "Risk of adversarial use, compliance, and potential for harm"
+    definition_verbatim: true
+    location: Table 1
+  - term: Helpfulness
+    level: principle
+    definition: "perceived value of the system including usefulness and empowerment"
+    definition_verbatim: true
+    location: Table 1
+  - term: Accuracy
+    level: principle
+    definition: "ability of the model to correctly process inputs and provide factual outputs"
+    definition_verbatim: true
+    location: Table 1
+  - term: Relevance
+    level: principle
+    definition: "alignment between user intent and model outputs"
+    definition_verbatim: true
+    location: Table 1
+  - term: Personalization
+    level: principle
+    definition: "how well the model customizes experiences for individual users"
+    definition_verbatim: true
+    location: Table 1
+  - term: Adversarial
+    level: dimension
+    parent: Safety
+    definition: "risk associated with system misuse or inappropriate content"
+    definition_verbatim: true
+    location: Table 1
+  - term: Potential for Harm
+    level: dimension
+    parent: Safety
+    definition: "risk to user associated with following recommended actions"
+    definition_verbatim: true
+    location: Table 1; Table 4 (level of harm 4-point; likelihood; overall harm rating)
+    scale: "level None/Mild/Moderate/Severe; likelihood 5-point; overall 4-point (Innocuous to Severely harmful)"
+  - term: Perceived value
+    level: dimension
+    parent: Helpfulness
+    definition: "measure of the value a system provides to the user"
+    definition_verbatim: true
+    location: Table 1; Table 4 (overall helpfulness, overall quality)
+    scale: 5-point
+  - term: Empowerment
+    level: dimension
+    parent: Helpfulness
+    definition: "measure of the system ability to motivate the user and enable them to take action"
+    definition_verbatim: true
+    location: Table 1 (subcomponents Actionability, Motivation)
+  - term: Input errors
+    level: dimension
+    parent: Accuracy
+    definition: "measure of the system's ability to classify, parse, or categorize user inputs"
+    definition_verbatim: true
+    location: Table 1; Table 4 (misunderstanding yes/no)
+    scale: binary
+  - term: Output Errors
+    level: dimension
+    parent: Accuracy
+    definition: "measure of the system's errors in computing and presenting outputs"
+    definition_verbatim: true
+    location: Table 1; Table 4 (factuality yes/no; medical/scientific consensus Supported/No Consensus/Opposed)
+    scale: binary and 3-way categorical
+  - term: Factuality
+    level: criterion
+    parent: Output Errors
+    definition: "accuracy in the calculation and presentation of outputs"
+    definition_verbatim: true
+    location: Table 1
+  - term: Hallucinations
+    level: criterion
+    parent: Output Errors
+    definition: "presence of AI fabricated information"
+    definition_verbatim: true
+    location: Table 1
+  - term: Consensus
+    level: criterion
+    parent: Output Errors
+    definition: "level of agreement with scientific and clinical consensus; general acceptability"
+    definition_verbatim: true
+    location: Table 1
+  - term: Response Relevancy
+    level: dimension
+    parent: Relevance
+    definition: "measure of how well model outputs are structured"
+    definition_verbatim: true
+    location: Table 1 (subcomponents Comprehensive, Informative)
+    scale: "Table 4: Fully/Partially/Not at all"
+  - term: Contextual Relevancy
+    level: dimension
+    parent: Relevance
+    definition: "measure of how well model outputs match input context"
+    definition_verbatim: true
+    location: Table 1 (Grounding, Contextual Precision/Recall)
+    scale: "Table 4 groundedness: binary"
+  - term: Personal data use
+    level: dimension
+    parent: Personalization
+    definition: "measure of how well the model uses stored personal data"
+    definition_verbatim: true
+    location: Table 1 (Data extraction & use; Error Recovery)
+    scale: binary
+  - term: Output tone & structure
+    level: dimension
+    parent: Personalization
+    definition: "measure of how fluently the model formats outputs"
+    definition_verbatim: true
+    location: Table 1 (Tone, Coherence)
+    scale: binary
+  - term: Fairness
+    level: dimension
+    parent: Personalization
+    definition: "measure of how well the model treats users fairly and ethically"
+    definition_verbatim: true
+    location: Table 1 (Health Literacy, Bias)
+notes: "Table 1 lists subcomponents for each component (for example Usefulness, Actionability, Motivation, Comprehensive, Informative, Grounding, Tone, Coherence, Health Literacy, Bias); only components are listed here. Table 4 gives the rater question and answer options used on the Fitbit Insights explorer. Generalist raters scored Helpfulness, Accuracy, Relevance and Personalization; clinical raters scored Safety and Accuracy; autoraters were also used."

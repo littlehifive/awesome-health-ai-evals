@@ -1,0 +1,70 @@
+entry: counselingbench
+sources: [https://arxiv.org/abs/2410.22446]
+extracted: 2026-10-26
+terms:
+  - term: Counseling Skills & Interventions (CS&I)
+    level: category
+    definition: "Counselors' knowledge, skills, and abilities to conduct effective counseling."
+    definition_verbatim: true
+    location: Table 1
+    scale: MCQ accuracy per competency
+  - term: Intake, Assessment, & Diagnosis (IA&D)
+    level: category
+    definition: "Counselors' knowledge, skills, and abilities to effectively conduct client intake, assessment, and diagnosis."
+    definition_verbatim: true
+    location: Table 1
+    scale: MCQ accuracy per competency
+  - term: Professional Practice & Ethics (PP&E)
+    level: category
+    definition: "Counselors' knowledge, skills, and abilities related to maintaining proper administrative and clinical protocols."
+    definition_verbatim: true
+    location: Table 1
+    scale: MCQ accuracy per competency
+  - term: Treatment Planning (TP)
+    level: category
+    definition: "Counselors' knowledge, skills, and abilities to develop an effective course of treatment."
+    definition_verbatim: true
+    location: Table 1
+    scale: MCQ accuracy per competency
+  - term: Core Counseling Attributes (CCA)
+    level: category
+    definition: "Behaviors, traits, and dispositions of effective counselors."
+    definition_verbatim: true
+    location: Table 1
+    scale: MCQ accuracy per competency
+  - term: Accuracy
+    level: metric
+    definition: "Multiple-choice accuracy overall and per competency, under several prompting and decoding settings."
+    definition_verbatim: false
+    location: Table 2
+  - term: Alignment with expert reasoning
+    level: axis
+    definition: "Axis along which model rationales (chains of thought) are assessed against expert reference rationales."
+    definition_verbatim: false
+    location: Section 5 (RQ3), reasoning evaluation
+  - term: Coherence
+    level: axis
+    definition: "Axis along which model rationales are assessed, mainly with ROSCOE reference-free metrics."
+    definition_verbatim: false
+    location: Section 5 (RQ3), Appendix Table A10
+  - term: Informativeness
+    level: axis
+    definition: "Axis along which model rationales are assessed, mainly with ROSCOE reference-free metrics."
+    definition_verbatim: false
+    location: Section 5 (RQ3)
+  - term: ROSCOE
+    level: metric
+    definition: "Suite of unsupervised reference-free reasoning metrics (semantic alignment, logical inference, language coherence); a subset is used."
+    definition_verbatim: false
+    location: Section 5, Appendix Table A10
+  - term: ROUGE-1 / ROUGE-L, BERTScore, cosine similarity
+    level: metric
+    definition: "Reference-based metrics comparing model reasoning chains to expert-generated reference rationales."
+    definition_verbatim: false
+    location: Section 5
+  - term: LLM-judge rationale comparison categories
+    level: category
+    definition: "GPT-4o compares two rationales and decides which is better in categories: medical alignment, reading comprehension, knowledge recall, bias, harm, irrelevance, omission."
+    definition_verbatim: false
+    location: Appendix Table A13
+notes: "The five competencies come from the NBCC NCMHCE Content Outline and tag each question; they are task categories scored per-competency accuracy. The 1,612 questions are scored by multiple-choice exact match."

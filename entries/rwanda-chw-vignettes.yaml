@@ -2,6 +2,7 @@ id: rwanda-chw-vignettes
 name: Rwandan CHW vignette benchmark
 kind: benchmark
 year: 2026
+featured: true
 summary: 524 clinical vignette questions written by Rwandan community health workers (from 5,609 collected), with clinician and LLM answers rated on an 11-metric expert rubric.
 readme_section: multilingual_regional
 links:
@@ -28,6 +29,13 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: 524 questions released (5,609 vignettes available on request)
+signals:
+  citations: 12
+  citations_source: OpenAlex
+  hf_downloads: null
+  github_stars: null
+  uptake: []
+  updated: '2026-10-26'
 provenance:
   records: [r_cdd46cf0c0, r_908cff6978, r_ec7540e19c]
   extracted: 2026-10-26

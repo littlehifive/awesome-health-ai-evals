@@ -1,0 +1,112 @@
+entry: tcmclinicalreason-bench
+sources:
+- https://github.com/NJUCM-BJUCM-TCM-AI/TCMClinicalReason-Bench
+extracted: '2026-10-26'
+terms:
+- term: Content (seven reasoning blocks)
+  level: axis
+  definition: Judge score for the content of each of seven sequential reasoning blocks in the model's response; reported as Content (%).
+  definition_verbatim: false
+  location: README, Benchmark Design and Evaluation
+  scale: 0-5 per block, normalized to %
+- term: Syndrome-differentiation-and-treatment reasoning path
+  level: dimension
+  parent: Content (seven reasoning blocks)
+  definition: Block 1 of the required seven-block response, scored by the LLM judge against the reference.
+  definition_verbatim: false
+  location: README, Benchmark Design and Evaluation
+  scale: 0-5, bounded by scenario-dependent caps
+- term: Etiology and pathogenesis analysis
+  level: dimension
+  parent: Content (seven reasoning blocks)
+  definition: Block 2 of the required seven-block response, scored by the LLM judge against the reference.
+  definition_verbatim: false
+  location: README, Benchmark Design and Evaluation
+  scale: 0-5, bounded by scenario-dependent caps
+- term: Syndrome diagnosis
+  level: dimension
+  parent: Content (seven reasoning blocks)
+  definition: Block 3 of the required seven-block response, scored by the LLM judge against the reference.
+  definition_verbatim: false
+  location: README, Benchmark Design and Evaluation
+  scale: 0-5, bounded by scenario-dependent caps
+- term: Treatment-principle selection
+  level: dimension
+  parent: Content (seven reasoning blocks)
+  definition: Block 4 of the required seven-block response, scored by the LLM judge against the reference.
+  definition_verbatim: false
+  location: README, Benchmark Design and Evaluation
+  scale: 0-5, bounded by scenario-dependent caps
+- term: Prescription generation
+  level: dimension
+  parent: Content (seven reasoning blocks)
+  definition: Block 5 of the required seven-block response, scored by the LLM judge against the reference.
+  definition_verbatim: false
+  location: README, Benchmark Design and Evaluation
+  scale: 0-5, bounded by scenario-dependent caps
+- term: Prescription analysis
+  level: dimension
+  parent: Content (seven reasoning blocks)
+  definition: Block 6 of the required seven-block response, scored by the LLM judge against the reference.
+  definition_verbatim: false
+  location: README, Benchmark Design and Evaluation
+  scale: 0-5, bounded by scenario-dependent caps
+- term: Prescription modification in response to changes in symptoms
+  level: dimension
+  parent: Content (seven reasoning blocks)
+  definition: Block 7 of the required seven-block response, scored by the LLM judge against the reference.
+  definition_verbatim: false
+  location: README, Benchmark Design and Evaluation
+  scale: 0-5, bounded by scenario-dependent caps
+- term: Logic Consistency (three cross-block reasoning chains)
+  level: axis
+  definition: Cross-block reasoning chains scored separately from block content; reported as Logic Consistency (%).
+  definition_verbatim: false
+  location: README, Benchmark Design and Evaluation
+  scale: 0-5 per chain, normalized to %
+- term: Etiology and pathogenesis analysis -> syndrome diagnosis
+  level: dimension
+  parent: Logic Consistency (three cross-block reasoning chains)
+  definition: Whether the model's reasoning stays logically consistent along this chain of blocks.
+  definition_verbatim: false
+  location: README, Benchmark Design and Evaluation
+  scale: 0-5
+- term: Syndrome diagnosis -> treatment-principle selection
+  level: dimension
+  parent: Logic Consistency (three cross-block reasoning chains)
+  definition: Whether the model's reasoning stays logically consistent along this chain of blocks.
+  definition_verbatim: false
+  location: README, Benchmark Design and Evaluation
+  scale: 0-5
+- term: Treatment-principle selection -> prescription generation -> prescription analysis
+  level: dimension
+  parent: Logic Consistency (three cross-block reasoning chains)
+  definition: Whether the model's reasoning stays logically consistent along this chain of blocks.
+  definition_verbatim: false
+  location: README, Benchmark Design and Evaluation
+  scale: 0-5
+- term: BLEU
+  level: metric
+  definition: Automated text metric reported as complementary reference, not used for ranking.
+  definition_verbatim: false
+  location: README, Benchmark Design and Evaluation
+  scale: automatic
+- term: ROUGE-L
+  level: metric
+  definition: Automated text metric reported as complementary reference, not used for ranking.
+  definition_verbatim: false
+  location: README, Benchmark Design and Evaluation
+  scale: automatic
+- term: Embedding cosine similarity
+  level: metric
+  definition: Automated similarity between response and reference, reported as complementary reference, not used for ranking.
+  definition_verbatim: false
+  location: README, Benchmark Design and Evaluation
+  scale: automatic
+- term: Expert Content / Expert Logic
+  level: other
+  definition: Mean of five physicians' consensus ratings of response content and logic on a subset, used to validate the judge.
+  definition_verbatim: false
+  location: Table 2
+  scale: 0-5
+notes: README only; no paper found. The judge (Qwen3.7-Plus with TCM-RAG) must identify the diagnostic pathway, cite case-specific discriminating evidence and the strongest counterevidence, then score 0-5 under scenario-dependent caps; the full rubric text and caps are not in the README.

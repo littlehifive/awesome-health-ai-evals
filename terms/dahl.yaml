@@ -1,0 +1,18 @@
+entry: dahl
+sources: [https://arxiv.org/abs/2411.09255]
+extracted: 2026-10-26
+terms:
+  - term: "DAHL Score"
+    level: metric
+    definition: "The ratio of factual atomic units to total atomic units is calculated for each response, and the average score across all responses yields the final score. This final score is denoted as the DAHL Score."
+    definition_verbatim: true
+    location: "Section 3, Step 3 Score Calculation"
+    scale: "ratio of factual atomic units, averaged over responses (0-1)"
+  - term: "Factuality of atomic unit"
+    level: criterion
+    parent: "DAHL Score"
+    definition: "Each atomic unit (a single piece of information split from the long-form response) is judged true or false by a retrieval-backed checker model."
+    definition_verbatim: false
+    location: "Section 3, Step 2 (Checker), Figure 10"
+    scale: "binary per atomic unit"
+notes: "Single hallucination construct (fact-conflicting hallucination in long-form biomedical text); per-category DAHL Scores across 29 categories are reported (Figure 6) but categories are topic areas, not criteria."

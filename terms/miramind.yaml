@@ -1,0 +1,78 @@
+entry: miramind
+sources:
+- https://arxiv.org/abs/2512.09636
+- https://github.com/whunextgen/MentraSuite
+extracted: '2026-10-26'
+terms:
+- term: Appraisal
+  level: dimension
+  definition: Evaluates an LLM's ability to identify what cognitive error is present in a client's self-reported statement (cognitive error identification).
+  definition_verbatim: true
+  location: Section 2.1 (MentraBench), Table 2
+  scale: MicroF1
+- term: Diagnosis
+  level: dimension
+  definition: Assesses an LLM's ability to determine what mental condition is likely given a client's textual expression (mental health condition detection).
+  definition_verbatim: true
+  location: Section 2.1 (MentraBench), Table 2
+  scale: MicroF1
+- term: Intervention
+  level: dimension
+  definition: Evaluates an LLM's ability to determine what counseling action should be taken in response to a client's situation (counseling strategy formulation).
+  definition_verbatim: true
+  location: Section 2.1 (MentraBench), Table 2
+  scale: Jaccard
+- term: Multi-step
+  level: dimension
+  definition: Probes multi-step reasoning, integrating knowledge, diagnosis, and intervention in complex scenarios (psychiatry QA).
+  definition_verbatim: false
+  location: Section 2.1 (MentraBench), Table 2
+  scale: MicroF1
+- term: Abstraction
+  level: dimension
+  definition: Examines evidence synthesis, summarizing findings from structured research or experimental data (psychiatry systematic review summarization).
+  definition_verbatim: false
+  location: Section 2.1 (MentraBench), Table 2
+  scale: Recall (coverage of annotated scoring points)
+- term: Verification
+  level: dimension
+  definition: Challenges models to discern accurate from misleading mental health information (mental health misinformation identification).
+  definition_verbatim: false
+  location: Section 2.1 (MentraBench), Table 2
+  scale: MacroF1
+- term: Reasoning Conciseness
+  level: criterion
+  parent: Reasoning chain evaluation
+  definition: The reasoning chain should contain no unnecessary complexity, repetition, or backtracking. (R1)
+  definition_verbatim: true
+  location: Appendix A, Table 4 note
+  scale: binary (1 if no instance of the issue, 0 otherwise)
+- term: Logical Coherence
+  level: criterion
+  parent: Reasoning chain evaluation
+  definition: Each step should provide clear and case-specific reasoning, not merely labels or unsupported claims. (R2)
+  definition_verbatim: true
+  location: Appendix A, Table 4 note
+  scale: binary (1 if no instance of the issue, 0 otherwise)
+- term: Hallucination Avoidance
+  level: criterion
+  parent: Reasoning chain evaluation
+  definition: The reasoning chain should accurately reflect the case information and avoid hallucinations. (R3)
+  definition_verbatim: true
+  location: Appendix A, Table 4 note
+  scale: binary (1 if no instance of the issue, 0 otherwise)
+- term: Task Understanding
+  level: criterion
+  parent: Reasoning chain evaluation
+  definition: The reasoning chain should correctly follow the task objective and not drift to a different task. (R4)
+  definition_verbatim: true
+  location: Appendix A, Table 4 note
+  scale: binary (1 if no instance of the issue, 0 otherwise)
+- term: Internal Consistency
+  level: criterion
+  parent: Reasoning chain evaluation
+  definition: The reasoning chain should exhibit no contradictions across steps. (R5)
+  definition_verbatim: true
+  location: Appendix A, Table 4 note
+  scale: binary (1 if no instance of the issue, 0 otherwise)
+notes: MentraBench has six tasks and 13 datasets, each scored with a standard metric (MicroF1, MacroF1, Jaccard, Recall) against labels; dimension rows record the task and its metric. The five reasoning-chain criteria (R1-R5) rate the quality of model reasoning traces and are human-annotated. Appraisal/Diagnosis/Intervention definitions are verbatim; the other dimension definitions are from the Section 2.1 overview sentence.

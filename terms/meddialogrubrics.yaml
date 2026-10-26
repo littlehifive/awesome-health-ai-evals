@@ -1,0 +1,28 @@
+entry: meddialogrubrics
+sources: [http://arxiv.org/abs/2601.03023]
+extracted: 2026-10-26
+terms:
+  - term: Rubric criterion (must-ask item)
+    level: criterion
+    definition: "Per-case must-ask rubric items with importance weights; a model-based grader returns a binary verdict (Satisfied / Not Satisfied) for each item on whether the doctor's conversation elicited it."
+    definition_verbatim: false
+    location: Evaluation section (case score equation)
+    scale: binary per item, signed importance weights
+  - term: Case score
+    level: metric
+    definition: "The final case score is the weighted sum of all positive and negative weights, normalized by the sum of the positive weights (importance-weighted rubric satisfaction)."
+    definition_verbatim: false
+    location: Evaluation section
+    scale: weighted sum normalized to positive weight total
+  - term: Inquiry completeness
+    level: dimension
+    definition: "Whether the doctor LLM's multi-turn history-taking covered the information in the case's must-ask rubrics."
+    definition_verbatim: false
+    location: Experiments (doctor-agent evaluation)
+  - term: Macro F1 (judge-human consistency)
+    level: metric
+    definition: "Macro F1 over the Satisfied and Not Satisfied classes comparing model grader with expert judgments, used to validate the judge ensemble."
+    definition_verbatim: false
+    location: Human Consistency Analysis, Eq. 8
+    scale: F1
+notes: "Over 60,000 expert-refined, case-specific rubric items across 4,700+ cases (5,200 synthetic cases total); items are not listed. Rubric quality criteria used by the Rubric Evaluation Agent during construction were not read. Judge ensemble (GPT-5, Gemini-2.5-Pro, DeepSeek-V3) with majority, unanimous and liberal aggregation. Sessions capped at 12 turns."

@@ -1,0 +1,53 @@
+entry: medilongchat
+sources: [https://arxiv.org/abs/2605.19766]
+extracted: 2026-10-26
+terms:
+  - term: Accuracy
+    level: metric
+    definition: Multiple-choice accuracy on the Synthesis Reasoning (SR) task.
+    definition_verbatim: false
+    location: Section 5.2
+    scale: proportion correct
+  - term: F1
+    level: metric
+    definition: Token-overlap F1 of model answers on the In-dialogue Reasoning (IDR) and Cross-dialogue Reasoning (CDR) tasks.
+    definition_verbatim: false
+    location: Section 5.2
+    scale: 0-1
+  - term: BLEU-1
+    level: metric
+    definition: Unigram BLEU of model answers on the IDR and CDR tasks.
+    definition_verbatim: false
+    location: Section 5.2
+    scale: 0-1
+  - term: Faithfulness
+    level: dimension
+    definition: Grounding to provided context/knowledge; computed as mean utterance-level embedding similarity to the source context. Rates dataset quality, not the evaluated model.
+    definition_verbatim: false
+    location: Section 4, Table 1
+    scale: cosine similarity; optional LLM judge
+  - term: Coherence
+    level: dimension
+    definition: Local flow and smoothness; logical flow across turns/sessions, computed from adjacent-pair similarity changes. Rates dataset quality.
+    definition_verbatim: false
+    location: Section 4, Table 1
+    scale: 0-1 formula; LLM judge 1-5 normalized
+  - term: Diversity
+    level: dimension
+    definition: Corpus-level topical breadth and balance, from BERTopic coverage and normalized entropy. Rates dataset quality.
+    definition_verbatim: false
+    location: Section 4, Table 1
+    scale: 0-1 formula
+  - term: Correctness
+    level: dimension
+    definition: Clinical factuality independent of source; judge verifies clinical claims, diagnoses and advice. Rates dataset quality.
+    definition_verbatim: true
+    location: Section 4, Table 1
+    scale: 1-5 LLM judge (G-Eval) normalized to 0-1
+  - term: Realism
+    level: dimension
+    definition: Human-likeness, empathy, naturalness in style, turn-taking and affect. Rates dataset quality.
+    definition_verbatim: true
+    location: Section 4, Table 1
+    scale: 1-5 LLM judge (G-Eval) normalized to 0-1
+notes: Task metrics (accuracy, F1, BLEU-1) score evaluated models; the five dimensions score the synthetic dialogues themselves, not model outputs.

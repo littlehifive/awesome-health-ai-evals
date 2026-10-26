@@ -1,0 +1,35 @@
+entry: scmpe
+sources: [https://arxiv.org/abs/2601.12974, https://github.com/Medlinker-MG/SCMPE]
+extracted: 2026-10-26
+terms:
+  - term: Safety Checkpoints (Safety Guardrails)
+    level: axis
+    definition: "Zero-tolerance checkpoints: a score of 1 is awarded only if pass criteria are met and no fail criteria are triggered; otherwise 0. A safety score of 0 serves as a clinical veto."
+    definition_verbatim: false
+    location: "Methods, Unified Scoring Mechanism"
+    scale: binary
+  - term: Effectiveness Checkpoints (Clinical Effectiveness)
+    level: axis
+    definition: "Dynamic scoring of clinical execution quality; each checkpoint has multiple rule-based criteria weighted from -10 to 10, aggregated and normalized to [0, 1]."
+    definition_verbatim: false
+    location: "Methods, Unified Scoring Mechanism"
+    scale: normalized 0-1
+  - term: Clinical Alignment metrics (37 validated)
+    level: criterion
+    definition: "37 Delphi-validated performance indicators, each mapped to a 1-5 severity weight from Weight 1 (context-dependent/limited risk) to Weight 5 (life-threatening or catastrophic failure)."
+    definition_verbatim: false
+    location: "Methods, Delphi consensus; eTable 2"
+    scale: severity weight 1-5
+  - term: Accuracy
+    level: metric
+    definition: "Accuracy on the dental licensing and MedMCQA multiple-choice questions."
+    definition_verbatim: false
+    location: "Exam MCQ task"
+    scale: proportion correct
+  - term: Worst@k
+    level: metric
+    definition: "Simulates a worst-case deployment by randomly sampling k outcomes from the generated set and isolating the minimum score, averaged over M items."
+    definition_verbatim: false
+    location: "Methods, reliability analysis"
+    scale: 0-1
+notes: "Individual checkpoints (for example S-15 Indications Assessment for Dental Implant Surgery, weight 5) are guideline- or case-specific rubric items and are not listed. Three tasks: exam MCQ, guideline-based open QA (60 guidelines), and 118 multi-turn case consultations."

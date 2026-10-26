@@ -1,0 +1,42 @@
+id: medqa-ma
+name: MedQA-MA
+kind: benchmark
+year: 2026
+summary: 108,943 question-answer pairs in Moroccan Arabic (Darija) across 23 medical specialties, scraped from Arabic health sites and transcribed health videos and radio and validated by medical professionals; offered as training data and as a benchmark.
+readme_section: multilingual_regional
+links:
+  paper: https://doi.org/10.1016/j.dib.2026.112537
+  doi: 10.1016/j.dib.2026.112537
+  pmcid: PMC12914298
+  dataset: https://data.mendeley.com/datasets/v6gs7nsy9z/1
+license: CC-BY-NC-4.0
+open_data: open
+geography:
+  item_languages: [Arabic]
+  item_origin_countries: [MAR]
+  item_origin_note: "Sources are Arabic health websites (Altibbi, Webteb, Chefaa, Islamweb), books and articles, and YouTube and radio health programs, adapted to Moroccan Arabic. The website sources are pan-Arab, so item origin is the dialect's country."
+  localization: native
+  lead_institution_countries: [MAR]
+origin:
+  builder_types: [academic]
+  item_provenance: [web_forum, literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine, mental_health]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 108,943 QA pairs
+signals:
+  citations: 1
+  citations_source: OpenAlex
+  hf_downloads: null
+  github_stars: null
+  uptake: []
+  updated: '2026-10-26'
+provenance:
+  records: [r_9322cd1241]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Data in Brief data article, Sidi Mohamed Ben Abdellah University (Fez). Reconsidered under the LMIC and non-English rule; the earlier exclusion was training_data. The paper defines no evaluation protocol or metric (it says the data can also be used to evaluate and compare models), so eval_methods is a placeholder. A small share of pairs is noisy or conversational by design. Data in CSV with Question, Answer, Category columns."

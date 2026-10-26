@@ -1,0 +1,48 @@
+entry: mts-bench
+sources:
+- https://doi.org/10.64898/2026.08.04.26359651
+extracted: '2026-10-26'
+terms:
+- term: Undertriage rate
+  level: metric
+  definition: Outcome classified as undertriage if d > 0, where d = r(assigned priority) - r(gold priority) on the ordered MTS scale (Red=1, Orange=2, Yellow=3, Green=4, Blue=5). Primary outcome.
+  definition_verbatim: false
+  location: Methods, Eq. 1-2
+  scale: percent with Wilson 95% CI
+- term: Overtriage rate
+  level: metric
+  definition: Outcome classified as overtriage if d < 0 (assigned priority more urgent than gold).
+  definition_verbatim: false
+  location: Methods, Eq. 2
+  scale: percent
+- term: Exact match
+  level: metric
+  definition: Outcome where assigned priority equals gold (d = 0).
+  definition_verbatim: false
+  location: Methods
+  scale: percent
+- term: Acceptable range accuracy
+  level: metric
+  definition: Acceptable range accuracy required |d| <= 1.
+  definition_verbatim: true
+  location: Methods
+  scale: percent
+- term: Severe undertriage
+  level: metric
+  definition: Severe undertriage required d >= 2 (two or more MTS levels too low).
+  definition_verbatim: true
+  location: Methods, Table 2
+  scale: n/156 (%)
+- term: Dangerous miss
+  level: metric
+  definition: Dangerous misses were flagged by an automated pipeline using Gemini 2.0 Flash as an LLM judge, with the dangerous miss criteria specified a priori.
+  definition_verbatim: true
+  location: Methods, Results
+  scale: percent
+- term: Physician agreement (quadratic weighted Cohen's kappa)
+  level: metric
+  definition: Agreement between an independent physician and the system-assigned priority on a high-risk subset, with confirmed under-calls and over-calls.
+  definition_verbatim: false
+  location: Methods, adjudication subset
+  scale: raw agreement and kappa
+notes: Scored against gold Manchester Triage System priority levels (Red, Orange, Yellow, Green, Blue) as an ordinal scale; rates are stratified by priority, case variant, anchoring condition and gender. Anchoring condition (misleading GP referral) is a test condition, not a term.

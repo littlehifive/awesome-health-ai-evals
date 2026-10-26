@@ -1,0 +1,53 @@
+entry: sus-llm-hallucination-dataset
+sources: [https://doi.org/10.5281/zenodo.19141917]
+extracted: 2026-10-26
+terms:
+  - term: T1 Normative hallucination
+    level: category
+    parent: Hallucination taxonomy
+    definition: "Normative hallucination: incorrect laws, protocols"
+    definition_verbatim: true
+    location: annotation_guidelines.pdf (Zenodo record)
+    scale: multiple labels allowed per item
+  - term: T2 Flow hallucination
+    level: category
+    parent: Hallucination taxonomy
+    definition: "Flow hallucination: wrong care pathways"
+    definition_verbatim: true
+    location: annotation_guidelines.pdf
+    scale: multiple labels allowed per item
+  - term: T3 Eligibility hallucination
+    level: category
+    parent: Hallucination taxonomy
+    definition: "Eligibility hallucination: incorrect criteria"
+    definition_verbatim: true
+    location: annotation_guidelines.pdf
+    scale: multiple labels allowed per item
+  - term: T4 Clinical hallucination
+    level: category
+    parent: Hallucination taxonomy
+    definition: "Clinical hallucination: unsafe recommendations"
+    definition_verbatim: true
+    location: annotation_guidelines.pdf
+    scale: multiple labels allowed per item
+  - term: T5 Document hallucination
+    level: category
+    parent: Hallucination taxonomy
+    definition: "Document hallucination: fake references"
+    definition_verbatim: true
+    location: annotation_guidelines.pdf
+    scale: multiple labels allowed per item
+  - term: T6 Omission
+    level: category
+    parent: Hallucination taxonomy
+    definition: "Omission: missing critical info"
+    definition_verbatim: true
+    location: annotation_guidelines.pdf
+    scale: multiple labels allowed per item
+  - term: Risk level
+    level: other
+    definition: "Estimated risk level for misuse or an incorrect answer, assigned per question (data dictionary, translated from Portuguese); values seen include moderate."
+    definition_verbatim: false
+    location: data_dictionary.csv
+    scale: ordinal label per item
+notes: "Each of 90 Portuguese questions carries hallucination_type labels (T1-T6, which are the types of hallucination the question is prone to elicit), a risk level and normative sources; expected answers are 'to be defined based on expert validation'. The release has no model-scoring protocol, so the taxonomy is an item annotation and also the implied scoring lens. Guideline: if uncertain, classify as potential hallucination. Axes E1-E4 are topic areas (for example coverage_financing) and are not recorded."

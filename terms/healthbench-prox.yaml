@@ -1,0 +1,11 @@
+entry: healthbench-prox
+sources: [https://huggingface.co/datasets/li-lab/HealthBench-ProX]
+extracted: 2026-10-26
+terms:
+  - term: Rubric items (inherited from HealthBench Professional)
+    level: criterion
+    definition: Example-specific physician-authored rubric criteria (field `rubric_items`), translated from HealthBench Professional.
+    definition_verbatim: false
+    location: Dataset card, Dataset Structure
+    scale: points per rubric item (inherited from HealthBench Professional)
+notes: Dataset card only; no scoring description beyond the field list. Also carries a physician reference response, specialty, difficulty, use_case, and type metadata, which are item tags, not scored terms. See terms/healthbench-professional.yaml.

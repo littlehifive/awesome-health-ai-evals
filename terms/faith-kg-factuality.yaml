@@ -1,0 +1,24 @@
+entry: faith-kg-factuality
+sources:
+- https://doi.org/10.1609/aaai.v40i46.41317
+- https://github.com/COLA-Laboratory/FAITH
+extracted: '2026-10-26'
+terms:
+- term: FAITH score
+  level: metric
+  definition: Overall factuality of an LLM response, aggregated as the mean of per-claim scores W(p,t) combining path-semantic similarity, entity centrality (PageRank) and relation co-occurrence along the shortest KG path; positive values indicate alignment with established medical knowledge while negative values suggest contradictions.
+  definition_verbatim: false
+  location: 'Methods: Key Modules; Scoring and interpretation'
+  scale: '[-1, 1]'
+- term: Claim-level factuality score
+  level: metric
+  definition: Score for each extracted claim triplet (subject, relation, object) based on the knowledge path linking the matched entities in the UMLS-based KG.
+  definition_verbatim: false
+  location: 'Methods: Key Modules; Scoring and interpretation'
+  scale: '[-1, 1]'
+- term: Validity desiderata (distinguish capability, robustness, clinician alignment)
+  level: other
+  definition: 'The paper evaluates FAITH on three desiderata: clearly distinguish responses from LLMs of different capabilities; be robust to irrelevant noise; align with experienced clinicians.'
+  definition_verbatim: false
+  location: 'Experiments: Reliability and Validity'
+notes: Baselines compared against FAITH (BLEU-4, ROUGE-L, BERTScore, MEDCON, KL, KL-REL, TransE, FActScore, imapScore) are comparison metrics, not part of the framework, so only FAITH is recorded as a term. The third row is a meta-evaluation of the metric, not a score of model outputs.

@@ -1,0 +1,47 @@
+entry: nuanced-conversation-eval-mental-health
+sources: [https://arxiv.org/abs/2403.09705]
+extracted: 2026-10-26
+terms:
+  - term: Emotion Consistency
+    level: metric
+    definition: "This metric works to assess the similarity and overlap between the emotions present in verified GS ('gold standard') responses and those present in the LLM responses."
+    definition_verbatim: true
+    location: Section 4.2.1
+    scale: "Rank-Biased Overlap of ranked emotion lists, 0-1"
+  - term: Relative Directional Change In Sentiment
+    level: metric
+    definition: "This metric measures the relative directional difference in sentiment between questions and responses."
+    definition_verbatim: true
+    location: Section 4.2.2
+    scale: "normalised percentage difference in TextBlob polarity"
+  - term: Intra Response Sentiment Change
+    level: metric
+    definition: "The previous metric measures changes in sentiment between questions and responses; this metric will be used to identify the changes in sentiment throughout just a response."
+    definition_verbatim: true
+    location: Section 4.2.3
+    scale: "slope of linear regression over sentence sentiment, normalised"
+  - term: Simplicity
+    level: metric
+    definition: "Measures the response's simplicity and effective readability using a Flesch-Kincaid readability score."
+    definition_verbatim: false
+    location: Section 4.2.4
+    scale: "readability score 0-100 (lower is harder to read)"
+  - term: Recycling Elements
+    level: metric
+    definition: "This metric measures the number of words a response recycles and reuses from a question."
+    definition_verbatim: true
+    location: Section 4.2.5
+    scale: "proportion of non-filler response words found in the question"
+  - term: Agreeability
+    level: metric
+    definition: "This metric investigates how much a response demonstrates agreement with the question."
+    definition_verbatim: true
+    location: Section 4.2.6
+    scale: "0-10 LLM-rated (GPT-3.5), normalised"
+  - term: Active Listening
+    level: metric
+    definition: "We define this as the content provided by a question, which is then sent back in a response."
+    definition_verbatim: true
+    location: Section 4.2.7
+    scale: "0-10 LLM-rated (GPT-3.5), normalised"
+notes: "Metrics are compared against verified therapist (gold standard) answers from Counsel Chat. The abstract also names 'effectiveness' alongside simplicity; the paper treats it within the simplicity and readability section."

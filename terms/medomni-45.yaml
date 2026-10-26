@@ -1,0 +1,85 @@
+entry: medomni-45
+sources: [https://arxiv.org/abs/2508.16213]
+extracted: 2026-10-26
+terms:
+  - term: Accuracy
+    level: metric
+    parent: Performance
+    definition: "Performance is measured by the model's Accuracy under the No-Hint condition, serving as an objective indicator of whether the model can correctly answer medical multiple-choice questions."
+    definition_verbatim: true
+    location: Metrics section
+    scale: proportion correct (no-hint MCQ)
+  - term: Sycophancy
+    level: metric
+    parent: Safety
+    definition: "Sycophancy measures whether the model changes its original answer in response to suggestive prompts, reflecting its susceptibility to manipulation at the answer level."
+    definition_verbatim: true
+    location: Metrics section, Eq. 1
+    scale: proportion of sycophancy events (answer switches to hinted option)
+  - term: Anti-Sycophancy
+    level: metric
+    parent: Safety
+    definition: "Reported as 1 - Sycophancy so that higher is better, consistent with other metrics."
+    definition_verbatim: false
+    location: Metrics section, Eq. 2
+    scale: 1 - sycophancy rate
+  - term: CoT Faithfulness
+    level: metric
+    parent: Safety
+    definition: "CoT Faithfulness assesses whether the model, when altering its answer under prompt p, explicitly acknowledges and incorporates the prompt's information in its Chain-of-Thought reasoning."
+    definition_verbatim: true
+    location: Metrics section, Eq. 3
+    scale: proportion of answer switches whose CoT references the cue (judged by Qwen2.5-72B)
+  - term: Safety
+    level: axis
+    definition: Combined metric integrating CoT Faithfulness and Sycophancy (anti-sycophancy), plotted against Performance on a 45-degree safety-performance plot.
+    definition_verbatim: false
+    location: Overview and Metrics sections
+  - term: Performance
+    level: axis
+    definition: Standalone Accuracy axis of the safety-performance plot.
+    definition_verbatim: false
+    location: Overview and Metrics sections
+  - term: Guideline-Based Prompt
+    level: category
+    parent: Manipulative hint type
+    definition: Suggests the correct answer based on clinical guidelines or standardized procedures.
+    definition_verbatim: true
+    location: Hint-type table (Section 3)
+  - term: User Suggestion Bias
+    level: category
+    parent: Manipulative hint type
+    definition: Simulates user-provided suggestions that bias the model toward a specific option.
+    definition_verbatim: true
+    location: Hint-type table (Section 3)
+  - term: Answer Highlight Cue
+    level: category
+    parent: Manipulative hint type
+    definition: Highlights or formats a specific answer choice to influence model selection.
+    definition_verbatim: true
+    location: Hint-type table (Section 3)
+  - term: Questionable Source Hint
+    level: category
+    parent: Manipulative hint type
+    definition: Uses ambiguous or unreliable information as indirect clues.
+    definition_verbatim: true
+    location: Hint-type table (Section 3)
+  - term: Structured Meta-Hint
+    level: category
+    parent: Manipulative hint type
+    definition: Implies the correct answer through structured or meta-level content.
+    definition_verbatim: true
+    location: Hint-type table (Section 3)
+  - term: Evaluation Context Bias
+    level: category
+    parent: Manipulative hint type
+    definition: Embeds preference for an option in scoring or contextual setup.
+    definition_verbatim: true
+    location: Hint-type table (Section 3)
+  - term: Prior Response Conditioning
+    level: category
+    parent: Manipulative hint type
+    definition: Encourages consistency by referencing the model's prior response.
+    definition_verbatim: false
+    location: Hint-type table (Section 3)
+notes: "Hint types are the manipulation conditions under which sycophancy and faithfulness are measured, not separately scored axes; they are recorded as categories. The hint-type row text was truncated in the source scan for Prior Response Conditioning, so that definition is a close paraphrase."

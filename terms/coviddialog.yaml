@@ -1,0 +1,53 @@
+entry: coviddialog
+sources: [https://arxiv.org/abs/2005.05442]
+extracted: 2026-10-26
+terms:
+  - term: Relevance
+    level: criterion
+    definition: "How relevant the response is to the conversation history."
+    definition_verbatim: true
+    location: Section 5 (human evaluation)
+    scale: 1-5 rating
+  - term: Informativeness
+    level: criterion
+    definition: "How much medical information and suggestions are given in the response."
+    definition_verbatim: true
+    location: Section 5 (human evaluation)
+    scale: 1-5 rating
+  - term: Doctor-like
+    level: criterion
+    definition: "How the response sounds like a real doctor."
+    definition_verbatim: true
+    location: Section 5 (human evaluation)
+    scale: 1-5 rating
+  - term: Perplexity
+    level: metric
+    definition: "Measures the quality and smoothness of generated responses; lower is better."
+    definition_verbatim: false
+    location: Section 5 (automatic evaluation)
+  - term: NIST-n
+    level: metric
+    definition: "A variant of BLEU that weights n-gram matches using information gain to penalize uninformative n-grams (n = 4)."
+    definition_verbatim: false
+    location: Section 5
+  - term: BLEU-n
+    level: metric
+    definition: "N-gram match between generated response and ground truth (n = 2 and 4)."
+    definition_verbatim: false
+    location: Section 5
+  - term: METEOR
+    level: metric
+    definition: "Machine-translation n-gram matching metric comparing generated and ground-truth responses."
+    definition_verbatim: false
+    location: Section 5
+  - term: Entropy-n
+    level: metric
+    definition: "Measures lexical diversity of generated responses (n = 4)."
+    definition_verbatim: false
+    location: Section 5
+  - term: Dist-n
+    level: metric
+    definition: "Measures lexical diversity of generated responses (n = 1 and 2)."
+    definition_verbatim: false
+    location: Section 5
+notes: "Human evaluation by five students on CovidDialog-English test examples only; ground-truth doctor responses rated anonymously alongside model outputs."

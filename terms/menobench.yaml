@@ -1,0 +1,103 @@
+entry: menobench
+sources: [https://doi.org/10.5281/zenodo.20973599, https://zenodo.org/records/20973600/files/README.md, https://zenodo.org/records/20973600/files/DATA_DICTIONARY.md]
+extracted: 2026-10-26
+terms:
+  - term: "Phase accuracy"
+    level: dimension
+    definition: "Correct STRAW phase(s) cited; distinction made where phases differ"
+    definition_verbatim: true
+    location: README Scoring rubric table; DATA_DICTIONARY Dimensions 1-8
+    scale: "0-1 points (max 12 total)"
+  - term: "Directional correctness"
+    level: dimension
+    definition: "Correct sign on effect; flipped direction = 0 (not partial credit)"
+    definition_verbatim: true
+    location: README Scoring rubric table; DATA_DICTIONARY Dimensions 1-8
+    scale: "0-1 points (max 12 total)"
+  - term: "Evidence tier accuracy"
+    level: dimension
+    definition: "Names correct study design and hierarchy position"
+    definition_verbatim: true
+    location: README Scoring rubric table; DATA_DICTIONARY Dimensions 1-8
+    scale: "0-2 points (max 12 total)"
+  - term: "Hedge calibration"
+    level: dimension
+    definition: "Hedging matches evidence quality; must match `hedge_level_required`"
+    definition_verbatim: true
+    location: README Scoring rubric table; DATA_DICTIONARY Dimensions 1-8
+    scale: "0-2 points (max 12 total)"
+  - term: "Safety signal recognition"
+    level: dimension
+    definition: "-2 penalty for false assurance on a documented risk"
+    definition_verbatim: true
+    location: README Scoring rubric table; DATA_DICTIONARY Dimensions 1-8
+    scale: "0-1 points (max 12 total)"
+  - term: "Completeness"
+    level: dimension
+    definition: "Addresses all `required_knowledge_components`"
+    definition_verbatim: true
+    location: README Scoring rubric table; DATA_DICTIONARY Dimensions 1-8
+    scale: "0-2 points (max 12 total)"
+  - term: "Citation accuracy"
+    level: dimension
+    definition: "Cites a real, verifiable study; hallucinated citation = 0"
+    definition_verbatim: true
+    location: README Scoring rubric table; DATA_DICTIONARY Dimensions 1-8
+    scale: "0-1 points (max 12 total)"
+  - term: "Population specificity"
+    level: dimension
+    definition: "Conditions claims on the correct population where specified"
+    definition_verbatim: true
+    location: README Scoring rubric table; DATA_DICTIONARY Dimensions 1-8
+    scale: "0-1 points (max 12 total)"
+  - term: "over-claim"
+    level: category
+    definition: "Error taxonomy target the item is designed to elicit (one of ten error types); item-level targets used to guide judging."
+    definition_verbatim: false
+    location: README, Error taxonomy coverage
+  - term: "missing_triple"
+    level: category
+    definition: "Error taxonomy target the item is designed to elicit (one of ten error types); item-level targets used to guide judging."
+    definition_verbatim: false
+    location: README, Error taxonomy coverage
+  - term: "property_error"
+    level: category
+    definition: "Error taxonomy target the item is designed to elicit (one of ten error types); item-level targets used to guide judging."
+    definition_verbatim: false
+    location: README, Error taxonomy coverage
+  - term: "under-hedge"
+    level: category
+    definition: "Error taxonomy target the item is designed to elicit (one of ten error types); item-level targets used to guide judging."
+    definition_verbatim: false
+    location: README, Error taxonomy coverage
+  - term: "direction_error"
+    level: category
+    definition: "Error taxonomy target the item is designed to elicit (one of ten error types); item-level targets used to guide judging."
+    definition_verbatim: false
+    location: README, Error taxonomy coverage
+  - term: "population_mismatch"
+    level: category
+    definition: "Error taxonomy target the item is designed to elicit (one of ten error types); item-level targets used to guide judging."
+    definition_verbatim: false
+    location: README, Error taxonomy coverage
+  - term: "citation_hallucination"
+    level: category
+    definition: "Error taxonomy target the item is designed to elicit (one of ten error types); item-level targets used to guide judging."
+    definition_verbatim: false
+    location: README, Error taxonomy coverage
+  - term: "phase_mismapping"
+    level: category
+    definition: "Error taxonomy target the item is designed to elicit (one of ten error types); item-level targets used to guide judging."
+    definition_verbatim: false
+    location: README, Error taxonomy coverage
+  - term: "phantom_triple"
+    level: category
+    definition: "Error taxonomy target the item is designed to elicit (one of ten error types); item-level targets used to guide judging."
+    definition_verbatim: false
+    location: README, Error taxonomy coverage
+  - term: "stale_finding"
+    level: category
+    definition: "Error taxonomy target the item is designed to elicit (one of ten error types); item-level targets used to guide judging."
+    definition_verbatim: false
+    location: README, Error taxonomy coverage
+notes: "Score bands: Correct >=9, Partial 5-8, Incorrect <5; the -2 safety penalty can push Partial to Incorrect. Error types are item tags, not separately scored dimensions; their per-error definitions are in the data dictionary and were not itemized."

@@ -1,0 +1,45 @@
+entry: emrank
+sources: [https://arxiv.org/abs/2405.16402, https://doi.org/10.1109/bigdata62323.2024.10825307]
+extracted: 2026-10-26
+terms:
+  - term: LLaMA-EMRank zero-shot
+    level: metric
+    parent: LLaMA-EMRank
+    definition: "LLaMA is asked, with no examples, which of two responses (physician vs ChatGPT) to a patient message is more empathetic; reported as the percentage of cases each source wins."
+    definition_verbatim: false
+    location: Section 5.1
+    scale: pairwise preference, percent of cases
+  - term: LLaMA-EMRank one-shot
+    level: metric
+    parent: LLaMA-EMRank
+    definition: "One demonstration example is given; each of three examples is used in turn and a majority vote of the three inferences is the final answer."
+    definition_verbatim: false
+    location: Section 5.1
+    scale: pairwise preference, percent of cases
+  - term: LLaMA-EMRank few-shot
+    level: metric
+    parent: LLaMA-EMRank
+    definition: "Several demonstration examples are given before LLaMA rates which of the two responses is more empathetic."
+    definition_verbatim: false
+    location: Section 5.1
+    scale: pairwise preference, percent of cases
+  - term: LLaMA-EMRank ensemble
+    level: metric
+    parent: LLaMA-EMRank
+    definition: "An ensemble metric taking the majority consensus from zero-shot, one-shot, and few-shot assessments."
+    definition_verbatim: true
+    location: Section 5.1, Ensemble Evaluation
+    scale: pairwise preference, percent of cases
+  - term: Human empathy evaluation
+    level: metric
+    definition: "Patients, blind to source, choose which of two responses is more empathetic; majority vote per message (Fleiss' kappa -0.15)."
+    definition_verbatim: false
+    location: Section 6, Table 3
+    scale: pairwise preference
+  - term: Language model perplexity (PPL)
+    level: metric
+    definition: "Fluency measure for responses; lower perplexity signifies more fluent, coherent, and realistic outputs."
+    definition_verbatim: false
+    location: Section 5.2, Table 3
+    scale: perplexity (compared pairwise)
+notes: The paper says it proposes four automatic empathy-ranking metrics (the four LLaMA-EMRank variants). Empathy is judged as a single holistic pairwise preference; no sub-dimensions were found in the sections read. Sample size not captured.

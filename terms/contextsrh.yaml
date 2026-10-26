@@ -1,0 +1,25 @@
+entry: contextsrh
+sources:
+- https://arxiv.org/abs/2403.04858
+- https://aclanthology.org/2024.findings-emnlp.332/
+extracted: '2026-10-26'
+terms:
+- term: Average similarity score
+  level: metric
+  definition: Average cosine similarity between the answer to the original (no-context) question and answers with each demographic group as context, per attribute (age, sex, location).
+  definition_verbatim: true
+  location: Section 3
+  scale: cosine similarity
+- term: Percent Win
+  level: metric
+  definition: For each question, the group whose context answer is most similar to the original answer; share of questions each group wins.
+  definition_verbatim: false
+  location: Section 3
+  scale: percent
+- term: Human alignment (% Human)
+  level: metric
+  definition: Annotators decide for which groups the model correctly answers the original question; healthcare annotators on Prolific for sex, authors for age and location.
+  definition_verbatim: false
+  location: Section 3, Table 1
+  scale: percent of groups judged correct
+notes: The construct is demographic bias in answers to context-dependent questions (age, sex, location); no named rubric axes.

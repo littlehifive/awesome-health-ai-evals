@@ -1,0 +1,17 @@
+entry: hai-coaching
+sources: [https://arxiv.org/abs/2401.08420, https://aclanthology.org/2024.findings-emnlp.674/]
+extracted: 2026-10-26
+terms:
+  - term: Safety
+    level: criterion
+    definition: "Safe statement: A candidate matching its category definition and not posing a realistic risk of physical/psychological harm for the reader."
+    definition_verbatim: true
+    location: Section 5 (concept of safety, expert discussion)
+    scale: "binary safe/unsafe per candidate by nutrition experts (NOT_APPLICABLE option exists)"
+  - term: Classification accuracy / balanced accuracy / precision / recall / F1 (micro, macro)
+    level: metric
+    definition: "Standard classification metrics used in the early assessment of models on the safety-classification task."
+    definition_verbatim: false
+    location: Appendix I, Table 9
+    scale: "0-1"
+notes: "Only safety is an expert-scored criterion; experts also flagged 'safe but useless' output and overdiagnosis qualitatively (Table 6) without scoring it. Generation-task metrics in Appendix I were not extracted in detail. Text categories (reflection, comfort, reframing, suggestion) and struggle clusters are content types, not scored terms."

@@ -1,0 +1,52 @@
+entry: ogcarebench
+sources: [https://arxiv.org/abs/2605.21807]
+extracted: 2026-10-26
+terms:
+  - term: Equivalence (equivalent vs mismatch)
+    level: criterion
+    definition: "Model response is judged as equivalent if the primary clinical procedure recommended matches the procedure specified in the gold answer. Conversely, a response is considered a mismatch if the contents do not overlap or the gold answer appears in the output but not prioritized as the main procedure. Similarly, broad or vague recommendations are labeled as mismatches when the gold answer requires a specific clinical procedure."
+    definition_verbatim: true
+    location: Section 3.3 (Evaluation Metric); judge prompt in Figure 19
+    scale: binary (GPT-5.2 judge)
+  - term: Accuracy
+    level: metric
+    definition: "Our primary metric is a simple percentage of answers in the benchmark predicted correctly by the model."
+    definition_verbatim: true
+    location: Section 3.3
+    scale: percent
+  - term: Recall@1
+    level: metric
+    definition: "Retrieval performance of retrievers on the case-report datastore (retrieval benchmark side of the paper)."
+    definition_verbatim: false
+    location: Section 5, Figure 3
+    scale: percent
+  - term: Objective misalignment
+    level: category
+    parent: Failure modes (oracle setting)
+    definition: "Model performs a different task than what the question requires, for example bundling multiple interventions or adding unprompted concurrent interventions."
+    definition_verbatim: false
+    location: Section 5, Table 5
+  - term: Document grounding
+    level: category
+    parent: Failure modes (oracle setting)
+    definition: "Model fails to extract, preserve, or utilize the article-supported answer."
+    definition_verbatim: false
+    location: Section 5, Table 5
+  - term: Constraint/qualifier erosion
+    level: category
+    parent: Failure modes (oracle setting)
+    definition: "Model omits a required qualifier, condition, or component of the answer."
+    definition_verbatim: false
+    location: Section 5, Table 5
+  - term: Granularity mismatch
+    level: category
+    parent: Failure modes (oracle setting)
+    definition: "Model fails to match the required specificity of the benchmark target."
+    definition_verbatim: false
+    location: Section 5, Table 5 and Appendix H.1
+  - term: Failure modes (oracle setting)
+    level: axis
+    definition: "Taxonomy used by an LLM judge (GPT-5.1) to classify each mismatch into one primary and at most one secondary failure mode."
+    definition_verbatim: false
+    location: Table 5
+notes: "Table 5 may contain additional failure modes not named in the body text (not read in full); four are listed here. Judge agreement with physicians was 93% on 100 validated responses."

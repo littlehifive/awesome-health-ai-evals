@@ -1,0 +1,47 @@
+entry: medr-bench
+sources: [https://doi.org/10.1038/s41467-025-64769-1, https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12592457/]
+extracted: 2026-10-26
+terms:
+  - term: Efficiency
+    level: metric
+    parent: Reasoning quality
+    definition: "Evaluates whether each reasoning step contributes new insights toward the final answer rather than repeating or rephrasing previous results."
+    definition_verbatim: true
+    location: Evaluation system section (Reasoning Evaluator)
+    scale: proportion of reasoning steps (LLM-evaluated)
+  - term: Factuality
+    level: metric
+    parent: Reasoning quality
+    definition: "Assesses whether effective reasoning steps are consistent with established medical guidelines or knowledge. Similar to a 'precision' score, it calculates the proportion of factually correct steps among all predicted effective reasoning steps."
+    definition_verbatim: true
+    location: Evaluation system section (Reasoning Evaluator)
+    scale: proportion of steps
+  - term: Completeness
+    level: metric
+    parent: Reasoning quality
+    definition: "Measures how many reasoning steps explicitly marked in the raw case report are included in the generated content. Analogous to 'recall,' it computes the proportion of mentioned reasoning steps among all ground-truth steps."
+    definition_verbatim: true
+    location: Evaluation system section (Reasoning Evaluator)
+    scale: proportion of ground-truth steps; not computable for examination recommendation
+  - term: Accuracy
+    level: metric
+    parent: Final output
+    definition: "Evaluates whether the final answer (both diagnosis and treatment) explicitly matches the ground-truth provided in the raw case reports."
+    definition_verbatim: true
+    location: Evaluation system section
+    scale: proportion correct
+  - term: Precision
+    level: metric
+    parent: Final output
+    definition: "Used for examination recommendation, where LLMs generate a list of recommended examinations for a given patient case. These metrics are calculated by comparing the generated examination list with the ground-truth ancillary test list recorded in the case report."
+    definition_verbatim: true
+    location: Evaluation system section
+    scale: proportion
+  - term: Recall
+    level: metric
+    parent: Final output
+    definition: "Used for examination recommendation, where LLMs generate a list of recommended examinations for a given patient case. These metrics are calculated by comparing the generated examination list with the ground-truth ancillary test list recorded in the case report."
+    definition_verbatim: true
+    location: Evaluation system section
+    scale: proportion
+notes: "Three stages (examination recommendation, diagnostic decision-making, treatment planning) are task stages scored with the metrics above; 1-turn, free-turn and oracle settings vary information access. Precision and Recall share one verbatim sentence in the source. Quotes inside definitions use double quote marks."

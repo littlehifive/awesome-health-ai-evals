@@ -1,0 +1,51 @@
+entry: scanbench
+sources: [https://arxiv.org/abs/2602.06570]
+extracted: 2026-10-26
+terms:
+  - term: SCAN framework
+    level: axis
+    definition: "Decomposes consultation performance into four dimensions: Safety Stratification, Information Clarification, Associative Questioning, and Normative Output."
+    definition_verbatim: true
+    location: "ScanBench section, Station 1: Inquiry"
+    scale: checklist items verified by GPT-4.1
+  - term: Safety Stratification
+    level: dimension
+    parent: SCAN framework
+    definition: "Inquiry dimension on identifying red-flag and risk signals during the consultation (paper gives no separate definition)."
+    definition_verbatim: false
+    location: "Station 1: Inquiry; results discussion"
+    scale: checklist coverage score
+  - term: Information Clarification
+    level: dimension
+    parent: SCAN framework
+    definition: "Inquiry dimension on clarifying patient information during consultation (no separate definition given)."
+    definition_verbatim: false
+    location: "Station 1: Inquiry"
+    scale: checklist coverage score
+  - term: Associative Questioning
+    level: dimension
+    parent: SCAN framework
+    definition: "Inquiry dimension on follow-up associative questions during consultation (no separate definition given)."
+    definition_verbatim: false
+    location: "Station 1: Inquiry"
+    scale: checklist coverage score
+  - term: Normative Output
+    level: dimension
+    parent: SCAN framework
+    definition: "Inquiry dimension on conforming to normative consultation conduct (no separate definition given)."
+    definition_verbatim: false
+    location: "Station 1: Inquiry"
+    scale: checklist coverage score
+  - term: Weighted F1 (lab testing)
+    level: metric
+    definition: "Weighted F1 over selected tests from a unified candidate pool, with higher recall weight for essential tests, evaluating resource efficiency and interpretative accuracy."
+    definition_verbatim: false
+    location: "Station 2: Lab Testing"
+    scale: 0-1
+  - term: ICD-10 hierarchical match
+    level: metric
+    definition: "Hierarchical matching criterion based on the ICD-10 taxonomy, rewarding correct leaf-node matches while penalizing off-branch predictions."
+    definition_verbatim: true
+    location: "Station 3: Diagnosis"
+    scale: hierarchical credit
+notes: "8,857 case-specific checklist items across 303 cases, each tied to inquiry coverage. Introduced in the Baichuan-M3 paper; the four SCAN dimension definitions were not stated beyond their names in the sections read."

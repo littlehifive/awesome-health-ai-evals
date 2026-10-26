@@ -1,0 +1,46 @@
+entry: yoruba-drug-label-qa
+sources: [https://doi.org/10.18653/v1/2026.loreslm-1.8]
+extracted: 2026-10-26
+terms:
+  - term: BERTScore
+    level: metric
+    definition: "Semantic similarity between model-generated responses and ground-truth answers using contextual embeddings, chosen over n-gram overlap metrics such as BLEU and METEOR."
+    definition_verbatim: false
+    location: Section 4.5 Metrics
+    scale: F-score 0-1
+  - term: Fluency
+    level: criterion
+    parent: LLM-as-a-Judge
+    definition: "Whether the generated response demonstrates fluency (GPT-4o judge)."
+    definition_verbatim: false
+    location: Section 4.5 Metrics
+  - term: Medical correctness
+    level: criterion
+    parent: LLM-as-a-Judge
+    definition: "Whether the generated response maintains medical correctness (GPT-4o judge)."
+    definition_verbatim: false
+    location: Section 4.5 Metrics
+  - term: Factuality
+    level: criterion
+    parent: LLM-as-a-Judge
+    definition: "Whether the generated response is factual (GPT-4o judge)."
+    definition_verbatim: false
+    location: Section 4.5 Metrics
+  - term: Clinical safety
+    level: criterion
+    parent: LLM-as-a-Judge
+    definition: "Whether the generated response ensures clinical safety (GPT-4o judge)."
+    definition_verbatim: false
+    location: Section 4.5 Metrics
+  - term: LLM-as-a-Judge
+    level: axis
+    definition: "GPT-4o judge assessing response quality where surface-level metrics fail to capture semantic degradation or hallucinations."
+    definition_verbatim: false
+    location: Section 4.5 Metrics
+  - term: Hit Rate@k (HR@k)
+    level: metric
+    definition: "Retriever's ability to include pertinent documents among its top-ranked results."
+    definition_verbatim: false
+    location: Section 4.5 Metrics
+    scale: proportion at K
+notes: "Judge scale not stated in the text read; the four judged criteria are listed in one sentence and may be scored together."

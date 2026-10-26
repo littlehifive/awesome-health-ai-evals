@@ -1,0 +1,49 @@
+entry: dyreme
+sources:
+- https://aclanthology.org/2026.acl-long.1218/
+- https://github.com/xansar/DyReMe
+extracted: '2026-10-26'
+terms:
+- term: Accuracy
+  level: dimension
+  definition: Diagnostic accuracy, average of Top-1, Top-3 and Top-5, on dynamically generated cases.
+  definition_verbatim: false
+  location: Section 3.2, Table 1
+  scale: Top-k accuracy
+- term: Veracity
+  level: dimension
+  definition: Veracity assesses whether LLMs can identify and correct medical misinformation
+  definition_verbatim: true
+  location: Section 3.2
+  scale: proportion of injected rumors rectified (judge indicator)
+- term: Helpfulness
+  level: dimension
+  definition: Measured by which criteria the response meets (diagnosis evidence, treatment suggestions, lifestyle suggestions) against retrieved encyclopedic context.
+  definition_verbatim: false
+  location: Section 3.2, Eq. 6
+  scale: weighted coverage of score points
+- term: Diagnosis evidence
+  level: criterion
+  parent: Helpfulness
+  definition: Helpfulness criterion based on real-world medical platform guidelines.
+  definition_verbatim: false
+  location: Section 3.2
+- term: Treatment suggestions
+  level: criterion
+  parent: Helpfulness
+  definition: Helpfulness criterion based on real-world medical platform guidelines.
+  definition_verbatim: false
+  location: Section 3.2
+- term: Lifestyle suggestions
+  level: criterion
+  parent: Helpfulness
+  definition: Helpfulness criterion based on real-world medical platform guidelines.
+  definition_verbatim: false
+  location: Section 3.2
+- term: Consistency
+  level: dimension
+  definition: Consistency evaluates the stability of model predictions by computing the entropy of diagnoses across different variants of the same case.
+  definition_verbatim: true
+  location: Section 3.2, Eq. 7
+  scale: normalized entropy mapped to 0-100
+notes: Together the four dimensions form the EvalMed protocol. Question-generation quality checks (challenge, logical consistency, symptom accuracy, trap effectiveness) score generated items, not model outputs.

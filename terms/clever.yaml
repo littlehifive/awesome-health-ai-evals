@@ -1,0 +1,33 @@
+entry: clever
+sources:
+- https://doi.org/10.2196/72153
+- https://pmc.ncbi.nlm.nih.gov/articles/PMC12677871/
+extracted: '2026-10-26'
+terms:
+- term: Factuality
+  level: criterion
+  definition: the extent to which the information provided is accurate, truthful, and consistent with
+    established medical knowledge. It means the response is free from factual errors or misleading content
+    that could negatively impact clinical understanding or decisions.
+  definition_verbatim: true
+  location: Discussion, evaluation rubrics
+  scale: blind pairwise preference (A, B, neutral, none)
+- term: Clinical relevance
+  level: criterion
+  definition: the degree to which the information is meaningful and useful in a clinical context. It reflects
+    how well the response supports health care providers in making informed medical decisions and addresses
+    relevant clinical issues.
+  definition_verbatim: true
+  location: Discussion, evaluation rubrics
+  scale: blind pairwise preference (A, B, neutral, none)
+- term: Conciseness
+  level: criterion
+  definition: the ability to communicate necessary information clearly and succinctly, avoiding unnecessary
+    verbosity or jargon.
+  definition_verbatim: true
+  location: Discussion, evaluation rubrics
+  scale: blind pairwise preference (A, B, neutral, none)
+notes: Physicians pick a preferred output per rubric in randomized, blinded pairwise comparisons across
+  four tasks (clinical summarization, information extraction/QA in clinical notes, biomedical research
+  QA, open-ended medical QA). Inter-annotator agreement measured by ICC on 100 seed queries. The paper
+  calls them rubrics and pillars.

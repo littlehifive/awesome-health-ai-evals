@@ -1,0 +1,43 @@
+id: pubhealth
+name: PUBHEALTH
+kind: benchmark
+year: 2020
+summary: 11,832 public-health claims from fact-checking and health-news sites, each with a veracity label (true, false, mixture, unproven) and a journalist-written explanation, for veracity prediction and explanation generation.
+readme_section: safety
+links:
+  paper: https://doi.org/10.18653/v1/2020.emnlp-main.623
+  arxiv: "2010.09926"
+  doi: 10.18653/v1/2020.emnlp-main.623
+  huggingface: [ImperialCollegeLondon/health_fact]
+  code: https://github.com/neemakot/Health-Fact-Checking
+license: MIT
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA, GBR]
+  item_origin_note: Claims were scraped from Snopes, PolitiFact, TruthOrFiction, FactCheck, FullFact, Associated Press, Reuters, and Health News Review; countries are inferred from the outlets (mostly US and UK) and not stated in the paper.
+  localization: native
+  lead_institution_countries: [GBR]
+origin:
+  builder_types: [academic]
+  item_provenance: [web_forum, literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [public_health]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric, expert_human_rating]
+  modality: [text]
+  size: 11,832 claims (9,832 train, 1,235 test, 1,225 validation)
+signals:
+  citations: 195
+  citations_source: OpenAlex
+  hf_downloads: 1709
+  github_stars: 64
+  uptake: []
+  updated: '2026-10-26'
+provenance:
+  records: [r_26cb103a8c]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Imperial College London (Kotonya and Toni). A claim-verification dataset rather than a chatbot benchmark; included as health-misinformation evaluation. Scoring is classification accuracy and F1 plus ROUGE for explanations, with human evaluation of explanation coherence by five annotators. Items are filtered to biomedical claims. MIT is the license on the Hugging Face card and GitHub repo. Not the same as PubHealthBench (a separate entry)."

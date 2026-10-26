@@ -1,0 +1,65 @@
+entry: rxbench
+sources: [https://arxiv.org/abs/2512.02024]
+extracted: 2026-10-26
+terms:
+  - term: Accuracy
+    level: metric
+    definition: "Proportion of single-choice prescription-review questions answered correctly."
+    definition_verbatim: false
+    location: "Section 3.5, single-choice questions"
+    scale: proportion correct
+  - term: F1 score
+    level: metric
+    definition: "F_1 = 2 x (Precision x Recall) / (Precision + Recall), used for multiple-choice questions and for error-type classification in short-answer questions."
+    definition_verbatim: true
+    location: "Section 3.5, Equations 2-4"
+    scale: 0-1
+  - term: Precision
+    level: metric
+    parent: F1 score
+    definition: "Precision represents the proportion of samples predicted as positive that are actually positive."
+    definition_verbatim: true
+    location: "Section 3.5, Equation 3"
+    scale: 0-1
+  - term: Recall
+    level: metric
+    parent: F1 score
+    definition: "Recall represents the proportion of actual positive samples that are correctly predicted as positive."
+    definition_verbatim: true
+    location: "Section 3.5, Equation 4"
+    scale: 0-1
+  - term: Error-type classification
+    level: criterion
+    parent: Short-answer total score
+    definition: "Whether the model identifies the correct prescription error type, scored with F1; an incorrect classification gives a total score of zero."
+    definition_verbatim: false
+    location: "Section 3.5.3"
+    scale: F1, weight 0.4 in total
+  - term: Intervention recommendation quality
+    level: criterion
+    parent: Short-answer total score
+    definition: "Quality of intervention recommendations, evaluated by Macro Recall of answer points and BERTScore against references."
+    definition_verbatim: false
+    location: "Section 3.5.3"
+    scale: weight 0.6 in total
+  - term: Macro Recall
+    level: metric
+    parent: Intervention recommendation quality
+    definition: "Average recall rate of all answer points within each question (pharmacist-extracted key points)."
+    definition_verbatim: true
+    location: "Section 3.5.3"
+    scale: 0-1
+  - term: BERTScore
+    level: metric
+    parent: Intervention recommendation quality
+    definition: "Semantic similarity with references."
+    definition_verbatim: true
+    location: "Section 3.5.3"
+    scale: 0-1
+  - term: Short-answer total score
+    level: metric
+    definition: "Total = 0.4 x Total_ErrorType + 0.6 x Total_Intervention."
+    definition_verbatim: true
+    location: "Section 3.5.3, Equation 5"
+    scale: weighted 0-1
+notes: "Also reports pairwise comparison of LLMs against 27 pharmacists and stability; 14 prescription error types are item categories rather than scored criteria."

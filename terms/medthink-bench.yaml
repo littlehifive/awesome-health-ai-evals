@@ -1,0 +1,37 @@
+entry: medthink-bench
+sources:
+- https://arxiv.org/abs/2507.07988
+- https://doi.org/10.1038/s41746-025-02208-7
+extracted: '2026-10-26'
+terms:
+- term: Reasoning score (LLM-w-Ref)
+  level: metric
+  definition: 'Proportion of expert-annotated reasoning steps that a judge model finds supported by the model-generated rationale: instance score R = |steps judged Yes| / |expert steps|.'
+  definition_verbatim: false
+  location: Methods, Reference-based LLM-as-a-Judge
+  scale: proportion 0-1
+- term: Reasoning score (human evaluation)
+  level: metric
+  definition: 'Instance-level score R = ExpertCovered / ExpertRequired: the number of required reasoning steps an expert judges present in the rationale.'
+  definition_verbatim: false
+  location: Methods, Human evaluation
+  scale: proportion 0-1
+- term: Reasoning score (reference-free LLM-as-a-Judge)
+  level: metric
+  definition: Judge first estimates the number of reasoning steps required, then how many are supported by the rationale, without expert references.
+  definition_verbatim: false
+  location: Methods, Reference-free LLM-as-a-Judge
+  scale: proportion 0-1
+- term: Prediction accuracy
+  level: metric
+  definition: Accuracy of the final answer against the ground-truth answer.
+  definition_verbatim: false
+  location: Methods
+  scale: accuracy
+- term: Text-similarity metrics (BLEU, ROUGE, BERTScore)
+  level: metric
+  definition: Token-overlap and semantic-similarity comparison of the model rationale with the reference rationale, evaluated as baseline metrics.
+  definition_verbatim: false
+  location: Introduction; Results
+  scale: automatic metric
+notes: Ten medical domains (Pathology, Discharge, Disease Diagnosis, etc.) and reasoning/question types are annotation categories, not scored criteria. Definitions are paraphrased from the formulas.

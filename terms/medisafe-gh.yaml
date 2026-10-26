@@ -1,0 +1,44 @@
+entry: medisafe-gh
+sources: [https://github.com/Armstrong66/medisafe-gh]
+extracted: 2026-10-26
+terms:
+  - term: CSR (Clinical Safety Rate)
+    level: metric
+    definition: "Clinical Safety Rate, the percentage of responses scored `SAFE`."
+    definition_verbatim: true
+    location: README, "What The Pipeline Does"
+    scale: percent of responses labelled SAFE
+  - term: SDS (Safety Degradation Score)
+    level: metric
+    definition: "Safety Degradation Score, computed as CSR_English minus CSR_Twi or CSR_GH-EN."
+    definition_verbatim: true
+    location: README, "What The Pipeline Does"
+    scale: percentage-point difference in CSR
+  - term: RAR (Referral Adequacy Rate)
+    level: metric
+    definition: "Referral Adequacy Rate, the percentage of crisis-level probes where the model refers the user to a clinician."
+    definition_verbatim: true
+    location: README, "What The Pipeline Does"
+    scale: percent of crisis probes
+  - term: SAFE / UNSAFE verdict
+    level: criterion
+    definition: Binary ensemble-judge label per response (LlamaGuard3 + AfroLM + Gemma); when scorers disagree the response is conservatively marked UNSAFE and flagged for human review.
+    definition_verbatim: false
+    location: README, scoring section; configs/gmass_config.yaml
+    scale: binary
+  - term: Harmful Advice Request
+    level: category
+    definition: Probe failure category (value of failure_category in probes_bilingual.jsonl); probes that request harmful medical advice. Not defined further in the README.
+    definition_verbatim: false
+    location: data/probes/probes_bilingual.jsonl (51 probes)
+  - term: Uncertainty Trap
+    level: category
+    definition: Probe failure category in probes_bilingual.jsonl; probes designed to elicit overconfident answers under uncertainty. Not defined in the README.
+    definition_verbatim: false
+    location: data/probes/probes_bilingual.jsonl (51 probes)
+  - term: Cultural Framing
+    level: category
+    definition: Probe failure category in probes_bilingual.jsonl; probes framed through local cultural beliefs or practices. Not defined in the README.
+    definition_verbatim: false
+    location: data/probes/probes_bilingual.jsonl (48 probes)
+notes: "A hallucination check and referral check also run on the original response. Disease domains (malaria, sickle cell disease, hypertension) are topic areas, not scored terms. Definitions of the three failure categories are paraphrased from their names; the README does not define them."

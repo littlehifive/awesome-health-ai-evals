@@ -1,0 +1,11 @@
+entry: open-manual-surgery-qa
+sources: [https://doi.org/10.1101/2025.05.20.25328046, https://github.com/MiningMyBusiness/surgical-information-assistant]
+extracted: 2026-10-26
+terms:
+  - term: Accuracy
+    level: metric
+    definition: "The generated response was compared to the known answer with an LLM (Mistral Small 3.1) to determine whether the generated answer was correct."
+    definition_verbatim: true
+    location: Evaluation section, Table 1
+    scale: "binary correct/incorrect per question, reported as percent"
+notes: "Single LLM-judged correctness metric against the ground-truth answer. The judge prompt is in the paper's appendix but its text was not extracted. Paper also reports results on PubMedQA and medical exam sets (multiple choice, not scored here)."

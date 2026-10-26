@@ -1,0 +1,35 @@
+entry: indicmeddialog
+sources:
+- https://arxiv.org/abs/2605.13292
+- https://doi.org/10.18653/v1/2026.bionlp-1.84
+extracted: '2026-10-26'
+terms:
+- term: Diagnostic accuracy
+  level: metric
+  definition: Comparing the model's final predicted disease label against the gold label; reported raw and after semantic post-processing (a GPT judge maps free-text outputs to the 12 disease labels).
+  definition_verbatim: false
+  location: Section on evaluation; Table 2
+  scale: percent
+- term: Clinical reliability
+  level: dimension
+  definition: Medical-expert evaluation of clinical reliability of model dialogue outputs (safety, reasoning quality).
+  definition_verbatim: false
+  location: Evaluation strategy (human expert evaluation)
+- term: Conversational quality
+  level: dimension
+  definition: Medical-expert evaluation of conversational quality / coherence of the dialogue.
+  definition_verbatim: false
+  location: Evaluation strategy (human expert evaluation)
+- term: Translation Quality (T)
+  level: criterion
+  definition: Measures linguistic accuracy and fluency relative to the English source (rating of the translated dialogues by two native speakers per language).
+  definition_verbatim: true
+  location: Dataset construction, quality check
+  scale: 10-point scale
+- term: Clinical Safety (S)
+  level: criterion
+  definition: Verifies that responses remain medically appropriate and free from harmful or culturally insensitive content (rating of translated dialogues).
+  definition_verbatim: true
+  location: Dataset construction, quality check
+  scale: 10-point scale
+notes: Error taxonomy analysis is also used but its categories were not read. Translation Quality and Clinical Safety rate the dataset's translations, not model outputs. Expert-review sub-criteria for model outputs were only summarised in text read, so definitions for clinical reliability and conversational quality are paraphrases.

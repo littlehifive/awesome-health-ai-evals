@@ -1,0 +1,41 @@
+id: llm-counselor-ethics-framework
+name: LLM Counselor Ethical Violations Framework
+kind: eval_framework
+year: 2025
+summary: "A practitioner-informed framework of 15 ethical violations in 5 themes, mapped to APA-style professional codes, for judging LLM counselors in CBT-style sessions; derived from 137 sessions (110 self-counseling, 27 simulated) rated by clinical psychologists."
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.1609/aies.v8i2.36632
+  doi: 10.1609/aies.v8i2.36632
+  code: https://github.com/brownhci/human-llm-cbt-evals
+license: null
+open_data: described_only
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Simulated sessions use anonymized public counseling transcripts from a peer-support platform; the country is not stated.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: peer_reviewed
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: 15 ethical violations in 5 themes; 137 sessions analysed
+signals:
+  citations: 65
+  citations_source: OpenAlex
+  hf_downloads: null
+  github_stars: 0
+  uptake: []
+  updated: '2026-10-26'
+provenance:
+  records: [r_4aba9f30e6]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Brown University. The paper says the 27 simulated sessions with psychologists' evaluations were released in earlier work (Iftikhar et al. 2024, arXiv 2409.02244); the linked repo README (CC0-1.0) said the data would be public on acceptance, so availability is unconfirmed. Self-counseling sessions remain private. Framework is a taxonomy, not a scored benchmark."

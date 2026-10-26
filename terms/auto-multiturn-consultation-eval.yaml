@@ -1,0 +1,57 @@
+entry: auto-multiturn-consultation-eval
+sources: [https://arxiv.org/abs/2309.02077]
+extracted: 2026-10-26
+terms:
+  - term: Medical Information Coverage Rate
+    level: metric
+    definition: "We use three types of ROUGE scores (Lin, 2004) to measure the amount of medical information presented in dialogue at the word level: Recall, Precision, and F1 scores."
+    definition_verbatim: true
+    location: Section 4.1
+    scale: ROUGE-1 recall, precision, F1, computed for patient LLM and doctor LLM outputs against extracted medical information
+  - term: Patient ROUGE Recall
+    level: metric
+    parent: Medical Information Coverage Rate
+    definition: "The Recall represents how much information is exposed by the patient LLM"
+    definition_verbatim: true
+    location: Section 4.1
+    scale: ROUGE-1 recall
+  - term: Doctor ROUGE Recall
+    level: metric
+    parent: Medical Information Coverage Rate
+    definition: "the Recall measures the hallucination level of doctor LLMs."
+    definition_verbatim: true
+    location: Section 4.1
+    scale: ROUGE-1 recall
+  - term: Doctor ROUGE Precision
+    level: metric
+    parent: Medical Information Coverage Rate
+    definition: "The Precision represents the professionalism of doctor LLM, as medical information generally contains medical terms."
+    definition_verbatim: true
+    location: Section 4.1
+    scale: ROUGE-1 precision
+  - term: Doctor/Patient ROUGE F1
+    level: metric
+    parent: Medical Information Coverage Rate
+    definition: "The F1 score is also a comprehensive evaluation of doctor LLMs."
+    definition_verbatim: true
+    location: Section 4.1
+    scale: ROUGE-1 F1
+  - term: Accuracy of the Final Task
+    level: metric
+    definition: "After the multi-turn consultation, the model is required to complete a specific task, which here is to choose the right answer for a multiple-choice question according to the consultation dialogue."
+    definition_verbatim: true
+    location: Section 4.1
+    scale: accuracy on USMLE-style multiple-choice question, solved by ChatGPT-Turbo-3.5 from the dialogue
+  - term: Average Turn
+    level: metric
+    definition: "Average Turn is an indicator measuring both doctor LLMs precision and hallucination level as more hallucinated models tend to stop asking questions at earlier rounds."
+    definition_verbatim: true
+    location: Section 4.1
+    scale: mean number of consultation rounds
+  - term: Average Length
+    level: metric
+    definition: Average length of each conversation; ideally models with higher accuracy need fewer rounds and shorter conversations.
+    definition_verbatim: false
+    location: Section 4.1
+    scale: mean conversation length
+notes: Contribution list also mentions LLM-based metrics validated against traditional ones; the Section 4.1 automated metrics listed here are the ones defined in the text read. Upper bound and lower bound conditions are baselines, not terms.

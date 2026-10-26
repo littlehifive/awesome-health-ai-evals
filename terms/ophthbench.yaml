@@ -1,0 +1,76 @@
+entry: ophthbench
+sources:
+- https://arxiv.org/abs/2502.01243
+extracted: '2026-10-26'
+terms:
+- term: Accuracy
+  level: metric
+  definition: Accuracy for single-choice questions (SCQs).
+  definition_verbatim: false
+  location: Section 3.3 Evaluation Protocol
+  scale: percent correct
+- term: F1 score
+  level: metric
+  definition: F1 score for multiple-choice questions (MCQs).
+  definition_verbatim: false
+  location: Section 3.3 Evaluation Protocol
+  scale: 0-1/percent
+- term: Factuality
+  level: dimension
+  parent: Open-ended question LLM-judge
+  definition: One of seven dimensions on which CompassJudger-1-7B compares an open-ended response to its
+    reference answer (Factuality); no separate definition given.
+  definition_verbatim: false
+  location: Section 3.3 Evaluation Protocol
+  scale: point-wise LLM judge score
+- term: User Satisfaction
+  level: dimension
+  parent: Open-ended question LLM-judge
+  definition: One of seven dimensions on which CompassJudger-1-7B compares an open-ended response to its
+    reference answer (User Satisfaction); no separate definition given.
+  definition_verbatim: false
+  location: Section 3.3 Evaluation Protocol
+  scale: point-wise LLM judge score
+- term: Safety and Harmlessness
+  level: dimension
+  parent: Open-ended question LLM-judge
+  definition: One of seven dimensions on which CompassJudger-1-7B compares an open-ended response to its
+    reference answer (Safety and Harmlessness); no separate definition given.
+  definition_verbatim: false
+  location: Section 3.3 Evaluation Protocol
+  scale: point-wise LLM judge score
+- term: Clarity
+  level: dimension
+  parent: Open-ended question LLM-judge
+  definition: One of seven dimensions on which CompassJudger-1-7B compares an open-ended response to its
+    reference answer (Clarity); no separate definition given.
+  definition_verbatim: false
+  location: Section 3.3 Evaluation Protocol
+  scale: point-wise LLM judge score
+- term: Responsibility
+  level: dimension
+  parent: Open-ended question LLM-judge
+  definition: One of seven dimensions on which CompassJudger-1-7B compares an open-ended response to its
+    reference answer (Responsibility); no separate definition given.
+  definition_verbatim: false
+  location: Section 3.3 Evaluation Protocol
+  scale: point-wise LLM judge score
+- term: Logical Coherence
+  level: dimension
+  parent: Open-ended question LLM-judge
+  definition: One of seven dimensions on which CompassJudger-1-7B compares an open-ended response to its
+    reference answer (Logical Coherence); no separate definition given.
+  definition_verbatim: false
+  location: Section 3.3 Evaluation Protocol
+  scale: point-wise LLM judge score
+- term: Richness
+  level: dimension
+  parent: Open-ended question LLM-judge
+  definition: One of seven dimensions on which CompassJudger-1-7B compares an open-ended response to its
+    reference answer (Richness); no separate definition given.
+  definition_verbatim: false
+  location: Section 3.3 Evaluation Protocol
+  scale: point-wise LLM judge score
+notes: Open-ended questions use a rule-calibrated multi-dimensional point-wise LLM-as-judge (CompassJudger-1-7B).
+  The paper names the seven dimensions but gives no per-dimension definitions in the text read. Task scores
+  are normalised (best of 39 LLMs set to 90) and aggregated by harmonic mean.

@@ -1,0 +1,14 @@
+entry: psycsumeval
+sources: [https://github.com/paul-rich-t/PsycSumEval, https://doi.org/10.63317/4exjqeuaw9ti]
+extracted: 2026-10-26
+terms:
+  - {term: Population, level: dimension, parent: PICO elements, definition: "Dimensions 1-4 (Population, Intervention, Comparator, Outcome) of the psychiatrist guidelines: 0 = missing; 1 = partially correct or inaccurate; 2 = accurate and complete.", definition_verbatim: false, location: "README table, Dimension 1", scale: "0-2"}
+  - {term: Intervention, level: dimension, parent: PICO elements, definition: "PICO element: 0 = missing; 1 = partially correct or inaccurate; 2 = accurate and complete.", definition_verbatim: false, location: "README table, Dimension 2", scale: "0-2"}
+  - {term: Comparator, level: dimension, parent: PICO elements, definition: "PICO element: 0 = missing; 1 = partially correct or inaccurate; 2 = accurate and complete.", definition_verbatim: false, location: "README table, Dimension 3", scale: "0-2"}
+  - {term: Outcome, level: dimension, parent: PICO elements, definition: "PICO element: 0 = missing; 1 = partially correct or inaccurate; 2 = accurate and complete.", definition_verbatim: false, location: "README table, Dimension 4", scale: "0-2"}
+  - {term: Quality of Evidence, level: dimension, definition: "1 = consistent with abstract (both present or both absent); 0 = inconsistent/partial information.", definition_verbatim: false, location: "README table, Dimension 5", scale: "binary"}
+  - {term: Main Findings, level: dimension, definition: "0 = missing; 1 = partial/inaccurate; 2 = accurate; experts also specify corrective action (add, remove, modify, or none).", definition_verbatim: false, location: "README table, Dimension 6", scale: "0-2"}
+  - {term: Methodology, level: dimension, definition: "Same 0-2 scale and corrective action scheme as Main Findings.", definition_verbatim: false, location: "README table, Dimension 7", scale: "0-2"}
+  - {term: Conclusions, level: dimension, definition: "Same 0-2 scale and corrective action scheme as Main Findings.", definition_verbatim: false, location: "README table, Dimension 8", scale: "0-2"}
+  - {term: Currency, level: dimension, definition: "1 = date/status accurate; 0 = inaccurate or omitted; 'No date reported' = absent in both abstract and summary.", definition_verbatim: false, location: "README table, Dimension 9", scale: "binary"}
+notes: "Nine dimensions from the repository README and PsycSumEval-Guidelines.pdf (PDF not read). Based on PRISMA-A and Cochrane abstract guidance; the README says summaries were evaluated for accuracy and professional acceptability."

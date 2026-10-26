@@ -1,0 +1,89 @@
+entry: medconsultbench
+sources: [https://arxiv.org/abs/2601.12661]
+extracted: 2026-10-26
+terms:
+  - term: MNI-Comp
+    level: metric
+    parent: History Taking
+    definition: "Completeness: Did the agent obtain all minimally necessary information (prioritizing core diagnosis essentials) before diagnosing? Rewards early completion."
+    definition_verbatim: true
+    location: Table 1
+    scale: 0-1 (coverage ratio times speed bonus), higher is better
+  - term: CPRw
+    level: metric
+    parent: History Taking
+    definition: "Parsimony: How much low-value information was asked beyond MNI (core diagnosis AIUs weighted higher in redundancy calculation)? Penalizes inefficient questioning."
+    definition_verbatim: true
+    location: Table 1
+    scale: weighted redundancy ratio, lower is better
+  - term: IGE
+    level: metric
+    parent: History Taking
+    definition: "Efficiency: How much diagnostic uncertainty (focused on core diagnosis differentiation) is reduced per turn on average?"
+    definition_verbatim: true
+    location: Table 1
+    scale: average information gain per turn, higher is better
+  - term: Hit@1
+    level: metric
+    parent: History Taking
+    definition: "Local alignment: Does each next question match what real doctors would ask (core diagnosis-focused inquiry prioritized)?"
+    definition_verbatim: true
+    location: Table 1
+    scale: fraction of turns, higher is better
+  - term: POVR
+    level: metric
+    parent: History Taking
+    definition: "Structural coherence: Does the agent respect precedence constraints (e.g., core diagnosis red-flag questions before non-core details)?"
+    definition_verbatim: true
+    location: Table 1
+    scale: fraction of violated partial-order pairs, 0 = perfect
+  - term: F1 core
+    level: metric
+    parent: Diagnosis
+    definition: "Core diagnosis recall: Does the agent correctly identify core diagnoses (frequent symptom-disease co-occurrence + clinically critical conditions)?"
+    definition_verbatim: true
+    location: Table 1
+    scale: F1, higher is better
+  - term: SWDS
+    level: metric
+    parent: Diagnosis
+    definition: "Ranking quality: Are frequent (core) gold diagnoses ranked higher in the differential list?"
+    definition_verbatim: true
+    location: Table 1
+    scale: severity-weighted rank-discounted recall, higher is better
+  - term: PSC
+    level: metric
+    parent: Treatment planning
+    definition: "Hard safety: Does the plan avoid absolute contraindications, severe DDIs, and gross dosing errors (core diagnosis regimens held to stricter standards)?"
+    definition_verbatim: true
+    location: Table 1
+    scale: fraction of plans passing, 1.0 = no dangerous errors
+  - term: DDIV
+    level: metric
+    parent: Treatment planning
+    definition: "Drug interactions: What fraction of medication pairs (especially for core diagnoses) have severe DDIs?"
+    definition_verbatim: true
+    location: Table 1
+    scale: fraction of pairs, lower is better
+  - term: PCR
+    level: metric
+    parent: Treatment planning
+    definition: "Profile conflicts: What fraction of medications (especially for core diagnoses) conflict with patient factors (e.g., renal failure)?"
+    definition_verbatim: true
+    location: Table 1
+    scale: fraction of medications, lower is better
+  - term: FQR
+    level: metric
+    parent: Follow-up Q&A
+    definition: "Responsiveness: Are responses to follow-up Q&A questions (especially core diagnosis concerns) intent-matched (concern/clarification)?"
+    definition_verbatim: true
+    location: Table 1
+    scale: fraction of intent-matched responses (LLM-judged), higher is better
+  - term: DCSR
+    level: metric
+    parent: Follow-up Q&A
+    definition: "Adaptability: Can the agent satisfy new constraints (cost/access) without degrading regimen quality (core diagnosis quality non-negotiable)?"
+    definition_verbatim: true
+    location: Table 1
+    scale: fraction of cases with successful adapted regimen, higher is better
+notes: "12 primary metrics (above) feed the composite leaderboard score; 10 secondary metrics for failure localization are in appendices C-H and were not read, so they are not listed. Paper also names three failure modes (Inquiry Omissions, Clinical Safety Risks, Adaptive Revision Failures) in Table 4. Stage names are used as parents."

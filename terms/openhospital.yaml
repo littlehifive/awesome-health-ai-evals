@@ -1,0 +1,71 @@
+entry: openhospital
+sources:
+- https://arxiv.org/abs/2603.14771
+extracted: '2026-10-26'
+terms:
+- term: Examination Precision
+  level: metric
+  definition: assesses the relevance and necessity of ordered tests. Defined as P = |L_pred ∩ L_gold|/|L_pred|, where L_pred is the predicted examination list and L_gold is the standard clinical set, this metric penalizes unnecessary tests while rewarding the prioritization of informative examinations.
+  definition_verbatim: true
+  location: Section 4.1, Medical Capability Metrics
+  scale: precision 0-1
+- term: Diagnostic Accuracy
+  level: metric
+  definition: measures the correctness of the final consensus diagnosis. Formally, for a case i with ground truth D_gold, the score is 1 if the agent's diagnosis D_agent = D_gold, and 0 otherwise.
+  definition_verbatim: true
+  location: Section 4.1
+  scale: binary per case
+- term: Treatment Plan Alignment
+  level: metric
+  definition: evaluates therapeutic quality against gold-standard guidelines via an LLM-based evaluator. Plans are scored across three dimensions—safety, effectiveness, and personalization.
+  definition_verbatim: true
+  location: Section 4.1
+  scale: LLM-scored on three dimensions
+- term: safety
+  level: dimension
+  parent: Treatment Plan Alignment
+  definition: Treatment plan scored for safety against gold-standard guidelines.
+  definition_verbatim: false
+  location: Section 4.1
+- term: effectiveness
+  level: dimension
+  parent: Treatment Plan Alignment
+  definition: Treatment plan scored for effectiveness against gold-standard guidelines.
+  definition_verbatim: false
+  location: Section 4.1
+- term: personalization
+  level: dimension
+  parent: Treatment Plan Alignment
+  definition: Treatment plan scored for personalization to the patient against gold-standard guidelines.
+  definition_verbatim: false
+  location: Section 4.1
+- term: Total Input Tokens
+  level: metric
+  definition: measures the cumulative number of input tokens processed across all LLM interactions, including patient simulations, physician reasoning, and auxiliary evaluations, over the full execution workflow.
+  definition_verbatim: true
+  location: Section 4.1, System Efficiency Metric
+  scale: token count
+- term: Clinical Correctness
+  level: principle
+  definition: One of four pillars for realistic patient simulation (with Persona Diversity, Linguistic Fluency, Behavioral Realism); validated with an LLM judge for medical consistency of synthesized records (symptom-diagnosis causal alignment, temporal progression, safety of implied pathways).
+  definition_verbatim: false
+  location: Section 3 (patient agents)
+  scale: Medical Consistency 1-5
+- term: Persona Diversity
+  level: principle
+  definition: Pillar of patient simulation, validated with Self-BLEU4 and TF-IDF diversity of generated personas.
+  definition_verbatim: false
+  location: Section 3
+- term: Linguistic Fluency
+  level: principle
+  definition: Pillar of patient simulation, validated with perplexity under a medical model (Baichuan-M2-32B).
+  definition_verbatim: false
+  location: Section 3
+  scale: perplexity
+- term: Behavioral Realism
+  level: principle
+  definition: Pillar of patient simulation, validated by GPT-5.2 judge on dynamic response quality (Accuracy, Relevance, Persona Alignment).
+  definition_verbatim: false
+  location: Section 3, Figure 2
+  scale: 1-5
+notes: The main benchmark scores are the three medical capability metrics plus Total Input Tokens; the patient-simulation pillars and their validation metrics (Self-BLEU4, TF-IDF Diversity, Perplexity, Medical Consistency, and the Accuracy / Relevance / Persona Alignment judge scores) assess the simulated patients, not the evaluated physician agents.

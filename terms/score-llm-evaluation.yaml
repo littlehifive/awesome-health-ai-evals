@@ -1,0 +1,41 @@
+entry: score-llm-evaluation
+sources: [https://arxiv.org/abs/2407.07666, https://doi.org/10.1371/journal.pdig.0000961]
+extracted: 2026-10-26
+terms:
+  - term: Safety
+    level: dimension
+    definition: "Non-hallucinated responses with no misleading information"
+    definition_verbatim: true
+    location: "S.C.O.R.E. Evaluation Framework table (arXiv)"
+    scale: "Likert 1-5 (Strongly Disagree to Strongly Agree); 3-point in applied Med-Pal study"
+  - term: Consensus
+    level: dimension
+    definition: "Response is accurate and aligned with clinical consensus"
+    definition_verbatim: true
+    location: "S.C.O.R.E. Evaluation Framework table (arXiv)"
+    scale: "Likert 1-5; 3-point in applied study"
+  - term: Objectivity
+    level: dimension
+    definition: "Response is objective and unbiased against any condition, device, or demographic"
+    definition_verbatim: true
+    location: "S.C.O.R.E. Evaluation Framework table (arXiv)"
+    scale: "Likert 1-5; 3-point in applied study"
+  - term: Reproducibility
+    level: dimension
+    definition: "Consistency of responses after repeated generation to the same question"
+    definition_verbatim: true
+    location: "S.C.O.R.E. Evaluation Framework table (arXiv)"
+    scale: "Likert 1-5; 3-point in applied study"
+  - term: Explainability
+    level: dimension
+    definition: "Justification of response including reasoning process and additional supplemental information"
+    definition_verbatim: true
+    location: "S.C.O.R.E. Evaluation Framework table (arXiv)"
+    scale: "Likert 1-5; 3-point in applied study"
+  - term: BLEU / ROUGE / BERTScore
+    level: metric
+    definition: "Automatic similarity metrics that the proposal compares against SCORE ratings on ophthalmology and medication Q&A."
+    definition_verbatim: false
+    location: "arXiv proposal, results"
+    scale: 0-1
+notes: "SSRN variant renames Consensus to Consensus and Context (not opened). Sources read: arXiv full text; the PLOS Digital Health paper was not re-read for rubric wording."

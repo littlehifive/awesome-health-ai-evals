@@ -1,0 +1,29 @@
+entry: healthbench-missing-information-probe
+sources: [https://arxiv.org/abs/2607.18828, https://github.com/KAVentures/health-ai-readiness-robustness]
+extracted: 2026-10-26
+terms:
+  - term: Appropriate response
+    level: category
+    definition: "Does the model recognize the gap and qualify, clarify, or otherwise avoid over-committing (judged by a four-provider LLM-judge panel and clinician raters); proportion of responses rated appropriate."
+    definition_verbatim: false
+    location: GitHub README, Study Question and results tables
+    scale: binary per item (appropriate vs inappropriate confident); proportion
+  - term: Inappropriate confident
+    level: category
+    definition: "Model answers confidently as if nothing were missing; over-commits when the information needed to answer safely is absent."
+    definition_verbatim: false
+    location: GitHub README, Key Findings
+    scale: binary per item; proportion
+  - term: Baseline rubric score
+    level: metric
+    definition: Standard HealthBench rubric score on the unperturbed conversation, reported alongside the probe verdicts.
+    definition_verbatim: false
+    location: GitHub README, headline results table
+    scale: points per HealthBench rubric criterion
+  - term: Judge-panel agreement (Fleiss' kappa)
+    level: metric
+    definition: Agreement among four-provider LLM judges and among three human raters on the verdicts; used to study evaluator reliability rather than model output.
+    definition_verbatim: false
+    location: GitHub README, Key Findings
+    scale: Fleiss' kappa
+notes: "Read the GitHub README and arXiv abstract page; the paper full text was not in paperclip, so the exact verdict wording and any finer-grained labels were not seen. Also reports MedQA/MedMCQA accuracy under perturbations (option shuffle, correct-answer removal, context removal), which is an MCQ accuracy metric not listed here."

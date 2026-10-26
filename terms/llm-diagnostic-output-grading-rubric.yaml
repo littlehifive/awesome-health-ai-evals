@@ -1,0 +1,41 @@
+entry: llm-diagnostic-output-grading-rubric
+sources:
+- https://pmc.ncbi.nlm.nih.gov/articles/PMC11330891/
+extracted: '2026-10-26'
+terms:
+- term: Correct diagnosis
+  level: criterion
+  definition: Whether the model's diagnosis matches the NEJM case's final diagnosis (ground truth).
+  definition_verbatim: false
+  location: Figure 1 and Methods (image not extractable; terms from the text)
+- term: Differential diagnosis
+  level: criterion
+  definition: Whether the relevant differentials given by NEJM appear among the model's differential diagnoses.
+  definition_verbatim: false
+  location: Figure 1 and Methods (image not extractable; terms from the text)
+- term: Hallucination
+  level: criterion
+  definition: Whether the output contains fabricated content not supported by the case.
+  definition_verbatim: false
+  location: Figure 1 and Methods (image not extractable; terms from the text)
+- term: Readability
+  level: criterion
+  definition: How readable and understandable the output is to a clinician.
+  definition_verbatim: false
+  location: Figure 1 and Methods (image not extractable; terms from the text)
+- term: Explainability
+  level: criterion
+  definition: How well the output explains the reasoning behind the diagnosis and differentials.
+  definition_verbatim: false
+  location: Figure 1 and Methods (image not extractable; terms from the text)
+- term: Incorrect statements
+  level: criterion
+  definition: Presence of factually incorrect statements in the output.
+  definition_verbatim: false
+  location: Figure 1 and Methods (image not extractable; terms from the text)
+- term: Potentially risky suggestions
+  level: criterion
+  definition: Overall subjective assessment of whether the output contains potentially dangerous suggestions.
+  definition_verbatim: false
+  location: Figure 1 and Methods (image not extractable; terms from the text)
+notes: Rubric is Figure 1 (an image); the text lists the seven performance metrics, the per-item point values and wording were not readable, so definitions are paraphrases from Methods. Total scores across the rubric had a mean of 11.4, so items are scored on small point scales summed per rater; 10 physicians from 3 countries scored each output. Abstract also frames the groups as accuracy, readability, clinical interpretability and safety.

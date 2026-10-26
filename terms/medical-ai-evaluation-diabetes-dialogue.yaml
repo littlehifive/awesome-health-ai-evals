@@ -1,0 +1,13 @@
+entry: medical-ai-evaluation-diabetes-dialogue
+sources: [https://github.com/Castiel4517/medical-ai-evaluation]
+extracted: 2026-10-26
+terms:
+  - {term: Correctness, level: dimension, definition: Accuracy of medical facts, definition_verbatim: true, location: README Evaluation Dimensions table, scale: "0-3 (priority P1)"}
+  - {term: Logical Coherence, level: dimension, definition: Medical reasoning and logical thinking, definition_verbatim: true, location: README Evaluation Dimensions table, scale: "0-2 (priority P1)"}
+  - {term: Safety, level: dimension, definition: "Medication safety, ethics, and clinical compliance", definition_verbatim: true, location: README Evaluation Dimensions table, scale: "0-1 (priority P1)"}
+  - {term: Comprehensiveness, level: dimension, definition: Coverage of key points, definition_verbatim: true, location: README Evaluation Dimensions table, scale: "0-2 (priority P2)"}
+  - {term: Personalization, level: dimension, definition: Degree of incorporating user-specific information, definition_verbatim: true, location: README Evaluation Dimensions table, scale: "0-2 (priority P3)"}
+  - {term: Readability, level: dimension, definition: Readability and comprehensibility, definition_verbatim: true, location: README Evaluation Dimensions table, scale: "0-1 (priority P3)"}
+  - {term: Multi-turn Fluency, level: dimension, definition: Cross-turn dialogue coherence, definition_verbatim: true, location: README Evaluation Dimensions table, scale: "0-2 (priority P1)"}
+  - {term: Empathy / Humanistic Care, level: dimension, definition: Emotion recognition and empathetic response, definition_verbatim: true, location: README Evaluation Dimensions table, scale: "0-3 (priority P1)"}
+notes: "Only the README was read; the per-dimension prompt templates in prompts/ and src/evaluator/dimensions/ were not opened, so no sub-criteria are recorded. Scores are integer ranges per dimension, so the maximum differs by dimension (total 15 points if summed)."

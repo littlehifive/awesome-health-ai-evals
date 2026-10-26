@@ -1,0 +1,75 @@
+entry: clindiag-benchmark
+sources:
+- https://doi.org/10.1038/s41467-026-70274-w
+extracted: '2026-10-26'
+terms:
+- term: Diagnostic accuracy
+  level: metric
+  definition: Whether the final diagnosis the model reaches in the simulated diagnostic encounter (or static QA) matches the reference diagnosis, judged by an LLM.
+  definition_verbatim: false
+  location: Results, Diagnostic accuracy
+  scale: percentage
+- term: gather completeness
+  level: criterion
+  parent: Procedure performance
+  definition: Reader-rated qualitative metric of procedure performance, scored per stage (medical history, physical examination, diagnostic testing); the main text gives no further definition (descriptions are in Supplementary Table 8).
+  definition_verbatim: false
+  location: Results, Procedure Performance
+  scale: 5-point Likert (5 = full compliance, 1 = complete non-compliance)
+- term: reasoning accuracy
+  level: criterion
+  parent: Procedure performance
+  definition: Reader-rated qualitative metric of procedure performance, scored per stage (medical history, physical examination, diagnostic testing); the main text gives no further definition (descriptions are in Supplementary Table 8).
+  definition_verbatim: false
+  location: Results, Procedure Performance
+  scale: 5-point Likert (5 = full compliance, 1 = complete non-compliance)
+- term: reasoning explainability
+  level: criterion
+  parent: Procedure performance
+  definition: Reader-rated qualitative metric of procedure performance, scored per stage (medical history, physical examination, diagnostic testing); the main text gives no further definition (descriptions are in Supplementary Table 8).
+  definition_verbatim: false
+  location: Results, Procedure Performance
+  scale: 5-point Likert (5 = full compliance, 1 = complete non-compliance)
+- term: logic consistency
+  level: criterion
+  parent: Procedure performance
+  definition: Reader-rated qualitative metric of procedure performance, scored per stage (medical history, physical examination, diagnostic testing); the main text gives no further definition (descriptions are in Supplementary Table 8).
+  definition_verbatim: false
+  location: Results, Procedure Performance
+  scale: 5-point Likert (5 = full compliance, 1 = complete non-compliance)
+- term: final report accuracy
+  level: criterion
+  parent: Procedure performance
+  definition: Reader-rated qualitative metric of procedure performance, scored per stage (medical history, physical examination, diagnostic testing); the main text gives no further definition (descriptions are in Supplementary Table 8).
+  definition_verbatim: false
+  location: Results, Procedure Performance
+  scale: 5-point Likert (5 = full compliance, 1 = complete non-compliance)
+- term: final report completeness
+  level: criterion
+  parent: Procedure performance
+  definition: Reader-rated qualitative metric of procedure performance, scored per stage (medical history, physical examination, diagnostic testing); the main text gives no further definition (descriptions are in Supplementary Table 8).
+  definition_verbatim: false
+  location: Results, Procedure Performance
+  scale: 5-point Likert (5 = full compliance, 1 = complete non-compliance)
+- term: BLEU
+  level: metric
+  parent: Procedure performance
+  definition: Lexical similarity between model outputs and the original case files.
+  definition_verbatim: false
+  location: Results, Procedure Performance
+  scale: 0-1
+- term: ROUGE-L
+  level: metric
+  parent: Procedure performance
+  definition: Lexical similarity (recall) between model outputs and the original case files.
+  definition_verbatim: false
+  location: Results, Procedure Performance
+  scale: 0-1
+- term: BERTScore
+  level: metric
+  parent: Procedure performance
+  definition: Semantic similarity between model outputs and the original case files.
+  definition_verbatim: false
+  location: Results, Procedure Performance
+  scale: 0-1
+notes: Read the Nature Communications article text (Results); Supplementary Table 8 with metric descriptions was not reached, so criterion definitions are paraphrased as not given. Procedure metrics are applied separately to the history, physical-examination and diagnostic-test stages. Diagnostic accuracy and some procedure metrics are LLM-judged; who produced the reader ratings is not stated in the passages read.

@@ -1,0 +1,40 @@
+entry: medmt-bench
+sources: [https://arxiv.org/abs/2603.23519]
+extracted: 2026-10-26
+terms:
+  - term: Long Context Memory and Understanding (LCMU)
+    level: dimension
+    definition: "Multi-turn conversations for information gathering and interaction often result in long contexts. In such cases, the model may be affected by information interference between different populations or diseases, leading to the loss of fine-grained details from earlier turns."
+    definition_verbatim: true
+    location: Section 3.2 Evaluation Dimensions
+    scale: per-case atomic test points judged pass/fail by LLM; accuracy
+  - term: Resistance to Contextual Interference (RCI)
+    level: dimension
+    definition: "We deliberately construct cases in which earlier context contains noise and instruction-noncompliant outputs, thereby assessing robustness to system-instruction compliance under contextual interference."
+    definition_verbatim: true
+    location: Section 3.2 Evaluation Dimensions
+    scale: per-case atomic test points judged pass/fail by LLM; accuracy
+  - term: Self-Correction, Affirmation and Safety Defense (SCASD)
+    level: dimension
+    definition: "We evaluate this dimension by having user agents issue queries or instructions that conflict with system prompts at specific turns, testing the models safety defenses, self-correction, and refusal behavior."
+    definition_verbatim: true
+    location: Section 3.2 Evaluation Dimensions
+    scale: per-case atomic test points judged pass/fail by LLM; accuracy
+  - term: Instruction Clarification (IC)
+    level: dimension
+    definition: "We evaluate this dimension by initiating queries that include incorrect terms or ambiguous descriptions to assess the model's ability to detect domain-specific errors and actively seek clarification."
+    definition_verbatim: true
+    location: Section 3.2 Evaluation Dimensions
+    scale: per-case atomic test points judged pass/fail by LLM; accuracy
+  - term: Multi-Instruction Response with Interference (MIRI)
+    level: dimension
+    definition: "We evaluate this dimension by embedding user instructions within various descriptions to measure the model's ability to detect and respond to multiple instructions under interference."
+    definition_verbatim: true
+    location: Section 3.2 Evaluation Dimensions
+    scale: per-case atomic test points judged pass/fail by LLM; accuracy
+  - term: Accuracy
+    level: metric
+    definition: Share of cases (or test points) the LLM judge marks as satisfied; headline score, all 17 models under 60%.
+    definition_verbatim: false
+    location: Section 3.3 Automatic Evaluation; Introduction
+notes: "Dimensions are the five instruction-following challenge types (counts LCMU 152, RCI 41, SCASD 63, IC 98, MIRI 46 of 400). Scenes (HC, PSRO, PTRM) are task contexts, not scored terms. Following HealthBench, fine-grained test points are extracted per case; the judge agrees 91.94% with humans. Definitions are verbatim excerpts of longer paragraphs."

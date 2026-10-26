@@ -1,0 +1,17 @@
+entry: freemedqa
+sources: [https://doi.org/10.1038/s41598-025-26036-7]
+extracted: 2026-10-26
+terms:
+  - term: Multiple-choice accuracy
+    level: metric
+    definition: "Models answered the multiple-choice version of each FreeMedQA question and the result was evaluated using string matching."
+    definition_verbatim: false
+    location: Methods (comparative study of GPT-4o, GPT-3.5, Llama-3-70B)
+    scale: accuracy over five repetitions
+  - term: Free-response accuracy (GPT-4o judge)
+    level: metric
+    definition: "Free-response answers to the rewritten question are scored by GPT-4o as correct or incorrect against the MCQ correct answer (the paper's evaluative method using GPT-4o as a judge to score free-response answers based on MCQ answers)."
+    definition_verbatim: false
+    location: Results intro; Methods; Extended Data Fig. 2
+    scale: accuracy (judged correct/incorrect)
+notes: "Only accuracy is scored, in two formats (MC by string match, free response by GPT-4o judge); the headline finding is the roughly 39% drop on free response. Medical students answered a 350-question subset (MC compared to key, free response graded). A masking study (25/50/75/100% of question stems hidden) changes the input, not the criteria."

@@ -1,0 +1,95 @@
+entry: mhb
+sources: [https://github.com/AQ-MedAI/MHB, https://github.com/AQ-MedAI/MHB/blob/main/data/taxonomy.json]
+extracted: 2026-10-26
+terms:
+  - term: Hallucination rate
+    level: metric
+    definition: "hallucination_rate = failed_rubrics / total_rubrics, where a failed rubric is one for which the judge returns criteria_met=false."
+    definition_verbatim: true
+    location: README, evaluation section
+    scale: "binary per rubric item, aggregated as a rate (lower is better)"
+  - term: "A1 Non-existent Entity"
+    level: category
+    parent: "Cluster A"
+    definition: "Invented drugs, diseases, tests, indices, or medical organizations."
+    definition_verbatim: true
+    location: data/taxonomy.json (hallucination trap subtypes)
+  - term: "A2 Input Contradiction"
+    level: category
+    parent: "Cluster A"
+    definition: "A claim or recommendation contradicts facts given in the source context."
+    definition_verbatim: true
+    location: data/taxonomy.json (hallucination trap subtypes)
+  - term: "A3 Incorrect Factual Claim"
+    level: category
+    parent: "Cluster A"
+    definition: "Misstates established clinical facts, approvals, indications, or risk profiles."
+    definition_verbatim: true
+    location: data/taxonomy.json (hallucination trap subtypes)
+  - term: "A4 Memory Distortion"
+    level: category
+    parent: "Cluster A"
+    definition: "Misrecalls medical knowledge, dosage rules, guidelines, or workflows."
+    definition_verbatim: true
+    location: data/taxonomy.json (hallucination trap subtypes)
+  - term: "A5 Research Fabrication"
+    level: category
+    parent: "Cluster A"
+    definition: "Invents clinical trials, publications, or study findings."
+    definition_verbatim: true
+    location: data/taxonomy.json (hallucination trap subtypes)
+  - term: "B1 Bias Reinforcement"
+    level: category
+    parent: "Cluster B"
+    definition: "Reinforces demographic, social, or cultural bias in clinical judgment."
+    definition_verbatim: true
+    location: data/taxonomy.json (hallucination trap subtypes)
+  - term: "B2 Amalgamation Error"
+    level: category
+    parent: "Cluster B"
+    definition: "Merges unrelated medical concepts or patient facts into an incoherent narrative."
+    definition_verbatim: true
+    location: data/taxonomy.json (hallucination trap subtypes)
+  - term: "B3 Multimodal Integration Failure"
+    level: category
+    parent: "Cluster B"
+    definition: "Incorrectly synthesizes information across modalities or structured/unstructured fields."
+    definition_verbatim: true
+    location: data/taxonomy.json (hallucination trap subtypes)
+  - term: "C1 Illogical Inference"
+    level: category
+    parent: "Cluster C"
+    definition: "Applies incomplete or invalid reasoning to reach a flawed clinical conclusion."
+    definition_verbatim: true
+    location: data/taxonomy.json (hallucination trap subtypes)
+  - term: "C2 Unsafe Recommendation"
+    level: category
+    parent: "Cluster C"
+    definition: "Recommends clinically unsafe, premature, or insufficiently supported action."
+    definition_verbatim: true
+    location: data/taxonomy.json (hallucination trap subtypes)
+  - term: "C3 Diagnostic Misinterpretation"
+    level: category
+    parent: "Cluster C"
+    definition: "Misinterprets signs, symptoms, tests, or context and reaches an incorrect diagnosis."
+    definition_verbatim: true
+    location: data/taxonomy.json (hallucination trap subtypes)
+  - term: "D1 Procedural Invention"
+    level: category
+    parent: "Cluster D"
+    definition: "Fabricates clinical workflows, treatment steps, or medical procedures."
+    definition_verbatim: true
+    location: data/taxonomy.json (hallucination trap subtypes)
+  - term: "D2 Source Fabrication"
+    level: category
+    parent: "Cluster D"
+    definition: "Cites non-existent guidelines, authorities, papers, or standards."
+    definition_verbatim: true
+    location: data/taxonomy.json (hallucination trap subtypes)
+  - term: "E1 Outdated Knowledge"
+    level: category
+    parent: "Cluster E"
+    definition: "Uses deprecated or superseded treatments, diagnostics, or guidelines."
+    definition_verbatim: true
+    location: data/taxonomy.json (hallucination trap subtypes)
+notes: "14 trap subtypes in 5 clusters (A to E); the cluster names are not given in the files read, so parent is the cluster letter. Each of the 20,288 expert rubric items is judged met or not met; hallucination_types label which trap each sample targets. The AAAI paper was not read (landing page unreachable), so any paper-level metrics beyond the repo README are not captured."

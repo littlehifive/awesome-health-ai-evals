@@ -1,0 +1,46 @@
+entry: wehmit-bench
+sources: [https://doi.org/10.3390/info17100943]
+extracted: 2026-10-26
+terms:
+  - term: Classification accuracy
+    level: metric
+    definition: "Accuracy of LLMs in classifying whether a Chinese WeChat article title makes a potentially misleading health claim; peak 0.822 on the Core Health Set."
+    definition_verbatim: false
+    location: Abstract
+    scale: accuracy
+  - term: Relevance
+    level: criterion
+    parent: Explanation quality framework
+    definition: "Generated explanations are evaluated on relevance."
+    definition_verbatim: false
+    location: Abstract
+  - term: Claim-specific details
+    level: criterion
+    parent: Explanation quality framework
+    definition: "Details specific to each claim, as named in the abstract."
+    definition_verbatim: false
+    location: Abstract
+  - term: Title grounding
+    level: criterion
+    parent: Explanation quality framework
+    definition: "Whether the explanation is grounded in the title text."
+    definition_verbatim: false
+    location: Abstract
+  - term: Avoidance of unsupported additions
+    level: criterion
+    parent: Explanation quality framework
+    definition: "Whether the explanation avoids adding unsupported content."
+    definition_verbatim: false
+    location: Abstract
+  - term: Usefulness for readers of health information
+    level: criterion
+    parent: Explanation quality framework
+    definition: "Usefulness of the explanation for readers of health information."
+    definition_verbatim: false
+    location: Abstract
+  - term: Explanation quality framework
+    level: axis
+    definition: "Framework for scoring LLM-generated explanations of why a title is misleading, built from five criteria."
+    definition_verbatim: false
+    location: Abstract
+notes: "Full text not reachable (MDPI returned 403); terms come from the Crossref abstract only. Definitions, scale and location within the paper are unverified. Needs a human look."

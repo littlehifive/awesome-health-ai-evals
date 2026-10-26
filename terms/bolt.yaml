@@ -1,0 +1,113 @@
+entry: bolt
+sources:
+- https://arxiv.org/abs/2401.00820
+extracted: '2026-10-26'
+terms:
+- term: Reflections on needs
+  level: criterion
+  parent: REFLECTIONS
+  definition: Therapist conversational behavior detected in LLM-therapist turns by an in-context-learning classifier; described in the paper by name without a separate definition in the text read.
+  definition_verbatim: false
+  location: Methods (13 behaviors in five categories)
+  scale: frequency, temporal order of first occurrence, and adaptation to client behaviors, compared with human therapists
+- term: Reflections on emotions
+  level: criterion
+  parent: REFLECTIONS
+  definition: Therapist conversational behavior detected in LLM-therapist turns by an in-context-learning classifier; described in the paper by name without a separate definition in the text read.
+  definition_verbatim: false
+  location: Methods (13 behaviors in five categories)
+  scale: frequency, temporal order of first occurrence, and adaptation to client behaviors, compared with human therapists
+- term: Reflections on values
+  level: criterion
+  parent: REFLECTIONS
+  definition: Therapist conversational behavior detected in LLM-therapist turns by an in-context-learning classifier; described in the paper by name without a separate definition in the text read.
+  definition_verbatim: false
+  location: Methods (13 behaviors in five categories)
+  scale: frequency, temporal order of first occurrence, and adaptation to client behaviors, compared with human therapists
+- term: Reflections on consequences
+  level: criterion
+  parent: REFLECTIONS
+  definition: Therapist conversational behavior detected in LLM-therapist turns by an in-context-learning classifier; described in the paper by name without a separate definition in the text read.
+  definition_verbatim: false
+  location: Methods (13 behaviors in five categories)
+  scale: frequency, temporal order of first occurrence, and adaptation to client behaviors, compared with human therapists
+- term: Reflections on conflicts
+  level: criterion
+  parent: REFLECTIONS
+  definition: Therapist conversational behavior detected in LLM-therapist turns by an in-context-learning classifier; described in the paper by name without a separate definition in the text read.
+  definition_verbatim: false
+  location: Methods (13 behaviors in five categories)
+  scale: frequency, temporal order of first occurrence, and adaptation to client behaviors, compared with human therapists
+- term: Reflections on strengths
+  level: criterion
+  parent: REFLECTIONS
+  definition: Therapist conversational behavior detected in LLM-therapist turns by an in-context-learning classifier; described in the paper by name without a separate definition in the text read.
+  definition_verbatim: false
+  location: Methods (13 behaviors in five categories)
+  scale: frequency, temporal order of first occurrence, and adaptation to client behaviors, compared with human therapists
+- term: Questions on experiences
+  level: criterion
+  parent: QUESTIONS
+  definition: Therapist conversational behavior detected in LLM-therapist turns by an in-context-learning classifier; described in the paper by name without a separate definition in the text read.
+  definition_verbatim: false
+  location: Methods (13 behaviors in five categories)
+  scale: frequency, temporal order of first occurrence, and adaptation to client behaviors, compared with human therapists
+- term: Questions on perspectives
+  level: criterion
+  parent: QUESTIONS
+  definition: Therapist conversational behavior detected in LLM-therapist turns by an in-context-learning classifier; described in the paper by name without a separate definition in the text read.
+  definition_verbatim: false
+  location: Methods (13 behaviors in five categories)
+  scale: frequency, temporal order of first occurrence, and adaptation to client behaviors, compared with human therapists
+- term: Questions on emotions
+  level: criterion
+  parent: QUESTIONS
+  definition: Therapist conversational behavior detected in LLM-therapist turns by an in-context-learning classifier; described in the paper by name without a separate definition in the text read.
+  definition_verbatim: false
+  location: Methods (13 behaviors in five categories)
+  scale: frequency, temporal order of first occurrence, and adaptation to client behaviors, compared with human therapists
+- term: Problem-solving
+  level: criterion
+  parent: SOLUTIONS
+  definition: Therapist conversational behavior detected in LLM-therapist turns by an in-context-learning classifier; described in the paper by name without a separate definition in the text read.
+  definition_verbatim: false
+  location: Methods (13 behaviors in five categories)
+  scale: frequency, temporal order of first occurrence, and adaptation to client behaviors, compared with human therapists
+- term: Planning
+  level: criterion
+  parent: SOLUTIONS
+  definition: Therapist conversational behavior detected in LLM-therapist turns by an in-context-learning classifier; described in the paper by name without a separate definition in the text read.
+  definition_verbatim: false
+  location: Methods (13 behaviors in five categories)
+  scale: frequency, temporal order of first occurrence, and adaptation to client behaviors, compared with human therapists
+- term: Normalizing
+  level: criterion
+  definition: Therapist conversational behavior detected in LLM-therapist turns by an in-context-learning classifier; described in the paper by name without a separate definition in the text read.
+  definition_verbatim: false
+  location: Methods (13 behaviors in five categories)
+  scale: frequency, temporal order of first occurrence, and adaptation to client behaviors, compared with human therapists
+- term: Psychoeducation
+  level: criterion
+  definition: Therapist conversational behavior detected in LLM-therapist turns by an in-context-learning classifier; described in the paper by name without a separate definition in the text read.
+  definition_verbatim: false
+  location: Methods (13 behaviors in five categories)
+  scale: frequency, temporal order of first occurrence, and adaptation to client behaviors, compared with human therapists
+- term: Behavior frequency
+  level: metric
+  definition: How frequently LLM therapists exhibit specific conversational behaviors relative to human therapists.
+  definition_verbatim: true
+  location: Results
+  scale: frequency difference vs. average-, low-, high-quality human therapy
+- term: Temporal ordering of behaviors
+  level: metric
+  definition: Turn number in which each behavior is first exhibited in a conversation, relative to human therapists.
+  definition_verbatim: false
+  location: Results, Figure 3
+  scale: turn number difference
+- term: Adaptability to client behaviors
+  level: metric
+  definition: In what ways LLM therapists adapt their behavior to different client behaviors compared to human therapists.
+  definition_verbatim: true
+  location: Results, Figure 4
+  scale: difference in behavior frequency conditional on client behavior
+notes: Parent categories (REFLECTIONS, QUESTIONS, SOLUTIONS) are the paper's five category groupings (the last two behaviors, NORMALIZING and PSYCHOEDUCATION, are single-behavior categories). Behaviors are judged as desirable or undesirable by resemblance to high- versus low-quality human therapy. LIWC word use is a secondary check (Supplementary Table S9).

@@ -1,0 +1,78 @@
+entry: innovative-moment-assessment
+sources:
+- https://arxiv.org/abs/2507.20241
+- https://aclanthology.org/2025.emnlp-main.1245/
+extracted: '2026-10-26'
+terms:
+- term: Innovative Moment (IM) level 1 / level 2
+  level: dimension
+  definition: Level 1 IMs (Creating Distance from the Problem) and Level 2 IMs (Centered on the Change) tag client utterances that mark narrative transformation.
+  definition_verbatim: false
+  location: Section 3.3.1
+- term: Action I
+  level: category
+  parent: Innovative Moment (IM) level 1 / level 2
+  definition: New behavioral strategies to overcome the problem, active exploration of solutions and information about the problem.
+  definition_verbatim: true
+  location: Section 3.3, Table 1
+- term: Reflection I
+  level: category
+  parent: Innovative Moment (IM) level 1 / level 2
+  definition: New understandings of the problem, intention to fight (CONTEST) the problem's demands, and references to self-worth.
+  definition_verbatim: true
+  location: Section 3.3, Table 1
+- term: Protest I
+  level: category
+  parent: Innovative Moment (IM) level 1 / level 2
+  definition: Rejecting or objecting to the problem, critique of those who support it, and critique of problematic facets of the self.
+  definition_verbatim: true
+  location: Section 3.3, Table 1
+- term: Action II
+  level: category
+  parent: Innovative Moment (IM) level 1 / level 2
+  definition: Generalization into the future and other life dimensions of good outcomes (performed or projected actions).
+  definition_verbatim: true
+  location: Section 3.3, Table 1
+- term: Reflection II
+  level: category
+  parent: Innovative Moment (IM) level 1 / level 2
+  definition: 'Self-transformation: new understanding of the self and the change process (Level 2 reflection).'
+  definition_verbatim: false
+  location: Section 3.3, Table 1
+- term: Protest II
+  level: category
+  parent: Innovative Moment (IM) level 1 / level 2
+  definition: 'Empowerment: assertive stance and standing up for oneself and own needs (Level 2 protest).'
+  definition_verbatim: false
+  location: Section 3.3, Table 1
+- term: IM salience
+  level: metric
+  definition: A salience metric that measures the proportion of client's speech associated with a particular IM type.
+  definition_verbatim: true
+  location: Section 3.3.3, Equation 5
+  scale: percent of client utterances
+- term: Reassuring
+  level: dimension
+  definition: Creating safety for client disclosure.
+  definition_verbatim: true
+  location: Section 4, Therapeutic Dimension Assessment
+  scale: 5-point Likert
+- term: Empowering
+  level: dimension
+  definition: Facilitating problem externalization.
+  definition_verbatim: true
+  location: Section 4, Therapeutic Dimension Assessment
+  scale: 5-point Likert
+- term: Transformative
+  level: dimension
+  definition: Uncovering alternative narratives.
+  definition_verbatim: true
+  location: Section 4, Therapeutic Dimension Assessment
+  scale: 5-point Likert
+- term: Reconnecting
+  level: dimension
+  definition: Strengthening significant relationships.
+  definition_verbatim: true
+  location: Section 4, Therapeutic Dimension Assessment
+  scale: 5-point Likert
+notes: Definitions for Reflection II and Protest II are paraphrased from the Level 2 summary (the Table 1 text was truncated in the portion read). Utterances without an IM are labelled None. Therapeutic dimensions are scored by simulated clients (GPT-4o) and human participants; IM tagging by LLM or human annotators.

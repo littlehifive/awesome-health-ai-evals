@@ -1,0 +1,61 @@
+entry: ckd-medication-review-trap-benchmark
+sources:
+- https://doi.org/10.64898/2026.05.23.26353939
+extracted: '2026-10-26'
+terms:
+- term: Macro F1
+  level: metric
+  definition: Per-case macro F1 of model-identified drug-related problems against the nephrologist gold-standard
+    problem list (primary endpoint).
+  definition_verbatim: false
+  location: Sections 2.3 and 2.5-2.7
+  scale: 0-1
+- term: Precision
+  level: metric
+  definition: Fraction of problems the model flagged that match the gold standard (reported with recall).
+  definition_verbatim: false
+  location: Discussion (precision-recall tradeoff)
+  scale: 0-1
+- term: Recall
+  level: metric
+  definition: Fraction of gold-standard problems that the model detected.
+  definition_verbatim: false
+  location: Discussion (precision-recall tradeoff)
+  scale: 0-1
+- term: Safety-critical omission rate
+  level: metric
+  definition: Rate of cases in which the model misses a safety-critical gold-standard problem (secondary
+    endpoint).
+  definition_verbatim: false
+  location: Abstract; Results
+  scale: proportion of responses
+- term: Hallucination rate
+  level: metric
+  definition: PI-adjudicated rate of hallucinated content (for example fabricated dose caps and non-existent
+    guideline citations), judged under rules HR-01 to HR-04.
+  definition_verbatim: false
+  location: Abstract; Section 2.5
+  scale: proportion of responses
+- term: Intra-model consistency
+  level: metric
+  definition: Pairwise Jaccard similarity on (drug, issue_type) tuples across the three runs of each case.
+  definition_verbatim: true
+  location: Section 2.7
+  scale: 0-1
+- term: Embedded trap categories T01-T10
+  level: category
+  definition: Ten prespecified categories of clinical traps (contraindications, dose adjustment errors,
+    drug-drug interactions, deprescribing opportunities, missing therapies, administration timing errors,
+    and others) used to stratify detection.
+  definition_verbatim: false
+  location: Section 2.2; Supplementary Table S1
+  scale: detection rate per category
+- term: Gold-standard problem severity
+  level: other
+  definition: Each gold-standard problem is assigned a severity level from 0 to 4.
+  definition_verbatim: false
+  location: Section 2.3
+  scale: 0-4
+notes: Open-ended outputs are parsed into (drug, issue_type, action) tuples and matched with 13 decision
+  rules (DR-01 to DR-13); extended F1 excludes clinically valid extras (DR-06, DR-07). Names of individual
+  trap categories are in the supplement, which was not read.

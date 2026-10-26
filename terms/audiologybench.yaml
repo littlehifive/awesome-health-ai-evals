@@ -1,0 +1,156 @@
+entry: audiologybench
+sources:
+- https://doi.org/10.2196/94755
+- https://github.com/pc9413/AudiologyQA
+extracted: '2026-10-26'
+terms:
+- term: Accuracy (objective items)
+  level: metric
+  definition: Share of correct answers on educational and research-derived objective items, adjudicated by Gemini 2.5 Pro.
+  definition_verbatim: false
+  location: Methods; Results
+  scale: accuracy
+- term: Q1 Numerical accuracy
+  level: criterion
+  parent: Q1 audiometric numerical interpretation
+  definition: Precision of reported audiometric thresholds and other quantitative test values; deviations >10 dB from the reference or transposed values are flagged as inaccurate.
+  definition_verbatim: true
+  location: Table 5
+  scale: 1-5, weight 40%
+- term: Q1 Test coverage
+  level: criterion
+  parent: Q1 audiometric numerical interpretation
+  definition: Inclusion of all relevant audiometric tests presented in the case (eg, pure-tone audiometry, speech testing, immittance, otoacoustic emissions, and auditory brainstem response).
+  definition_verbatim: true
+  location: Table 5
+  scale: 1-5, weight 30%
+- term: Q1 Description accuracy
+  level: criterion
+  parent: Q1 audiometric numerical interpretation
+  definition: Correct verbal interpretation of audiometric configuration, symmetry, and severity descriptors.
+  definition_verbatim: true
+  location: Table 5
+  scale: 1-5, weight 20%
+- term: Q1 Hallucination free
+  level: criterion
+  parent: Q1 audiometric numerical interpretation
+  definition: Absence of fabricated test values, measurements, or findings not present in the case materials.
+  definition_verbatim: true
+  location: Table 5
+  scale: 1-5, weight 10%
+- term: Q2 Diagnostic accuracy
+  level: criterion
+  parent: Q2 differential diagnosis
+  definition: Correct hearing loss type and severity classification consistent with the reference diagnosis.
+  definition_verbatim: true
+  location: Table 5
+  scale: 1-5, weight 50%
+- term: Q2 Reasoning logic
+  level: criterion
+  parent: Q2 differential diagnosis
+  definition: Sound clinical reasoning chain from findings to diagnostic conclusion.
+  definition_verbatim: true
+  location: Table 5
+  scale: 1-5, weight 30%
+- term: Q2 Evidence support
+  level: criterion
+  parent: Q2 differential diagnosis
+  definition: Diagnostic conclusions explicitly anchored in case findings rather than asserted without justification.
+  definition_verbatim: true
+  location: Table 5
+  scale: 1-5, weight 20%
+- term: Q3 Relevance to diagnosis
+  level: criterion
+  parent: Q3 clinical recommendations
+  definition: Recommendations match the diagnostic impression and presenting concerns.
+  definition_verbatim: true
+  location: Table 5
+  scale: 1-5, weight 40%
+- term: Q3 Clinical feasibility
+  level: criterion
+  parent: Q3 clinical recommendations
+  definition: Recommendations practical and implementable within standard audiology scope of practice.
+  definition_verbatim: true
+  location: Table 5
+  scale: 1-5, weight 30%
+- term: Q3 Completeness
+  level: criterion
+  parent: Q3 clinical recommendations
+  definition: Appropriate scope across amplification, medical referral, follow-up, and counseling as the case requires.
+  definition_verbatim: true
+  location: Table 5
+  scale: 1-5, weight 30%
+- term: Q1 audiometric numerical interpretation
+  level: category
+  definition: 'Case-study question type: audiometric numerical interpretation; scored on four weighted subdimensions.'
+  definition_verbatim: false
+  location: Abstract; Table 5
+  scale: 0-100 weighted score, A-F grade
+- term: Q2 differential diagnosis
+  level: category
+  definition: 'Case-study question type: differential diagnosis; scored on three weighted subdimensions.'
+  definition_verbatim: false
+  location: Abstract; Table 5
+  scale: 0-100 weighted score, A-F grade
+- term: Q3 clinical recommendations
+  level: category
+  definition: 'Case-study question type: clinical recommendations; scored on three weighted subdimensions.'
+  definition_verbatim: false
+  location: Abstract; Table 5
+  scale: 0-100 weighted score, A-F grade
+- term: Letter grade A-F
+  level: metric
+  definition: A 90-100 Fully correct—exact match or clinically equivalent response; B 75-89 Mostly correct—minor noncritical errors only; C 50-74 Partially correct—mix of correct and incorrect elements; D 25-49 Mostly incorrect—major errors or significant
+    omissions; F 0-24 Fully wrong—contradicts reference standard or clinically harmful.
+  definition_verbatim: true
+  location: Table 3
+  scale: 0-100 score mapped to A-F
+- term: Type misclassification
+  level: category
+  parent: Critical error
+  definition: Incorrect hearing loss type (eg, SNHL as CHL). Max grade D.
+  definition_verbatim: true
+  location: Table 4, critical-error types
+  scale: binary flag; caps score
+- term: Severity misclassification
+  level: category
+  parent: Critical error
+  definition: Degree differs by ≥2 categories. Max grade D.
+  definition_verbatim: true
+  location: Table 4
+  scale: binary flag; caps score
+- term: Fabricated or erroneous test result
+  level: category
+  parent: Critical error
+  definition: Audiometric values or test outcomes not present in or contradicting case materials. Max grade D.
+  definition_verbatim: true
+  location: Table 4
+  scale: binary flag; caps score
+- term: Laterality confusion
+  level: category
+  parent: Critical error
+  definition: Left and right ear data swapped or misattributed. Max grade D.
+  definition_verbatim: true
+  location: Table 4
+  scale: binary flag; caps score
+- term: Missed red flag
+  level: category
+  parent: Critical error
+  definition: Failure to identify urgent conditions. Max grade D.
+  definition_verbatim: true
+  location: Table 4
+  scale: binary flag; caps score
+- term: Dangerous recommendation
+  level: category
+  parent: Critical error
+  definition: Clinically harmful or contraindicated advice. Max grade F.
+  definition_verbatim: true
+  location: Table 4
+  scale: binary flag; caps score
+- term: Critical error
+  level: category
+  definition: Six prespecified critical-error types that cap case-study scores at D or F.
+  definition_verbatim: false
+  location: Abstract; Table 4
+notes: 'Three tiers: educational objective items (MCQ, true/false, short answer), research-derived items, and 67 multimodal cases scored on the A-F rubric by an LLM adjudicator (Claude Opus 4.5) audited against audiologists. Subdimension scores are 1-5
+  and combined by the Table 5 weights into a 0-100 score. Objective items scored by accuracy.'

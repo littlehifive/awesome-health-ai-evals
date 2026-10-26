@@ -1,0 +1,77 @@
+entry: cardiobench
+sources: [https://arxiv.org/abs/2607.25186, https://medbench.opencompass.org.cn/track-detail/12]
+extracted: 2026-10-26
+terms:
+  - term: Key-point macro-recall
+    level: metric
+    definition: "Key-point macro-recall measured recovery of prespecified clinical content. For each item, the number of matched atomic key points was divided by the total number of reference key points, and item-level recall was averaged within each LLM-task combination."
+    definition_verbatim: true
+    location: Section 2.5
+    scale: 0-100
+  - term: Holistic clinical-quality score
+    level: metric
+    definition: "A holistic clinical-quality score assessed the response against the reference and task-specific rubric, including clinical correctness, completeness, internal consistency, professional organization, and safety requirements."
+    definition_verbatim: true
+    location: Section 2.5
+    scale: 0-100
+  - term: Clinical correctness
+    level: criterion
+    parent: Holistic clinical-quality score
+    definition: "Rubric component of the holistic clinical-quality score; not defined separately."
+    definition_verbatim: false
+    location: Section 2.5
+  - term: Completeness
+    level: criterion
+    parent: Holistic clinical-quality score
+    definition: "Rubric component of the holistic clinical-quality score; not defined separately."
+    definition_verbatim: false
+    location: Section 2.5
+  - term: Internal consistency
+    level: criterion
+    parent: Holistic clinical-quality score
+    definition: "Rubric component of the holistic clinical-quality score; not defined separately."
+    definition_verbatim: false
+    location: Section 2.5
+  - term: Professional organization
+    level: criterion
+    parent: Holistic clinical-quality score
+    definition: "Rubric component of the holistic clinical-quality score; not defined separately."
+    definition_verbatim: false
+    location: Section 2.5
+  - term: Safety requirements
+    level: criterion
+    parent: Holistic clinical-quality score
+    definition: "Rubric component of the holistic clinical-quality score; not defined separately."
+    definition_verbatim: false
+    location: Section 2.5
+  - term: Composite score
+    level: metric
+    definition: "A prespecified composite score combined the two open-ended components, with greater emphasis on explicit recovery of clinically required content while retaining assessment of global clinical quality."
+    definition_verbatim: true
+    location: Section 2.5
+    scale: 0-100
+  - term: CardioEthics accuracy
+    level: metric
+    definition: "CardioEthics was scored as the percentage of correctly answered questions (five-option multiple choice)."
+    definition_verbatim: true
+    location: Section 2.5, 4.5
+    scale: percent correct
+  - term: Full-cycle care
+    level: dimension
+    definition: "One of three clinical dimensions into which the 13 task datasets are grouped (emergency rescue, treatment planning, chronic care); reported as a dimension score."
+    definition_verbatim: false
+    location: Abstract, Results
+    scale: 0-100
+  - term: Multimodal interpretation and documentation
+    level: dimension
+    definition: "One of three clinical dimensions grouping the ECG-reading and documentation datasets; reported as a dimension score."
+    definition_verbatim: false
+    location: Abstract, Results
+    scale: 0-100
+  - term: Communication, safety, and ethics
+    level: dimension
+    definition: "One of three clinical dimensions grouping doctor-patient communication and CardioEthics datasets; reported as a dimension score."
+    definition_verbatim: false
+    location: Abstract, Results
+    scale: 0-100
+notes: "12 open-ended datasets scored by key-point recall plus holistic quality; CardioEthics is multiple choice. Dimension membership of datasets is inferred from the abstract and discussion; the task-to-dimension table was not read."

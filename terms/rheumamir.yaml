@@ -1,0 +1,19 @@
+entry: rheumamir
+sources:
+- https://doi.org/10.1038/s41598-023-49483-6
+- https://doi.org/10.5281/zenodo.8153291
+extracted: '2026-10-26'
+terms:
+- term: Accuracy
+  level: metric
+  definition: Share of MIR multiple-choice questions answered correctly against the official answer.
+  definition_verbatim: false
+  location: Abstract, Results
+  scale: binary per question, percentage
+- term: Clinical reasoning
+  level: criterion
+  definition: a score of 5 indicates that the reasoning was entirely correct and flawless, while a score of 1 signifies that the reasoning was inconsistent or contained significant errors. Intermediate scores were used to denote minor errors in reasoning and the severity of these errors was reflected in the score
+  definition_verbatim: true
+  location: Methodology, Table 1
+  scale: 1-5 Likert; six rheumatologists, majority vote (worst score on tie)
+notes: Models were prompted with 'Justify your answer'; clinical reasoning was rated by six rheumatologists. Accuracy was also analyzed by year, disease, question type (factual vs clinical case) and genre, which are analysis strata, not scored terms.

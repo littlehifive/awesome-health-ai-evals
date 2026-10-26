@@ -1,0 +1,53 @@
+entry: spbench
+sources: [https://arxiv.org/abs/2511.14783]
+extracted: 2026-10-26
+terms:
+  - term: Query Comprehension
+    level: criterion
+    definition: "Assesses the ability to accurately understand the physician's questions, grasp the core intent, and provide relevant answers without misinterpretation."
+    definition_verbatim: true
+    location: Section 3.3, Table 3
+    scale: 1-5 (linearly transformed to 100)
+  - term: Case Consistency
+    level: criterion
+    definition: "Evaluates whether responses are factually consistent with the predefined patient case, including symptoms, medical history, and key facts. Checks for contradictions or information not present in the case."
+    definition_verbatim: true
+    location: Section 3.3, Table 3
+    scale: 1-5 (linearly transformed to 100)
+  - term: Controlled Disclosure
+    level: criterion
+    definition: "Measures the ability to provide information passively and appropriately, answering only what is asked without volunteering unsolicited details. Focuses on conciseness and relevance."
+    definition_verbatim: true
+    location: Section 3.3, Table 3
+    scale: 1-5 (linearly transformed to 100)
+  - term: Response Completeness
+    level: criterion
+    definition: "Assesses whether responses are comprehensive and address all parts of a physician's query, avoiding the omission of crucial information from the case profile."
+    definition_verbatim: true
+    location: Section 3.3, Table 3
+    scale: 1-5 (linearly transformed to 100)
+  - term: Logical Coherence
+    level: criterion
+    definition: "Evaluates the internal logical consistency of the information provided. Ensures that reported symptoms and their characteristics (e.g., location, duration) are coherent from a patient's perspective."
+    definition_verbatim: true
+    location: Section 3.3, Table 3
+    scale: 1-5 (linearly transformed to 100)
+  - term: Language Naturalness
+    level: criterion
+    definition: "Assesses whether the communication style is natural and patient-like, using plain language and avoiding overly technical medical jargon. Focuses on the authenticity of the linguistic style."
+    definition_verbatim: true
+    location: Section 3.3, Table 3
+    scale: 1-5 (linearly transformed to 100)
+  - term: Conversational Consistency
+    level: criterion
+    definition: "Measures the ability to maintain consistent information across a multi-turn dialogue. Checks for self-contradictions and ensures stability throughout the interaction."
+    definition_verbatim: true
+    location: Section 3.3, Table 3
+    scale: 1-5 (linearly transformed to 100)
+  - term: Patient Demeanor
+    level: criterion
+    definition: "Evaluates the ability to maintain a patient-like demeanor, demonstrating appropriate patience, cooperation, and emotional tone, even when faced with repetitive or clarifying questions."
+    definition_verbatim: true
+    location: Section 3.3, Table 3
+    scale: 1-5 (linearly transformed to 100)
+notes: "Eight criteria rated by GPT-4o (validated against two clinicians, Pearson r = 0.79 on 30 samples) for a virtual standardized patient's replies to physician questions."

@@ -1,0 +1,53 @@
+entry: medhelm
+sources: [https://arxiv.org/abs/2505.23802, https://doi.org/10.1038/s41591-025-04151-2, https://github.com/stanford-crfm/helm]
+extracted: 2026-10-26
+terms:
+  - term: Accuracy
+    level: axis
+    parent: LLM-jury
+    definition: Medical accuracy of an open-ended output, one of three jury Likert axes; paper gives no separate definition.
+    definition_verbatim: false
+    location: Section 2.3.2 and Appendix (LLM-jury ensemble)
+    scale: Likert (1-5 per the paper's jury protocol); averaged normalized as Jury Score
+  - term: Completeness
+    level: axis
+    parent: LLM-jury
+    definition: Completeness of an open-ended output, one of three jury Likert axes; paper gives no separate definition.
+    definition_verbatim: false
+    location: Section 2.3.2 and Appendix (LLM-jury ensemble)
+    scale: Likert
+  - term: Clarity
+    level: axis
+    parent: LLM-jury
+    definition: Clarity of an open-ended output, one of three jury Likert axes; paper gives no separate definition.
+    definition_verbatim: false
+    location: Section 2.3.2 and Appendix (LLM-jury ensemble)
+    scale: Likert
+  - term: Jury Score
+    level: metric
+    definition: "Jury Score as the average normalized"
+    definition_verbatim: false
+    location: Section 2.3 (metrics list)
+    scale: average of normalized jury ratings
+  - term: Exact match (EM)
+    level: metric
+    definition: Exact match with the correct option or label, used for closed-ended benchmarks (for example MedQA).
+    definition_verbatim: false
+    location: Appendix (metrics)
+    scale: binary
+  - term: Micro-F1
+    level: metric
+    definition: Micro-F1 for multi-label classification tasks such as ICD-10 code assignment.
+    definition_verbatim: false
+    location: Appendix (metrics)
+  - term: ROUGE
+    level: metric
+    definition: Secondary lexical-overlap metric for open-ended generation.
+    definition_verbatim: false
+    location: Appendix (metrics)
+  - term: BERTScore
+    level: metric
+    definition: Secondary semantic-overlap metric for open-ended generation.
+    definition_verbatim: false
+    location: Appendix (metrics)
+notes: "35 benchmarks, 13 of them open-ended and judged by a three-model LLM jury (GPT-4o, Claude 3.7 Sonnet, Llama 3.3 70B) with benchmark-level rubrics; the 121-task taxonomy classifies tasks and is not listed. Jury validity: ICC 0.47 against clinicians. Per-benchmark rubric items were not enumerated."

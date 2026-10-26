@@ -1,0 +1,36 @@
+entry: clinicalmc
+sources:
+- https://arxiv.org/abs/2606.03157
+extracted: '2026-10-26'
+terms:
+- term: Comprehensiveness
+  level: dimension
+  definition: How completely the model response covers the clinical decision content (diagnosis basis, differential, treatment plan); the paper gives no definition text in the appendix (prompt is in Fig. 5, not extracted).
+  definition_verbatim: false
+  location: Appendix A.3-A.4, Tables 5-8
+  scale: GPT-4 score, Total max 10 points
+- term: Professionalism
+  level: dimension
+  definition: How professional and clinically appropriate the response is; definition not given in extracted text.
+  definition_verbatim: false
+  location: Appendix A.3-A.4, Tables 5-8
+  scale: part of 10-point total
+- term: Authenticity
+  level: dimension
+  definition: How realistic and faithful to genuine clinical practice the response is; definition not given in extracted text.
+  definition_verbatim: false
+  location: Appendix A.3-A.4, Tables 5-8
+  scale: part of 10-point total
+- term: Safety
+  level: dimension
+  definition: Whether the response avoids unsafe clinical content; scored near 1.00 (max) for most models.
+  definition_verbatim: false
+  location: Appendix A.3-A.4, Tables 5-8
+  scale: part of 10-point total
+- term: Total
+  level: other
+  definition: Sum of the four dimension scores, max 10.
+  definition_verbatim: false
+  location: Tables 5-8
+  scale: 0-10
+notes: 'Same four dimensions are scored by GPT-4 (3 runs averaged) and by three clinicians on 50 Chinese and 50 English cases. Applied to task outputs: preliminary diagnosis basis, differential diagnosis, first treatment plan, multi-course assessment and treatment, final diagnosis basis. Dimension definitions live in the Fig. 5 prompt, which was not extractable from the text; definitions are paraphrases.'

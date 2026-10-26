@@ -1,0 +1,39 @@
+id: medical-vn-benchmark
+name: Medical-VN-Benchmark
+kind: benchmark
+year: 2025
+summary: 12,488 Vietnamese medical multiple-choice questions with difficulty levels and medical-topic tags, scored by answer match.
+readme_section: multilingual_regional
+links:
+  huggingface: [II-Vietnam/Medical-VN-Benchmark]
+license: null
+open_data: open
+geography:
+  item_languages: [Vietnamese]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: The card is empty and does not say where the questions came from; they are written in Vietnamese.
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [unknown]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine]
+  intended_users: [unspecified]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 12,488 questions
+signals:
+  citations: null
+  citations_source: OpenAlex
+  hf_downloads: 10
+  github_stars: null
+  uptake: []
+  updated: '2026-10-26'
+provenance:
+  records: [r_54074250b2]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "Reconsidered after an earlier exclusion as not_found. The Hugging Face card has only a schema (id, difficulty_level, medical_topic, question, options, answer, one train split of 12,488 rows); items were inspected through the dataset viewer (urology and nephrology questions with 4 options). No paper, license, or source description. builder_types is a guess."

@@ -1,0 +1,186 @@
+entry: medmistake-bench
+sources:
+- https://arxiv.org/abs/2512.20983
+extracted: '2026-10-26'
+terms:
+- term: Per-item dimension (pass/fail)
+  level: criterion
+  definition: Each MedMistake-Bench question is a single-shot version of a low-scoring MedPI dimension (score <=3 of 5); a response passes if it avoids the mistake, as judged against the item.
+  definition_verbatim: false
+  location: Sections 2-3, Appendix Tables 3-4
+  scale: pass/fail per item
+- term: adaptive dialogue
+  level: category
+  parent: MedPI dimensions
+  definition: MedPI dimension category from which mistakes were extracted (MedPI scores doctors on 105 dimensions grouped into 29 categories; this benchmark uses 40 of the dimensions).
+  definition_verbatim: false
+  location: Section 2, "Conversation generation and evaluation with MedPI"
+- term: alternative treatment options
+  level: category
+  parent: MedPI dimensions
+  definition: MedPI dimension category from which mistakes were extracted (MedPI scores doctors on 105 dimensions grouped into 29 categories; this benchmark uses 40 of the dimensions).
+  definition_verbatim: false
+  location: Section 2, "Conversation generation and evaluation with MedPI"
+- term: clinical reasoning
+  level: category
+  parent: MedPI dimensions
+  definition: MedPI dimension category from which mistakes were extracted (MedPI scores doctors on 105 dimensions grouped into 29 categories; this benchmark uses 40 of the dimensions).
+  definition_verbatim: false
+  location: Section 2, "Conversation generation and evaluation with MedPI"
+- term: communication
+  level: category
+  parent: MedPI dimensions
+  definition: MedPI dimension category from which mistakes were extracted (MedPI scores doctors on 105 dimensions grouped into 29 categories; this benchmark uses 40 of the dimensions).
+  definition_verbatim: false
+  location: Section 2, "Conversation generation and evaluation with MedPI"
+- term: contextual awareness
+  level: category
+  parent: MedPI dimensions
+  definition: MedPI dimension category from which mistakes were extracted (MedPI scores doctors on 105 dimensions grouped into 29 categories; this benchmark uses 40 of the dimensions).
+  definition_verbatim: false
+  location: Section 2, "Conversation generation and evaluation with MedPI"
+- term: differential diagnosis
+  level: category
+  parent: MedPI dimensions
+  definition: MedPI dimension category from which mistakes were extracted (MedPI scores doctors on 105 dimensions grouped into 29 categories; this benchmark uses 40 of the dimensions).
+  definition_verbatim: false
+  location: Section 2, "Conversation generation and evaluation with MedPI"
+- term: ethical practice
+  level: category
+  parent: MedPI dimensions
+  definition: MedPI dimension category from which mistakes were extracted (MedPI scores doctors on 105 dimensions grouped into 29 categories; this benchmark uses 40 of the dimensions).
+  definition_verbatim: false
+  location: Section 2, "Conversation generation and evaluation with MedPI"
+- term: final diagnosis
+  level: category
+  parent: MedPI dimensions
+  definition: MedPI dimension category from which mistakes were extracted (MedPI scores doctors on 105 dimensions grouped into 29 categories; this benchmark uses 40 of the dimensions).
+  definition_verbatim: false
+  location: Section 2, "Conversation generation and evaluation with MedPI"
+- term: first-line treatment recommendation
+  level: category
+  parent: MedPI dimensions
+  definition: MedPI dimension category from which mistakes were extracted (MedPI scores doctors on 105 dimensions grouped into 29 categories; this benchmark uses 40 of the dimensions).
+  definition_verbatim: false
+  location: Section 2, "Conversation generation and evaluation with MedPI"
+- term: interaction efficiency
+  level: category
+  parent: MedPI dimensions
+  definition: MedPI dimension category from which mistakes were extracted (MedPI scores doctors on 105 dimensions grouped into 29 categories; this benchmark uses 40 of the dimensions).
+  definition_verbatim: false
+  location: Section 2, "Conversation generation and evaluation with MedPI"
+- term: lifestyle influences
+  level: category
+  parent: MedPI dimensions
+  definition: MedPI dimension category from which mistakes were extracted (MedPI scores doctors on 105 dimensions grouped into 29 categories; this benchmark uses 40 of the dimensions).
+  definition_verbatim: false
+  location: Section 2, "Conversation generation and evaluation with MedPI"
+- term: lifestyle recommendation
+  level: category
+  parent: MedPI dimensions
+  definition: MedPI dimension category from which mistakes were extracted (MedPI scores doctors on 105 dimensions grouped into 29 categories; this benchmark uses 40 of the dimensions).
+  definition_verbatim: false
+  location: Section 2, "Conversation generation and evaluation with MedPI"
+- term: lifestyle tracking
+  level: category
+  parent: MedPI dimensions
+  definition: MedPI dimension category from which mistakes were extracted (MedPI scores doctors on 105 dimensions grouped into 29 categories; this benchmark uses 40 of the dimensions).
+  definition_verbatim: false
+  location: Section 2, "Conversation generation and evaluation with MedPI"
+- term: medical knowledge
+  level: category
+  parent: MedPI dimensions
+  definition: MedPI dimension category from which mistakes were extracted (MedPI scores doctors on 105 dimensions grouped into 29 categories; this benchmark uses 40 of the dimensions).
+  definition_verbatim: false
+  location: Section 2, "Conversation generation and evaluation with MedPI"
+- term: medication management
+  level: category
+  parent: MedPI dimensions
+  definition: MedPI dimension category from which mistakes were extracted (MedPI scores doctors on 105 dimensions grouped into 29 categories; this benchmark uses 40 of the dimensions).
+  definition_verbatim: false
+  location: Section 2, "Conversation generation and evaluation with MedPI"
+- term: medication safety
+  level: category
+  parent: MedPI dimensions
+  definition: MedPI dimension category from which mistakes were extracted (MedPI scores doctors on 105 dimensions grouped into 29 categories; this benchmark uses 40 of the dimensions).
+  definition_verbatim: false
+  location: Section 2, "Conversation generation and evaluation with MedPI"
+- term: medication selection
+  level: category
+  parent: MedPI dimensions
+  definition: MedPI dimension category from which mistakes were extracted (MedPI scores doctors on 105 dimensions grouped into 29 categories; this benchmark uses 40 of the dimensions).
+  definition_verbatim: false
+  location: Section 2, "Conversation generation and evaluation with MedPI"
+- term: medication-related communication
+  level: category
+  parent: MedPI dimensions
+  definition: MedPI dimension category from which mistakes were extracted (MedPI scores doctors on 105 dimensions grouped into 29 categories; this benchmark uses 40 of the dimensions).
+  definition_verbatim: false
+  location: Section 2, "Conversation generation and evaluation with MedPI"
+- term: model reliability
+  level: category
+  parent: MedPI dimensions
+  definition: MedPI dimension category from which mistakes were extracted (MedPI scores doctors on 105 dimensions grouped into 29 categories; this benchmark uses 40 of the dimensions).
+  definition_verbatim: false
+  location: Section 2, "Conversation generation and evaluation with MedPI"
+- term: non-pharmacologic advice
+  level: category
+  parent: MedPI dimensions
+  definition: MedPI dimension category from which mistakes were extracted (MedPI scores doctors on 105 dimensions grouped into 29 categories; this benchmark uses 40 of the dimensions).
+  definition_verbatim: false
+  location: Section 2, "Conversation generation and evaluation with MedPI"
+- term: operational competence
+  level: category
+  parent: MedPI dimensions
+  definition: MedPI dimension category from which mistakes were extracted (MedPI scores doctors on 105 dimensions grouped into 29 categories; this benchmark uses 40 of the dimensions).
+  definition_verbatim: false
+  location: Section 2, "Conversation generation and evaluation with MedPI"
+- term: patient care
+  level: category
+  parent: MedPI dimensions
+  definition: MedPI dimension category from which mistakes were extracted (MedPI scores doctors on 105 dimensions grouped into 29 categories; this benchmark uses 40 of the dimensions).
+  definition_verbatim: false
+  location: Section 2, "Conversation generation and evaluation with MedPI"
+- term: real-world impact
+  level: category
+  parent: MedPI dimensions
+  definition: MedPI dimension category from which mistakes were extracted (MedPI scores doctors on 105 dimensions grouped into 29 categories; this benchmark uses 40 of the dimensions).
+  definition_verbatim: false
+  location: Section 2, "Conversation generation and evaluation with MedPI"
+- term: review of symptoms
+  level: category
+  parent: MedPI dimensions
+  definition: MedPI dimension category from which mistakes were extracted (MedPI scores doctors on 105 dimensions grouped into 29 categories; this benchmark uses 40 of the dimensions).
+  definition_verbatim: false
+  location: Section 2, "Conversation generation and evaluation with MedPI"
+- term: screening eligibility
+  level: category
+  parent: MedPI dimensions
+  definition: MedPI dimension category from which mistakes were extracted (MedPI scores doctors on 105 dimensions grouped into 29 categories; this benchmark uses 40 of the dimensions).
+  definition_verbatim: false
+  location: Section 2, "Conversation generation and evaluation with MedPI"
+- term: symptom interpretation
+  level: category
+  parent: MedPI dimensions
+  definition: MedPI dimension category from which mistakes were extracted (MedPI scores doctors on 105 dimensions grouped into 29 categories; this benchmark uses 40 of the dimensions).
+  definition_verbatim: false
+  location: Section 2, "Conversation generation and evaluation with MedPI"
+- term: test interpretation
+  level: category
+  parent: MedPI dimensions
+  definition: MedPI dimension category from which mistakes were extracted (MedPI scores doctors on 105 dimensions grouped into 29 categories; this benchmark uses 40 of the dimensions).
+  definition_verbatim: false
+  location: Section 2, "Conversation generation and evaluation with MedPI"
+- term: test selection
+  level: category
+  parent: MedPI dimensions
+  definition: MedPI dimension category from which mistakes were extracted (MedPI scores doctors on 105 dimensions grouped into 29 categories; this benchmark uses 40 of the dimensions).
+  definition_verbatim: false
+  location: Section 2, "Conversation generation and evaluation with MedPI"
+- term: treatment contraindications
+  level: category
+  parent: MedPI dimensions
+  definition: MedPI dimension category from which mistakes were extracted (MedPI scores doctors on 105 dimensions grouped into 29 categories; this benchmark uses 40 of the dimensions).
+  definition_verbatim: false
+  location: Section 2, "Conversation generation and evaluation with MedPI"
+notes: The 29 category names come from the MedPI framework that generates the conversations; which of them appear among the 40 benchmark dimensions was not itemised in the text read (the paper mentions e.g. suicide risk assessment duplicates, cardiology and neurology). Definitions of the individual dimensions are not given in the paper text; each is a short descriptive mistake title.

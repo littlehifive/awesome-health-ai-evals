@@ -3,7 +3,7 @@ name: STCC Adult After-Hours Telehealth Triage 2026
 kind: benchmark
 year: 2026
 summary: 50 synthetic adult telephone-triage vignettes, each labelled by nurse editors with a care disposition (10 classes) plus coarser acuity and urgency labels, for scoring LLM triage recommendations.
-readme_section: knowledge_exam
+readme_section: open_ended
 links:
   huggingface: [schmitt-thompson-clinical-content/adult-after-hours-telehealth-triage-2026]
 license: CC-BY-NC-4.0
@@ -24,6 +24,13 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 50 vignettes
+signals:
+  citations: null
+  citations_source: OpenAlex
+  hf_downloads: 37
+  github_stars: null
+  uptake: []
+  updated: '2026-10-26'
 provenance:
   records: [r_75a91492ce]
   extracted: 2026-10-26

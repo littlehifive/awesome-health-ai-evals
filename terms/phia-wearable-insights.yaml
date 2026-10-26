@@ -1,0 +1,106 @@
+entry: phia-wearable-insights
+sources: [https://arxiv.org/abs/2406.06464, https://doi.org/10.1038/s41467-025-67922-y]
+extracted: 2026-10-26
+terms:
+  - term: Exact match accuracy
+    level: metric
+    definition: "Accuracy on objective numerical queries, based on an exact match to within two digits of precision."
+    definition_verbatim: true
+    location: Figure 3A caption; Results
+    scale: proportion correct
+  - term: Relevance of data utilized
+    level: criterion
+    parent: Open-ended reasoning quality
+    definition: "Rater attribute on whether the response used data relevant to the query."
+    definition_verbatim: false
+    location: Section on human evaluation of open-ended insights; Table E.2
+    scale: yes/no (proportion of annotators answering yes, scaled 0-100)
+  - term: Accuracy in interpreting the question
+    level: criterion
+    parent: Open-ended reasoning quality
+    definition: "Rater attribute on whether the response correctly interpreted what the question asked."
+    definition_verbatim: false
+    location: Human evaluation; Table E.2
+    scale: yes/no
+  - term: Personalization
+    level: criterion
+    parent: Open-ended reasoning quality
+    definition: "Rater attribute on whether the response is tailored to the user's own data."
+    definition_verbatim: false
+    location: Human evaluation; Table E.2
+    scale: yes/no
+  - term: Incorporation of domain knowledge
+    level: criterion
+    parent: Open-ended reasoning quality
+    definition: "Rater attribute on whether the response shows understanding of relevant domain knowledge."
+    definition_verbatim: false
+    location: Human evaluation; Table E.2
+    scale: yes/no
+  - term: Correctness of the logic
+    level: criterion
+    parent: Open-ended reasoning quality
+    definition: "Rater attribute on whether the reasoning steps are logically correct."
+    definition_verbatim: false
+    location: Human evaluation; Table E.2
+    scale: yes/no
+  - term: Absence of harmful content
+    level: criterion
+    parent: Open-ended reasoning quality
+    definition: "Rater attribute on whether the response avoids harmful content (harm avoidance)."
+    definition_verbatim: false
+    location: Human evaluation; Table E.2
+    scale: yes/no
+  - term: Clarity of communication
+    level: criterion
+    parent: Open-ended reasoning quality
+    definition: "Rater attribute on whether the response is clearly communicated."
+    definition_verbatim: false
+    location: Human evaluation; Table E.2
+    scale: yes/no
+  - term: Overall reasoning
+    level: dimension
+    definition: "Overall rating of the reasoning of each response."
+    definition_verbatim: false
+    location: Human evaluation; Figure 3B
+    scale: "1-5 Likert (Poor to Excellent), scaled 0-100"
+  - term: Avoiding hallucination
+    level: criterion
+    parent: Code quality
+    definition: "Expert check that the response, including generated code, does not hallucinate."
+    definition_verbatim: false
+    location: Code quality evaluation with domain experts
+    scale: yes/no
+  - term: Selecting the correct data columns
+    level: criterion
+    parent: Code quality
+    definition: "Expert check that the code selects the correct data columns."
+    definition_verbatim: false
+    location: Code quality evaluation
+    scale: yes/no
+  - term: Indexing the correct time frame
+    level: criterion
+    parent: Code quality
+    definition: "Expert check that the code indexes the correct time frame."
+    definition_verbatim: false
+    location: Code quality evaluation
+    scale: yes/no
+  - term: Overall code quality
+    level: dimension
+    parent: Code quality
+    definition: "Overall expert rating of each response's code quality."
+    definition_verbatim: false
+    location: Code quality evaluation; Figure 3C
+    scale: "1-5 Likert, scaled 0-100"
+  - term: Error Rate
+    level: metric
+    definition: "The number of responses which contain code that raises an error divided by the total number of responses that used code."
+    definition_verbatim: true
+    location: Comprehensive Errors Analysis
+    scale: proportion
+  - term: Error categories (Hallucination, General Code Errors, Misinterpretation)
+    level: category
+    definition: "Semantic categories from open coding of errors in responses, including hallucinations, Python code errors, and misinterpretation of the user's query; the source lists further categories not fully captured here."
+    definition_verbatim: false
+    location: Understanding the Source of Errors; Figure 6
+    scale: counts
+notes: "Personalization and Code quality attributes appear in two rater tasks (12 annotators for reasoning, 7 data scientists for code). Rubric text is in Table E.2 and Section E.3, which I did not open, so criteria definitions are paraphrased from the main text. Objective queries are numeric exact-match."

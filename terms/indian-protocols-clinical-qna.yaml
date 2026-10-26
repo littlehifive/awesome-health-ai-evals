@@ -1,0 +1,48 @@
+entry: indian-protocols-clinical-qna
+sources:
+- https://huggingface.co/datasets/ekacare/indian_protocols_based_clinical_QnA
+extracted: '2026-10-26'
+terms:
+- term: Query rubrics (retrieval query)
+  level: dimension
+  definition: 'Criteria for evaluating whether a retrieval system correctly interprets the doctor''s query: topical alignment (does the retrieval query capture key medical concepts?) and publisher selection (does it target the correct guideline source?).'
+  definition_verbatim: true
+  location: Dataset card, Rubric Design
+  scale: rubric points
+- term: Guideline grounding
+  level: dimension
+  definition: Does the model answer from the correct guideline (e.g., ADA vs. AHA vs. IAP) rather than generic medical knowledge?
+  definition_verbatim: true
+  location: Dataset card, What this evaluates
+- term: Query interpretation under realistic noise
+  level: dimension
+  definition: Doctor queries are shorthand, abbreviated, or code-mixed (Hinglish); can the model still extract the right clinical intent?
+  definition_verbatim: true
+  location: Dataset card, What this evaluates
+- term: Completeness
+  level: criterion
+  parent: Answer rubrics (final answer)
+  definition: Answer rubrics reward inclusion of the key clinical details a guideline specifies (dosing, contraindications, follow-up criteria), penalising answers that omit them.
+  definition_verbatim: false
+  location: Dataset card, Rubric Design / What this evaluates
+  scale: positive criteria 1-10 points
+- term: Accuracy
+  level: criterion
+  parent: Answer rubrics (final answer)
+  definition: Positive answer-rubric criterion covering accuracy and inclusion of key clinical details.
+  definition_verbatim: false
+  location: Dataset card, Rubric Design
+  scale: positive criteria 1-10 points
+- term: Safety regressions
+  level: criterion
+  parent: Answer rubrics (final answer)
+  definition: Negative criteria penalise dangerous, contraindicated, or off-protocol recommendations, catching models that confidently produce harmful advice.
+  definition_verbatim: true
+  location: Dataset card, Rubric Design
+  scale: negative criteria -4 to -10 points
+- term: Answer rubrics (final answer)
+  level: dimension
+  definition: 'Rubrics (stage:final_answer) evaluating the final response quality: accuracy, completeness, and safety.'
+  definition_verbatim: false
+  location: Dataset card, Rubric Design
+notes: Dataset card only. Rubric text per prompt not inspected; criteria are item-specific. Implicit-memory blind spots (queries naming a specific publisher) are described as a failure mode, not a separate score. Query rubrics are tagged stage:retrieval_query; answer rubrics stage:final_answer.

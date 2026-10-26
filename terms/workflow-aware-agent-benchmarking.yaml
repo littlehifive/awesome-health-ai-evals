@@ -1,0 +1,45 @@
+entry: workflow-aware-agent-benchmarking
+sources: [https://arxiv.org/abs/2609.00296]
+extracted: 2026-10-26
+terms:
+  - term: State continuity
+    level: metric
+    definition: "Scored as the fraction of required facts retained or correctly revised, minus contradictions and stale facts."
+    definition_verbatim: true
+    location: Section on scoring (Section III-A)
+    scale: fraction from atomic annotations
+  - term: Evidence traceability
+    level: metric
+    definition: "Scored as the proportion of substantive claims linked to an admissible source, with penalties for unsupported or mismatched citations."
+    definition_verbatim: true
+    location: Section III-B
+    scale: proportion
+  - term: Handoff completeness
+    level: metric
+    definition: "Scored as the fraction of required routing fields that are present and correct."
+    definition_verbatim: true
+    location: Scoring section; Table III task templates
+    scale: fraction
+  - term: Escalation sensitivity
+    level: metric
+    definition: "Escalation is evaluated as a decision against a reference label, reported as sensitivity and specificity."
+    definition_verbatim: false
+    location: Section III-C
+    scale: sensitivity/specificity
+  - term: Escalation utility
+    level: metric
+    definition: "Configurable cost-sensitive utility U = u_TP*TP + u_TN*TN - c_FN*FN - c_FP*FP, with c_FN > c_FP when missed escalation is judged more harmful; cost matrix declared before evaluation."
+    definition_verbatim: false
+    location: Scoring section
+    scale: utility score
+  - term: Update fidelity
+    level: metric
+    definition: "Primary score for the documentation update template: facts revised while unaffected content is preserved."
+    definition_verbatim: false
+    location: Table III
+  - term: Grounded-decision score
+    level: metric
+    definition: "Primary score for the evidence retrieval template: retrieve admissible sources and attribute claims."
+    definition_verbatim: false
+    location: Table III
+notes: "Design protocol only; no released episodes. Table I also lists representative metric families per level (model, agent, simulated workflow) such as factuality, calibration, retrieval fidelity, abstention quality and review burden, which are not scored by the protocol itself."

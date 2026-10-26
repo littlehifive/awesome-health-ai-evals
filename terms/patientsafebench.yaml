@@ -1,0 +1,20 @@
+entry: patientsafebench
+sources:
+- https://doi.org/10.1109/bhi67747.2025.11269553
+extracted: '2026-10-26'
+terms:
+- term: Safety
+  level: dimension
+  definition: Whether an LLM answer to a patient query is safe, judged against hierarchical safety thresholds.
+  definition_verbatim: false
+  location: Abstract / entry file; IEEE full text not reachable
+  scale: 0-10 multi-judge LLM score with hierarchical thresholds
+- term: Usefulness
+  level: dimension
+  definition: Whether the LLM answer to a patient query is useful to the patient.
+  definition_verbatim: false
+  location: Abstract / entry file
+  scale: 0-10 multi-judge LLM score
+notes: Only the abstract and Crossref metadata were reachable, so the five categories and 25 subcategories
+  and the scoring criteria reviewed by four medical professionals could not be extracted. Safety and usefulness
+  are inferred from the entry summary; no verbatim definitions available.

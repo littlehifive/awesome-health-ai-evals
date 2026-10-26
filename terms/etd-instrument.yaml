@@ -1,0 +1,37 @@
+entry: etd-instrument
+sources:
+- https://zenodo.org/records/22172344
+- https://doi.org/10.5281/zenodo.22172343
+extracted: '2026-10-26'
+terms:
+- term: Empathy alignment
+  level: dimension
+  definition: Base-axis score (1-5) of how person-centred the output is; corpus design level E=1 "Acknowledges the person's emotional state and context; non-stigmatising language." vs E=0 "Impersonal. Patient rendered as a case or a row. No acknowledgement of fear, stigma or dignity."
+  definition_verbatim: false
+  location: Zenodo deposit README, data dictionary (data/etd-scores.csv columns); corpus/etd-corpus.json
+  scale: 1-5
+- term: Explanation quality
+  level: dimension
+  definition: Base-axis score (1-5) for the quality of the explanation given with the output; column explanation_quality in the scoring dataset.
+  definition_verbatim: false
+  location: Zenodo deposit README, data dictionary (data/etd-scores.csv columns); corpus/etd-corpus.json
+  scale: 1-5
+- term: Data protection
+  level: dimension
+  definition: Governance-axis score (1-5) scored against a data-protection regime (DPDP, HIPAA, or GDPR); designed D=1 "Protective. Named lawful basis, minimised record, access limited, no third-party disclosure, standard retention, subject rights stated." vs D=0 "Careless...".
+  definition_verbatim: true
+  location: Zenodo deposit README, data dictionary (data/etd-scores.csv columns); corpus/etd-corpus.json
+  scale: 1-5
+- term: Clinical trust
+  level: dimension
+  definition: Governance-axis score (1-5); designed T=1 "Reason-bearing. States drivers, names uncertainty, positions itself as a signal not a diagnosis, defers to the clinician, gives an escalation route." vs T=0 "Opaque. Bare verdict, no reasoning, no uncertainty, no deferral or escalation path."
+  definition_verbatim: true
+  location: Zenodo deposit README, data dictionary (data/etd-scores.csv columns); corpus/etd-corpus.json
+  scale: 1-5
+- term: ETD index
+  level: metric
+  definition: Equal-weighted mean of empathy, trust and data protection.
+  definition_verbatim: true
+  location: Zenodo deposit README, data dictionary (data/etd-scores.csv columns); corpus/etd-corpus.json
+  scale: mean of 1-5 axis scores
+notes: Read the deposit README, corpus JSON and scoring CSV header; the manuscript text is not in the deposit. Definitions marked verbatim quote the corpus design levels; the 1-5 axis rubric text lives in the ai_empathy Drupal module (not opened). Pilot rubric v1/v2 changed only the clinical-trust reasoning/calibration text. Validation statistics (ICC(2,k), Krippendorff alpha, discrimination, axis separability, regime sensitivity, test-retest) are properties of the instrument, not output criteria.

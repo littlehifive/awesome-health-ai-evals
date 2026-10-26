@@ -1,0 +1,26 @@
+entry: crab
+sources:
+- https://aclanthology.org/2025.emnlp-industry.3/
+- https://aclanthology.org/2025.emnlp-industry.3.pdf
+extracted: '2026-10-26'
+terms:
+- term: Relevance Precision (RP)
+  level: metric
+  definition: the accuracy in identifying and citing relevant references
+  definition_verbatim: true
+  location: Section 2.3
+  scale: F1 of the relevant-reference class over citation labels
+- term: Irrelevance Suppression (IS)
+  level: metric
+  definition: the effectiveness in ignoring irrelevant references
+  definition_verbatim: true
+  location: Section 2.3
+  scale: F1 of the irrelevant-reference class
+- term: Curation Efficiency (CE)
+  level: metric
+  definition: the overall curation performance
+  definition_verbatim: true
+  location: Section 2.3
+  scale: Macro-average F1 over relevant and irrelevant classes
+notes: 'Citation-based scoring: each reference is labeled relevant or irrelevant and the model response is checked for whether it cites it, so 400 query-level evaluations become over 4,000 reference-level
+  ones. Human check of citations was done on the English portion only. Content-quality metrics are explicitly not used.'

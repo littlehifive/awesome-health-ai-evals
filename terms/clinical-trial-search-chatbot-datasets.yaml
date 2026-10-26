@@ -1,0 +1,26 @@
+entry: clinical-trial-search-chatbot-datasets
+sources: [https://doi.org/10.63317/3pk9cracmxy7, http://www.lrec-conf.org/proceedings/lrec2026/workshops/cl4health/pdf/2026.cl4health-1.13.pdf]
+extracted: 2026-10-26
+terms:
+  - term: BERTScore (precision, recall, F1)
+    level: metric
+    definition: "Semantic similarity of a model-generated patient-facing question to the human-written reference questions for the same criterion cluster; reported mean precision 0.3256, recall 0.5278, F1 0.4234."
+    definition_verbatim: false
+    location: Question-generation benchmark section
+    scale: continuous 0-1
+  - term: Three-class accuracy
+    level: metric
+    definition: "Accuracy of classifying a criterion given a patient answer as INCLUDE, EXCLUDE, or UNKNOWN against human labels."
+    definition_verbatim: false
+    location: Eligibility classification section
+  - term: Binary accuracy (non-exclusion vs exclusion)
+    level: metric
+    definition: "Accuracy after collapsing INCLUDE and UNKNOWN into non-exclusion."
+    definition_verbatim: false
+    location: Eligibility classification section
+  - term: Per-class precision, recall, F1 (INCLUDE, EXCLUDE, UNKNOWN)
+    level: metric
+    definition: "Class-level classification performance on eligibility outcome labels; UNKNOWN covers deferred or incomplete patient answers."
+    definition_verbatim: false
+    location: Eligibility classification section
+notes: "Not a multi-criterion rubric. Criterion clustering is also scored (precision, recall, F1, accuracy on same-cluster pairs), but that is data-construction evaluation, not chatbot output. Read from the LREC CL4Health PDF."

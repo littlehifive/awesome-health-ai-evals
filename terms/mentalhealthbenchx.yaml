@@ -1,0 +1,65 @@
+entry: mentalhealthbenchx
+sources: [https://huggingface.co/datasets/li-lab/MentalHealthBenchX, https://huggingface.co/datasets/MercuriusDream/MentalHealthBench]
+extracted: 2026-10-26
+terms:
+  - term: "context_seeking_and_assessment"
+    level: axis
+    definition: "Seeking and using relevant context"
+    definition_verbatim: true
+    location: original MentalHealthBench card (behavior_axis); X card rubric_items field
+    scale: "signed integer points per rubric criterion (positive earned if met, negative penalty if met)"
+  - term: "actionable_guidance_and_coping_strategies"
+    level: axis
+    definition: "Practical guidance and coping strategies"
+    definition_verbatim: true
+    location: original MentalHealthBench card (behavior_axis); X card rubric_items field
+    scale: "signed integer points per rubric criterion (positive earned if met, negative penalty if met)"
+  - term: "clinical_reasoning_and_health_accuracy"
+    level: axis
+    definition: "Clinical reasoning and factual accuracy"
+    definition_verbatim: true
+    location: original MentalHealthBench card (behavior_axis); X card rubric_items field
+    scale: "signed integer points per rubric criterion (positive earned if met, negative penalty if met)"
+  - term: "interpretation_and_cognitive_reframing"
+    level: axis
+    definition: "Balanced interpretation and reframing"
+    definition_verbatim: true
+    location: original MentalHealthBench card (behavior_axis); X card rubric_items field
+    scale: "signed integer points per rubric criterion (positive earned if met, negative penalty if met)"
+  - term: "empathy_emotional_attunement_and_support"
+    level: axis
+    definition: "Empathy and emotional support"
+    definition_verbatim: true
+    location: original MentalHealthBench card (behavior_axis); X card rubric_items field
+    scale: "signed integer points per rubric criterion (positive earned if met, negative penalty if met)"
+  - term: "unsupported_belief_and_reality_testing_calibration"
+    level: axis
+    definition: "Reality testing without reinforcing unsupported beliefs"
+    definition_verbatim: true
+    location: original MentalHealthBench card (behavior_axis); X card rubric_items field
+    scale: "signed integer points per rubric criterion (positive earned if met, negative penalty if met)"
+  - term: "over_alarmism_and_under_response"
+    level: axis
+    definition: "Calibrating urgency and escalation"
+    definition_verbatim: true
+    location: original MentalHealthBench card (behavior_axis); X card rubric_items field
+    scale: "signed integer points per rubric criterion (positive earned if met, negative penalty if met)"
+  - term: "dual_use_refusals_and_harm_avoidance"
+    level: axis
+    definition: "Avoiding harmful assistance and redirecting safely"
+    definition_verbatim: true
+    location: original MentalHealthBench card (behavior_axis); X card rubric_items field
+    scale: "signed integer points per rubric criterion (positive earned if met, negative penalty if met)"
+  - term: "collaboration_and_user_agency"
+    level: axis
+    definition: "Respecting autonomy and supporting decisions"
+    definition_verbatim: true
+    location: original MentalHealthBench card (behavior_axis); X card rubric_items field
+    scale: "signed integer points per rubric criterion (positive earned if met, negative penalty if met)"
+  - term: "communication_and_writing"
+    level: axis
+    definition: "Clear, accessible communication"
+    definition_verbatim: true
+    location: original MentalHealthBench card (behavior_axis); X card rubric_items field
+    scale: "signed integer points per rubric criterion (positive earned if met, negative penalty if met)"
+notes: "Reuses the original MentalHealthBench rubric unchanged (English); the X card shows only the behavior_axis field, and the ten axis meanings are taken from the original benchmark card. No new evaluation terms. Rubric criteria are kept in English while conversations are translated, so cross-lingual grader reliability is unvalidated."

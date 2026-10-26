@@ -1,0 +1,46 @@
+entry: medhalu
+sources:
+- https://arxiv.org/abs/2409.19492
+- https://doi.org/10.1609/icwsm.v20i1.42623
+extracted: '2026-10-26'
+terms:
+- term: Hallucination type
+  level: dimension
+  definition: Hallucinations occur when LLMs generate content that is nonsensical or unfaithful to the input. Each answer is labeled with the hallucination type and the hallucinated text spans.
+  definition_verbatim: true
+  location: Section 2.1
+  scale: categorical
+- term: Fact-conflicting
+  level: category
+  parent: Hallucination type
+  definition: the response contradicts a well-known fact or universal truth
+  definition_verbatim: true
+  location: Section 2.1
+- term: Input-conflicting
+  level: category
+  parent: Hallucination type
+  definition: the response conflicts with or deviates from the input query
+  definition_verbatim: true
+  location: Section 2.1
+- term: Context-conflicting
+  level: category
+  parent: Hallucination type
+  definition: the response is self-contradictory or internally inconsistent
+  definition_verbatim: true
+  location: Section 2.1
+- term: Accuracy
+  level: metric
+  definition: Accuracy of hallucination detection (binary classification of hallucinated vs correct responses) by LLMs, medical experts and laypeople.
+  definition_verbatim: false
+  location: Section 3.3
+- term: Macro precision / macro recall / macro-F1
+  level: metric
+  definition: Macro-averaged precision, recall and F1 of the binary hallucination-detection decision (ma-P, ma-R, ma-F1).
+  definition_verbatim: false
+  location: Section 3.3
+- term: Hallucinated span edit distance
+  level: metric
+  definition: Effectiveness of detecting hallucinated text spans, measured by edit distance between the LLM-detected spans and the annotated spans.
+  definition_verbatim: false
+  location: Section 3.3
+notes: MedHalu scores detectors (LLMs, experts, laypeople), not the generation quality of a model; 500 sampled pairs rated by 30 experts and laypeople. Edit distance definition is paraphrased from a truncated line.

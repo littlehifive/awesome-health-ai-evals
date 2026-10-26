@@ -1,0 +1,96 @@
+entry: cmm-evaluation-framework
+sources:
+- https://doi.org/10.64898/2026.06.26.26356706
+extracted: '2026-10-26'
+terms:
+- term: Safety
+  level: dimension
+  definition: One of four dimensions rated for each CMM skill (collect data, analyze information, design regimen).
+  definition_verbatim: false
+  location: Abstract, Methods
+  scale: 1-5
+- term: Factuality
+  level: dimension
+  definition: One of four dimensions rated for each CMM skill.
+  definition_verbatim: false
+  location: Abstract, Methods
+  scale: 1-5
+- term: Completeness
+  level: dimension
+  definition: One of four dimensions rated for each CMM skill.
+  definition_verbatim: false
+  location: Abstract, Methods
+  scale: 1-5
+- term: Preference
+  level: dimension
+  definition: Clinician preference, allowing for practice variation.
+  definition_verbatim: false
+  location: Abstract, Methods
+  scale: 1-5
+- term: Identification of relevant information
+  level: criterion
+  definition: Rubric item for the collecting-patient-data skill.
+  definition_verbatim: false
+  location: Figure 3
+  scale: ordinal
+- term: Therapeutic goal
+  level: criterion
+  definition: Rubric item for the analysis skill.
+  definition_verbatim: false
+  location: Figure 3
+  scale: ordinal
+- term: Medication therapy problem
+  level: criterion
+  definition: 'Rubric item: whether the medication therapy problem is identified.'
+  definition_verbatim: false
+  location: Figure 3
+  scale: ordinal
+- term: Regimen accuracy
+  level: criterion
+  definition: Rubric item for the regimen-design skill.
+  definition_verbatim: false
+  location: Figure 3
+  scale: ordinal
+- term: Clinician preference
+  level: criterion
+  definition: Rubric item for preference among acceptable regimens.
+  definition_verbatim: false
+  location: Figure 3
+  scale: ordinal
+- term: Format
+  level: criterion
+  definition: Medication therapy format rubric item.
+  definition_verbatim: false
+  location: Figure 3
+  scale: ordinal
+- term: Monitoring parameters
+  level: criterion
+  definition: Rubric item for monitoring plan.
+  definition_verbatim: false
+  location: Figure 3
+  scale: ordinal
+- term: Duration
+  level: criterion
+  definition: Rubric item for therapy duration.
+  definition_verbatim: false
+  location: Figure 3
+  scale: ordinal
+- term: Serious or severe harm
+  level: criterion
+  definition: 'Automatic-failure criterion: response with high-harm error, scored regardless of overall score.'
+  definition_verbatim: false
+  location: Figure 3, Abstract
+  scale: binary
+- term: Hallucinated information
+  level: criterion
+  definition: Automatic-failure criterion for hallucinated content.
+  definition_verbatim: false
+  location: Figure 3
+  scale: binary
+- term: Harm Associated with Medication Error Classification (HAMEC)
+  level: metric
+  definition: Existing 0-4 classification of potential medication-related harm, incorporated into the framework.
+  definition_verbatim: false
+  location: Methods, Table 1
+  scale: 0-4
+notes: Source is the medRxiv full text. Mapping of rubric items to the four dimensions was not fully clear from extracted text; all definitions are paraphrases. Table 1 (HAMEC) and supplement not read in detail.

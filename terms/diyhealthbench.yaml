@@ -1,0 +1,55 @@
+entry: diyhealthbench
+sources:
+- https://arxiv.org/abs/2606.07542
+extracted: '2026-10-26'
+terms:
+- term: Accuracy (ACC)
+  level: metric
+  definition: Primary measure of diagnostic precision for closed-QA.
+  definition_verbatim: false
+  location: Section 4 (Multi-Dimensional Evaluation Protocol)
+  scale: closed-QA accuracy
+- term: MCC
+  level: metric
+  definition: Matthews Correlation Coefficient, complements ACC for closed-QA.
+  definition_verbatim: false
+  location: Section 4
+- term: F1-RadGraph (F1-Rad)
+  level: metric
+  definition: Content-level metric quantifying semantic and biomedical fidelity of open-QA responses.
+  definition_verbatim: false
+  location: Section 4
+- term: F1-BioBERT (F1-Bio)
+  level: metric
+  definition: Content-level metric quantifying semantic and biomedical fidelity of open-QA responses.
+  definition_verbatim: false
+  location: Section 4
+- term: BLEU
+  level: metric
+  definition: Language-level metric assessing surface-level fluency and overlap with ground-truth answers.
+  definition_verbatim: false
+  location: Section 4
+- term: ROUGE-L
+  level: metric
+  definition: Language-level metric assessing textual overlap with ground-truth answers.
+  definition_verbatim: false
+  location: Section 4
+- term: Conciseness
+  level: criterion
+  definition: providing direct and succinct answers for non-expert readers while avoiding unnecessary details
+  definition_verbatim: true
+  location: Section 5.3, Clinical Expert Review
+  scale: rank 1-6 (1 best), 500 sampled open-QA items
+- term: Correctness
+  level: criterion
+  definition: ensuring factual accuracy of the response
+  definition_verbatim: true
+  location: Section 5.3, Clinical Expert Review
+  scale: rank 1-6
+- term: Relevance
+  level: criterion
+  definition: evaluating the degree to which the response avoids introducing irrelevant content
+  definition_verbatim: true
+  location: Section 5.3, Clinical Expert Review
+  scale: rank 1-6
+notes: Eleven tasks scored by metrics; expert review criteria are a secondary human check on a 500-item sample. GPT-5 evaluation in Appendix E.2 not read.

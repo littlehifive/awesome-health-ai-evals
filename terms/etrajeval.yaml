@@ -1,0 +1,24 @@
+entry: etrajeval
+sources:
+- https://arxiv.org/abs/2511.09003
+extracted: '2026-10-26'
+terms:
+- term: Baseline Emotional Level (BEL)
+  level: metric
+  definition: BEL quantifies the average emotional level of the user after a T-turn interaction with the model. A higher BEL indicates that the model helps maintain a more positive average emotional state.
+  definition_verbatim: true
+  location: Section "Metrics" (Emotional Markov Metric)
+  scale: mean of per-turn emotion level s_t
+- term: Emotional Trajectory Volatility (ETV)
+  level: metric
+  definition: This metric quantifies the model’s ability to elevate users from negative emotional states and prevent regressions from positive ones. A higher ETV indicates stronger upward regulation and resilience against emotional decline.
+  definition_verbatim: true
+  location: Section "Metrics" (Emotional Markov Metric)
+  scale: weighted sum over transition-matrix asymmetries
+- term: Emotional Centroid Position (ECP)
+  level: metric
+  definition: Expected position of a state transition under the dialogue’s empirical initial state distribution and the transition matrix M; coordinates Cx (average initial emotional value) and Cy (expected post-transition value).
+  definition_verbatim: false
+  location: Section "Metrics" (Emotional Markov Metric)
+  scale: 2-D centroid (Cx, Cy)
+notes: Per-turn emotion of the simulated user is estimated with a causally adjusted estimator (Skywork-Llama reward model). Tables also report per-domain scores (CogChg, SitMod, AttDep abbreviations in the results table; four distress domains), which are scenario domains rather than separate criteria. The ECP definition is paraphrased from the paper (the extended-version derivation is not in the main text).

@@ -1,0 +1,60 @@
+entry: rheumbench
+sources:
+- https://doi.org/10.21203/rs.3.rs-10825548/v1
+extracted: '2026-10-26'
+terms:
+- term: RheumBench score
+  level: metric
+  definition: Overall RheumBench scores were calculated as achieved rubric points divided by the maximum achievable points per case and expressed as percentages.
+  definition_verbatim: true
+  location: Methods, Evaluation metrics (Research Square landing page text)
+  scale: percentage; rubric weights -10 to +10
+- term: Answer quality
+  level: dimension
+  definition: Rubric-point score of a response against weighted case-specific criteria (diagnostic and management cases; management also by clinical domain).
+  definition_verbatim: false
+  location: Methods, Evaluation metrics (Research Square landing page text)
+  scale: percentage
+- term: Prompt sensitivity
+  level: dimension
+  definition: Difference in management scores between concise and thorough prompts.
+  definition_verbatim: false
+  location: Methods, Evaluation metrics (Research Square landing page text)
+  scale: score difference
+- term: Potential harm
+  level: dimension
+  definition: Assessed from rubric criteria predefined as potentially harmful and summarized by affected cases, triggered harmful criteria, severity, and omission versus commission errors.
+  definition_verbatim: true
+  location: Methods, Evaluation metrics (Research Square landing page text)
+  scale: 'severity: severe, moderate, mild, uncertain'
+- term: Omission error
+  level: category
+  parent: Potential harm
+  definition: Omission errors reflected failures to take a necessary action.
+  definition_verbatim: true
+  location: Methods, Evaluation metrics (Research Square landing page text)
+- term: Commission error
+  level: category
+  parent: Potential harm
+  definition: commission errors reflected actions taken that could cause harm.
+  definition_verbatim: true
+  location: Methods, Evaluation metrics (Research Square landing page text)
+- term: Diagnostic accuracy
+  level: metric
+  definition: Diagnostic accuracy was evaluated using top-1 and top-3 accuracy.
+  definition_verbatim: true
+  location: Methods, Evaluation metrics (Research Square landing page text)
+  scale: top-1, top-3
+- term: Diagnostic calibration (Brier score, over-underconfidence index)
+  level: metric
+  definition: The observed Brier score was calculated as the mean squared difference between the stated diagnostic confidence and the binary outcome of diagnostic correctness, with lower values indicating better probabilistic accuracy.
+  definition_verbatim: true
+  location: Methods, Evaluation metrics (Research Square landing page text)
+  scale: Brier score (lower is better)
+- term: Management domains
+  level: category
+  definition: 'Management-case rubrics cover the NOHARM domains: diagnostic evaluation, medication, counseling, follow-up, and procedural management.'
+  definition_verbatim: false
+  location: Methods, rubric construction
+  scale: points per criterion
+notes: '1,020 case-specific rubric criteria (7-37 per management case), each weighted by two rheumatologists from -10 to +10 (restricted to -10,-7,-4,-1,+1,+4,+7,+10; negative means inappropriate action) and tagged for potential harm (severe, moderate, mild, uncertain; adapted from NOHARM). Diagnostic cases: +10 for correct diagnosis ranked first, +7 within top three, about +4 per plausible differential. Scored by a three-LLM judge panel (Cohen kappa 0.91 with rheumatologists). Read from the Research Square landing page text; the list of dimensions is as stated in the abstract and methods summary.'

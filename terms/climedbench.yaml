@@ -1,0 +1,89 @@
+entry: climedbench
+sources:
+- https://aclanthology.org/2024.emnlp-main.480/
+- https://arxiv.org/abs/2410.03502
+extracted: '2026-10-26'
+terms:
+- term: Accuracy
+  level: metric
+  definition: Accuracy is used for multiple-choice question answering.
+  definition_verbatim: false
+  location: Section 3
+  scale: percentage
+- term: Kendall's tau
+  level: metric
+  definition: Rank correlation used for sequencing questions (clinical-pathway and discharge-order tasks).
+  definition_verbatim: false
+  location: Section 3
+  scale: -1 to 1 (reported x100)
+- term: ROUGE-1
+  level: metric
+  definition: Automatic metric used for open-ended discharge summary generation.
+  definition_verbatim: false
+  location: Section 3
+- term: SimCSE-based similarity
+  level: metric
+  definition: Semantic similarity to the reference using a medically fine-tuned SimCSE, used for wrong-treatment assessment.
+  definition_verbatim: false
+  location: Section 3
+- term: Medical correctness
+  level: criterion
+  parent: Human evaluation
+  definition: Expert human rating of open-ended generation (wrong-treatment detection and multi-modal report analysis).
+  definition_verbatim: false
+  location: Section 3, Figure 4
+- term: Completeness
+  level: criterion
+  parent: Human evaluation
+  definition: Expert human rating of open-ended generation.
+  definition_verbatim: false
+  location: Section 3, Figure 4
+- term: Fluency
+  level: criterion
+  parent: Human evaluation
+  definition: Expert human rating of open-ended generation.
+  definition_verbatim: false
+  location: Section 3, Figure 4
+- term: Friendliness
+  level: criterion
+  parent: Human evaluation
+  definition: Expert human rating of open-ended generation.
+  definition_verbatim: false
+  location: Section 3, Figure 4
+- term: Clinical question answering
+  level: dimension
+  definition: One of seven perspectives from which the benchmark evaluates medical ability.
+  definition_verbatim: false
+  location: Section 2 (taxonomy), Figure 1
+- term: Knowledge application
+  level: dimension
+  definition: One of the seven evaluation dimensions.
+  definition_verbatim: false
+  location: Section 2
+- term: Reasoning
+  level: dimension
+  definition: One of the seven evaluation dimensions.
+  definition_verbatim: false
+  location: Section 2
+- term: Information retrieval
+  level: dimension
+  definition: One of the seven evaluation dimensions.
+  definition_verbatim: false
+  location: Section 2
+- term: Summarization abilities
+  level: dimension
+  definition: One of the seven evaluation dimensions.
+  definition_verbatim: false
+  location: Section 2
+- term: Hallucination
+  level: dimension
+  definition: One of the seven evaluation dimensions; tested for example with False Info Test items that include an erroneous reference.
+  definition_verbatim: false
+  location: Section 2, Section 4
+  scale: accuracy
+- term: Toxicity
+  level: dimension
+  definition: One of the seven evaluation dimensions.
+  definition_verbatim: false
+  location: Section 2
+notes: The abstract says seven pivot dimensions while the introduction says six; the seven named are those in Section 2. Dimensions are scored through the 14 scenario datasets, not directly by rubric. Four human-rating criteria apply only to open-ended generation. Dimension definitions are paraphrases; the paper gives none.

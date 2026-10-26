@@ -1,0 +1,39 @@
+id: galatea-ii
+name: GALATEA II
+kind: benchmark
+year: 2026
+summary: A benchmark of LLM behavioural safety in a three-role (Clinician, Guardian, Judge) ICU decision-support architecture, with 42,842 generated consultations across 9 clinical domains, 3 ethical profiles and 4 case types, 12 models tested, scored by two LLM judges.
+readme_section: safety
+links:
+  paper: https://doi.org/10.5281/zenodo.19828812
+  doi: 10.5281/zenodo.19828812
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  localization: unknown
+  lead_institution_countries: [SVK]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated]
+  venue: grey_literature
+facets:
+  health_areas: [emergency_triage, general_medicine]
+  intended_users: [clinician]
+  eval_methods: [rubric_llm_judge, simulated_multi_turn]
+  modality: [text]
+  size: 42,842 consultations; 12 models; 9 domains
+signals:
+  citations: 0
+  citations_source: OpenAlex
+  hf_downloads: null
+  github_stars: null
+  uptake: []
+  updated: '2026-10-26'
+provenance:
+  records: [r_453fbb8349]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "Single-author Zenodo preprint (Hospital AGEL Komarno; Slovakia inferred from the town name). Only the Zenodo record metadata and abstract were read; the PDF and README could not be fetched. The record lists data.zip, scripts.zip, examples.zip, tables.zip and a data dictionary under CC-BY-4.0, but it is unclear whether the released data are model outputs and judge verdicts only or reusable case prompts; a human should check whether the cases can be reused as test items. Metrics named in the abstract include a GQI score, sycophancy and capitulation rates, and inter-judge kappa. The record is also referenced by four earlier Zenodo versions of the GALATEA work."

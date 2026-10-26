@@ -1,0 +1,42 @@
+id: mfarm
+name: mFARM (ED-Triage and Opioid Analgesic benchmarks)
+kind: benchmark
+year: 2025
+summary: Two yes/no clinical decision benchmarks built from MIMIC-IV (ED triage, 6,800 cases; opioid prescribing, 1,812 cases), each case paired with 12 race-by-gender variants and three context tiers (over 50,000 prompts), scored with the mFARM multi-metric fairness score and a fairness-accuracy balance score.
+readme_section: safety
+links:
+  paper: https://arxiv.org/abs/2509.02007
+  arxiv: "2509.02007"
+  doi: 10.48550/arxiv.2509.02007
+  code: https://github.com/cerai-iitm/mFARM
+license: null
+open_data: closed
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Derived from MIMIC-IV, a single US tertiary care centre's records.
+  localization: native
+  lead_institution_countries: [IND, USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [emergency_triage, pharmacy_medication]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match, automatic_metric]
+  modality: [text]
+  size: 6,800 ED triage cases and 1,812 opioid cases; 39,780 and 10,647 test prompts
+signals:
+  citations: 1
+  citations_source: OpenAlex
+  hf_downloads: null
+  github_stars: 0
+  uptake: []
+  updated: '2026-10-26'
+provenance:
+  records: [r_09d67588a7]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "IIT Madras (CeRAI) lead, University of Texas at Dallas last author. Only the code to build the prompts is public; MIMIC-IV access needs PhysioNet credentialing, so the prompts themselves are not released (open_data set to closed on that basis; a gated route via the code is possible). The paper also fine-tunes four 7-8B models with LoRA. Scoring is binary (yes/no) outputs plus fairness statistics, not free text."

@@ -1,0 +1,47 @@
+entry: mediqal
+sources: [https://arxiv.org/abs/2507.20917, https://doi.org/10.1038/s41597-026-06680-y]
+extracted: 2026-10-26
+terms:
+  - term: Accuracy
+    level: metric
+    definition: Accuracy on single-answer multiple-choice questions (MCQU).
+    definition_verbatim: false
+    location: Section 3, evaluation metrics
+    scale: proportion correct
+  - term: Exact Match Ratio (EMR)
+    level: metric
+    definition: Proportion of multiple-answer questions (MCQM) for which the predicted answer set exactly equals the gold set.
+    definition_verbatim: false
+    location: Section 3, MCQM metrics
+    scale: percent
+  - term: Hamming score
+    level: metric
+    definition: "Mean over questions of |y_i intersect y_hat_i| / |y_i union y_hat_i|, giving partial credit for overlap between predicted and gold answer sets (MCQM)."
+    definition_verbatim: false
+    location: Section 3, MCQM metrics
+    scale: percent
+  - term: ROUGE-1
+    level: metric
+    definition: Unigram lexical overlap between model free-text answer and expert reference on OEQ.
+    definition_verbatim: false
+    location: Section 3, OEQ metrics
+    scale: 0-100
+  - term: BLEU-4
+    level: metric
+    definition: 4-gram precision-based overlap between model answer and reference on OEQ.
+    definition_verbatim: false
+    location: Section 3, OEQ metrics
+    scale: 0-100
+  - term: BERTScore
+    level: metric
+    definition: Contextual-embedding similarity (roberta-large-mnli) between model answer and reference on OEQ.
+    definition_verbatim: false
+    location: Section 3, OEQ metrics
+    scale: 0-100
+  - term: LLM-as-Judge
+    level: metric
+    definition: "Gemini-2.0-Flash scores each (question, model answer, expert answer) triplet from 1 to 10 on how closely the model answer aligns with the expert answer, considering clinical correctness, factual coverage and the impact of differences on patient safety and care."
+    definition_verbatim: true
+    location: Section 3 and Figure 8 (judge prompt)
+    scale: 1-10
+notes: Questions are also labelled Understanding or Reasoning (a question-type split used for analysis, not a scored criterion). Accuracy for MCQU is the only metric for single-answer MCQs.

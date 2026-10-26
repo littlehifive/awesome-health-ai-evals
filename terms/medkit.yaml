@@ -1,0 +1,49 @@
+entry: medkit
+sources:
+- https://arxiv.org/abs/2609.38543
+- https://huggingface.co/datasets/bethgelab/MedKIT
+extracted: '2026-10-26'
+terms:
+- term: Update
+  level: dimension
+  definition: The canonical treatment comparison, formulated as a three-way classification task (superior, inferior, or no difference). It directly measures whether the factual update has been successfully integrated.
+  definition_verbatim: true
+  location: HF dataset card, "Probe definitions" (probe 1)
+  scale: exact-match label (closed QA)
+- term: Lexical
+  level: dimension
+  definition: Tests robustness to surface-level variation using two paraphrased versions of the update question that preserve its semantics and answer.
+  definition_verbatim: true
+  location: HF dataset card, probes 2-3
+  scale: exact-match label (closed QA)
+- term: Relational
+  level: dimension
+  definition: Tests whether the model has internalized the relationship between treatments by reversing their order in the comparison; the corresponding label is inverted.
+  definition_verbatim: true
+  location: HF dataset card, probe 4
+  scale: exact-match label (closed QA)
+- term: Compositional
+  level: dimension
+  definition: Tests whether the updated fact can be used within an open-ended reasoning process; the model compares treatments in the given clinical context and must produce a factually correct response.
+  definition_verbatim: true
+  location: HF dataset card, probe 5
+  scale: LLM judge, 5-point Likert (misaligned to fully aligned)
+- term: Operational
+  level: dimension
+  definition: Tests whether the updated knowledge is applied implicitly in an open-ended treatment recommendation, without explicitly prompting the model to reproduce or compare the updated fact.
+  definition_verbatim: true
+  location: HF dataset card, probe 6
+  scale: LLM judge on consistency with the underlying comparison
+- term: Locality (knowledge preservation)
+  level: dimension
+  definition: Tests whether integrating an update affects unrelated knowledge, using a structurally similar but factually independent comparison.
+  definition_verbatim: true
+  location: HF dataset card, probe 7
+  scale: LLM judge, 5-point Likert
+- term: Retention
+  level: metric
+  definition: 'Past-update retention: whether earlier integrated updates remain usable as further updates are added (temporal update setting).'
+  definition_verbatim: false
+  location: Paper appendix B.1-C.3 (heading "Retention and locality")
+  scale: not recorded
+notes: Seven probes per update; the paper reports exact-match accuracy for closed-form probes and an LLM judge (gpt-4o primary, validated against clinicians, Spearman 0.83 and 0.64) for open-form ones. Retention definition is paraphrased from section headings; the arXiv HTML text was only skimmed.

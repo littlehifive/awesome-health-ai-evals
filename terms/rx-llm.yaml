@@ -1,0 +1,55 @@
+entry: rx-llm
+sources:
+- https://doi.org/10.64898/2025.12.01.25341004
+- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12704647/
+extracted: '2026-10-26'
+terms:
+- term: Accuracy
+  level: metric
+  definition: Accuracy=(TP+TN)/(TP+TN+FP+FN); primary metric for drug-order, drug-indication and drug-drug interaction tasks.
+  definition_verbatim: false
+  location: Methods, Evaluation metrics
+  scale: percentage
+- term: Precision
+  level: metric
+  definition: Precision measured how often the model's positive predictions were correct (TP / [TP + FP]).
+  definition_verbatim: true
+  location: Methods, Classification metrics
+  scale: percentage
+- term: Recall
+  level: metric
+  definition: Recall measured how often the model correctly identified the true positive cases (TP / [TP + FN]).
+  definition_verbatim: true
+  location: Methods, Classification metrics
+  scale: percentage
+- term: F1 score
+  level: metric
+  definition: The F1 score combined precision and recall into a single number; primary metric for formulation, route and renal-dose tasks.
+  definition_verbatim: false
+  location: Methods, Classification metrics
+  scale: percentage
+- term: Exact-match accuracy
+  level: metric
+  definition: Exact-match accuracy counted how often the model predicted every correct label for an item with no mistakes.
+  definition_verbatim: true
+  location: Methods, Multilabel metrics (route and formulation tasks)
+  scale: percentage
+- term: Label match accuracy
+  level: metric
+  definition: Micro-averaged label accuracy looked across all labels and measured the proportion of labels the model predicted correctly out of all labels.
+  definition_verbatim: false
+  location: Methods, Multilabel metrics
+  scale: percentage
+- term: Correctness-consistency score
+  level: metric
+  definition: Share of instances answered correctly in all three repeated runs (different random seeds); a reproducibility measure.
+  definition_verbatim: false
+  location: Methods; Tables 2-3
+  scale: percentage of instances
+- term: Harm Associated with Medication Error Classification (HAMEC)
+  level: metric
+  definition: Score classifying the harm potential of drug errors in the drug-order generation benchmark, validated by two clinical pharmacists.
+  definition_verbatim: false
+  location: Methods, Evaluation metrics; Discussion (example ratings 3 and 4)
+  scale: ordinal harm score
+notes: 'Primary metric per task: accuracy for drug order, drug indication and drug-drug interaction; F1 for formulation, route and renal dose. Drug-drug interaction results are also broken down by interaction category (A-D, task strata). The correctness-consistency definition is inferred from the results text and table label.'

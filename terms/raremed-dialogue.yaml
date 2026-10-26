@@ -1,0 +1,30 @@
+entry: raremed-dialogue
+sources: [https://doi.org/10.1186/s12911-026-03846-x]
+extracted: 2026-10-26
+terms:
+  - term: Dialogue-chain Integrity (DCI)
+    level: metric
+    definition: Novel metric designed to assess coherence across multi-turn clinical reasoning processes.
+    definition_verbatim: false
+    location: Abstract (Methods); abbreviations list
+  - term: Stage Accuracy (SA)
+    level: metric
+    definition: Novel metric designed to assess correctness across the stages of multi-turn clinical reasoning.
+    definition_verbatim: false
+    location: Abstract (Methods); abbreviations list
+  - term: Diagnostic Accuracy (DA)
+    level: metric
+    definition: Named in the abbreviations list; presumably accuracy of the diagnosis in the dialogue.
+    definition_verbatim: false
+    location: Abbreviations list
+  - term: Treatment Appropriateness (TA)
+    level: metric
+    definition: Named in the abbreviations list; presumably appropriateness of the treatment in the dialogue.
+    definition_verbatim: false
+    location: Abbreviations list
+  - term: Professionalism (Pr)
+    level: metric
+    definition: Named in the abbreviations list; presumably professionalism of the dialogue.
+    definition_verbatim: false
+    location: Abbreviations list
+notes: "Only the BMC landing page (abstract, abbreviations) was reachable here; the methods and definitions of the metrics were not read, so definitions are inferred from names and abstract. Scoring scales unknown. The dataset is built on an eight-stage clinical workflow template."

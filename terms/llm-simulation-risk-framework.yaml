@@ -1,0 +1,55 @@
+entry: llm-simulation-risk-framework
+sources:
+- https://doi.org/10.1136/bmjment-2026-302626
+- https://pmc.ncbi.nlm.nih.gov/articles/PMC13295973/
+extracted: '2026-10-26'
+terms:
+- term: P1 (hazard to hazardous situation probability)
+  level: metric
+  definition: The likelihood that a given hazard leads to a given hazardous situation (when a suicidal user engages in an inappropriate therapeutic interaction), estimated as the product of LLM-dependent and user-dependent probabilities.
+  definition_verbatim: true
+  location: Methods, risk estimation
+  scale: probability per user-model exchange
+- term: P2 (hazardous situation to harm probability)
+  level: metric
+  definition: The conditional probability that a hazardous situation, defined as an undetected therapeutic interaction involving a suicidal user, progressing to harm.
+  definition_verbatim: true
+  location: Methods, risk estimation
+  scale: probability per four-turn exchange
+- term: False-negative rate (FNR)
+  level: metric
+  definition: Model false-negative rate on each safety-classification task (suicidal ideation detection, therapy-request detection, therapy-like interaction detection), the LLM-dependent input to P1 and P2.
+  definition_verbatim: false
+  location: Methods and Results, Figure 3
+  scale: rate
+- term: Sensitivity
+  level: metric
+  definition: Classification sensitivity of each model on the three proxy tasks.
+  definition_verbatim: false
+  location: Results, Figure 3
+  scale: proportion
+- term: Specificity
+  level: metric
+  definition: Classification specificity of each model on the three proxy tasks.
+  definition_verbatim: false
+  location: Results, Figure 3
+  scale: proportion
+- term: Accuracy
+  level: metric
+  definition: Classification accuracy of each model on the three proxy tasks.
+  definition_verbatim: false
+  location: Results, Figure 3
+  scale: proportion
+- term: F1 score
+  level: metric
+  definition: Classification F1 of each model on the three proxy tasks.
+  definition_verbatim: false
+  location: Results, Figure 3
+  scale: F1
+- term: Parsing success rate
+  level: metric
+  definition: Share of model responses that conformed to the required output structure.
+  definition_verbatim: false
+  location: Results, Figure 3
+  scale: proportion
+notes: Risk framework in medical-device language (hazard, hazardous situation, harm) rather than output-quality criteria; the three proxy tasks are classification tasks (suicidal ideation, therapy request, therapy-like interaction) judged against psychiatrist-reviewed synthetic labels. Task definitions of P1 and P2 are quoted from Methods; others paraphrased. Dataset sizes are in supplemental tables not read.

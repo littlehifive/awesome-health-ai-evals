@@ -1,0 +1,42 @@
+entry: biomarker-intervention-benchmark
+sources:
+- https://doi.org/10.1038/s41746-025-01996-2
+- https://pmc.ncbi.nlm.nih.gov/articles/PMC12559286/
+extracted: '2026-10-26'
+terms:
+- term: Comprehensiveness
+  level: criterion
+  parent: Validation requirements
+  definition: Whether the response covers what a good answer should entail, judged against expert commentaries (full definitions in Supplementary Section A, not read).
+  definition_verbatim: false
+  location: Results and Methods; Supplementary Section A
+  scale: binary verdict per response (e.g. comprehensive / not comprehensive); reported as balanced accuracy
+- term: Correctness
+  level: criterion
+  parent: Validation requirements
+  definition: Whether the response is correct per the physician-written ground truth commentary.
+  definition_verbatim: false
+  location: Results and Methods; Supplementary Section A
+  scale: binary verdict per response (e.g. comprehensive / not comprehensive); reported as balanced accuracy
+- term: Usefulness
+  level: criterion
+  parent: Validation requirements
+  definition: Whether the response is useful for the user's personalized intervention query.
+  definition_verbatim: false
+  location: Results and Methods; Supplementary Section A
+  scale: binary verdict per response (e.g. comprehensive / not comprehensive); reported as balanced accuracy
+- term: Interpretability/Explainability
+  level: criterion
+  parent: Validation requirements
+  definition: Whether the response explains its reasoning and recommendations in an interpretable way.
+  definition_verbatim: false
+  location: Results and Methods; Supplementary Section A
+  scale: binary verdict per response (e.g. comprehensive / not comprehensive); reported as balanced accuracy
+- term: Consideration of Toxicity/Safety
+  level: criterion
+  parent: Validation requirements
+  definition: Whether the response considers toxicity and safety of the recommended intervention.
+  definition_verbatim: false
+  location: Results and Methods; Supplementary Section A
+  scale: binary verdict per response (e.g. comprehensive / not comprehensive); reported as balanced accuracy
+notes: Five validation requirements are called 'validation requirements' in the source. The LLM judge (GPT-4o mini) gets expert commentaries describing a good response. Full definitions are in a supplement that was not read, so definitions are paraphrased. 1,000 test cases are items, not terms.

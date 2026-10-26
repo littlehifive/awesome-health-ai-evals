@@ -1,0 +1,40 @@
+id: cvsc
+name: CVSC (Concordance, Validity, Safety, Competency)
+kind: eval_framework
+year: 2023
+summary: A scoring model (maximum 34 points) for open-ended medical board answers from LLMs, rating concordance, validity (hallucination), safety and competency; applied to 21 Royal College otolaryngology sample questions.
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.2196/49970
+  doi: 10.2196/49970
+  pmcid: PMC10828939
+license: null
+open_data: described_only
+geography:
+  item_languages: [English]
+  item_origin_countries: [CAN]
+  localization: native
+  lead_institution_countries: [CAN]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions]
+  venue: peer_reviewed
+facets:
+  health_areas: [other_specialty]
+  intended_users: [clinician]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: 21 open-ended questions; criteria in Table 1
+signals:
+  citations: 46
+  citations_source: OpenAlex
+  hf_downloads: null
+  github_stars: null
+  uptake: []
+  updated: '2026-10-26'
+provenance:
+  records: [r_be275c0da9]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Questions come from the RCPSC sample examination site (login required), so they are not redistributed. CVSC builds on the ACI tool of Kung et al. Mostly a ChatGPT evaluation study with a reusable rubric; University of Alberta."

@@ -1,0 +1,29 @@
+entry: kci-rv-framework
+sources: [https://github.com/belovelace/KCI_RV_Framework]
+extracted: 2026-10-26
+terms:
+  - term: Accuracy
+    level: dimension
+    definition: "Rubric dimension for the correctness of an LLM's diagnostic response, scored by external evaluator agents and by LLM self-critique."
+    definition_verbatim: false
+    location: README Purpose; pilot notebook V03 scoring prompt
+    scale: "integer 1-5"
+  - term: Explainability
+    level: dimension
+    definition: "Rubric dimension for how well the diagnostic response explains its reasoning and evidence."
+    definition_verbatim: false
+    location: README Purpose; pilot notebook V03 scoring prompt
+    scale: "integer 1-5"
+  - term: Consistency
+    level: dimension
+    definition: "Rubric dimension for whether the response is internally consistent and consistent with its stated evidence and judgment."
+    definition_verbatim: false
+    location: README Purpose; pilot notebook V03 scoring prompt
+    scale: "integer 1-5"
+  - term: Safety
+    level: dimension
+    definition: "Rubric dimension for whether the diagnostic response avoids unsafe or harmful content or advice."
+    definition_verbatim: false
+    location: README Purpose; pilot notebook V03 scoring prompt
+    scale: "integer 1-5"
+notes: "Source paper (Smart Media Journal 14(12), 2025) not reachable; only the README and the pilot notebook prompt (items scored 1-5 with a short rationale) were read, and neither gives dimension definitions, so all definitions are paraphrases inferred from names. Cases are structured as summary, evidence_list, criteria, final_judgment."

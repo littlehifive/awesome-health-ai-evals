@@ -1,0 +1,27 @@
+entry: doctorflan
+sources:
+- https://doi.org/10.1038/s44401-025-00038-z
+extracted: '2026-10-26'
+terms:
+- term: Accuracy
+  level: criterion
+  definition: assessing the correctness and reliability of the information
+  definition_verbatim: true
+  location: Methods, evaluation (Nature npj page)
+  scale: LLM judge score against reference
+- term: Coherence
+  level: criterion
+  definition: evaluating the clarity and logical flow of the responses
+  definition_verbatim: true
+  location: Methods, evaluation
+- term: Relevance
+  level: criterion
+  definition: measuring how closely each response addresses the prompt
+  definition_verbatim: true
+  location: Methods, evaluation
+- term: Thoroughness
+  level: criterion
+  definition: judging the depth and completeness of the response in covering the topic
+  definition_verbatim: true
+  location: Methods, evaluation
+notes: Reference-based GPT-4 judge with CoT scores responses on these four standards; human evaluation reports averaged scores (scale not confirmed). Dataset verification also checks Correctness and Practicality of training responses, which are not model-output scores.

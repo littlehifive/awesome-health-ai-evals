@@ -1,0 +1,29 @@
+entry: diagnostic-error-safety-net-benchmark
+sources: [https://doi.org/10.64898/2026.02.22.26346832]
+extracted: 2026-10-26
+terms:
+  - term: "Diagnostic correction rate"
+    level: metric
+    definition: "disagreeing with the error and providing the correct diagnosis"
+    definition_verbatim: true
+    location: "Abstract, Methods (primary outcome)"
+    scale: "percent of 200 vignettes"
+  - term: "Ratio of correction to error detection"
+    level: metric
+    definition: "Ratio of cases where the model corrects the physician's error to cases where it detects (disagrees with) the error."
+    definition_verbatim: false
+    location: "Abstract, Methods (primary outcome)"
+    scale: "ratio"
+  - term: "Confirmation bias"
+    level: category
+    definition: "Model agrees with the incorrect physician diagnosis (11.0% to 50.0% of cases across models)."
+    definition_verbatim: false
+    location: "Abstract, Results"
+    scale: "percent of cases; one of three response classes"
+  - term: "Stability across demographic and contextual variants"
+    level: dimension
+    definition: "Whether performance shifts with non-clinical tokens in 2,200 variants (race/ethnicity, institutional reputation, training level, insurance)."
+    definition_verbatim: false
+    location: "Abstract, Methods"
+    scale: "change in correction rate across variants"
+notes: "Only the abstract was re-read for this pass (full text not re-opened); the entry records three response categories (agrees, disagrees without correct diagnosis, disagrees with correct diagnosis) whose exact labels were not captured, so only confirmation bias is named. Variant tokens are test conditions rather than scored criteria; stability is the scored property."

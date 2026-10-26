@@ -1,0 +1,40 @@
+entry: pd-prescription-review-benchmark
+sources:
+- https://doi.org/10.64898/2026.05.28.26354383
+extracted: '2026-10-26'
+terms:
+- term: TDRmust (must-identify recall)
+  level: metric
+  definition: 'Primary outcome: recall of the must-identify trap issues embedded in each synthetic peritoneal
+    dialysis case.'
+  definition_verbatim: false
+  location: Abstract (bioRxiv API)
+  scale: recall 0-1 per case, kappa 0.89/0.92 for coding
+- term: Alarm-burden proxy
+  level: metric
+  definition: Verbosity-sensitive measure of how many issues a model flags per case relative to correct
+    flags (21.6 vs 2.4 issues per case between models).
+  definition_verbatim: false
+  location: Abstract
+  scale: proportion
+- term: WCS
+  level: metric
+  definition: A weighted composite score; secondary scoring construct that ranked models differently from
+    recall (expansion of the acronym not given in the abstract).
+  definition_verbatim: false
+  location: Abstract
+  scale: composite score
+- term: Relaxed-match scoring
+  level: metric
+  definition: Secondary scoring variant that relaxes the matching of model findings to trap issues.
+  definition_verbatim: false
+  location: Abstract
+- term: Expert adequacy
+  level: criterion
+  definition: Blinded nephrologist rating of output adequacy in a 25-output substudy.
+  definition_verbatim: false
+  location: Abstract
+  scale: expert rating; inter-rater rho 0.977
+notes: Only the abstract was reachable (medRxiv full text blocked). Terms are the scoring constructs named
+  there; definitions are paraphrases and the 13 ISPD-aligned trap types were not listed. WCS is not expanded
+  in the abstract.

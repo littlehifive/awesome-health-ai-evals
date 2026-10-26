@@ -1,0 +1,46 @@
+entry: vb-score
+sources:
+- https://arxiv.org/abs/2604.19281
+extracted: '2026-10-26'
+terms:
+- term: VB-Score
+  level: metric
+  definition: 'Composite: 0.30 Entity F1 + 0.30 Semantic Similarity + 0.25 Factual Consistency + 0.15 Structured Overlap, each normalized 0-1.'
+  definition_verbatim: false
+  location: Section 3.2.3
+  scale: 0-1
+- term: Entity F1
+  level: metric
+  parent: VB-Score
+  definition: Medical entity extraction accuracy using spaCy biomedical NER on reference and generated texts, precision and recall combined (weight 0.30).
+  definition_verbatim: true
+  location: Section 3.2.1
+  scale: 0-1
+- term: Semantic Similarity
+  level: metric
+  parent: VB-Score
+  definition: Conceptual alignment using all-MiniLM-L6-v2 embeddings and cosine similarity (weight 0.30).
+  definition_verbatim: false
+  location: Section 3.2.1
+  scale: 0-1
+- term: Factual Consistency
+  level: metric
+  parent: VB-Score
+  definition: Safety-critical correctness assessed with a natural language inference model (weight 0.25).
+  definition_verbatim: false
+  location: Section 3.2.1
+  scale: 0-1
+- term: Structured Overlap
+  level: metric
+  parent: VB-Score
+  definition: 'Completeness: extracts enumerations via regex and computes Jaccard similarity between reference and generated structures (weight 0.15).'
+  definition_verbatim: true
+  location: Section 3.2.1
+  scale: 0-1
+- term: Semantic-entity gap
+  level: metric
+  definition: Difference between semantic similarity score and entity F1 score.
+  definition_verbatim: false
+  location: Section 4
+  scale: percentage points
+notes: 'Definitions of Entity F1 and Structured Overlap are copied in part from the component paragraph; the rest are paraphrased. Failure thresholds: Entity F1 < 0.10, Semantic Similarity < 0.30, Factual Consistency < 0.50, Structured Overlap < 0.10.'

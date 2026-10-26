@@ -1,0 +1,35 @@
+entry: cmb
+sources:
+- https://arxiv.org/abs/2308.08833
+extracted: '2026-10-26'
+terms:
+- term: Accuracy
+  level: metric
+  definition: Multiple-choice accuracy on CMB-Exam.
+  definition_verbatim: false
+  location: Section 4
+- term: Fluency
+  level: dimension
+  definition: Linguistic fluency of the response; anchors from 1 (completely broken and unreadable sentence pieces) to 5 (human-level fluency).
+  definition_verbatim: false
+  location: Section 3.3, 5.1; Appendix D.2 prompt
+  scale: 1-5
+- term: Relevance
+  level: dimension
+  definition: How related the response is to the question; 1 is completely unrelated to the question, 5 fully relevant.
+  definition_verbatim: false
+  location: Section 3.3, Appendix D.2
+  scale: 1-5
+- term: Completeness
+  level: dimension
+  definition: How fully the response provides the needed information; 5 is fully complete with all information presented.
+  definition_verbatim: false
+  location: Section 3.3, Appendix D.2
+  scale: 1-5
+- term: Medical Proficiency
+  level: dimension
+  definition: Use of medical knowledge and terminology; 1 is plain language with no medical terminology, higher scores convey moderately complex to expert medical information.
+  definition_verbatim: false
+  location: Section 3.3, Appendix D.2 (called Proficiency in Section 3.3)
+  scale: 1-5
+notes: CMB-Clin responses rated by GPT-4 and by three medical annotators on 320 responses; dimensions chosen on expert suggestion. Definitions paraphrased from scale anchors in the prompt template (README/Appendix D.2).

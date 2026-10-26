@@ -1,0 +1,53 @@
+entry: evalprompt
+sources:
+- https://arxiv.org/abs/2307.04910
+- https://doi.org/10.2196/66207
+extracted: '2026-10-26'
+terms:
+- term: Clarity
+  level: dimension
+  definition: Are the responses clear? Answered by analyzing the response consistency (agreement among assessors).
+  definition_verbatim: false
+  location: Abstract; Introduction (three questions); Methods, assessor categorization
+  scale: assessor agreement
+- term: Correctness
+  level: dimension
+  definition: Are the responses genuinely correct? Answered by identifying the responses classified as correct by all assessors.
+  definition_verbatim: false
+  location: Abstract; Introduction (three questions); Methods, assessor categorization
+  scale: share of responses categorized correct by all assessors; passing threshold 60%
+- term: Robustness
+  level: dimension
+  definition: Are the responses robust? Answered by an ablation (sentence-dropout) study on the responses that were correct.
+  definition_verbatim: false
+  location: Abstract; Introduction (three questions); Methods, assessor categorization
+  scale: share still correct by all assessors; threshold 60%
+- term: Correct (C)
+  level: category
+  parent: Correctness
+  definition: 'Assessor category for a response: correct.'
+  definition_verbatim: false
+  location: Abstract; Introduction (three questions); Methods, assessor categorization
+  scale: '4-way categorical: C, PC, I, A'
+- term: Partially correct (PC)
+  level: category
+  parent: Correctness
+  definition: 'Assessor category for a response: partially correct.'
+  definition_verbatim: false
+  location: Abstract; Introduction (three questions); Methods, assessor categorization
+  scale: 4-way categorical
+- term: Incorrect (I)
+  level: category
+  parent: Correctness
+  definition: 'Assessor category for a response: incorrect.'
+  definition_verbatim: false
+  location: Abstract; Introduction (three questions); Methods, assessor categorization
+  scale: 4-way categorical
+- term: Ambiguous (A)
+  level: category
+  parent: Correctness
+  definition: 'Assessor category for a response: ambiguous.'
+  definition_verbatim: false
+  location: Abstract; Introduction (three questions); Methods, assessor categorization
+  scale: 4-way categorical
+notes: 'Definitions of the three dimensions are the paper''s question phrasings with the stated operationalization, lightly joined; the assessor category names are as written (C, PC, I, A) but the paper''s per-category definitions are in Multimedia Appendix 2 (not opened), so those are marked paraphrase. Assessors: expert and nonexpert groups.'

@@ -1,0 +1,41 @@
+id: mash-qa
+name: MASH-QA
+kind: benchmark
+year: 2020
+summary: 34,808 consumer-health question-answer pairs from WebMD articles in which the answer is a set of sentences excerpted from multiple non-consecutive spans of a long document, scored by span-level precision, recall, F1 and exact match.
+readme_section: open_ended
+links:
+  paper: https://doi.org/10.18653/v1/2020.findings-emnlp.342
+  doi: 10.18653/v1/2020.findings-emnlp.342
+  code: https://github.com/mingzhu0527/MASHQA
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Questions and answers from the WebMD consumer health website, a US site; the paper does not state user countries.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic, industry_lab]
+  item_provenance: [web_forum]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: "34,808 QA pairs over 5,574 contexts (27,728 train, 3,493 dev, 3,587 test)"
+signals:
+  citations: 62
+  citations_source: OpenAlex
+  hf_downloads: null
+  github_stars: 26
+  uptake: []
+  updated: '2026-10-26'
+provenance:
+  records: [r_b077ea3a63]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Findings of EMNLP 2020, Virginia Tech lead with Google Cloud AI co-authors. Extractive reading-comprehension task (select answer sentences from a document), not generative chatbot answers, so scope is borderline. The paper links a GitHub repo for code and data; I did not fetch the repo, so open_data is taken from the paper's statement and no license was seen. Questions are drawn from WebMD article headings and answers from the article text rather than from users, so web_forum is a loose fit."

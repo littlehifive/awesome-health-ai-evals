@@ -1,0 +1,50 @@
+entry: healthcare-pdf
+sources: [https://huggingface.co/datasets/CentificAIResearch/Healthcare.pdf]
+extracted: 2026-10-26
+terms:
+  - term: G1 Domain
+    level: criterion
+    parent: Rubric tiers
+    definition: "healthcare-wide conformance (grounding, citation, no fabrication)"
+    definition_verbatim: true
+    location: Dataset card, Rubric tiers
+    scale: per criterion; grading_mode match, entailed, or present
+  - term: G2 Persona
+    level: criterion
+    parent: Rubric tiers
+    definition: "expectations for the persona"
+    definition_verbatim: true
+    location: Dataset card, Rubric tiers
+    scale: per criterion; grading_mode match, entailed, or present
+  - term: G3 Occupation
+    level: criterion
+    parent: Rubric tiers
+    definition: "expectations for the specific occupation"
+    definition_verbatim: true
+    location: Dataset card, Rubric tiers
+    scale: per criterion; grading_mode match, entailed, or present
+  - term: G4 Task
+    level: criterion
+    parent: Rubric tiers
+    definition: "the task's own content criteria, graded per sub-question"
+    definition_verbatim: true
+    location: Dataset card, Rubric tiers
+    scale: per criterion; grading_mode match, entailed, or present
+  - term: Task solved
+    level: metric
+    definition: "A task is solved when every sub-question conveys the reference answer's key value or conclusion (two-grader consensus)."
+    definition_verbatim: true
+    location: Dataset card, Difficulty
+    scale: binary per task
+  - term: Rubric criteria passed (n_models_all_criteria)
+    level: metric
+    definition: Stricter reading of difficulty, counting models that pass every rubric criterion, not just those that convey the right answers.
+    definition_verbatim: false
+    location: Dataset card, Difficulty
+    scale: count of models
+  - term: Task types (T1-T19 capability taxonomy)
+    level: other
+    definition: "Sub-questions are tagged with a capability taxonomy (T1-T19) spanning foundational extraction (value extraction, layout navigation), structural reading (table parsing, conditional logic), advanced reasoning (abstention, quantitative reasoning, synthesis) and healthcare-specific work (clinical safety, care-transition extraction, eligibility matching)."
+    definition_verbatim: true
+    location: Dataset card, Task types
+notes: Dataset card only, no paper. 1,513 rubric criteria; grading_mode values are match (the answer must state this value), entailed (must imply this step), present (behaviour or format requirement over the whole deliverable). Task types are capability tags on items rather than output-quality criteria.

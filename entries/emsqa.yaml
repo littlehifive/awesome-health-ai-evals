@@ -1,0 +1,42 @@
+id: emsqa
+name: EMSQA
+kind: benchmark
+year: 2025
+summary: 24.3K multiple-choice emergency medical services questions across 10 clinical subject areas and 4 certification levels (EMT, Paramedic and others), with curated EMS knowledge bases for retrieval, scored by accuracy.
+readme_section: knowledge_exam
+links:
+  paper: https://arxiv.org/abs/2511.10900
+  arxiv: "2511.10900"
+  doi: 10.1609/aaai.v40i36.40337
+  website: https://uva-dsa.github.io/EMSQA
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: "Practice questions from 17 public and private EMS resources, with a US certification framing (NREMT simulation test used for evaluation); the paper does not state the countries of every source."
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions]
+  venue: peer_reviewed
+facets:
+  health_areas: [emergency_triage]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: "24,271 questions (18,602 public, 5,669 private); public split 13,021 train, 1,860 validation, 3,721 test; private used only for testing"
+signals:
+  citations: 1
+  citations_source: OpenAlex
+  hf_downloads: null
+  github_stars: null
+  uptake: []
+  updated: '2026-10-26'
+provenance:
+  records: [r_8e56fbe8d0]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "AAAI 2026 paper (University of Virginia); read via the arXiv version 2511.10900. The paper links a project page for code and data, but I did not see a download link or license, so open_data is unknown; the private-source questions may not be redistributable. The paper also proposes Expert-CoT and ExpertRAG methods and a 40K-document knowledge base."

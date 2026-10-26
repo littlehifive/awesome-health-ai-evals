@@ -1,0 +1,55 @@
+entry: medmarks
+sources:
+- https://arxiv.org/abs/2605.01417
+- https://github.com/MedARC-AI/medmarks
+extracted: '2026-10-26'
+terms:
+- term: Accuracy
+  level: metric
+  definition: Exact-match/verifiable-answer accuracy on multiple-choice and closed-form components; models ranked by win rate across benchmarks.
+  definition_verbatim: false
+  location: Section 3, verifiable suite (MedMarks-V)
+  scale: proportion correct
+- term: Semantically Correct
+  level: criterion
+  definition: True if the assistant expresses the same core claim(s) as the reference, allowing synonyms, paraphrasing, acronyms and reasonable generalizations; false if the main concept differs or the answer is too vague.
+  definition_verbatim: false
+  location: Appendix, judge prompt (multi-axis rubric)
+  scale: binary
+- term: Matches Details
+  level: criterion
+  definition: True if the assistant includes all question-critical details needed to uniquely match the reference answer; must be false if Semantically Correct is false.
+  definition_verbatim: false
+  location: Appendix, judge prompt (multi-axis rubric)
+  scale: binary
+- term: Substantive Addition
+  level: criterion
+  definition: True if the assistant introduces factual claims that could meaningfully alter the correctness assessment (off-topic content, claims beyond scope, or inconsistent alternative explanations).
+  definition_verbatim: false
+  location: Appendix, judge prompt (multi-axis rubric)
+  scale: binary
+- term: Critical Error
+  level: criterion
+  definition: True if the assistant states any claim clearly false relative to the reference and/or standard domain knowledge, or gives unsafe medical guidance; missing information alone is not a critical error.
+  definition_verbatim: false
+  location: Appendix, judge prompt (multi-axis rubric)
+  scale: binary
+- term: Accuracy (open-ended judge)
+  level: criterion
+  definition: Factual correctness and absence of medical misinformation (patient-question benchmark judge rubric).
+  definition_verbatim: true
+  location: Appendix Q (per-benchmark judge details)
+  scale: 1-5 ordinal
+- term: Completeness
+  level: criterion
+  definition: Coverage of all medically relevant aspects of the question (patient-question benchmark judge rubric).
+  definition_verbatim: true
+  location: Appendix Q
+  scale: 1-5 ordinal
+- term: Clarity
+  level: criterion
+  definition: Structure, readability, and appropriateness for a lay audience (patient-question benchmark judge rubric).
+  definition_verbatim: true
+  location: Appendix Q
+  scale: 1-5 ordinal
+notes: Suite of 30 existing benchmarks, so each component carries its own metrics and rubrics; only the shared four-Boolean judge rubric and one component rubric (Accuracy/Completeness/Clarity, 1-5) were recorded. HealthBench component uses its own five axes (see healthbench entry). Definitions are partly shortened from the prompt text.

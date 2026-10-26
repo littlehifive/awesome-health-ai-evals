@@ -1,0 +1,87 @@
+entry: maque
+sources:
+- https://arxiv.org/abs/2509.24958
+extracted: '2026-10-26'
+terms:
+- term: Task Success (TS)
+  level: dimension
+  definition: Measures a doctor agent's ability to successfully elicit the critical information needed for decision-making.
+  definition_verbatim: true
+  location: Section 3.2
+- term: Robustness
+  level: metric
+  parent: Task Success (TS)
+  definition: 'Stability of the agent''s performance across different medical specialties: 1 - sigma / max(mu + sigma, epsilon) over per-specialty correctness scores.'
+  definition_verbatim: true
+  location: Section 3.2
+- term: Inquiry Proficiency (IP)
+  level: dimension
+  definition: How relevant, comprehensive, and precise the elicited information is.
+  definition_verbatim: false
+  location: Section 3.2
+- term: Coverage
+  level: metric
+  parent: Inquiry Proficiency (IP)
+  definition: Proportion of atomic information units (AIUs) obtained by the agent relative to the full set of task-relevant items in the conversation.
+  definition_verbatim: true
+  location: Section 3.2
+  scale: session level
+- term: Relevance
+  level: metric
+  parent: Inquiry Proficiency (IP)
+  definition: How pertinent each of the agent's questions is to the AIUs in the corresponding session, penalizing off-topic or redundant inquiries.
+  definition_verbatim: true
+  location: Section 3.2
+  scale: turn level
+- term: Dialogue Competence (DC)
+  level: dimension
+  definition: 'Basic conversational skills of a doctor agent: ability to conduct coherent, contextually appropriate, and role-consistent multi-turn dialogues.'
+  definition_verbatim: false
+  location: Section 3.2
+- term: Adherence
+  level: metric
+  parent: Dialogue Competence (DC)
+  definition: Whether each response follows instructions and maintains the doctor role; prohibits revealing an AI identity or listing all questions at once.
+  definition_verbatim: true
+  location: Section 3.2
+- term: Coherence
+  level: metric
+  parent: Dialogue Competence (DC)
+  definition: Penalizes contradictions and repeated inquiries.
+  definition_verbatim: true
+  location: Section 3.2
+- term: Inquiry Efficiency (IE)
+  level: dimension
+  definition: How economically the agent gathers information.
+  definition_verbatim: false
+  location: Section 3.2
+- term: Question number
+  level: metric
+  parent: Inquiry Efficiency (IE)
+  definition: Average number of questions per session.
+  definition_verbatim: true
+  location: Section 3.2
+- term: Token number
+  level: metric
+  parent: Inquiry Efficiency (IE)
+  definition: Total token consumption per session.
+  definition_verbatim: true
+  location: Section 3.2
+- term: Patient Experience (PE)
+  level: dimension
+  definition: How a patient feels throughout the conversation, which influences satisfaction and trust in the AI doctor.
+  definition_verbatim: false
+  location: Section 3.2
+- term: Clarity
+  level: metric
+  parent: Patient Experience (PE)
+  definition: Whether the doctor's inquiries are concise, clear, and easy to understand.
+  definition_verbatim: true
+  location: Section 3.2
+- term: Empathy
+  level: metric
+  parent: Patient Experience (PE)
+  definition: Whether the agent demonstrates care, respect, and emotional awareness during the interaction.
+  definition_verbatim: true
+  location: Section 3.2
+notes: Task Success also includes diagnostic correctness (final diagnosis scored by LLM judge; not read in detail). Definitions marked non-verbatim are paraphrased where the paper gives a longer motivation. Scales of the LLM-judged items (adherence, coherence, clarity, empathy) not read.

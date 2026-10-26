@@ -1,0 +1,59 @@
+entry: rounds-bench
+sources:
+- https://arxiv.org/abs/2605.22047
+- https://github.com/Leonard-zc/ROUNDS-Bench
+extracted: '2026-10-26'
+terms:
+- term: Exact Diagnostic Accuracy (ExactAcc)
+  level: metric
+  definition: the proportion of cases in the total sample N achieving a score of 2
+  definition_verbatim: true
+  location: Section 4.4
+  scale: 3-level (0 incorrect, 1 partially correct, 2 strictly correct); ExactAcc counts only 2
+- term: Strictly Correct
+  level: category
+  parent: Exact Diagnostic Accuracy (ExactAcc)
+  definition: The diagnosis implies Semantic Equivalence with the gold standard, for example Myocardial Infarction vs. Heart Attack, and exhibits precise matching of the Disease Subtype.
+  definition_verbatim: true
+  location: Section 4.4
+  scale: score 2
+- term: Partially Correct
+  level: category
+  parent: Exact Diagnostic Accuracy (ExactAcc)
+  definition: The diagnosis falls within the correct Disease Category or family but lacks specificity, for example Meningitis vs. Viral Meningitis, or presents an incorrect subtype within the correct lineage.
+  definition_verbatim: true
+  location: Section 4.4
+  scale: score 1
+- term: Incorrect
+  level: category
+  parent: Exact Diagnostic Accuracy (ExactAcc)
+  definition: The diagnosis is factually wrong, unrelated, or consists only of non-diagnostic entities, such as symptoms.
+  definition_verbatim: true
+  location: Section 4.4
+  scale: score 0
+- term: Strict Evidence Quality (StrictEQ)
+  level: metric
+  definition: the proportion of cases with maximally supported evidence; evaluates whether the model can construct a complete, traceable chain of evidence based only on information actually acquired during the interaction
+  definition_verbatim: true
+  location: Section 4.4
+  scale: evidence score 0-2 per case; StrictEQ counts 2
+- term: Hallucinated Evidence
+  level: category
+  parent: Strict Evidence Quality (StrictEQ)
+  definition: If an evidence item cannot be sourced from the interaction log, meaning the test was never requested, the sign was never disclosed, or the model fabricated a 'new fact', it is classified as Hallucinated Evidence.
+  definition_verbatim: true
+  location: Section 4.4, grounding check
+  scale: binary per evidence item
+- term: Fully Supported Accuracy (FSA)
+  level: metric
+  definition: Proportion of cases where the diagnosis is strictly correct and its evidence is fully supported (strictly correct and StrictEQ score 2).
+  definition_verbatim: false
+  location: Section 2.4, Fig. 3C
+  scale: proportion
+- term: Capability Gap
+  level: metric
+  definition: Performance drop from the Full-Context task to the Active Evidence-Seeking task (for accuracy and for evidence quality).
+  definition_verbatim: false
+  location: Section 2.1, Fig. 1
+  scale: difference in points
+notes: 'Two tasks: Task 1 full-context diagnosis and Task 2 active evidence seeking with a standardized-patient simulator (max 10 turns). LLM-as-a-judge arbitrator (DeepSeek-v3) scores against the gold standard. Evidence scoring criteria text for the 0/1/2 levels was not read; the FSA definition is paraphrased from the figure discussion. Results are also stratified by six clinical systems and case source (not scored terms).'

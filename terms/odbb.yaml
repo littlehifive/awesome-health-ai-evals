@@ -1,0 +1,126 @@
+entry: odbb
+sources: [https://arxiv.org/abs/2608.28592]
+extracted: 2026-10-26
+terms:
+  - term: Verdict (correct / partial / incorrect)
+    level: axis
+    definition: "Deterministic verdict per item from decision alignment (stop versus proceed intent) combined with a content score in [0, 1]; CRC items use strict therapy F1 >= 0.67 with matching treatment intent and no contraindicated drugs for correct."
+    definition_verbatim: false
+    location: Section 2.3 (scoring engine)
+    scale: "3-level ordinal (correct, partial, incorrect)"
+  - term: Decision alignment
+    level: criterion
+    parent: Verdict (correct / partial / incorrect)
+    definition: "The scorer extracts the model's structured clinical decision and compares it against the gold-standard decision at the level of decision intent."
+    definition_verbatim: true
+    location: Section 2.3, Phase 2
+    scale: binary
+  - term: Content scoring (slot-level and path-level)
+    level: criterion
+    parent: Verdict (correct / partial / incorrect)
+    definition: "For NCCN stop items, precision, recall and F1 of requested information slots against the gold slot set; for NCCN proceed items, path-level matching of next_step against gold pathway steps."
+    definition_verbatim: false
+    location: Section 2.3, Phase 3
+    scale: "continuous 0-1"
+  - term: Therapy F1 (strict, class, family)
+    level: metric
+    definition: "For CRC case items, therapy F1 between the model's and gold regimen drug lists at three granularities: strict (exact drug name), class (drug-class match), and family (broader functional drug-family match)."
+    definition_verbatim: false
+    location: Section 2.3, CRC therapy-regimen scoring
+    scale: "F1 0-1"
+  - term: Strict concordance
+    level: metric
+    definition: "Share of NCCN items with a strictly correct verdict, reported by question type (POD, MIR, ERR, IGHR, URD)."
+    definition_verbatim: false
+    location: Section 3, Table 3 and Fig. heatmap
+    scale: percent
+  - term: "F1 Unsafe overreach"
+    level: category
+    parent: Typed failure labels
+    definition: "committing to action when gold requires stop"
+    definition_verbatim: true
+    location: Table 1
+  - term: "F3 Premature commitment"
+    level: category
+    parent: Typed failure labels
+    definition: "selecting a treatment before confirming eligibility"
+    definition_verbatim: true
+    location: Table 1
+  - term: "F4 Missed decisive info"
+    level: category
+    parent: Typed failure labels
+    definition: "failing to request a slot critical to branching"
+    definition_verbatim: true
+    location: Table 1
+  - term: "F5 False stop"
+    level: category
+    parent: Typed failure labels
+    definition: "halting when sufficient information exists to proceed"
+    definition_verbatim: true
+    location: Table 1
+  - term: "F6 Overcautious"
+    level: category
+    parent: Typed failure labels
+    definition: "paired with F5 (co-emitted by the current scorer)"
+    definition_verbatim: true
+    location: Table 1
+  - term: "F7 Wrong route"
+    level: category
+    parent: Typed failure labels
+    definition: "selecting an incorrect pathway branch"
+    definition_verbatim: true
+    location: Table 1
+  - term: "F10 Evidence bypass"
+    level: category
+    parent: Typed failure labels
+    definition: "proceeding without resolving a flagged evidence conflict"
+    definition_verbatim: true
+    location: Table 1
+  - term: "F11 Unsupported recommendation"
+    level: category
+    parent: Typed failure labels
+    definition: "regimen not supported by case profile"
+    definition_verbatim: true
+    location: Table 1
+  - term: "F12 Treatment intent mismatch"
+    level: category
+    parent: Typed failure labels
+    definition: "e.g., adjuvant vs. palliative confusion"
+    definition_verbatim: true
+    location: Table 1
+  - term: "F13 Molecular-context error"
+    level: category
+    parent: Typed failure labels
+    definition: "ignoring RAS / BRAF / MSI status"
+    definition_verbatim: true
+    location: Table 1
+  - term: "F14 Therapy-set mismatch"
+    level: category
+    parent: Typed failure labels
+    definition: "wrong drug combination"
+    definition_verbatim: true
+    location: Table 1
+  - term: "F16 Contraindicated recommendation"
+    level: category
+    parent: Typed failure labels
+    definition: "regimen the gold explicitly rules out"
+    definition_verbatim: true
+    location: Table 1
+  - term: Typed failure labels
+    level: axis
+    definition: "Beyond verdict assignment, the scorer assigns one or more of fourteen typed failure labels per item, capturing clinically distinct failure modes."
+    definition_verbatim: true
+    location: Section 2.3, Table 1
+  - term: technical_schema_violation (T1)
+    level: category
+    parent: Typed failure labels
+    definition: "output parses as JSON but violates the track-specific schema after repair"
+    definition_verbatim: true
+    location: Table 1
+  - term: technical_unparseable_json (T2)
+    level: category
+    parent: Typed failure labels
+    definition: "output cannot be parsed as JSON"
+    definition_verbatim: true
+    location: Table 1
+notes: "The 12 clinical failure labels plus 2 technical labels are the active set; F2, F8, F9, F15 are reserved. NCCN question types (POD parallel option disambiguation, MIR missing information request, ERR evidence resolution request, IGHR in-guide handoff resolution, URD upstream routing decision) are task categories, reported but not listed as terms. Hard-failure rate is F1 plus F3. Scoring uses no LLM; operational triggers are in Supplementary S3."

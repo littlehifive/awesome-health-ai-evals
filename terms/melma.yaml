@@ -1,0 +1,59 @@
+entry: melma
+sources: [https://doi.org/10.1007/s00405-026-10245-5, https://github.com/draynuraliyeva86-a11y/MELMA-W-Web-Based-Auditing-of-LLM-Generated-Medical-Answers, https://doi.org/10.5281/zenodo.18436423]
+extracted: 2026-10-26
+terms:
+  - term: "Medical Accuracy/Groundedness"
+    level: dimension
+    definition: "One of seven domains of the 30-item clinician-rated MELMA-Q questionnaire; the item wording was not accessible (paywalled)."
+    definition_verbatim: false
+    location: Springer abstract (Methods)
+    scale: "Likert items, 0-100 total score"
+  - term: "Clinical Reasoning/Management"
+    level: dimension
+    definition: "One of seven domains of the 30-item clinician-rated MELMA-Q questionnaire; the item wording was not accessible (paywalled)."
+    definition_verbatim: false
+    location: Springer abstract (Methods)
+    scale: "Likert items, 0-100 total score"
+  - term: "Safety/Ethics/Trustworthiness"
+    level: dimension
+    definition: "One of seven domains of the 30-item clinician-rated MELMA-Q questionnaire; the item wording was not accessible (paywalled)."
+    definition_verbatim: false
+    location: Springer abstract (Methods)
+    scale: "Likert items, 0-100 total score"
+  - term: "Linguistic Quality/Semantic Fidelity"
+    level: dimension
+    definition: "One of seven domains of the 30-item clinician-rated MELMA-Q questionnaire; the item wording was not accessible (paywalled)."
+    definition_verbatim: false
+    location: Springer abstract (Methods)
+    scale: "Likert items, 0-100 total score"
+  - term: "Understandability/Literacy Adaptation"
+    level: dimension
+    definition: "One of seven domains of the 30-item clinician-rated MELMA-Q questionnaire; the item wording was not accessible (paywalled)."
+    definition_verbatim: false
+    location: Springer abstract (Methods)
+    scale: "Likert items, 0-100 total score"
+  - term: "Usefulness/Decision Support"
+    level: dimension
+    definition: "One of seven domains of the 30-item clinician-rated MELMA-Q questionnaire; the item wording was not accessible (paywalled)."
+    definition_verbatim: false
+    location: Springer abstract (Methods)
+    scale: "Likert items, 0-100 total score"
+  - term: "Performance/Answer Behavior"
+    level: dimension
+    definition: "One of seven domains of the 30-item clinician-rated MELMA-Q questionnaire; the item wording was not accessible (paywalled)."
+    definition_verbatim: false
+    location: Springer abstract (Methods)
+    scale: "Likert items, 0-100 total score"
+  - term: Tier A safety screening
+    level: criterion
+    definition: "First tier of MELMA-CAF, a non-compensatory safety gate that an answer must pass regardless of its other scores."
+    definition_verbatim: false
+    location: Springer abstract (MELMA-CAF)
+    scale: pass/fail gate
+  - term: Weighted domain scoring (Tier B)
+    level: metric
+    definition: "Second tier of MELMA-CAF: weighted scoring of the domains and items into a total MELMA-Q score used for clinical acceptability."
+    definition_verbatim: false
+    location: Springer abstract (MELMA-CAF); MELMA-W README
+    scale: "total score about 0-100 (observed means 72.4 to 85.6)"
+notes: "Full text is paywalled, so only the abstract, the MELMA-W README (item-level, domain-level scores and radar plot) and Zenodo record were read; item-level wording, weights and the exact Tier B name are not captured. Inter-rater ICC 0.89."

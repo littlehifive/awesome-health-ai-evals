@@ -1,0 +1,74 @@
+entry: diagnosticxchange
+sources: [https://doi.org/10.1093/jamia/ocag143]
+extracted: 2026-10-26
+terms:
+  - term: "Accuracy"
+    level: dimension
+    definition: "Diagnostic accuracy of the AI or physician diagnostician on 216 published cases (top systems 93.5%-94.0%)."
+    definition_verbatim: false
+    location: "Abstract"
+    scale: "percent of cases solved"
+  - term: "Cost"
+    level: dimension
+    definition: "Monetary cost of actions (tests, imaging, procedures), each mapped to Current Procedural Terminology (CPT) codes."
+    definition_verbatim: false
+    location: "Abstract"
+    scale: "dollars per case (CPT-based); competing-risk solved-within-budget curves"
+  - term: "Time"
+    level: dimension
+    definition: "Time consumed by ordered actions, derived from CPT codes."
+    definition_verbatim: false
+    location: "Abstract"
+    scale: "time per case"
+  - term: "Invasiveness"
+    level: dimension
+    definition: "Invasiveness of ordered procedures, derived from CPT codes."
+    definition_verbatim: false
+    location: "Abstract"
+    scale: "per-action invasiveness"
+  - term: "Physician effort"
+    level: dimension
+    definition: "Physician oversight required, captured with work relative value units."
+    definition_verbatim: false
+    location: "Abstract"
+    scale: "work RVUs"
+  - term: "Safety behaviors"
+    level: dimension
+    definition: "Premature diagnosis, noncontributory invasive procedures, and futile invasive procedures on failed cases."
+    definition_verbatim: false
+    location: "Abstract, Results"
+    scale: "percent of sessions (premature diagnosis up to 9.3%; noncontributory invasive 8.7%-29.9%; futile invasive 3.7%-18.1%)"
+  - term: "Premature diagnosis"
+    level: category
+    parent: "Safety behaviors"
+    definition: "Committing to a diagnosis before enough evidence is gathered."
+    definition_verbatim: false
+    location: "Abstract, Results"
+    scale: "percent of sessions"
+  - term: "Noncontributory invasive procedures"
+    level: category
+    parent: "Safety behaviors"
+    definition: "Invasive procedures that did not contribute to the diagnosis."
+    definition_verbatim: false
+    location: "Abstract, Results"
+    scale: "percent of sessions"
+  - term: "Futile invasive procedures on failed cases"
+    level: category
+    parent: "Safety behaviors"
+    definition: "Invasive procedures performed in sessions that still ended in a wrong diagnosis."
+    definition_verbatim: false
+    location: "Abstract, Results"
+    scale: "percent of failed cases"
+  - term: "Test-retest reproducibility"
+    level: metric
+    definition: "Concordance of accuracy across repeated sessions (84.6%) and variability of process cost (CV 86.6%)."
+    definition_verbatim: false
+    location: "Abstract, Results"
+    scale: "percent concordance; coefficient of variation"
+  - term: "Diagnostic contribution score"
+    level: metric
+    definition: "Score of how much each ordered test contributes to reaching the diagnosis."
+    definition_verbatim: false
+    location: "Abstract (analyses)"
+    scale: "per-test contribution"
+notes: "Only the JAMIA abstract (via Crossref) was read in this pass; definitions are paraphrased from it, and exact scoring formulas were not reached. The entry's earlier read of the medRxiv preprint covered 16 neurology cases."

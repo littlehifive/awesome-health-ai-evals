@@ -1,0 +1,99 @@
+entry: clindef
+sources: [https://arxiv.org/abs/2512.23440]
+extracted: 2026-10-26
+terms:
+  - term: Diagnostic Accuracy
+    level: metric
+    definition: "This dimension focuses on the accuracy of the final diagnosis, measuring whether the Doctor Agent correctly identifies the patient's disease."
+    definition_verbatim: true
+    location: Section 3.3 (evaluation protocol)
+    scale: percentage of cases correct
+  - term: Diagnostic Efficiency
+    level: dimension
+    definition: "This dimension evaluates how effectively the Doctor Agent gathers clinically relevant information and progresses toward the final diagnosis."
+    definition_verbatim: true
+    location: Section 3.3
+  - term: Total Dialogue Turns
+    level: metric
+    parent: Diagnostic Efficiency
+    definition: "The overall number of turns required to reach a correct diagnosis, reflecting efficiency in information gathering and decision-making."
+    definition_verbatim: true
+    location: Section 3.3, Table 1
+    scale: count (lower is better)
+  - term: Positive Findings Per Turn
+    level: metric
+    parent: Diagnostic Efficiency
+    definition: "The positive findings per case, indicating how much clinically useful information is elicited in each dialogue."
+    definition_verbatim: true
+    location: Section 3.3, Table 1
+    scale: count
+  - term: Negative Findings Per Turn
+    level: metric
+    parent: Diagnostic Efficiency
+    definition: "The negative findings per case, reflecting how much clinically non-present conditions are ruled out in each dialogue."
+    definition_verbatim: true
+    location: Section 3.3, Table 1
+    scale: count
+  - term: Positive Hit Rate
+    level: metric
+    parent: Diagnostic Efficiency
+    definition: "The proportion of positive findings among all findings, capturing the precision of information gathering by minimizing irrelevant or non-contributory data."
+    definition_verbatim: true
+    location: Section 3.3, Table 1
+    scale: percentage
+  - term: Diagnostic Quality Score (DQS)
+    level: dimension
+    definition: "LLM-as-a-Judge score from a clinically grounded rubric of seven weighted dimensions, summed with clinical weights to 100."
+    definition_verbatim: false
+    location: Section 3.3, Eq. 10, Table A3
+    scale: 0-100 weighted sum
+  - term: Chief Complaint Exploration (CCE)
+    level: criterion
+    parent: Diagnostic Quality Score (DQS)
+    definition: "The extent to which the agent systematically elicits and structures symptom characteristics (onset, quality, location, severity, timing, aggravating/relieving factors, associated symptoms) and identifies at least one clinical red flag warranting urgent attention."
+    definition_verbatim: true
+    location: Appendix A5, Table A3
+    scale: "0-10"
+  - term: History Completeness (HC)
+    level: criterion
+    parent: Diagnostic Quality Score (DQS)
+    definition: "The comprehensiveness and clinical relevance of collected patient history, including present illness, past medical/surgical history, medications, allergies, family history, and social determinants, with explicit linkage to the diagnostic hypothesis."
+    definition_verbatim: true
+    location: Appendix A5, Table A3
+    scale: "0-10"
+  - term: Evidence Chain Integrity (ECI)
+    level: criterion
+    parent: Diagnostic Quality Score (DQS)
+    definition: "The logical traceability of each diagnostic assertion to documented clinical findings (symptoms, signs, or test results), ensuring no unsupported inferential leaps or subjective speculation."
+    definition_verbatim: true
+    location: Appendix A5, Table A3
+    scale: "0-20"
+  - term: Test Justification (TJ)
+    level: criterion
+    parent: Diagnostic Quality Score (DQS)
+    definition: "The appropriateness and clinical rationale for ordering diagnostic tests, evaluated against guideline-based indications, risk stratification, and avoidance of under- or over-utilization."
+    definition_verbatim: true
+    location: Appendix A5, Table A3
+    scale: "0-10"
+  - term: Differential Diagnosis (DDx)
+    level: criterion
+    parent: Diagnostic Quality Score (DQS)
+    definition: "The breadth, clinical plausibility, and prioritization of alternative diagnoses, particularly inclusion and explicit reasoning for high-risk, treatable conditions that must be ruled out."
+    definition_verbatim: true
+    location: Appendix A5, Table A3
+    scale: "0-10"
+  - term: Diagnostic Correctness (DC)
+    level: criterion
+    parent: Diagnostic Quality Score (DQS)
+    definition: "Alignment of the final diagnosis with available evidence and guidelines."
+    definition_verbatim: false
+    location: Section 3.3; Appendix A5
+    scale: "0-30"
+  - term: Diagnostic Uncertainty (DU)
+    level: criterion
+    parent: Diagnostic Quality Score (DQS)
+    definition: "Responsible acknowledgment and management of diagnostic ambiguity."
+    definition_verbatim: false
+    location: Section 3.3; Appendix A5
+    scale: "0-10"
+notes: "DQS dimensions are grouped into Information Gathering (CCE, HC), Reasoning Process (ECI, TJ, DDx), and Conclusion and Safety (DC, DU). Max weights as in Figure 2. DC and DU definitions in Appendix A5 were truncated in my read, so those two are paraphrased from the Section 3.3 summary."

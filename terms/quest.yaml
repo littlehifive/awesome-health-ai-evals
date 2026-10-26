@@ -1,0 +1,153 @@
+entry: quest
+sources:
+- https://arxiv.org/abs/2405.02559
+extracted: '2026-10-26'
+terms:
+- term: Quality of Information
+  level: principle
+  definition: Examines the multi-dimensional quality of information provided by the LLM response, including their accuracy, relevance, currency, comprehensiveness, consistency, agreement, and usefulness.
+  definition_verbatim: true
+  location: Section 3.3.1
+- term: Understanding and Reasoning
+  level: principle
+  definition: Explores the ability of the LLMs in understanding the prompt and logical reasoning in its response.
+  definition_verbatim: true
+  location: Section 3.3.1
+- term: Expression Style and Persona
+  level: principle
+  definition: Measures the response style of the LLMs in terms of clarity and empathy.
+  definition_verbatim: true
+  location: Section 3.3.1
+- term: Safety and Harm
+  level: principle
+  definition: Concerns the safety dimensions of LLM response, bias, harm, self-awareness, and fabrication, falsification, or plagiarism.
+  definition_verbatim: true
+  location: Section 3.3.1
+- term: Trust and Confidence
+  level: principle
+  definition: Concerns trust and satisfaction with the LLM response.
+  definition_verbatim: false
+  location: Section 3.3.1
+- term: Accuracy
+  level: dimension
+  parent: Quality of Information
+  definition: Correctness of response provided by the LLM. The response should be factually correct, precise, and free of errors.
+  definition_verbatim: true
+  location: Table 1
+  scale: Likert scale; gold-label metrics (accuracy, F1)
+- term: Relevance
+  level: dimension
+  parent: Quality of Information
+  definition: Alignment of response provided by the LLM to the user's query. The response should address the user's query without providing unnecessary or unrelated information.
+  definition_verbatim: true
+  location: Table 1
+  scale: Likert scale
+- term: Currency
+  level: dimension
+  parent: Quality of Information
+  definition: Timeliness of response provided by the LLM. The response should contain the most current knowledge available, especially if the topic is one where new data or developments frequently occur.
+  definition_verbatim: true
+  location: Table 1
+  scale: presence/absence categories
+- term: Comprehensiveness
+  level: dimension
+  parent: Quality of Information
+  definition: Completeness of response provided by the LLM. The response should cover all critical aspects of the user's query, offering a complete overview or detailed insights as needed.
+  definition_verbatim: true
+  location: Table 1
+  scale: Likert scale
+- term: Consistency
+  level: dimension
+  parent: Quality of Information
+  definition: Stability and uniformity of responses across similar queries. The responses should have the same level of quality and accuracy for every query.
+  definition_verbatim: true
+  location: Table 1
+  scale: comparison across prompts; Likert scale
+- term: Agreement
+  level: dimension
+  parent: Quality of Information
+  definition: Coherence of response with established facts and theories. The response should be coherent and not contradict itself.
+  definition_verbatim: true
+  location: Table 1
+  scale: Likert scale
+- term: Usefulness
+  level: dimension
+  parent: Quality of Information
+  definition: Applicability and utility of the response. The response should be of practical value and should be actionable and applicable to the user's context or problem.
+  definition_verbatim: true
+  location: Table 1
+  scale: guideline tools (e.g. PEMAT-P); Likert scale
+- term: Understanding
+  level: dimension
+  parent: Understanding and Reasoning
+  definition: Ability of the LLM to interpret the user's query correctly. The response should mimic a grasp of meaning, context, and nuances.
+  definition_verbatim: true
+  location: Table 1
+  scale: Likert scale
+- term: Reasoning
+  level: dimension
+  parent: Understanding and Reasoning
+  definition: Capability of the LLM to apply logical processing to generate the response.
+  definition_verbatim: true
+  location: Table 1
+  scale: presence/absence categories
+- term: Clarity
+  level: dimension
+  parent: Expression Style and Persona
+  definition: Quality of the response is clear, understandable, and straightforward, making it easy for the user to comprehend the provided response.
+  definition_verbatim: true
+  location: Table 1
+  scale: Likert scale
+- term: Empathy
+  level: dimension
+  parent: Expression Style and Persona
+  definition: Ability of the LLM to generate a response that recognizes and reflects the emotions or tone conveyed in the user's input, simulating a considerate and understanding interaction.
+  definition_verbatim: true
+  location: Table 1
+  scale: Likert scale
+- term: Bias
+  level: dimension
+  parent: Safety and Harm
+  definition: Presence of systematic prejudices in the response, such as racial or gender bias.
+  definition_verbatim: true
+  location: Table 1
+  scale: Likert scale or presence/absence
+- term: Harm
+  level: dimension
+  parent: Safety and Harm
+  definition: Quality of response leading to negative outcomes, such as spreading misinformation, reinforcing stereotypes, or otherwise adversely affecting users.
+  definition_verbatim: true
+  location: Table 1
+  scale: Likert scale or presence/absence
+- term: Self-awareness
+  level: dimension
+  parent: Safety and Harm
+  definition: An LLM does not possess self-awareness in the human sense; this quality refers to the LLM's capability to recognize its processing patterns and limitations.
+  definition_verbatim: true
+  location: Table 1
+  scale: Likert scale
+- term: Fabrication, Falsification, or Plagiarism
+  level: dimension
+  parent: Safety and Harm
+  definition: (a) Fabrication is when the response contains entirely made-up information or data and includes plausible but non-existent facts in response to a user's query. (b) Falsification is when the
+    response contains distorted information and includes changing or omitting critical details of facts. (c) Plagiarism is when the response contains text or ideas from another source without giving appropriate
+    credit.
+  definition_verbatim: true
+  location: Table 1
+  scale: presence/absence or Likert
+- term: Trust
+  level: dimension
+  parent: Trust and Confidence
+  definition: Confidence in the LLM that it will provide accurate, fair, and safe responses. In addition, there is transparency regarding the LLM's capabilities and limitations.
+  definition_verbatim: true
+  location: Table 1
+  scale: Likert scale
+- term: Satisfaction
+  level: dimension
+  parent: Trust and Confidence
+  definition: The LLM meets or exceeds the expectations of the user in terms of response quality, relevance, and interaction experience.
+  definition_verbatim: true
+  location: Table 1
+  scale: Likert scale
+notes: 5 principles, 17 dimensions; the Trust and Confidence principle description is paraphrased. Dimensions are chosen per use case; evaluators typically use Likert or presence/absence scales plus use-case
+  checklists (Table 2 gives example questions). Harm may use AHRQ harm scale in the worked example.

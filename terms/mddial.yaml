@@ -1,0 +1,24 @@
+entry: mddial
+sources:
+- https://arxiv.org/abs/2308.08147
+extracted: '2026-10-26'
+terms:
+- term: Symptom score (S_score^dise)
+  level: metric
+  definition: 'Disease-wise symptom score: counts generated symptoms that belong to the disease''s symptom set, scaled by a cost C = min(N_gold, N_pred) / max(N_gold, N_pred) penalizing asking too few or too many.'
+  definition_verbatim: false
+  location: Section 4.1, Eq. 1-3
+  scale: 0-1
+- term: Diagnosis accuracy (Diag_acc)
+  level: metric
+  definition: Whether the predicted diagnosis is correct.
+  definition_verbatim: false
+  location: Section 4.1
+  scale: binary per dialogue
+- term: Reliability score (R_score)
+  level: metric
+  definition: 1 if the disease-wise symptom score is at least threshold t and diagnosis is correct, else 0; unifies symptom and disease accuracy.
+  definition_verbatim: false
+  location: Section 4.1, Eq. 4
+  scale: binary per dialogue
+notes: Paper positions the dataset mainly for training; GPT-2 and DialoGPT baselines. Evaluated on seen-template and unseen-template test sets.

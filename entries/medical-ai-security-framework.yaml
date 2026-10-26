@@ -1,0 +1,41 @@
+id: medical-ai-security-framework
+name: Practical Framework for Evaluating Medical AI Security
+kind: eval_framework
+year: 2025
+summary: A proposed low-cost framework for testing medical LLMs against jailbreaks (role-play, authority impersonation, multi-turn manipulation) and privacy extraction across specialties ranked by clinical risk, using synthetic patient records and attack-success-rate scoring.
+readme_section: frameworks
+links:
+  paper: https://arxiv.org/abs/2512.08185
+  arxiv: "2512.08185"
+  doi: 10.48550/arxiv.2512.08185
+license: null
+open_data: described_only
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: A design proposal with no released items; patient records are to be synthetic.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [not_applicable]
+  venue: preprint
+facets:
+  health_areas: [emergency_triage, mental_health, pharmacy_medication, primary_care]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: framework specification only; scenario counts per specialty left to future pilot work
+signals:
+  citations: 0
+  citations_source: OpenAlex
+  hf_downloads: null
+  github_stars: null
+  uptake: []
+  updated: '2026-10-26'
+provenance:
+  records: [r_0d0c93ef25]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "The Ohio State University. Read the arXiv text: it is a proposal with threat model, synthetic-data method, and metrics (attack success rate), but no dataset, code, or results; the paper says implementation is future work. Marginal as an entry since nothing is released for reuse beyond the specification. Planned models are small free ones such as GPT-2 and DistilGPT-2."

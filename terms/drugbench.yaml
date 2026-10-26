@@ -1,0 +1,48 @@
+entry: drugbench
+sources:
+- https://arxiv.org/abs/2606.20663
+extracted: '2026-10-26'
+terms:
+- term: Safety
+  level: metric
+  definition: the probability that no unacceptable outcome is reached within the evaluation horizon under the scheming mode
+  definition_verbatim: true
+  location: Section 2, Eq. 1
+  scale: probability 0-1
+- term: Risk
+  level: metric
+  definition: the expected severity of harm, using a severity-of-harm function c in [0,1] adjudicated by the green-team LLM judge
+  definition_verbatim: true
+  location: Section 3.2, Eq. 2
+  scale: expected severity
+- term: Usefulness
+  level: metric
+  definition: Usefulness of the final answer returned by the control protocol, traded off against safety on a Pareto frontier.
+  definition_verbatim: false
+  location: Section 3.2, Figure 2
+  scale: 0-1
+- term: Drug-drug interactions
+  level: category
+  parent: Medication harm
+  definition: Medication-harm category annotated from FDA drug-label information.
+  definition_verbatim: false
+  location: Section 3.1
+- term: Contraindications
+  level: category
+  parent: Medication harm
+  definition: Medication-harm category annotated from FDA drug-label information.
+  definition_verbatim: false
+  location: Section 3.1
+- term: Dosing constraints
+  level: category
+  parent: Medication harm
+  definition: Medication-harm category annotated from FDA drug-label information.
+  definition_verbatim: false
+  location: Section 3.1
+- term: Patient action restrictions
+  level: category
+  parent: Medication harm
+  definition: Medication-harm category (actions to avoid) annotated from FDA drug-label information.
+  definition_verbatim: false
+  location: Section 3.1
+notes: Medication harm is a grouping label added here. Usefulness definition not located; Appendix A.6 prompts not read.

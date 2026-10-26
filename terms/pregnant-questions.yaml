@@ -1,0 +1,47 @@
+entry: pregnant-questions
+sources: [https://arxiv.org/abs/2311.09542, https://aclanthology.org/2024.naacl-long.403/]
+extracted: 2026-10-26
+terms:
+  - term: Inference veracity
+    level: category
+    definition: "Health experts label each assumption or implication drawn from a question as true, false, or subjective/unsure, with supporting evidence from a trusted web document."
+    definition_verbatim: false
+    location: Section 2.3 (Annotating Inference Veracity); Table 1; Figure 2
+    scale: "true / false / unsure (subjective)"
+  - term: Presupposition vs implicature
+    level: category
+    definition: "Type of pragmatic inference: a proposition the asker believes true without which the question would not be felicitous (presupposition), or a belief derived through communicative principles (implicature)."
+    definition_verbatim: false
+    location: Section 3 (annotation framework); Figure 2
+    scale: categorical label
+  - term: Addressed in answer
+    level: criterion
+    definition: "Whether an expert-written answer addresses an identified inference; tracked for expert answers to measure how often assumptions are challenged."
+    definition_verbatim: false
+    location: Figure 2; Section 3
+    scale: binary
+  - term: Completeness
+    level: criterion
+    definition: "Expert validators score model answers from 1-5 on information completeness: 1 off-topic and missing crucial information, 2 topical but missing crucial information, 3 all essential information, 4 most information present, 5 information complete."
+    definition_verbatim: false
+    location: Section 5.2, Human Judgments; Figure 5
+    scale: 1-5
+  - term: QAFactEval
+    level: metric
+    definition: "A QA evaluation metric originally designed to measure the faithfulness of summaries; the main automatic metric because it most closely captures information content."
+    definition_verbatim: true
+    location: Section 5.2, Automatic Evaluation Metrics; Table 3
+    scale: continuous
+  - term: ROUGE-L (F1 and recall)
+    level: metric
+    definition: "Overlap of generated answer with the expert-written answer."
+    definition_verbatim: false
+    location: Section 5.2; Table 3
+    scale: continuous
+  - term: BLEURT
+    level: metric
+    definition: "Learned text-generation metric comparing generated answer with the expert answer."
+    definition_verbatim: false
+    location: Section 5.2; Table 3
+    scale: continuous
+notes: "Primary release is annotations of assumptions and implications; the QA-pipeline experiments (retrieval, reranking, reading with or without inferences) are secondary. Expert validators also rate inference plausibility (Section 2.2), a data-quality check not a model score."

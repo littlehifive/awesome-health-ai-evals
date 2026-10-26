@@ -1,0 +1,48 @@
+entry: cat-medical-llm-eval
+sources:
+- https://doi.org/10.1038/s41746-026-02671-w
+- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13448111/
+- https://github.com/zjiang4/LLM-CAT
+extracted: '2026-10-26'
+terms:
+- term: Ability estimate (theta)
+  level: metric
+  definition: IRT latent proficiency of the LLM on medical knowledge, estimated from MCQ responses on the full 2,815-item bank or an adaptive subset.
+  definition_verbatim: false
+  location: Introduction, Table 1
+  scale: IRT theta
+- term: Accuracy
+  level: metric
+  definition: Percentage of MCQ items answered correctly, reported alongside theta.
+  definition_verbatim: false
+  location: Table 1
+  scale: percent correct
+- term: Bias
+  level: metric
+  definition: The average difference between the estimated and true ability values. An ideal system has a bias close to zero, indicating no systematic over- or underestimation.
+  definition_verbatim: true
+  location: Methods, evaluation metrics (L121-L150 of PMC copy)
+  scale: simulation study
+- term: RMSE
+  level: metric
+  definition: The square root of the average squared difference between estimated and true ability, RMSE is a comprehensive measure of overall accuracy, penalizing large errors more heavily.
+  definition_verbatim: true
+  location: Methods, evaluation metrics (L121-L150 of PMC copy)
+  scale: simulation study
+- term: RMSE Increase Rate
+  level: metric
+  definition: RMSE Increase Rate quantifies the percentage reduction in the magnitude of the RMSE for a CAT condition relative to the full-bank baseline.
+  definition_verbatim: true
+  location: Methods, evaluation metrics (L121-L150 of PMC copy)
+- term: Correlation Loss Rate
+  level: metric
+  definition: Correlation Loss Rate quantifies the percentage loss in correlation between estimated ability and true ability of a CAT administration compared to the full-bank test. Lower values are better.
+  definition_verbatim: true
+  location: Methods, evaluation metrics (L121-L150 of PMC copy)
+- term: Test length
+  level: metric
+  definition: Number of items administered before the CAT stopping rule (for example SE <= 0.316) ends the test; used as the cost-efficiency measure with total tokens and time.
+  definition_verbatim: false
+  location: Results, Table 1
+  scale: item count
+notes: This is a psychometric evaluation method for MCQ knowledge; scores are ability estimates, not response-quality criteria. Test-length reduction and token/time savings are the efficiency measures. Other metrics in the Methods list may exist beyond those recorded.

@@ -1,0 +1,108 @@
+entry: unified-health-llm-evaluation-framework
+sources:
+- https://doi.org/10.1093/jamia/ocaf023
+extracted: '2026-10-26'
+terms:
+- term: Linguistic quality
+  level: dimension
+  definition: Evaluation aspect adapted from the multidimensional quality metric framework, covering fluency, coherence, clarity, brevity.
+  definition_verbatim: false
+  location: Table 1 / Methods
+- term: Efficiency
+  level: dimension
+  definition: Evaluation aspect covering integration ease and generation speed.
+  definition_verbatim: false
+  location: Table 1 / Methods
+- term: Content integrity
+  level: dimension
+  definition: Evaluation aspect covering relevance, completeness, accuracy, factuality.
+  definition_verbatim: false
+  location: Table 1 / Methods
+- term: Trustworthiness
+  level: dimension
+  definition: Evaluation aspect added beyond the base quality framework.
+  definition_verbatim: false
+  location: Table 1 / Methods
+- term: Usefulness
+  level: dimension
+  definition: Evaluation aspect; the effect the system has on the operational effectiveness and efficiency of an organization.
+  definition_verbatim: false
+  location: Table 1 / Methods
+- term: Fluency
+  level: criterion
+  parent: Linguistic quality
+  definition: Linguistic quality sub-criterion; quantitative proxy perplexity.
+  definition_verbatim: false
+  location: Methods
+- term: Coherence
+  level: criterion
+  parent: Linguistic quality
+  definition: Linguistic quality sub-criterion; quantitative proxy DiscoScore.
+  definition_verbatim: false
+  location: Methods
+- term: Clarity
+  level: criterion
+  parent: Linguistic quality
+  definition: Linguistic quality sub-criterion.
+  definition_verbatim: false
+  location: Methods
+- term: Brevity
+  level: criterion
+  parent: Linguistic quality
+  definition: Linguistic quality sub-criterion.
+  definition_verbatim: false
+  location: Methods
+- term: Integration ease
+  level: criterion
+  parent: Efficiency
+  definition: Efficiency sub-criterion.
+  definition_verbatim: false
+  location: Methods
+- term: Generation speed
+  level: criterion
+  parent: Efficiency
+  definition: Efficiency sub-criterion; measured by generation time.
+  definition_verbatim: false
+  location: Methods
+- term: Relevance
+  level: criterion
+  parent: Content integrity
+  definition: Content integrity sub-criterion.
+  definition_verbatim: false
+  location: Methods
+- term: Completeness
+  level: criterion
+  parent: Content integrity
+  definition: Content integrity sub-criterion.
+  definition_verbatim: false
+  location: Methods
+- term: Accuracy
+  level: criterion
+  parent: Content integrity
+  definition: Content integrity sub-criterion.
+  definition_verbatim: false
+  location: Methods
+- term: Factuality
+  level: criterion
+  parent: Content integrity
+  definition: Content integrity sub-criterion.
+  definition_verbatim: false
+  location: Methods
+- term: ROUGE-L
+  level: metric
+  definition: Unsupervised reference-based overlap metric used as a quantitative measure.
+  definition_verbatim: false
+  location: Methods
+- term: ROUGE-N recall
+  level: metric
+  parent: Content integrity
+  definition: Quantitative measure of content integrity.
+  definition_verbatim: false
+  location: Methods
+- term: Keyword matching
+  level: metric
+  parent: Content integrity
+  definition: Quantitative measure of content integrity.
+  definition_verbatim: false
+  location: Methods
+notes: Only abstract, framework description and data statement were read; Table 1 not read in full, so definitions are paraphrased except as stated, and trustworthiness sub-criteria are not captured. Supervision (supervised vs unsupervised) is a framework attribute, not a term.

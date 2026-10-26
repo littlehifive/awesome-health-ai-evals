@@ -1,0 +1,42 @@
+entry: health-pariksha
+sources:
+- https://arxiv.org/abs/2410.13671
+extracted: '2026-10-26'
+terms:
+- term: FACTUAL CORRECTNESS (FC)
+  level: metric
+  definition: we curate a separate metric to double-check facts like dates, numbers, procedure and medicine names.
+  definition_verbatim: true
+  location: Section 4 (Metrics)
+  scale: '3 classes: Good 2, Medium 1, Bad 0; reference-based (doctor-verified GT)'
+- term: SEMANTIC SIMILARITY (SS)
+  level: metric
+  definition: we formulate another metric to specifically analyse if both the prediction and the ground-truth response convey the same information semantically, especially when they are in different languages.
+  definition_verbatim: true
+  location: Section 4 (Metrics)
+  scale: Good 2 / Medium 1 / Bad 0; reference-based; human-annotated on a subset
+- term: COHERENCE (COH)
+  level: metric
+  definition: This metric evaluates if the model was able to stitch together appropriate pieces of information from the three data chunks provided to yield a coherent response.
+  definition_verbatim: true
+  location: Section 4 (Metrics)
+  scale: Good 2 / Medium 1 / Bad 0; reference-free
+- term: CONCISENESS (CON)
+  level: metric
+  definition: we build this metric to assess the ability of the model to extract and compress all these bits of information relevant to the query into a crisp response.
+  definition_verbatim: true
+  location: Section 4 (Metrics)
+  scale: Good 2 / Medium 1 / Bad 0; reference-free
+- term: AGGREGATE (AGG)
+  level: metric
+  definition: Weighted combination of the four metrics, with weights set by two doctors (maximum weight to factual correctness, then semantic similarity, equal lower weight to coherence and conciseness).
+  definition_verbatim: false
+  location: Section 4 (Metrics)
+  scale: average of weighted metric percentages
+- term: Percentage Agreement (PA)
+  level: metric
+  definition: Agreement between human annotators and the LLM evaluator on semantic similarity; a check on the evaluator, not on model outputs.
+  definition_verbatim: false
+  location: Section 5 and Appendix A.1
+  scale: proportion
+notes: Metric prompts are in Appendix A.2 (not read). GPT-4o is the LLM evaluator, with one call per metric.

@@ -1,0 +1,26 @@
+entry: cspt
+sources:
+- https://arxiv.org/abs/2401.05695
+- https://github.com/Chengfeng-Dou/SpTesting
+extracted: '2026-10-26'
+terms:
+- term: Symptom (Sym.)
+  level: metric
+  definition: the probability of the model identifying key symptoms
+  definition_verbatim: true
+  location: Section 3.2, Table 2 caption; Appendix B.1
+  scale: percent of checklist key symptoms covered within five dialogue rounds
+- term: Test
+  level: metric
+  definition: the probability of the model identifying key medical tests
+  definition_verbatim: true
+  location: Section 3.2, Table 2 caption; Appendix B.1
+  scale: percent of checklist key tests covered
+- term: Diagnosis (Dis.)
+  level: metric
+  definition: the probability of the model making a correct diagnosis
+  definition_verbatim: true
+  location: Section 3.2, Table 2 caption; Appendix B.1
+  scale: percent of cases correct (checklist diagnosis)
+notes: Two physicians check each simulated consultation against a per-case checklist of key symptoms, key tests, and diseases (Appendix B.1). The paper also reports a separate preference-learning evaluation
+  with goal-oriented and constraint-oriented dialogue rules (Appendix A) on other datasets; those are not part of CSPT and are not listed.

@@ -1,0 +1,41 @@
+id: triageagent-esi
+name: TriageAgent ESI triage dataset
+kind: benchmark
+year: 2024
+summary: Clinical triage cases from the Emergency Severity Index Handbook (218 training cases and three 72-case test sets) with expert-assigned ESI levels 1 to 5 and a human-expert baseline, released with the TriageAgent multi-agent method.
+readme_section: open_ended
+links:
+  paper: https://doi.org/10.18653/v1/2024.findings-emnlp.329
+  doi: 10.18653/v1/2024.findings-emnlp.329
+  code: https://github.com/Lucanyc/TriageAgent
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Cases come from the US Emergency Severity Index (Version 4) Implementation Handbook.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [emergency_triage]
+  intended_users: [clinician, nurse_midwife]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 218 training cases and 3 test sets of 72 cases each
+signals:
+  citations: 19
+  citations_source: OpenAlex
+  hf_downloads: null
+  github_stars: 7
+  uptake: []
+  updated: '2026-10-26'
+provenance:
+  records: [r_65857cc9ce]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Virginia Tech and Children's National Hospital. Scoring is exact-match accuracy on the ESI level (1 to 5). The GitHub README links the data on Google Drive; no license is stated in the README or paper text read, and the paper refers to an appendix for copyright information that was not checked. Test cases are small (72 each). Cases are handbook examples, not real patient records. The paper's main contribution is the TriageAgent method; the dataset is a secondary release."

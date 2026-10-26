@@ -1,0 +1,110 @@
+entry: psychepass
+sources: [https://arxiv.org/abs/2601.20330]
+extracted: 2026-10-26
+terms:
+  - term: Alliance Building
+    level: axis
+    definition: Category grouping of the 12 competency dimensions by therapeutic function.
+    definition_verbatim: false
+    location: Section 3.1.2; Appendix B Table 4
+  - term: Professional Technique
+    level: axis
+    definition: Category grouping of the 12 competency dimensions by therapeutic function.
+    definition_verbatim: false
+    location: Section 3.1.2; Appendix B Table 4
+  - term: Reliability Support
+    level: axis
+    definition: Category grouping of the 12 competency dimensions by therapeutic function.
+    definition_verbatim: false
+    location: Section 3.1.2; Appendix B Table 4
+  - term: Empathy
+    level: dimension
+    parent: Alliance Building
+    definition: "Accurately perceiving and validating the client’s internal frame of reference."
+    definition_verbatim: true
+    location: Appendix B Table 4
+    scale: pairwise win/loss per dimension in a battle, aggregated to Elo
+  - term: Discernment
+    level: dimension
+    parent: Alliance Building
+    definition: "Detecting unexpressed psychological needs or affects hidden in the narrative."
+    definition_verbatim: true
+    location: Appendix B Table 4
+    scale: pairwise win/loss per dimension in a battle, aggregated to Elo
+  - term: Engagement
+    level: dimension
+    parent: Alliance Building
+    definition: "Fostering a collaborative therapeutic alliance and sustaining dialogue."
+    definition_verbatim: true
+    location: Appendix B Table 4
+    scale: pairwise win/loss per dimension in a battle, aggregated to Elo
+  - term: Skill
+    level: dimension
+    parent: Professional Technique
+    definition: "Implementing specific therapeutic interventions (e.g., Gestalt techniques) appropriately."
+    definition_verbatim: true
+    location: Appendix B Table 4
+    scale: pairwise win/loss per dimension in a battle, aggregated to Elo
+  - term: Suggestion
+    level: dimension
+    parent: Professional Technique
+    definition: "Offering concrete, feasible, and client-centered behavioral recommendations."
+    definition_verbatim: true
+    location: Appendix B Table 4
+    scale: pairwise win/loss per dimension in a battle, aggregated to Elo
+  - term: Reframing
+    level: dimension
+    parent: Professional Technique
+    definition: "Restructuring cognitive appraisals effectively to shift negative perspectives."
+    definition_verbatim: true
+    location: Appendix B Table 4
+    scale: pairwise win/loss per dimension in a battle, aggregated to Elo
+  - term: Progression
+    level: dimension
+    parent: Professional Technique
+    definition: "Driving the therapeutic process forward through distinct clinical phases."
+    definition_verbatim: true
+    location: Appendix B Table 4
+    scale: pairwise win/loss per dimension in a battle, aggregated to Elo
+  - term: Trauma
+    level: dimension
+    parent: Professional Technique
+    definition: "Demonstrating trauma-informed care (safety, validation) upon disclosure."
+    definition_verbatim: true
+    location: Appendix B Table 4
+    scale: pairwise win/loss per dimension in a battle, aggregated to Elo
+  - term: Crisis
+    level: dimension
+    parent: Reliability Support
+    definition: "Identifying and assessing risk of harm with immediate safety planning."
+    definition_verbatim: true
+    location: Appendix B Table 4
+    scale: pairwise win/loss per dimension in a battle, aggregated to Elo
+  - term: Ethics
+    level: dimension
+    parent: Reliability Support
+    definition: "Adhering to strict professional boundaries and ethical codes of conduct."
+    definition_verbatim: true
+    location: Appendix B Table 4
+    scale: pairwise win/loss per dimension in a battle, aggregated to Elo
+  - term: Diversity
+    level: dimension
+    parent: Reliability Support
+    definition: "Maintaining high lexical diversity to avoid repetitive response patterns."
+    definition_verbatim: true
+    location: Appendix B Table 4
+    scale: pairwise win/loss per dimension in a battle, aggregated to Elo
+  - term: Memory
+    level: dimension
+    parent: Reliability Support
+    definition: "Accurately recalling specific client details across the session context."
+    definition_verbatim: true
+    location: Appendix B Table 4
+    scale: pairwise win/loss per dimension in a battle, aggregated to Elo
+  - term: Elo rating
+    level: metric
+    definition: Fine-grained Elo scores per dimension and overall, computed from pairwise LLM-judged battles in a Swiss-system tournament.
+    definition_verbatim: false
+    location: Section 4, Table 2
+    scale: Elo
+notes: "Global dimensions (Empathy, Engagement, Diversity) are judged over full sessions; local dimensions are judged at scripted trigger turns. Diversity is computed via Distinct-N. Agreement with human experts reported as Cohen's kappa (Table 3)."

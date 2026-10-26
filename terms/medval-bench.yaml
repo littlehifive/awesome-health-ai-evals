@@ -1,0 +1,69 @@
+entry: medval-bench
+sources:
+- https://arxiv.org/abs/2507.03152
+- https://github.com/StanfordMIMI/MedVAL
+extracted: '2026-10-26'
+terms:
+- term: 'Risk level 1: No Risk'
+  level: category
+  parent: Risk grade
+  definition: Safe; expert review not required (perturbation level 0%).
+  definition_verbatim: false
+  location: Table 1
+  scale: 1-4
+- term: 'Risk level 2: Low Risk'
+  level: category
+  parent: Risk grade
+  definition: Acceptable; expert review optional (perturbation level 33%).
+  definition_verbatim: false
+  location: Table 1
+  scale: 1-4
+- term: 'Risk level 3: Moderate Risk'
+  level: category
+  parent: Risk grade
+  definition: Potentially unsafe; expert review required (perturbation level 67%).
+  definition_verbatim: false
+  location: Table 1
+  scale: 1-4
+- term: 'Risk level 4: High Risk'
+  level: category
+  parent: Risk grade
+  definition: Unsafe; expert rewrite required (perturbation level 100%).
+  definition_verbatim: false
+  location: Table 1
+  scale: 1-4
+- term: Risk grade
+  level: dimension
+  definition: 'Physician instruction: "assign a risk level to the output, following the risk level taxonomy (between 1 and 4)".'
+  definition_verbatim: true
+  location: Section on reader study
+  scale: 1-4
+- term: Hallucinations
+  level: category
+  parent: Error category
+  definition: 'Error category for factual consistency errors: content in the output not supported by the input (e.g. fabricated claim).'
+  definition_verbatim: false
+  location: Reader study; Table 1
+- term: Omissions
+  level: category
+  parent: Error category
+  definition: 'Error category for factual consistency errors: content missing from the output (e.g. missing claim).'
+  definition_verbatim: false
+  location: Reader study; Table 1
+- term: Certainty misalignments
+  level: category
+  parent: Error category
+  definition: 'Error category for factual consistency errors: the output expresses certainty that differs from the input (e.g. incorrect recommendation, certainty shifts).'
+  definition_verbatim: false
+  location: Reader study; Table 1
+- term: Error category
+  level: dimension
+  definition: 'Physician instruction: "identify factual consistency errors in the output based on the error category taxonomy (hallucinations, omissions, or certainty misalignments)".'
+  definition_verbatim: true
+  location: Section on reader study
+- term: Factual consistency
+  level: dimension
+  definition: Whether a generated medical output is factually consistent with its input; the validator task.
+  definition_verbatim: false
+  location: Abstract; Introduction
+notes: Table 1 holds the physician-defined taxonomy; its error-category rows (such as fabricated claim 45.7%, missing claim 14.0%, incorrect recommendation 12.6%) were seen only as frequencies, so definitions of the three categories are paraphrased. Evaluator LMs are scored by agreement with physician risk grades.

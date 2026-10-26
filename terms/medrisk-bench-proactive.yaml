@@ -1,0 +1,34 @@
+entry: medrisk-bench-proactive
+sources:
+- https://huggingface.co/datasets/Medriskbench/Medrisk-Bench
+extracted: '2026-10-26'
+terms:
+- term: Query Score
+  level: metric
+  definition: Main metric for how well a response recognizes the medication risk in a user query; its computation is not described on the card.
+  definition_verbatim: false
+  location: HF card, Over-warning Evaluation (referenced)
+- term: OW
+  level: metric
+  definition: The percentage of responses with a nonzero count of unsupported warnings.
+  definition_verbatim: true
+  location: HF card, Over-warning Evaluation
+  scale: percentage of responses
+- term: OW>1
+  level: metric
+  definition: The percentage of responses with an averaged count greater than one.
+  definition_verbatim: true
+  location: HF card, Over-warning Evaluation
+  scale: percentage of responses
+- term: mOW
+  level: metric
+  definition: The mean number of unsupported warnings per response.
+  definition_verbatim: true
+  location: HF card, Over-warning Evaluation
+  scale: mean count
+- term: Case-unsupported warnings
+  level: criterion
+  definition: Warnings in a response not supported by the case; counted independently by GPT-5.4 and Claude Sonnet 4.6 and averaged.
+  definition_verbatim: false
+  location: HF card, Over-warning Evaluation
+notes: Dataset card only. The 5 medication risk types (including underlying conditions) and 9 user scenarios are item attributes; the card names only underlying conditions, and does not say they are scored as criteria, so they are not listed.

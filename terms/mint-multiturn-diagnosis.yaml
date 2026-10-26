@@ -1,0 +1,24 @@
+entry: mint-multiturn-diagnosis
+sources:
+- https://arxiv.org/abs/2604.04325
+extracted: '2026-10-26'
+terms:
+- term: Accuracy (final)
+  level: metric
+  definition: Diagnostic accuracy at the final turn after all evidence shards are revealed (Final), or final-answer accuracy when the question is revealed only at the last turn (Ans.).
+  definition_verbatim: true
+  location: Table 1 caption
+  scale: percent correct
+- term: Ini. (initial accuracy)
+  level: metric
+  definition: Accuracy at the first turn where the model answers (Ask-Question-First setting).
+  definition_verbatim: true
+  location: Table 1 caption
+  scale: percent correct
+- term: Abs. (abstention rate)
+  level: metric
+  definition: Rate at which the model abstains (holds off answering) in the Ask-Question-First setting (paraphrase).
+  definition_verbatim: false
+  location: Table 1 caption
+  scale: percent
+notes: Items are multiple-choice, so scoring is accuracy-based; the evaluation terms are accuracy under single-turn (Full, Conc.) and multi-turn (Q-First, Q-Last) settings plus abstention. Shards are labeled with 13 clinical evidence categories (design labels, not scored).

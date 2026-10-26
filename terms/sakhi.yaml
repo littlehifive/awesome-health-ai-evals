@@ -1,0 +1,46 @@
+entry: sakhi
+sources: [https://huggingface.co/datasets/SimPPL/sakhi, https://github.com/SwapneelM/sakhi]
+extracted: 2026-10-26
+terms:
+  - term: Accuracy
+    level: axis
+    parent: Medical Quality Score (MQS)
+    definition: "Rubric axis of the 14-criterion clinical rubric (card gives the axis name only)."
+    definition_verbatim: false
+    location: "HF dataset card, doctor_ratings axis field"
+    scale: "binary pass/fail per criterion; MQS weight 0.30"
+  - term: Completeness
+    level: axis
+    parent: Medical Quality Score (MQS)
+    definition: "Rubric axis of the 14-criterion clinical rubric (card gives the axis name only)."
+    definition_verbatim: false
+    location: "HF dataset card, doctor_ratings axis field"
+    scale: "binary pass/fail per criterion; MQS weight 0.25"
+  - term: Context Awareness
+    level: axis
+    parent: Medical Quality Score (MQS)
+    definition: "Rubric axis of the 14-criterion clinical rubric (card gives the axis name only)."
+    definition_verbatim: false
+    location: "HF dataset card, doctor_ratings axis field"
+    scale: "binary pass/fail per criterion; MQS weight 0.20"
+  - term: Communication
+    level: axis
+    parent: Medical Quality Score (MQS)
+    definition: "Rubric axis of the 14-criterion clinical rubric (card gives the axis name only)."
+    definition_verbatim: false
+    location: "HF dataset card, doctor_ratings axis field"
+    scale: "binary pass/fail per criterion; MQS weight 0.15"
+  - term: Terminology Accessibility
+    level: axis
+    parent: Medical Quality Score (MQS)
+    definition: "Rubric axis of the 14-criterion clinical rubric (card gives the axis name only)."
+    definition_verbatim: false
+    location: "HF dataset card, doctor_ratings axis field"
+    scale: "binary pass/fail per criterion; MQS weight 0.10"
+  - term: Medical Quality Score (MQS)
+    level: metric
+    definition: "Axis-weighted mean score of an LLM judge (GPT-4o-mini) over rubric criteria for each model response."
+    definition_verbatim: false
+    location: "HF dataset card, results table (mqs_mean)"
+    scale: "weighted mean of pass/fail verdicts"
+notes: "Source reached: HF dataset card and GitHub README; the paper was not read, so axis definitions and the 14 individual criteria texts (rubric_text field in doctor_ratings) are not recorded. Ten maternal-health themes are item topics, not scored."

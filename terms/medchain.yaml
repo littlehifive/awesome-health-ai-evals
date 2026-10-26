@@ -1,0 +1,52 @@
+entry: medchain
+sources: [https://arxiv.org/abs/2412.01605]
+extracted: 2026-10-26
+terms:
+  - term: Specialty referral accuracy
+    level: metric
+    parent: Task 1 Specialty Referral
+    definition: "Accuracy for first-level department assignment."
+    definition_verbatim: true
+    location: Appendix A (Task 1)
+    scale: accuracy
+  - term: Intersection over Union (IoU), second-level department
+    level: metric
+    parent: Task 1 Specialty Referral
+    definition: "IoU is used for second-level departments to account for the possibility of multiple correct assignments and to reflect partial correctness, which can occur in complex cases."
+    definition_verbatim: true
+    location: Appendix A (Task 1)
+    scale: IoU, 0-1
+  - term: History-taking IoU
+    level: metric
+    parent: Task 2 History-taking
+    definition: "IoU between the predicted examination items and the ground truth set."
+    definition_verbatim: true
+    location: Appendix A (Task 2)
+    scale: IoU, 0-1
+  - term: DocLens
+    level: metric
+    parent: Task 3 Examination
+    definition: "Task 3 leverages DocLens for assessing image interpretation quality."
+    definition_verbatim: true
+    location: Section 4 (evaluation metrics); Appendix A
+  - term: Diagnostic accuracy
+    level: metric
+    parent: Task 4 Diagnosis
+    definition: "Evaluated with a carefully designed prompt based on National Health Commission of China guidelines to evaluate diagnostic accuracy."
+    definition_verbatim: true
+    location: Section 4 (evaluation metrics); Appendix A
+    scale: multi-point key-point score
+  - term: Treatment examination-item IoU
+    level: metric
+    parent: Task 5 Treatment
+    definition: "Task 5 measures IoU between predicted and ground truth examination items."
+    definition_verbatim: true
+    location: Section 4 (evaluation metrics)
+    scale: IoU, 0-1
+  - term: Key-point score
+    level: metric
+    definition: "The standard answer for each stage comprises multiple key points. The evaluated agent's score increases with the number of standard points addressed, while irrelevant content leads to score reduction."
+    definition_verbatim: true
+    location: Section 4 (evaluation framework)
+    scale: points per standard key point, average score 0-1
+notes: "Task labels follow the paper's five stages (specialty referral, history-taking, examination, diagnosis, treatment); the text I read pairs Task 3 with image interpretation and Task 5 with examination items, which looks inconsistent, so check the stage mapping in Appendix A. Appendix A was not read in full. Separate patient-agent validation checked medical history accuracy, symptom consistency and one more dimension (not captured); that is a simulator check, not a model score. Case quality review used six binary dimensions by physicians (dataset QC, not model scoring)."

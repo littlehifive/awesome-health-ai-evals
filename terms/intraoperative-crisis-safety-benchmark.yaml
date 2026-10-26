@@ -1,0 +1,66 @@
+entry: intraoperative-crisis-safety-benchmark
+sources:
+- https://doi.org/10.21203/rs.3.rs-10438275/v1
+extracted: '2026-10-26'
+terms:
+- term: Stopping ongoing harm
+  level: axis
+  definition: Cross-crisis safety axis; therapeutic and strategic actions that change physiology (study-developed).
+  definition_verbatim: false
+  location: Methods, Sentinel framework
+  scale: 'binary sentinel actions (present/absent; unsafe: triggered/not triggered)'
+- term: Activating the correct algorithm
+  level: axis
+  definition: Cross-crisis safety axis; therapeutic and strategic actions that change physiology.
+  definition_verbatim: false
+  location: Methods, Sentinel framework
+  scale: 'binary sentinel actions (present/absent; unsafe: triggered/not triggered)'
+- term: Definitive life-saving maneuvers
+  level: axis
+  definition: Cross-crisis safety axis; therapeutic and strategic actions that change physiology.
+  definition_verbatim: false
+  location: Methods, Sentinel framework
+  scale: 'binary sentinel actions (present/absent; unsafe: triggered/not triggered)'
+- term: Global strategy and disposition
+  level: axis
+  definition: Cross-crisis safety axis; therapeutic and strategic actions that change physiology.
+  definition_verbatim: false
+  location: Methods, Sentinel framework
+  scale: 'binary sentinel actions (present/absent; unsafe: triggered/not triggered)'
+- term: Unsafe red-flag actions
+  level: axis
+  definition: Cross-crisis safety axis capturing the contraindicated actions to avoid.
+  definition_verbatim: false
+  location: Methods, Sentinel framework
+  scale: 'binary sentinel actions (present/absent; unsafe: triggered/not triggered)'
+- term: Communication and escalation
+  level: axis
+  definition: Cross-crisis safety axis capturing the team behaviors that crisis checklists identify as central to performance (explicit crisis declaration and calling for help).
+  definition_verbatim: false
+  location: Methods, Sentinel framework
+  scale: 'binary sentinel actions (present/absent; unsafe: triggered/not triggered)'
+- term: Positive sentinel actions
+  level: criterion
+  definition: High-impact actions expected of competent crisis management; scored present or absent.
+  definition_verbatim: true
+  location: Methods, Sentinel framework
+  scale: binary
+- term: Unsafe sentinel actions
+  level: criterion
+  definition: Contraindicated maneuvers likely to worsen the patient's trajectory; scored triggered or not triggered.
+  definition_verbatim: true
+  location: Methods, Sentinel framework
+  scale: binary
+- term: Completion (proportion of required safety actions)
+  level: metric
+  definition: Proportion of required positive safety actions a model completed per scenario run.
+  definition_verbatim: false
+  location: Abstract; Results
+  scale: percent
+- term: Run-to-run stability
+  level: metric
+  definition: Variation in completion between repeated runs of the same scenario (mean difference between two runs in percentage points); analysis-only dimension, not a sentinel category.
+  definition_verbatim: false
+  location: Methods; Results
+  scale: percentage-point difference
+notes: 150 binary sentinel actions across ten scenarios, each mapped to one of the six study-developed axes. Sentinels are scenario-specific and not enumerated here (Supplementary Table S1). Diagnostic recognition treated as latent, not scored. Scored by two blinded clinicians.

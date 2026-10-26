@@ -1,0 +1,41 @@
+id: sakhi
+name: Sakhi
+kind: benchmark
+year: 2026
+summary: 380 maternal and reproductive-health questions with reference answers in English, Hindi, and Marathi (149 doctor-edited, 231 community-sourced), scored with a 14-criterion clinical rubric by an LLM judge and calibrated against 2,103 doctor verdicts.
+readme_section: multilingual_regional
+links:
+  huggingface: [SimPPL/sakhi]
+  code: https://github.com/SwapneelM/sakhi
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [English, Hindi, Marathi]
+  item_origin_countries: [IND]
+  item_origin_note: Built around a WhatsApp maternal-health chatbot reaching rural mothers in Hindi- and Marathi-speaking districts of India; the card does not state exactly how questions were sourced.
+  rater_countries: [IND]
+  localization: native
+  lead_institution_countries: [IND]
+origin:
+  builder_types: [implementer_ngo]
+  item_provenance: [unknown]
+  venue: preprint
+facets:
+  health_areas: [maternal_newborn, srh]
+  intended_users: [patient_public, chw]
+  eval_methods: [rubric_llm_judge, expert_human_rating, automatic_metric]
+  modality: [text]
+  size: 380 questions (149 expert, 231 non-expert) in three languages; 2,103 doctor rubric verdicts
+signals:
+  citations: null
+  citations_source: OpenAlex
+  hf_downloads: 45
+  github_stars: 0
+  uptake: []
+  updated: '2026-10-26'
+provenance:
+  records: [r_344261b4b8]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: medium
+  notes: "Read the Hugging Face dataset card and GitHub README; the paper (NeurIPS 2026 Evaluations and Datasets track submission) was not read and is anonymized in the repo. Reviewers were 11 practising Indian doctors (2 OB/GYN, 9 GPs), ASHA workers, and healthcare-nonprofit staff. MQS (Medical Quality Score) weights Accuracy 0.30, Completeness 0.25, Context Awareness 0.20, Communication 0.15, Terminology Accessibility 0.10; judge is GPT-4o-mini. Builder SimPPL is inferred to be a non-profit research group from the dataset owner name only; check. Code is MIT."

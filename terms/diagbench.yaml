@@ -1,0 +1,35 @@
+entry: diagbench
+sources: [https://arxiv.org/abs/2510.24654]
+extracted: 2026-10-26
+terms:
+  - term: "Hit Ratio"
+    level: metric
+    definition: "Single-turn examination recommendation metric, share of recommended examinations that hit the reference trajectory's next examinations."
+    definition_verbatim: false
+    location: "Section 3.2.1, Figure 3b, Table 3"
+    scale: "percent"
+  - term: "Examination recommendation precision/recall/F1"
+    level: metric
+    definition: "In the end-to-end evaluation setting, we compare the predicted examination list against the referenced list and adopt Precision, Recall, and F1 scores."
+    definition_verbatim: true
+    location: "Supplementary 10.1.2, Table 4"
+    scale: "percent"
+  - term: "Final diagnosis accuracy"
+    level: metric
+    definition: "Accuracy of the final diagnosis versus ground truth, with GPT-4o matching synonyms."
+    definition_verbatim: false
+    location: "Section 3.2.1, Supplementary 10.1.2"
+    scale: "binary per case, averaged"
+  - term: "Weighted Rubric Score"
+    level: metric
+    definition: "This metric goes beyond the final outcome by qualitatively assessing the entire diagnostic trajectory against physician-authored, process-oriented rubrics. The score is calculated as the weighted proportion of satisfied rubrics, with weights reflecting the clinical significance of each step."
+    definition_verbatim: true
+    location: "Supplementary 10.1.2, Figure 4"
+    scale: "weighted proportion of satisfied rubric items, GPT-4o judged (99 cases)"
+  - term: "Average conversation turns"
+    level: metric
+    definition: "Mean number of interaction turns in the end-to-end diagnostic run."
+    definition_verbatim: false
+    location: "Table 4"
+    scale: "count"
+notes: "973 physician-written weighted rubric criteria across 99 cases are example-specific (e.g. process and immediate management actions) and not listed. Step-level similarity (0-5) and full-chain consistency (binary) in the paper score the DiagGym simulator, not the benchmarked agents, so they are omitted."

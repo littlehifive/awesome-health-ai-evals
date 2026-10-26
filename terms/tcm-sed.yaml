@@ -1,0 +1,49 @@
+entry: tcm-sed
+sources:
+- https://doi.org/10.2196/81545
+- https://github.com/LongHL0729/TCM-SED
+extracted: '2026-10-26'
+terms:
+- term: Accuracy (short-answer and multiple-choice)
+  level: metric
+  definition: A model's answer scored 1 point if it perfectly matched the unique gold standard answer, and 0 points otherwise.
+  definition_verbatim: true
+  location: Methods, Testing and Scoring Criteria
+  scale: binary (1/0)
+- term: Essay score
+  level: metric
+  definition: Two senior TCM rehabilitation experts independently assign a dynamic score based on the model's coverage and accuracy against predefined key scoring points in the standard answer.
+  definition_verbatim: false
+  location: Methods, Testing and Scoring Criteria
+  scale: 0-10 per expert (Cohen weighted kappa 0.78)
+- term: Diagnosis and pattern differentiation
+  level: category
+  definition: Knowledge dimension of TCM stroke questions; accuracy and essay scores are reported per dimension (diagnosis and pattern differentiation).
+  definition_verbatim: false
+  location: README; Methods, Evaluation Dimensions; Figure results
+  scale: accuracy per dimension / essay scoring rate
+- term: Treatment principles and methods
+  level: category
+  definition: Knowledge dimension of TCM stroke questions; accuracy and essay scores are reported per dimension (treatment principles and methods).
+  definition_verbatim: false
+  location: README; Methods, Evaluation Dimensions; Figure results
+  scale: accuracy per dimension / essay scoring rate
+- term: Fundamental TCM theory
+  level: category
+  definition: Knowledge dimension of TCM stroke questions; accuracy and essay scores are reported per dimension (fundamental tcm theory).
+  definition_verbatim: false
+  location: README; Methods, Evaluation Dimensions; Figure results
+  scale: accuracy per dimension / essay scoring rate
+- term: Interpretation of classic texts
+  level: category
+  definition: Knowledge dimension of TCM stroke questions; accuracy and essay scores are reported per dimension (interpretation of classic texts).
+  definition_verbatim: false
+  location: README; Methods, Evaluation Dimensions; Figure results
+  scale: accuracy per dimension / essay scoring rate
+- term: Patient communication and education
+  level: category
+  definition: Knowledge dimension of TCM stroke questions; accuracy and essay scores are reported per dimension (patient communication and education).
+  definition_verbatim: false
+  location: README; Methods, Evaluation Dimensions; Figure results
+  scale: accuracy per dimension / essay scoring rate
+notes: Scoring is exact match for 183 objective items and expert 0-10 scoring for 20 essay items; there are no named rubric criteria. The five knowledge dimensions are item topics but results are reported per dimension, so they are recorded as categories.

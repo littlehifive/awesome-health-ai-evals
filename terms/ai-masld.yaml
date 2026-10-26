@@ -1,0 +1,65 @@
+entry: ai-masld
+sources:
+- https://arxiv.org/abs/2606.07929
+extracted: '2026-10-26'
+terms:
+- term: Metabolic index (MI)
+  level: metric
+  definition: Jointly quantifies information recall, extraction purity, and output conciseness under stress.
+  definition_verbatim: true
+  location: Results; Fig. 1-2
+  scale: index (higher better); reported as stress MI and percent decay from baseline
+- term: Perturbation flip rate (PFR)
+  level: metric
+  definition: The proportion of cases in which a model reversed a correct baseline judgment under stress.
+  definition_verbatim: true
+  location: Results; Fig. 1-2
+  scale: proportion
+- term: Counterfactual fairness index (CFI)
+  level: metric
+  definition: Capturing consistency of clinical judgments across demographic counterfactuals.
+  definition_verbatim: true
+  location: Results; Fig. 1-2
+  scale: 0-1 (higher fairer)
+- term: P1 noise filtering
+  level: category
+  parent: Metabolic index (MI)
+  definition: Probe measuring information extraction from redundant clinical narratives.
+  definition_verbatim: true
+  location: Results, Fig. 2
+  scale: recall / MI
+- term: P2 clinical priority discrimination
+  level: category
+  parent: Perturbation flip rate (PFR)
+  definition: Probe testing clinical urgency recognition under narrative perturbation.
+  definition_verbatim: false
+  location: Results
+  scale: accuracy, PFR
+- term: P3 contradiction recognition
+  level: category
+  parent: Perturbation flip rate (PFR)
+  definition: Probe where patients present contradictory information; PFR measures reversal of the clinical assessment.
+  definition_verbatim: false
+  location: Results
+  scale: PFR
+- term: P4 emotional-semantic separation
+  level: category
+  parent: Metabolic index (MI)
+  definition: Probe measuring information extraction from emotionally charged patient descriptions.
+  definition_verbatim: true
+  location: Results, Fig. 2
+  scale: MI
+- term: P5 temporal disordering
+  level: category
+  parent: Metabolic index (MI)
+  definition: Probe presenting clinical content with disordered temporal sequence; MI decay measured.
+  definition_verbatim: false
+  location: Results, Fig. 2
+  scale: MI
+- term: Information extraction recall
+  level: metric
+  definition: Mean recall of key clinical information in the model output (baseline 0.925 to 0.950).
+  definition_verbatim: false
+  location: Results
+  scale: recall
+notes: Six perturbation probes (P1-P5 plus the counterfactual-fairness probe feeding CFI) applied to 240 cases, each tested at baseline and under stress. Probe names beyond P1 and P4 are inferred from the results text (P2 priority discrimination, P3 contradiction recognition, P5 temporal); the probe-definition table in Methods was not read.

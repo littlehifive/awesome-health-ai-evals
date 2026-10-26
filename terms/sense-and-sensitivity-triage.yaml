@@ -1,0 +1,41 @@
+entry: sense-and-sensitivity-triage
+sources: [https://arxiv.org/abs/2609.38600, https://github.com/abinithago/Sen2Med]
+extracted: 2026-10-26
+terms:
+  - term: Manage (self-management decision)
+    level: category
+    definition: "Binary triage decision of whether the case can be self-managed, compared against physician majority-vote gold labels."
+    definition_verbatim: false
+    location: Section 2-3, Figure 2
+    scale: binary
+  - term: Visit (in-person clinical visit decision)
+    level: category
+    definition: "Binary triage decision of whether an in-person clinical visit is needed."
+    definition_verbatim: false
+    location: Section 2-3, Figure 2
+    scale: binary
+  - term: Resource (medical resource allocation decision)
+    level: category
+    definition: "Binary triage decision of whether medical resources should be allocated."
+    definition_verbatim: false
+    location: Section 2-3, Figure 2
+    scale: binary
+  - term: Baseline accuracy
+    level: metric
+    definition: "Agreement of LLM (or physician) recommendations on unperturbed scenarios with gold labels from clinician majority vote, per task."
+    definition_verbatim: false
+    location: Section 3.1, Figure 2
+    scale: proportion correct
+  - term: Accuracy drop under perturbation
+    level: metric
+    definition: "Change in accuracy relative to each rater's baseline when the scenario text is perturbed (gender swap, gender removal, colorful tone, uncertain tone); negative values mean degradation."
+    definition_verbatim: false
+    location: Section 3.2, Figure 4
+    scale: percentage-point change
+  - term: Missed necessary interventions / unnecessary escalations
+    level: metric
+    definition: "Error-direction trade-off plotted per task: fewer missed necessary interventions (under-recommendation) and fewer unnecessary escalations (over-recommendation) are better."
+    definition_verbatim: false
+    location: Section 3.1, Figure 3
+    scale: error rates
+notes: "Scoring is label accuracy against physician gold labels, not rubric-based. Four perturbation types are inputs, not scored terms. Inter-annotator agreement is in Appendix C.5 (not read in detail)."

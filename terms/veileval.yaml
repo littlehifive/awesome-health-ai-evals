@@ -1,0 +1,66 @@
+entry: veileval
+sources:
+- https://doi.org/10.18653/v1/2026.findings-acl.416
+extracted: '2026-10-26'
+terms:
+- term: Relevance
+  level: metric
+  definition: Topical relevance of the response to the user profile and conversation.
+  definition_verbatim: false
+  location: Section 5 (metrics)
+  scale: 1-10 LLM judge (GPT-4o)
+- term: Depth
+  level: metric
+  definition: Depth of psychological reasoning in the response.
+  definition_verbatim: false
+  location: Section 5 (metrics)
+  scale: 1-10 LLM judge
+- term: Emotional Alignment
+  level: metric
+  definition: Evaluates affective congruence, ranging from weak emotional matching to responses that facilitate emotional awareness and regulation.
+  definition_verbatim: true
+  location: Section 5 (metrics)
+  scale: 1-10 LLM judge
+- term: Repetition
+  level: metric
+  definition: Measures response diversity and informativeness, penalizing redundant or mechanical generation prevalent in LLMs.
+  definition_verbatim: true
+  location: Section 5 (metrics)
+  scale: 1-10 LLM judge
+- term: Breadth
+  level: metric
+  definition: Captures cognitive comprehensiveness by uniting emotional, behavioral, and contextual factors in a cohesive interpretation.
+  definition_verbatim: true
+  location: Section 5 (metrics)
+  scale: 1-10 LLM judge
+- term: Helpfulness
+  level: metric
+  definition: Degree to which the response is solution-focused and useful to the user.
+  definition_verbatim: false
+  location: Section 5 (metrics)
+  scale: 1-10 LLM judge
+- term: Informativeness
+  level: metric
+  definition: Content-quality metric appearing in the module-ablation table (not separately defined in the text read).
+  definition_verbatim: false
+  location: Table 2
+  scale: 1-10 LLM judge
+- term: Insightfulness
+  level: metric
+  definition: User-centric metric (Insight.).
+  definition_verbatim: false
+  location: Table 4
+  scale: LLM judge
+- term: Emotional Safety
+  level: metric
+  definition: User-centric metric (E-S).
+  definition_verbatim: false
+  location: Table 4
+  scale: LLM judge
+- term: Motivational Lift
+  level: metric
+  definition: User-centric metric (M-L).
+  definition_verbatim: false
+  location: Table 4
+  scale: LLM judge
+notes: Read the ACL PDF text. Only Emotional Alignment, Repetition and Breadth have verbatim definitions; Relevance, Depth, Helpfulness are paraphrased. Items were also filtered for generality, clinical relevance and contextual coherence at construction, not scored terms.

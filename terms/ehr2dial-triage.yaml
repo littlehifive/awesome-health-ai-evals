@@ -1,0 +1,99 @@
+entry: ehr2dial-triage
+sources: [https://arxiv.org/abs/2608.09024]
+extracted: 2026-10-26
+terms:
+  - term: FACTCOV@t
+    level: metric
+    parent: Information elicitation
+    definition: "FACTCOV@t measures the cumulative proportion of eligible patient-reportable facts that have been disclosed."
+    definition_verbatim: true
+    location: Section 5 Experiment I Metrics; Appendix C
+    scale: proportion at rounds 2, 6, 10
+  - term: HISTORYMEDCOV@t
+    level: metric
+    parent: Information elicitation
+    definition: "HISTORYMEDCOV@t applies the same calculation to medical-history and home-medication facts."
+    definition_verbatim: true
+    location: Section 5 Experiment I Metrics; Appendix C
+    scale: proportion at rounds 2, 6, 10
+  - term: Question information target
+    level: category
+    parent: Information elicitation
+    definition: "Each clinician question is assigned one primary information target, and the distribution of targets is reported per model."
+    definition_verbatim: false
+    location: Section 5 Experiment I Metrics
+    scale: distribution
+  - term: ESI-reader entropy
+    level: metric
+    parent: Information elicitation
+    definition: "Mean entropy, in nats, of the five-class ESI distribution from a fixed patient-disjoint multinomial logistic-regression reader applied to clinician-visible information and acquired facts; lower values indicate a more concentrated reader distribution."
+    definition_verbatim: false
+    location: Section 5 Experiment I Metrics
+    scale: nats
+  - term: Macro-AUC
+    level: metric
+    parent: ESI prediction
+    definition: "Macro-AUC averages one-vs-rest discrimination over the five ESI levels."
+    definition_verbatim: true
+    location: Section 5 Experiment II Metrics
+  - term: Macro-F1
+    level: metric
+    parent: ESI prediction
+    definition: "Macro-F1 weights all levels equally."
+    definition_verbatim: true
+    location: Section 5 Experiment II Metrics
+  - term: Quadratic weighted kappa (QWK)
+    level: metric
+    parent: ESI prediction
+    definition: "QWK accounts for the ordinal distance between predicted and recorded ESI levels."
+    definition_verbatim: true
+    location: Section 5 Experiment II Metrics
+  - term: Under-triage rate
+    level: metric
+    parent: ESI prediction
+    definition: "Since larger ESI values indicate lower urgency, under-triage is defined as predicted ESI greater than recorded ESI."
+    definition_verbatim: true
+    location: Section 5 Experiment II Metrics; Appendix C.4 (class-conditional, majority, unanimous, catastrophic variants)
+  - term: Catastrophic under-triage
+    level: metric
+    parent: ESI prediction
+    definition: "Assigning ESI 4 or 5 to an encounter recorded as ESI 1 or 2."
+    definition_verbatim: true
+    location: Appendix C.4
+  - term: Key Recall
+    level: metric
+    parent: Patient-facing closing generation
+    definition: "KEY RECALL measures coverage of important dialogue-supported units."
+    definition_verbatim: true
+    location: Section 5 Experiment II Metrics; Appendix C.3
+  - term: Grounded Precision
+    level: metric
+    parent: Patient-facing closing generation
+    definition: "GROUNDED PRECISION measures the proportion of generated clinical claims supported by the dialogue."
+    definition_verbatim: true
+    location: Section 5 Experiment II Metrics; Appendix C.3
+  - term: BERTScore F1
+    level: metric
+    parent: Patient-facing closing generation
+    definition: "Reference-similarity metric between generated and held-out reference closing."
+    definition_verbatim: false
+    location: Section 5 Experiment II Metrics
+  - term: ROUGE-L
+    level: metric
+    parent: Patient-facing closing generation
+    definition: "Reference-similarity metric between generated and reference closing."
+    definition_verbatim: false
+    location: Section 5 Experiment II Metrics
+  - term: BLEU-4
+    level: metric
+    parent: Patient-facing closing generation
+    definition: "Reference-similarity metric between generated and reference closing."
+    definition_verbatim: false
+    location: Section 5 Experiment II Metrics
+  - term: Distinct-2
+    level: metric
+    parent: Patient-facing closing generation
+    definition: "Corpus-level diversity metric on generated closings."
+    definition_verbatim: false
+    location: Section 5 Experiment II Metrics
+notes: Also validates the dataset itself (role-consistent realization, event-turn lineage); those are corpus checks and not listed. Safety analysis (Appendix C.4) adds ESI-specific, majority and unanimous under-triage variants.

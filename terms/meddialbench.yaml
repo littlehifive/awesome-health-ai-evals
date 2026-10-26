@@ -1,0 +1,33 @@
+entry: meddialbench
+sources: [http://arxiv.org/abs/2604.06846]
+extracted: 2026-10-26
+terms:
+  - term: Semantic accuracy
+    level: metric
+    definition: "An LLM judge (Qwen3-Max) determines whether the doctor's diagnosis is semantically equivalent to the ground truth."
+    definition_verbatim: true
+    location: Section 3.5
+    scale: binary per dialogue, reported as percent accuracy
+  - term: Information coverage
+    level: metric
+    definition: "The fraction of key information items disclosed during dialogue."
+    definition_verbatim: true
+    location: Section 3.5
+    scale: 0-1
+  - term: Inquiry efficiency
+    level: metric
+    definition: "Coverage per turn (coverage/turns), measuring how effectively the doctor elicits information per unit of dialogue."
+    definition_verbatim: true
+    location: Section 3.5
+  - term: Misled
+    level: metric
+    definition: "Whether an incorrect diagnosis was causally attributable to false patient information (exploratory; moderate inter-judge agreement, kappa = 0.469)."
+    definition_verbatim: true
+    location: Section 3.5
+    scale: binary
+  - term: O/E ratio
+    level: metric
+    definition: "Observed-to-expected accuracy ratio for multi-dimension combinations under a multiplicative independence assumption; O/E below 1.0 indicates super-additive degradation."
+    definition_verbatim: false
+    location: Section 3.5, Eq. 1
+notes: "The five patient behavior dimensions (Expression, Cognition, Logic, Disclosure, Attitude; e.g. fabricating, withholding, incoherent, denial, dominant) at Baseline, Moderate and Extreme severity are manipulated conditions, not scored criteria. Patient-agent checks (Activation Adherence, Isolation Compliance) validate the simulator, not the doctor models, so they are not listed."

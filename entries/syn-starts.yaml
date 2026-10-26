@@ -3,7 +3,7 @@ name: Syn-STARTS
 kind: benchmark
 year: 2026
 summary: A 2,000-case corpus of synthetic mass-casualty triage scenarios generated and validated with Llama-3.1-70B, with sampled evaluation sets where an LLM predicts the START triage tag, compared against the 54-case expert-written TRIAGE-adult set.
-readme_section: safety
+readme_section: knowledge_exam
 links:
   code: https://github.com/seitalab/Syn-STARTS
 license: null
@@ -24,6 +24,13 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 2,000 validated synthetic scenarios; evaluation sets of 12 to 200 cases; 54-case TRIAGE-adult comparison set
+signals:
+  citations: null
+  citations_source: OpenAlex
+  hf_downloads: null
+  github_stars: 0
+  uptake: []
+  updated: '2026-10-26'
 provenance:
   records: [r_61b64aed1c]
   extracted: 2026-10-26

@@ -1,0 +1,49 @@
+entry: multilingual-consumer-chatbot-health-advice
+sources:
+- https://doi.org/10.5281/zenodo.20100653
+- https://github.com/deanariel-md/warmth-substance-asymmetry
+extracted: '2026-10-26'
+terms:
+- term: clinical_accuracy
+  level: dimension
+  definition: Physician 1-5 rating of the clinical accuracy of the chatbot answer; also an item-level checklist dimension.
+  definition_verbatim: false
+  location: Data; Zenodo ratings.csv columns and checklist_items.csv
+  scale: 1-5 physician rating
+- term: safety
+  level: dimension
+  definition: Physician 1-5 rating of the safety of the answer (for example, directing to emergency services when needed); also a checklist dimension.
+  definition_verbatim: false
+  location: Data; Zenodo ratings.csv columns and checklist_items.csv
+  scale: 1-5 physician rating
+- term: referral
+  level: dimension
+  definition: Physician 1-5 rating of whether the answer gives appropriate referral or care-seeking guidance; also a checklist dimension.
+  definition_verbatim: false
+  location: Data; Zenodo ratings.csv columns and checklist_items.csv
+  scale: 1-5 physician rating
+- term: cultural
+  level: dimension
+  definition: Physician 1-5 rating of cultural appropriateness of the answer (the paper's 'cultural appropriateness').
+  definition_verbatim: false
+  location: Data; Zenodo ratings.csv columns and checklist_items.csv
+  scale: 1-5 physician rating
+- term: empathy
+  level: dimension
+  definition: Physician 1-5 rating of empathy or warmth of the answer.
+  definition_verbatim: false
+  location: Data; Zenodo ratings.csv columns and checklist_items.csv
+  scale: 1-5 physician rating
+- term: language_fidelity
+  level: criterion
+  definition: Rater's judgment of the language quality of the answer (values such as fluent are recorded per rating).
+  definition_verbatim: false
+  location: Data; Zenodo ratings.csv columns and checklist_items.csv
+  scale: categorical (fluent etc.)
+- term: Clinical checklist item (must / bonus)
+  level: criterion
+  definition: Item-level clinical checklist judgments (12,576 rows), each tagged with one of the dimensions above and as must or bonus, with a checked flag.
+  definition_verbatim: false
+  location: checklist_items.csv
+  scale: binary checked, must or bonus
+notes: 'The paper itself is not linked; terms come from the dataset README and CSV headers (five 1-5 dimensions plus language fidelity), so definitions are paraphrases and the exact wording of rater instructions was not seen. Dimension names are the column names clinical_accuracy, safety, referral, cultural, empathy. Derived study metrics: unsafe tail (low safety scores) and an empathy-quality association.'

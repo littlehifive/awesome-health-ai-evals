@@ -1,0 +1,42 @@
+id: txagent-benchmarks
+name: DrugPC, BrandPC, GenericPC, DescriptionPC, and TreatmentPC (TxAgent)
+kind: benchmark
+year: 2025
+summary: Five drug-reasoning benchmarks built from FDA drug documentation - DrugPC (3,168 questions over 11 tasks), BrandPC, GenericPC, and DescriptionPC variants, and TreatmentPC (456 patient-specific treatment-selection scenarios) - in multiple-choice and open-ended forms.
+readme_section: knowledge_exam
+links:
+  paper: https://arxiv.org/abs/2503.10970
+  arxiv: "2503.10970"
+  doi: 10.48550/arxiv.2503.10970
+  code: https://github.com/mims-harvard/TxAgent
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Questions are generated from US FDA drug documentation (drug labels); drugs approved in 2024 are used for evaluation to limit pretraining leakage.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature, llm_generated]
+  venue: preprint
+facets:
+  health_areas: [pharmacy_medication]
+  intended_users: [clinician, pharmacist]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 3,168 DrugPC questions (11 tasks); BrandPC, GenericPC, DescriptionPC modified versions; 456 TreatmentPC questions
+signals:
+  citations: 19
+  citations_source: OpenAlex
+  hf_downloads: null
+  github_stars: 655
+  uptake: []
+  updated: '2026-10-26'
+provenance:
+  records: [r_cd3ec663a8]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Harvard Medical School (Zitnik lab). The paper is mainly about the TxAgent agent and the ToolUniverse tool set; the benchmarks are used to test it. The paper's data and code availability statement lists the GitHub repos and a Hugging Face collection (models, papers, a crowdsourcing eval space), but no benchmark dataset was found in the repo (its data folder has only new_tool.json) or the collection, so open_data is unknown. The MIT license is on the code. Question generation by LLM from FDA label sections is inferred from the construction description and was not confirmed in detail. Includes a drug-label QA scope that is partly pharmacology reference rather than chatbot interaction."

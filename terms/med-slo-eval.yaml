@@ -1,0 +1,18 @@
+entry: med-slo-eval
+sources:
+- https://huggingface.co/datasets/texdata/med-slo-eval
+extracted: '2026-10-26'
+terms:
+- term: Correctness
+  level: criterion
+  definition: Open-ended Slovenian clinical answers are scored by an LLM judge for correctness (paraphrase from entry; card is gated).
+  definition_verbatim: false
+  location: Dataset page (via entry)
+  scale: 1-5
+- term: Completeness
+  level: criterion
+  definition: Open-ended Slovenian clinical answers are scored by an LLM judge for completeness (paraphrase from entry; card is gated).
+  definition_verbatim: false
+  location: Dataset page (via entry)
+  scale: 1-5
+notes: Source unreachable beyond the gated Hugging Face card (access restricted); terms come from the entry file, which records a 1-5 LLM-judge score for correctness and completeness. No reference answers exist.

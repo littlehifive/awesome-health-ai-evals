@@ -1,0 +1,24 @@
+entry: selfdx
+sources: [https://arxiv.org/abs/2610.27518]
+extracted: 2026-10-26
+terms:
+  - term: Appropriate caution rate
+    level: metric
+    definition: "Share of caution cases (where the user proposes a benign self-diagnosis but a time-critical alternative is possible) where the judge scores the first two substantive sentences 4 or 5 on the five-point rubric."
+    definition_verbatim: false
+    location: "Section 3.2, Appendix C.2"
+    scale: "5-point LLM-judge rubric, pass at 4 or 5"
+  - term: Appropriate agreement rate
+    level: metric
+    definition: "Share of agreement cases (evidence rules out the alternative) that pass the judge's rubric, so greater caution alone does not raise the score."
+    definition_verbatim: false
+    location: "Section 3.2, Appendix C.2"
+    scale: "5-point LLM-judge rubric, pass at 4 or 5"
+  - term: Strict caution criterion
+    level: criterion
+    parent: Appropriate caution rate
+    definition: "Additionally requires the scored window to name a serious alternative recorded for that case."
+    definition_verbatim: false
+    location: "Section 4.1"
+    scale: binary pass
+notes: "Two grading rubrics (caution and agreement) are reproduced in Appendix C.2, which I did not read in detail. Four case types (condition and medication cases, caution and agreement)."

@@ -1,0 +1,65 @@
+entry: acuitybench
+sources: [https://arxiv.org/abs/2605.11398]
+extracted: 2026-10-26
+terms:
+  - term: Exact match (acuity classification accuracy)
+    level: metric
+    definition: "Exact match (modal prediction equals the true label) on the 527 clear consensus cases, from five samples per case aggregated to a modal label."
+    definition_verbatim: true
+    location: Section 4.1.2, Table 2
+    scale: proportion; four-level label A-D
+  - term: Over-triage rate
+    level: metric
+    definition: "Over-triage rate (prediction more urgent than the true label)."
+    definition_verbatim: true
+    location: Section 4.1.2, Table 2
+    scale: proportion
+  - term: Under-triage rate
+    level: metric
+    definition: "Under-triage rate (prediction less urgent than the true label)."
+    definition_verbatim: true
+    location: Section 4.1.2, Table 2
+    scale: proportion
+  - term: Format gap
+    level: metric
+    definition: "Difference in accuracy between QA and conversational formats on the same cases, with bootstrap 95% CI and McNemar's test."
+    definition_verbatim: false
+    location: Section 4.1.3
+    scale: accuracy difference
+  - term: Conversational acuity communication
+    level: criterion
+    definition: "A judge model (GPT-4.1, temperature 0) infers the acuity level communicated in a free-form response using a structured rubric anchored to the same four-level framework; scored against the physician label."
+    definition_verbatim: false
+    location: Section 3.5, Appendix B.3
+    scale: inferred four-level label (A-D)
+  - term: Boundary-label consistency and directional bias
+    level: metric
+    definition: "For 170 boundary-label consensus cases: whether predictions fall within the clinically endorsed constituent set, and whether models show directional bias within that set."
+    definition_verbatim: false
+    location: Appendix D
+    scale: proportion
+  - term: Jensen-Shannon divergence (JSD)
+    level: metric
+    definition: "Divergence between each model's five-sample prediction distribution and a soft physician distribution on 217 ambiguous cases."
+    definition_verbatim: false
+    location: Section 5.1, 5.2.1, Appendix G.2
+    scale: divergence (observed 0.245 to 0.327)
+  - term: Wasserstein-1 distance (W-1)
+    level: metric
+    definition: "Ordinal distance between model and physician acuity distributions on ambiguous cases."
+    definition_verbatim: false
+    location: Section 5.2.1
+    scale: distance (observed 0.816 to 0.957)
+  - term: Panel substitution (change in Krippendorff alpha)
+    level: metric
+    definition: "Change in panel agreement (delta alpha) when one human rater is replaced by a model, relative to the all-human baseline."
+    definition_verbatim: false
+    location: Section 5.2.2
+    scale: delta alpha
+  - term: Label change under rater evidence
+    level: metric
+    definition: "Number of ambiguous cases in which the model changes its label when shown the physician panel's disagreement (70 of 217 for GPT-5.4)."
+    definition_verbatim: false
+    location: Section 5.3.1
+    scale: count / proportion
+notes: "The four acuity levels (A-D) are the label space, not scored terms; C versus D separates outpatient workup from ED-level care. Read from paperclip full text; the exact conversational rubric text (Appendix B.3) was not opened."

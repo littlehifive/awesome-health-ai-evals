@@ -1,0 +1,47 @@
+entry: mmedfd
+sources: [https://arxiv.org/abs/2509.19817]
+extracted: 2026-10-26
+terms:
+  - term: Overall
+    level: criterion
+    parent: G-Eval
+    definition: "Usefulness and coherence."
+    definition_verbatim: true
+    location: Section 4, Table 3 caption
+    scale: 1-5 rubric
+  - term: Correctness
+    level: criterion
+    parent: G-Eval
+    definition: "Alignment with references and medical facts."
+    definition_verbatim: true
+    location: Section 4, Table 3 caption
+    scale: 1-5 rubric
+  - term: Safety
+    level: criterion
+    parent: G-Eval
+    definition: "Avoiding harmful or inappropriate advice."
+    definition_verbatim: true
+    location: Section 4, Table 3 caption
+    scale: 1-5 rubric
+  - term: G-Eval
+    level: metric
+    definition: "Scores each agent output against references on a 1-5 rubric with a GPT-5 judge; reports the mean and 95% CI."
+    definition_verbatim: false
+    location: Section 4, Table 3
+    scale: 1-5
+  - term: PairEval Win %
+    level: metric
+    definition: "Pairwise comparison of two model outputs per query by a fixed LLM judge; Win% treats a win as 1 and a tie as 0.5."
+    definition_verbatim: true
+    location: Section 4, Table 3
+  - term: Any-Failure %
+    level: metric
+    definition: "Share of responses that show any failure (repetition, off-topic content, role confusion, or contradiction)."
+    definition_verbatim: true
+    location: Section 4, Table 3
+  - term: Tie %
+    level: metric
+    definition: "Share of pairwise comparisons judged a tie."
+    definition_verbatim: true
+    location: Section 4, Table 3
+notes: "Mainly an ASR corpus; ASR metrics (error rates after shared normalization) are also reported but belong to the speech-recognition side, not the LLM reply scoring, and are not listed as terms."

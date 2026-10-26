@@ -1,0 +1,40 @@
+entry: mega-cdp
+sources: [https://arxiv.org/abs/2608.26592]
+extracted: 2026-10-26
+terms:
+  - term: Pathway Consistency Cost (PCC)
+    level: metric
+    definition: "The DTW alignment cost between the predicted and reference clinical decision pathway, normalized by the length of the alignment path; it reflects the loss of order alignment between the reference CDP and the predicted CDP, with lower values indicating better alignment."
+    definition_verbatim: false
+    location: Section 3 (pathway-level consistency measurement), Eq. 2; Table 1
+    scale: "percent, lower is better"
+  - term: Step-Level Consistency
+    level: criterion
+    parent: Pathway Consistency Cost (PCC)
+    definition: "An LLM judge compares each predicted step with the reference steps, assessing whether it covers the same key decision point and preserves the corresponding guideline-defined logic."
+    definition_verbatim: false
+    location: Section 3, Step-Level Consistency Scoring
+    scale: 1-5 Likert (G-Eval style)
+  - term: Outcome accuracy
+    level: metric
+    definition: "Correctness of the final clinical decision."
+    definition_verbatim: false
+    location: Section 4, Table 1
+    scale: "percent, higher is better"
+  - term: Success rate (SR)
+    level: metric
+    definition: "The proportion of cases in which the model follows the required interaction format and successfully completes the multi-turn dialogue."
+    definition_verbatim: true
+    location: Section 4 (multi-turn setting), Table 1
+    scale: "percent, higher is better"
+  - term: OT-based pathway consistency (PCC-OT)
+    level: metric
+    definition: "Alternative optimal-transport pathway-level measure compared against DTW; lower is better."
+    definition_verbatim: false
+    location: Appendix B.1, Section 4.5
+  - term: LNDS-based pathway consistency (LNDS-PCS)
+    level: metric
+    definition: "Alternative pathway-level similarity measure (LNDS) compared against DTW."
+    definition_verbatim: false
+    location: Appendix B, Section 4.5
+notes: "Primary metric is DTW-based PCC; OT and LNDS are robustness alternatives. A human preference study checks PCC agreement with humans."

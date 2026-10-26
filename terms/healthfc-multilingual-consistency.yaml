@@ -1,0 +1,63 @@
+entry: healthfc-multilingual-consistency
+sources: [https://arxiv.org/abs/2501.14719, https://github.com/isspek/ecir-2025-multilang-consistency]
+extracted: 2026-10-26
+terms:
+  - term: Consistent
+    level: category
+    parent: Consistency
+    definition: "The EN answer and the answer in the other language are fully consistent and semantically aligned"
+    definition_verbatim: true
+    location: Section 3.2, Consistency Comparison Prompt
+    scale: 4-way label (Consistent, Partially Consistent, Contradict, Irrelevant)
+  - term: Partially Consistent
+    level: category
+    parent: Consistency
+    definition: "The EN answer and the answer in the other language partially agree, overlap, or support each other, though with some irrelevant or contradictory content"
+    definition_verbatim: true
+    location: Section 3.2, Consistency Comparison Prompt
+    scale: 4-way label
+  - term: Contradict
+    level: category
+    parent: Consistency
+    definition: "Answers contradict each other"
+    definition_verbatim: true
+    location: Section 3.2, Consistency Comparison Prompt
+    scale: 4-way label
+  - term: Irrelevant
+    level: category
+    parent: Consistency
+    definition: "Answers address different topics and are unrelated. Empty responses are also included in this irrelevant category."
+    definition_verbatim: true
+    location: Section 3.2, Consistency Comparison Prompt
+    scale: 4-way label
+  - term: Answer-Summary (AS)
+    level: other
+    parent: Discourse ontology
+    definition: "The part of the answer addressing the question, excluding sentences elaborating on the summary or providing extra context"
+    definition_verbatim: true
+    location: Section 3.2, Parsing Prompt
+  - term: Health Benefits and Outcomes (HBO)
+    level: other
+    parent: Discourse ontology
+    definition: "Describes the positive effects or results of a medical intervention or behavior"
+    definition_verbatim: true
+    location: Section 3.2, Parsing Prompt
+  - term: Clinical Guidelines and Evidence (CGE)
+    level: other
+    parent: Discourse ontology
+    definition: "Refers to established guidelines or research that support the medical recommendations"
+    definition_verbatim: true
+    location: Section 3.2, Parsing Prompt
+  - term: Individual Considerations/Caveats (ICC)
+    level: other
+    parent: Discourse ontology
+    definition: "Highlights individual variability and emphasizes the need for personalized advice"
+    definition_verbatim: true
+    location: Section 3.2, Parsing Prompt
+  - term: Public Health/Professional Advice (PHPA)
+    level: other
+    parent: Discourse ontology
+    definition: "Emphasizes consulting healthcare professionals and following public health recommendations"
+    definition_verbatim: true
+    location: Section 3.2, Parsing Prompt
+notes: Answers are parsed into the five discourse elements, then each non-English parsed answer is compared with the English one by an LLM prompt. "Consistency" parent is a grouping label. Disease categories (ICD-10) are item tags, not scored.

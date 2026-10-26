@@ -1,0 +1,42 @@
+entry: medmemorybench
+sources:
+- https://huggingface.co/datasets/Cyan27/MedMemoryBench
+extracted: '2026-10-26'
+terms:
+- term: Entity Exact Match
+  level: category
+  definition: Query type testing recall of a specific entity value (metadata fields entity_type, entity_value, answer_format).
+  definition_verbatim: false
+  location: HF dataset card, Key Features / Queries
+- term: Temporal Localization
+  level: category
+  definition: Query type testing recall of when events occurred.
+  definition_verbatim: false
+  location: HF dataset card, Key Features
+- term: State Update Tracking
+  level: category
+  definition: Query type testing whether the agent tracks changed patient state over time.
+  definition_verbatim: false
+  location: HF dataset card, Key Features
+- term: Inference & Generation
+  level: category
+  definition: Query type requiring inference or open generation from remembered history.
+  definition_verbatim: false
+  location: HF dataset card, Key Features
+- term: Multiple Choice
+  level: category
+  definition: Query type with answer options (answers carry is_correct and explanation fields).
+  definition_verbatim: false
+  location: HF dataset card, Key Features
+  scale: is_correct flag per option
+- term: Multi-hop Clinical Deduction
+  level: category
+  definition: Query type requiring combining several remembered facts into a clinical deduction.
+  definition_verbatim: false
+  location: HF dataset card, Key Features
+- term: Trap events
+  level: category
+  definition: Critical safety events (allergy, medication_history, disease_history, preference; 120 per language) testing whether the agent correctly handles allergies, contraindications and other safety-critical information.
+  definition_verbatim: false
+  location: HF dataset card, Trap Events table
+notes: Dataset card only; the card does not describe scoring procedures, rubrics or judge criteria, so these are the query categories and safety traps the benchmark organises its scoring around. Query metadata also holds a difficulty field.

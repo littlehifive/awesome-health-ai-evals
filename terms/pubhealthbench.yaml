@@ -1,0 +1,12 @@
+entry: pubhealthbench
+sources:
+- https://arxiv.org/abs/2505.06046
+extracted: '2026-10-26'
+terms:
+- term: Accuracy
+  level: metric
+  definition: Fraction of multiple-choice questions (full and human-reviewed sets) answered correctly, with 95% Wilson CI; for the free-form subset, accuracy as determined by an LLM judge against the reference.
+  definition_verbatim: false
+  location: Figure 1 and results
+notes: The follow-up paper (arXiv 2607.06641) adds a four-criterion rubric LLM judge (faithfulness, completeness, factual consistency, clarity) for the free-form subset; those terms are not recorded here
+  because that paper's text was not read. Only abstract and results framing of the main paper were consulted.

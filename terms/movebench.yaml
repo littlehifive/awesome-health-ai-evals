@@ -1,0 +1,110 @@
+entry: movebench
+sources: [https://arxiv.org/abs/2610.26185, https://github.com/SatoSakula/MoveBench]
+extracted: 2026-10-26
+terms:
+  - term: 课程设计质量
+    level: dimension
+    definition: "Course design quality; the source gives no definition. Example criterion in the public data: training arrangement and theme consistency."
+    definition_verbatim: false
+    location: "Public data/benchmark.json, evaluation.rubric[].dimension (docs/SCHEMA.md)"
+    scale: "points per rubric criterion (mostly 1; some items carry other weights, including negative penalties such as -10)"
+  - term: 结构化交付质量
+    level: dimension
+    definition: "Structured delivery quality; the source gives no definition. Example criterion in the public data: course information compliance (safety redline)."
+    definition_verbatim: false
+    location: "Public data/benchmark.json, evaluation.rubric[].dimension (docs/SCHEMA.md)"
+    scale: "points per rubric criterion (mostly 1; some items carry other weights, including negative penalties such as -10)"
+  - term: 数据分析质量
+    level: dimension
+    definition: "Data analysis quality; the source gives no definition. Example criterion in the public data: choice of indicators."
+    definition_verbatim: false
+    location: "Public data/benchmark.json, evaluation.rubric[].dimension (docs/SCHEMA.md)"
+    scale: "points per rubric criterion (mostly 1; some items carry other weights, including negative penalties such as -10)"
+  - term: 可执行性与建议质量
+    level: dimension
+    definition: "Actionability and advice quality; the source gives no definition. Example criterion in the public data: goal consistency."
+    definition_verbatim: false
+    location: "Public data/benchmark.json, evaluation.rubric[].dimension (docs/SCHEMA.md)"
+    scale: "points per rubric criterion (mostly 1; some items carry other weights, including negative penalties such as -10)"
+  - term: 专业准确性
+    level: dimension
+    definition: "Professional accuracy; the source gives no definition. Example criterion in the public data: scientific factual correctness."
+    definition_verbatim: false
+    location: "Public data/benchmark.json, evaluation.rubric[].dimension (docs/SCHEMA.md)"
+    scale: "points per rubric criterion (mostly 1; some items carry other weights, including negative penalties such as -10)"
+  - term: 可理解性
+    level: dimension
+    definition: "Comprehensibility; the source gives no definition. Example criterion in the public data: professionalism and understandability of the wording."
+    definition_verbatim: false
+    location: "Public data/benchmark.json, evaluation.rubric[].dimension (docs/SCHEMA.md)"
+    scale: "points per rubric criterion (mostly 1; some items carry other weights, including negative penalties such as -10)"
+  - term: 数据校验
+    level: dimension
+    definition: "Data validation; the source gives no definition. Example criterion in the public data: analysis of anomalous data."
+    definition_verbatim: false
+    location: "Public data/benchmark.json, evaluation.rubric[].dimension (docs/SCHEMA.md)"
+    scale: "points per rubric criterion (mostly 1; some items carry other weights, including negative penalties such as -10)"
+  - term: 专业边界
+    level: dimension
+    definition: "Professional boundary; the source gives no definition. Example criterion in the public data: extension of sports-health knowledge."
+    definition_verbatim: false
+    location: "Public data/benchmark.json, evaluation.rubric[].dimension (docs/SCHEMA.md)"
+    scale: "points per rubric criterion (mostly 1; some items carry other weights, including negative penalties such as -10)"
+  - term: 医疗边界识别
+    level: dimension
+    definition: "Medical boundary recognition; the source gives no definition. Example criterion in the public data: non-medical positioning and value of science popularization."
+    definition_verbatim: false
+    location: "Public data/benchmark.json, evaluation.rubric[].dimension (docs/SCHEMA.md)"
+    scale: "points per rubric criterion (mostly 1; some items carry other weights, including negative penalties such as -10)"
+  - term: 输出完整性
+    level: dimension
+    definition: "Output completeness; the source gives no definition. Example criterion in the public data: coverage of core pain points and weight allocation."
+    definition_verbatim: false
+    location: "Public data/benchmark.json, evaluation.rubric[].dimension (docs/SCHEMA.md)"
+    scale: "points per rubric criterion (mostly 1; some items carry other weights, including negative penalties such as -10)"
+  - term: 风险识别
+    level: dimension
+    definition: "Risk identification; the source gives no definition. Example criterion in the public data: intervening on high-risk or red-flag signals."
+    definition_verbatim: false
+    location: "Public data/benchmark.json, evaluation.rubric[].dimension (docs/SCHEMA.md)"
+    scale: "points per rubric criterion (mostly 1; some items carry other weights, including negative penalties such as -10)"
+  - term: 可执行性
+    level: dimension
+    definition: "Actionability; the source gives no definition. Example criterion in the public data: realistic feasibility of the advice."
+    definition_verbatim: false
+    location: "Public data/benchmark.json, evaluation.rubric[].dimension (docs/SCHEMA.md)"
+    scale: "points per rubric criterion (mostly 1; some items carry other weights, including negative penalties such as -10)"
+  - term: 课程设计安全性
+    level: dimension
+    definition: "Course design safety; the source gives no definition. Example criterion in the public data: adherence to injury and physiological limits."
+    definition_verbatim: false
+    location: "Public data/benchmark.json, evaluation.rubric[].dimension (docs/SCHEMA.md)"
+    scale: "points per rubric criterion (mostly 1; some items carry other weights, including negative penalties such as -10)"
+  - term: 分析逻辑质量
+    level: dimension
+    definition: "Analytic logic quality; the source gives no definition. Example criterion in the public data: scientific logic of the interpretation."
+    definition_verbatim: false
+    location: "Public data/benchmark.json, evaluation.rubric[].dimension (docs/SCHEMA.md)"
+    scale: "points per rubric criterion (mostly 1; some items carry other weights, including negative penalties such as -10)"
+  - term: Safety compliance
+    level: principle
+    definition: "The paper says rubrics emphasize safety compliance, scientific validity, and training logic; a safety redline caps or penalizes unsafe course content."
+    definition_verbatim: false
+    location: Paper abstract; entry summary
+  - term: Scientific validity
+    level: principle
+    definition: "Rubrics emphasize scientific validity of recommendations (see 专业准确性)."
+    definition_verbatim: false
+    location: Paper abstract
+  - term: Training logic
+    level: principle
+    definition: "Rubrics emphasize coherent training design (see 课程设计质量)."
+    definition_verbatim: false
+    location: Paper abstract
+  - term: Multiple-choice exact match
+    level: metric
+    definition: "MCQ (11 single-select, 19 multi-select in the public set) is graded by exact_match against the gold answer."
+    definition_verbatim: false
+    location: README (docs/README_EN.md)
+    scale: binary per item
+notes: "The paper (arXiv 2610.26185) was not in paperclip; terms come from the arXiv abstract, the GitHub README and the public rubric data (80 of 809 questions, 464 criteria; 14 distinct dimension labels, in Chinese). Full set has 5,012 rubric criteria, scored by a three-judge LLM ensemble with judge prompts kept private. Dimension glosses are mine."

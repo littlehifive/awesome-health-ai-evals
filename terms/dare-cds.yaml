@@ -1,0 +1,29 @@
+entry: dare-cds
+sources: [https://jcphs.com/index.php/JCPHS/article/view/73]
+extracted: 2026-10-26
+terms:
+  - term: "Raw accuracy"
+    level: metric
+    definition: "Leaderboard accuracy of a model on each Med-HALT task (seven tasks), taken as the baseline score."
+    definition_verbatim: false
+    location: "Abstract"
+    scale: "percent"
+  - term: "Knowledge-free baseline"
+    level: metric
+    definition: "Score a system with no medical knowledge could obtain (constant-reply and a bank of 30 deterministic solvers; reported floor 32.95%, constant \"Unknown\" 40.46% on PubMed task); used to rescale model scores."
+    definition_verbatim: false
+    location: "Abstract"
+    scale: "percent"
+  - term: "Difficulty-aware score"
+    level: metric
+    definition: "Model score corrected against the pseudo-guessing parameter measured from released data in an item-response-theory response curve; reverses the leaderboard."
+    definition_verbatim: false
+    location: "Abstract"
+    scale: "corrected accuracy; Holm-corrected exact binomial test vs knowledge-free ceiling"
+  - term: "Fisher information"
+    level: metric
+    definition: "Measurement capacity of an item; 34.97% of Med-HALT rows carry zero Fisher information and effective test length is 26.1% of nominal."
+    definition_verbatim: false
+    location: "Abstract"
+    scale: "item-level information"
+notes: "Only the journal abstract and landing page were reachable (PDF not fetched), so terms come from the abstract. The framework scores benchmark validity rather than chatbot outputs, and Med-HALT's own task scoring (hallucination tasks such as None-of-the-Above, Fake-Question, PubMed) is covered in the med-halt entry."

@@ -1,0 +1,59 @@
+entry: research-through-evaluation
+sources: [https://doi.org/10.21203/rs.3.rs-9735115/v1]
+extracted: 2026-10-26
+terms:
+  - term: Correctness
+    level: criterion
+    definition: "factual accuracy and patient relevance"
+    definition_verbatim: true
+    location: Methods, grading criteria; Table 1 (rounds 2-4)
+    scale: 1-5
+  - term: Completeness
+    level: criterion
+    definition: "responding to all inquiries"
+    definition_verbatim: true
+    location: Methods, grading criteria; Table 1
+    scale: 1-5
+  - term: Clarity
+    level: criterion
+    definition: "clinicians assess the response's overall comprehensibility, logical structure, and accessibility to a layperson."
+    definition_verbatim: true
+    location: Methods, grading rubric; Table 1 (round 3)
+    scale: 1-5
+  - term: Empathy
+    level: criterion
+    definition: "they evaluate the extent to which the response acknowledges the patient's concerns, conveys a compassionate and supportive tone, and makes the patient feel heard and cared for."
+    definition_verbatim: true
+    location: Methods, grading rubric; Table 1 (round 3)
+    scale: 1-5
+  - term: Editing Level
+    level: criterion
+    definition: "whether the response could be used without modification, required minor or major edits, or was unsuitable for patient communication."
+    definition_verbatim: true
+    location: Methods, grading rubric (called Extensive Editing Required in round 2); Table 1
+    scale: 0-3
+  - term: Estimate Time to Answer
+    level: metric
+    definition: Clinician's estimate in minutes of how long it would take to answer the patient message.
+    definition_verbatim: false
+    location: Table 1 (round 3)
+    scale: minutes
+  - term: Conciseness
+    level: criterion
+    definition: "personalized and specific communication"
+    definition_verbatim: true
+    location: Methods, early grading criteria; Table 1 (rounds 1-2, dropped later)
+    scale: 1-5
+  - term: Trustworthiness
+    level: criterion
+    definition: "tone and context that bolster patient confidence"
+    definition_verbatim: true
+    location: Methods, early grading criteria; Table 1 (rounds 1-2, replaced by Empathy)
+    scale: 1-5
+  - term: Readability scores
+    level: metric
+    definition: Six standardized readability scales (including Flesch Reading Ease) compared between bot and care-team responses.
+    definition_verbatim: false
+    location: Results, Figure 2
+    scale: scale-specific
+notes: "Criteria evolved over four rounds; the final rubric is Completeness, Correctness, Clarity, Empathy (1-5), Editing Level (0-3) and time estimate. Conciseness and Trustworthiness were used in rounds 1-2 only. The same four 1-5 criteria were applied by LLM graders in round 4. Inter-rater reliability (ICC, Krippendorff alpha) is reported but is not an output score."

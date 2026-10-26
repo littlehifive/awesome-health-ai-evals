@@ -1,0 +1,48 @@
+entry: dosebench
+sources:
+- https://arxiv.org/abs/2606.04262
+- https://github.com/yibo-hu-lab/DoseBench
+extracted: '2026-10-26'
+terms:
+- term: Correctness
+  level: metric
+  definition: evaluates whether the model's predicted decision label matches the gold decision label for a given scenario.
+  definition_verbatim: true
+  location: Section 4.4
+  scale: majority vote over 5 runs; YES/NO/AMBIGUOUS
+- term: Consistency
+  level: metric
+  definition: Consistency measures repeated-run stability for the same question.
+  definition_verbatim: true
+  location: Section 4.4
+  scale: proportion of 5 generations matching the majority decision
+- term: Verifiability
+  level: metric
+  definition: Verifiability evaluates whether the model's reasoning can be explicitly checked using the question context and OTC dosing guidance.
+  definition_verbatim: true
+  location: Section 4.4
+  scale: 0-2 (fully / partially / non-verifiable), manual
+- term: Factual Error
+  level: category
+  parent: Failure type
+  definition: where the response contains incorrect calculations, medically inaccurate statements, or unsafe recommendations
+  definition_verbatim: true
+  location: Section 4.4, Failure Analysis
+- term: Incomplete Reasoning
+  level: category
+  parent: Failure type
+  definition: where the response is partially reasonable but lacks key dosage or timing justification
+  definition_verbatim: true
+  location: Section 4.4
+- term: Ambiguous Reasoning
+  level: category
+  parent: Failure type
+  definition: where the response makes unsupported assumptions or fails to handle missing information appropriately
+  definition_verbatim: true
+  location: Section 4.4
+- term: Confidence-related signals
+  level: metric
+  definition: Verbal self-reported confidence plus probability-based decision confidence, entropy-based uncertainty, and decision margin, used as diagnostics.
+  definition_verbatim: false
+  location: Section 4.4
+notes: Failure type is a grouping label added here.

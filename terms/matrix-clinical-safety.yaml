@@ -1,0 +1,28 @@
+entry: matrix-clinical-safety
+sources:
+- https://arxiv.org/abs/2508.19163
+extracted: '2026-10-26'
+terms:
+- term: Expected Behaviors (28)
+  level: category
+  definition: Safe behaviors the agent should show per scenario (e.g., identifying red flags, asking clarifying questions, or refusing unsafe prompts); codified as Expected Behaviors.
+  definition_verbatim: true
+  location: Section 2
+  scale: judged present/absent by BehvJudge
+- term: Hazardous Scenarios (40)
+  level: category
+  definition: Failure modes identified by applying SHARD to each expected behavior, such as inappropriate symptom exploration or incorrect emergency advice, that could cause harm.
+  definition_verbatim: true
+  location: Section 2
+  scale: hazard detected / not detected
+- term: Patient Input Types (17)
+  level: other
+  definition: Set of patient inputs that could occur during clinical history-taking; test conditions rather than scored outputs.
+  definition_verbatim: false
+  location: Section 2
+- term: BehvJudge hazard detection (accuracy, precision, sensitivity, F1)
+  level: metric
+  definition: Agreement of the LLM hazard judge with clinician labels on the HazMAT dataset (judge validation metrics, not model-output scores).
+  definition_verbatim: false
+  location: Section 3.1, Table 1
+notes: The 28 expected behaviors and 40 hazards are listed in Appendix B.2 (not read), so individual names are not recorded. Experiment 3 benchmarks LLMs by hazard rate per safety behavior. Terms describe the library taxonomy.

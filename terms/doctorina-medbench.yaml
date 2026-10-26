@@ -1,0 +1,52 @@
+entry: doctorina-medbench
+sources:
+- https://arxiv.org/abs/2603.25821
+extracted: '2026-10-26'
+terms:
+- term: Diagnosis (D)
+  level: axis
+  definition: accuracy and completeness of the diagnostic solution.
+  definition_verbatim: true
+  location: Section 3.1
+  scale: pass thresholds per level; text and ICD-10 code both checked
+- term: Observations / Investigations (O)
+  level: axis
+  definition: validity of recommendations for conducting surveys.
+  definition_verbatim: true
+  location: Section 3.1
+  scale: weighted mandatory and optional investigations
+- term: Treatment (T)
+  level: axis
+  definition: safety, adequacy and therapeutic logic.
+  definition_verbatim: true
+  location: Section 3.1
+- term: Step Count (S)
+  level: axis
+  definition: the number of steps in the dialogue required to make a diagnosis and prescribe treatment.
+  definition_verbatim: true
+  location: Section 3.1
+  scale: count; deviation >25% from gold flagged
+- term: Differential diagnosis accuracy (Top-3, Top-5)
+  level: metric
+  parent: Diagnosis (D)
+  definition: Diagnostic accuracy of the differential diagnosis list at Top-3 and Top-5.
+  definition_verbatim: false
+  location: Section 3.1
+- term: ICD-10 accuracy
+  level: metric
+  parent: Diagnosis (D)
+  definition: Match of the primary diagnosis ICD-10 code against gold.
+  definition_verbatim: false
+  location: Section 3.1
+- term: Question Coverage
+  level: metric
+  definition: Coverage of required history-taking questions in the dialogue (history-taking assessment module).
+  definition_verbatim: false
+  location: Section 3.2
+- term: Treatment Proficiency
+  level: metric
+  parent: Treatment (T)
+  definition: Whether recommended treatment satisfies condition checks for the case.
+  definition_verbatim: false
+  location: Section 3.2
+notes: D.O.T.S. defined in Section 3.1; the evaluator has four modules (dialogue-level clinical evaluation, history-taking, treatment-condition verification, diagnostic-workup checking). Also supports trap cases for safety; no separate scored term found.

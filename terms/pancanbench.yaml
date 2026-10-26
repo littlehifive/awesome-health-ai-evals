@@ -1,0 +1,53 @@
+entry: pancanbench
+sources:
+- https://arxiv.org/abs/2603.01343
+- https://huggingface.co/datasets/YiminZ07/PanCanBench
+extracted: '2026-10-26'
+terms:
+- term: Rubric score
+  level: metric
+  definition: Final score is the points from reward criteria minus points deducted for penalty criteria,
+    as a percentage of the maximum possible points for the question.
+  definition_verbatim: false
+  location: Section 2.5
+  scale: percent of weighted rubric points; each criterion full or zero points
+- term: Rubric criterion (question-specific)
+  level: criterion
+  definition: Self-contained complete-sentence criterion written by oncology fellows with a point value
+    weighted by importance; some are penalty criteria with negative points.
+  definition_verbatim: false
+  location: Section 2.2, Appendix A
+  scale: binary met/not met, weighted points
+- term: Factual error rate
+  level: metric
+  definition: Percentage of responses containing at least one atomic factual statement judged incorrect
+    by both GPT-5 and Gemini-2.5 Pro with web search.
+  definition_verbatim: false
+  location: Section 2.6
+  scale: percent of responses
+- term: Web search triggering rate
+  level: metric
+  definition: Whether the model correctly recognized when external retrieval was necessary and issued
+    a search.
+  definition_verbatim: false
+  location: Section 2.7.2
+  scale: rate
+- term: Reference-criteria success rate
+  level: metric
+  definition: Whether the model retrieved the appropriate type of resource specified in rubric criteria
+    requiring references.
+  definition_verbatim: false
+  location: Section 2.7.2
+  scale: rate
+- term: Supportive link percentage
+  level: metric
+  definition: Share of provided URLs that actually contained information directly supporting the model's
+    claims, screened by an LLM judge.
+  definition_verbatim: false
+  location: Section 2.7.2
+  scale: percent of links
+notes: Rubrics are question-specific (3,130 criteria in the arXiv version, 3,639 in the final release),
+  not a fixed set of axes, so only the scoring constructs are listed. Rubric prompt text in the appendix
+  mentions medical accuracy, completeness, clarity and appropriateness, but those are grader-prompt wording,
+  not scored axes. Question categories (for example Supportive & Palliative Care) are topic groups, not
+  evaluation terms.

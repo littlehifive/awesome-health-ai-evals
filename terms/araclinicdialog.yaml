@@ -1,0 +1,35 @@
+entry: araclinicdialog
+sources: [https://arxiv.org/abs/2608.00207]
+extracted: 2026-10-26
+terms:
+  - term: Correctness
+    level: criterion
+    definition: "Correct: The generated answer reaches or is consistent with the diagnosis, differential, or management direction in the Primary Reasoning Objective. This includes answers that are in the right clinical direction even if they do not fully articulate every detail. Synonyms, equivalent medical terms, and slight phrasing differences still count as correct. Do not penalize for code-switching or English medical terminology if the clinical content is correct."
+    definition_verbatim: true
+    location: Appendix, Figure S5 (judge prompt, Multi-Turn Clinical Dialogue)
+    scale: "binary (Correct / Incorrect), LLM judge (GPT-5.2) against clinician-authored Primary Reasoning Objective"
+  - term: BERTScore-F1
+    level: metric
+    definition: Secondary automatic metric (AraBERTv2) comparing the generated final turn with the reference response.
+    definition_verbatim: false
+    location: Section 5.2.2; Figure 3
+    scale: F1 0-1
+  - term: Reasoning Match
+    level: criterion
+    definition: One of three judge axes described in the appendix text as assessing whether the final turn reaches the clinically appropriate reasoning; the published judge prompt (Figure S5) uses only the binary Correctness criterion.
+    definition_verbatim: false
+    location: Appendix A (text before Figure S5)
+    scale: three labels per axis (as described)
+  - term: Safety
+    level: criterion
+    definition: Judge axis described as requiring safe medical guidance, using red-flag symptoms as input.
+    definition_verbatim: false
+    location: Appendix A (text before Figure S5)
+    scale: three labels per axis (as described)
+  - term: Communication
+    level: criterion
+    definition: Judge axis described as requiring effective communication in the final doctor turn.
+    definition_verbatim: false
+    location: Appendix A (text before Figure S5)
+    scale: three labels per axis (as described)
+notes: The reported results use Correct % from the binary judge. The appendix text mentions a three-axis (Reasoning Match, Safety, Communication) judge but the prompt shown and the main text use only binary correctness; the three axes may be a leftover from an earlier design. The same paper also scores MCQA by exact match and short-answer generation by a binary LLM judge, which are outside this entry.

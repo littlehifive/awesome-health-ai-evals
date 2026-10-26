@@ -1,0 +1,43 @@
+entry: craft-md
+sources:
+- https://doi.org/10.1038/s41591-024-03328-5
+- https://doi.org/10.1101/2023.09.12.23295399
+- https://github.com/rajpurkarlab/craft-md
+extracted: '2026-10-26'
+terms:
+- term: Diagnostic accuracy
+  level: metric
+  definition: The grader-AI agent determines whether the doctor-AI's concluding diagnosis corresponds with the ground truth diagnosis of the case.
+  definition_verbatim: true
+  location: Results, CRAFT-MD framework (medRxiv preprint 2023.09.12.23295399)
+  scale: correct / incorrect per case (grader-AI)
+- term: Completeness of medical history
+  level: criterion
+  definition: whether the doctor-AI agent successfully extracts a complete medical history
+  definition_verbatim: false
+  location: Results, expert evaluation
+  scale: expert (dermatology resident) classification; incomplete history rate reported
+- term: Layman terminology
+  level: criterion
+  definition: whether the patient-AI agent uses layman terminology
+  definition_verbatim: false
+  location: Results, expert evaluation
+  scale: expert yes/no
+- term: Grader-AI accuracy
+  level: criterion
+  definition: whether the grader-AI agent's accuracy is reliable
+  definition_verbatim: false
+  location: Results, expert evaluation
+  scale: expert check of grader decisions
+- term: Relevance of questioning
+  level: other
+  definition: aspect of clinical reasoning assessed through conversation
+  definition_verbatim: false
+  location: Results ("aspects of clinical reasoning, including relevance of questioning, integration of details, and diagnostic accuracy")
+- term: Integration of details
+  level: other
+  definition: ability to integrate details gathered across the conversation into the diagnosis
+  definition_verbatim: false
+  location: Results (same sentence)
+notes: 'Read the medRxiv preprint (the Nature Medicine version was not fully read); terms may differ slightly. Accuracy is compared across settings: multi-turn conversation, summarized conversation, single-turn
+  and multiple-choice versus free-text answers. The three expert checks evaluate the agents rather than a single scored axis.'

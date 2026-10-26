@@ -1,0 +1,35 @@
+entry: self-care-llm-medicines-benchmark
+sources: [https://doi.org/10.1007/s11096-024-01839-2]
+extracted: 2026-10-26
+terms:
+  - term: Correctness
+    level: dimension
+    definition: "Accuracy of each answer against a desired reference response from pharmacy textbooks, rated on the scoring matrix."
+    definition_verbatim: false
+    location: "Methods, scoring matrix; abstract"
+    scale: "1-5 score"
+  - term: Language-independence
+    level: dimension
+    definition: "Whether answers stay correct when the question is asked in Dutch versus English."
+    definition_verbatim: false
+    location: "Abstract; Results, translated subsample"
+    scale: "difference in 1-5 mean score"
+  - term: Context-sensitivity
+    level: dimension
+    definition: "Whether answers stay correct when the question structure or user context is varied (for example rephrasing, added user context)."
+    definition_verbatim: false
+    location: "Abstract; Results experiments"
+    scale: "difference in 1-5 mean score"
+  - term: Reproducibility
+    level: dimension
+    definition: "Whether repeated submissions of the same question over time yield consistent answers and scores."
+    definition_verbatim: false
+    location: "Abstract; Results experiments"
+    scale: "variation in 1-5 score"
+  - term: Red-flag handling
+    level: category
+    definition: "Red-flag questions are scored more strictly against desired responses."
+    definition_verbatim: false
+    location: "Methods, question categories"
+    scale: "1-5, stricter"
+notes: "Abstract names four analysis dimensions (correctness, language-independence, context-sensitivity, reproducibility). Question categories (international, regional, red flag, yes/no, open) are item types. The scoring-matrix anchors for each 1-5 level were not extracted (in a table I did not open)."

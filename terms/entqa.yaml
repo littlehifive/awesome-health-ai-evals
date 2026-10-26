@@ -1,0 +1,17 @@
+entry: entqa
+sources: [https://doi.org/10.1371/journal.pdig.0001752, https://doi.org/10.1101/2025.11.12.25340106]
+extracted: 2026-10-26
+terms:
+  - term: EntQA (background)
+    level: metric
+    definition: "Fraction of biomedical entities extracted from the patient background that are matched (semantically or lexically, above a threshold) by entities in the LLM response; recall-style coverage score."
+    definition_verbatim: false
+    location: Methods, EntQA framework, Figure 1
+    scale: "0 to 1, higher means greater information interpretation and utilization"
+  - term: EntQA (question)
+    level: metric
+    definition: "Fraction of biomedical entities extracted from the diagnostic question that are matched by entities in the LLM response; recall-style coverage score."
+    definition_verbatim: false
+    location: Methods, EntQA framework, Figure 1
+    scale: 0 to 1
+notes: "Metric paper with no items of its own. The paper compares EntQA with baseline metrics (including BERTScore) by correlating each with model accuracy and model size on five medical QA benchmarks; baselines are not recorded as terms because they are comparators, not the entry's scoring terms. Verbatim framing: EntQA 'explicitly measures the proportion of key medical entities - derived from either patient background or diagnostic question - that are preserved in the model's response'."

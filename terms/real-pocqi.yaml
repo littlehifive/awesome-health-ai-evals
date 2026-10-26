@@ -1,0 +1,45 @@
+entry: real-pocqi
+sources: [https://arxiv.org/abs/2606.28960]
+extracted: 2026-10-26
+terms:
+  - term: Accuracy
+    level: axis
+    definition: "Which response is more factually accurate?"
+    definition_verbatim: true
+    location: Appendix, LLM-judge prompt (five axes); Section 2
+    scale: pairwise 5-point scale (strongly A, slightly A, tie, slightly B, strongly B)
+  - term: Clinical utility
+    level: axis
+    definition: "Which response is more useful for providing high-quality clinical care?"
+    definition_verbatim: true
+    location: Appendix, LLM-judge prompt (five axes)
+    scale: pairwise 5-point scale
+  - term: Source quality
+    level: axis
+    definition: "Which response is supported by more authoritative source material?"
+    definition_verbatim: true
+    location: Appendix, LLM-judge prompt (five axes)
+    scale: pairwise 5-point scale
+  - term: Verifiability
+    level: axis
+    definition: "Which answer is easier to verify?"
+    definition_verbatim: true
+    location: Appendix, LLM-judge prompt (five axes)
+    scale: pairwise 5-point scale
+  - term: Completeness
+    level: axis
+    definition: "Which response more completely addresses the question?"
+    definition_verbatim: true
+    location: Appendix, LLM-judge prompt (five axes)
+    scale: pairwise 5-point scale
+  - term: One-vs-rest win difference
+    level: metric
+    definition: "(Wins - Losses)/N, where N is the total number of comparisons for that system; ranges from -100% to 100%."
+    definition_verbatim: true
+    location: Methods, primary endpoint
+  - term: Pairwise win rate
+    level: metric
+    definition: "The proportion of head-to-head comparisons in which system A was preferred over system B."
+    definition_verbatim: true
+    location: Methods, secondary endpoint
+notes: "Axis definitions are the wording of the evaluator prompt in the appendix; the main text gives rationale for choosing each axis. 149 physicians produced 1,156 pairwise ratings; ties allowed."

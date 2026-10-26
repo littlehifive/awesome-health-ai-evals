@@ -1,0 +1,16 @@
+entry: shizhengpt-tcm-benchmark
+sources: [https://arxiv.org/abs/2508.14706, https://github.com/FreedomIntelligence/ShizhenGPT]
+extracted: 2026-10-26
+terms:
+  - term: Accuracy
+    level: metric
+    definition: "Proportion of multiple-choice questions answered correctly on the TCM-Text-Exams and TCM-Vision-Benchmark sets."
+    definition_verbatim: false
+    location: Entry description (benchmark sets are multiple choice)
+    scale: proportion correct
+  - term: Human preference evaluation
+    level: other
+    definition: "Three licensed TCM practitioners compared model responses on a 90-case set; the paper's criteria were not read."
+    definition_verbatim: false
+    location: Entry notes
+notes: "Entry is scored by multiple-choice accuracy; the paper itself was not re-opened for this pass. Criteria of the 90-case human preference evaluation are unknown."

@@ -1,0 +1,78 @@
+entry: globaldentbench
+sources:
+- https://arxiv.org/abs/2605.24636
+extracted: '2026-10-26'
+terms:
+- term: MCQ accuracy
+  level: metric
+  definition: Model predictions were then directly matched against the reference answers, and accuracy was reported as the evaluation metric for this question type.
+  definition_verbatim: true
+  location: Methods, Question Type-specific Evaluation
+  scale: accuracy by exact match
+- term: SAQ accuracy
+  level: metric
+  definition: An automatic judge model was therefore employed to compare model responses against the reference answers and determine whether each response was correct or incorrect, based on which accuracy was computed.
+  definition_verbatim: true
+  location: Methods, Question Type-specific Evaluation
+  scale: binary correct/incorrect by LLM judge, reported as accuracy
+- term: CBQ key-point alignment score
+  level: metric
+  definition: each question was associated with five predefined key points, with each key point contributing 20 points. The judge model determined whether each key point was correctly covered, rather than assigning continuous scores
+  definition_verbatim: true
+  location: Methods, Question Type-specific Evaluation
+  scale: 0-100 (five key points of 20 points each)
+- term: S0 (clinically safe response)
+  level: category
+  parent: CBQ safety-risk analysis
+  definition: S0 indicated a clinically safe response
+  definition_verbatim: true
+  location: Methods, safety-risk analysis of CBQ responses
+  scale: 3 categories S0/S1/S2
+- term: S1 (unsafe, reversible harm)
+  level: category
+  parent: CBQ safety-risk analysis
+  definition: S1 indicated an unsafe response with potential for reversible patient harm
+  definition_verbatim: true
+  location: Methods, safety-risk analysis of CBQ responses
+  scale: 3 categories S0/S1/S2
+- term: S2 (unsafe, irreversible harm)
+  level: category
+  parent: CBQ safety-risk analysis
+  definition: S2 indicated an unsafe response with potential for irreversible patient harm
+  definition_verbatim: true
+  location: Methods, safety-risk analysis of CBQ responses
+  scale: 3 categories S0/S1/S2
+- term: Overall unsafe rate
+  level: metric
+  parent: CBQ safety-risk analysis
+  definition: 'The overall unsafe rate used the number of S1 and S2 responses as the numerator (denominator: total responses per model or per model-discipline pair).'
+  definition_verbatim: true
+  location: Results, clinical risk analysis
+  scale: rate
+- term: L1 (knowledge recall)
+  level: category
+  parent: Reasoning level
+  definition: assessing recall of established foundational dental knowledge without meaningful case-based reasoning
+  definition_verbatim: true
+  location: Results/Dataset overview, Fig. 1B
+  scale: score stratified by level
+- term: L2 (routine reasoning)
+  level: category
+  parent: Reasoning level
+  definition: assessing reasoning based primarily on the core clinical presentation and typical diagnostic or therapeutic logic
+  definition_verbatim: true
+  location: Results/Dataset overview, Fig. 1B
+  scale: score stratified by level
+- term: L3 (individualized reasoning)
+  level: category
+  parent: Reasoning level
+  definition: assessing reasoning that requires incorporation of patient-specific information, individualized constraints, or non-standard clinical considerations to reach the final judgement
+  definition_verbatim: true
+  location: Results/Dataset overview, Fig. 1B
+  scale: score stratified by level
+- term: Macro Average Score
+  level: metric
+  definition: Unweighted macro-average of scores across the three question types (MCQ, SAQ, CBQ), used for overall proficiency and for reasoning-level and discipline-level reporting.
+  definition_verbatim: false
+  location: Results, Fig. 2C-D, Fig. 3
+notes: 'Reasoning levels L1-L3 and the 14 dental disciplines are item tags used to stratify scores, listed here only for L1-L3 because the paper frames them as the reasoning demand being scored. Judge model: Gemini-3-Flash-Preview, validated against dentists (94 to 98% agreement). Per-item CBQ key points are example-specific and not listed.'

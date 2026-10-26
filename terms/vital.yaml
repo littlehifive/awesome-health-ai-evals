@@ -1,0 +1,25 @@
+entry: vital
+sources:
+- https://arxiv.org/abs/2502.13775
+- https://github.com/anudeex/VITAL
+extracted: '2026-10-26'
+terms:
+- term: Overton coverage
+  level: metric
+  definition: For Overton mode, percentage of values covered in various situations, computed with an NLI model, plus human and LLM-as-a-Judge comparison.
+  definition_verbatim: false
+  location: Section 4.3
+  scale: percent coverage
+- term: Steerable accuracy
+  level: metric
+  definition: For Steerable mode, whether the final response maintains the steer attribute.
+  definition_verbatim: false
+  location: Section 4.3
+  scale: accuracy
+- term: Jensen-Shannon distance
+  level: metric
+  definition: For Distributional mode, distance between expected and actual distributions; lower is better aligned.
+  definition_verbatim: false
+  location: Section 4.3
+  scale: JS distance
+notes: Three pluralistic alignment modes (Overton, Steerable, Distributional) each with its own metric. Definitions paraphrased.

@@ -1,0 +1,176 @@
+entry: trustmh-bench
+sources:
+- https://arxiv.org/abs/2603.03047
+- https://github.com/Qiyuan0130/TrustMH_Bench
+extracted: '2026-10-26'
+terms:
+- term: Reliability
+  level: axis
+  definition: The mastery of foundational mental health knowledge and the proficient application of such knowledge in practical support contexts.
+  definition_verbatim: true
+  location: Table 1, Section 3.1
+- term: Crisis Identification and Escalation
+  level: axis
+  definition: The capacity to accurately recognize urgent and potentially lethal scenarios, and to appropriately escalate responses when situations exceed the model’s predefined functional boundaries and clinical scope.
+  definition_verbatim: true
+  location: Table 1, Section 3.2
+- term: Safety
+  level: axis
+  definition: The ability to defend against adversarial prompts designed to bypass safety filters and induce harmful or prohibited outputs.
+  definition_verbatim: true
+  location: Table 1, Section 3.3
+- term: Fairness
+  level: axis
+  definition: The commitment to treating diverse demographic groups equitably and impartially, ensuring the absence of algorithmic bias.
+  definition_verbatim: true
+  location: Table 1, Section 3.4
+- term: Privacy
+  level: axis
+  definition: The adherence to norms and practices that safeguard individual data autonomy, identity, and dignity, ensuring the confidentiality of sensitive mental health information.
+  definition_verbatim: true
+  location: Table 1, Section 3.5
+- term: Robustness
+  level: axis
+  definition: The capability to maintain consistent and high-quality outputs even when subjected to input perturbations or noisy data.
+  definition_verbatim: true
+  location: Table 1, Section 3.6
+- term: Anti-sycophancy
+  level: axis
+  definition: The ability to resist over-conforming to a user’s biased opinions or emotional states during interactions, consistently upholding professional standards and factual integrity.
+  definition_verbatim: true
+  location: Table 1, Section 3.7
+- term: Ethics
+  level: axis
+  definition: The ability of an LLM to adhere to professional codes of ethics in clinical psychology and to maintain appropriate human–AI professional boundaries during mental health dialogues.
+  definition_verbatim: true
+  location: Table 1, Section 3.8
+- term: Knowledge
+  level: dimension
+  parent: Reliability
+  definition: Assesses the cognitive baseline through mastery of fundamental psychiatric knowledge (USMLE-Mental QA).
+  definition_verbatim: false
+  location: Section 3.1.1
+  scale: accuracy
+- term: Emotion Recognition
+  level: dimension
+  parent: Reliability
+  definition: Capability in capturing emotional signals (EmoBench Emotional Understanding subset), zero-shot and CoT.
+  definition_verbatim: false
+  location: Section 3.1.2
+  scale: accuracy
+- term: Psychological Diagnosis
+  level: dimension
+  parent: Reliability
+  definition: 'Diagnostic reliability under clinical standards: depression severity 0-5 and multi-class disorder classification.'
+  definition_verbatim: false
+  location: Section 3.1.3
+  scale: Pearson correlation; classification metrics
+- term: Emotional Support
+  level: dimension
+  parent: Reliability
+  definition: Empathetic, professionally grounded responses in ESConv scenarios, judged on four metrics.
+  definition_verbatim: false
+  location: Section 3.1.4
+  scale: 1-5 Likert per criterion (text says 0-5)
+- term: Fluency
+  level: criterion
+  parent: Emotional Support
+  definition: Judge-scored quality of emotional support responses (no separate definition given in text).
+  definition_verbatim: false
+  location: Section 3.1.4, Table 4
+  scale: Likert
+- term: Professionalism
+  level: criterion
+  parent: Emotional Support
+  definition: Judge-scored quality of emotional support responses (no separate definition in text).
+  definition_verbatim: false
+  location: Section 3.1.4, Table 4
+  scale: Likert
+- term: Empathy
+  level: criterion
+  parent: Emotional Support
+  definition: Judge-scored quality of emotional support responses (no separate definition in text).
+  definition_verbatim: false
+  location: Section 3.1.4, Table 4
+  scale: Likert
+- term: Helpfulness
+  level: criterion
+  parent: Emotional Support
+  definition: Judge-scored quality of emotional support responses (no separate definition in text).
+  definition_verbatim: false
+  location: Section 3.1.4, Table 4
+  scale: Likert
+- term: Psychological Intervention
+  level: dimension
+  parent: Reliability
+  definition: Multi-turn counseling performance across thematic categories (CPsyCounE).
+  definition_verbatim: false
+  location: Section 3.1.5
+- term: Comprehensiveness
+  level: criterion
+  parent: Psychological Intervention
+  definition: Counseling-quality criterion for psychological intervention.
+  definition_verbatim: false
+  location: Section 3.1.5
+- term: Authenticity
+  level: criterion
+  parent: Psychological Intervention
+  definition: Counseling-quality criterion for psychological intervention.
+  definition_verbatim: false
+  location: Section 3.1.5
+- term: Crisis Identification
+  level: dimension
+  parent: Crisis Identification and Escalation
+  definition: Crisis classification over six categories plus severity identification on C-SSRS.
+  definition_verbatim: false
+  location: Section 3.2.1
+  scale: accuracy, F1, recall
+- term: Crisis Escalation
+  level: dimension
+  parent: Crisis Identification and Escalation
+  definition: Ability to move from regular support to urgent intervention or referral once a risk threshold is met.
+  definition_verbatim: false
+  location: Section 3.2.2
+  scale: LLM judge, 1 (Harmful) to 5 (Fully Appropriate)
+- term: Jailbreak Resistance
+  level: dimension
+  parent: Safety
+  definition: Whether the model rejects harmful requests in the PsyHarm / JailbreakMH adversarial set.
+  definition_verbatim: false
+  location: Section 3.3.1
+  scale: Refusal Rate
+- term: Toxicity
+  level: dimension
+  parent: Safety
+  definition: Probability of generating offensive, derogatory, or psychologically harmful content, measured on successful jailbreak responses.
+  definition_verbatim: false
+  location: Section 3.3.2
+  scale: score 0-1
+- term: Privacy Awareness
+  level: dimension
+  parent: Privacy
+  definition: 'Understanding of sensitive information (CONFAIDE tiers 1-2): out-of-context and in-context awareness.'
+  definition_verbatim: false
+  location: Section 3.5.1
+  scale: 1-4 sensitivity rating; appropriateness judgments
+- term: Privacy Leakage
+  level: dimension
+  parent: Privacy
+  definition: Managing sensitive information under information asymmetry (PsyLeak, CONFAIDE tier 3).
+  definition_verbatim: false
+  location: Section 3.5.2
+  scale: nine quantitative metrics
+- term: Resilience Gap
+  level: metric
+  parent: Robustness
+  definition: Performance drop under character, word, and sentence-level perturbations at low, medium, high intensity versus original reliability results.
+  definition_verbatim: false
+  location: Section 3.6
+- term: Action Rejection Rate
+  level: metric
+  parent: Anti-sycophancy
+  definition: Extent to which the model keeps its professional stance rather than endorsing the user’s problematic action (ARR).
+  definition_verbatim: false
+  location: Section 3.7
+  scale: rate
+notes: Eight pillars are the Table 1 criteria; sub-dimensions are listed from the text of Section 3 (Fairness has no named sub-dimensions read). Ethics (EthicMH) is scored on decision outcome and reasoning process; second dimension truncated in the read, not recorded. Appendix rubrics (E.2, E.3, Table 4) not read, so some criterion definitions are paraphrased.

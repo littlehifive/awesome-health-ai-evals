@@ -1,0 +1,86 @@
+entry: medic-m42
+sources: [https://arxiv.org/abs/2409.07314]
+extracted: 2026-10-26
+terms:
+  - term: Medical Reasoning
+    level: dimension
+    definition: "Medical Reasoning evaluates the capacity for clinical decision-making, including the formulation of differential diagnoses (McDuff et al., 2023) and the provision of evidence-based justifications for treatment recommendations (Sandmann et al., 2024; Han et al., 2024b; Kanjee et al., 2023b; Levine et al., 2024)."
+    definition_verbatim: true
+    location: Section 2, Figure 1
+  - term: Ethical and Bias Concerns
+    level: dimension
+    definition: "Ethical and Bias Concerns address the model's adherence to fairness across diverse demographics (Zack et al., 2024; Maslenkova et al., 2025) and the appropriate handling of sensitive patient information (Ong et al., 2024; Haltaufderheide & Ranisch, 2024)."
+    definition_verbatim: true
+    location: Section 2, Figure 1
+  - term: Data and Language Understanding
+    level: dimension
+    definition: "Data and Language Understanding assesses proficiency in interpreting clinical terminology and processing heterogeneous data formats, such as unstructured notes and structured reports (Veen et al., 2024; Soroush et al., 2024)."
+    definition_verbatim: true
+    location: Section 2, Figure 1
+  - term: In-Context Learning
+    level: dimension
+    definition: "In-Context Learning measures the model's adaptability to new information provided at inference time (Ferber et al., 2024; Luo et al., 2024), such as patient-specific history or updated clinical guidelines (Zakka et al., 2024; Hager et al., 2024)."
+    definition_verbatim: true
+    location: Section 2, Figure 1
+  - term: Clinical Safety and Risk Assessment
+    level: dimension
+    definition: Identification of medical errors and risk; paraphrase because the sentence is truncated in the text read.
+    definition_verbatim: false
+    location: Section 2, Figure 1
+  - term: Coverage
+    level: metric
+    parent: Cross-Examination Framework
+    definition: "this score measures how comprehensively the summary covers the content of the original document. It is calculated as 100 − X, where X is the percentage of document generated questions that receive an \"IDK\" (I Don't Know) response based on the summary."
+    definition_verbatim: true
+    location: Appendix A.4
+    scale: 0-100
+  - term: Conformity
+    level: metric
+    parent: Cross-Examination Framework
+    definition: "also known as the non-contradiction score, this metric evaluates whether the summary avoids contradicting the document."
+    definition_verbatim: true
+    location: Appendix A.4
+    scale: 0-100
+  - term: Consistency
+    level: metric
+    parent: Cross-Examination Framework
+    definition: "this score, which measures the level of non-hallucination, is based on the accuracy of factual information in the summary as compared to the document."
+    definition_verbatim: true
+    location: Appendix A.4
+    scale: 0-100
+  - term: Conciseness
+    level: metric
+    parent: Cross-Examination Framework
+    definition: "reflecting the summary's briefness, this score is computed by the reduction in word-level token count from the original document to the summary."
+    definition_verbatim: true
+    location: Appendix A.4
+    scale: 0-100; not computed for some use cases
+  - term: Accuracy
+    level: metric
+    definition: "the exact match of the selected option"
+    definition_verbatim: true
+    location: Section 2 (closed-ended QA)
+    scale: binary per item
+  - term: Elo rating (pairwise)
+    level: metric
+    definition: Pairwise LLM-judge comparisons of open-ended answers on clinical utility and accuracy, aggregated to Elo ratings; a win counts only if it holds in both answer orders.
+    definition_verbatim: false
+    location: Section 2 (open-ended clinical inquiry)
+    scale: Elo
+  - term: Refusal rate (Med-Safety, ToxiGen)
+    level: metric
+    definition: Model's refusal to generate harmful or unethical content.
+    definition_verbatim: false
+    location: Section 2 (safety and error correction)
+  - term: Error Flag Accuracy and Sentence Detection Accuracy (MEDEC)
+    level: metric
+    definition: Detection of an error in a clinical note and localization of the erroneous sentence.
+    definition_verbatim: false
+    location: Table 3
+    scale: accuracy
+  - term: ROUGE, BLEU, BERTScore
+    level: metric
+    definition: Lexical and embedding overlap metrics used for note generation and as comparison baselines for the Cross-Examination scores.
+    definition_verbatim: false
+    location: Table 1, Figure 3c
+notes: "Figure 1 also lists per-dimension criteria (clinical accuracy, hallucinations, safety, risk mitigation, bias, toxicity, clarity, relevance, completeness, coverage) as illustrative metrics; these are not defined as scored rubric items. EHRSQL, MedCalc and IFEval use execution or exact-numeric metrics. The Cross-Examination scores were checked against clinician 1-5 ratings."

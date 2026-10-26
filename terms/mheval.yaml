@@ -1,0 +1,61 @@
+entry: mheval
+sources:
+- https://github.com/slingshot-ai/mheval
+- https://slingshot-ai.github.io/mheval-leaderboard/
+extracted: '2026-10-26'
+terms:
+- term: average_score (MindEval)
+  level: metric
+  definition: Headline MindEval score on 1-6 over 5 clinical criteria.
+  definition_verbatim: false
+  location: README, Benchmarks tables (Quality and Safety)
+  scale: see definition
+- term: clipped_mean_score (HealthBench-Psych)
+  level: metric
+  definition: Headline HealthBench-Psych score on 0-1, broken down by theme and rubric axis.
+  definition_verbatim: false
+  location: README, Benchmarks tables (Quality and Safety)
+  scale: see definition
+- term: rubric_score (EQ-Bench 3)
+  level: metric
+  definition: Rubric score 0-100 over 18 rubric criteria, plus elo_normalized.
+  definition_verbatim: false
+  location: README, Benchmarks tables (Quality and Safety)
+  scale: see definition
+- term: overall (CounselBench-EVAL)
+  level: metric
+  definition: Overall counseling-answer rating 1-5 across 6 metrics.
+  definition_verbatim: false
+  location: README, Benchmarks tables (Quality and Safety)
+  scale: see definition
+- term: failure_rate (CounselBench-Adv)
+  level: metric
+  definition: Rate of failures over 6 failure modes on 120 adversarial questions, 0-1.
+  definition_verbatim: false
+  location: README, Benchmarks tables (Quality and Safety)
+  scale: see definition
+- term: mean_weighted_f1 (CBT-Bench)
+  level: metric
+  definition: Mean weighted F1 for cognitive distortion and core-belief classification, 0-1.
+  definition_verbatim: false
+  location: README, Benchmarks tables (Quality and Safety)
+  scale: see definition
+- term: vera_score (VERA-MH)
+  level: metric
+  definition: Suicide-risk detection and response score 0-100 over 5 rubric dimensions.
+  definition_verbatim: false
+  location: README, Benchmarks tables (Quality and Safety)
+  scale: see definition
+- term: score_0_100 (Spiral-Bench)
+  level: metric
+  definition: Safety score 0-100 over 17 behaviors plus off-rails (sycophancy, delusion reinforcement, harmful advice, unwarranted referrals).
+  definition_verbatim: false
+  location: README, Benchmarks tables (Quality and Safety)
+  scale: see definition
+- term: mh_harm_mean (SIM-VAIL)
+  level: metric
+  definition: Mean mental-health harm rating 1-10 over 39 judge dimensions.
+  definition_verbatim: false
+  location: README, Benchmarks tables (Quality and Safety)
+  scale: see definition
+notes: Harness wrapping nine existing benchmarks; terms are each wrapped benchmark's headline metric as listed in the README. Per-dimension breakdowns (MindEval 5 criteria, VERA-MH 5 dimensions, EQ-Bench 18 criteria, Spiral-Bench 17 behaviors, SIM-VAIL 39 dimensions, CounselBench 6 metrics and 6 failure modes) belong to the original benchmarks and are not enumerated here. MentalHealthBench's headline metric was not named in the README excerpt read.

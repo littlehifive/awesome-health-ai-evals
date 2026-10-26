@@ -1,0 +1,60 @@
+entry: medrgb
+sources:
+- https://arxiv.org/abs/2411.09213
+- https://huggingface.co/datasets/ngotrnghia1811/MedRGB
+extracted: '2026-10-26'
+terms:
+- term: Standard-RAG accuracy
+  level: metric
+  definition: Multiple-choice accuracy when 5 or 20 signal documents are retrieved as context (offline MedCorp or online search), compared with a no-retrieval baseline.
+  definition_verbatim: false
+  location: Standard-RAG Evaluation, Table 1
+  scale: accuracy
+- term: Sufficiency
+  level: dimension
+  definition: Ability to handle varying levels of noise in retrieved documents and to recognize when information is insufficient to answer reliably.
+  definition_verbatim: false
+  location: Sufficiency Evaluation, Figs 11-12
+- term: Noise detection accuracy
+  level: metric
+  parent: Sufficiency
+  definition: Accuracy at identifying noise (irrelevant) documents in the context as the signal percentage p varies; also whether the model declines when all documents are noise.
+  definition_verbatim: false
+  location: Sufficiency Evaluation, Fig. 12
+- term: Integration
+  level: dimension
+  definition: Ability to answer sub-questions from retrieved documents and integrate those answers to answer the main question.
+  definition_verbatim: false
+  location: Integration Evaluation, Figs 13-14
+- term: Main question accuracy
+  level: metric
+  parent: Integration
+  definition: Accuracy on the main question after the model integrates information from answering sub-questions.
+  definition_verbatim: false
+  location: Integration Evaluation, Fig. 13
+- term: Sub-question exact-match accuracy
+  level: metric
+  parent: Integration
+  definition: Strict exact-match score of sub-question answers (extractive QA).
+  definition_verbatim: false
+  location: Integration Evaluation, Fig. 14
+  scale: exact match
+- term: Sub-question GPT-based score
+  level: metric
+  parent: Integration
+  definition: 'Lenient LLM-judged match of a sub-question prediction to ground truth: 1 for a complete semantic match, 0.5 for a partial relevant match, 0 for wrong or irrelevant.'
+  definition_verbatim: false
+  location: Prompt in Fig. 10; Integration Evaluation
+  scale: 0 / 0.5 / 1
+- term: Robustness
+  level: dimension
+  definition: Ability to resist counterfactual (misinformation) documents mixed into the context.
+  definition_verbatim: false
+  location: Robustness Evaluation, Fig. 16
+- term: Factual error detection rate
+  level: metric
+  parent: Robustness
+  definition: Rate at which the model detects factual errors (fake information) in retrieved counterfactual documents.
+  definition_verbatim: false
+  location: Robustness Evaluation, Fig. 16
+notes: 'Four scenarios: Standard-RAG, Sufficiency, Integration, Robustness. Definitions of dimensions are paraphrased from the section descriptions; the GPT-score definition paraphrases the prompt in the appendix.'

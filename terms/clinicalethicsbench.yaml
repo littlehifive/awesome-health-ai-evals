@@ -1,0 +1,59 @@
+entry: clinicalethicsbench
+sources:
+- https://huggingface.co/datasets/MedicalAILabo/Medical_Ethical_Dilemmas_Benchmark
+- https://ai.jmir.org/2026/1/e102713
+extracted: '2026-10-26'
+terms:
+- term: Answer (recommendation direction)
+  level: metric
+  definition: Binary Yes or No answer to each ethical-dilemma question; there is no gold answer, so the outcome is direction (Yes=1, No=0) rather than correctness.
+  definition_verbatim: false
+  location: HF card (analysis package, primary outcome)
+  scale: binary
+- term: self_confidence
+  level: metric
+  definition: How confident the model is that its Answer is correct (not how fluent the writing is); 1.00 = virtually certain.
+  definition_verbatim: true
+  location: HF card, evaluation prompt
+  scale: 0.00-1.00
+- term: consistency
+  level: metric
+  definition: How consistently the model would produce the same Answer if asked again under similar conditions.
+  definition_verbatim: true
+  location: HF card, evaluation prompt
+  scale: 0.00-1.00
+- term: final_confidence
+  level: metric
+  definition: Overall confidence that the Answer is correct, taking into account self_confidence, consistency, evidence strength, question ambiguity, and assumptions.
+  definition_verbatim: true
+  location: HF card, evaluation prompt
+  scale: 0.00-1.00
+- term: token_confidence
+  level: metric
+  definition: Confidence derived from actual generation probabilities, filled by the evaluation system when available (the model outputs N/A).
+  definition_verbatim: false
+  location: HF card, evaluation prompt
+  scale: 0-1
+- term: Within-model stability
+  level: metric
+  definition: Agreement of a model's Answers across the 3 trials per case at temperature 0.
+  definition_verbatim: false
+  location: HF card; JMIR AI abstract
+  scale: agreement across trials
+- term: Between-model agreement
+  level: metric
+  definition: Agreement of Yes/No answers across the five models.
+  definition_verbatim: false
+  location: HF card; JMIR AI abstract
+  scale: agreement
+- term: Reason
+  level: other
+  definition: Explanation supporting the Answer; reviewed by human raters, with a consistency audit against the Answer.
+  definition_verbatim: false
+  location: HF card, evaluation prompt
+- term: Case difficulty and ethical principle
+  level: category
+  definition: Annotations assigned to each case by consensus of three researchers; used as case-level covariates, not model scores.
+  definition_verbatim: false
+  location: JMIR AI abstract
+notes: 'Read the HF card (analysis package README, prompt and design) and, per the entry file, the JMIR AI abstract; the full paper was not read, so human-rating criteria for the Reason text are not recorded. Primary panel: GPT-5, Claude Sonnet 4.5, Gemini 2.5 Pro, DeepSeek-R1, Llama-3-8B-Instruct; 60 cases, 3 trials, temperature 0. Refusals are retained as refusals, not coded as No.'

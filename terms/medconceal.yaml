@@ -1,0 +1,99 @@
+entry: medconceal
+sources: [https://arxiv.org/abs/2604.08788]
+extracted: 2026-10-26
+terms:
+  - term: Reveal Rate
+    level: metric
+    parent: Confirmation
+    definition: "The fraction of gold concerns surfaced during the dialogue, because it isolates whether concerns were actually elicited before any post-dialogue summarization."
+    definition_verbatim: true
+    location: Section 3 (performance metrics)
+    scale: fraction 0-1
+  - term: Coarse-grained Precision/Recall/F1
+    level: metric
+    parent: Confirmation
+    definition: "Precision/Recall/F1 over the four benchmark categories (Misinformation or Misconceptions, Emotional Discomfort or Fear, Communication Barriers, Financial or Insurance-Related Concern) to test whether the correct type of barrier was recovered."
+    definition_verbatim: true
+    location: Section 3 (performance metrics)
+    scale: P/R/F1
+  - term: Fine-grained Precision/Recall/F1
+    level: metric
+    parent: Confirmation
+    definition: "Precision/Recall/F1 over case-specific concern statements to test whether the patient's actual concern was recovered."
+    definition_verbatim: true
+    location: Section 3 (performance metrics)
+    scale: P/R/F1
+  - term: Matched-but-no-reveal (MBNR)
+    level: metric
+    parent: Confirmation
+    definition: "Reported to distinguish grounded elicitation from correctly formatted guessing."
+    definition_verbatim: true
+    location: Section 3 (performance metrics)
+  - term: Intervention Success
+    level: metric
+    parent: Intervention
+    definition: "Each case designates a primary concern; Success asks whether the clinician addressed that concern and moved the patient toward the target plan (full definition text truncated in my read)."
+    definition_verbatim: false
+    location: Section 3 (performance metrics)
+  - term: Empathy
+    level: criterion
+    parent: Communication style metrics
+    definition: "Judge-scored conversational style dimension for clinician turns."
+    definition_verbatim: false
+    location: Tables 2 and 4
+    scale: judge score (about 0-2)
+  - term: Collaboration
+    level: criterion
+    parent: Communication style metrics
+    definition: "Judge-scored conversational style dimension in confirmation dialogues."
+    definition_verbatim: false
+    location: Table 2
+  - term: Problem-Solving
+    level: criterion
+    parent: Communication style metrics
+    definition: "Judge-scored conversational style dimension."
+    definition_verbatim: false
+    location: Tables 2 and 4
+  - term: Values Detected
+    level: metric
+    parent: Communication style metrics
+    definition: "Mean number of patient values detected."
+    definition_verbatim: true
+    location: Table 2 caption
+  - term: Rationale
+    level: criterion
+    parent: Communication style metrics
+    definition: "Judge-scored persuasive style dimension in intervention dialogues."
+    definition_verbatim: false
+    location: Table 4
+  - term: Actionability
+    level: criterion
+    parent: Communication style metrics
+    definition: "Judge-scored persuasive style dimension in intervention dialogues."
+    definition_verbatim: false
+    location: Table 4
+  - term: Early Open
+    level: metric
+    parent: Communication style metrics
+    definition: "Score for asking early open-ended questions."
+    definition_verbatim: false
+    location: Tables 2 and 4
+  - term: Readability
+    level: metric
+    parent: Communication style metrics
+    definition: "Readability score of clinician turns."
+    definition_verbatim: false
+    location: Tables 2 and 4
+  - term: Word/Turn
+    level: metric
+    parent: Communication style metrics
+    definition: "Mean words per clinician turn."
+    definition_verbatim: false
+    location: Tables 2 and 4
+  - term: Turn-level rubric (10 dimensions)
+    level: dimension
+    definition: "A 10-dimensional rubric feature vector scored per clinician turn: data gathering, emotional responsiveness, partnership/activation, concern elicitation, space provision, necessity support, concern mitigation, plan specificity/safety-netting, pending-question coverage, and meta-probe risk."
+    definition_verbatim: true
+    location: Section 3; Table 13
+    scale: 0-1 per dimension
+notes: "Rubric dimensions derive from RIAS, VR-CoDES and the Necessity-Concerns Framework and drive the simulator's reveal and addressing evidence; Table 13 definitions were not read, so the ten are listed as one term. Hidden-concern category taxonomy (misinformation, fear/discomfort, communication barriers, cost/insurance) is used for scoring confirmation. Intervention Success definition not fully read."

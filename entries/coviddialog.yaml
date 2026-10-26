@@ -1,0 +1,45 @@
+id: coviddialog
+name: CovidDialog
+kind: benchmark
+year: 2020
+summary: Two COVID-19 doctor-patient dialogue datasets, 603 English consultations (from iCliniq, HealthCareMagic, HealthTap) and 1,088 Chinese consultations (from haodf.com), used to train and evaluate dialogue generation with automatic and human evaluation.
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2005.05442
+  arxiv: "2005.05442"
+  doi: 10.1101/2020.05.08.20095810
+  code: https://github.com/UCSD-AI4H/COVID-Dialogue
+license: null
+open_data: unknown
+geography:
+  item_languages: [English, Mandarin Chinese]
+  item_origin_countries: [UNKNOWN, CHN]
+  item_origin_note: The Chinese consultations are from haodf.com, a Chinese online healthcare platform. The English sources (iCliniq, HealthCareMagic, HealthTap) are online forums whose users' countries are not stated.
+  localization: native
+  lead_institution_countries: [USA]
+  subsets:
+    - {name: CovidDialog-English, languages: [English], countries: [UNKNOWN], localization: native}
+    - {name: CovidDialog-Chinese, languages: [Mandarin Chinese], countries: [CHN], localization: native}
+origin:
+  builder_types: [academic]
+  item_provenance: [web_forum]
+  venue: preprint
+facets:
+  health_areas: [infectious_other]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric, expert_human_rating]
+  modality: [text]
+  size: 603 English and 1,088 Chinese consultations (1,232 and 9,494 utterances)
+signals:
+  citations: 15
+  citations_source: OpenAlex
+  hf_downloads: null
+  github_stars: null
+  uptake: []
+  updated: '2026-10-26'
+provenance:
+  records: [r_73dff778c1]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "UC San Diego (Pengtao Xie's group) with CMU and UC Davis co-authors; the arXiv version (2005.05442) was read, the record is the medRxiv version. The paper says data and code are at github.com/UCSD-AI4H/COVID-Dialogue, but that URL returned 404 when checked, so open_data is unknown and no license was seen. Metrics are perplexity, NIST, BLEU, and other automatic scores plus human ratings on a test sample. Training-oriented: the datasets are small and the paper's main use is fine-tuning Transformer, GPT, and BERT-GPT models."

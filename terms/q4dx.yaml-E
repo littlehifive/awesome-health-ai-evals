@@ -1,0 +1,8 @@
+entry: q4dx
+sources: [https://doi.org/10.1038/s41598-026-37022-y, https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12901287/]
+extracted: 2026-10-26
+terms:
+  - {term: Zero-Shot Diagnostic Accuracy (ZDA), level: metric, definition: "ZDA measures a model's ability to produce the correct final diagnosis from the initial patient description alone, without any interactive questioning. A prediction is considered correct if the model's top-ranked diagnosis exactly matches the reference diagnosis assigned to the case.", definition_verbatim: true, location: Evaluation metrics section, scale: accuracy (complete-disclosure cases only)}
+  - {term: Mean Questions to Correct Diagnosis (MQD), level: metric, definition: "MQD quantifies diagnostic efficiency by computing the average number of questions a model asks before producing the correct diagnosis for the first time.", definition_verbatim: true, location: Evaluation metrics section, scale: "mean count, capped at 5 questions"}
+  - {term: Interrogation Sequence Efficiency (ISE), level: metric, definition: "ISE assesses the quality of a model's questioning strategy by comparing its generated question sequence against a reference sequence produced during dataset construction, using BERTScore with sequence alignment.", definition_verbatim: true, location: Evaluation metrics section, scale: BERTScore-based similarity}
+notes: "Reference question sequences are LLM-generated."

@@ -1,0 +1,32 @@
+entry: healthybench-german
+sources:
+- https://huggingface.co/datasets/8Fai/Healthybench-German
+extracted: '2026-10-26'
+terms:
+- term: rubric_items
+  level: other
+  definition: Criteria for scoring safe and useful responses; per-prompt, example-specific rubric items (content not enumerated on the card).
+  definition_verbatim: true
+  location: Dataset card, Benchmark Design
+  scale: not stated on card
+- term: Escalation quality
+  level: dimension
+  definition: Whether the response identifies red flags and points to professional help / emergency escalation when appropriate (named in Intended Use as 'testing escalation quality and guardrailed responses').
+  definition_verbatim: false
+  location: Dataset card, Intended Use
+- term: Avoiding overconfident medical claims
+  level: dimension
+  definition: Whether the model avoids false certainty and overconfident medical claims.
+  definition_verbatim: false
+  location: Dataset card, Intended Use and Overview
+- term: Safe communication
+  level: dimension
+  definition: Evaluation targets safe communication and escalation behavior rather than diagnostic precision.
+  definition_verbatim: false
+  location: Dataset card, Overview
+- term: category
+  level: category
+  definition: Health-and-safety subdomain label per item (emergency escalation, first aid, medication safety, infection-related advice, heat and dehydration, allergy response, gastrointestinal complaints, mental-health crisis support); a topic label, not a scored criterion.
+  definition_verbatim: false
+  location: Dataset card, Scope
+notes: Dataset card only; no paper and the card does not describe the grader or scoring scale. The rubric_items contents were not inspected (parquet not downloaded), so individual criteria are not listed. Category and difficulty are item metadata, recorded only because rubrics are organised under them.

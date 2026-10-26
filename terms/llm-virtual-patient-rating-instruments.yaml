@@ -1,0 +1,129 @@
+entry: llm-virtual-patient-rating-instruments
+sources:
+- https://doi.org/10.2196/68486
+- https://pmc.ncbi.nlm.nih.gov/articles/PMC12008702/
+extracted: '2026-10-26'
+terms:
+- term: Dialogue authenticity
+  level: dimension
+  definition: 'Instrument rating the quality of the virtual patient''s dialogue; overall item: The dialogue as a whole mirrored a real-life patient-clinician conversation.'
+  definition_verbatim: false
+  location: Table 1 (JMIR 2025;e68486)
+  scale: 6-point rating (max 6)
+- term: User experience
+  level: dimension
+  definition: 'Instrument rating the clinician''s experience of the virtual-patient interaction; overall item: I felt as if I were the doctor.'
+  definition_verbatim: false
+  location: Table 1 (JMIR 2025;e68486)
+  scale: 6-point rating (max 6)
+- term: Feedback quality
+  level: dimension
+  definition: Instrument rating the quality of LLM-generated performance feedback to the clinician (mean of four items).
+  definition_verbatim: false
+  location: Table 1 (JMIR 2025;e68486)
+  scale: 6-point rating (max 6)
+- term: Humanlike
+  level: criterion
+  parent: Dialogue authenticity
+  definition: The virtual patient's responses were humanlike.
+  definition_verbatim: true
+  location: Table 1 (JMIR 2025;e68486)
+  scale: 6-point rating (max 6)
+- term: Coherent
+  level: criterion
+  parent: Dialogue authenticity
+  definition: The virtual patient's responses were coherent.
+  definition_verbatim: true
+  location: Table 1 (JMIR 2025;e68486)
+  scale: 6-point rating (max 6)
+- term: Personal
+  level: criterion
+  parent: Dialogue authenticity
+  definition: The virtual patient's responses were personal.
+  definition_verbatim: true
+  location: Table 1 (JMIR 2025;e68486)
+  scale: 6-point rating (max 6)
+- term: Relevant
+  level: criterion
+  parent: Dialogue authenticity
+  definition: The virtual patient's responses were relevant and meaningful.
+  definition_verbatim: true
+  location: Table 1 (JMIR 2025;e68486)
+  scale: 6-point rating (max 6)
+- term: Overall dialogue authenticity
+  level: criterion
+  parent: Dialogue authenticity
+  definition: The dialogue as a whole mirrored a real-life patient-clinician conversation.
+  definition_verbatim: true
+  location: Table 1 (JMIR 2025;e68486)
+  scale: 6-point rating (max 6)
+- term: Realness
+  level: criterion
+  parent: User experience
+  definition: This was an authentic representation of a real-world experience.
+  definition_verbatim: true
+  location: Table 1 (JMIR 2025;e68486)
+  scale: 6-point rating (max 6)
+- term: Cognitive authenticity
+  level: criterion
+  parent: User experience
+  definition: I had to continuously revise my mental image of the problem using new information.
+  definition_verbatim: true
+  location: Table 1 (JMIR 2025;e68486)
+  scale: 6-point rating (max 6)
+- term: Variability
+  level: criterion
+  parent: User experience
+  definition: The interaction seemed unscripted and appropriately complex.
+  definition_verbatim: true
+  location: Table 1 (JMIR 2025;e68486)
+  scale: 6-point rating (max 6)
+- term: Involvement
+  level: criterion
+  parent: User experience
+  definition: I was fully engaged in this conversation.
+  definition_verbatim: true
+  location: Table 1 (JMIR 2025;e68486)
+  scale: 6-point rating (max 6)
+- term: Overall user experience
+  level: criterion
+  parent: User experience
+  definition: I felt as if I were the doctor.
+  definition_verbatim: true
+  location: Table 1 (JMIR 2025;e68486)
+  scale: 6-point rating (max 6)
+- term: Evidence based
+  level: criterion
+  parent: Feedback quality
+  definition: The feedback correctly identifies important weaknesses and strengths in the clinician's performance.
+  definition_verbatim: true
+  location: Table 1 (JMIR 2025;e68486)
+  scale: 6-point rating (max 6)
+- term: Actionable
+  level: criterion
+  parent: Feedback quality
+  definition: The feedback contains suggestions that are specific and actionable.
+  definition_verbatim: true
+  location: Table 1 (JMIR 2025;e68486)
+  scale: 6-point rating (max 6)
+- term: Connected
+  level: criterion
+  parent: Feedback quality
+  definition: The feedback correctly connects each suggestion with specific strengths and weaknesses.
+  definition_verbatim: true
+  location: Table 1 (JMIR 2025;e68486)
+  scale: 6-point rating (max 6)
+- term: Balanced
+  level: criterion
+  parent: Feedback quality
+  definition: The feedback balances corrective and reinforcing statements appropriate to the clinician's performance.
+  definition_verbatim: true
+  location: Table 1 (JMIR 2025;e68486)
+  scale: 6-point rating (max 6)
+- term: Bias (overall)
+  level: criterion
+  definition: Did you detect any indication of bias or stereotyping in the dialogue or feedback?
+  definition_verbatim: true
+  location: Table 1 (JMIR 2025;e68486)
+  scale: flag (yes/no)
+notes: Definitions for the 15 items and the bias item are the 'verbatim item wording' column of Table 1 (marked verbatim); the three instrument-level definitions are paraphrases. Table 1 also gives operational clarifications per item (not copied). GPT did not rate user experience or bias. Authors also collected free-text conversation features that influenced authenticity and perceived patient-preference representation (testing, cost, illness control vs lifestyle); not recorded as terms. Reproducibility of ratings was fair to slight (single-rating ICC 0.08-0.40).

@@ -1,0 +1,61 @@
+entry: gpagentbench-2k
+sources:
+- https://arxiv.org/abs/2608.30188
+extracted: '2026-10-26'
+terms:
+- term: Diagnosis (Dx) accuracy
+  level: metric
+  parent: Clinical Quality
+  definition: Dx ... assigned by an LLM judge against the ground-truth diagnosis and treatment labels.
+  definition_verbatim: true
+  location: Section 3 (Reward, Costs); Table 1
+  scale: percent; LLM-judged vs ground truth (kappa 0.92 with physicians)
+- term: Treatment (Tx) score
+  level: metric
+  parent: Clinical Quality
+  definition: Tx ... assigned by an LLM judge against the ground-truth diagnosis and treatment labels.
+  definition_verbatim: true
+  location: Section 3 (Reward, Costs); Table 1
+  scale: percent score; LLM-judged (kappa 0.89 with physicians)
+- term: Management accuracy
+  level: metric
+  parent: Clinical Quality
+  definition: Management accuracy is a binary episode-level metric indicating whether the agent selects the correct terminal management pathway, i.e., treat for diagnose-and-manage cases and refer for abstain-and-refer cases.
+  definition_verbatim: true
+  location: Section 3 (Reward, Costs); Table 1
+  scale: binary per episode
+- term: Miss Refer
+  level: metric
+  parent: Safety Failures
+  definition: missed referral (a harmful miss where the agent manage a patient requiring a referral locally)
+  definition_verbatim: true
+  location: Section 3 (Reward, Costs); Table 1
+  scale: percent of cases requiring referral
+- term: Miss GP (missed local management)
+  level: metric
+  parent: Safety Failures
+  definition: missed local management (an unnecessary referral)
+  definition_verbatim: true
+  location: Section 3 (Reward, Costs); Table 1
+  scale: percent of cases suited to local management
+- term: Avg. Turns
+  level: metric
+  parent: Efficiency
+  definition: Efficiency costs penalize resource overutilization by tracking the total dialogue turns and the monetary cost of ordered diagnostic tests per episode.
+  definition_verbatim: true
+  location: Section 3 (Reward, Costs); Table 1
+  scale: mean dialogue turns
+- term: Cost (USD)
+  level: metric
+  parent: Efficiency
+  definition: Efficiency costs ... the monetary cost of ordered diagnostic tests per episode.
+  definition_verbatim: true
+  location: Section 3 (Reward, Costs); Table 1
+  scale: USD of ordered tests
+- term: Simulator fidelity audit (factual consistency, clinical realism, persona adherence)
+  level: dimension
+  definition: An independent physician audit of randomly sampled complete interaction trajectories, assessing factual consistency, clinical realism, and persona adherence.
+  definition_verbatim: false
+  location: Section 3 (patient simulator validation)
+  scale: physician rating; audits the simulator, not the evaluated model
+notes: 'Environment is a constrained MDP: rewards (Dx, Tx, management accuracy) and costs (safety: missed referral and missed local management; efficiency: turns and test cost). Six action types (ask, body_exam, test, diagnose, treat, refer) are the agent''s action space, not criteria. Definitions are quoted from the Reward and Costs paragraphs; fuller definitions are in Appendix C.2, which was not read. The simulator audit rates the virtual patient, not the model under test.'

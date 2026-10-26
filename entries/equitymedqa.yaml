@@ -2,6 +2,7 @@ id: equitymedqa
 name: EquityMedQA
 kind: benchmark
 year: 2024
+featured: true
 summary: Seven datasets (4,619 adversarial medical questions in total) enriched for equity-related bias, plus a multifactorial rubric for physician, health-equity-expert, and consumer rating of long-form LLM answers.
 readme_section: safety
 links:
@@ -28,6 +29,13 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: 4,619 questions in 7 datasets (OMAQ, EHAI, FBRT-Manual, FBRT-LLM, TRINDS, CC-Manual, CC-LLM)
+signals:
+  citations: 111
+  citations_source: OpenAlex
+  hf_downloads: 4956
+  github_stars: null
+  uptake: []
+  updated: '2026-10-26'
 provenance:
   records: [r_63c186437c]
   extracted: 2026-10-26

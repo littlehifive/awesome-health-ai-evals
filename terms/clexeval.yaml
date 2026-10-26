@@ -1,0 +1,96 @@
+entry: clexeval
+sources: [https://arxiv.org/abs/2606.31608]
+extracted: 2026-10-26
+terms:
+  - term: Diagnostic Precision
+    level: dimension
+    parent: CLEsEval rubric
+    definition: "Accuracy and specificity of the final diagnosis. (0.00 = Wrong diagnosis; 1.00 = Fully correct, precise, and well-justified)."
+    definition_verbatim: true
+    location: Appendix C (expert rubric); Figure 7
+    scale: "five-point ordinal 0.00, 0.25, 0.50, 0.75, 1.00"
+  - term: Differential Reasoning Quality
+    level: dimension
+    parent: CLEsEval rubric
+    definition: "Breadth and depth of alternative diagnoses considered. (0.00 = Single diagnosis stated without justification; 1.00 = Fully systematic differential evaluating 3-5 alternatives)."
+    definition_verbatim: true
+    location: Appendix C; Figure 7
+    scale: "five-point ordinal 0.00-1.00"
+  - term: Evidence Integration / Grounding
+    level: dimension
+    parent: CLEsEval rubric
+    definition: "Use of case evidence and avoidance of hallucinations. (0.00 = Ignores case data; 1.00 = Fully evidence-based reasoning)."
+    definition_verbatim: true
+    location: Appendix C; Figure 7
+    scale: "five-point ordinal 0.00-1.00"
+  - term: Diagnostic Justification Depth
+    level: dimension
+    parent: CLEsEval rubric
+    definition: "Quality, depth, and completeness of the causal explanations linking evidence to the diagnosis."
+    definition_verbatim: true
+    location: Appendix C
+    scale: "five-point ordinal 0.00-1.00"
+  - term: Completeness vs. Overload
+    level: dimension
+    parent: CLEsEval rubric
+    definition: "Coverage of key clinical findings without the inclusion of distracting or irrelevant information."
+    definition_verbatim: true
+    location: Appendix C
+    scale: "five-point ordinal 0.00-1.00"
+  - term: Clinical Plausibility / Soundness
+    level: dimension
+    parent: CLEsEval rubric
+    definition: "Medical validity and strict adherence to established clinical standards and pathophysiology."
+    definition_verbatim: true
+    location: Appendix C
+    scale: "five-point ordinal 0.00-1.00"
+  - term: Communication / Interpretability
+    level: dimension
+    parent: CLEsEval rubric
+    definition: "Clarity, structural coherence, and professional presentation of the output."
+    definition_verbatim: true
+    location: Appendix C
+    scale: "five-point ordinal 0.00-1.00"
+  - term: Illusion Gap
+    level: metric
+    definition: "Formalized as Delta = Communication - Diagnostic Precision; identifies cases where fluent presentation coexists with weak diagnostic validity."
+    definition_verbatim: false
+    location: Section 4.1 (Evaluation Illusion)
+    scale: "difference of expert scores"
+  - term: Hallucination Approval Rate (HAR)
+    level: metric
+    definition: "Share of human-verified consensus failures (human score <= 0.25) that an automated LLM judge approves; measures judge reliability."
+    definition_verbatim: false
+    location: Section 4.2.2, Table 2
+    scale: percentage
+  - term: Information Scarcity Sensitivity (ISS)
+    level: metric
+    definition: "Drop in accuracy from the Narrative (full) setting to Level 3 masking, in percentage points."
+    definition_verbatim: false
+    location: Section 4.4, Table 4
+    scale: percentage points
+  - term: Reasoning-to-Output Mismatch (ROM)
+    level: metric
+    definition: "Share of diagnostic failures in which the correct gold diagnosis appeared in the model's thinking trace but was not given in the final answer."
+    definition_verbatim: false
+    location: Section 4.5, Table 5
+    scale: percentage
+  - term: Max Diagnostic Potential (MDA)
+    level: metric
+    definition: "Share of cases where the model reaches the correct diagnosis under at least one masking level."
+    definition_verbatim: false
+    location: Section 4.4, Table 4
+    scale: percentage
+  - term: Monotonicity Violation Rate (MVR)
+    level: metric
+    definition: "Rate at which diagnostic correctness does not degrade monotonically as information is masked, indicating reliance on surface cues."
+    definition_verbatim: false
+    location: Section 4.4, Table 4
+    scale: percentage
+  - term: Model Stability Score (MSS)
+    level: metric
+    definition: "Stability of diagnosis across masking levels (reported out of 5)."
+    definition_verbatim: false
+    location: Table 4
+    scale: "0-5"
+notes: "Paper calls the rubric CLEsEval and the framework CLExEval. Overall Score is the mean of the seven dimension scores (5,600 expert annotations, ICC 0.802). Abbreviations MSS/MVR/MDA are expanded from context and not fully defined in the text I read; definitions for those three are paraphrases. Appendix E analyses automated-judge approval per dimension."

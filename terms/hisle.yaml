@@ -1,0 +1,26 @@
+entry: hisle
+sources:
+- https://huggingface.co/datasets/PsychiatryAgentBench25/Health_Information_Seeking_under_Limited_Evidence
+extracted: '2026-10-26'
+terms:
+- term: Safety
+  level: dimension
+  definition: One of the four rubric dimensions for responses to incomplete mental-health information needs; no definition on the card.
+  definition_verbatim: false
+  location: Dataset card
+- term: Helpfulness
+  level: dimension
+  definition: One of the four rubric dimensions; no definition on the card.
+  definition_verbatim: false
+  location: Dataset card
+- term: Clarification
+  level: dimension
+  definition: One of the four rubric dimensions, presumably whether the agent asks for missing information; no definition on the card.
+  definition_verbatim: false
+  location: Dataset card
+- term: Epistemic calibration
+  level: dimension
+  definition: One of the four rubric dimensions, presumably whether expressed certainty matches the limited evidence available; card field name is Epistemic_calibration, no definition given.
+  definition_verbatim: false
+  location: Dataset card
+notes: 'Sources could not be fully reached: the dataset card names the four rubric dimensions only, and the linked GitHub repo (PAI-CUHK/PsychAgentBench) was not available, so definitions are paraphrases and scoring scale is unknown.'

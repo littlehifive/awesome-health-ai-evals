@@ -1,0 +1,24 @@
+entry: medverify
+sources:
+- https://huggingface.co/datasets/muhammadocama/medverify-dataset
+extracted: '2026-10-26'
+terms:
+- term: Answer accuracy
+  level: metric
+  definition: Whether the model picks the correct option on the 1,003 multiple-choice questions, including distinguishing medically or regulatorily unsafe options from appropriate current information.
+  definition_verbatim: false
+  location: HF card, Dataset Structure
+  scale: MCQ accuracy
+- term: Medical correctness
+  level: criterion
+  definition: Reviewer assessment of model responses for medical correctness.
+  definition_verbatim: false
+  location: HF card, MBBS Validation
+  scale: not stated
+- term: Safety-related characteristics
+  level: criterion
+  definition: Reviewer assessment of safety aspects of model responses, including pharmacy and regulatory status.
+  definition_verbatim: false
+  location: HF card, MBBS and PharmD Validation
+  scale: not stated
+notes: Dataset card only; the companion manuscript was not linked. The card does not give a rubric or scale for the MBBS and PharmD validator responses, so those terms are paraphrased from the card prose.

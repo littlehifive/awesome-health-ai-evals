@@ -1,0 +1,62 @@
+entry: medquad
+sources: [https://doi.org/10.1186/s12859-019-3119-4, https://github.com/abachaa/MedQuAD]
+extracted: 2026-10-26
+terms:
+  - term: Correct and Complete Answer (4)
+    level: criterion
+    parent: LiveQA judgment score
+    definition: Top grade of the four-level TREC LiveQA answer judgment used for the manual evaluation of retrieved answers.
+    definition_verbatim: false
+    location: Manual evaluation of retrieved answers
+    scale: 4-level grade (4 to 1)
+  - term: Correct but Incomplete (3)
+    level: criterion
+    parent: LiveQA judgment score
+    definition: Second grade of the LiveQA judgment scale.
+    definition_verbatim: false
+    location: Manual evaluation of retrieved answers
+    scale: 4-level grade
+  - term: Incorrect but Related (2)
+    level: criterion
+    parent: LiveQA judgment score
+    definition: Third grade of the LiveQA judgment scale.
+    definition_verbatim: false
+    location: Manual evaluation of retrieved answers
+    scale: 4-level grade
+  - term: Incorrect (1)
+    level: criterion
+    parent: LiveQA judgment score
+    definition: Lowest grade of the LiveQA judgment scale.
+    definition_verbatim: false
+    location: Manual evaluation of retrieved answers
+    scale: 4-level grade
+  - term: avgScore(0-3)
+    level: metric
+    definition: "The average score over all questions, transferring 1-4 level grades to 0-3 scores. This is the main score used to rank LiveQA runs."
+    definition_verbatim: true
+    location: Manual evaluation, LiveQA measures, Table 6
+    scale: 0-3 mean over first retrieved answer
+  - term: succ@i+
+    level: metric
+    definition: "The number of questions with score i or above (i in 2..4) divided by the total number of questions."
+    definition_verbatim: true
+    location: Table 6
+    scale: proportion
+  - term: prec@i+
+    level: metric
+    definition: "The number of questions with score i or above (i in 2..4) divided by number of questions answered by the system."
+    definition_verbatim: true
+    location: Table 6
+    scale: proportion
+  - term: Accuracy, Precision, Recall, F1, MAP, MRR
+    level: metric
+    definition: Standard classification and ranking metrics used for the RQE (question entailment) and question-similarity sub-tasks, not for scoring answer quality.
+    definition_verbatim: false
+    location: Tables 2-4
+  - term: Inter-annotator agreement (F1)
+    level: metric
+    definition: Agreement between the three assessors on answer judgments, over all ratings and partially by grouping into Correct and Incorrect.
+    definition_verbatim: false
+    location: Table 5
+    scale: F1 (%)
+notes: "GitHub README was not reachable (404 on master); the paper (PMC6805558) was read. Primary use is answer retrieval over 47,457 QA pairs with 37 question types, which are task categories not scored criteria. The LiveQA-Med test set (2,479 judged answers) uses the 4-level scale."

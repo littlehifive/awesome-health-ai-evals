@@ -1,0 +1,55 @@
+entry: mimic-cdm
+sources:
+- https://doi.org/10.1038/s41591-024-03097-1
+- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11405275/
+extracted: '2026-10-26'
+terms:
+- term: Diagnostic accuracy
+  level: metric
+  definition: Whether the model's final diagnosis matches the patient's primary diagnosis (one of appendicitis, cholecystitis, diverticulitis, pancreatitis); compared with clinicians on a reader-study subset.
+  definition_verbatim: false
+  location: Results, Figs. 2-3
+  scale: percent correct
+- term: Adherence to diagnostic guidelines
+  level: criterion
+  definition: 'Whether the model requests the examinations guidelines require: physical examination (as first action), at least one laboratory test from each guideline-defined category, and appropriate imaging.'
+  definition_verbatim: false
+  location: Results, Extended Data Fig. 2; Supplementary Section A
+  scale: percent of patients meeting each requirement
+- term: Adherence to treatment guidelines
+  level: criterion
+  definition: Whether the model recommends the essential, patient-specific treatments expected from guidelines and the treatments patients actually received; scored only on correctly diagnosed patients.
+  definition_verbatim: false
+  location: Results, Fig. 4
+  scale: percent of expected treatments recommended
+- term: Laboratory test interpretation
+  level: criterion
+  definition: Classifying each lab result, given its reference range, as below, within or above range.
+  definition_verbatim: false
+  location: Results
+  scale: accuracy
+- term: Instruction following
+  level: criterion
+  definition: 'Whether the model follows the output format: errors in providing actions, hallucinated nonexistent tools, and errors in diagnosis format, counted per patient.'
+  definition_verbatim: false
+  location: Results, Extended Data Fig. 6
+  scale: error rate (errors per patient)
+- term: Robustness to changes in instructions
+  level: criterion
+  definition: Change in diagnostic accuracy when the instructions are reworded.
+  definition_verbatim: false
+  location: Results, Supplementary Section C
+  scale: change in accuracy
+- term: Robustness to information order
+  level: criterion
+  definition: Range of diagnostic accuracy across permutations of the order of examination, laboratory and imaging information.
+  definition_verbatim: false
+  location: Results, Fig. 6
+  scale: accuracy range
+- term: Robustness to information quantity
+  level: criterion
+  definition: Change in diagnostic accuracy when only a single diagnostic exam is provided versus all information.
+  definition_verbatim: false
+  location: Results, Fig. 5
+  scale: accuracy difference
+notes: 'Source is the Nature Medicine paper (PMC11405275); the paper names no formal rubric, so definitions are paraphrased from the Results. Two variants: MIMIC-CDM (autonomous information gathering) and MIMIC-CDM-FI (full information). Reader study with four hospitalists on 80 patients.'

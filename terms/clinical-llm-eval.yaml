@@ -1,0 +1,136 @@
+entry: clinical-llm-eval
+sources:
+- https://github.com/Sugumaran-Balasubramaniyan/clinical-llm-eval
+extracted: '2026-10-26'
+terms:
+- term: MCQA accuracy
+  level: metric
+  definition: Top-1 accuracy on multiple-choice questions with pass/fail against the 60.0% USMLE passing threshold.
+  definition_verbatim: false
+  location: README, 1. MCQAEvaluator
+  scale: percentage
+- term: Safety severity tier
+  level: category
+  definition: SafetyFlagEvaluator assigns CRITICAL (score 0.0), HIGH (0.25), WARNING (0.60) or SAFE (1.00) for missed emergency red flags and high-risk contraindications.
+  definition_verbatim: false
+  location: README, 2. SafetyFlagEvaluator
+  scale: 4 tiers mapped to 0.0/0.25/0.60/1.00
+- term: Emergency red-flag omission
+  level: category
+  parent: Safety severity tier
+  definition: Detects missed critical emergencies (for example Cauda Equina, Subarachnoid Hemorrhage, Aortic Dissection, Acute Stroke, Anaphylaxis, Tension Pneumothorax).
+  definition_verbatim: true
+  location: README, 2. SafetyFlagEvaluator
+- term: High-risk contraindication
+  level: category
+  parent: Safety severity tier
+  definition: Flags pediatric aspirin in viral illness (Reye syndrome), fluoroquinolones in children, and pregnancy teratogens (Isotretinoin, Warfarin, ACE inhibitors, Statins, Valproate).
+  definition_verbatim: true
+  location: README, 2. SafetyFlagEvaluator
+- term: Clinical NLI label
+  level: category
+  definition: Premise-to-recommendation contradiction detection across allergies, renal impairment, hepatic impairment, bleeding risk and asthma; labels ENTAILMENT, NEUTRAL, CONTRADICTION.
+  definition_verbatim: false
+  location: README, 3. ClinicalNLIEvaluator
+  scale: 3-way label with score
+- term: Expected Calibration Error (ECE)
+  level: metric
+  definition: Calibration of verbalized confidence across 10 confidence bins.
+  definition_verbatim: false
+  location: README, 4. CalibrationEvaluator
+  scale: 0-1
+- term: Brier score
+  level: metric
+  definition: Squared error between verbalized confidence and correctness.
+  definition_verbatim: false
+  location: README, 4. CalibrationEvaluator
+  scale: 0-1
+- term: Overconfident error
+  level: metric
+  definition: Penalty for assertive incorrect diagnoses.
+  definition_verbatim: false
+  location: README, 4. CalibrationEvaluator
+  scale: calibration loss
+- term: Calculation accuracy
+  level: metric
+  definition: Correctness of MedCalc-style clinical calculations within a unit-aware tolerance (default 5 percent).
+  definition_verbatim: false
+  location: README, 5. CalculationEvaluator
+  scale: correct within tolerance
+- term: Flip Rate
+  level: metric
+  definition: Rate at which the answer changes under adversarial perturbation (unit swaps, misinformation distractors, demographic changes).
+  definition_verbatim: false
+  location: README, 6. RobustnessEvaluator
+  scale: rate
+- term: Consistency Score
+  level: metric
+  definition: Decision consistency across perturbed variants of the same case.
+  definition_verbatim: false
+  location: README, 6. RobustnessEvaluator
+  scale: 0-1
+- term: Distractor Vulnerability Rate
+  level: metric
+  definition: Rate at which injected misinformation distractors change the model's clinical recommendation.
+  definition_verbatim: false
+  location: README, 6. RobustnessEvaluator
+  scale: rate
+- term: SOAP adherence score
+  level: metric
+  definition: Structural completeness and clinical coherence of a generated SOAP note (Subjective, Objective, Assessment, Plan) across a 4-turn encounter.
+  definition_verbatim: false
+  location: README, 7. MultiTurnClinicalEvaluator
+  scale: 0-1
+- term: Diagnostic Accuracy & Identification
+  level: criterion
+  parent: 4-axis LLM judge rubric
+  definition: LLM-judge rubric axis 1 (accuracy).
+  definition_verbatim: false
+  location: README, 8. LLMJudgeEvaluator
+  scale: 1-5
+- term: Clinical Reasoning & Pathophysiology
+  level: criterion
+  parent: 4-axis LLM judge rubric
+  definition: LLM-judge rubric axis 2 (reasoning).
+  definition_verbatim: false
+  location: README, 8. LLMJudgeEvaluator
+  scale: 1-5
+- term: Completeness & Management Plan
+  level: criterion
+  parent: 4-axis LLM judge rubric
+  definition: LLM-judge rubric axis 3 (completeness).
+  definition_verbatim: false
+  location: README, 8. LLMJudgeEvaluator
+  scale: 1-5
+- term: Patient Safety & Contraindication Avoidance
+  level: criterion
+  parent: 4-axis LLM judge rubric
+  definition: LLM-judge rubric axis 4 (safety).
+  definition_verbatim: false
+  location: README, 8. LLMJudgeEvaluator
+  scale: 1-5
+- term: Hallucination
+  level: metric
+  definition: 'Contextual medical entity grounding: entities extracted from the response (medications, anatomy, labs, mechanisms) are checked against the prompt context and gold standard; ungrounded fabrication is flagged.'
+  definition_verbatim: false
+  location: README, 9. HallucinationDetector
+  scale: binary flag, drift threshold 0.70
+- term: ROUGE-1, ROUGE-2, ROUGE-L
+  level: metric
+  definition: Lexical overlap F1 with a reference answer.
+  definition_verbatim: false
+  location: README, 10. RougeEvaluator
+  scale: 0-1
+- term: BERTScore
+  level: metric
+  definition: Semantic similarity via token-embedding alignment with a reference answer.
+  definition_verbatim: false
+  location: README, 10. BERTScore
+  scale: 0-1
+- term: Cost per Correct Diagnosis
+  level: metric
+  definition: Total cost divided by correct diagnostic answers.
+  definition_verbatim: false
+  location: README (cost metrics)
+  scale: dollars
+notes: Based on the GitHub README only (no paper). The four-axis judge rubric gives axis names only; definitions are paraphrases of names. Safety tiers are listed as a category because the tier is the scored output. README leaderboard numbers were not used.

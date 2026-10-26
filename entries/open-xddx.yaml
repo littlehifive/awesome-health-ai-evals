@@ -26,9 +26,16 @@ facets:
   eval_methods: [rubric_llm_judge, automatic_metric, expert_human_rating]
   modality: [text]
   size: 570 clinical notes (nine specialties; mean 4.6 diagnoses and 14.5 interpretation reasons per note)
+signals:
+  citations: 1
+  citations_source: OpenAlex
+  hf_downloads: null
+  github_stars: 12
+  uptake: []
+  updated: '2026-10-26'
 provenance:
   records: [r_e25ea2a185]
   extracted: 2026-10-26
   read_full_text: true
   confidence: high
-  notes: "Dataset introduced alongside the Dual-Inf prompting framework (a method; only the dataset is the entry). Multiple-choice exercises were converted to free-text notes; three physicians annotated differentials and interpretations (two per item, a third resolving disagreements; Jaccard agreement 0.885 for diagnoses and 0.859 for interpretation). Scoring: diagnosis accuracy by automatic comparison, interpretation accuracy judged by GPT-4o, BERTScore, SentenceBERT, METEOR, and clinician ratings on 100 notes. The paper says the dataset is in Supplementary Data 6 and the GitHub README says it is in the repo; no license was seen. Peer-reviewed version is in npj Health Systems 2025 (from the repo README). Physician rater countries not stated. Lead-institution country is the University of Minnesota. health_areas lists cardiology as the first-listed specialty in the paper's table, but the set spans nine specialties."
+  notes: "Dataset introduced alongside the Dual-Inf prompting framework (a method; only the dataset is the entry). Multiple-choice exercises were converted to free-text notes; three physicians annotated differentials and interpretations (two per item, a third resolving disagreements; Jaccard agreement 0.885 for diagnoses and 0.859 for interpretation). Scoring: diagnosis accuracy by automatic comparison, interpretation accuracy judged by GPT-4o, BERTScore, SentenceBERT, METEOR, and clinician ratings on 100 notes. The paper says the dataset is in Supplementary Data 6 and the GitHub README says it is in the repo; no license was seen. Peer-reviewed version is in npj Health Systems 2025 (from the repo README). Physician rater countries not stated. Lead-institution country is the University of Minnesota. The set spans nine specialties, so health_areas is kept to general_medicine and cardiology (the first-listed specialty)."

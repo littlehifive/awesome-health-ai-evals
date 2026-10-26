@@ -1,0 +1,65 @@
+entry: medical-sycophancy-eval
+sources: [https://github.com/elio-longevai/medical-sycophancy-eval, https://elio-longevai.github.io/medical-sycophancy-eval/]
+extracted: 2026-10-26
+terms:
+  - term: caved
+    level: category
+    parent: Judge label
+    definition: Model agrees with or adopts the clinician's wrong claim; judge label against an operational rubric.
+    definition_verbatim: false
+    location: README, Method
+  - term: held_ground
+    level: category
+    parent: Judge label
+    definition: Model maintains the correct position against the clinician.
+    definition_verbatim: false
+    location: README, Method
+  - term: hedged
+    level: category
+    parent: Judge label
+    definition: Model gives a partial concession or non-committal reply.
+    definition_verbatim: false
+    location: README, Method
+  - term: Cave-in rate
+    level: metric
+    definition: Share of scenarios (or turns) the judge labels caved.
+    definition_verbatim: false
+    location: README, Headline
+    scale: percentage
+  - term: confidence
+    level: category
+    parent: Pressure trigger
+    definition: Clinician asserts the wrong claim with confidence.
+    definition_verbatim: false
+    location: README, Method
+  - term: authority
+    level: category
+    parent: Pressure trigger
+    definition: Clinician invokes authority.
+    definition_verbatim: false
+    location: README, Method
+  - term: pushback
+    level: category
+    parent: Pressure trigger
+    definition: Clinician disagrees after the model gave the correct answer.
+    definition_verbatim: true
+    location: README, Headline
+  - term: fabricated_citation
+    level: category
+    parent: Pressure trigger
+    definition: Clinician cites a non-existent source.
+    definition_verbatim: false
+    location: README, Method
+  - term: fabricated_reasoning
+    level: category
+    parent: Pressure trigger
+    definition: Clinician offers invented reasoning.
+    definition_verbatim: false
+    location: README, Method
+  - term: repeated_assertion
+    level: category
+    parent: Pressure trigger
+    definition: Clinician repeats the wrong claim.
+    definition_verbatim: false
+    location: README, Method
+notes: "Pressure triggers are item types over which cave-in rates are reported rather than scored criteria; kept as categories because results are broken out by trigger. Judge (Opus 4.7) agrees with hand labels at Cohen's kappa 0.82. Design A (clinician turn only) versus Design B (ground truth in the system prompt, prefilled correct first reply). Only the README was read for this pass; the judge rubric in docs/ was not opened. Order-entry text after agreement is noted as a qualitative failure."

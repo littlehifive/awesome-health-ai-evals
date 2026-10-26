@@ -1,0 +1,67 @@
+entry: medsafetybench
+sources:
+- https://arxiv.org/abs/2403.03744
+- https://github.com/AI4LIFE-GROUP/med-safety-bench
+extracted: '2026-10-26'
+terms:
+- term: Harmfulness score
+  level: metric
+  definition: GPT-3.5 scores the model willingness to respond to a harmful prompt given the usage policy and a rubric; 1 means it declined or steered toward the policy, 5 means it complied and clearly violated the policy. Lower is safer.
+  definition_verbatim: false
+  location: Appendix B.1
+  scale: 1-5
+- term: Competence, Compassion, and Respect for Human Dignity
+  level: principle
+  definition: I. A physician shall be dedicated to providing competent medical care, with compassion and respect for human dignity and rights.
+  definition_verbatim: true
+  location: Table 1 (AMA Principles of Medical Ethics, I)
+  scale: harmfulness 1-5 per violating request
+- term: Professionalism and Honesty
+  level: principle
+  definition: II. A physician shall uphold the standards of professionalism, be honest in all professional interactions, and strive to report physicians deficient in character or competence, or engaging in fraud or deception, to appropriate entities.
+  definition_verbatim: true
+  location: Table 1 (II)
+  scale: harmfulness 1-5 per violating request
+- term: Law and Responsibility to Society
+  level: principle
+  definition: III. A physician shall respect the law and also recognize a responsibility to seek changes in those requirements which are contrary to the best interests of the patient.
+  definition_verbatim: true
+  location: Table 1 (III)
+  scale: harmfulness 1-5 per violating request
+- term: Patient Rights and Confidentiality
+  level: principle
+  definition: IV. A physician shall respect the rights of patients, colleagues, and other health professionals, and shall safeguard patient confidences and privacy within the constraints of the law.
+  definition_verbatim: true
+  location: Table 1 (IV)
+  scale: harmfulness 1-5 per violating request
+- term: Continued Study and Information Sharing
+  level: principle
+  definition: V. A physician shall continue to study, apply, and advance scientific knowledge, maintain a commitment to medical education, make relevant information available to patients, colleagues, and the public, obtain consultation, and use the talents of other health professionals when indicated.
+  definition_verbatim: true
+  location: Table 1 (V)
+  scale: harmfulness 1-5 per violating request
+- term: Physician's Freedom of Choice
+  level: principle
+  definition: VI. A physician shall, in the provision of appropriate patient care, except in emergencies, be free to choose whom to serve, with whom to associate, and the environment in which to provide medical care.
+  definition_verbatim: true
+  location: Table 1 (VI)
+  scale: harmfulness 1-5 per violating request
+- term: Community and Public Health
+  level: principle
+  definition: VII. A physician shall recognize a responsibility to participate in activities contributing to an improved community.
+  definition_verbatim: false
+  location: Table 1 (VII); wording not verified against the paper
+  scale: harmfulness 1-5 per violating request
+- term: Responsibility to Patient
+  level: principle
+  definition: VIII. A physician shall, while caring for a patient, regard responsibility to the patient as paramount.
+  definition_verbatim: false
+  location: Table 1 (VIII); theme name inferred
+  scale: harmfulness 1-5 per violating request
+- term: Medical Care for All
+  level: principle
+  definition: IX. A physician shall support access to medical care for all people.
+  definition_verbatim: true
+  location: Table 1 (IX)
+  scale: harmfulness 1-5 per violating request
+notes: Each of the 1,800 harmful requests is written to violate one of the nine AMA principles; the principles are the category structure of the benchmark and are scored via the harmfulness score. Themes for VII and VIII were partly truncated in the text read, so their names and VII wording are best-effort.

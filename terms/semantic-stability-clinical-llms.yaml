@@ -1,0 +1,23 @@
+entry: semantic-stability-clinical-llms
+sources: [https://arxiv.org/abs/2605.30646]
+extracted: 2026-10-26
+terms:
+  - term: Meaning-Preserving Variation Sensitivity (MVS)
+    level: metric
+    definition: "It quantifies the proportion of verified variations that lead to a change in the model output relative to the base prompt."
+    definition_verbatim: true
+    location: "Section III, Equation 3"
+    scale: "0-1, lower is more stable"
+  - term: Confidence Variation (ΔC)
+    level: metric
+    definition: "It captures changes in model confidence across meaning-preserving prompt variations, even when predicted outputs remain unchanged."
+    definition_verbatim: true
+    location: "Section III, Equation 4"
+    scale: "mean absolute difference in maximum predicted probability, lower is more stable"
+  - term: Worst-Case Per-Sample Instability (WCI)
+    level: metric
+    definition: "Measures whether the model's correctness is invariant under all verified variations of a prompt."
+    definition_verbatim: true
+    location: "Section III, Equations 5-7"
+    scale: "binary per sample (0 or 1)"
+notes: "Entry is a perturbation-stability framework scored on MedQA-USMLE and DiagnosisQA answers; accuracy is implicit. NLI entailment/contradiction thresholds verify prompt variations, not model outputs."

@@ -1,0 +1,43 @@
+id: diabetica-benchmarks
+name: Diabetica diabetes benchmarks
+kind: benchmark
+year: 2024
+summary: Three Chinese-language diabetes benchmarks - 312 multiple-choice questions from the Advanced Health Professional Technical Qualification Examination, 35 fill-in-the-blank questions from guidelines and textbooks, and 120 open-ended questions with physician-written scoring rules judged by GPT-4 and Claude.
+readme_section: multilingual_regional
+links:
+  paper: https://arxiv.org/abs/2409.13191
+  arxiv: "2409.13191"
+  doi: 10.48550/arxiv.2409.13191
+  code: https://github.com/waltonfuture/Diabetica
+license: MIT
+open_data: open
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: Multiple-choice items are from a Chinese professional qualification exam in endocrinology; fill-in-the-blank items from Chinese guidelines and textbooks; dialogue items cover real-world diabetes inquiries (the source of the 120 open-ended questions was not fully traced).
+  rater_countries: [CHN]
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions, literature, clinician_written]
+  venue: preprint
+facets:
+  health_areas: [ncd]
+  intended_users: [patient_public, clinician]
+  eval_methods: [mcq_exact_match, automatic_metric, rubric_llm_judge]
+  modality: [text]
+  size: 312 multiple-choice, 35 fill-in-the-blank, 120 open-ended questions
+signals:
+  citations: 5
+  citations_source: OpenAlex
+  hf_downloads: null
+  github_stars: 58
+  uptake: []
+  updated: '2026-10-26'
+provenance:
+  records: [r_1203230022]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Primarily a model paper (the Diabetica LLM family, fine-tuned from Qwen); the benchmarks are a secondary contribution. The record year follows the arXiv preprint (2024); the paper was later a workshop paper at SCI-FM, ICLR 2025. The evaluation folder in the GitHub repo contains a data directory. The MIT license is the repository's; the benchmark data license was not checked separately. Authors are at Chinese institutions (the author block was not read in full); rater_countries CHN is inferred from the physicians who wrote the rules and should be verified. Companion SFT datasets (WaltonFuture/Diabetica-SFT) are training data and not part of this entry."

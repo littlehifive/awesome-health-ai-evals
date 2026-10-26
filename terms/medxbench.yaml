@@ -1,0 +1,12 @@
+entry: medxbench
+sources:
+- https://arxiv.org/abs/2606.03416
+extracted: '2026-10-26'
+terms:
+- term: Diagnostic accuracy
+  level: metric
+  definition: Whether the final diagnosis after the interactive consultation matches the ground-truth diagnosis; compared with a full-information oracle.
+  definition_verbatim: false
+  location: Abstract; Experiments
+  scale: accuracy (percentage)
+notes: Only the abstract and sections on construction and results were read; the judging procedure for open-ended diagnosis matching was not seen. Paper reports accuracy gains (10.3 percent over baseline, 52.3 percent of the gap to the oracle).

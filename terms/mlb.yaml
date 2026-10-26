@@ -1,0 +1,47 @@
+entry: mlb
+sources: [https://arxiv.org/abs/2601.06193]
+extracted: 2026-10-26
+terms:
+  - term: MedKQA (Medical Knowledge Question Answering)
+    level: dimension
+    definition: "Evaluates the accuracy and breadth of an LLM's medical knowledge and its ability to mitigate hallucinations."
+    definition_verbatim: true
+    location: Section 3.1
+  - term: MedSE (Medical Safety & Ethics)
+    level: dimension
+    definition: "Measures the model's adherence to safety protocols, regulatory compliance, and ethical principles in a medical context."
+    definition_verbatim: true
+    location: Section 3.1
+  - term: MedRU (Medical Record Understanding)
+    level: dimension
+    definition: "Assesses the model's capacity to process and extract structured information from unstructured clinical text, such as electronic health records (EHRs)."
+    definition_verbatim: true
+    location: Section 3.1
+  - term: SmartServ (Smart Services)
+    level: dimension
+    definition: "Focuses on patient-facing tasks, such as providing Health Education, Department Guidance, report interpretation, and medication instructions."
+    definition_verbatim: true
+    location: Section 3.1
+  - term: SmartCare (Smart Healthcare)
+    level: dimension
+    definition: "Focuses on physician-support tasks, such as Medical Inspection Recommendation, assisting with Diagnostic Assistance, and Medical Record Writing Assistance."
+    definition_verbatim: true
+    location: Section 3.1
+  - term: Accuracy
+    level: metric
+    definition: "Accuracy for multiple-choice questions: a response was scored as correct only if it matched the ground truth across all three shuffled trials."
+    definition_verbatim: true
+    location: Section 3.5 (evaluation methodology)
+    scale: binary per item
+  - term: Micro-F1
+    level: metric
+    definition: "Micro-F1 for structured extraction (e.g., named entity recognition), aggregating true positives, false negatives and false positives across all entity classes."
+    definition_verbatim: false
+    location: Section 3.5 (evaluation methodology)
+  - term: Rubric score (0-1)
+    level: metric
+    definition: "Open-ended answers are scored by two GPT-4o judge instances against a predefined multi-dimensional rubric on a normalized 0-1 scale; a gap above 0.25 triggers human expert review, and an SFT judge model replaces this at scale."
+    definition_verbatim: false
+    location: Section 3.4 and 3.5
+    scale: 0-1
+notes: "FundCap and SceneCap are top-level groupings of the five dimensions. The criteria inside the multi-dimensional open-ended rubric are not enumerated in the text read. 22 datasets; task names such as Health Education and Department Guidance are tasks, not criteria."

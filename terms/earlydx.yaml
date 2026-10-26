@@ -1,0 +1,49 @@
+entry: earlydx
+sources:
+- https://arxiv.org/abs/2607.28788
+- https://github.com/jimmylihui/EarlyDx
+extracted: '2026-10-26'
+terms:
+- term: Precision
+  level: metric
+  definition: Micro-averaged over encounters, free-text diagnoses matched to reference labels by a semantic LLM judge.
+  definition_verbatim: false
+  location: Section 5.1, Table 2
+  scale: 0-1
+- term: Recall
+  level: metric
+  definition: Micro-averaged over encounters, matched by a semantic LLM judge.
+  definition_verbatim: false
+  location: Section 5.1, Table 2
+  scale: 0-1
+- term: F1
+  level: metric
+  definition: Micro-averaged F1 of predicted vs reference diagnoses; primary track scores evidence-supported labels.
+  definition_verbatim: false
+  location: Section 5.1, Table 2
+  scale: 0-1
+- term: Complete-match rate
+  level: metric
+  definition: the fraction of encounters where the predicted diagnosis set exactly matches the reference.
+  definition_verbatim: true
+  location: Figure 7
+  scale: percent of encounters
+- term: Supported
+  level: category
+  parent: Label evidence category
+  definition: 'Label evidence category: diagnosis fully substantiated by admission-time evidence (primary scoring track, 32.7% of labels).'
+  definition_verbatim: false
+  location: Section 1, Table 2
+- term: Partially supported
+  level: category
+  parent: Label evidence category
+  definition: 'Label evidence category: diagnosis partially substantiated by admission-time evidence (37.0%).'
+  definition_verbatim: false
+  location: Section 1, Table 2
+- term: Unsupported
+  level: category
+  parent: Label evidence category
+  definition: 'Label evidence category: diagnosis not substantiated by the early record; excluded from all tracks.'
+  definition_verbatim: false
+  location: Section 1, Table 2
+notes: Label evidence category is a grouping label added here; labels are verified by an LLM auditor, not model outputs. Table 2 also reports a Secondary (S+P) block.

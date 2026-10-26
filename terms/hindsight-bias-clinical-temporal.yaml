@@ -1,0 +1,42 @@
+entry: hindsight-bias-clinical-temporal
+sources:
+- https://arxiv.org/abs/2609.13454
+extracted: '2026-10-26'
+terms:
+- term: Accuracy (Acc)
+  level: metric
+  definition: Acc measures agreement with the prospective reference answer a_q^*; for true/false and multiple choice questions an exact-match indicator, for free response a judge score.
+  definition_verbatim: true
+  location: Section 3.7 Evaluation 3.7.1
+  scale: 0/1 exact match; 0, 0.5, 1 judge semantic agreement for free response
+- term: Hindsight trap rate (HTR)
+  level: metric
+  definition: HTR measures agreement with the outcome-consistent hindsight trap a_q^trap; for ordinal multiple choice, graded by movement from the prospective answer toward the trap.
+  definition_verbatim: true
+  location: Section 3.7 Evaluation 3.7.1
+  scale: 0/1; 0, 0.5, 1 for free response; 0, 1/3, 2/3, 1 for ordinal MCQ
+- term: Delta accuracy (ΔAcc)
+  level: metric
+  definition: Accuracy under masking minus accuracy under full information; a positive value means post-cutoff information reduces average accuracy.
+  definition_verbatim: false
+  location: Section 3.7 Evaluation 3.7.2
+  scale: difference of rates
+- term: Delta hindsight trap rate (ΔHTR)
+  level: metric
+  definition: HTR under full exposure minus HTR under masking; a positive value means post-cutoff information increases hindsight bias.
+  definition_verbatim: false
+  location: Section 3.7 Evaluation 3.7.2
+  scale: difference of rates
+- term: Answer instability rate (AIR)
+  level: metric
+  definition: AIR records any answer change between full and masked conditions, regardless of direction; it upper-bounds any bias effect.
+  definition_verbatim: true
+  location: Section 3.7 Evaluation 3.7.2
+  scale: binary per question, averaged
+- term: Hindsight bias rate (HBR)
+  level: metric
+  definition: HBR captures the joint event that a model is fully correct under masking and moves toward the trap under full exposure.
+  definition_verbatim: true
+  location: Section 3.7 Evaluation 3.7.2
+  scale: rate (nonzero only when masked answer is correct)
+notes: 'Question types: accuracy, hindsight_bias, and both (70% of items scored by Acc, 80% by HTR). Free responses are scored by a GPT judge; structured responses by exact match. Seven input conditions (0, 1.x, 2.x, 3.x) vary narrative and time-series masking.'

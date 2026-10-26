@@ -1,0 +1,57 @@
+entry: womens-health-benchmark-whb
+sources: [https://arxiv.org/abs/2512.17028]
+extracted: 2026-10-26
+terms:
+  - term: Approval rate
+    level: metric
+    definition: "Percentage of correct cases (correct / total number of cases); a correct case is one approved by the human evaluator on grounds of not identifying the exact same error as the one identified by the expert cohort."
+    definition_verbatim: true
+    location: Section 3, Figure 3
+    scale: "binary per case (correct/incorrect)"
+  - term: Failure rate
+    level: metric
+    definition: "Percentage of incorrect cases (incorrect/total number of cases); an incorrect case was rejected by the human evaluator on grounds of the identified error."
+    definition_verbatim: true
+    location: Section 3, Figure 3, Table 2
+    scale: "binary per case; Wilson 95% CI"
+  - term: dosage/medication errors
+    level: category
+    definition: "Instances where the model provided an incorrect drug dosage, frequency, duration, or selected an inappropriate medication."
+    definition_verbatim: true
+    location: Section 2, error types paragraph
+  - term: missing critical information
+    level: category
+    definition: "Responses that omitted essential clinical details required to answer the question safely or accurately."
+    definition_verbatim: true
+    location: Section 2, error types paragraph
+  - term: outdated guidelines/treatment recommendations
+    level: category
+    definition: "Answers that reflected superseded clinical practices or failed to incorporate current standard-of-care guidance."
+    definition_verbatim: true
+    location: Section 2, error types paragraph
+  - term: incorrect treatment advice
+    level: category
+    definition: "Recommendations that were inconsistent with evidence-based management despite not necessarily being outdated."
+    definition_verbatim: true
+    location: Section 2, error types paragraph
+  - term: incorrect factual information
+    level: category
+    definition: "Responses that contained false or misleading information."
+    definition_verbatim: true
+    location: Section 2, error types paragraph
+  - term: missing/incorrect differential diagnosis
+    level: category
+    definition: "Either failing to list key differentials or proposing diagnostically implausible ones."
+    definition_verbatim: true
+    location: Section 2, error types paragraph
+  - term: missed urgency
+    level: category
+    definition: "Failures to recognize the need for urgent escalation."
+    definition_verbatim: true
+    location: Section 2, error types paragraph
+  - term: inappropriate recommendations
+    level: category
+    definition: "Recommendations that were not appropriate for the patient's situation."
+    definition_verbatim: true
+    location: Section 2, error types paragraph
+notes: "Each of the 96 prompts is tagged with one error type, one query type (patient, clinician, evidence/policy) and one specialty; failure rates are reported per error type, query type and specialty. A single human evaluator rejects an answer only if it repeats the expert-identified error. Query types and specialties are task categories, not listed as terms."

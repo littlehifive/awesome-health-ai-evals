@@ -1,0 +1,75 @@
+entry: move-by-move-therapeutic-moves
+sources: [https://arxiv.org/abs/2608.21325]
+extracted: 2026-10-26
+terms:
+  - term: do_process_alignment
+    level: category
+    parent: Therapeutic moves
+    definition: "Calibrate collaboration, pacing, fit, or repair of the therapeutic process."
+    definition_verbatim: true
+    location: Table 1
+  - term: do_goal_setting
+    level: category
+    parent: Therapeutic moves
+    definition: "Identify, clarify, or prioritize what the client wants to work toward."
+    definition_verbatim: true
+    location: Table 1
+  - term: do_inquiry
+    level: category
+    parent: Therapeutic moves
+    definition: "Seek information or deepen understanding of meaning, sequence, context, or detail."
+    definition_verbatim: true
+    location: Table 1
+  - term: do_shared_understanding
+    level: category
+    parent: Therapeutic moves
+    definition: "Reflect, validate, normalize, paraphrase, or synthesize without adding a new explanatory claim."
+    definition_verbatim: true
+    location: Table 1
+  - term: do_support_change
+    level: category
+    parent: Therapeutic moves
+    definition: "Strengthen or explore hope, agency, readiness, confidence, ambivalence, or client-owned reasons for change."
+    definition_verbatim: true
+    location: Table 1
+  - term: do_interpret
+    level: category
+    parent: Therapeutic moves
+    definition: "Offer a therapist-generated hypothesis about meaning, function, cause, or pattern."
+    definition_verbatim: true
+    location: Table 1
+  - term: do_challenge
+    level: category
+    parent: Therapeutic moves
+    definition: "Examine a discrepancy, assumption, rigid belief, or coping pattern that may maintain the problem."
+    definition_verbatim: true
+    location: Table 1
+  - term: do_psychoeducation
+    level: category
+    parent: Therapeutic moves
+    definition: "Explain relevant information, theory, mechanism, or intervention rationale."
+    definition_verbatim: true
+    location: Table 1
+  - term: do_action_planning
+    level: category
+    parent: Therapeutic moves
+    definition: "Translate a goal or insight into a concrete next step that can later be reviewed."
+    definition_verbatim: true
+    location: Table 1
+  - term: do_skill_building
+    level: category
+    parent: Therapeutic moves
+    definition: "Introduce, teach, guide, or rehearse an identifiable skill within the interaction."
+    definition_verbatim: true
+    location: Table 1
+  - term: Move distribution / usage
+    level: metric
+    definition: "Share of therapist turns assigned to each move by an LLM judge, compared between human clinicians and LLM therapists over conversation progress."
+    definition_verbatim: false
+    location: Section 4, Figure 4
+  - term: pass@k move match
+    level: metric
+    definition: "Probability that at least one of k sampled continuations matches the human reference moves, with reference built by majority (at least three of five annotators) or union (any annotator) criterion."
+    definition_verbatim: true
+    location: Section 4, Figure 3
+notes: "The ten moves are an annotation ontology used to characterise (not grade) therapist turns; no quality rubric is applied. Grounded in MULTI-60 inventory; full definitions in Appendix F (not read)."

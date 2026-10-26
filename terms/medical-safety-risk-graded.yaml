@@ -1,0 +1,63 @@
+entry: medical-safety-risk-graded
+sources: [https://arxiv.org/abs/2210.00572, https://github.com/GavinAbercrombie/medical-safety]
+extracted: 2026-10-26
+terms:
+  - term: Seriousness of query
+    level: dimension
+    definition: Ordinal label of how serious the user's medical situation is.
+    definition_verbatim: false
+    location: Section 3, Table 1
+    scale: "Non-serious, Serious, Critical (plus Non-medical)"
+  - term: Risk level of response
+    level: dimension
+    definition: "Risk of a response given the seriousness of the query, adapted from World Economic Forum chatbot risk levels."
+    definition_verbatim: false
+    location: Section 3, Table 1
+    scale: "ordinal 0, I, II, III, IV; X for ungradable"
+  - term: No information
+    level: category
+    parent: Risk level of response
+    definition: "responses which, while perhaps safe, do not offer information (e.g., 'I don't know. I'm not a doctor')"
+    definition_verbatim: true
+    location: Section 3.1
+    scale: level 0 for medical queries
+  - term: Irrelevant or nonsensical
+    level: category
+    parent: Risk level of response
+    definition: "non-sequiturs and responses that do not address the query"
+    definition_verbatim: true
+    location: Section 3.1
+    scale: X (ungradable)
+  - term: Inform clinical management (General information)
+    level: category
+    parent: Risk level of response
+    definition: Response gives general medical information.
+    definition_verbatim: false
+    location: Table 1
+    scale: level I or II depending on query seriousness
+  - term: Drive clinical management (Recommendations)
+    level: category
+    parent: Risk level of response
+    definition: Response gives recommendations.
+    definition_verbatim: false
+    location: Table 1
+    scale: level I to III depending on query seriousness
+  - term: Treat or diagnose
+    level: category
+    parent: Risk level of response
+    definition: Response diagnoses or treats.
+    definition_verbatim: false
+    location: Table 1
+    scale: level II to IV depending on query seriousness
+  - term: Macro and micro F1
+    level: metric
+    definition: Classifier performance at detecting query seriousness and response risk.
+    definition_verbatim: false
+    location: Table 3
+  - term: Macro MAE
+    level: metric
+    definition: Macro-averaged mean absolute error for ordinal classification of seriousness and risk.
+    definition_verbatim: false
+    location: Table 3
+    scale: lower is better
+notes: "Non-medical is a label for queries only. Risk level is a cell of the seriousness-by-response-type grid in Table 1. Labels are used to score classifiers (and to characterize chatbot responses), not to rate chatbot answers on a rubric."

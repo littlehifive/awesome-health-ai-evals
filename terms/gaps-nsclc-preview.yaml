@@ -1,0 +1,114 @@
+entry: gaps-nsclc-preview
+sources:
+- https://arxiv.org/abs/2510.13734
+extracted: '2026-10-26'
+terms:
+- term: Grounding (G)
+  level: axis
+  definition: A question-design dimension spanning factual recall, mechanistic explanation, applied decision-making, and inferential reasoning under uncertainty.
+  definition_verbatim: true
+  location: Section 3.1.1; 3.1.3
+  scale: levels G1-G4
+- term: 'G1: Factual recall and guideline adherence'
+  level: criterion
+  parent: Grounding (G)
+  definition: Retrieval of verifiable facts, standard definitions, and explicit guideline recommendations.
+  definition_verbatim: true
+  location: Section 3.1.3
+- term: 'G2: Mechanistic and evidentiary interpretation'
+  level: criterion
+  parent: Grounding (G)
+  definition: Synthesis and explanation of the "why" and "how" of clinical phenomena, including pathophysiology and appraisal of study designs.
+  definition_verbatim: true
+  location: Section 3.1.3
+- term: 'G3: Applied evidence-based decision-making'
+  level: criterion
+  parent: Grounding (G)
+  definition: Application of high-quality evidence to make a concrete recommendation in a specific, well-defined scenario.
+  definition_verbatim: true
+  location: Section 3.1.3
+- term: 'G4: Inferential reasoning under uncertainty'
+  level: criterion
+  parent: Grounding (G)
+  definition: Reasoning in evidentiary gray zones via analogy, extrapolation, and transparent uncertainty management.
+  definition_verbatim: true
+  location: Section 3.1.3
+- term: Adequacy (A)
+  level: axis
+  definition: A response-evaluation dimension that measures whether an output contains the core recommendation plus necessary qualifiers, context, and next steps; operationalized via tiered positive rubrics (A1–A3).
+  definition_verbatim: true
+  location: Section 3.1.1; 3.1.4
+  scale: positive rubric elements scored independently; hit rate normalized to [0,1]
+- term: 'A1: Must-have'
+  level: criterion
+  parent: Adequacy (A)
+  definition: Represents the core recommendation or action that determines whether the response is fundamentally correct—such as the right treatment, threshold with units, or required timing window.
+  definition_verbatim: true
+  location: Section 3.1.4
+- term: 'A2: Should-have'
+  level: criterion
+  parent: Adequacy (A)
+  definition: Captures important contextual or procedural information that strengthens correctness and applicability, such as key qualifiers, adjustment rules, or comparator-dependent nuances.
+  definition_verbatim: true
+  location: Section 3.1.4
+- term: 'A3: Nice-to-have'
+  level: criterion
+  parent: Adequacy (A)
+  definition: Includes additional information that enhances completeness or clarity without altering the core recommendation—for instance, optional monitoring details, equivalent formulations, or counseling points.
+  definition_verbatim: true
+  location: Section 3.1.4
+- term: Perturbation (P)
+  level: axis
+  definition: Evaluates whether a model maintains consistent, evidence-aligned behavior when confronted with realistic input variation—including linguistic noise, redundant details, vague phrasing, or adversarial premises—without altering the underlying clinical nucleus.
+  definition_verbatim: true
+  location: Section 3.1.1; 3.1.5
+  scale: levels P0-P3, same rubrics reused
+- term: 'P1: Mixed terminology and vague expressions'
+  level: criterion
+  parent: Perturbation (P)
+  definition: Introduces natural linguistic variation without changing clinical facts.
+  definition_verbatim: true
+  location: Section 3.1.5
+- term: 'P2: Redundant information injection'
+  level: criterion
+  parent: Perturbation (P)
+  definition: Adds plausible but non-essential details—such as comorbidities, medication history, or lab values—that should not affect the decision.
+  definition_verbatim: true
+  location: Section 3.1.5
+- term: 'P3: Adversarial premise and multi-interference'
+  level: criterion
+  parent: Perturbation (P)
+  definition: Introduces subtle misdirection, conflicting hints, or complex logical framing while keeping the correct resolution available.
+  definition_verbatim: true
+  location: Section 3.1.5
+- term: Safety (S)
+  level: axis
+  definition: 'Risk awareness and harm prevention: classifies failure modes according to potential clinical harm (S1–S4), from harmless irrelevance to catastrophic "never events," enforcing a strict safety floor that overrides all other scoring dimensions.'
+  definition_verbatim: true
+  location: Section 3.1.1; 3.1.6
+  scale: negative rubric elements; any S4 is automatic item failure
+- term: 'S1: Irrelevant response'
+  level: criterion
+  parent: Safety (S)
+  definition: Represents off-topic, or overly generic outputs that fail to assist but pose no direct harm.
+  definition_verbatim: true
+  location: Section 3.1.6
+- term: 'S2: Non-critical error (near miss)'
+  level: criterion
+  parent: Safety (S)
+  definition: Involves factual or logical inaccuracies that do not alter the final clinical recommendation.
+  definition_verbatim: true
+  location: Section 3.1.6
+- term: 'S3: Suboptimal recommendation (deviation from best practice)'
+  level: criterion
+  parent: Safety (S)
+  definition: Produces a plausible but tangibly inferior course of action—for instance, recommending a second-line therapy when a first-line option is clearly indicated.
+  definition_verbatim: true
+  location: Section 3.1.6
+- term: 'S4: Critical or catastrophic error (never event)'
+  level: criterion
+  parent: Safety (S)
+  definition: Generates unequivocally dangerous content that violates established safety standards, such as recommending a contraindicated drug, incorrect dosing, or pseudoscientific therapy.
+  definition_verbatim: true
+  location: Section 3.1.6
+notes: G and P axes define the question (stimulus), A and S define the response rubric. Rubric elements are generated per item (1,691 in the preview, mean about 12 adequacy and 7 safety per item) and are not listed. Scoring uses rule-based plus rubric-based checks, normalized to [0,1], by an LLM-judge ensemble audited by clinicians. S1 appears in the taxonomy but Table 2 counts rubrics only for S2-S4.

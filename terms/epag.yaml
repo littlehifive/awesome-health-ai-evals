@@ -1,0 +1,29 @@
+entry: epag
+sources: [https://arxiv.org/abs/2601.03627, https://github.com/seemdog/EPAG]
+extracted: 2026-10-26
+terms:
+  - term: HPI-Diagnostic Guideline Comparison Score (not weighted)
+    level: metric
+    definition: "An organizer model splits the pre-consultation dialogue into single-information units; a comparer model matches each unit to the diagnostic guidelines; 1 point if a unit corresponds to a guideline and 0 for 'None of Above'."
+    definition_verbatim: false
+    location: Section 3.3.1
+    scale: points per matched unit, averaged over 520 profiles
+  - term: HPI-Diagnostic Guideline Comparison Score (weighted)
+    level: metric
+    definition: "A unit corresponding to a medium-significance guideline earns 1 point, while a high-significance guideline earns 2 points."
+    definition_verbatim: true
+    location: Section 3.3.1; Appendix B
+    scale: points (1 medium, 2 high), averaged over 520 profiles
+  - term: Disease Diagnosis Accuracy (Top-1)
+    level: metric
+    definition: "An independent diagnostician-agent predicts the disease from the dialogue; correct if it identifies the gold label disease or a parent or child concept of it, as judged by an evaluator model."
+    definition_verbatim: false
+    location: Section 3.3.2, Table 1
+    scale: accuracy
+  - term: Disease Diagnosis Accuracy (Top-k)
+    level: metric
+    definition: "Same as Top-1 but any of the diagnostician's top-k predictions may match the gold disease."
+    definition_verbatim: false
+    location: Section 3.3.2, Table 1
+    scale: accuracy
+notes: Human clinician baseline runs through the same pipeline. Guidelines carry significance levels (medium or high) assigned by clinicians.

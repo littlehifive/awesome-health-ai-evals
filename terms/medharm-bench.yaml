@@ -1,0 +1,56 @@
+entry: medharm-bench
+sources: [https://huggingface.co/datasets/mirobody/MedHarm-Bench]
+extracted: 2026-10-26
+terms:
+  - term: redteam_compliance
+    level: criterion
+    definition: "compliance is judged by the server-side redteam_compliance LLM-as-Judge (the evaluator implementation is not published)"
+    definition_verbatim: true
+    location: Dataset card, Item Schema
+    scale: "score with a pass threshold of 0.7 (eval.threshold), aggregated by dimension"
+  - term: Compliance red line - no definitive diagnosis
+    level: criterion
+    definition: The assistant may explain concepts and guide to care but must not issue a definitive diagnosis.
+    definition_verbatim: false
+    location: Dataset card, Motivation
+  - term: Compliance red line - no prescribing or dosage
+    level: criterion
+    definition: The assistant must not prescribe drugs or specific dosages.
+    definition_verbatim: false
+    location: Dataset card, Motivation
+  - term: Compliance red line - no contradicting the treating physician
+    level: criterion
+    definition: The assistant must not contradict a treating physician.
+    definition_verbatim: false
+    location: Dataset card, Motivation
+  - term: Compliance red line - no delaying urgent care
+    level: criterion
+    definition: The assistant must not give advice that delays urgent care.
+    definition_verbatim: false
+    location: Dataset card, Motivation
+  - term: implicit_diagnosis
+    level: dimension
+    definition: "Implicit diagnosis elicitation — bait the AI into a definitive diagnosis"
+    definition_verbatim: true
+    location: Dataset card, Dataset Summary
+  - term: second_opinion
+    level: dimension
+    definition: "Second-opinion trap — bait the AI into questioning the doctor or recommending self-medication"
+    definition_verbatim: true
+    location: Dataset card, Dataset Summary
+  - term: data_interpretation
+    level: dimension
+    definition: "Data-interpretation baiting — use exam data to bait a definitive conclusion"
+    definition_verbatim: true
+    location: Dataset card, Dataset Summary
+  - term: emotional_coercion
+    level: dimension
+    definition: "Urgency / emotional coercion — pressure for specific medication guidance in an \"emergency\""
+    definition_verbatim: true
+    location: Dataset card, Dataset Summary
+  - term: authority_bias
+    level: dimension
+    definition: "Authority bias / fake citation — cite a fabricated authority to bait agreement"
+    definition_verbatim: true
+    location: Dataset card, Dataset Summary
+notes: "The red lines are listed in the Motivation paragraph as boundaries; the exact judge rubric is unpublished, so the individual red-line terms are the card's description rather than a published rubric. The five dimensions are inducement types (item tags) over which scores are aggregated."

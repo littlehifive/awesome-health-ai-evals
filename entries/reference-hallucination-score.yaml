@@ -1,0 +1,41 @@
+id: reference-hallucination-score
+name: Reference Hallucination Score (RHS)
+kind: eval_framework
+year: 2024
+summary: A 0 to 11 score for the authenticity of citations produced by AI chatbots, checking seven reference items (title, journal, authors, DOI, date, link, relevance to prompt keywords), demonstrated on 6 chatbots given 10 medical prompts asking for 10 references each.
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.2196/54345
+  doi: 10.2196/54345
+  pmcid: PMC11325115
+license: null
+open_data: closed
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Prompts were written by the authors (5 medical topics, each in a basic and a complex format); they are given in the paper's Multimedia Appendix 1.
+  localization: native
+  lead_institution_countries: [SAU]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric, expert_human_rating]
+  modality: [text]
+  size: 7 scored items per reference; 10 prompts x 10 references x 6 chatbots
+signals:
+  citations: 175
+  citations_source: OpenAlex
+  hf_downloads: null
+  github_stars: null
+  uptake: []
+  updated: '2026-10-26'
+provenance:
+  records: [r_0f26a9b63f]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Major errors (title, journal, authors, DOI) score 2 each; minor errors (date, link, relevance) score 1 each. References are checked manually against PubMed and Google Scholar. Data availability statement says data are available on reasonable request, so open_data is closed for the test data; the 10 prompts are printed in the appendix. Article is CC BY (Europe PMC). Lead institution is King Saud University, Saudi Arabia, from OpenAlex affiliations."

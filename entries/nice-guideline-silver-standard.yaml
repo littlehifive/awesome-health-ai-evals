@@ -1,0 +1,41 @@
+id: nice-guideline-silver-standard
+name: NICE guideline silver-standard dataset
+kind: benchmark
+year: 2026
+summary: 500 patient scenario and clinical question pairs generated with GPT-4o-mini from 100 actionable statements in about 10 UK NICE guidelines, checked by a clinician, for evaluating LLMs on guideline adherence.
+readme_section: knowledge_exam
+links:
+  paper: https://doi.org/10.3233/shti260313
+  doi: 10.3233/shti260313
+  code: https://github.com/julia-ive/guidelines_qa
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GBR]
+  item_origin_note: Statements are extracted from guidelines of the UK National Institute for Health and Care Excellence (NICE).
+  localization: native
+  lead_institution_countries: [GBR]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated, literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric, expert_human_rating]
+  modality: [text]
+  size: 500 scenario-question rows covering 100 guideline statements (counted from triplets.csv)
+signals:
+  citations: 0
+  citations_source: OpenAlex
+  hf_downloads: null
+  github_stars: 1
+  uptake: []
+  updated: '2026-10-26'
+provenance:
+  records: [r_63fe7535bb]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: medium
+  notes: "Publisher page (IOS Press) was blocked, so the paper's full text was not read; facts come from the Crossref abstract, the GitHub repo (triplets.csv and an appendix PDF with the prompts and metric table), and the paper's DOI record. The repo has no README and no license file; the paper itself is CC-BY-NC 4.0 per Crossref, which does not necessarily cover the data. Lead country GBR is assumed from the repo owner and NICE topic; author affiliations were not read. Appendix tables report ROUGE, METEOR, and BERTScore; the abstract mentions clinical utility and guideline adherence. The clinician check applied to the generated content, not necessarily to every item."

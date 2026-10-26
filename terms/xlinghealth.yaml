@@ -1,0 +1,66 @@
+entry: xlinghealth
+sources: [https://arxiv.org/abs/2310.13132, https://doi.org/10.1145/3589334.3645643]
+extracted: 2026-10-26
+terms:
+  - term: Correctness
+    level: axis
+    definition: "The model's responses should exhibit factual correctness and comprehensively address the query."
+    definition_verbatim: true
+    location: Section 1 and Section 3
+  - term: Consistency
+    level: axis
+    definition: "The model should produce consistent responses to identical queries, reflecting high similarity in lexical, semantic, and topic aspects."
+    definition_verbatim: true
+    location: Section 1 and Section 4
+  - term: Verifiability
+    level: axis
+    definition: "The model should be capable to authenticate accurate claims and clearly distinguish between correct and erroneous responses to a query."
+    definition_verbatim: true
+    location: Section 1 and Section 5
+  - term: Contradiction
+    level: criterion
+    parent: Correctness
+    definition: "Contradiction refers to the incorrect or contrasting information provided in the LLM answer compared to the Ground Truth answer."
+    definition_verbatim: true
+    location: Section 3, Table 1
+    scale: "one of four labels assigned by GPT-3.5 with CoT"
+  - term: Comprehensiveness
+    level: criterion
+    parent: Correctness
+    definition: "Comprehensiveness refers to the details provided in the answer and whether it covers the points/topics expected from the answer."
+    definition_verbatim: true
+    location: Section 3, Table 1
+  - term: Appropriateness
+    level: criterion
+    parent: Correctness
+    definition: "Appropriateness gauges how well the answer aligns with the context provided in the question."
+    definition_verbatim: true
+    location: Section 3, Table 1
+  - term: Surface-level consistency
+    level: metric
+    parent: Consistency
+    definition: "Gauges the resemblance between two pieces of text based on their superficial attributes, such as lexical features, word choices and response lengths (sim n-gram)."
+    definition_verbatim: true
+    location: Section 4.1.1
+    scale: similarity score across temperatures 0.0/0.5/1.0
+  - term: Semantic-level consistency
+    level: metric
+    parent: Consistency
+    definition: "Measures the semantic association between two answers, via BERTScore and sentence-embedding similarity (sim sent)."
+    definition_verbatim: false
+    location: Section 4.1.2
+    scale: similarity score
+  - term: Topic consistency
+    level: metric
+    parent: Consistency
+    definition: "Topic similarity measures whether two answers discuss similar topics from a macro perspective."
+    definition_verbatim: true
+    location: Section 4.1.3
+    scale: similarity score
+  - term: Verifiability (discriminator accuracy)
+    level: metric
+    parent: Verifiability
+    definition: "The LLM acts as a discriminator and distinguishes between correct and erroneous/irrelevant responses to a given query."
+    definition_verbatim: true
+    location: Section 5
+notes: "Correctness labels come from GPT-3.5 comparing the LLM answer to the expert ground-truth answer, validated by human annotation. Table 1 label set (four labels over contradiction and comprehensiveness/appropriateness) was not transcribed in full. Verifiability metric names (e.g., accuracy, F1) not read in detail."

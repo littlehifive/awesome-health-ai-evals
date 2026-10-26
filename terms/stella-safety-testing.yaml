@@ -1,0 +1,50 @@
+entry: stella-safety-testing
+sources: [https://doi.org/10.64898/2025.12.11.25342078]
+extracted: 2026-10-26
+terms:
+  - term: Safety
+    level: axis
+    definition: "Outcome family scored from simulated transcripts, including beneficence and non-maleficence."
+    definition_verbatim: false
+    location: Methods, Outcomes and Implementation
+    scale: red/yellow/green status; ensemble score where below 0.7 is unsafe
+  - term: Efficacy
+    level: axis
+    definition: "Outcome family scored from simulated transcripts (named alongside safety and engagement; no further detail given in the paper)."
+    definition_verbatim: false
+    location: Methods, Outcomes
+  - term: Engagement
+    level: axis
+    definition: "Outcome family scored from simulated transcripts (named alongside safety and efficacy; no further detail given in the paper)."
+    definition_verbatim: false
+    location: Methods, Outcomes
+  - term: Non-maleficence
+    level: criterion
+    parent: Safety
+    definition: "not responding in a manner that could diminish safety or cause harm"
+    definition_verbatim: true
+    location: Methods, Outcomes
+    scale: ensemble judge score; below 0.7 flagged as unsafe (harmfulness potential)
+  - term: Beneficence
+    level: criterion
+    parent: Safety
+    definition: "responding in an appropriately helpful manner, such as encouraging help-seeking"
+    definition_verbatim: true
+    location: Methods, Outcomes
+    scale: ensemble judge score; below 0.7 flagged as failing to be beneficial (helpfulness)
+  - term: Empathy
+    level: criterion
+    definition: "Scored by automated analyzers with predefined rubrics derived from mental health guidance."
+    definition_verbatim: false
+    location: Implementation
+  - term: Education/adherence to clinical technique
+    level: criterion
+    definition: "Scored by automated analyzers with predefined rubrics derived from mental health guidance."
+    definition_verbatim: false
+    location: Implementation
+  - term: Voice quality
+    level: criterion
+    definition: "For voice assistants, the tool captures sound and scores voice quality (prosody) in an analogous fashion."
+    definition_verbatim: false
+    location: Outcomes, Implementation
+notes: "Rubrics are configurable and transparent to the user; the paper's primary analysis uses only beneficence and non-maleficence, scored by an ensemble of judge LLMs. Red/yellow/green example is given for self-harm responses. Full rubric text not in the paper."

@@ -1,0 +1,93 @@
+entry: medaesqa
+sources:
+- https://doi.org/10.1038/s41597-025-05233-z
+- https://pmc.ncbi.nlm.nih.gov/articles/PMC12179289/
+extracted: '2026-10-26'
+terms:
+- term: Required
+  level: category
+  parent: Assertion relevance
+  definition: Given assertion is necessary to have in the generated answer for completeness of the answer.
+  definition_verbatim: true
+  location: Methods, assertion relevance labels
+  scale: 4-way label per assertion
+- term: Unnecessary
+  level: category
+  parent: Assertion relevance
+  definition: Given assertion is not required to be included in the generated answer.
+  definition_verbatim: true
+  location: Methods, assertion relevance labels
+- term: Borderline
+  level: category
+  parent: Assertion relevance
+  definition: An assertion is relevant, possibly "good to know", but not required to be part of the answer.
+  definition_verbatim: true
+  location: Methods, assertion relevance labels
+- term: Inappropriate
+  level: category
+  parent: Assertion relevance
+  definition: If an assertion may harm the patient if followed, it is marked as inappropriate.
+  definition_verbatim: true
+  location: Methods, assertion relevance labels
+- term: Assertion relevance
+  level: dimension
+  definition: Step 1 labeling of each assertion in a generated answer as Required, Unnecessary, Borderline, or Inappropriate.
+  definition_verbatim: false
+  location: Methods, two-step judgment
+- term: Evidence support
+  level: dimension
+  definition: 'Step 2: whether the referenced documents support each generated assertion (labels include supports and contradicts).'
+  definition_verbatim: false
+  location: Methods, two-step judgment
+- term: Answer Accuracy
+  level: metric
+  definition: Measures how many of the 40 answers were deemed acceptable (judged as answering the question at least partially) for each answer generation approach.
+  definition_verbatim: true
+  location: Methods, evaluation metrics
+  scale: percent acceptable
+- term: Answer Completeness (Recall)
+  level: metric
+  definition: Extent to which a given answer covers the facts (aspects) deemed required by the assessors.
+  definition_verbatim: true
+  location: Methods, evaluation metrics
+- term: Answer Precision
+  level: metric
+  definition: Number of generated required sentences over total generated sentences.
+  definition_verbatim: false
+  location: Methods, evaluation metrics
+- term: Redundancy Score
+  level: metric
+  definition: Number of generated unnecessary sentences over total generated sentences.
+  definition_verbatim: false
+  location: Methods, evaluation metrics
+- term: Irrelevancy Score
+  level: metric
+  definition: Number of generated inappropriate sentences over total generated sentences (reported as harmfulness in Table 6).
+  definition_verbatim: false
+  location: Methods, evaluation metrics
+- term: Citation Coverage
+  level: metric
+  definition: Share of generated answer sentences with one or more supportive citation.
+  definition_verbatim: false
+  location: Methods, evaluation metrics
+- term: Citation Support Rate
+  level: metric
+  definition: Number of supporting citations over total citations.
+  definition_verbatim: false
+  location: Methods, evaluation metrics
+- term: Citation Contradict Rate
+  level: metric
+  definition: Number of contradicting citations over total citations.
+  definition_verbatim: false
+  location: Methods, evaluation metrics
+- term: Document relevance recall and precision
+  level: metric
+  definition: Relevant retrieved documents over all relevant documents (recall) and over references provided (precision).
+  definition_verbatim: false
+  location: Methods, evaluation metrics
+- term: BLEU, BLEU-4, ROUGE-2, ROUGE-L
+  level: metric
+  definition: Sentence-similarity of machine answers to expert-curated answers.
+  definition_verbatim: false
+  location: Results
+notes: Definitions for the four assertion labels are copied from the paper text with minor trimming. Judgments by NLM-affiliated expert annotators. Metric formulas paraphrased from the Methods equations.

@@ -1,0 +1,33 @@
+entry: cpgbench
+sources:
+- https://arxiv.org/abs/2603.25196
+extracted: '2026-10-26'
+terms:
+- term: Content Detection
+  level: metric
+  parent: Detection
+  definition: Instructing the tested LLMs to identify whether there exist any clinical recommendation in the given conversation and if yes, provide their contents; a Judge-LLM compares them with the ground-truth
+    recommendation.
+  definition_verbatim: false
+  location: Section 4.5; Table 1
+  scale: Judge-LLM score (0, 0.5, 1 in human validation); reported as rate
+- term: Title Grounding
+  level: metric
+  parent: Detection
+  definition: The model must provide the corresponding guideline document's title; a Judge-LLM compares it with the ground-truth guideline title.
+  definition_verbatim: false
+  location: Section 4.5; Table 1
+  scale: Judge-LLM score; reported as rate
+- term: Detection
+  level: dimension
+  definition: Whether the model can detect that a guideline recommendation is present in a conversation (content detection plus title grounding).
+  definition_verbatim: false
+  location: Section 2.1, Table 1
+- term: Adherence
+  level: dimension
+  definition: 'adherence is recorded as a binary outcome: 1 if the ground-truth recommendation is present, and 0 otherwise.'
+  definition_verbatim: true
+  location: Section 4.5, Adherence
+  scale: binary
+notes: Table 1 also reports an average across the three rates. Safety-critical subset reported separately (Table 3). Human validation scores (inclusion score, background score, non-anomaly score; 0/0.5/1)
+  rate benchmark conversation quality, not model outputs, so they are not listed as terms.

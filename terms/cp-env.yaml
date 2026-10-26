@@ -1,0 +1,102 @@
+entry: cp-env
+sources:
+- https://arxiv.org/abs/2512.10206
+- https://github.com/SPIRAL-MED/CP_ENV
+extracted: '2026-10-26'
+terms:
+- term: Clinical Efficacy
+  level: axis
+  definition: Can the agent successfully resolve medical problems?
+  definition_verbatim: true
+  location: Section 4
+- term: Process Competency
+  level: axis
+  definition: Does the agent demonstrate sound and logically coherent problem-solving processes?
+  definition_verbatim: true
+  location: Section 4
+- term: Professional Ethics
+  level: axis
+  definition: Does the agent maintain ethical compliance and deliver humanistic care in patient interactions?
+  definition_verbatim: true
+  location: Section 4
+- term: Work Completion (WC)
+  level: metric
+  parent: Clinical Efficacy
+  definition: evaluates whether LLMs can comprehensively fulfill the whole hospital workflow.
+  definition_verbatim: true
+  location: Section 4.1-4.3 and Appendix C.3 (arXiv 2512.10206)
+  scale: binary (1 success, 0 failure)
+- term: Diagnosis Recall@k (DR@k)
+  level: metric
+  parent: Clinical Efficacy
+  definition: evaluates whether the top k diagnosis contain the correct diagnosis.
+  definition_verbatim: true
+  location: Section 4.1-4.3 and Appendix C.3 (arXiv 2512.10206)
+  scale: judge scores each diagnosis 0/1/2; only identical matches count as 1
+- term: Triage Precision (TP)
+  level: metric
+  parent: Clinical Efficacy
+  definition: measures the appropriateness of recommended medical departments.
+  definition_verbatim: true
+  location: Section 4.1-4.3 and Appendix C.3 (arXiv 2512.10206)
+  scale: 0-2 per department suggestion
+- term: Inquiry Sufficiency (IS)
+  level: metric
+  parent: Process Competency
+  definition: measures the extent of essential diagnostic information obtained through clinical inquiry.
+  definition_verbatim: true
+  location: Section 4.1-4.3 and Appendix C.3 (arXiv 2512.10206)
+  scale: share of core information points asked
+- term: Logic Coherence (LC)
+  level: metric
+  parent: Process Competency
+  definition: quantifies the completeness and consistency of diagnostic reasoning chains throughout the healthcare continuum.
+  definition_verbatim: true
+  location: Section 4.1-4.3 and Appendix C.3 (arXiv 2512.10206)
+  scale: 0, 5 or 10 points (rated 0-10)
+- term: Record Compliance (RC)
+  level: metric
+  parent: Process Competency
+  definition: evaluates the quality and completeness of physicians' clinical documentation.
+  definition_verbatim: true
+  location: Section 4.1-4.3 and Appendix C.3 (arXiv 2512.10206)
+  scale: 0, 5 or 10 points (rated 0-10)
+- term: Investigation Coverage (IC)
+  level: metric
+  parent: Process Competency
+  definition: quantifies the IoU between physician-ordered tests and the ground-truth case's diagnostic tests.
+  definition_verbatim: true
+  location: Section 4.2
+  scale: intersection over union
+- term: Result Utilization (RU)
+  level: metric
+  parent: Process Competency
+  definition: measures the proportion of ordered test results actively utilized by the physician.
+  definition_verbatim: true
+  location: Section 4.2
+  scale: proportion
+- term: Privacy Safeguard (PS)
+  level: metric
+  parent: Professional Ethics
+  definition: assesses physicians' capacity to safeguard patient privacy during diagnosis.
+  definition_verbatim: true
+  location: Section 4.3
+- term: Treatment Individualization (TI)
+  level: metric
+  parent: Professional Ethics
+  definition: quantifies how well treatment plans incorporate patient-specific factors.
+  definition_verbatim: true
+  location: Section 4.3
+- term: Empathic Dialogue (ED)
+  level: metric
+  parent: Professional Ethics
+  definition: evaluates the LLM's demonstration of care and compassion toward patients.
+  definition_verbatim: true
+  location: Section 4.3
+- term: Follow-up Planning (FP)
+  level: metric
+  parent: Professional Ethics
+  definition: evaluates the quality and appropriateness of follow-up planning.
+  definition_verbatim: true
+  location: Section 4.3
+notes: Scored by an LLM judge over simulated hospital workflows (triage, specialist consultation, tests, MDT). Scales for the four ethics metrics are in the appendix prompts, not recorded here.

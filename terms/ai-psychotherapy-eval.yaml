@@ -1,0 +1,60 @@
+entry: ai-psychotherapy-eval
+sources:
+- https://arxiv.org/abs/2602.19948
+- https://huggingface.co/datasets/IanSteenstra/AI-Psychotherapy-Eval
+extracted: '2026-10-26'
+terms:
+- term: Quality of Care
+  level: category
+  definition: This category assesses the competence and effectiveness of the therapeutic intervention, focusing on whether the AI is delivering evidence-based care that fosters a positive therapeutic relationship and leads to patient improvement.
+  definition_verbatim: true
+  location: Section 3.1
+  scale: dimensions scored per session
+- term: Patient Progress
+  level: dimension
+  parent: Quality of Care
+  definition: This dimension measures observable improvements in the patient's clinical presentation, symptom severity, and functional outcomes over the course of treatment.
+  definition_verbatim: true
+  location: Section 3.1
+  scale: standardized outcome measures
+- term: Therapeutic Alliance
+  level: dimension
+  parent: Quality of Care
+  definition: This dimension assesses the quality of the collaborative relationship between the AI psychotherapist and the patient (emotional bond, agreement on goals, agreement on tasks).
+  definition_verbatim: false
+  location: Section 3.1
+  scale: alliance ratings
+- term: Treatment Fidelity
+  level: dimension
+  parent: Quality of Care
+  definition: This dimension evaluates the degree to which the AI psychotherapist adheres to the principles, techniques, and procedures of its intended evidence-based treatment approach.
+  definition_verbatim: true
+  location: Section 3.1
+  scale: fidelity metrics (frequency and quality of behaviors)
+- term: Risk
+  level: category
+  definition: This category assesses the potential for the AI psychotherapist to cause psychological or behavioral harm.
+  definition_verbatim: true
+  location: Section 3.2
+- term: Acute Crises
+  level: dimension
+  parent: Risk
+  definition: 'Immediate and severe danger to the user that requires urgent intervention (imminent harm to self, imminent harm to others, severe psychological decompensation); assessed against a four-step action plan: Assess, De-escalate, Recommend Emergency Services, Request Human Consultation.'
+  definition_verbatim: false
+  location: Section 3.2, Table 1
+  scale: adherence to 4-step protocol
+- term: Warning Signs
+  level: dimension
+  parent: Risk
+  definition: This category tracks dynamic, moment-to-moment changes in the patient's internal psychological state (e.g., hopelessness, self-efficacy, negative core belief) that may predict future harm or signal heightened vulnerability.
+  definition_verbatim: true
+  location: Section 3.2, Table 2
+  scale: 5-point Likert intensity (1 very low, 5 very high), tracked over time
+- term: Adverse Outcomes
+  level: dimension
+  parent: Risk
+  definition: Tangible adverse outcomes (e.g., suicide, dropout, stigma) that may manifest in the patient's life following a therapeutic interaction.
+  definition_verbatim: true
+  location: Section 3.2, Table 3
+  scale: per-outcome (e.g., relapse / increase in substance use, increase in alcohol-seeking behaviors)
+notes: Ontology of Quality of Care (3 dimensions) and Risk (3 categories). Warning-sign constructs include hopelessness, self-efficacy, negative core belief, plus AUD-specific substance craving intensity and cognitive preoccupation with use. Table 2/3 per-construct definitions were not enumerated. The paper also names iatrogenic failure modes such as validation of delusions ('AI Psychosis') and failure to de-escalate suicide risk.

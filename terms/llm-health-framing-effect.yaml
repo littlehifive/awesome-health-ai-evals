@@ -1,0 +1,43 @@
+entry: llm-health-framing-effect
+sources:
+- https://arxiv.org/abs/2604.05051
+- https://github.com/hyesunyun/LLMHealthFramingEffect
+extracted: '2026-10-26'
+terms:
+- term: Evidence direction agreement
+  level: metric
+  definition: Whether paired responses to positively and negatively framed questions imply the same direction of the trial conclusion (higher, lower, same, uncertain), as labeled by an LLM judge; agreement means a consistent response.
+  definition_verbatim: false
+  location: Section 'Response Analysis' (arXiv 2604.05051)
+  scale: agreement percentage over paired responses
+- term: Cosine similarity
+  level: metric
+  definition: Similarity between the two paired responses encoded with a PubMedBERT embedding model.
+  definition_verbatim: false
+  location: Section 'Response Analysis'; Table 3
+  scale: cosine, 0-1
+- term: Entity overlap
+  level: metric
+  definition: Jaccard-based overlap of medical entities (extracted with spaCy) between paired responses.
+  definition_verbatim: false
+  location: Section 'Response Analysis'; Table 3
+  scale: Jaccard
+- term: Citation overlap
+  level: metric
+  definition: Jaccard-based overlap of in-text citations found in the paired responses.
+  definition_verbatim: false
+  location: Section 'Response Analysis'; Table 3
+  scale: Jaccard
+- term: Numerical overlap
+  level: metric
+  definition: Jaccard-based overlap of numerical references found in the paired responses.
+  definition_verbatim: false
+  location: Section 'Response Analysis'; Table 3
+  scale: Jaccard
+- term: Framing sensitivity
+  level: other
+  definition: Drop in consistency metrics in the Framed condition (positive vs. negative question) relative to a Baseline (positive vs. positive) condition, broken down by single vs. multi-turn and technical vs. plain-language questions.
+  definition_verbatim: false
+  location: RQ1-RQ3, Table 3 and Figures 2-5
+  scale: difference vs. baseline
+notes: Consistency is the single construct judged; there is no correctness rubric. Evidence direction is judged by Gemini 2.5 Flash at temperature 0 with four options (higher, lower, same, uncertain). Definitions paraphrased (the paper gives metric descriptions in running text, not formal definitions).

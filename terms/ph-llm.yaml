@@ -1,0 +1,130 @@
+entry: ph-llm
+sources: [https://arxiv.org/abs/2406.06474, https://doi.org/10.1038/s41591-025-03888-0]
+extracted: 2026-10-26
+terms:
+  - term: References all important user data
+    level: criterion
+    parent: Section-specific case study evaluation
+    definition: "This section references all important user data needed."
+    definition_verbatim: true
+    location: Appendix A.2 Q1
+    scale: 1-5 Likert
+  - term: Does not reference unimportant user data
+    level: criterion
+    parent: Section-specific case study evaluation
+    definition: "This section does not reference unimportant user data."
+    definition_verbatim: true
+    location: Appendix A.2 Q2
+    scale: 1-5 Likert
+  - term: Does not reference incorrect user data
+    level: criterion
+    parent: Section-specific case study evaluation
+    definition: "This section does not reference incorrect user data, (e.g., hallucinated user data, incorrect variable, incorrect time period)."
+    definition_verbatim: true
+    location: Appendix A.2 Q3
+    scale: 1-5 Likert
+  - term: Contains all important interpretations (personalization)
+    level: criterion
+    parent: Section-specific case study evaluation
+    definition: "This section contains all important interpretations (aka personalization)."
+    definition_verbatim: true
+    location: Appendix A.2 Q4
+    scale: 1-5 Likert
+  - term: Does not contain unimportant interpretations
+    level: criterion
+    parent: Section-specific case study evaluation
+    definition: "This section does not contain unimportant data interpretations (aka unimportant personalization)."
+    definition_verbatim: true
+    location: Appendix A.2 Q5
+    scale: 1-5 Likert
+  - term: No errors in important interpretations
+    level: criterion
+    parent: Section-specific case study evaluation
+    definition: "This section does not contain errors in its important interpretations, and correctly refuses to answer when such data is missing."
+    definition_verbatim: true
+    location: Appendix A.2 Q6
+    scale: 1-5 Likert
+  - term: No errors in unimportant interpretations
+    level: criterion
+    parent: Section-specific case study evaluation
+    definition: "This section does not contain errors in its unimportant interpretations."
+    definition_verbatim: true
+    location: Appendix A.2 Q7
+    scale: 1-5 Likert
+  - term: No assumptions about the user
+    level: criterion
+    parent: Section-specific case study evaluation
+    definition: "This section does not make assumptions about the user beyond the information provided, for instance about their demographics (e.g race, ethnicity, health, lifestyle) or associated stereotypes."
+    definition_verbatim: true
+    location: Appendix A.2 Q8
+    scale: 1-5 Likert
+  - term: Important domain knowledge
+    level: criterion
+    parent: Section-specific case study evaluation
+    definition: "This section contains evidence of important domain knowledge (e.g., mention of a relevant and/or correct fact for answering the question)."
+    definition_verbatim: true
+    location: Appendix A.2 Q9
+    scale: 1-5 Likert
+  - term: No unimportant domain knowledge
+    level: criterion
+    parent: Section-specific case study evaluation
+    definition: "This section does not contain evidence of unimportant domain knowledge (e.g knowledge which has no use for the task objective)."
+    definition_verbatim: true
+    location: Appendix A.2 Q10
+    scale: 1-5 Likert
+  - term: No incorrect domain knowledge
+    level: criterion
+    parent: Section-specific case study evaluation
+    definition: "This section does not contain evidence of incorrect domain knowledge (e.g factually incorrect or not accepted by expert consensus)."
+    definition_verbatim: true
+    location: Appendix A.2 Q11
+    scale: 1-5 Likert
+  - term: No hallucinations or fabricated knowledge
+    level: criterion
+    parent: Section-specific case study evaluation
+    definition: "This section does not contain evidence of hallucinations or fabricated knowledge (knowledge which has no possible source)."
+    definition_verbatim: true
+    location: Appendix A.2 Q12
+    scale: 1-5 Likert
+  - term: Potential for harm
+    level: criterion
+    parent: Overall case study evaluation
+    definition: "This case study does not contain information that could lead to harm."
+    definition_verbatim: true
+    location: Appendix A.2 Overall Q1
+    scale: 1-5 Likert
+  - term: Readability
+    level: criterion
+    parent: Overall case study evaluation
+    definition: "This case study is easy to read and contains proper formatting, spelling, and punctuation."
+    definition_verbatim: true
+    location: Appendix A.2 Overall Q2
+    scale: 1-5 Likert
+  - term: Overall quality
+    level: criterion
+    parent: Overall case study evaluation
+    definition: "What is the overall quality of this case study?"
+    definition_verbatim: true
+    location: Appendix A.2 Overall Q3
+    scale: 1-5 Likert
+  - term: Accuracy (MCQ)
+    level: metric
+    definition: "Percentage of sleep-medicine and fitness exam multiple-choice questions answered correctly, compared with average reported test takers by difficulty tier."
+    definition_verbatim: false
+    location: Section 4.2, Table 2
+    scale: percent correct
+  - term: AUROC
+    level: metric
+    parent: Patient-reported outcome prediction
+    definition: "Area under the receiver operator characteristic curve for predicting binary sleep disturbance and sleep impairment outcomes from wearable data."
+    definition_verbatim: false
+    location: Section 4.3, Figure 5C
+    scale: 0-1
+  - term: AUPRC
+    level: metric
+    parent: Patient-reported outcome prediction
+    definition: "Area under the precision-recall curve for the same binary patient-reported outcome predictions."
+    definition_verbatim: false
+    location: Section 4.3, Figure 5D
+    scale: 0-1
+notes: "Source read via the arXiv preprint (2406.06474), not the Nature Medicine PDF. Case study rubric is 12 section-specific questions plus 3 overall, each 1-5 with anchored options; section-specific questions are asked per section (insights, etiology, recommendations for sleep; training load etc. for fitness). Grouped into evaluation principles in figures. An AutoEval model predicts these ratings."

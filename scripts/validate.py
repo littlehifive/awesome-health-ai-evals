@@ -80,7 +80,13 @@ def main() -> int:
     terms_validator = Draft202012Validator(json.loads((ROOT / "schema" / "terms.schema.json").read_text()))
     term_files = sorted((ROOT / "terms").glob("*.yaml"))
     for path in term_files:
-        t = load_yaml(path.read_text())
+        try:
+            t = load_yaml(path.read_text())
+        except yaml.YAMLError as err:
+            mark = getattr(err, "problem_mark", None)
+            where = f" at line {mark.line + 1}" if mark else ""
+            errors.append(f"terms/{path.stem}: invalid YAML{where}; quote strings that contain ': ' or ' #'")
+            continue
         for err in terms_validator.iter_errors(t):
             loc = "/".join(str(p) for p in err.absolute_path) or "(root)"
             errors.append(f"terms/{path.stem}: {loc}: {err.message}")

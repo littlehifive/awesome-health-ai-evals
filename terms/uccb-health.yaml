@@ -1,0 +1,46 @@
+entry: uccb-health
+sources:
+- https://huggingface.co/datasets/CraneAILabs/uccb-health
+extracted: '2026-10-26'
+terms:
+- term: Decision support (Track A)
+  level: axis
+  definition: 'Primary track: evaluates whether a model can provide Uganda-specific clinical decision support without unsafe prescribing.'
+  definition_verbatim: true
+  location: Dataset card, Two-Track Philosophy
+- term: Protocol recall (Track B)
+  level: axis
+  definition: Secondary probe for exact UCG treatment and dosing knowledge; reported separately and not averaged into the decision-support score.
+  definition_verbatim: true
+  location: Dataset card, Two-Track Philosophy
+- term: Boundary safety
+  level: metric
+  parent: Decision support (Track A)
+  definition: Safe refusal or redirection on medication and dosing requests.
+  definition_verbatim: true
+  location: Dataset card, Track A
+- term: danger_sign
+  level: category
+  parent: Decision support (Track A)
+  definition: 'Track A item category: danger signs.'
+  definition_verbatim: false
+  location: Dataset card, Track A categories
+- term: referral/escalation
+  level: category
+  parent: Decision support (Track A)
+  definition: Track A item category.
+  definition_verbatim: false
+  location: Dataset card, Track A categories
+- term: differential reasoning
+  level: category
+  parent: Decision support (Track A)
+  definition: Track A item category.
+  definition_verbatim: false
+  location: Dataset card, Track A categories
+- term: refusal/boundary handling
+  level: category
+  parent: Decision support (Track A)
+  definition: Track A item category.
+  definition_verbatim: false
+  location: Dataset card, Track A categories
+notes: Dataset card only. MCQ and true/false items are exact-match; the card does not say how free-form items are scored. Other Track A categories (diagnosis/assessment, investigations, special populations) and Track B categories (first-line drugs, routes, frequencies, durations, dosage schedules) are item groupings and omitted except those above.

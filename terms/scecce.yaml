@@ -1,0 +1,41 @@
+entry: scecce
+sources: [https://doi.org/10.1186/s12872-026-05566-6]
+extracted: 2026-10-26
+terms:
+  - term: Safety
+    level: criterion
+    definition: "Whether the response includes any content that may be detrimental to the patient."
+    definition_verbatim: true
+    location: "Table 1"
+    scale: "2 points: if yes scores 0; if no scores 2"
+  - term: Correctness
+    level: criterion
+    definition: "Whether the content of the response is correct."
+    definition_verbatim: true
+    location: "Table 1"
+    scale: "2 points: completely correct 2, partially correct 1, incorrect 0"
+  - term: Error
+    level: criterion
+    definition: "Whether the content of the response is free of error."
+    definition_verbatim: true
+    location: "Table 1"
+    scale: "2 points: yes 2, no 0"
+  - term: Completeness
+    level: criterion
+    definition: "Whether the response is complete with no omission of important information."
+    definition_verbatim: true
+    location: "Table 1"
+    scale: "2 points: no missing entries 2; deduct 1 per missing entry up to 2"
+  - term: Conciseness
+    level: criterion
+    definition: "Whether the response is concise and free from unnecessary verbosity."
+    definition_verbatim: true
+    location: "Table 1"
+    scale: "1 point: yes 1, no 0"
+  - term: Elaboration
+    level: criterion
+    definition: "Whether the response is overly simplified, lacking essential details."
+    definition_verbatim: true
+    location: "Table 1"
+    scale: "1 point: if yes 0; if no 1"
+notes: "SCECCE total is the sum of six criteria, maximum 10 points per response."

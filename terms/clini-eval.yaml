@@ -1,0 +1,193 @@
+entry: clini-eval
+sources:
+- https://arxiv.org/abs/2504.10418
+extracted: '2026-10-26'
+terms:
+- term: Mastery of Patient Medical History
+  level: metric
+  definition: Core metric (45 points, 16 sub-metrics) scoring how fully the simulated physician elicited the patient medical history.
+  definition_verbatim: false
+  location: Section 3 (Evaluation Metrics), Table 6
+  scale: 45 points
+- term: General Information
+  level: criterion
+  parent: Mastery of Patient Medical History
+  definition: Inquired about the patient's sex, age, occupation, etc.
+  definition_verbatim: true
+  location: Table 6
+  scale: 2 points
+- term: Chief Complaint
+  level: criterion
+  parent: Mastery of Patient Medical History
+  definition: Asked about the cardinal symptoms (or signs) of this visit and their duration.
+  definition_verbatim: true
+  location: Table 6
+  scale: 4 points
+- term: History of Present Illness
+  level: criterion
+  parent: Mastery of Patient Medical History
+  definition: Cardinal symptom characteristics, possible cause, disease progression, positive and negative concomitant symptoms, treatment history, general condition, and OTC/supplement use.
+  definition_verbatim: false
+  location: Table 6
+  scale: 19 points
+- term: Past Medical History
+  level: criterion
+  parent: Mastery of Patient Medical History
+  definition: Pertinent medical and surgical history, treatment history, vaccination status, medications and allergies.
+  definition_verbatim: false
+  location: Table 6
+  scale: 8 points
+- term: Review of Systems
+  level: criterion
+  parent: Mastery of Patient Medical History
+  definition: Systematic review of body systems in the interview.
+  definition_verbatim: false
+  location: Table 6
+  scale: 2 points
+- term: Customized Inquiry
+  level: criterion
+  parent: Mastery of Patient Medical History
+  definition: Asked specific questions based on the patient's gender, age, or type of illness, with the aim of obtaining the most personalized medical history.
+  definition_verbatim: true
+  location: Table 6
+  scale: 4 points
+- term: Personal History
+  level: criterion
+  parent: Mastery of Patient Medical History
+  definition: Personal history elicited in the interview.
+  definition_verbatim: false
+  location: Table 6
+  scale: 2 points
+- term: Social History
+  level: criterion
+  parent: Mastery of Patient Medical History
+  definition: Social history elicited in the interview.
+  definition_verbatim: false
+  location: Table 6
+  scale: 2 points
+- term: Family History
+  level: criterion
+  parent: Mastery of Patient Medical History
+  definition: Family history elicited in the interview.
+  definition_verbatim: false
+  location: Table 6
+  scale: 2 points
+- term: Interview Techniques
+  level: metric
+  definition: Core metric (25 points, 8 sub-metrics in text; 12 items in Table 6) scoring interviewing skill.
+  definition_verbatim: false
+  location: Section 3, Table 6
+  scale: 25 points
+- term: Organization
+  level: criterion
+  parent: Interview Techniques
+  definition: The interview follow a logical order.
+  definition_verbatim: true
+  location: Table 6
+  scale: 3 points
+- term: Detailed Inquiry of Cardinal Symptoms
+  level: criterion
+  parent: Interview Techniques
+  definition: Detailed questioning about the cardinal symptoms.
+  definition_verbatim: false
+  location: Table 6
+  scale: 3 points
+- term: Types of Questions
+  level: criterion
+  parent: Interview Techniques
+  definition: Began each section with a focused open-ended question followed by more specific questions.
+  definition_verbatim: true
+  location: Table 6
+  scale: 3 points
+- term: Rarely Repetitive Questioning
+  level: criterion
+  parent: Interview Techniques
+  definition: Occasional repetition or duplication solely for clarification or summarization.
+  definition_verbatim: true
+  location: Table 6
+  scale: 1 point
+- term: Non-leading Questions
+  level: criterion
+  parent: Interview Techniques
+  definition: Questions that do not lead the patient.
+  definition_verbatim: false
+  location: Table 6
+  scale: 1 point
+- term: Elicit Patient's Perspective
+  level: criterion
+  parent: Interview Techniques
+  definition: Elicited the patient's perspective on his illness including his beliefs about its beginning, feelings, ideas or cause, function and expectations.
+  definition_verbatim: true
+  location: Table 6
+  scale: 1 point
+- term: Lack of Jargon
+  level: criterion
+  parent: Interview Techniques
+  definition: Used language the patient could easily understand or immediately explained any terminology the patient was not familiar with.
+  definition_verbatim: true
+  location: Table 6
+  scale: 2 points
+- term: Max Two Questions per Inquiry
+  level: criterion
+  parent: Interview Techniques
+  definition: Asked no more than two questions at a time to avoid overwhelming the patient.
+  definition_verbatim: true
+  location: Table 6
+  scale: 3 points
+- term: Brief and To the Point Response
+  level: criterion
+  parent: Interview Techniques
+  definition: Responded concisely and accurately, avoiding overly detailed or lengthy responses.
+  definition_verbatim: true
+  location: Table 6
+  scale: 3 points
+- term: Responded Directly
+  level: criterion
+  parent: Interview Techniques
+  definition: Responded align with the patient's concerns and never deviate from the topic.
+  definition_verbatim: true
+  location: Table 6
+  scale: 2 points
+- term: Empathy and Encouragement
+  level: criterion
+  parent: Interview Techniques
+  definition: Expressed understanding, respect, and support for the patient's concerns.
+  definition_verbatim: true
+  location: Table 6
+  scale: 2 points
+- term: Advise urgent care
+  level: criterion
+  parent: Interview Techniques
+  definition: Recommend that the patient seek immediate medical attention.
+  definition_verbatim: true
+  location: Table 6
+  scale: 1 point
+- term: Medical Examination Results Consistency
+  level: metric
+  parent: Medical Examination and Diagnosis Consistency
+  definition: Compare the physical examination findings and laboratory test results extracted by the LLM with the interviewer's findings, analyzing their consistency.
+  definition_verbatim: true
+  location: Table 6
+  scale: 4 points
+- term: Diagnosis Consistency
+  level: metric
+  parent: Medical Examination and Diagnosis Consistency
+  definition: Compare the preliminary diagnosis and differential diagnosis results inferred by the LLM with the interviewer's diagnosis results, analyzing their consistency.
+  definition_verbatim: true
+  location: Table 6
+  scale: 10 points
+- term: Diagnostic Basis Consistency
+  level: metric
+  parent: Medical Examination and Diagnosis Consistency
+  definition: Compare the diagnostic basis inferred by the LLM with that of the interviewer and analyze the consistency between them.
+  definition_verbatim: true
+  location: Table 6
+  scale: 10 points
+- term: Confirmatory Tests Consistency
+  level: metric
+  parent: Medical Examination and Diagnosis Consistency
+  definition: Compare the confirmatory test items inferred by the LLM with those recommended by the interviewer, and analyze their consistency.
+  definition_verbatim: true
+  location: Table 6
+  scale: 6 points
+notes: Metric system has six main metrics and thirty sub-metrics in total, total score 100 (45 history + 25 technique + 30 examination and diagnosis consistency). Scored by an LLM in the two-phase Demo2Eval procedure (subjective comparison to a demonstration interview, then quantitative scoring). Parent group 'Medical Examination and Diagnosis Consistency' is a 30-point heading in Table 6, not a separately named term in the text.

@@ -1,0 +1,60 @@
+entry: aipatient-arena
+sources:
+- https://arxiv.org/abs/2606.17474
+extracted: '2026-10-26'
+terms:
+- term: Medical interview questioning skills (QS)
+  level: dimension
+  definition: Quality of the model's questioning during the consultation; one of eight dimensions co-designed by attending physicians and medical AI experts.
+  definition_verbatim: false
+  location: Abstract; Results (Table 1, Fig. 2); Table 2 failure patterns
+  scale: 1-5 score from predefined failure patterns (AI evaluator)
+- term: Information coverage (IC)
+  level: dimension
+  definition: How much of the patient's clinically relevant information the model elicits during the consultation.
+  definition_verbatim: false
+  location: Abstract; Results (Table 1, Fig. 2); Table 2 failure patterns
+  scale: 1-5 score from failure patterns
+- term: Handling of ambiguous patient responses (HR)
+  level: dimension
+  definition: How the model responds to ambiguous or vague patient statements.
+  definition_verbatim: false
+  location: Abstract; Results (Table 1, Fig. 2); Table 2 failure patterns
+  scale: 1-5 score from failure patterns
+- term: Ethical and professional conduct (ET)
+  level: dimension
+  definition: Ethical and professional behavior of the model during the consultation.
+  definition_verbatim: false
+  location: Abstract; Results (Table 1, Fig. 2); Table 2 failure patterns
+  scale: 1-5 score from failure patterns
+- term: Clarity and transparency of clinical explanations (EX)
+  level: dimension
+  definition: Clarity and transparency of the model's explanations to the patient.
+  definition_verbatim: false
+  location: Abstract; Results (Table 1, Fig. 2); Table 2 failure patterns
+  scale: 1-5 score from failure patterns
+- term: Information integration (II)
+  level: dimension
+  definition: Integration of gathered information in the model's summary output.
+  definition_verbatim: false
+  location: Abstract; Results (Table 1, Fig. 2); Table 2 failure patterns
+  scale: 1-5 score from failure patterns
+- term: Diagnostic accuracy and reasoning (Dx)
+  level: dimension
+  definition: Accuracy and reasoning of the model's diagnosis generation.
+  definition_verbatim: false
+  location: Abstract; Results (Table 1, Fig. 2); Table 2 failure patterns
+  scale: 1-5 score from failure patterns
+- term: Medication safety and justification (MS)
+  level: dimension
+  definition: Safety and justification of the treatment plan, especially medications.
+  definition_verbatim: false
+  location: Abstract; Results (Table 1, Fig. 2); Table 2 failure patterns
+  scale: 1-5 score from failure patterns
+- term: Weighted average
+  level: metric
+  definition: Overall weighted average aggregating the eight dimension scores by predefined clinical importance weights.
+  definition_verbatim: false
+  location: Results, Table 1
+  scale: weighted mean of 1-5
+notes: 'Each dimension has predefined fine-grained failure patterns (Table 2 covers the four dialogue-level dimensions: contextual continuity, information coverage, responses to ambiguous statements, ethics and professional conduct) used by an AI evaluator; scores validated against 5 medical experts. The model performs four core functions: clinical communication, information summarization, diagnosis generation, treatment planning. Definitions are paraphrased from the abstract and results; the Methods rubric table was not read.'

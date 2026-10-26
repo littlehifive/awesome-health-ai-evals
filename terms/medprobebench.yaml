@@ -1,0 +1,65 @@
+entry: medprobebench
+sources: [https://arxiv.org/abs/2604.18418, https://github.com/uni-medical/MedProbeBench]
+extracted: 2026-10-26
+terms:
+  - term: Medical Coverage Completeness
+    level: dimension
+    parent: Holistic Rubrics
+    definition: "Evaluates whether the guideline comprehensively addresses key clinical aspects, including symptom profiles, diagnostic criteria, treatment modalities, and prognostic considerations."
+    definition_verbatim: true
+    location: Section 4.1 Holistic Rubrics (shown as Comprehensiveness in Table 1)
+    scale: 0-10 per dimension (GPT-4.1 judge), task-adaptive weights
+  - term: Mechanistic Insight Depth
+    level: dimension
+    parent: Holistic Rubrics
+    definition: "Assesses whether the content provides mechanistic understanding at the molecular or pathological level, rather than surface-level descriptions."
+    definition_verbatim: true
+    location: Section 4.1 Holistic Rubrics (shown as Insight Depth in Table 1)
+    scale: 0-10 per dimension
+  - term: Adherence to Medical Standards
+    level: dimension
+    parent: Holistic Rubrics
+    definition: "Measures consistency with authoritative classification systems, ensuring that terminology and categorization align with established medical consensus."
+    definition_verbatim: true
+    location: Section 4.1 Holistic Rubrics (shown as Standards Adherence in Table 1)
+    scale: 0-10 per dimension
+  - term: Clinical Utility
+    level: dimension
+    parent: Holistic Rubrics
+    definition: "Assesses whether the guidance offers actionable information that can support clinical decision-making in real-world practice settings."
+    definition_verbatim: true
+    location: Section 4.1 Holistic Rubrics (shown as Utility in Table 1)
+    scale: 0-10 per dimension
+  - term: Task Success Rate
+    level: metric
+    parent: Fine-grained Evidence Verification
+    definition: "Measures the proportion of gold-standard claims successfully generated."
+    definition_verbatim: true
+    location: Section 4.2, Eq. 4
+    scale: proportion of gold atomic claims matched
+  - term: Search Effectiveness
+    level: metric
+    parent: Fine-grained Evidence Verification
+    definition: "Evaluates whether the system retrieves reference sources that correspond to those used in the gold-standard guideline."
+    definition_verbatim: true
+    location: Section 4.2, Eq. 5-7
+    scale: 0.6 x reference recall + 0.4 x quantity score
+  - term: Factual Consistency
+    level: metric
+    parent: Fine-grained Evidence Verification
+    definition: "Evaluates whether predicted claims are grounded in accessible reference content."
+    definition_verbatim: true
+    location: Section 4.2, Eq. 8-9
+    scale: binary verification per claim with resolvable reference URL
+  - term: Overall Score
+    level: metric
+    definition: Weighted composite of the holistic rubric score and the evidence verification score; weights are task-adaptive.
+    definition_verbatim: false
+    location: Table 1
+    scale: 0-1
+  - term: Claim type
+    level: category
+    definition: Each atomic claim is typed as one of seven categories (Factual, Mechanistic, Clinical, Diagnostic, Differential, Prognostic, Therapeutic); used for claim decomposition, not separately scored.
+    definition_verbatim: false
+    location: Section 4.2 Claim Decomposition
+notes: "Two tiers: holistic rubrics (four dimensions, weighted) and claim-level evidence verification (three metrics, weighted). The paper also describes structural completeness and terminology criteria for the task specification (Section 3), and 1,200+ rubric criteria counts in the appendix; only the scored dimensions and metrics are listed."

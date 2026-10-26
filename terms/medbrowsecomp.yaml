@@ -1,0 +1,11 @@
+entry: medbrowsecomp
+sources: [https://arxiv.org/abs/2505.14963]
+extracted: 2026-10-26
+terms:
+  - term: Accuracy
+    level: metric
+    definition: "Share of multi-hop fact-seeking questions for which the agent's short final answer is judged to match the reference answer by an LLM judge (GPT-4.1 mini)."
+    definition_verbatim: false
+    location: Evaluation sections; abstract
+    scale: binary per question, reported as percent correct
+notes: "Questions have short, objective answers, so scoring is correctness only; the paper discusses hallucination as motivation but does not score it as a separate term. Reported separately for the 50, 605 and CUA subsets."

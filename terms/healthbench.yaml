@@ -1,0 +1,77 @@
+entry: healthbench
+sources: [https://arxiv.org/abs/2505.08775]
+extracted: 2026-10-26
+terms:
+  - term: Accuracy
+    level: axis
+    definition: "In many health-related settings, incorrect information can cause confusion or harm. This axis assesses whether responses include only factually correct information, aligned with current medical or expert consensus. This axis also covers recognizing uncertainty when the evidence on a topic is weak or evolving."
+    definition_verbatim: true
+    location: Section 5.2, Table 3
+    scale: points per rubric criterion (positive or negative)
+  - term: Completeness
+    level: axis
+    definition: "Criteria in this axis examine whether a response includes all important information needed to be safe and helpful to the user. Even if accurate, a response that is incomplete (e.g., omitting key steps or red flags) can still result in low-quality advice or harm."
+    definition_verbatim: true
+    location: Section 5.2, Table 3
+    scale: points per rubric criterion
+  - term: Communication quality
+    level: axis
+    definition: "Communicating effectively about health requires presenting information clearly. This axis captures whether the response is well-structured and concise, and whether it uses a level of technical depth and vocabulary that is well-matched to the user."
+    definition_verbatim: true
+    location: Section 5.2, Table 3
+    scale: points per rubric criterion
+  - term: Context awareness
+    level: axis
+    definition: "This axis captures whether the model appropriately responds to contextual cues that are present (e.g., user role, geographic setting, resources the user says they have), and whether it seeks clarification when needed."
+    definition_verbatim: true
+    location: Section 5.2, Table 3
+    scale: points per rubric criterion
+  - term: Instruction following
+    level: axis
+    definition: "Many health tasks involve specific user instructions, e.g., a request for a response in a particular format or a request to turn unstructured health data into a specific type of clinical note. This axis evaluates whether the model adheres to instructions while still prioritizing safety."
+    definition_verbatim: true
+    location: Section 5.2, Table 3
+    scale: points per rubric criterion
+  - term: Emergency referrals
+    level: category
+    parent: themes
+    definition: "This theme evaluates one of the most immediate and high-stakes ways language models can impact human health—recognizing emergencies and steering people toward care if needed."
+    definition_verbatim: true
+    location: Section 5.1, Table 2
+  - term: Context-seeking
+    level: category
+    parent: themes
+    definition: "In this theme, we evaluate whether models could recognize when key context was missing and seek the most informative context."
+    definition_verbatim: true
+    location: Section 5.1, Table 2
+  - term: Global health
+    level: category
+    parent: themes
+    definition: "This theme evaluates whether models can adapt responses in varied healthcare contexts, across differences in resource availability, clinical norms, and regional patterns of disease."
+    definition_verbatim: true
+    location: Section 5.1, Table 2
+  - term: Health data tasks
+    level: category
+    parent: themes
+    definition: "This theme evaluates whether models can safely and accurately complete structured health data tasks."
+    definition_verbatim: true
+    location: Section 5.1, Table 2
+  - term: Expertise-tailored communication
+    level: category
+    parent: themes
+    definition: "This theme evaluates whether models can infer the user role—such as distinguishing between a healthcare professional and a general user—and tailor communication to ensure responses are understandable and actionable."
+    definition_verbatim: true
+    location: Section 5.1, Table 2
+  - term: Responding under uncertainty
+    level: category
+    parent: themes
+    definition: "This theme evaluates whether models can recognize when uncertainty is present and respond with language reflecting that uncertainty if so."
+    definition_verbatim: true
+    location: Section 5.1, Table 2
+  - term: Response depth
+    level: category
+    parent: themes
+    definition: "This theme evaluates whether models can adjust the depth of their responses to match user needs and task complexity."
+    definition_verbatim: true
+    location: Section 5.1, Table 2
+notes: "48,562 example-specific physician-written rubric criteria, each tagged with one axis (by model classifier) and each example with one of seven themes; themes are reporting strata, listed here because results are stratified by them (parent 'themes' is a grouping label, not a source term). 34 consensus criteria (8,053 uses, Appendix I) are pre-written per theme-specific category, e.g. prompt emergency referral. Scored by model grader; example score = points met / max points, can be negative."

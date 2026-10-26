@@ -1,0 +1,44 @@
+id: counselingbench
+name: CounselingBench
+kind: benchmark
+year: 2024
+summary: 1,612 multiple-choice questions across 138 case studies from NCMHCE mock exams, each tagged with one of five mental health counseling competencies, for testing LLMs on counseling aptitude.
+readme_section: mental_health
+links:
+  paper: https://arxiv.org/abs/2410.22446
+  arxiv: "2410.22446"
+  doi: 10.18653/v1/2025.findings-naacl.418
+  huggingface: [ckmjx/CounselingBench]
+  code: https://github.com/cuongnguyenx/CounselingBench
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Questions come from publicly accessible mock exams for the US National Clinical Mental Health Counseling Examination (NCMHCE); case patients include several US ethnic groups.
+  rater_countries: [USA]
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions]
+  venue: peer_reviewed
+facets:
+  health_areas: [mental_health]
+  intended_users: [clinician, medical_student]
+  eval_methods: [mcq_exact_match, rubric_llm_judge]
+  modality: [text]
+  size: 1,612 questions, 138 case studies, 5 competencies
+signals:
+  citations: 5
+  citations_source: OpenAlex
+  hf_downloads: 65
+  github_stars: 3
+  uptake: []
+  updated: '2026-10-26'
+provenance:
+  records: [r_bb0f9b83ba]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Georgia Tech lead with Columbia and Tower Health co-authors. Competency labels come from two annotators with a third, a US licensed mental health counselor, breaking ties on 767 disagreements; the first two annotators' countries are not stated. The paper also evaluates models' written justifications (RQ3) with reasoning metrics; how much of that uses an LLM judge was not checked in detail. Exam mock-question copyright status is not discussed in what was read. The record year is 2024 (arXiv); the peer-reviewed version is NAACL Findings 2025."

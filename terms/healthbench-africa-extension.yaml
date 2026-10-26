@@ -1,0 +1,21 @@
+entry: healthbench-africa-extension
+sources: [https://huggingface.co/datasets/tonative/healthbench-africa-extension]
+extracted: 2026-10-26
+terms:
+  - term: Rubric criteria (inherited from HealthBench)
+    level: criterion
+    definition: "Evaluation criteria used to assess responses, including scoring rules and tags (card field `rubrics`); the original expert-defined HealthBench rubrics are preserved."
+    definition_verbatim: true
+    location: Dataset card, Features and Our Contribution
+    scale: points per rubric criterion (inherited from HealthBench)
+  - term: LLM-as-judge score
+    level: metric
+    definition: Automated rubric scoring by an LLM judge, planned for cross-lingual comparison.
+    definition_verbatim: false
+    location: Dataset card, Our Contribution and Data Collection and Methodology
+  - term: Human evaluation
+    level: other
+    definition: Evaluation by medically trained professionals fluent in the target language, used to validate the LLM judge.
+    definition_verbatim: false
+    location: Dataset card, Our Contribution
+notes: Dataset card only, no paper. No axis or theme names are given on the card; the HealthBench axes (accuracy, completeness, communication quality, context awareness, instruction following) are inherited via the rubric tags but not listed here. See terms/healthbench.yaml. Evaluation described as planned.

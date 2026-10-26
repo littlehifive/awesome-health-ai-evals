@@ -1,0 +1,17 @@
+entry: pretexeval
+sources: [https://arxiv.org/abs/2409.14302]
+extracted: 2026-10-26
+terms:
+  - term: Average accuracy
+    level: metric
+    definition: "Accuracy across all true/false test samples, averaged over knowledge points and over the samples generated per knowledge point."
+    definition_verbatim: false
+    location: Section 3.2.3, Eq. 9
+    scale: "proportion correct; chance is 50%"
+  - term: Joint accuracy
+    level: metric
+    definition: "Considers a knowledge point as mastered if all the related samples are predicted correctly."
+    definition_verbatim: true
+    location: Section 3.2.3, Eq. 10
+    scale: "proportion of knowledge points with all variants correct"
+notes: "Statement verification (true/false). Predicate equivalence transformations (inversion, instantiation and others) are generation methods, not scored terms. Gains relative to 50% random guessing are also reported."

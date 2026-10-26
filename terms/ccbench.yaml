@@ -1,0 +1,101 @@
+entry: ccbench
+sources:
+- https://doi.org/10.1038/s41698-025-00916-7
+- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12102327/
+extracted: '2026-10-26'
+terms:
+- term: Expert Evaluation Score
+  level: metric
+  definition: Three experienced experts manually scored the answers according to custom criteria; the maximum expert evaluation score is set to 10 points.
+  definition_verbatim: true
+  location: Methods, evaluation (L57 of PMC copy)
+  scale: 0-10 points
+- term: accuracy
+  level: criterion
+  parent: Expert Evaluation Score
+  definition: One of the custom criteria experts used when scoring open-ended answers; separate definitions are in Supplementary Tables 3 and 4 (not read).
+  definition_verbatim: false
+  location: Methods, evaluation (L57 of PMC copy)
+  scale: within 10-point total
+- term: completeness
+  level: criterion
+  parent: Expert Evaluation Score
+  definition: One of the custom criteria experts used when scoring open-ended answers; separate definitions are in Supplementary Tables 3 and 4 (not read).
+  definition_verbatim: false
+  location: Methods, evaluation (L57 of PMC copy)
+  scale: within 10-point total
+- term: logic
+  level: criterion
+  parent: Expert Evaluation Score
+  definition: One of the custom criteria experts used when scoring open-ended answers; separate definitions are in Supplementary Tables 3 and 4 (not read).
+  definition_verbatim: false
+  location: Methods, evaluation (L57 of PMC copy)
+  scale: within 10-point total
+- term: precision
+  level: criterion
+  parent: Expert Evaluation Score
+  definition: One of the custom criteria experts used when scoring open-ended answers; separate definitions are in Supplementary Tables 3 and 4 (not read).
+  definition_verbatim: false
+  location: Methods, evaluation (L57 of PMC copy)
+  scale: within 10-point total
+- term: risk awareness
+  level: criterion
+  parent: Expert Evaluation Score
+  definition: One of the custom criteria experts used when scoring open-ended answers; separate definitions are in Supplementary Tables 3 and 4 (not read).
+  definition_verbatim: false
+  location: Methods, evaluation (L57 of PMC copy)
+  scale: within 10-point total
+- term: conciseness
+  level: criterion
+  parent: Expert Evaluation Score
+  definition: One of the custom criteria experts used when scoring open-ended answers; separate definitions are in Supplementary Tables 3 and 4 (not read).
+  definition_verbatim: false
+  location: Methods, evaluation (L57 of PMC copy)
+  scale: within 10-point total
+- term: G-Eval score
+  level: metric
+  definition: Automatic LLM-based (GPT) score of open-ended answer quality using the G-Eval framework (Liu et al.).
+  definition_verbatim: false
+  location: Methods, evaluation (L57 of PMC copy)
+  scale: G-Eval
+- term: Accuracy
+  level: metric
+  definition: 'Close-ended questions: proportion answered correctly.'
+  definition_verbatim: false
+  location: Results, Fig. 3
+  scale: proportion
+- term: Precision
+  level: metric
+  definition: 'Close-ended questions: standard precision.'
+  definition_verbatim: false
+  location: Results, Fig. 3
+  scale: proportion
+- term: Recall
+  level: metric
+  definition: 'Close-ended questions: standard recall.'
+  definition_verbatim: false
+  location: Results, Fig. 3
+  scale: proportion
+- term: F1 score
+  level: metric
+  definition: 'Close-ended questions: standard F1.'
+  definition_verbatim: false
+  location: Results, Fig. 3
+  scale: proportion
+- term: Specificity
+  level: metric
+  definition: 'Close-ended questions: standard specificity.'
+  definition_verbatim: false
+  location: Results, Fig. 3
+  scale: proportion
+- term: Knowledge-based errors
+  level: category
+  definition: Error type in the VQA error analysis (misclassification/feature identification errors and answer matching failures); VLM-only, out of scope for the text set.
+  definition_verbatim: false
+  location: Results, Fig. 7
+- term: Hallucination-based errors
+  level: category
+  definition: Second error type in the VQA error analysis; VLM-only.
+  definition_verbatim: false
+  location: Results, Fig. 7
+notes: 'Text QA set: close-ended questions scored with classification metrics, open-ended with expert scores and G-Eval. The VQA half (vision-language models) is out of scope. Expert criteria names are from the Methods sentence; the supplementary rubric tables were not opened.'

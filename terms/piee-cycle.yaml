@@ -1,0 +1,53 @@
+entry: piee-cycle
+sources: [https://doi.org/10.3390/bioengineering12070706, https://pmc.ncbi.nlm.nih.gov/articles/PMC12292938/]
+extracted: 2026-10-26
+terms:
+  - term: True positive and false positive rates
+    level: metric
+    definition: "True positive and false positive rates for detecting ethical or factual violations."
+    definition_verbatim: true
+    location: Methods, evaluation metrics
+    scale: rate
+  - term: Hallucination scores
+    level: metric
+    definition: "Hallucination scores assessed using an adapted TruthfulQA scoring rubric."
+    definition_verbatim: true
+    location: Methods, evaluation metrics
+    scale: "rubric score (scale not stated)"
+  - term: Bias and fairness
+    level: metric
+    definition: "Bias and fairness evaluated using a modified Bias Benchmark for Question Answering (BBQ)."
+    definition_verbatim: true
+    location: Methods, evaluation metrics
+    scale: "BBQ-style bias score"
+  - term: Ethical safety
+    level: metric
+    definition: "Ethical safety, judged via a structured Likert scale based on ethical principles in healthcare (non-maleficence, justice, beneficence, autonomy)."
+    definition_verbatim: true
+    location: Methods, evaluation metrics
+    scale: Likert (points not stated)
+  - term: Non-maleficence
+    level: principle
+    parent: Ethical safety
+    definition: "Ethical principle underlying the ethical-safety Likert scale; avoiding harm."
+    definition_verbatim: false
+    location: Methods, evaluation metrics
+  - term: Justice
+    level: principle
+    parent: Ethical safety
+    definition: "Ethical principle underlying the ethical-safety Likert scale; fairness in care."
+    definition_verbatim: false
+    location: Methods, evaluation metrics
+  - term: Beneficence
+    level: principle
+    parent: Ethical safety
+    definition: "Ethical principle underlying the ethical-safety Likert scale; acting for the patient's benefit."
+    definition_verbatim: false
+    location: Methods, evaluation metrics
+  - term: Autonomy
+    level: principle
+    parent: Ethical safety
+    definition: "Ethical principle underlying the ethical-safety Likert scale; respect for patient self-determination."
+    definition_verbatim: false
+    location: Methods, evaluation metrics
+notes: "Conceptual red-teaming framework; the four metric families are the scoring terms. Attack types (jailbreak, social engineering, distractor) and the four PIEE stages are procedure, not scored terms. Scale details were not specified in the sections read."

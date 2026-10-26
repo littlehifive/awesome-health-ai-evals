@@ -1,0 +1,102 @@
+entry: medbench-v5
+sources: [https://arxiv.org/abs/2606.24155]
+extracted: 2026-10-26
+terms:
+  - term: Information Gap Detection
+    level: criterion
+    parent: Five-node process audit
+    definition: "The model explicitly recognizes missing or insufficient clinical information when key data are masked."
+    definition_verbatim: true
+    location: Table in Section 2 (audit nodes), Figure 3
+    scale: ratio metrics (Gap Detection Ratio, Inquiry Ratio)
+  - term: Follow-up Strategy
+    level: criterion
+    parent: Five-node process audit
+    definition: "The model asks targeted, clinically meaningful, and non-redundant follow-up questions to elicit missing critical information."
+    definition_verbatim: true
+    location: Audit node table, Figure 3
+    scale: ratio metrics (Precision Inquiry Ratio, Redundant Inquiry Ratio)
+  - term: Contradiction Detection
+    level: criterion
+    parent: Five-node process audit
+    definition: "The model identifies conflicting information across turns, sources, or modalities and requests clarification when necessary."
+    definition_verbatim: true
+    location: Audit node table, Figure 3
+    scale: ratio metrics (Contradiction Detection Ratio, Contradiction Ignorance Ratio)
+  - term: Diagnosis Update
+    level: criterion
+    parent: Five-node process audit
+    definition: "The model appropriately revises its diagnostic hypotheses when new, delayed, or corrected evidence is introduced."
+    definition_verbatim: true
+    location: Audit node table, Figure 3
+    scale: ratio metrics (Rational Update, Premature Closure, Stubborn Maintenance)
+  - term: Evidence Grounding
+    level: criterion
+    parent: Five-node process audit
+    definition: "The model's final conclusion is explicitly supported by verified information from the provided context, rather than unsupported assumptions or fabricated facts."
+    definition_verbatim: true
+    location: Audit node table, Figure 3
+    scale: ratio metrics (Evidence Faithfulness, Fabricated Citation Ratio)
+  - term: Numerical fabrication ratio (NFR)
+    level: metric
+    parent: Initiation
+    definition: "Captures fabricated clinical numbers, such as invented vital signs, laboratory values, imaging measurements, or medication doses."
+    definition_verbatim: true
+    location: Appendix C, Eq. 1
+    scale: ratio (lower is better)
+  - term: Unsubstantiated fact ratio (UFR)
+    level: metric
+    parent: Initiation
+    definition: "Captures unsupported non-numerical factual claims, such as invented medical history, medication use, allergies, procedures, or prior diagnoses."
+    definition_verbatim: true
+    location: Appendix C, Eq. 2
+    scale: ratio (lower is better)
+  - term: Hallucination persistence ratio (HPR)
+    level: metric
+    parent: Propagation
+    definition: "Measures the proportion of initiated hallucinations that reappear in subsequent turns."
+    definition_verbatim: true
+    location: Appendix C, Eq. 3
+    scale: ratio (lower is better)
+  - term: Hallucination cross-contamination ratio (HCCR)
+    level: metric
+    parent: Propagation
+    definition: "Measures whether hallucinated claims are reused as premises for later diagnostic reasoning."
+    definition_verbatim: true
+    location: Appendix C, Eq. 4
+    scale: ratio (lower is better)
+  - term: Definitive hallucination dependency ratio (DHDR)
+    level: metric
+    parent: Anchoring
+    definition: "Measures the fraction of final evidence items that are hallucinated or unsupported."
+    definition_verbatim: true
+    location: Appendix C, Eq. 5
+    scale: ratio (lower is better)
+  - term: Critical hallucination omission (CHO)
+    level: metric
+    parent: Anchoring
+    definition: "Measures whether the model omits genuine critical evidence, especially evidence that would contradict or weaken a hallucinated reasoning path."
+    definition_verbatim: true
+    location: Appendix C, Eq. 6
+    scale: ratio (lower is better)
+  - term: Contradiction-induced hallucination suppression ratio (CIHSR)
+    level: metric
+    parent: Hallucination-contradiction interaction
+    definition: "Measures whether contradictions help the model suppress or revise previously exposed hallucinations, for example by asking for clarification, acknowledging inconsistency, or withdrawing unsupported assumptions."
+    definition_verbatim: true
+    location: Appendix C, Eq. 7
+    scale: ratio (higher is better)
+  - term: Contradiction-induced hallucination generation ratio (CIHGR)
+    level: metric
+    parent: Hallucination-contradiction interaction
+    definition: "Measures whether contradictions trigger new hallucinations, such as fabricated explanations introduced to reconcile conflicts."
+    definition_verbatim: false
+    location: Appendix C, Eq. 8
+    scale: ratio (lower is better)
+  - term: Human Likert-5 agreement rating
+    level: other
+    definition: "Reliability check: annotators rated 440 samples on a 5-point Likert scale comparing model answer with reference; algorithm scores (0-100) correlated with it (Spearman 0.26, quadratic weighted kappa 0.32)."
+    definition_verbatim: false
+    location: Section 3.6
+    scale: 1-5 Likert
+notes: "Four hallucination monitoring dimensions (Initiation, Propagation, Anchoring, Hallucination-Contradiction Interaction) organize the eight metrics; the Initiation and other group names are used as parents. Process-audit metrics per node (e.g. Gap Detection Ratio, Premature Closure Ratio) are named in Figure 3 but not defined individually here. CCR has 13 capability dimensions and MAS 4 agent environments (DataAgent, RAGAgent, etc.) scored by Acc, F1, Macro-Recall and LLM-as-a-judge per dataset (Appendix Tables 6-7); these are task groupings, not listed. Judge rubric detail is in appendix, not read."

@@ -1,0 +1,43 @@
+id: medhallu
+name: MedHallu
+kind: benchmark
+year: 2025
+summary: 10,000 PubMedQA-derived medical question-answer pairs, each with a ground-truth answer and an LLM-generated hallucinated answer labeled by hallucination type and difficulty (easy, medium, hard), for testing whether models can detect medical hallucinations; scored by precision, recall and F1.
+readme_section: safety
+links:
+  paper: https://doi.org/10.18653/v1/2025.emnlp-main.143
+  arxiv: "2502.14302"
+  doi: 10.18653/v1/2025.emnlp-main.143
+  huggingface: [UTAustin-AIHealth/MedHallu]
+  website: https://medhallu.github.io/
+license: MIT
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Built from PubMedQA biomedical abstracts; no country origin.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, llm_generated]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician, patient_public]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: "10,000 questions (1,000 from PubMedQA pqa_labeled, 9,000 from pqa_artificial)"
+signals:
+  citations: 29
+  citations_source: OpenAlex
+  hf_downloads: 4800
+  github_stars: null
+  uptake: []
+  updated: '2026-10-26'
+provenance:
+  records: [r_3313c066f3]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "EMNLP 2025, University of Texas at Austin lead. MIT license is stated on the UTAustin-AIHealth/MedHallu dataset card (PubMedQA is also MIT per the paper). Other Hugging Face copies in the record (Harish1227/MedHallu, Lizong/MedHallu, Manoharareddy/MedHallu, sumeet12356/MedHallu) are mirrors. Certops/med-hallucination-detection-unfiltered and the Certops/medhallu-twins-* sets are a third party's derivatives (see medhallu-twins-rewritten) and are not linked here. Hallucinated answers were generated and filtered by LLMs; the 1,000-item labeled split is described as high-quality, not human-written."

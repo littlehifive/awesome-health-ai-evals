@@ -1,0 +1,147 @@
+entry: gpbench
+sources:
+- https://doi.org/10.1038/s41467-026-71622-6
+- https://arxiv.org/abs/2503.17599
+extracted: '2026-10-26'
+terms:
+- term: I1. Basic Medical Knowledge
+  level: dimension
+  definition: Primary competency indicator, weight 10% of the overall score (defined through its secondary indicators in Table A1).
+  definition_verbatim: false
+  location: Fig. 5; Appendix A, Table A1
+  scale: weighted average of secondary indicators; accuracy (MCQ) or expert score 0-100 (cases)
+- term: I1-1. Basic Medical Knowledge
+  level: criterion
+  parent: I1. Basic Medical Knowledge
+  definition: Basic medical knowledge refers to the fundamental scientific understanding that forms the core of medical practice, encompassing the functional, biochemical, and pathological mechanisms of the human body. It serves as the theoretical foundation for clinical reasoning and evidence-based decision-making.
+  definition_verbatim: true
+  location: Appendix A, Table A1
+  scale: weight 100% within primary indicator
+- term: I2. Diagnosis
+  level: dimension
+  definition: Primary competency indicator, weight 40% of the overall score (defined through its secondary indicators in Table A1).
+  definition_verbatim: false
+  location: Fig. 5; Appendix A, Table A1
+  scale: weighted average of secondary indicators; accuracy (MCQ) or expert score 0-100 (cases)
+- term: I2-1. Diagnosis and Differential Diagnosis
+  level: criterion
+  parent: I2. Diagnosis
+  definition: Diagnosis refers to the physician's judgment of the disease based on the patient's medical history, symptoms, signs, and auxiliary examination results. Differential diagnosis is the process of distinguishing the patient's main complaint from other diseases and excluding the possibilities of other conditions. Test interpretation belongs to this indicator.
+  definition_verbatim: true
+  location: Appendix A, Table A1
+  scale: weight 20% within primary indicator
+- term: I2-2. Medical History Taking
+  level: criterion
+  parent: I2. Diagnosis
+  definition: The ability to collect patient information in a comprehensive and accurate manner during the diagnostic and therapeutic process, including the patient's physical symptoms, psychological, mental, social, and cultural factors, as well as family history.
+  definition_verbatim: true
+  location: Appendix A, Table A1
+  scale: weight 20% within primary indicator
+- term: I2-3. Complication Identification
+  level: criterion
+  parent: I2. Diagnosis
+  definition: The ability to predict, diagnose, and manage potential complications that may arise during the patient's treatment process. Complications refer to other diseases or symptoms that arise during the course of a primary disease, either due to the disease itself or as a result of its treatment.
+  definition_verbatim: true
+  location: Appendix A, Table A1
+  scale: weight 20% within primary indicator
+- term: I2-4. Acute and Critical Condition Recognition
+  level: criterion
+  parent: I2. Diagnosis
+  definition: The ability to recognize conditions that occur suddenly, are critical in nature, and require urgent intervention, potentially leading to life-threatening situations.
+  definition_verbatim: true
+  location: Appendix A, Table A1
+  scale: weight 20% within primary indicator
+- term: I2-5. Referral Decision-making
+  level: criterion
+  parent: I2. Diagnosis
+  definition: The ability to identify and recognize diseases that pose a threat to the patient's life and ensure timely and correct referral to appropriate specialists.
+  definition_verbatim: true
+  location: Appendix A, Table A1
+  scale: weight 20% within primary indicator
+- term: I3. Decision-making
+  level: dimension
+  definition: Primary competency indicator, weight 30% of the overall score (defined through its secondary indicators in Table A1).
+  definition_verbatim: false
+  location: Fig. 5; Appendix A, Table A1
+  scale: weighted average of secondary indicators; accuracy (MCQ) or expert score 0-100 (cases)
+- term: I3-1. Formulation of Optimal Treatment Plan
+  level: criterion
+  parent: I3. Decision-making
+  definition: The ability to form an appropriate treatment plan based on the patient's condition. Ancillary test selection is included in this indicator.
+  definition_verbatim: true
+  location: Appendix A, Table A1
+  scale: weight 35% within primary indicator
+- term: I3-2. Adverse Drug Reaction Management
+  level: criterion
+  parent: I3. Decision-making
+  definition: This indicator refers to the comprehensive capability of healthcare institutions and professionals to promptly identify, scientifically assess, effectively intervene, accurately document, and systematically prevent unintended harmful reactions following medication use in clinical practice.
+  definition_verbatim: true
+  location: Appendix A, Table A1
+  scale: weight 25% within primary indicator
+- term: I3-3. Contraindications Awareness
+  level: criterion
+  parent: I3. Decision-making
+  definition: The ability to accurately identify, comprehend, and apply drug contraindications (i.e., situations where a specific medication is prohibited or not recommended).
+  definition_verbatim: true
+  location: Appendix A, Table A1
+  scale: weight 25% within primary indicator
+- term: I3-4. Selecting Alternative Therapy
+  level: criterion
+  parent: I3. Decision-making
+  definition: This indicator refers to the comprehensive ability to systematically evaluate, appropriately choose, and effectively apply non-conventional therapeutic approaches (e.g., acupuncture, herbal medicine, energy therapies) when standard treatments are unsuitable, impractical, or ineffective.
+  definition_verbatim: true
+  location: Appendix A, Table A1
+  scale: weight 15% within primary indicator
+- term: I4. Health Management
+  level: dimension
+  definition: Primary competency indicator, weight 10% of the overall score (defined through its secondary indicators in Table A1).
+  definition_verbatim: false
+  location: Fig. 5; Appendix A, Table A1
+  scale: weighted average of secondary indicators; accuracy (MCQ) or expert score 0-100 (cases)
+- term: I4-1. Health Education Delivery
+  level: criterion
+  parent: I4. Health Management
+  definition: This competency is required to undertake individual and community health education responsibilities and effectively conduct health education activities.
+  definition_verbatim: true
+  location: Appendix A, Table A1
+  scale: weight 50% within primary indicator
+- term: I4-2. Tertiary Prevention Implementation
+  level: criterion
+  parent: I4. Health Management
+  definition: The ability to implement health measures from the perspectives of prevention, treatment, and rehabilitation to achieve “preventing diseases before they occur, preventing disease progression during illness, and preventing recurrence after illness”.
+  definition_verbatim: true
+  location: Appendix A, Table A1
+  scale: weight 50% within primary indicator
+- term: I5. Health Economics
+  level: dimension
+  definition: Primary competency indicator, weight 5% of the overall score (defined through its secondary indicators in Table A1).
+  definition_verbatim: false
+  location: Fig. 5; Appendix A, Table A1
+  scale: weighted average of secondary indicators; accuracy (MCQ) or expert score 0-100 (cases)
+- term: I5-1. Cost-effective Care Coordination
+  level: criterion
+  parent: I5. Health Economics
+  definition: The ability to scientifically control healthcare costs without compromising the quality of medical services, striving to minimize healthcare service fees and resource utilization.
+  definition_verbatim: true
+  location: Appendix A, Table A1
+  scale: weight 100% within primary indicator
+- term: I6. Medical Ethics and Humanities
+  level: dimension
+  definition: Primary competency indicator, weight 5% of the overall score (defined through its secondary indicators in Table A1).
+  definition_verbatim: false
+  location: Fig. 5; Appendix A, Table A1
+  scale: weighted average of secondary indicators; accuracy (MCQ) or expert score 0-100 (cases)
+- term: I6-1. Humanistic Care Competency
+  level: criterion
+  parent: I6. Medical Ethics and Humanities
+  definition: In medical and healthcare work, the communication between healthcare providers and patients regarding injury, illness, diagnosis, treatment, health, and related factors is primarily led by the healthcare provider. Through various comprehensive means of communication, the goal is to scientifically guide the treatment of the patient's condition, achieve mutual understanding, and establish a collaborative relationship based on trust, ultimately contributing to human health maintenance, medical development, and societal progress.
+  definition_verbatim: true
+  location: Appendix A, Table A1
+  scale: weight 100% within primary indicator
+- term: Accuracy (MCQ Test Set)
+  level: metric
+  definition: For the MCQ Test Set, accuracy was calculated based on responses to the corresponding questions; each question labelled with its competency indicator and evaluated by weighted average accuracy across indicators.
+  definition_verbatim: false
+  location: Methods, evaluation
+  scale: accuracy, weighted across indicators
+notes: 'Competency model built by Delphi consensus (WONCA, ACGME, Iceberg and Onion models): 6 primary and 14 secondary indicators with importance weights. MCQ set is scored by accuracy per indicator; Clinical Case and AI Patient sets are scored 0-100 by expert panel against per-case predefined scoring criteria weighted by indicator (example-specific criteria not listed); only some secondary indicators are evaluable in each set (six in the Clinical Case set). I3-2 to I3-4 definitions are truncated to their first sentence(s). Deficiency types in the competency analysis (Tables 2 and 3) are error findings, not scored terms.'

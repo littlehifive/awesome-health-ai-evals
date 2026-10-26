@@ -1,0 +1,13 @@
+entry: mindbench-ai
+sources:
+- https://doi.org/10.1038/s44277-025-00049-6
+- https://www.nature.com/articles/s44277-025-00049-6
+extracted: '2026-10-26'
+terms:
+- term: Appropriateness (expert-rated)
+  level: criterion
+  definition: Degree of appropriateness of a candidate helper response to a client statement, using SIRI-2 style numeric expert mean ratings (with standard deviation) that the model's own rating is scored against.
+  definition_verbatim: false
+  location: Methods, Fig. 1
+  scale: numeric expert rating; model rating compared to expert mean
+notes: 'Only the SIRI-2-style benchmark format is described: cases pair a scenario with candidate responses and expert mean ratings, and numeric scoring preserves degrees of appropriateness. The paper''s exact agreement metric was not found in the sections read. The platform also profiles tools on technical features, privacy and conversational style (not output-scoring terms).'

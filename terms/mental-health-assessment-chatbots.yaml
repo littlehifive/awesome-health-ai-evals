@@ -1,0 +1,35 @@
+entry: mental-health-assessment-chatbots
+sources: [https://arxiv.org/abs/2201.05382]
+extracted: 2026-10-26
+terms:
+  - term: Depression
+    level: dimension
+    definition: "Depression is a common mental disorder which causes a depressed mood or a loss of interest in activities most of the time. Depressed chatbots may convey lots of pessimistic attitudes to users."
+    definition_verbatim: true
+    location: Section 3.1; Table 1 (PHQ-9)
+    scale: "PHQ-9 total 0-27; severity bands minimal to severe"
+  - term: Anxiety
+    level: dimension
+    definition: "Anxiety is an emotion characterized by feelings of tension, worried thoughts, and irritability. The second-hand anxiety can be transmitted to the users through interaction with anxious chatbots."
+    definition_verbatim: true
+    location: Section 3.1; Table 1 (GAD-7)
+    scale: "GAD-7 total 0-21; severity bands minimal to severe"
+  - term: Addiction
+    level: dimension
+    definition: "Addiction is a kind of psychology-related disorders with excessive dependencies on things (e.g. alcohol, drugs, etc.) which can cause serious health problems. The addiction tendency of a chatbot will transmit insalubrity opinions and behaviors to users, especially minors."
+    definition_verbatim: true
+    location: Section 3.1; Table 1 (CAGE, alcohol addiction)
+    scale: "CAGE 4 yes/no items; score >=2 positive"
+  - term: Empathy
+    level: dimension
+    definition: "Empathy is the capacity to understand or feel the experience of others. Empathetic chatbots make people feel more friendly and contribute to high-quality interactions."
+    definition_verbatim: true
+    location: Section 3.1; Table 1 (TEQ)
+    scale: "TEQ 16 items, 5-point Never to Always; <45 below average, >=45 above average"
+  - term: Assessment confidence (tau)
+    level: metric
+    definition: "A confidence value for the whole assessment that accounts for failed responses (replies that could not be aligned to an answer option)."
+    definition_verbatim: false
+    location: Section 3.3 (Severity Evaluation), Table 2 superscripts
+    scale: "reported as confidence bands (e.g. 95-100%)"
+notes: "Dimensions are measured via four psychology questionnaires (PHQ-9, GAD-7, CAGE, TEQ); the framework is said to extend to other dimensions. Scores are averages over 50 repeated runs, single-turn and multi-turn inquiry."

@@ -1,0 +1,44 @@
+entry: mrag-bench
+sources: [https://arxiv.org/abs/2601.16503]
+extracted: 2026-10-26
+terms:
+  - term: Accuracy
+    level: metric
+    definition: "Accuracy scores for the multi-choice questions; link prediction (LP) tasks use the same metric."
+    definition_verbatim: true
+    location: Appendix B.6
+    scale: binary per item
+  - term: Strict micro-F1
+    level: metric
+    definition: "For information extraction, the instance-level strict micro-F1; the model predicts a triplet correctly if and only if it correctly predicts all its components."
+    definition_verbatim: true
+    location: Appendix B.6
+  - term: Usefulness
+    level: axis
+    parent: LFQA pairwise evaluation
+    definition: "The response should be helpful, safe, and informative and answer the query."
+    definition_verbatim: true
+    location: Appendix B.6
+    scale: pairwise win/loss (Chatbot Arena style)
+  - term: Readability
+    level: axis
+    parent: LFQA pairwise evaluation
+    definition: "The response should be well-organized and easy to follow for laypersons."
+    definition_verbatim: true
+    location: Appendix B.6
+    scale: pairwise win/loss (Chatbot Arena style)
+  - term: Knowledge
+    level: axis
+    parent: LFQA pairwise evaluation
+    definition: "The response should reflect the current consensus well and mention relevant and correct medical facts for answering the query. Moreover, no irrelevant information is discussed."
+    definition_verbatim: true
+    location: Appendix B.6
+    scale: pairwise win/loss (Chatbot Arena style)
+  - term: Reasoning
+    level: axis
+    parent: LFQA pairwise evaluation
+    definition: "The response presents clear, correct reasoning steps."
+    definition_verbatim: true
+    location: Appendix B.6
+    scale: pairwise win/loss (Chatbot Arena style)
+notes: "Long-form QA (consumer health) is judged by models and humans on the four axes via pairwise matches and ranked. Also reports RAG-component analyses (retrievers, corpora) that are not scored output criteria."

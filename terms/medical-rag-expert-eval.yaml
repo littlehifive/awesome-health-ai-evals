@@ -1,0 +1,47 @@
+entry: medical-rag-expert-eval
+sources: [https://arxiv.org/abs/2511.06738, https://huggingface.co/datasets/Yale-BIDS-Chen/medical-rag-expert-evaluation-200]
+extracted: 2026-10-26
+terms:
+  - term: Precision@k
+    level: metric
+    parent: Evidence retrieval
+    definition: "measures the proportion of relevant passages among the top-k retrieved results. Here, a passage is considered relevant if it partially or fully supports at least one of the must-have statements associated with the query."
+    definition_verbatim: true
+    location: Section 2.2, Figure 2a
+    scale: proportion; k up to 16
+  - term: Miss@k
+    level: metric
+    parent: Evidence retrieval
+    definition: "reflects the proportion of queries for which no relevant passage was retrieved within the top-k"
+    definition_verbatim: true
+    location: Section 2.2, Figure 2b
+    scale: proportion; lower is better
+  - term: Coverage@k
+    level: metric
+    parent: Evidence retrieval
+    definition: "quantifies the proportion of must-have statements that were supported by at least one of the top-k retrieved passages"
+    definition_verbatim: true
+    location: Section 2.2, Figure 2c
+    scale: proportion
+  - term: Evidence selection precision and recall
+    level: metric
+    parent: Evidence selection
+    definition: Whether passages the model cites are relevant (precision) and whether relevant retrieved passages are cited (recall), from passage-reference alignment annotations.
+    definition_verbatim: false
+    location: Section 2.3 (evidence selection)
+    scale: proportion
+  - term: Factuality
+    level: criterion
+    parent: Response generation
+    definition: "factuality, which measures the correctness of the presented information"
+    definition_verbatim: true
+    location: Section 2.4.1
+    scale: "response level binary (1 if entire response factually correct); statement level true/false, reported as proportion of factual statements"
+  - term: Completeness
+    level: criterion
+    parent: Response generation
+    definition: "completeness, which assesses whether essential information is fully conveyed"
+    definition_verbatim: true
+    location: Section 2.4
+    scale: "per must-have statement: fully supported, partially supported, or unsupported; reported at response and statement level"
+notes: "Expert annotation of 80,502 labels; must-have statements (1,925) come from the source datasets' gold answers. Also analyses statement factuality by whether the cited passage was relevant, irrelevant, self-generated or none. Agreement: Krippendorff alpha 0.512 for factuality."

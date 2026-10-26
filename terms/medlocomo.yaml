@@ -1,0 +1,46 @@
+entry: medlocomo
+sources:
+- https://arxiv.org/abs/2607.22566
+- https://github.com/leozzy13/MedLoCoMo
+extracted: '2026-10-26'
+terms:
+- term: F1
+  level: metric
+  definition: Token-level F1 between normalized prediction and gold answer for answerable questions (max of whole-answer and comma-aware F1).
+  definition_verbatim: false
+  location: Section 4/Appendix B.1 "Answerable F1"
+  scale: percent
+- term: LLM-judge accuracy (J)
+  level: metric
+  definition: Accuracy of answerable-question responses as judged by an LLM against the gold answer.
+  definition_verbatim: false
+  location: Appendix B.1 "LLM-judge accuracy", B.2 judge prompt
+  scale: percent (correct/incorrect)
+- term: Adversarial abstention accuracy (Acc)
+  level: metric
+  definition: For adversarial unanswerable questions, accuracy of abstaining; accepts normalized equivalent abstention phrasings rather than only the stored gold wording.
+  definition_verbatim: true
+  location: Appendix B.1
+  scale: percent
+- term: Score
+  level: metric
+  definition: 'Combined metric: item-weighted combination of J on answerable items and Acc on adversarial items within a split.'
+  definition_verbatim: false
+  location: Table 2, Appendix B.1 "Combined Score"
+  scale: percent
+- term: Single-admission
+  level: category
+  definition: Questions whose evidence is contained in one admission session.
+  definition_verbatim: true
+  location: Section 3/4, question types
+- term: Cross-admission
+  level: category
+  definition: Questions whose evidence spans multiple sessions.
+  definition_verbatim: true
+  location: Section 3/4, question types
+- term: Adversarial (unanswerable)
+  level: category
+  definition: Questions that cannot be answered from the history; the correct response is abstention.
+  definition_verbatim: false
+  location: Section 3/4, question types
+notes: Question types are scored as splits (reported separately), so they are recorded as categories. Appendix B.3 reports per-question-type results; the fine-grained question-type names were not captured.

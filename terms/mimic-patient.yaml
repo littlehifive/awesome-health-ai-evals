@@ -1,0 +1,35 @@
+entry: mimic-patient
+sources: [https://arxiv.org/abs/2507.02616]
+extracted: 2026-10-26
+terms:
+  - term: Hit@K
+    level: metric
+    definition: "Hit@K measures whether at least one of the matched (ground truth) items appears in the top K results returned by the model."
+    definition_verbatim: true
+    location: Section 4 evaluation, footnote 5; K = 5, 10
+    scale: "proportion of cases (percent)"
+  - term: Recall@K
+    level: metric
+    definition: "Recall@K measures the proportion of all matched items that are found in the top K results."
+    definition_verbatim: true
+    location: Section 4 evaluation, footnote 6; Rec@5, Rec@10
+    scale: "proportion (percent)"
+  - term: Ave-Q
+    level: metric
+    definition: "Average number of questions the doctor agent asks the patient agent before diagnosing."
+    definition_verbatim: true
+    location: Table 2
+    scale: count
+  - term: Truthfulness
+    level: criterion
+    definition: "Manual rating of whether simulated-patient responses are faithful to the patient record (paraphrase; no definition given)."
+    definition_verbatim: false
+    location: Table 4
+    scale: "3-point (0-2)"
+  - term: Relevance
+    level: criterion
+    definition: "Manual rating of whether simulated-patient responses are relevant to the doctor's question (paraphrase; no definition given)."
+    definition_verbatim: false
+    location: Table 4
+    scale: "3-point (0-2)"
+notes: "Diagnosis correctness is by ICD-9 3-digit match against hospital codes. Truthfulness and Relevance rate the simulated patient system (100 sessions, three annotators), not the doctor LLM. Accuracy by ICD-9 class is reported in Table 5 (not terms)."

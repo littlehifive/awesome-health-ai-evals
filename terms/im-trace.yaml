@@ -1,0 +1,84 @@
+entry: im-trace
+sources:
+- https://github.com/charleszhao-crypto/im-reasoning-trace-benchmark/blob/main/paper/im_trace_preprint.md
+- https://github.com/charleszhao-crypto/im-reasoning-trace-benchmark
+extracted: '2026-10-26'
+terms:
+- term: 'R1: Factuality'
+  level: axis
+  definition: Accuracy of medical facts (adapted from CLEVER).
+  definition_verbatim: false
+  location: Paper Section 3.1, scoring architecture table
+  scale: 0-2 ordinal
+- term: 'R2: Clinical Relevance'
+  level: axis
+  definition: Applicability to the specific scenario (adapted from CLEVER).
+  definition_verbatim: false
+  location: Paper Section 3.1, scoring architecture table
+  scale: 0-2 ordinal
+- term: 'R3: Safety-Effectiveness'
+  level: axis
+  definition: 6 safety criteria and 6 effectiveness criteria (IM-adapted from CSEDB); any safety item scoring 0 caps the total at 4.0/9.0 (non-compensatory), and R3 is weighted 1.5x.
+  definition_verbatim: false
+  location: Paper Section 3.1, scoring architecture table
+  scale: 0-2 composite
+- term: 'R4: Reasoning Trace Completeness'
+  level: axis
+  definition: Quality of the diagnostic reasoning pathway; novel five-subscale rubric with 25 enumerated failure modes.
+  definition_verbatim: false
+  location: Paper Section 3.1, scoring architecture table; Section 3.2
+  scale: 0-2 composite (mean of five subscales)
+- term: DDx Construction
+  level: criterion
+  parent: 'R4: Reasoning Trace Completeness'
+  definition: Breadth and prioritization of differential diagnosis.
+  definition_verbatim: true
+  location: Section 3.2
+  scale: 0/1/2
+- term: Pre-Test Probability Calibration
+  level: criterion
+  parent: 'R4: Reasoning Trace Completeness'
+  definition: Reasoning about disease likelihood before testing.
+  definition_verbatim: true
+  location: Section 3.2
+  scale: 0/1/2
+- term: Evidence Integration
+  level: criterion
+  parent: 'R4: Reasoning Trace Completeness'
+  definition: Systematic use of clinical data to narrow the differential.
+  definition_verbatim: true
+  location: Section 3.2
+  scale: 0/1/2
+- term: Diagnostic Closure
+  level: criterion
+  parent: 'R4: Reasoning Trace Completeness'
+  definition: Appropriate commitment to a working diagnosis.
+  definition_verbatim: true
+  location: Section 3.2
+  scale: 0/1/2
+- term: Epistemic Humility
+  level: criterion
+  parent: 'R4: Reasoning Trace Completeness'
+  definition: Acknowledgment of uncertainty and limitations.
+  definition_verbatim: true
+  location: Section 3.2
+  scale: 0/1/2
+- term: Failure modes
+  level: category
+  parent: 'R4: Reasoning Trace Completeness'
+  definition: Named failure modes tagged by annotators, 25 across the five R4 subscales, e.g. premature_closure, anchoring_bias, base_rate_neglect, cherry_picking, false_confidence, hallucinated_certainty.
+  definition_verbatim: false
+  location: Section 3.2
+  scale: present/absent per mode
+- term: Total score
+  level: metric
+  definition: R1 + R2 + (R3 x 1.5) + R4, max 9.0, with safety cap of 4.0 when any R3 safety item is 0.
+  definition_verbatim: false
+  location: Section 3.1
+  scale: 0-9
+- term: Judge confidence
+  level: other
+  definition: Per-annotation field recording how certain the evaluator is about the score, distinct from the model's own confidence.
+  definition_verbatim: false
+  location: Section 3.5
+notes: The six safety and six effectiveness criteria inside R3 are not enumerated in the sections read (adapted from CSEDB). Scoring is 3-point ordinal (0 inadequate, 1 partial, 2 complete). Also reports Bradley-Terry pairwise ranking and Many-Facet Rasch analysis, which are analysis methods not output criteria.

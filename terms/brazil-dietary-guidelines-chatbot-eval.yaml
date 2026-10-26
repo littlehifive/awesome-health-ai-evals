@@ -1,0 +1,24 @@
+entry: brazil-dietary-guidelines-chatbot-eval
+sources:
+- https://doi.org/10.5281/zenodo.23199455
+extracted: '2026-10-26'
+terms:
+- term: GAB-1 knowledge score
+  level: metric
+  definition: Knowledge of healthy eating based on the Dietary Guidelines for the Brazilian Population; 21 statements administered, score from 16 validated items; Unsure/I don't know scored as incorrect.
+  definition_verbatim: false
+  location: Zenodo record description
+  scale: correct/incorrect per statement
+- term: Misalignment with DGBP and consistency with food corporations' narratives
+  level: other
+  definition: Nine binary indicators assessing misalignment with the Dietary Guidelines and consistency with food-industry narratives.
+  definition_verbatim: false
+  location: Zenodo record, evaluation instrument (a)
+  scale: 9 binary indicators
+- term: Alignment with DGBP
+  level: other
+  definition: Fourteen indicators assessing alignment of chatbot advice with Dietary Guidelines excerpts, with an answer key of response expectations.
+  definition_verbatim: false
+  location: Zenodo record, evaluation instrument (b)
+  scale: 14 indicators scored full / partial / no alignment
+notes: 'Source not fully reached: only the Zenodo record description was read; the instrument docx files and the journal article were not opened, so the individual indicator names are not recorded.'

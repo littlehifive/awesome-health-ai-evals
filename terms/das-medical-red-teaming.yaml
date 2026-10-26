@@ -1,0 +1,108 @@
+entry: das-medical-red-teaming
+sources:
+- https://arxiv.org/abs/2508.00923
+- https://doi.org/10.1038/s44360-026-00152-8
+extracted: '2026-10-26'
+terms:
+- term: Robustness
+  level: axis
+  definition: consistent model performance under context-preserving perturbations and mutations
+  definition_verbatim: true
+  location: Figure 1 caption; Introduction
+  scale: jailbreak ratio (share of cases where the attack elicits an incorrect, unsafe, or biased response)
+- term: Privacy
+  level: axis
+  definition: compliance with privacy regulations such as HIPAA or GDPR
+  definition_verbatim: true
+  location: Figure 1 caption; Introduction
+  scale: jailbreak ratio (share of cases where the attack elicits an incorrect, unsafe, or biased response)
+- term: Bias/Fairness
+  level: axis
+  definition: evaluation of cognitive, identity, linguistic, and emotional biases in medical scenarios
+  definition_verbatim: true
+  location: Figure 1 caption; Introduction
+  scale: jailbreak ratio (share of cases where the attack elicits an incorrect, unsafe, or biased response)
+- term: Hallucination
+  level: axis
+  definition: generation of false medical facts, faulty reasoning, or incorrect citations
+  definition_verbatim: true
+  location: Figure 1 caption; Introduction
+  scale: hallucination rate from detector agent
+- term: False or outdated medical facts/claims
+  level: category
+  parent: Hallucination
+  definition: False or outdated medical facts/claims
+  definition_verbatim: true
+  location: Hallucination section, seven-category taxonomy (item 1)
+  scale: binary detection per category by sub-agent
+- term: Incorrect, misrepresented, or fabricated citations and references
+  level: category
+  parent: Hallucination
+  definition: Incorrect, misrepresented, or fabricated citations and references
+  definition_verbatim: true
+  location: Hallucination section, seven-category taxonomy (item 2)
+  scale: binary detection per category by sub-agent
+- term: Faulty clinical reasoning or logic chains
+  level: category
+  parent: Hallucination
+  definition: Faulty clinical reasoning or logic chains
+  definition_verbatim: true
+  location: Hallucination section, seven-category taxonomy (item 3)
+  scale: binary detection per category by sub-agent
+- term: Neglect, distortion, or fabrication of provided context
+  level: category
+  parent: Hallucination
+  definition: Neglect, distortion, or fabrication of provided context
+  definition_verbatim: true
+  location: Hallucination section, seven-category taxonomy (item 4)
+  scale: binary detection per category by sub-agent
+- term: Harmful or unsafe recommendations
+  level: category
+  parent: Hallucination
+  definition: Harmful or unsafe recommendations
+  definition_verbatim: true
+  location: Hallucination section, seven-category taxonomy (item 5)
+  scale: binary detection per category by sub-agent
+- term: Failure to follow explicit or implicit instructions
+  level: category
+  parent: Hallucination
+  definition: Failure to follow explicit or implicit instructions
+  definition_verbatim: true
+  location: Hallucination section, seven-category taxonomy (item 6)
+  scale: binary detection per category by sub-agent
+- term: Other inaccuracies (e.g., conflating gender and biological sex)
+  level: category
+  parent: Hallucination
+  definition: Other inaccuracies (e.g., conflating gender and biological sex)
+  definition_verbatim: true
+  location: Hallucination section, seven-category taxonomy (item 7)
+  scale: binary detection per category by sub-agent
+- term: Cognitive bias
+  level: category
+  parent: Bias/Fairness
+  definition: Bias-eliciting strategy type under Bias/Fairness testing (cognitive, identity, linguistic, emotional).
+  definition_verbatim: false
+  location: Figure 5
+  scale: jailbreak ratio
+- term: Identity bias
+  level: category
+  parent: Bias/Fairness
+  definition: Bias-eliciting strategy type under Bias/Fairness testing (cognitive, identity, linguistic, emotional).
+  definition_verbatim: false
+  location: Figure 5
+  scale: jailbreak ratio
+- term: Linguistic bias
+  level: category
+  parent: Bias/Fairness
+  definition: Bias-eliciting strategy type under Bias/Fairness testing (cognitive, identity, linguistic, emotional).
+  definition_verbatim: false
+  location: Figure 5
+  scale: jailbreak ratio
+- term: Emotional bias
+  level: category
+  parent: Bias/Fairness
+  definition: Bias-eliciting strategy type under Bias/Fairness testing (cognitive, identity, linguistic, emotional).
+  definition_verbatim: false
+  location: Figure 5
+  scale: jailbreak ratio
+notes: Four safety axes with attack-agent jailbreak ratios as the main metric; MedQA accuracy is the robustness baseline. Privacy attack strategies are attack methods, not scored terms.

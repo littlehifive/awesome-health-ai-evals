@@ -1,0 +1,137 @@
+entry: nlat-ai-ref-ai
+sources:
+- https://doi.org/10.2196/55939
+- https://pmc.ncbi.nlm.nih.gov/articles/PMC11358656/
+extracted: '2026-10-26'
+terms:
+- term: NLAT-AI
+  level: axis
+  definition: 'Natural Language Assessment Tool for AI: expert assessment framework developed to assess the accuracy, safety, appropriateness, actionability, and effectiveness of information.'
+  definition_verbatim: true
+  location: Methods, NLAT-AI
+  scale: 5-point Likert (1=strongly disagree, 5=strongly agree)
+- term: accuracy
+  level: dimension
+  parent: NLAT-AI
+  definition: NLAT-AI domain rated by 7 urologists; the paper gives no further definition in the main text (item wording in Multimedia Appendix 5).
+  definition_verbatim: false
+  location: Methods, NLAT-AI
+  scale: 5-point Likert
+- term: safety
+  level: dimension
+  parent: NLAT-AI
+  definition: NLAT-AI domain rated by 7 urologists; the paper gives no further definition in the main text (item wording in Multimedia Appendix 5).
+  definition_verbatim: false
+  location: Methods, NLAT-AI
+  scale: 5-point Likert
+- term: appropriateness
+  level: dimension
+  parent: NLAT-AI
+  definition: NLAT-AI domain rated by 7 urologists; the paper gives no further definition in the main text (item wording in Multimedia Appendix 5).
+  definition_verbatim: false
+  location: Methods, NLAT-AI
+  scale: 5-point Likert
+- term: actionability
+  level: dimension
+  parent: NLAT-AI
+  definition: NLAT-AI domain rated by 7 urologists; the paper gives no further definition in the main text (item wording in Multimedia Appendix 5).
+  definition_verbatim: false
+  location: Methods, NLAT-AI
+  scale: 5-point Likert
+- term: effectiveness
+  level: dimension
+  parent: NLAT-AI
+  definition: NLAT-AI domain rated by 7 urologists; the paper gives no further definition in the main text (item wording in Multimedia Appendix 5).
+  definition_verbatim: false
+  location: Methods, NLAT-AI
+  scale: 5-point Likert
+- term: REF-AI
+  level: axis
+  definition: 'Reference Assessment AI: brief tool developed for analysis of the references provided by AI outputs, scoring each criterion 1-3 and averaging to a composite per axis.'
+  definition_verbatim: true
+  location: Methods, References Assessment
+  scale: 1-3 per criterion
+- term: reference hallucination (real)
+  level: criterion
+  parent: REF-AI
+  definition: whether the reference is real or not
+  definition_verbatim: true
+  location: Methods, References Assessment
+  scale: 1-3
+- term: relevance (supporting)
+  level: criterion
+  parent: REF-AI
+  definition: correlation between the references and AI output
+  definition_verbatim: true
+  location: Methods, References Assessment
+  scale: 1-3
+- term: quality of references (source)
+  level: criterion
+  parent: REF-AI
+  definition: type of institution linked to the reference
+  definition_verbatim: true
+  location: Methods, References Assessment
+  scale: 1-3
+- term: PEMAT-AI understandability
+  level: criterion
+  parent: PEMAT-AI
+  definition: Adapted PEMAT understandability items (8 of the original 17); each item given one point if criteria were met, total as percentage, pass at >=70%.
+  definition_verbatim: false
+  location: Methods, PEMAT-AI Tool; Multimedia Appendix 3
+  scale: percent, pass/fail at 70%
+- term: PEMAT-AI actionability
+  level: criterion
+  parent: PEMAT-AI
+  definition: Adapted PEMAT actionability items (3 of the original 7); one point per item met, total as percentage.
+  definition_verbatim: false
+  location: Methods, PEMAT-AI Tool; Multimedia Appendix 3
+  scale: percent, pass/fail at 70%
+- term: PEMAT-AI
+  level: axis
+  definition: 'Patient Education Materials Assessment Tool for AI: evaluates and compares the understandability and actionability of patient education materials, reduced for text-only AI outputs.'
+  definition_verbatim: true
+  location: Methods, PEMAT-AI Tool
+  scale: percent
+- term: DISCERN-AI
+  level: axis
+  definition: DISCERN criteria modified to 7 questions (original questions 3-9) appraising the quality of health care treatment information in AI output.
+  definition_verbatim: false
+  location: Methods, DISCERN-AI Tool; Multimedia Appendix 4
+  scale: 1-3 per question, total banded very poor to excellent
+- term: Global Quality Score (GQS)
+  level: metric
+  definition: 5-point Likert scale based on the quality of information, and the flow and ease of use of information presented via the web; 1 indicates low quality and 5 high quality.
+  definition_verbatim: true
+  location: Methods, GQS Tool
+  scale: 1-5 Likert
+- term: Flesch Reading Ease
+  level: metric
+  definition: gauges text simplicity, where the score ranges from 0 to 100, with higher scores indicating easier readability.
+  definition_verbatim: true
+  location: Methods, Readability
+  scale: 0-100
+- term: Gunning Fog Index
+  level: metric
+  definition: measure sentence complexity, the score represents the number of years of formal education a reader would need to understand the text on the first reading.
+  definition_verbatim: true
+  location: Methods, Readability
+  scale: grade level
+- term: Flesch-Kincaid Grade Level
+  level: metric
+  definition: measure sentence complexity, the score represents the number of years of formal education a reader would need to understand the text on the first reading.
+  definition_verbatim: true
+  location: Methods, Readability
+  scale: grade level
+- term: Coleman-Liau Index
+  level: metric
+  definition: focuses on character count; correlates with a US school grade level but is calculated using the number of characters instead of syllables.
+  definition_verbatim: true
+  location: Methods, Readability
+  scale: grade level
+- term: SMOG Index
+  level: metric
+  definition: evaluates syllable density to assess readability and is often used for checking health messages.
+  definition_verbatim: true
+  location: Methods, Readability
+  scale: grade level
+notes: Item wording for NLAT-AI, REF-AI, PEMAT-AI and DISCERN-AI is in Multimedia Appendices 3-6, which were not read; NLAT-AI domain definitions are therefore paraphrases. Scored on 8 ChatGPT-4 answers.

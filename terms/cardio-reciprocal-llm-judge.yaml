@@ -1,0 +1,36 @@
+entry: cardio-reciprocal-llm-judge
+sources:
+- https://doi.org/10.64898/2026.06.15.26355670
+- https://huggingface.co/datasets/Jialvareza/cardio_evaluations
+extracted: '2026-10-26'
+terms:
+- term: Accuracy
+  level: criterion
+  definition: Response attribute rated 1-7; the preprint gives no separate definition.
+  definition_verbatim: false
+  location: Results, first paragraphs (reciprocal evaluation framework)
+  scale: 1-7 score per attribute, by human experts and six LLM judges
+- term: Completeness
+  level: criterion
+  definition: Response attribute rated 1-7; the preprint gives no separate definition.
+  definition_verbatim: false
+  location: Results, first paragraphs (reciprocal evaluation framework)
+  scale: 1-7 score per attribute, by human experts and six LLM judges
+- term: Clarity
+  level: criterion
+  definition: Response attribute rated 1-7; the preprint gives no separate definition.
+  definition_verbatim: false
+  location: Results, first paragraphs (reciprocal evaluation framework)
+  scale: 1-7 score per attribute, by human experts and six LLM judges
+- term: Origin classification (accuracy, precision, recall, F1)
+  level: metric
+  definition: Classification metrics of each evaluator (human or LLM) at identifying whether a response was human- or AI-generated; the overall score is the unweighted mean of the four metrics.
+  definition_verbatim: true
+  location: Results, Figure 2a
+  scale: classification metrics
+- term: Self-preference bias
+  level: other
+  definition: Tendency of LLM judges to score AI-generated answers above human answers; measured as a score difference between answer sources, not a score on outputs.
+  definition_verbatim: false
+  location: Results, Figure 1b
+notes: The three attributes rate answers; the other terms characterise judges, not model outputs. The preprint reports that LLM scores correlate with response length rather than content.

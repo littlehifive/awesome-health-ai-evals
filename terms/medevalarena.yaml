@@ -1,0 +1,22 @@
+entry: medevalarena
+sources: [https://doi.org/10.64898/2026.01.27.26344905, https://github.com/bernardolab/MedEvalArena]
+extracted: 2026-10-26
+terms:
+  - term: Question validity
+    level: metric
+    definition: "Each model generates challenging board-style medical MCQs, then serves in an ensemble LLM-as-judge bench to adjudicate validity of generated questions."
+    definition_verbatim: true
+    location: medRxiv abstract; README (validity_results.csv)
+    scale: "binary validity per question by LLM-judge ensemble; reported as validity rate per generating model"
+  - term: Exam accuracy
+    level: metric
+    definition: "Accuracy of each model as examinee on the validated MCQ exams (round-robin, majority aggregation)."
+    definition_verbatim: false
+    location: medRxiv abstract; README
+    scale: proportion correct
+  - term: Inference cost
+    level: metric
+    definition: "Cost of inference considered jointly with accuracy to identify models on the Pareto frontier."
+    definition_verbatim: false
+    location: medRxiv abstract
+notes: "Full text not reachable; the judge's specific validity criteria (for example answerability or single correct answer) were not seen. Terms are from the abstract and README."

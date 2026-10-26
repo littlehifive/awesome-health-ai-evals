@@ -1,0 +1,17 @@
+entry: epic-qa
+sources: [https://doi.org/10.1038/s41597-022-01533-w]
+extracted: 2026-10-26
+terms:
+  - term: Normalized Discount Novelty Score (NDNS)
+    level: metric
+    definition: "A modified NDCG for ranked passages in which each passage's novelty score is NS(p) = n_a(n_a+1)/(n_a+n_s), where n_a is the number of novel answers (nuggets not in earlier passages) and n_s the number of sentences; discounted by log2(rank+1) and normalized by the ideal ranking."
+    definition_verbatim: false
+    location: Technical Validation (TAC 2020 community evaluation)
+    scale: 0 to 1
+  - term: Answer nuggets (sentence-level)
+    level: other
+    definition: "Assessors build an answer key of information nuggets per question, then annotate every sentence of pooled contexts for which nuggets it addresses; used as the gold standard for scoring."
+    definition_verbatim: false
+    location: Methods, annotation rounds one and two
+    scale: sentence-to-nugget links
+notes: Retrieval and passage-extraction benchmark; no rubric axes. Questions are posed at expert and general-public levels, scored separately. End-to-end track uses the same NDNS-style scoring.

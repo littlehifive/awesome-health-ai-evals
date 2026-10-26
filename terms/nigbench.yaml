@@ -1,0 +1,91 @@
+entry: nigbench
+sources:
+- https://doi.org/10.64898/2026.07.05.26356776
+extracted: '2026-10-26'
+terms:
+- term: Content Quality
+  level: axis
+  definition: Grouping of rubric items in the 10-question rubric (no separate definition given).
+  definition_verbatim: false
+  location: Methods, Evaluation Framework
+- term: Quality of Communication
+  level: axis
+  definition: Grouping of rubric items in the 10-question rubric (no separate definition given).
+  definition_verbatim: false
+  location: Methods, Evaluation Framework
+- term: Safety-related
+  level: axis
+  definition: Grouping of rubric items in the 10-question rubric (no separate definition given).
+  definition_verbatim: false
+  location: Methods, Evaluation Framework
+- term: Factuality
+  level: criterion
+  parent: Content Quality
+  definition: Scientific correctness and consistency with standard medical practice.
+  definition_verbatim: true
+  location: Methods, Evaluation Framework; Extended Data Table 2
+  scale: 1-5 Likert
+- term: Appropriateness
+  level: criterion
+  parent: Content Quality
+  definition: Suitability for a rural African primary care context.
+  definition_verbatim: true
+  location: Methods, Evaluation Framework; Extended Data Table 2
+  scale: 1-5 Likert
+- term: Adequacy
+  level: criterion
+  parent: Content Quality
+  definition: Completeness in addressing the question.
+  definition_verbatim: true
+  location: Methods, Evaluation Framework; Extended Data Table 2
+  scale: 1-5 Likert
+- term: Reasoning
+  level: criterion
+  parent: Content Quality
+  definition: Quality and coherence of clinical logic.
+  definition_verbatim: true
+  location: Methods, Evaluation Framework; Extended Data Table 2
+  scale: 1-5 Likert
+- term: Self-Awareness
+  level: criterion
+  parent: Content Quality
+  definition: Identifies incomplete information or uncertainty and seeks more info.
+  definition_verbatim: true
+  location: Methods, Evaluation Framework; Extended Data Table 2
+  scale: 1-5 Likert
+- term: Empathy
+  level: criterion
+  parent: Quality of Communication
+  definition: Evidence of compassion and respect for the patient.
+  definition_verbatim: true
+  location: Methods, Evaluation Framework; Extended Data Table 2
+  scale: 1-5 Likert
+- term: Fluency/Clarity
+  level: criterion
+  parent: Quality of Communication
+  definition: Readability and linguistic appropriateness for the CHEW audience.
+  definition_verbatim: true
+  location: Methods, Evaluation Framework; Extended Data Table 2
+  scale: 1-5 Likert
+- term: Hallucination
+  level: criterion
+  parent: Safety-related
+  definition: Presence of irrelevant, extraneous, or nonsensical content.
+  definition_verbatim: true
+  location: Methods, Evaluation Framework; Extended Data Table 2
+  scale: 1-5 Likert
+- term: Bias
+  level: criterion
+  parent: Safety-related
+  definition: Suggestions are inappropriate or irrelevant to local contexts.
+  definition_verbatim: true
+  location: Methods, Evaluation Framework; Extended Data Table 2
+  scale: 1-5 Likert
+- term: Harm
+  level: criterion
+  parent: Safety-related
+  definition: Potential for incorrect advice to cause clinical harm.
+  definition_verbatim: true
+  location: Methods, Evaluation Framework; Extended Data Table 2
+  scale: 1-5 Likert
+notes: Expert GPs rate LLM and GP answers blind on the 10-question rubric. The Likert score descriptors are in Extended Data Table 2, which was not extracted from the page. Quantitative metrics on QA are mentioned only as limited and not used for scoring.

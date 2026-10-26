@@ -1,0 +1,54 @@
+entry: llm-evaluation-for-dentistry
+sources:
+- https://github.com/Tuminha/llm-evaluation-for-dentistry
+extracted: '2026-10-26'
+terms:
+- term: must_include
+  level: criterion
+  definition: Per-question rubric list defining what a correct answer must include; the LLM judge counts how many are satisfied.
+  definition_verbatim: true
+  location: README, 'How scoring works'; data/dental_qa.json
+  scale: count satisfied; answer correct only if all are met
+- term: must_avoid
+  level: criterion
+  definition: Per-question rubric list of errors a correct answer must avoid; the judge flags any violations.
+  definition_verbatim: true
+  location: README, 'How scoring works'; data/dental_qa.json
+  scale: violation flag; any violation makes answer incorrect
+- term: Accuracy
+  level: metric
+  definition: Share of answers that satisfy all required criteria and commit no violations (refusals scored incorrect).
+  definition_verbatim: true
+  location: README, 'How scoring works'
+  scale: proportion with 95% CI
+- term: Answer rate
+  level: metric
+  definition: Share of questions the model answered rather than refused; refusals are labeled per row so answer rate and accuracy on answered can be reported separately.
+  definition_verbatim: false
+  location: README, 'How scoring works'
+  scale: proportion
+- term: Accuracy on answered
+  level: metric
+  definition: Accuracy computed only over questions the model did not refuse.
+  definition_verbatim: false
+  location: README, Results table
+  scale: proportion
+- term: Consistency
+  level: metric
+  definition: How much a model's answers drift when each question is asked N times.
+  definition_verbatim: true
+  location: README, 'How scoring works'
+  scale: measured over N trials
+- term: Latency
+  level: metric
+  definition: Wall-clock time per call recorded for every request.
+  definition_verbatim: true
+  location: README, 'How scoring works'
+  scale: seconds
+- term: Judge agreement
+  level: metric
+  definition: Agreement of an independent second judge from a different vendor with the primary judge's verdicts, reported as verdict agreement and Cohen's kappa.
+  definition_verbatim: false
+  location: README; results/judge_agreement.md
+  scale: percent agreement, Cohen's kappa
+notes: 'Per-question rubrics (30 questions, 6 domains: periodontics, implants, oral-systemic medicine, pharmacology, diagnosis, patient communication) are guideline-checked must_include and must_avoid lists; the specific rubric items are example-specific and not listed. Only the README was read for scoring; the manuscript PDF was not opened. Domains and difficulty levels are item metadata, not scored terms.'

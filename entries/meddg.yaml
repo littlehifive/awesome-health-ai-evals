@@ -1,0 +1,42 @@
+id: meddg
+name: MedDG
+kind: benchmark
+year: 2020
+summary: 17,864 Chinese online gastroenterology consultation dialogues (385,951 utterances) with 217,205 annotated medical entities, for entity-aware doctor-response generation, scored with BLEU, Distinct and entity precision, recall and F1.
+readme_section: multilingual_regional
+links:
+  paper: https://arxiv.org/abs/2010.07497
+  arxiv: "2010.07497"
+  doi: 10.48550/arxiv.2010.07497
+  code: https://github.com/lwgkzl/MedDG
+license: GPL-3.0
+open_data: open
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: Conversations from the Chinese online consultation platform Doctor Chunyu.
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic, industry_lab]
+  item_provenance: [real_user_queries]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 17,864 dialogues; 12 types of gastrointestinal disease
+signals:
+  citations: 3
+  citations_source: OpenAlex
+  hf_downloads: null
+  github_stars: 99
+  uptake: []
+  updated: '2026-10-26'
+provenance:
+  records: [r_84b0f5e8a9]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Sun Yat-sen University lead; co-authors from HKUST, PolyU and Tencent Jarvis Lab. The arXiv preprint is the source read; I believe it was later published at NLPCC but did not confirm, so venue is preprint. GPL-3.0 is the GitHub repository license from the GitHub API, and the paper's abstract says code and dataset are released there; whether the data itself carries that license was not checked. Five entity categories (disease, symptom, medicine, examination, attribute). The cpb-bench and cspt entries also mention MedDG."

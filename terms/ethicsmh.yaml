@@ -1,0 +1,27 @@
+entry: ethicsmh
+sources:
+- https://arxiv.org/abs/2509.11648
+extracted: '2026-10-26'
+terms:
+- term: Decision accuracy
+  level: metric
+  definition: Whether the model selects the expected one of four decision options; the structure enables scoring of decision accuracy.
+  definition_verbatim: false
+  location: Abstract; Section 6 (diagnostic evaluation); dataset schema
+  scale: correct/incorrect against the labelled option
+- term: Explanation quality
+  level: metric
+  definition: Quality of the model's justification compared with the dataset's expert-aligned reasoning.
+  definition_verbatim: false
+  location: Abstract; Section 6 (diagnostic evaluation); dataset schema
+- term: Alignment with professional norms
+  level: metric
+  definition: Match between the model's decision and reasoning and the expected model behavior and professional norms recorded for each scenario.
+  definition_verbatim: false
+  location: Abstract; Section 6 (diagnostic evaluation); dataset schema
+- term: Stakeholder viewpoint coverage
+  level: criterion
+  definition: Whether the model's explanation attends to the stakeholder perspectives recorded in the viewpoints field (the paper names omission of key stakeholder considerations as a failure mode).
+  definition_verbatim: false
+  location: Section 6
+notes: 'The paper proposes these as ways to use the schema (decision options, expert-aligned reasoning, expected model behavior, viewpoints) and releases no scoring code or baseline results, so no scales or verbatim definitions exist. Scenario categories (confidentiality, bias, autonomy vs beneficence) are topics, not scored criteria. The paper also lists failure tendencies to look for: overconfident advice, omission of stakeholder considerations, failure to flag risky content, neglect of minority viewpoints, conflating medical facts with normative prescriptions, paternalistic preference.'

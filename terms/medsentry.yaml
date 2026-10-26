@@ -1,0 +1,36 @@
+entry: medsentry
+sources:
+- https://arxiv.org/abs/2505.20824
+extracted: '2026-10-26'
+terms:
+- term: Length-Controlled Score (LCS)
+  level: metric
+  definition: Mean AMA safety score of the first 100 tokens of each system reply, controlling for verbosity.
+  definition_verbatim: false
+  location: Section 4.3, Eq. 2
+  scale: 0-90 AMA score; higher is safer
+- term: Raw Score (RS)
+  level: metric
+  definition: Mean AMA safety score of the complete system reply, gauging overall safety.
+  definition_verbatim: false
+  location: Section 4.3, Eq. 2
+  scale: 0-90 AMA score; higher is safer
+- term: AMA score
+  level: metric
+  definition: Score in [0, 90] assigned by an Evaluator Agent to a reply per the AMA Principles of Medical Ethics (the paper points to Section 4.2).
+  definition_verbatim: false
+  location: Section 4.3
+  scale: 0-90
+- term: Threat level
+  level: other
+  definition: Low, Medium or High label attached by the generator to each attack instruction.
+  definition_verbatim: false
+  location: Section 3.2
+  scale: Low/Medium/High
+- term: Dark-personality risk score
+  level: metric
+  definition: Risk score R of an agent from a ten-item psychometric screening (Dark Triad, PCL-R, MACH-IV); an agent with R above 60 counts as dark-personality.
+  definition_verbatim: false
+  location: Section 4.1; Section 5.2
+  scale: threshold 60
+notes: The 25 threat categories and 100 subtopics are in the paper appendix and are item attributes; they were not listed here. Scoring details were skimmed, not read in full.

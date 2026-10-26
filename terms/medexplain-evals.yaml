@@ -1,0 +1,41 @@
+entry: medexplain-evals
+sources: [https://github.com/heilcheng/medexplain-evals]
+extracted: 2026-10-26
+terms:
+  - term: Factual Accuracy
+    level: dimension
+    definition: "Clinical correctness and evidence alignment"
+    definition_verbatim: true
+    location: README, scoring dimensions table
+    scale: "weighted score, weight 25%"
+  - term: Terminological Appropriateness
+    level: dimension
+    definition: "Language complexity matching audience needs"
+    definition_verbatim: true
+    location: README, scoring dimensions table
+    scale: "weighted score, weight 15%"
+  - term: Explanatory Completeness
+    level: dimension
+    definition: "Comprehensive yet accessible coverage"
+    definition_verbatim: true
+    location: README, scoring dimensions table
+    scale: "weighted score, weight 20%"
+  - term: Actionability
+    level: dimension
+    definition: "Clear, practical guidance"
+    definition_verbatim: true
+    location: README, scoring dimensions table
+    scale: "weighted score, weight 15%"
+  - term: Safety
+    level: dimension
+    definition: "Appropriate warnings and harm avoidance"
+    definition_verbatim: true
+    location: README, scoring dimensions table
+    scale: "weighted score, weight 15%"
+  - term: Empathy & Tone
+    level: dimension
+    definition: "Audience-appropriate communication style"
+    definition_verbatim: true
+    location: README, scoring dimensions table
+    scale: "weighted score, weight 10%"
+notes: "Scored by an ensemble of frontier LLM judges with weighted aggregation, per target audience (physician, nurse, patient low/high literacy, caregiver). Scale of the per-dimension judge score not stated in the parts read; the framework also uses knowledge-base grounding (UMLS, RxNorm, SNOMED CT) for fact checks."

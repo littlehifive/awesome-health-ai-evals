@@ -1,0 +1,92 @@
+entry: patientsim
+sources:
+- https://arxiv.org/abs/2505.17818
+- https://github.com/dek924/PatientSim
+extracted: '2026-10-26'
+terms:
+- term: Personality
+  level: criterion
+  parent: Persona fidelity
+  definition: The simulated patient's personality is consistently and accurately reflected during the
+    interaction.
+  definition_verbatim: true
+  location: Section 6.1.1 persona fidelity
+  scale: 4-point (1 strongly disagree to 4 strongly agree)
+- term: Language
+  level: criterion
+  parent: Persona fidelity
+  definition: The patient's language use (vocabulary, grammar, fluency) is appropriate to their assigned
+    language proficiency level.
+  definition_verbatim: true
+  location: Section 6.1.1
+  scale: 4-point
+- term: Recall
+  level: criterion
+  parent: Persona fidelity
+  definition: The patient's ability to recall medical and personal information is consistent with their
+    assigned recall level.
+  definition_verbatim: true
+  location: Section 6.1.1
+  scale: 4-point
+- term: Confused
+  level: criterion
+  parent: Persona fidelity
+  definition: The patient's coherence and clarity of thought match the assigned level of cognitive confusion.
+  definition_verbatim: true
+  location: Section 6.1.1
+  scale: 4-point
+- term: Realism
+  level: criterion
+  parent: Persona fidelity
+  definition: The patient's overall communication style matched what I would expect from a real ED patient.
+  definition_verbatim: true
+  location: Section 6.1.1
+  scale: 4-point
+- term: Entail (factual accuracy)
+  level: metric
+  parent: Factuality
+  definition: Share of information sentences supported by a profile item that are entailed by it under
+    sentence-level NLI.
+  definition_verbatim: false
+  location: Section 6.1.2, Table 2
+  scale: proportion
+- term: Contradict (factual accuracy)
+  level: metric
+  parent: Factuality
+  definition: Share of information sentences supported by a profile item that contradict it under NLI.
+  definition_verbatim: false
+  location: Section 6.1.2, Table 2
+  scale: proportion
+- term: Plausibility
+  level: criterion
+  parent: Factuality
+  definition: Clinical plausibility of unsupported sentences (information not in the profile).
+  definition_verbatim: false
+  location: Section 6.1.3, Table 2 and Table 4
+  scale: 4-point, LLM and clinician
+- term: Information Coverage (ICov)
+  level: metric
+  definition: Proportion of item categories present in both the profile derived from the dialogue and
+    the original profile.
+  definition_verbatim: false
+  location: Section 6.1.2, Eq. 3
+  scale: proportion
+- term: Information Consistency (ICon)
+  level: metric
+  definition: Semantic similarity between original and derived profile items, averaged over overlapping
+    categories.
+  definition_verbatim: false
+  location: Section 6.1.2, Eq. 4
+  scale: 4-point similarity
+- term: Educational usefulness
+  level: other
+  definition: Clinician agreement with the statement "This chatbot would be useful in education for practicing
+    consultation skills".
+  definition_verbatim: true
+  location: Section 6.2 (clinician evaluation)
+  scale: 4-point
+notes: These evaluate the simulator (persona fidelity, factuality) rather than a doctor LLM; clinicians
+  scored six criteria (the five persona criteria plus educational usefulness), average 3.89/4. LLM judge
+  is Gemini-2.5-Flash. 37 persona combinations over personality, language proficiency, recall level and
+  confusion level are inputs, not scored terms. Factuality group name is mine; the paper reports Entail,
+  Contradict and Plausibility in Table 2.

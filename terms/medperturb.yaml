@@ -1,0 +1,35 @@
+entry: medperturb
+sources: [https://arxiv.org/abs/2506.17163, https://github.com/abinithago/MedPerturb]
+extracted: 2026-10-26
+terms:
+  - term: Average Treatment Rate (ATR)
+    level: metric
+    definition: "The ATR measures the central tendency of treatment recommendations to get an aggregate metric of treatment selection."
+    definition_verbatim: true
+    location: Section on treatment-selection methods; Figure 2
+    scale: mean of binary treatment choice per question (manage at home, visit, use resources)
+  - term: Mutual Information (MI)
+    level: metric
+    definition: "Higher mutual information indicates more stable decision-making across perturbations."
+    definition_verbatim: true
+    location: Gender/style perturbation methods; Figure 3
+    scale: MI between baseline and perturbed binary decisions
+  - term: Percent Change (PC)
+    level: metric
+    definition: Mean absolute change in the binary treatment recommendation between baseline and perturbed (format) condition, i.e. how often recommendations flip.
+    definition_verbatim: false
+    location: Format perturbation methods; Figure 5
+    scale: proportion of flipped decisions
+  - term: Overall consensus ratio
+    level: metric
+    definition: Inter-rater agreement among human labelers or among model labelers on the treatment decisions.
+    definition_verbatim: false
+    location: Section 3.4; Appendix L
+    scale: proportion
+  - term: Fleiss' kappa
+    level: metric
+    definition: Chance-corrected inter-rater agreement among clinicians or among LLMs on treatment decisions.
+    definition_verbatim: false
+    location: Section 3.4, Figure 1
+    scale: kappa
+notes: "No correctness gold label; the benchmark compares LLM and clinician yes/no answers to three treatment questions (manage at home, visit, use resources) under gender, style and format perturbations. Those three questions are the scored outputs, not evaluation terms."

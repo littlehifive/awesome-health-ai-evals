@@ -1,0 +1,84 @@
+entry: verisim
+sources:
+- https://arxiv.org/abs/2604.10441
+extracted: '2026-10-26'
+terms:
+- term: Top-1 Accuracy
+  level: metric
+  definition: An exact match between the doctor model’s final diagnosis and the ground-truth diagnosis.
+  definition_verbatim: true
+  location: Section 4 metrics
+  scale: accuracy
+- term: Average Turns
+  level: metric
+  definition: The total number of conversational exchanges before the doctor model issues a final diagnosis.
+  definition_verbatim: true
+  location: Section 4 metrics
+  scale: count
+- term: Average Turns Increase
+  level: metric
+  definition: Relative increase in conversation turns under noise (ΔTurns).
+  definition_verbatim: false
+  location: Section 4 metrics
+  scale: relative
+- term: Truth Preservation
+  level: dimension
+  definition: Simulated patient does not mention symptoms outside the ground truth, make impossible claims, or reveal the diagnosis.
+  definition_verbatim: false
+  location: Appendix D questionnaire
+  scale: Yes/No items (A1-A3)
+- term: Realism
+  level: dimension
+  definition: Responses are humanlike, show assigned noise behaviors, keep a consistent personality, use authentic patient language, disclose per noise profile.
+  definition_verbatim: false
+  location: Appendix D (B1-B5)
+  scale: 1-5 Likert
+- term: Clinical Utility
+  level: dimension
+  definition: Difficulty obtaining history, whether the correct diagnosis is reachable, usefulness for training students.
+  definition_verbatim: false
+  location: Appendix D (C1-C3)
+  scale: 1-5 Likert
+- term: Noise Fidelity
+  level: dimension
+  definition: Match of simulated behavior to the assigned noise configuration.
+  definition_verbatim: false
+  location: Table 3
+  scale: kappa agreement reported
+- term: Memory & Recall
+  level: category
+  definition: Noise pillar 1 injected into the simulated patient.
+  definition_verbatim: false
+  location: Table 1
+  scale: severity levels 0-4
+- term: Health Literacy
+  level: category
+  definition: Noise pillar 2.
+  definition_verbatim: false
+  location: Table 1
+  scale: severity levels 0-4
+- term: Emotional State
+  level: category
+  definition: Noise pillar 3.
+  definition_verbatim: false
+  location: Table 1
+  scale: severity levels 0-4
+- term: Communication Style
+  level: category
+  definition: Noise pillar 4.
+  definition_verbatim: false
+  location: Table 1
+  scale: severity levels 0-4
+- term: Social
+  level: category
+  definition: Noise pillar 5.
+  definition_verbatim: false
+  location: Table 1
+  scale: severity levels 0-4
+- term: Cognitive Processing
+  level: category
+  definition: Noise pillar 6.
+  definition_verbatim: false
+  location: Table 1
+  scale: severity levels 0-4
+notes: Diagnostic metrics score the doctor model; Truth Preservation, Realism, Clinical Utility and Noise Fidelity validate the patient simulator. Pillars are conditions of the simulation, included as categories. Definitions of the four validation dimensions are paraphrased from the questionnaire.

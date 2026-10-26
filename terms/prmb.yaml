@@ -1,0 +1,23 @@
+entry: prmb
+sources: [https://arxiv.org/abs/2603.11494]
+extracted: 2026-10-26
+terms:
+  - term: Pairwise accuracy
+    level: metric
+    definition: "A reward model is correct when it assigns a higher score (discriminative) or explicitly selects (generative) the chosen response over the rejected one; accuracy is the mean over pairs."
+    definition_verbatim: false
+    location: Section on evaluation metrics, Eq. 1
+    scale: proportion of pairs
+  - term: Best-of-N (BoN) accuracy
+    level: metric
+    definition: "An RM succeeds on an instance only if it prefers the winner over all losers; accuracy is the mean over instances."
+    definition_verbatim: false
+    location: Eq. 2; Table IV leaderboard
+    scale: proportion of queries (N = 4)
+  - term: Negative experience categories (21 sub-categories in four clusters)
+    level: category
+    definition: "Taxonomy of negative counseling behaviours used to build the rejected responses, for example Therapist Not Listening, Therapist Judging, Distance and/or Lack of Empathy, grouped into four clusters starting with therapists' misbehavior and hindering relationship. Items are tagged with these categories; they stratify the benchmark."
+    definition_verbatim: false
+    location: Section III-B; Table II; Figure 4
+    scale: item-level label (accuracy can be sliced by category)
+notes: "The thing scored is a reward model or LLM judge picking a clinician-grounded response over negative ones, not a chatbot's own outputs. 14 core CBT strategies and six session themes are also tagged. Only two of the four clusters and a handful of sub-categories were visible in the part of Table II I read."

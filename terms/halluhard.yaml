@@ -1,0 +1,31 @@
+entry: halluhard
+sources: [https://arxiv.org/abs/2602.01031]
+extracted: 2026-10-26
+terms:
+  - term: Hallucination rate
+    level: metric
+    definition: "The hallucination rate is calculated as the ratio of hallucinated claims."
+    definition_verbatim: true
+    location: Section 4.3, Eq. 1 (Eq. 2 response-wise for coding)
+    scale: "percent of extracted verifiable claims judged hallucinated (lower is better)"
+  - term: Hallucination (groundedness)
+    level: criterion
+    definition: "an output is hallucinated if it is not supported by either in-parameter knowledge or the in-context documents."
+    definition_verbatim: true
+    location: Section 3 (Unclear definition)
+    scale: "binary per atomic claim"
+  - term: Reference grounding
+    level: criterion
+    parent: Hallucination (groundedness)
+    definition: "Whether the cited source can be located; a cited source that cannot be found is treated as a mis-attributed reference (reference grounding failure)."
+    definition_verbatim: false
+    location: Sections 3 and 4.3, Table 5
+    scale: "binary per claim; failure rate reported"
+  - term: Content grounding
+    level: criterion
+    parent: Hallucination (groundedness)
+    definition: "Whether the claim is supported by the content of the cited source, checked against full-text HTML or PDF evidence (content grounding failure otherwise)."
+    definition_verbatim: false
+    location: Sections 3 and 4.3, Table 5
+    scale: "binary per claim; failure rate reported"
+notes: "Medical-guideline domain (250 seeds) is scored with the same claim-level judge as legal and research domains. Coding domain uses response-level hallucination types (installation, package importing, function-call) not relevant to the medical subset."

@@ -1,0 +1,35 @@
+entry: semiollm
+sources: [https://doi.org/10.1038/s43856-026-01653-z]
+extracted: 2026-10-26
+terms:
+  - term: Correctness (precision, recall, F1)
+    level: metric
+    definition: "Seizure onset zone predictions (argmax of LLM likelihoods) compared with ground-truth labels to compute precision, recall and F1 per brain region, weighted-averaged to handle class imbalance."
+    definition_verbatim: false
+    location: "Methods, evaluation metrics"
+    scale: "F1, percent"
+  - term: Confidence
+    level: metric
+    definition: "Entropy-based measure of how certain the model's likelihood distribution is; higher means higher certainty."
+    definition_verbatim: false
+    location: "Results, confidence and calibration"
+    scale: "entropy-derived"
+  - term: Calibration
+    level: metric
+    definition: "Alignment between model's predicted probabilities and empirical accuracy, assessed with reliability diagrams and Brier scores."
+    definition_verbatim: true
+    location: "Methods, evaluation metrics"
+    scale: "Brier score; reliability diagram"
+  - term: Reasoning quality
+    level: criterion
+    definition: "Expert-evaluated quality of the model's explanation for its prediction (clinician review of an 81-item subset)."
+    definition_verbatim: false
+    location: "Abstract; qualitative analysis"
+    scale: "clinician rating (scale not extracted)"
+  - term: Source citation accuracy
+    level: criterion
+    definition: "Expert-evaluated accuracy of sources cited by the model to support its reasoning."
+    definition_verbatim: false
+    location: "Abstract; qualitative analysis"
+    scale: "clinician rating (scale not extracted)"
+notes: "Abstract: measures correctness, confidence, calibration, and expert-evaluated reasoning quality and source citation accuracy. Qualitative rating scale and exact reasoning sub-criteria were not extracted."

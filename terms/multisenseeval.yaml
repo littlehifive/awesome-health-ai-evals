@@ -1,0 +1,13 @@
+entry: multisenseeval
+sources: [https://arxiv.org/abs/2505.20201]
+extracted: 2026-10-26
+terms:
+  - {term: Perceived Susceptibility, level: axis, definition: "An individual's belief about the likelihood of experiencing a health problem.", definition_verbatim: true, location: "Appendix J", scale: 1-4 (LLM judge rubric)}
+  - {term: Perceived Severity, level: axis, definition: "Beliefs about the seriousness of the consequences of a health issue.", definition_verbatim: true, location: "Appendix J", scale: 1-4 (LLM judge rubric)}
+  - {term: Perceived Benefits, level: axis, definition: "Beliefs in the efficacy of the advised action to reduce the risk or seriousness of the health impact.", definition_verbatim: true, location: "Appendix J", scale: 1-4 (LLM judge rubric)}
+  - {term: Diagnostic Accuracy, level: axis, definition: "Accuracy of the sensemaker's diagnosis against the MedQA ground truth, measured as Hard (exact match) and Soft (broader or blanket-term match) accuracy.", definition_verbatim: false, location: "Appendix J", scale: binary}
+  - {term: Hard Diagnostic Accuracy, level: metric, parent: Diagnostic Accuracy, definition: "Requires the sensemaker's diagnosis to be an exact match with the ground truth.", definition_verbatim: true, location: "Appendix J", scale: binary}
+  - {term: Soft Diagnostic Accuracy, level: metric, parent: Diagnostic Accuracy, definition: "Allows for some freedom and blanket term matching.", definition_verbatim: true, location: "Appendix J", scale: binary}
+  - {term: Conversation Flow and Correctness, level: axis, definition: "Used to measure the ability of the sensemaker to perform end-to-end conversation, while maintaining logical consistency, covering each phase of the conversation, preventing providing incorrect information and preventing contradiction with itself.", definition_verbatim: true, location: "Appendix J", scale: 1-4 (LLM judge rubric)}
+  - {term: Readability, level: axis, definition: "Overall readability of the sensemaker LLM responses, assessed with the SMOG index, a popular readability index for health literacy material.", definition_verbatim: false, location: "Section 1 (axes list), Section 4", scale: SMOG index}
+notes: "Six axes follow the Health Belief Model. Human annotators (four graduate students) gave binary agree/disagree labels on the LLM judge's score for each metric."

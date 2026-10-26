@@ -1,0 +1,77 @@
+entry: morqa
+sources: [https://arxiv.org/abs/2509.12405]
+extracted: 2026-10-26
+terms:
+  - term: Overall quality
+    level: criterion
+    definition: "Expert rating of overall response quality (English datasets); the main human target against which metrics are correlated."
+    definition_verbatim: false
+    location: Section 4 (human ratings), Table 4
+    scale: "3-point (0.0, 0.5, 1.0), 1.0 best"
+  - term: Disagreement
+    level: criterion
+    definition: "Expert rating of disagreement with the response (English DermaVQA and WoundcareVQA); not defined further in the text."
+    definition_verbatim: false
+    location: Section 4 (human ratings)
+    scale: "3-point (0.0, 0.5, 1.0), 1.0 best"
+  - term: Completeness
+    level: criterion
+    definition: "Expert rating of how complete the response is (English DermaVQA and WoundcareVQA)."
+    definition_verbatim: false
+    location: Section 4 (human ratings), Table 6
+    scale: "3-point (0.0, 0.5, 1.0), 1.0 best"
+  - term: Factual accuracy
+    level: criterion
+    definition: "Expert rating of the factual accuracy of the response (English subsets)."
+    definition_verbatim: false
+    location: Section 4 (human ratings), Table 6
+    scale: "3-point (0.0, 0.5, 1.0), 1.0 best"
+  - term: Relevance
+    level: criterion
+    definition: "Expert rating of the relevance of the response to the query (English subsets)."
+    definition_verbatim: false
+    location: Section 4 (human ratings), Table 6
+    scale: "3-point (0.0, 0.5, 1.0), 1.0 best"
+  - term: Writing style
+    level: criterion
+    definition: "Expert rating of the writing style of the response; in the Chinese subsets, general appropriate writing style from doctor to patient."
+    definition_verbatim: false
+    location: Section 4 (human ratings)
+    scale: "3-point (0.0, 0.5, 1.0), 1.0 best"
+  - term: Factual consistency
+    level: criterion
+    definition: "Chinese subsets: consistency of the response with the gold reference."
+    definition_verbatim: false
+    location: Section 4 (human ratings), Table 5
+    scale: "3-point (0.0, 0.5, 1.0), 1.0 best"
+  - term: BLEU
+    level: metric
+    definition: "Automatic n-gram overlap metric under test for agreement with expert ratings."
+    definition_verbatim: false
+    location: Section 4, Tables 4-5
+  - term: ROUGE
+    level: metric
+    definition: "Automatic overlap metric under test for agreement with expert ratings."
+    definition_verbatim: false
+    location: Section 4, Tables 4-5
+  - term: BERTScore
+    level: metric
+    definition: "Embedding-based similarity metric under test for agreement with expert ratings."
+    definition_verbatim: false
+    location: Section 4, Tables 4-5
+  - term: BLEURT
+    level: metric
+    definition: "Learned similarity metric under test for agreement with expert ratings."
+    definition_verbatim: false
+    location: Section 4, Tables 4-5
+  - term: LLM-as-a-judge
+    level: metric
+    definition: "DeepSeekV3, GPT-4o, Gemini-1.5-pro and Prometheus-7B-v2 prompted to score responses, with 0 to 3 gold references."
+    definition_verbatim: false
+    location: Section 4, Tables 4-7
+  - term: Correlation with human ratings
+    level: metric
+    definition: "Kendall tau, Pearson r and Spearman rho (and their average) plus pairwise ranking accuracy between each automatic metric and the expert ratings; this is the benchmark's own score."
+    definition_verbatim: false
+    location: Section 4, Tables 4-7
+notes: "Meta-evaluation benchmark: the terms are both the expert rating axes and the metrics being judged. Definitions of the rating axes are not given beyond their names."

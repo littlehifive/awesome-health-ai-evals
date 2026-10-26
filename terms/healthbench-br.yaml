@@ -1,0 +1,23 @@
+entry: healthbench-br
+sources: [https://arxiv.org/abs/2605.01077]
+extracted: 2026-10-26
+terms:
+  - term: True/false accuracy (HealthBench-BR)
+    level: metric
+    definition: "The model is prompted to follow a specific answer format; the verdict (Verdadeiro / Falso) is extracted via regex and compared with the label across 1,780 paired true/false assertions."
+    definition_verbatim: false
+    location: Section 4, Fig. 2 and Table 1
+    scale: binary per item; accuracy
+  - term: Open-ended accuracy via LLM judge (PCDT-QA)
+    level: metric
+    definition: "The model under evaluation generates a free-text answer, and GPT-4.1 compares it against the reference, producing a binary verdict (correct/incorrect)."
+    definition_verbatim: true
+    location: Section 4, Table 1
+    scale: binary per item (correct/incorrect)
+  - term: Sycophancy (True-prediction rate)
+    level: metric
+    definition: Proportion of items answered "True" on the balanced HealthBench-BR set; a well-calibrated model should predict True about 50% of the time, and higher rates indicate agreement with assertions regardless of correctness.
+    definition_verbatim: false
+    location: Section 7.1
+    scale: percent predicted True
+notes: Not related to OpenAI's HealthBench despite the name. No rubric axes.

@@ -1,0 +1,46 @@
+entry: kazakhstan-protocol-alignment
+sources: [https://nur.nu.edu.kz/handle/123456789/18761, https://github.com/dilnazakhmetzhan/medical_protocols_thesis/]
+extracted: 2026-10-26
+terms:
+  - term: Precision
+    level: metric
+    definition: "Entity-level precision: share of clinical entities in the chatbot answer that appear in the matching protocol."
+    definition_verbatim: false
+    location: Thesis abstract; repo README (alignment results)
+    scale: fraction
+  - term: Recall
+    level: metric
+    definition: "Entity-level recall: share of the protocol's clinical entities that appear in the chatbot answer."
+    definition_verbatim: false
+    location: Thesis abstract; repo README
+    scale: fraction
+  - term: Omission rate
+    level: metric
+    definition: "Share of protocol entities missing from the chatbot answer; the repo also reports a critical omissions table (11.4)."
+    definition_verbatim: false
+    location: Thesis abstract; repo README table 11.4
+    scale: fraction
+  - term: Hallucination rate
+    level: metric
+    definition: "Share of entities in the chatbot answer that are not supported by the protocol."
+    definition_verbatim: false
+    location: Thesis abstract
+    scale: fraction
+  - term: Jaccard similarity
+    level: metric
+    definition: "Overlap between the entity set of the chatbot answer and the protocol entity set (intersection over union)."
+    definition_verbatim: false
+    location: Thesis abstract
+    scale: 0-1
+  - term: Semantic similarity
+    level: metric
+    definition: "Embedding-based (sentence-transformers) similarity between chatbot answer and protocol text."
+    definition_verbatim: false
+    location: Thesis abstract; repo README table 4.2
+    scale: cosine similarity
+  - term: Cross-linguistic robustness
+    level: dimension
+    definition: "Difference in the above metrics between English and Russian versions of the same questions."
+    definition_verbatim: false
+    location: Thesis abstract
+notes: "Only the thesis abstract (repository page) and the GitHub README were read; the thesis PDF text was not parsed for exact metric formulas, so all definitions are paraphrases from metric names. Entities come from a BioBERT NER pass over protocols and answers (per the repo README)."

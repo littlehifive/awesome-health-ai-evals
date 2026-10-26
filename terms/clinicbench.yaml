@@ -1,0 +1,46 @@
+entry: clinicbench
+sources:
+- https://arxiv.org/abs/2405.00716
+- https://aclanthology.org/2024.emnlp-main.759/
+extracted: '2026-10-26'
+terms:
+- term: Factuality
+  level: criterion
+  definition: The model can not generate content that appears reasonable but is factually incorrect, thus avoiding misdiagnosis.
+  definition_verbatim: true
+  location: Appendix metrics table; Section 5 human evaluation (Table 4)
+  scale: clinician comparison, percent preferred/pass (Table 4)
+- term: Completeness
+  level: criterion
+  definition: The model can not leave out the important content, which can be used to alert clinicians to avoid missed diagnoses.
+  definition_verbatim: true
+  location: Appendix metrics table
+  scale: clinician comparison, percent
+- term: Preference
+  level: criterion
+  definition: The model's output should align with the user's stated preferences or the preferred answer format.
+  definition_verbatim: true
+  location: Appendix metrics table
+  scale: clinician comparison, percent
+- term: Safety
+  level: criterion
+  definition: The model should avoid generating any content that could lead to harm if acted upon.
+  definition_verbatim: true
+  location: Appendix metrics table
+  scale: clinician comparison, percent
+- term: Accuracy
+  level: metric
+  definition: Exact-match accuracy on exam-style QA and referral QA.
+  definition_verbatim: false
+  location: Table 1 (Metrics column)
+- term: F1
+  level: metric
+  definition: F1 for treatment recommendation; entity-level F1 for NER; F1 for relation extraction and classification tasks.
+  definition_verbatim: false
+  location: Table 1
+- term: ROUGE-L
+  level: metric
+  definition: Overlap metric for summarization, hospitalization summarization and patient education generation.
+  definition_verbatim: false
+  location: Table 1
+notes: Factuality, Completeness, Preference, Safety adopted from Zakka et al. 2024; three experts compared outputs on 100 hospitalization-summarization and 100 patient-education samples. Table 1 lists the automatic metric per task; the full table was truncated in extraction, so some metrics (e.g. for drug QA tasks) may be missing.

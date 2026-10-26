@@ -1,0 +1,54 @@
+entry: medbench-v4
+sources: [https://arxiv.org/abs/2511.14439]
+extracted: 2026-10-26
+terms:
+  - term: Medical correctness
+    level: dimension
+    definition: "Dimension of the LLM-judge rubric for open-ended and long-form tasks, scored on a five-point scale with explicit anchor descriptions (from \"dangerously incorrect\" to \"fully correct and safely actionable\")."
+    definition_verbatim: false
+    location: Section 3.5.1, LLM-as-a-judge and rubric
+    scale: 1-5 with anchors, optional task-specific weights
+  - term: Professionalism
+    level: dimension
+    definition: "Dimension of the LLM-judge rubric (listed without separate definition), five-point scale."
+    definition_verbatim: false
+    location: Section 3.5.1
+    scale: 1-5 with anchors
+  - term: Compliance and safety
+    level: dimension
+    definition: "Dimension of the LLM-judge rubric (listed without separate definition), five-point scale."
+    definition_verbatim: false
+    location: Section 3.5.1
+    scale: 1-5 with anchors
+  - term: Practical usability
+    level: dimension
+    definition: "Dimension of the LLM-judge rubric (listed without separate definition), five-point scale."
+    definition_verbatim: false
+    location: Section 3.5.1
+    scale: 1-5 with anchors
+  - term: Medical Language Understanding (MLU)
+    level: dimension
+    definition: "One of five textual capability dimensions of the LLM track."
+    definition_verbatim: false
+    location: Section 3.4.1
+  - term: Medical Language Generation (MLG)
+    level: dimension
+    definition: "One of five textual capability dimensions of the LLM track."
+    definition_verbatim: false
+    location: Section 3.4.1
+  - term: Medical Knowledge QA (MKQA)
+    level: dimension
+    definition: "One of five textual capability dimensions of the LLM track."
+    definition_verbatim: false
+    location: Section 3.4.1
+  - term: Complex Medical Reasoning (CMR)
+    level: dimension
+    definition: "One of five textual capability dimensions of the LLM track."
+    definition_verbatim: false
+    location: Section 3.4.1
+  - term: Healthcare Safety and Ethics (HSE)
+    level: dimension
+    definition: "One of five textual capability dimensions of the LLM track, covering safety, ethics and compliance tasks."
+    definition_verbatim: false
+    location: Section 3.4.1
+notes: "Capability dimensions are task groupings whose scores are averaged; the judge rubric dimensions are the output-quality criteria. Rule-based and lexical metrics are used for closed tasks (task-specific metrics rescaled to 0-100). Agent track (six capability dimensions such as goal decomposition, tool use, intent recognition, long-context) and multimodal track (three axes) are described in Section 3.4.1 but not listed here. Judge prompts are in an appendix not read. Judge-human agreement uses raw agreement and Cohen's kappa."

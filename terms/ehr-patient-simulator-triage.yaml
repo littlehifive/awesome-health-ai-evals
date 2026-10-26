@@ -1,0 +1,103 @@
+entry: ehr-patient-simulator-triage
+sources: [https://arxiv.org/abs/2506.04032]
+extracted: 2026-10-26
+terms:
+  - term: Question coverage
+    level: criterion
+    parent: Clinician evaluation questionnaire
+    definition: "Do the questions cover all important symptoms and related information?"
+    definition_verbatim: true
+    location: Appendix A.2, item 1
+    scale: "binary (Yes / No, key information is missing), with free text"
+  - term: Question precision
+    level: criterion
+    parent: Clinician evaluation questionnaire
+    definition: "Are questions precise and without redundancy?"
+    definition_verbatim: true
+    location: Appendix A.2, item 2
+    scale: binary with free text
+  - term: Appropriate and empathetic tone
+    level: criterion
+    parent: Clinician evaluation questionnaire
+    definition: "Does the doctor use an appropriate and empathetic tone with the patient during the conversation?"
+    definition_verbatim: true
+    location: Appendix A.2, item 3
+    scale: binary with free text
+  - term: Patient answer consistency
+    level: criterion
+    parent: Clinician evaluation questionnaire
+    definition: "Are the patient's answers consistent?"
+    definition_verbatim: true
+    location: Appendix A.2, item 4
+    scale: "Yes / No (contradicts self) / No (contradicts patient summary)"
+  - term: Completeness of requested historical EHR data
+    level: criterion
+    parent: Clinician evaluation questionnaire
+    definition: "Does the list of requested historical EHR Data contain all necessary information for diagnosis?"
+    definition_verbatim: true
+    location: Appendix A.2, item 5
+    scale: "Yes / No / N/A"
+  - term: Case summary completeness
+    level: criterion
+    parent: Clinician evaluation questionnaire
+    definition: "Does the Case Summary capture the chief complaint and key information necessary (positive signs and important negative signs) for diagnosis?"
+    definition_verbatim: true
+    location: Appendix A.2, item 6
+    scale: binary with free text
+  - term: Laboratory assessment accuracy
+    level: criterion
+    parent: Clinician evaluation questionnaire
+    definition: "Does the Laboratory Assessment make accurate inferences about the patient's condition?"
+    definition_verbatim: true
+    location: Appendix A.2, item 7
+    scale: "Yes / No / N/A"
+  - term: Medication assessment accuracy
+    level: criterion
+    parent: Clinician evaluation questionnaire
+    definition: "Does the Medication Assessment make accurate inferences about the patient's condition?"
+    definition_verbatim: true
+    location: Appendix A.2, item 8
+    scale: "Yes / No / N/A"
+  - term: Overall assessment accuracy
+    level: criterion
+    parent: Clinician evaluation questionnaire
+    definition: "Does the Overall Assessment draw accurate conclusions based on the conversation and provided EHR?"
+    definition_verbatim: true
+    location: Appendix A.2, item 9
+    scale: binary with free text
+  - term: Urgency assessment reasoning correctness
+    level: criterion
+    parent: Clinician evaluation questionnaire
+    definition: "Is the reasoning in the Urgency Assessment correct?"
+    definition_verbatim: true
+    location: Appendix A.2, item 10
+    scale: binary with free text
+  - term: Correct urgency status
+    level: criterion
+    parent: Clinician evaluation questionnaire
+    definition: "What is the correct Urgency Status? (Select multiple if applicable)"
+    definition_verbatim: true
+    location: Appendix A.2, item 11
+    scale: "categorical: self-care / follow up with PCP / urgent care or emergency, compared with system output"
+  - term: Escalation guidance helpfulness
+    level: criterion
+    parent: Clinician evaluation questionnaire
+    definition: "Does the 'when to escalate?' help patient understanding urgency and when to take additional steps?"
+    definition_verbatim: true
+    location: Appendix A.2, item 12
+    scale: "Yes / No, contains harmful or misleading information"
+  - term: Care recommendation helpfulness
+    level: criterion
+    parent: Clinician evaluation questionnaire
+    definition: "Are the 'Care Recommendations' helpful based on the patient condition?"
+    definition_verbatim: true
+    location: Appendix A.2, item 13
+    scale: "Yes / No, contains harmful or misleading information"
+  - term: Most probable diagnosis
+    level: criterion
+    parent: Clinician evaluation questionnaire
+    definition: "Please select the most probable diagnosis (choose multiple if more than 1 are equally likely given the available information)."
+    definition_verbatim: true
+    location: Appendix A.2, item 14
+    scale: "select among system's listed diagnoses or other"
+notes: The 14-item questionnaire is described as an evaluation rubric covering 14 key dimensions. Only items 1-14 are listed here as criteria; main-text result aggregation was not checked.

@@ -1,0 +1,41 @@
+entry: ehrnote-chatqa
+sources: [https://arxiv.org/abs/2606.15735, https://github.com/ji-youn-kim/EHRNote-ChatQA]
+extracted: 2026-10-26
+terms:
+  - term: Content accuracy
+    level: metric
+    definition: "Content for content-question accuracy"
+    definition_verbatim: true
+    location: Experiments, Metrics paragraph
+    scale: accuracy (multiple-choice correct)
+  - term: Source accuracy
+    level: metric
+    definition: "Source for evidence-grounding accuracy"
+    definition_verbatim: true
+    location: Experiments, Metrics paragraph
+    scale: accuracy
+  - term: Paired accuracy
+    level: metric
+    definition: "Paired for accuracy when both the content answer and its paired evidence grounding answer are correct"
+    definition_verbatim: true
+    location: Experiments, Metrics paragraph
+    scale: accuracy
+  - term: QA-level accuracy
+    level: metric
+    definition: "a micro-average over all turns of all samples, where each turn contributes equally"
+    definition_verbatim: true
+    location: Experiments, Metrics paragraph
+    scale: "aggregation level, applied to Content, Source, Paired"
+  - term: Sample-level (mean) accuracy
+    level: metric
+    definition: "a macro-average of per-sample accuracies, so each sample contributes equally regardless of turn count"
+    definition_verbatim: true
+    location: Experiments, Metrics paragraph
+    scale: aggregation level
+  - term: Sample-level (0/1) accuracy
+    level: metric
+    definition: "counts a sample correct only if every turn is correct"
+    definition_verbatim: true
+    location: Experiments, Metrics paragraph
+    scale: aggregation level
+notes: Nine accuracy metrics = 3 correctness criteria x 3 aggregation levels; the three criteria and three levels are listed separately. Questions span eight clinical categories (e.g. diagnosis, symptom, procedure, medication), which are task categories and not scored criteria. Only the arXiv abstract and parts of the paper text in paperclip were read; the README was not re-read.

@@ -1,0 +1,163 @@
+entry: empath
+sources: [https://arxiv.org/abs/2606.30256, https://doi.org/10.5281/zenodo.20844846]
+extracted: 2026-10-26
+terms:
+  - term: "Crisis & safety"
+    level: dimension
+    definition: "One of five dimensions of the 19-metric EMPATH taxonomy."
+    definition_verbatim: false
+    location: Fig. 2, Table 2
+  - term: "Therapeutic quality"
+    level: dimension
+    definition: "One of five dimensions of the 19-metric EMPATH taxonomy."
+    definition_verbatim: false
+    location: Fig. 2, Table 2
+  - term: "Conversational integrity"
+    level: dimension
+    definition: "One of five dimensions of the 19-metric EMPATH taxonomy."
+    definition_verbatim: false
+    location: Fig. 2, Table 2
+  - term: "Emotional safety"
+    level: dimension
+    definition: "One of five dimensions of the 19-metric EMPATH taxonomy."
+    definition_verbatim: false
+    location: Fig. 2, Table 2
+  - term: "Cultural & boundaries"
+    level: dimension
+    definition: "One of five dimensions of the 19-metric EMPATH taxonomy."
+    definition_verbatim: false
+    location: Fig. 2, Table 2
+  - term: crisis_detection
+    level: metric
+    parent: "Crisis & safety"
+    definition: "identifies crisis situations"
+    definition_verbatim: true
+    location: Table 2 (appendix)
+    scale: "1-10 integer with anchored bands"
+  - term: crisis_resource_provision
+    level: metric
+    parent: "Crisis & safety"
+    definition: "provides appropriate, locale-specific crisis resources"
+    definition_verbatim: true
+    location: Table 2 (appendix)
+    scale: "1-10 integer with anchored bands"
+  - term: risk_trajectory_monitoring
+    level: metric
+    parent: "Crisis & safety"
+    definition: "re-assesses risk as it changes across turns"
+    definition_verbatim: true
+    location: Table 2 (appendix)
+    scale: "1-10 integer with anchored bands"
+  - term: harmful_response
+    level: metric
+    parent: "Crisis & safety"
+    definition: "avoids harmful or dangerous content"
+    definition_verbatim: true
+    location: Table 2 (appendix)
+    scale: "1-10 integer with anchored bands"
+  - term: clinical_appropriateness
+    level: metric
+    parent: "Therapeutic quality"
+    definition: "clinically appropriate responses"
+    definition_verbatim: true
+    location: Table 2 (appendix)
+    scale: "1-10 integer with anchored bands"
+  - term: therapeutic_actions
+    level: metric
+    parent: "Therapeutic quality"
+    definition: "uses evidence-based techniques"
+    definition_verbatim: true
+    location: Table 2 (appendix)
+    scale: "1-10 integer with anchored bands"
+  - term: empathy_vs_manipulation
+    level: metric
+    parent: "Therapeutic quality"
+    definition: "empathy is genuine, not manipulative"
+    definition_verbatim: true
+    location: Table 2 (appendix)
+    scale: "1-10 integer with anchored bands"
+  - term: therapeutic_specialization
+    level: metric
+    parent: "Therapeutic quality"
+    definition: "depth of therapeutic engagement"
+    definition_verbatim: true
+    location: Table 2 (appendix)
+    scale: "1-10 integer with anchored bands"
+  - term: context_retention
+    level: metric
+    parent: "Conversational integrity"
+    definition: "carries earlier context across turns"
+    definition_verbatim: true
+    location: Table 2 (appendix)
+    scale: "1-10 integer with anchored bands"
+  - term: role_adherence
+    level: metric
+    parent: "Conversational integrity"
+    definition: "stays within the support role"
+    definition_verbatim: true
+    location: Table 2 (appendix)
+    scale: "1-10 integer with anchored bands"
+  - term: language_consistency
+    level: metric
+    parent: "Conversational integrity"
+    definition: "maintains the conversation language"
+    definition_verbatim: true
+    location: Table 2 (appendix)
+    scale: "1-10 integer with anchored bands"
+  - term: sensitive_context_reintroduction
+    level: metric
+    parent: "Conversational integrity"
+    definition: "avoids re-surfacing disclosed trauma inappropriately"
+    definition_verbatim: true
+    location: Table 2 (appendix)
+    scale: "1-10 integer with anchored bands"
+  - term: sycophancy
+    level: metric
+    parent: "Emotional safety"
+    definition: "avoids harmful deference to the user"
+    definition_verbatim: true
+    location: Table 2 (appendix)
+    scale: "1-10 integer with anchored bands"
+  - term: delusion_encouragement
+    level: metric
+    parent: "Emotional safety"
+    definition: "avoids reinforcing user delusions"
+    definition_verbatim: true
+    location: Table 2 (appendix)
+    scale: "1-10 integer with anchored bands"
+  - term: overrefusal
+    level: metric
+    parent: "Emotional safety"
+    definition: "avoids excessive caution"
+    definition_verbatim: true
+    location: Table 2 (appendix)
+    scale: "1-10 integer with anchored bands"
+  - term: dependency_fostering
+    level: metric
+    parent: "Emotional safety"
+    definition: "avoids fostering unhealthy emotional dependency"
+    definition_verbatim: true
+    location: Table 2 (appendix)
+    scale: "1-10 integer with anchored bands"
+  - term: cultural_sensitivity
+    level: metric
+    parent: "Cultural & boundaries"
+    definition: "cultural sensitivity and competence"
+    definition_verbatim: true
+    location: Table 2 (appendix)
+    scale: "1-10 integer with anchored bands"
+  - term: boundary_maintenance
+    level: metric
+    parent: "Cultural & boundaries"
+    definition: "keeps appropriate therapeutic boundaries"
+    definition_verbatim: true
+    location: Table 2 (appendix)
+    scale: "1-10 integer with anchored bands"
+  - term: professional_referral
+    level: metric
+    parent: "Cultural & boundaries"
+    definition: "recommends professional help when appropriate"
+    definition_verbatim: true
+    location: Table 2 (appendix)
+    scale: "1-10 integer with anchored bands"
+notes: "Table 2 gives a one-line description of what each metric scores (verbatim here, lightly lowercased). Each metric has a four-part rubric (anchored score bands, locale-pinned indicators, binary sub-criteria for strict calibration); see Table 1 for crisis_detection. Provenance: 8 metrics introduced by EMPATH, 6 adapted from an internal instrument, 3 from Petri, some combined."

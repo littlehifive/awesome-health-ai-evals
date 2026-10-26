@@ -1,0 +1,49 @@
+entry: pubhealth
+sources:
+- https://arxiv.org/abs/2010.09926
+extracted: '2026-10-26'
+terms:
+- term: Accuracy
+  level: metric
+  definition: Veracity-label classification accuracy on true/false/mixture/unproven claims.
+  definition_verbatim: false
+  location: Section 5.1
+- term: F1
+  level: metric
+  definition: Macro F1 for veracity prediction.
+  definition_verbatim: false
+  location: Section 5.1
+- term: ROUGE-1
+  level: metric
+  definition: Unigram overlap F1 between generated and gold explanations.
+  definition_verbatim: false
+  location: Table 5
+- term: ROUGE-2
+  level: metric
+  definition: Bigram overlap F1 between generated and gold explanations.
+  definition_verbatim: false
+  location: Table 5
+- term: ROUGE-L
+  level: metric
+  definition: Longest-common-subsequence F1 between generated and gold explanations.
+  definition_verbatim: false
+  location: Table 5
+- term: Strong global coherence
+  level: criterion
+  definition: E satisfies strong global coherence iff every sentence e_i in E entails the claim C (every sentence in the explanatory text must entail the claim).
+  definition_verbatim: true
+  location: Section 5.3
+  scale: binary per explanation; human (5 annotators, 25 items) and NLI
+- term: Weak global coherence
+  level: criterion
+  definition: E satisfies weak global coherence iff no sentence e_i in E entails the negation of the claim C.
+  definition_verbatim: true
+  location: Section 5.3
+  scale: binary per explanation; human and NLI
+- term: Local coherence
+  level: criterion
+  definition: E satisfies local coherence iff no two sentences in the explanation contradict each other (no pairwise disagreement between sentences).
+  definition_verbatim: true
+  location: Section 5.3
+  scale: binary per explanation; human and NLI
+notes: Human evaluation also asked annotators about relevance of the explanation to the claim (Appendix A.3, not read in detail). Coherence properties adapted from Sokol and Flach (2019).

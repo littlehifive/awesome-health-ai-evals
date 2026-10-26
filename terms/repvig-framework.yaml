@@ -1,0 +1,41 @@
+entry: repvig-framework
+sources: [https://doi.org/10.1038/s41598-024-83844-z]
+extracted: 2026-10-26
+terms:
+  - term: Overall accuracy
+    level: metric
+    definition: Share of vignettes for which the triage advice matches the physician-set correct triage level (emergency care, non-emergency care, self-care).
+    definition_verbatim: false
+    location: Methods, outcome measures; Tables 4, 5
+    scale: percentage
+  - term: Accuracy for each self-triage level
+    level: metric
+    definition: Triage accuracy computed separately for emergency, non-emergency and self-care vignettes.
+    definition_verbatim: false
+    location: Methods, outcome measures; Tables 4, 5
+    scale: percentage per level
+  - term: Safety of advice
+    level: metric
+    definition: "calculated as the percentage of emergencies identified"
+    definition_verbatim: true
+    location: Methods, outcome measures
+    scale: percentage
+  - term: Comprehensiveness
+    level: metric
+    definition: "how many of the total number of vignettes received a solution"
+    definition_verbatim: true
+    location: Methods, outcome measures
+    scale: percentage
+  - term: Inclination to overtriage
+    level: metric
+    definition: "the percentage of overtriage errors among all errors"
+    definition_verbatim: true
+    location: Methods, outcome measures
+    scale: percentage
+  - term: Capability Comparison Score (CCS)
+    level: metric
+    definition: "This metric adjusts the accuracy scores to reflect the varying difficulty levels of vignettes that different SAAs were able to address."
+    definition_verbatim: true
+    location: Methods, outcome measures; Table 6
+    scale: score and rank
+notes: "Metrics follow the symptomcheckR reporting guidelines. The framework itself is a vignette-sampling method; the terms are the outcome measures used to score laypeople, symptom-assessment apps and LLMs on triage."

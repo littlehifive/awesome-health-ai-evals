@@ -7,12 +7,13 @@ readme_section: multilingual_regional
 links:
   paper: https://doi.org/10.1145/3527631
   doi: 10.1145/3527631
+  arxiv: "2006.11138"
 license: null
-open_data: unknown
+open_data: open
 geography:
   item_languages: [Vietnamese]
   item_origin_countries: [VNM]
-  item_origin_note: Articles are Vietnamese online healthcare news; the abstract does not name the sites.
+  item_origin_note: Articles are Vietnamese online healthcare news; articles are from VnExpress's health section (suc-khoe).
   localization: native
   lead_institution_countries: [VNM]
 origin:
@@ -25,9 +26,16 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 22,057 question-answer pairs on 4,416 articles
+signals:
+  citations: 35
+  citations_source: OpenAlex
+  hf_downloads: null
+  github_stars: null
+  uptake: []
+  updated: '2026-10-26'
 provenance:
   records: [r_40ff5f8e45]
   extracted: 2026-10-26
-  read_full_text: false
-  confidence: low
-  notes: "Only the abstract (Crossref and the screening record) was reachable; the ACM page and the dataset website did not load. The abstract says the corpus is publicly available at nlp.uit.edu.vn/datasets for research use, but no direct link or license was seen, so open_data is unknown. Task is extractive span-answer machine reading comprehension on news text rather than chatbot answering, so scope is borderline. item_provenance web_forum is the closest value for online news articles. Best model ALBERT: EM 65.26, F1 84.89."
+  read_full_text: true
+  confidence: medium
+  notes: "Read the arXiv preprint (2006.11138, an earlier version of the same corpus with different reported counts; the 22,057 figure is from the journal abstract). Both say the corpus is publicly available on the UIT NLP group website (sites.google.com/uit.edu.vn/uit-nlp/datasets-projects) for research purposes; no license text was seen, so license is null. Source articles are from VnExpress. Task is extractive span-answer machine reading comprehension on news text rather than chatbot answering, so scope is borderline. item_provenance web_forum is the closest value for online news articles. Best model ALBERT: EM 65.26, F1 84.89."

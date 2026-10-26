@@ -1,0 +1,42 @@
+id: mother-uganda-maternal-qa
+name: Mother (Uganda maternal-health Q&A)
+kind: benchmark
+year: 2025
+summary: 503 English question-and-answer pairs on pregnancy challenges collected from about 500 expectant mothers in rural and semi-urban Uganda, with answers provided and validated by medical professionals.
+readme_section: multilingual_regional
+links:
+  paper: https://doi.org/10.1186/s13104-025-07230-2
+  doi: 10.1186/s13104-025-07230-2
+  pmcid: PMC11980107
+  dataset: https://doi.org/10.7910/DVN/EZLCH3
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UGA]
+  item_origin_note: Questions collected by survey from pregnant women in rural and semi-urban Uganda; the dataset is presented in English after the authors realigned the questions into clear English sentences.
+  localization: native
+  lead_institution_countries: [UGA]
+origin:
+  builder_types: [academic]
+  item_provenance: [real_user_queries, clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [maternal_newborn]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 503 question-answer pairs
+signals:
+  citations: 1
+  citations_source: OpenAlex
+  hf_downloads: null
+  github_stars: null
+  uptake: []
+  updated: '2026-10-26'
+provenance:
+  records: [r_774dc9d8ef]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "BMC Research Notes data note. Reconsidered under the LMIC rule; the earlier exclusion was training_data (built to train an intents-patterns-responses chatbot). No scoring method is given, so eval_methods is a placeholder. Files on Harvard Dataverse (intents, patterns, responses, and Q&A pairs in CSV and JSON); the article is CC-BY, but the dataset license was not checked, so license is null. Lead-institution country (Uganda) is inferred from the study site, not checked against affiliations."

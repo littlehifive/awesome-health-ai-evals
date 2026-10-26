@@ -1,0 +1,12 @@
+entry: multi-domain-medical-red-teaming
+sources: [https://arxiv.org/abs/2606.00027]
+extracted: 2026-10-26
+terms:
+  - {term: Safety, level: dimension, definition: "Whether the response avoids unsafe clinical, operational, or risk-behavior content and declines unsafe requests (paraphrase; the paper names the dimension in Figure 2 without a written definition).", definition_verbatim: false, location: "Section 2.3, Figure 2", scale: binary checks}
+  - {term: Medical accuracy, level: dimension, definition: "Whether the response is clinically correct (paraphrase; named in Figure 2, no written definition).", definition_verbatim: false, location: "Section 2.3, Figure 2", scale: binary checks}
+  - {term: Robustness to mutations, level: dimension, definition: "Whether model behavior stays safe and consistent when the scenario is perturbed by adversarial mutations (wording, demographics, missing context, conflicting details).", definition_verbatim: false, location: "Section 1 and 2.3, Figure 2", scale: binary checks}
+  - {term: Bias and equity, level: dimension, definition: "Whether the response avoids discriminatory or demographically unequal outputs (paraphrase).", definition_verbatim: false, location: "Section 2.3, Figure 2", scale: binary checks}
+  - {term: Ethical compliance, level: dimension, definition: "Whether the response follows ethical and regulatory expectations such as professional boundaries and transparency (paraphrase).", definition_verbatim: false, location: "Section 2.3, Figure 2", scale: binary checks}
+  - {term: Privacy, level: dimension, definition: "Whether the response avoids revealing sensitive data or breaching privacy (paraphrase).", definition_verbatim: false, location: "Section 2.3, Figure 2", scale: binary checks}
+  - {term: Toxicity, level: dimension, definition: "Whether the response avoids toxic or harmful language (paraphrase).", definition_verbatim: false, location: "Section 2.3, Figure 2", scale: binary checks}
+notes: "Seven rubric dimensions per Figure 2 (an image, not readable as text) and the entry notes; each dimension is scored with binary checks by a GPT-5 judge with human audit. Scenario taxonomy has nine categories (clinical accuracy, safety and reliability, medical errors, bias and equity, privacy and data security, ethical reasoning, robustness, toxicity, system integration behaviors) and 150+ subdomains; these organize scenarios and are not recorded as scored terms. Aggregates reported: micro- and macro-average, variance, minimum."

@@ -1,0 +1,38 @@
+entry: medqa-eye
+sources: [https://doi.org/10.1136/bmjophth-2025-002615, https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12853483/]
+extracted: 2026-10-26
+terms:
+  - term: Accuracy (ACC)
+    level: metric
+    definition: Proportion of MedQA-Eye multiple-choice questions answered correctly, with Wilson score 95% CI, overall and by subspecialty and language.
+    definition_verbatim: false
+    location: Methods, statistical analysis; Results
+    scale: proportion correct
+  - term: Information collection
+    level: criterion
+    parent: Thinking patterns
+    definition: "Information collection: comprehending the question and context."
+    definition_verbatim: true
+    location: Methods, thinking-performance framework
+    scale: binary correct/incorrect, majority vote of three experts; only totally correct content is labelled correct
+  - term: Memory retrieval
+    level: criterion
+    parent: Thinking patterns
+    definition: "Memory retrieval: recalling knowledge not provided in the context."
+    definition_verbatim: true
+    location: Methods, thinking-performance framework
+    scale: binary correct/incorrect, majority vote of three experts
+  - term: Logical inference
+    level: criterion
+    parent: Thinking patterns
+    definition: "Logical inference: performing non-trivial reasoning steps."
+    definition_verbatim: true
+    location: Methods, thinking-performance framework
+    scale: binary correct/incorrect, majority vote of three experts
+  - term: Semantic uncertainty
+    level: metric
+    definition: "The number of self-doubts or self-denials that occur in model thinking."
+    definition_verbatim: true
+    location: Methods, Semantic uncertainty
+    scale: count per question (lower is more reliable)
+notes: "The three thinking patterns are rated only on reasoning LLMs' thinking traces (DeepSeek-R1, QwQ). Subspecialty, scenario and medical entity are dataset annotations, not scored terms."

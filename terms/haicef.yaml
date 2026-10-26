@@ -1,0 +1,557 @@
+entry: haicef
+sources:
+- https://doi.org/10.2196/69006
+- PMC12639340
+extracted: '2026-10-26'
+terms:
+- term: Safety, privacy, and fairness
+  level: axis
+  definition: Priority-level (level 1) construct grouping second- and third-level constructs; the paper gives no separate description.
+  definition_verbatim: false
+  location: Table 3, Figure 2
+  scale: not scored (questions mapped to constructs)
+- term: Safety
+  level: dimension
+  parent: Safety, privacy, and fairness
+  definition: Prevent worse outcomes for the patient, provider, or health system from occurring as a result of the use of an MLa algorithm.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Outcome proxies appropriateness
+  level: criterion
+  parent: Safety
+  definition: Use alternative measures or indicators that accurately reflect the desired health outcomes in the absence of direct measurements.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Data provenance
+  level: criterion
+  parent: Safety
+  definition: 'Track and document the origin and history of data, including where it came from and how it has been handled.; Data providers: assign roles and responsibilities to entities like hospital EHRsb and patient-generated health data for maintaining safe AIc. Data sources: include various origins of data, such as social media and clinical settings.'
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Harm control
+  level: criterion
+  parent: Safety
+  definition: Reduce and manage potential risks and negative impacts associated with using a chatbot.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Automation bias reduction
+  level: criterion
+  parent: Safety
+  definition: The tendency to accept automated suggestions without critical evaluation or questioning.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Critical help
+  level: criterion
+  parent: Safety
+  definition: Provide necessary assistance and address negative and help-seeking information.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Ethics
+  level: criterion
+  parent: Safety
+  definition: Principles and standards that govern the conduct of individuals and organizations, ensuring fairness, privacy, and respect in using ML algorithms in health care.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Security
+  level: dimension
+  parent: Safety, privacy, and fairness
+  definition: Maintain confidentiality, integrity, and availability through protection mechanisms that prevent unauthorized access and use
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Protection method
+  level: criterion
+  parent: Security
+  definition: Implement techniques and tools to safeguard data from unauthorized access and threats.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Security standard
+  level: criterion
+  parent: Security
+  definition: Follow established guidelines and practices designed to protect data and systems from security breaches.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Third-party reliability
+  level: criterion
+  parent: Security
+  definition: Ensure the trustworthiness of external partners or services in maintaining data security and integrity.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Resilience
+  level: dimension
+  parent: Safety, privacy, and fairness
+  definition: Withstand unexpected adverse events or changes in their environment or use.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Privacy
+  level: dimension
+  parent: Safety, privacy, and fairness
+  definition: Protect privacy according to standards like HIPAAd and GDPRe, ensuring user autonomy and dignity.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Data exchange
+  level: criterion
+  parent: Privacy
+  definition: Maintain privacy standards for accessing and sharing data with third-party tools, cloud platforms, and other external systems.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Data collection and storage
+  level: criterion
+  parent: Privacy
+  definition: Maintain privacy standards for gathering and securely storing data for future use.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Data usage
+  level: criterion
+  parent: Privacy
+  definition: Maintain privacy standards for using collected data for analysis, decision-making, and improving chatbot algorithms.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Privacy policy
+  level: criterion
+  parent: Privacy
+  definition: Outline how an organization collects, uses, protects, and shares personal data.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Data protection
+  level: criterion
+  parent: Privacy
+  definition: Implement methods to ensure privacy and prevent unauthorized access and breaches.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Fairness and bias management
+  level: dimension
+  parent: Safety, privacy, and fairness
+  definition: Ensure the chatbots operate with minimized and acknowledged biases to ensure fair outcomes.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Systemic bias
+  level: criterion
+  parent: Fairness and bias management
+  definition: Address biases originating from societal norms and institutional practices.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Computational and statistical bias
+  level: criterion
+  parent: Fairness and bias management
+  definition: Manage biases arising from the way data is processed and algorithms are designed.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Human-cognitive biases
+  level: criterion
+  parent: Fairness and bias management
+  definition: Recognize biases stemming from individual or group perceptions and attitudes.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Population bias
+  level: criterion
+  parent: Fairness and bias management
+  definition: Address the issue where certain populations are underrepresented in data, leading to less accurate model performance for those groups.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Trustworthiness and usefulness
+  level: axis
+  definition: Priority-level (level 1) construct grouping second- and third-level constructs; the paper gives no separate description.
+  definition_verbatim: false
+  location: Table 3, Figure 2
+  scale: not scored (questions mapped to constructs)
+- term: Accountability
+  level: dimension
+  parent: Trustworthiness and usefulness
+  definition: Ensure those involved in the chatbot’s lifecycle uphold standards of auditability and harm minimization.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Transparency
+  level: dimension
+  parent: Trustworthiness and usefulness
+  definition: Communicate clearly regarding the chatbot’s characteristics and performance throughout its lifecycle.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Usage specification
+  level: criterion
+  parent: Transparency
+  definition: Define how the chatbot should be used.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Model characteristics
+  level: criterion
+  parent: Transparency
+  definition: Describe the specific features and behaviors of the chatbot.; ;
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Model availability
+  level: criterion
+  parent: Transparency
+  definition: Ensure the chatbot is accessible as needed.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Model limitations
+  level: criterion
+  parent: Transparency
+  definition: Identify and communicate the boundaries and constraints of the chatbot.; ;
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Data usage
+  level: criterion
+  parent: Transparency
+  definition: Explain how data is used within the chatbot.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Explainability and interpretability
+  level: dimension
+  parent: Trustworthiness and usefulness
+  definition: Described below.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Model explainability
+  level: criterion
+  parent: Explainability and interpretability
+  definition: Detail the internal mechanisms and decision-making processes of the chatbot.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Model interpretability
+  level: criterion
+  parent: Explainability and interpretability
+  definition: Make the outputs of chatbots clear and meaningful to end-users.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Beneficence
+  level: dimension
+  parent: Trustworthiness and usefulness
+  definition: Ensure the chatbot positively impacts its intended outcomes, emphasizing measurable benefits over potential risks.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Health outcomes
+  level: criterion
+  parent: Beneficence
+  definition: Focus on improving health results.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Clinical evidence
+  level: criterion
+  parent: Beneficence
+  definition: Use rigorous methods like A/B tests or randomized controlled trials to validate effectiveness.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Use behavior
+  level: criterion
+  parent: Beneficence
+  definition: Influence and improve user actions.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Intervention
+  level: criterion
+  parent: Beneficence
+  definition: Apply targeted measures to achieve desired outcomes.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Health care system
+  level: criterion
+  parent: Beneficence
+  definition: Integrate effectively within the broader health care environment
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Validity
+  level: dimension
+  parent: Trustworthiness and usefulness
+  definition: Ensure the chatbot performs as expected in real-world conditions.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Data relevance and credibility
+  level: criterion
+  parent: Validity
+  definition: Use high-quality, pertinent training data.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Language understanding
+  level: criterion
+  parent: Validity
+  definition: Ensure the chatbot’s linguistic capabilities are robust.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Information retrieval accuracy
+  level: criterion
+  parent: Validity
+  definition: Accurately retrieve relevant information.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Outcome accuracy
+  level: criterion
+  parent: Validity
+  definition: Deliver precise and correct results.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Task completion
+  level: criterion
+  parent: Validity
+  definition: Effectively complete required functions.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Reliability
+  level: dimension
+  parent: Trustworthiness and usefulness
+  definition: Ensure that the chatbot consistently performs as intended under various conditions and maintains dependable operation over time.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Failure prevention
+  level: criterion
+  parent: Reliability
+  definition: Prevent system failures to maintain functionality.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Robustness
+  level: criterion
+  parent: Reliability
+  definition: Handle unexpected inputs and diverse data without errors.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Workflow integration
+  level: criterion
+  parent: Reliability
+  definition: Fit seamlessly into existing processes.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Reproducibility
+  level: criterion
+  parent: Reliability
+  definition: Ensure consistent outcomes across different settings.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Monitoring
+  level: criterion
+  parent: Reliability
+  definition: Continually check chatbots to ensure proper operation.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Up-to-dateness
+  level: criterion
+  parent: Reliability
+  definition: Keep the system current with the latest information.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Generalizability
+  level: dimension
+  parent: Trustworthiness and usefulness
+  definition: Apply learned patterns to new, unseen data.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Contextual adaptability
+  level: criterion
+  parent: Generalizability
+  definition: 'Function effectively in different environments or clinical contexts.; Age group adaptability: cater to different age groups. Scenario adaptability: adapt to various situations.'
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Novel data performance
+  level: criterion
+  parent: Generalizability
+  definition: Perform well with new, unseen data.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Testability
+  level: dimension
+  parent: Trustworthiness and usefulness
+  definition: Verify and meet standards for robustness, safety, bias mitigation, fairness, and equity.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Verifiability
+  level: criterion
+  parent: Testability
+  definition: 'Ensure different attributes can be tested.; Quantifiability: measure attributes precisely.'
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Regular auditing
+  level: criterion
+  parent: Testability
+  definition: Measure attributes regularly.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Design and operational effectiveness
+  level: axis
+  definition: Priority-level (level 1) construct grouping second- and third-level constructs; the paper gives no separate description.
+  definition_verbatim: false
+  location: Table 3, Figure 2
+  scale: not scored (questions mapped to constructs)
+- term: Accessibility
+  level: dimension
+  parent: Design and operational effectiveness
+  definition: Ensure the chatbot is usable by the intended users regardless of their abilities, devices, or technical skills, promoting inclusivity and ease of use.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Versatile access
+  level: criterion
+  parent: Accessibility
+  definition: 'Provide multiple interaction methods to accommodate user preferences and needs.; Multilanguage: enable interaction in multiple languages to cater to a diverse user base. Different input and output modes: accommodate various input and output methods, such as text, voice, and visual. Multiplatform: ensure functionality across different platforms, such as web, mobile, and desktop applications. Multidevice: provide compatibility with various devices, including smartphones, tablets, laptops, and desktop computers.'
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: User literacy
+  level: criterion
+  parent: Accessibility
+  definition: Ensure the system is usable by individuals with varying levels of technical knowledge and literacy.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: User experience
+  level: criterion
+  parent: Accessibility
+  definition: 'Create a pleasant and effective interaction for users.; Likability: design the system to be appealing and enjoyable to use. Understood by the conversational agent: ensure clear communication between the user and the chatbot. User engagement: maintain user interest and active participation. Respectfulness: interact with users in a polite and respectful manner. Response appropriateness: provide suitable and contextually relevant responses. Credibility: ensure the chatbot’s reliability and trustworthiness.'
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: User interface design
+  level: criterion
+  parent: Accessibility
+  definition: Create an intuitive and easy-to-use interface for users.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Simplicity and ease of use
+  level: criterion
+  parent: Accessibility
+  definition: Make the system straightforward and user-friendly, minimizing complexity and effort required from users.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Personalized engagement
+  level: dimension
+  parent: Design and operational effectiveness
+  definition: Tailor responses based on patient data and preferences.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Personalization
+  level: criterion
+  parent: Personalized engagement
+  definition: Customized responses based on patient data and preferences.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Anthropomorphism and relationship
+  level: criterion
+  parent: Personalized engagement
+  definition: 'Build a human-like relationship with users.; Relationship building: develop a rapport with users. Empathy: show understanding and compassion. Humor: use appropriate humor to engage users. Identity: establish a clear and consistent chatbot persona.'
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: User adherence
+  level: criterion
+  parent: Personalized engagement
+  definition: Track and analyze how well users follow recommendations and adjust the chatbot’s strategies based on this data to improve compliance and outcomes.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Feedback incorporation
+  level: criterion
+  parent: Personalized engagement
+  definition: Use user feedback to improve the system.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Progress awareness
+  level: criterion
+  parent: Personalized engagement
+  definition: 'Monitor and respond to the conversation’s context and progress.; Memory: support multiturn or multisession conversations. Strategy adjustment: adapt the conversation strategy as needed.'
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Cost-effectiveness
+  level: dimension
+  parent: Design and operational effectiveness
+  definition: Assess whether the chatbot delivers beneficial outcomes at a reasonable cost, providing a better or more economical solution compared to existing methods.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Comparative effectiveness
+  level: criterion
+  parent: Cost-effectiveness
+  definition: Demonstrate that the chatbot is a better solution than previous methods.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Economical viability
+  level: criterion
+  parent: Cost-effectiveness
+  definition: Ensure the system is cost-effective.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Environmental viability
+  level: criterion
+  parent: Cost-effectiveness
+  definition: Minimize environmental impact.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Task efficiency
+  level: criterion
+  parent: Cost-effectiveness
+  definition: 'Perform tasks quickly and effectively.; Appropriate response time: provide timely responses. Response conciseness: give clear and succinct information. Response relevance: ensure responses are pertinent to the query. Response practicality: offer practical and actionable information.'
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+- term: Workflow considerations
+  level: criterion
+  parent: Cost-effectiveness
+  definition: Integrate smoothly into existing systems.
+  definition_verbatim: true
+  location: Table 3
+  scale: not scored (questions mapped to constructs)
+notes: "3 priority domains, 18 second-level, 60 third-level constructs (79 terms recorded: 3 + 16 + 60; Table 3 lists 16 second-level constructs, the abstract says 18); descriptions copied from Table 3, some third-level descriptions include sub-points (e.g. Empathy, Humor, Response relevance) not listed separately. Same third-level name 'Data usage' appears under Privacy and Transparency. 271 questions are mapped to constructs but not scored (per the paper); full question list is in multimedia appendices (not read)."

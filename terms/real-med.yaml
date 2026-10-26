@@ -1,0 +1,11 @@
+entry: real-med
+sources: [https://huggingface.co/datasets/nips2026123user/Real-Med, https://huggingface.co/datasets/wzhwzhwzh0921/Real_Med_]
+extracted: 2026-10-26
+terms:
+  - term: Case-specific rubric criterion
+    level: criterion
+    definition: "Each rubric item is a case-specific string of the form: criterion title, expected section, then Scoring criteria with Met (1) and Not met (0) conditions, checking a specific clinical or format requirement in the response."
+    definition_verbatim: false
+    location: rubrics/<task_slug>.jsonl; card field rubrics
+    scale: binary Met (1) / Not met (0)
+notes: "No named axes or dimensions on the card. 405 cases in 10 task types (4 categories: Clinical Support, Patient Management, Pharmacy Management, Medical Education & Research), 5,813 criteria; the 2026-10-24 revision adds 2,446 medical text criteria and 49 medical image/evidence criteria. Some criteria are nonmedical (layout, readability, slide count, answer template; 280 retained). Example read: SOAP documentation items check SOAP structure and differential-relevant details."

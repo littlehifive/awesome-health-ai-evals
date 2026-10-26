@@ -1,0 +1,95 @@
+entry: mh-indic
+sources: [https://arxiv.org/abs/2610.11586]
+extracted: 2026-10-26
+terms:
+  - term: "Power Distance Index (PDI)"
+    level: dimension
+    definition: "Reinterpreted as navigation of medical and institutional authority."
+    definition_verbatim: false
+    location: Section 3 (Dimensions Overview), Appendix D, Tables 3-5
+    scale: "0-1 dimension score, higher = more constrained/restrictive"
+  - term: "Uncertainty Avoidance Index (UAI)"
+    level: dimension
+    definition: "Hofstede-derived dimension reinterpreted for comfort with medical uncertainty (rule-based scoring of one item)."
+    definition_verbatim: false
+    location: Section 3 (Dimensions Overview), Appendix D, Tables 3-5
+    scale: "0-1 dimension score, higher = more constrained/restrictive"
+  - term: "Long-Term Orientation (LTO)"
+    level: dimension
+    definition: "Reinterpreted as prioritisation of future versus short-term reproductive planning (reported as Short-Term Orientation in the text)."
+    definition_verbatim: false
+    location: Section 3 (Dimensions Overview), Appendix D, Tables 3-5
+    scale: "0-1 dimension score, higher = more constrained/restrictive"
+  - term: "Indulgence versus Restraint (IVR)"
+    level: dimension
+    definition: "Attitudes toward maternal self-sacrifice and self-care."
+    definition_verbatim: false
+    location: Section 3 (Dimensions Overview), Appendix D, Tables 3-5
+    scale: "0-1 dimension score, higher = more constrained/restrictive"
+  - term: "Gender Norms (GN)"
+    level: dimension
+    definition: "Captures gendered expectations surrounding motherhood and caregiving."
+    definition_verbatim: false
+    location: Section 3 (Dimensions Overview), Appendix D, Tables 3-5
+    scale: "0-1 dimension score, higher = more constrained/restrictive"
+  - term: "Community Norms versus Individual Divergence (CNID)"
+    level: dimension
+    definition: "Captures tensions between social conformity and individual maternal decision-making."
+    definition_verbatim: false
+    location: Section 3 (Dimensions Overview), Appendix D, Tables 3-5
+    scale: "0-1 dimension score, higher = more constrained/restrictive"
+  - term: "Maternal Agency versus Familial Control (MAFC)"
+    level: dimension
+    definition: "Captures the degree of maternal autonomy within family-centred decision-making."
+    definition_verbatim: false
+    location: Section 3 (Dimensions Overview), Appendix D, Tables 3-5
+    scale: "0-1 dimension score, higher = more constrained/restrictive"
+  - term: "Biomedical Trust versus Traditional Belief (BTB)"
+    level: dimension
+    definition: "Reflecting preferences between biomedical and traditional care systems."
+    definition_verbatim: false
+    location: Section 3 (Dimensions Overview), Appendix D, Tables 3-5
+    scale: "0-1 dimension score, higher = more constrained/restrictive"
+  - term: "Silence versus Openness around the Maternal Body (SVO)"
+    level: dimension
+    definition: "Capturing norms around bodily disclosure and symptom expression."
+    definition_verbatim: false
+    location: Section 3 (Dimensions Overview), Appendix D, Tables 3-5
+    scale: "0-1 dimension score, higher = more constrained/restrictive"
+  - term: "Mental Health Suppression (MHS)"
+    level: dimension
+    definition: "Reflecting recognition and expression of maternal emotional distress."
+    definition_verbatim: false
+    location: Section 3 (Dimensions Overview), Appendix D, Tables 3-5
+    scale: "0-1 dimension score, higher = more constrained/restrictive"
+  - term: "Aggregate (marginal) alignment A_m"
+    level: metric
+    definition: "L2 distance between the human mean dimension-score vector and the model's mean vector; lower means stronger alignment with the human reference distribution."
+    definition_verbatim: false
+    location: Section 4 evaluation metrics
+    scale: "distance, lower is better"
+  - term: "Profile-conditioned sensitivity C_m"
+    level: metric
+    definition: "Mean across dimensions of the model's conditional standard deviation, measuring how much responses vary with the demographic profile relative to the human cohort."
+    definition_verbatim: false
+    location: Section 4 evaluation metrics
+    scale: "higher = more profile sensitivity"
+  - term: "Profile Consistency"
+    level: metric
+    definition: "Whether the generated dialogue remains coherent with the conditioning profile across all turns."
+    definition_verbatim: true
+    location: Section 4.3 dialogue evaluation
+    scale: "1-5 Likert"
+  - term: "Naturalness & Fluency"
+    level: metric
+    definition: "Whether the dialogue reads as natural human conversation."
+    definition_verbatim: true
+    location: Section 4.3 dialogue evaluation
+    scale: "1-5 Likert"
+  - term: "Overall Dialogue Quality"
+    level: metric
+    definition: "A holistic judgement of realism, coherence, emotional plausibility, and contextual grounding."
+    definition_verbatim: true
+    location: Section 4.3 dialogue evaluation
+    scale: "1-5 Likert"
+notes: "Dimension definitions are paraphrased from the Dimensions Overview paragraph; the paper builds on Hofstede and adds four maternal-health dimensions. Generated dialogues are rated by experts on the ten dimensions plus the three quality metrics. Cronbach alpha 0.19-0.63; BTB, CNID and SVO treated as exploratory."

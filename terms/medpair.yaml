@@ -1,0 +1,29 @@
+entry: medpair
+sources: [https://arxiv.org/abs/2505.24040, https://github.com/YuexingHao/MedPAIR]
+extracted: 2026-10-26
+terms:
+  - term: Spurious Rate (SR)
+    level: metric
+    definition: "A higher SR indicates greater reliance on spurious or irrelevant information, while a lower value suggests the model's predictions are more robust to the removal of distractors and better aligned with human problem solving."
+    definition_verbatim: true
+    location: Section 3.2, Eq. for SR
+    scale: proportion of initially correct answers that become wrong when context is reduced to physician-relevant sentences
+  - term: QA accuracy
+    level: metric
+    definition: Multiple-choice answer accuracy of LLMs and physician trainees, compared on full context versus context pruned to relevant sentences.
+    definition_verbatim: false
+    location: Section 4, Figure 3
+    scale: proportion correct
+  - term: Sentence relevance (physician-trainee label)
+    level: criterion
+    definition: Per-sentence relevance label of each vignette sentence (three categories, e.g. highly relevant / low relevance / irrelevant) assigned by physician trainees and compared against LLM relevance estimates.
+    definition_verbatim: false
+    location: Section 3, relevance annotation
+    scale: ternary label per sentence
+  - term: Relevance agreement (LLM vs physician)
+    level: metric
+    definition: Agreement rate between sentences marked highly relevant by physician trainees and sentences highlighted by the model through ContextCite scores or self-reported labels (highest 65.9 percent).
+    definition_verbatim: false
+    location: Section 4, Table 2
+    scale: agreement rate
+notes: "Scores model input-relevance estimation and answer robustness rather than output quality dimensions. Sentence relevance label categories were not confirmed verbatim beyond 'ternary'."

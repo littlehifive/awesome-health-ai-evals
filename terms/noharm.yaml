@@ -1,0 +1,53 @@
+entry: noharm
+sources: [https://arxiv.org/abs/2512.01241]
+extracted: 2026-10-26
+terms:
+  - term: Safety
+    level: metric
+    definition: "Drawing from the volume- and harm-weighted AHRQ patient safety composite, our Safety metric quantifies the avoidance of harm burden, aggregating mild, moderate, and severe errors per case into a single severity-weighted index. Higher values indicate lower harm."
+    definition_verbatim: true
+    location: Results (Clinical Safety, Completeness, and Restraint); Methods
+    scale: "case-level 1 - H_i/w_sev, macro-averaged, percent"
+  - term: Completeness
+    level: metric
+    definition: "percent of cases where all highly appropriate (RAND/UCLA score > 7; actions whose omission would lead to moderate or worse harm) recommendations were made. This represents the recall or sensitivity of highly appropriate actions at the case-level."
+    definition_verbatim: true
+    location: Methods (metric definitions)
+    scale: percent of cases
+  - term: Restraint
+    level: metric
+    definition: "percent of recommended actions that were clinically appropriate, contrasted only with uncertain / equivocal actions. This represents the precision (positive predictive value) with a focus on uncertain / equivocal actions."
+    definition_verbatim: true
+    location: Methods (metric definitions)
+    scale: percent
+  - term: Precision (Positive Predictive Value)
+    level: metric
+    definition: "percent of recommended actions that were clinically appropriate, contrasted with all other actions (both uncertain and inappropriate)"
+    definition_verbatim: true
+    location: Methods (metric definitions)
+    scale: percent
+  - term: Recall (Sensitivity)
+    level: metric
+    definition: "percent of all clinically appropriate options that were recommended by the model"
+    definition_verbatim: true
+    location: Methods (metric definitions)
+    scale: percent
+  - term: Escalation Rate
+    level: metric
+    definition: "percent of escalation actions (emergency department referral, in-person specialist referral) that were appropriately recommended by the model"
+    definition_verbatim: true
+    location: Methods (metric definitions)
+    scale: percent
+  - term: Overall Score
+    level: metric
+    definition: "harmonic mean of Safety, Completeness, and Restraint"
+    definition_verbatim: true
+    location: Methods (metric definitions)
+    scale: percent
+  - term: Errors of commission and omission
+    level: category
+    definition: "Harmful errors are classified as commission (implementing an inappropriate action) versus omission (omitting an appropriate action); harm severity uses WHO International Classification for Patient Safety levels (mild, moderate, severe)."
+    definition_verbatim: false
+    location: Fig. 2, Fig. 5
+    scale: "modified RAND-UCLA appropriateness scale with WHO harm severity"
+notes: "Specialist ratings of each management option (appropriate, uncertain, inappropriate) use a modified RAND-UCLA scale; the metrics above are computed from those ratings. Full text read via paperclip; the abstract version differs in size."

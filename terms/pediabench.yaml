@@ -1,0 +1,43 @@
+entry: pediabench
+sources:
+- https://arxiv.org/abs/2412.06287
+extracted: '2026-10-26'
+terms:
+- term: Accuracy (objective questions)
+  level: metric
+  definition: Basic performance measure for true/false (ToF) and multiple-choice (MC) questions, weighted
+    by difficulty factor.
+  definition_verbatim: false
+  location: Section 3 scoring
+  scale: difficulty-weighted points (simple, normal, difficult, extreme)
+- term: Pairing score (PA)
+  level: metric
+  definition: Pairing questions score 3 points for a completely correct answer, 1 for partially correct,
+    0 for incorrect.
+  definition_verbatim: true
+  location: Section 3 scoring
+  scale: 3/1/0 points
+- term: Essay (ES) score
+  level: metric
+  definition: Subjective essay answers graded by GPT-4o as referee under the Language-Model-as-an-Examiner
+    framework, weight 5 per question.
+  definition_verbatim: false
+  location: Section 3 scoring
+  scale: GPT-4o referee points, weight 5
+- term: Case analysis (CA) score
+  level: metric
+  definition: Case-analysis answers graded by GPT-4o as referee with scores assigned to each sub-question,
+    weight 10 per question.
+  definition_verbatim: false
+  location: Section 3 scoring
+  scale: GPT-4o referee points per sub-question, weight 10
+- term: Integrated score
+  level: metric
+  definition: 'Weighted sum of per-question-type totals: S_total = S_ToF x 10 + S_MC x 40 + S_PA x 10
+    + S_ES x 30 + S_CA x 10.'
+  definition_verbatim: false
+  location: Section 3 scoring
+  scale: weighted sum (full score 100)
+notes: The scoring definitions are paraphrased from the arXiv HTML. GPT-4o grading of CA questions was
+  checked against manual scoring by Spearman and Kendall correlation (Table 3). No rubric axes (for example
+  accuracy, completeness) are used for subjective answers beyond per-sub-question scoring.

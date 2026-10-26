@@ -1,0 +1,40 @@
+entry: diseaseguru-eval-dimensions
+sources:
+- https://ojs.aaai.org/index.php/AAAI-SS/article/view/27484
+extracted: '2026-10-26'
+terms:
+- term: Lexical similarity
+  level: dimension
+  definition: Lexical-based similarity metrics rely on string comparison between system and gold answers (ROUGE used).
+  definition_verbatim: false
+  location: Lexical Similarity section
+- term: ROUGE
+  level: metric
+  parent: Lexical similarity
+  definition: Recall-oriented n-gram overlap between system answer and gold answer.
+  definition_verbatim: false
+  location: Lexical Similarity section
+  scale: scale 0-1
+- term: Semantic similarity
+  level: dimension
+  definition: Word-level semantic similarity between system and gold answers using embeddings (BERTScore).
+  definition_verbatim: false
+  location: Semantic Similarity section
+- term: BERTScore
+  level: metric
+  parent: Semantic similarity
+  definition: Similarity between word embeddings using cosine similarity.
+  definition_verbatim: false
+  location: Semantic Similarity section
+- term: Absence of contradictions
+  level: dimension
+  definition: Whether the generated answer contradicts the ground truth, assessed by pairwise sentence entailment between ground-truth and generated sentences.
+  definition_verbatim: false
+  location: Readability and Contradictions section, Figure 1
+- term: Readability
+  level: dimension
+  definition: Whether lay readers can understand the answer, measured with the Flesch-Kincaid score.
+  definition_verbatim: false
+  location: Readability and Contradictions section
+  scale: Flesch-Kincaid
+notes: Definitions paraphrased from skimmed PDF text. Paper also proposes lay-user and clinician metrics for a future field study; not enumerated.

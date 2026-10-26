@@ -1,0 +1,19 @@
+entry: curemed-bench
+sources:
+- https://arxiv.org/abs/2601.13262
+extracted: '2026-10-26'
+terms:
+- term: Logical accuracy
+  level: metric
+  definition: Accuracy denotes logical accuracy.
+  definition_verbatim: true
+  location: Section 1, Table 2 (arXiv 2601.13262)
+  scale: percent correct against the single verifiable answer (LLM judge)
+- term: Language consistency
+  level: metric
+  definition: scoring whether y is written entirely in the query language
+  definition_verbatim: true
+  location: Section 3.3, Table 2
+  scale: binary per response (1 if the language of the response matches the query language)
+notes: The paper also uses a format reward (structure of thinking, step and answer tags), but it is a training reward, not an evaluation metric. Logical accuracy is also called logical correctness. Judge
+  details for answer verification (separate model to limit judge bias) from Section 3.3.

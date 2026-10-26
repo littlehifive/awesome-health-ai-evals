@@ -1,0 +1,77 @@
+entry: medqa-cs
+sources: [https://arxiv.org/abs/2410.01553, https://github.com/bio-nlp/MedQA-CS]
+extracted: 2026-10-26
+terms:
+  - term: Consistency
+    level: criterion
+    parent: InfoGatherQA
+    definition: "Consistency ensures the question aligns with the ground truth question bank."
+    definition_verbatim: true
+    location: Section 2.1.1 Information Gathering (InfoGatherQA)
+    scale: binary 0 or 1 per question; score is proportion meeting both criteria
+  - term: Originality
+    level: criterion
+    parent: InfoGatherQA
+    definition: "Originality checks that the question is novel and not repetitive within the same conversation."
+    definition_verbatim: true
+    location: Section 2.1.1 Information Gathering (InfoGatherQA)
+    scale: binary 0 or 1 per question
+  - term: Exam Coverage
+    level: criterion
+    parent: Physical Exams
+    definition: Whether the documented physical exams cover the components of the ground-truth exam (missing neck or abdominal exams lowers the score).
+    definition_verbatim: false
+    location: Section 2.1.2 Physical Exams
+    scale: rubric score
+  - term: Reason Relevance and Accuracy
+    level: criterion
+    parent: Physical Exams
+    definition: Whether the reasons given for each documented exam are relevant and accurate relative to the patient presentation.
+    definition_verbatim: false
+    location: Section 2.1.2 Physical Exams
+    scale: rubric score
+  - term: Extra Exams Penalty
+    level: criterion
+    parent: Physical Exams
+    definition: Penalty for documenting exams beyond those in the ground truth.
+    definition_verbatim: false
+    location: Section 2.1.2 Physical Exams
+    scale: rubric penalty
+  - term: Adequacy
+    level: criterion
+    parent: Closure
+    definition: "Adequacy, ensuring alignment with the ground truth answers."
+    definition_verbatim: true
+    location: Section 2.1.3 Closure
+    scale: overall closure score 0-100
+  - term: Compassion
+    level: criterion
+    parent: Closure
+    definition: "Compassion, assessing the level of empathy demonstrated."
+    definition_verbatim: true
+    location: Section 2.1.3 Closure
+    scale: overall closure score 0-100
+  - term: Diagnostic Impressions
+    level: criterion
+    parent: Closure
+    definition: Whether the summary of the encounter conveys diagnostic impressions matching the sample, including key alternative causes.
+    definition_verbatim: false
+    location: Section 2.1.3 Closure
+  - term: Language Accessibility
+    level: criterion
+    parent: Closure
+    definition: Whether the explanation to the patient avoids inaccessible medical jargon.
+    definition_verbatim: false
+    location: Section 2.1.3 Closure
+  - term: Differential Diagnosis score
+    level: metric
+    definition: "The total score is calculated by summing the points for each diagnosis, historical finding, and physical finding, then dividing by the maximum possible points to yield a final score between 0 and 1."
+    definition_verbatim: true
+    location: Section 2.1.4 Differential Diagnosis
+    scale: 0-1
+  - term: ROUGE, METEOR, BERTScore, Exact Match, UMLS-F1
+    level: metric
+    definition: Traditional automatic metrics compared against expert ratings as alternatives to the LLM examiner (Table 6); not used for final benchmarking.
+    definition_verbatim: false
+    location: RQ1, Table 6
+notes: "MedStuLLM tasks (InfoGatherQA, Physical Exams, Closure, Diagnosis) are scored by MedExamLLM (GPT-4); the Closure criteria list is partial (other criteria in appendix D.3 were not read). Patient note scoring and SPIKES elements (Knowledge, Emotions, Strategies and Summary) underlie the closure rubric."

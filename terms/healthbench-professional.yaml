@@ -1,0 +1,52 @@
+entry: healthbench-professional
+sources: [https://arxiv.org/abs/2604.27470]
+extracted: 2026-10-26
+terms:
+  - term: Accuracy
+    level: dimension
+    parent: Likert rating
+    definition: "Physicians evaluated five core dimensions: accuracy, completeness, clarity of communication, instruction following, and overall impact on the user. Each dimension captured multiple facets (e.g., appropriate uncertainty handling and premise checking for accuracy)"
+    definition_verbatim: true
+    location: Section 3.3, Stage 1 physician authorship
+    scale: contributes to a 1-7 Likert rating
+  - term: Completeness
+    level: dimension
+    parent: Likert rating
+    definition: One of five dimensions physicians used when assigning the Likert rating; no separate definition given.
+    definition_verbatim: false
+    location: Section 3.3, Stage 1 physician authorship
+    scale: contributes to a 1-7 Likert rating
+  - term: Clarity of communication
+    level: dimension
+    parent: Likert rating
+    definition: "Facets include tailoring and clarity for communication."
+    definition_verbatim: true
+    location: Section 3.3, Stage 1 physician authorship
+    scale: contributes to a 1-7 Likert rating
+  - term: Instruction following
+    level: dimension
+    parent: Likert rating
+    definition: One of five dimensions physicians used when assigning the Likert rating; includes failures of instruction following at the low end.
+    definition_verbatim: false
+    location: Section 3.3, Stage 1 physician authorship
+    scale: contributes to a 1-7 Likert rating
+  - term: Overall impact on the user
+    level: dimension
+    parent: Likert rating
+    definition: "Facets include calibration of tone and risk for impact; performance was judged along a spectrum from optimal to harmful."
+    definition_verbatim: true
+    location: Section 3.3, Stage 1 physician authorship
+    scale: contributes to a 1-7 Likert rating
+  - term: Likert rating
+    level: other
+    definition: "Likert 1-7 rating of the model's response to the final user turn, based on a multidimensional assessment; used for selection and difficulty stratification (1-2 Difficult, 3-5 Mid-range, 6-7 Strong)."
+    definition_verbatim: false
+    location: Section 3.3, Figure 2
+    scale: 1-7 Likert
+  - term: HealthBench Professional score (length-adjusted)
+    level: metric
+    definition: "Rubric score per example computed as in HealthBench (points met over maximum), adjusted for response length: s_len = s - 2.94e-5 (length - 2,000 characters); mean clipped to [0, 1], reported x100; default grader GPT-5.4 at low reasoning."
+    definition_verbatim: false
+    location: Section 4.1
+    scale: points per rubric criterion, length-adjusted
+notes: 525 tasks with example-specific physician-adjudicated rubric criteria (positive and negative points, e.g. [+9]), not listed. Use cases (care consult, writing and documentation, medical research) are task categories, not scored. The five Likert dimensions are used in authoring and selection, not in grading model outputs for the benchmark score; recorded because the paper names them as the quality dimensions. Likely HealthBench axes are not reused by name in what was read.

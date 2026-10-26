@@ -1,0 +1,23 @@
+entry: medieval-expert-eval
+sources: [https://doi.org/10.1038/s43856-026-01576-9]
+extracted: 2026-10-26
+terms:
+  - term: Dreyfus-based ten-point scale of LLM qualities
+    level: axis
+    definition: "A ten-point physician-equivalence scale based on the Dreyfus developmental model, spanning novice, beginner, competent, proficient, expert and master: 0-1.5 medically untrained; 2-3.5 novice (medical students); 4-5.5 beginners (residents, <3 years after graduation); 6-6.5 competent physicians; 7-8 proficient physicians; 8.5-9 experts (consultants, >10 years); >=9.5 masters (leading experts)."
+    definition_verbatim: true
+    location: Methods, "A ten-point scale of LLM qualities"
+    scale: "0-10 career-stage scale"
+  - term: Hallucination
+    level: criterion
+    definition: "Fabricated medical facts (fabricated diseases, drugs, guidelines, consensus, references); rated by the panel for each response, where 1 indicates any evidence of fabrication and ratings of 1 or above must be substantiated with evidence."
+    definition_verbatim: false
+    location: Methods ("Evaluation of LLM responses") and Results, "Hallucination in LLM responses"
+    scale: 0-5 rating
+  - term: Incompetence
+    level: metric
+    definition: "Derived rate of sub-par responses, defined as a quality score below 4, the minimum of a beginning practicing physician on the Dreyfus-based scale."
+    definition_verbatim: false
+    location: Results, "Risks of incompetence in LLM responses"
+    scale: proportion of responses scoring <4
+notes: Single overall quality score per response by blinded specialist raters; no per-dimension rubric. Verbosity (response length rank) is analysed as a covariate, not scored.

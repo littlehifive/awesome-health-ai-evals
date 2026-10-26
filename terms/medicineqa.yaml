@@ -1,0 +1,29 @@
+entry: medicineqa
+sources: [https://arxiv.org/abs/2404.17897]
+extracted: 2026-10-26
+terms:
+  - term: Hit Rate (HR@num)
+    level: metric
+    definition: "which represents the proportion of instances where the retrieval candidates contain the corresponding knowledge, with \"num\" indicating the number of candidates to be retrieved"
+    definition_verbatim: true
+    location: Section 4.1 Metrics
+    scale: proportion at k = 1, 5, 10, 50
+  - term: Coarse-grained (document-level) retrieval hit rate
+    level: metric
+    parent: Hit Rate (HR@num)
+    definition: Hit rate computed on the retrieved medicine (generic name) only.
+    definition_verbatim: false
+    location: Section 4.1, Table 2 ("Retrieved Doc.")
+  - term: Fine-grained (attribute-level) retrieval hit rate
+    level: metric
+    parent: Hit Rate (HR@num)
+    definition: Hit rate computed on the combination of generic name and the specific attribute.
+    definition_verbatim: true
+    location: Section 4.1, Table 2 ("Retrieved Attr.")
+  - term: Elo rating
+    level: metric
+    definition: "each model is one competitor, and the powerful GPT-4 serves as the referee to determine which model performs better"
+    definition_verbatim: true
+    location: Section 4.1 Metrics; Appendix (Details of Elo)
+    scale: Elo rating and rank from pairwise GPT-4 comparisons of free-text answers
+notes: "No rubric criteria for the GPT-4 referee were seen in the text read (no named quality axes); the pairwise judgement is overall which-is-better."

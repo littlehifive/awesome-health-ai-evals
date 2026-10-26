@@ -1,0 +1,38 @@
+entry: psyche-pacas
+sources: [https://arxiv.org/abs/2501.01594]
+extracted: 2026-10-26
+terms:
+  - term: PSYCHE SCORE
+    level: metric
+    definition: "derived from the sum of scores obtained through tailored rubrics, with applied weights"
+    definition_verbatim: true
+    location: Methods, PSYCHE SCORE
+    scale: weighted sum of element scores
+  - term: Impulsivity elements (MFC-Profile)
+    level: category
+    parent: PSYCHE SCORE
+    definition: "Elements from the MFC-Profile, such as suicidal ideation, planning, attempt history, self-mutilating behavior risk, and homicidal risk."
+    definition_verbatim: true
+    location: Methods, PSYCHE RUBRIC weighting, Table 7
+    scale: weight 5; binary or graded (closer incorrect answers score higher, underestimation penalised)
+  - term: Behavior elements (MFC-Behavior)
+    level: category
+    parent: PSYCHE SCORE
+    definition: "Elements from the MFC-Behavior, such as mood, affect, spontaneity, verbal productivity, social judgment, insight, reliability, thought process and thought content."
+    definition_verbatim: true
+    location: Methods, PSYCHE RUBRIC weighting, Table 7
+    scale: weight 2; binary, graded, or G-Eval for open-ended items
+  - term: Subjective elements (MFC-Profile)
+    level: category
+    parent: PSYCHE SCORE
+    definition: Lower-weight profile elements such as chief complaint, symptom names, alleviating and exacerbating factors, stressors, family history, marriage and relationship history.
+    definition_verbatim: false
+    location: Methods, PSYCHE RUBRIC weighting, Table 7
+    scale: weight 1; binary or G-Eval for open-ended items
+  - term: Correlation with expert score
+    level: metric
+    definition: Pearson correlation between PSYCHE SCORE and a psychiatrist's expert score of psychiatric assessment chatbots, used to validate the evaluation (r = 0.8486).
+    definition_verbatim: false
+    location: Results, Figure 4
+    scale: Pearson r
+notes: After an interview with the simulated patient (PSYCHE-SP), the assessment chatbot (PACA) is asked about elements of the multi-faceted construct; its answers (Construct-PACA) are compared with the true construct (Construct-SP) element by element using the PSYCHE RUBRIC (Table 7 lists each element, weight and scoring rule). Open-ended elements are scored by G-Eval (LLM judge). Convergent validity checked against PIQSCA. Individual rubric elements are not listed as separate terms.

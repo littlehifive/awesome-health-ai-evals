@@ -1,0 +1,54 @@
+entry: health-literacy-simplification-benchmark
+sources:
+- https://doi.org/10.20944/preprints202506.1683.v1
+extracted: '2026-10-26'
+terms:
+- term: Linguistic simplicity
+  level: dimension
+  definition: Human rating of how much the model output reduces linguistic complexity.
+  definition_verbatim: false
+  location: Abstract (full text not accessible)
+  scale: human rating; scale not stated
+- term: Medical accuracy
+  level: dimension
+  definition: Human rating of whether the simplification preserves core medical semantics and factual consistency.
+  definition_verbatim: false
+  location: Abstract (full text not accessible)
+  scale: human rating; scale not stated
+- term: Grammatical fluency
+  level: dimension
+  definition: Human rating of the grammatical fluency of the simplified text.
+  definition_verbatim: false
+  location: Abstract (full text not accessible)
+  scale: human rating; scale not stated
+- term: Reader comprehension
+  level: dimension
+  definition: Human rating of how well a reader can understand the simplified text.
+  definition_verbatim: false
+  location: Abstract (full text not accessible)
+  scale: human rating; scale not stated
+- term: Flesch-Kincaid Grade Level
+  level: metric
+  definition: Automatic readability formula giving a US school grade level for the output text.
+  definition_verbatim: false
+  location: Abstract (full text not accessible)
+  scale: grade level
+- term: SARI
+  level: metric
+  definition: Automatic simplification metric comparing the output to the source and the human simplification.
+  definition_verbatim: false
+  location: Abstract (full text not accessible)
+  scale: 0-100
+- term: BLEU
+  level: metric
+  definition: Automatic n-gram overlap metric between model output and the human-written simplification.
+  definition_verbatim: false
+  location: Abstract (full text not accessible)
+  scale: 0-1
+- term: BERTScore
+  level: metric
+  definition: Automatic embedding-based similarity between model output and the human-written simplification.
+  definition_verbatim: false
+  location: Abstract (full text not accessible)
+  scale: 0-1
+notes: Full text not reachable (preprints.org returned 403 to curl); terms come from the abstract via Europe PMC. Scales are standard for the metrics, not read from the paper. Human ratings were by public health communication experts and linguistic annotators; the abstract does not give a rating scale.

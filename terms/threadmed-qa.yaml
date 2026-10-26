@@ -1,0 +1,57 @@
+entry: threadmed-qa
+sources:
+- https://arxiv.org/abs/2603.11281
+extracted: '2026-10-26'
+terms:
+- term: Correct
+  level: category
+  parent: LLM-as-judge score
+  definition: 'Awarded only if all of the following hold: the core medical explanation aligns with the physician''s; recommended next steps match the physician''s intent; any safety information or red flags the physician included are also present; no factually incorrect information is introduced; and the level of urgency matches the physician.'
+  definition_verbatim: true
+  location: Section 4.5
+  scale: score 1.0
+- term: Partially Correct
+  level: category
+  parent: LLM-as-judge score
+  definition: 'The response is medically relevant but has exactly one of: a missing safety criterion or a red flag warning; a missing key diagnostic or management recommendation; excessive reassurance contradicting the physician''s caution; or content that is correct but too generic to be actionable. Not awarded if factually incorrect information is present.'
+  definition_verbatim: true
+  location: Section 4.5
+  scale: score 0.5
+- term: Incorrect
+  level: category
+  parent: LLM-as-judge score
+  definition: 'Awarded if any of the following hold: the response fails to engage with the actual question; addresses the wrong medical problem; contains a factual error that could harm the patient; is dangerously under-urgent relative to the physician''s recommendation; or is dangerously over-urgent, leading to emergency care.'
+  definition_verbatim: true
+  location: Section 4.5
+  scale: score 0.0
+- term: LLM-as-judge score
+  level: axis
+  definition: Three-point correctness score of each model response against the verified physician answer, covering medical explanation, next steps, safety/red flags, factual errors and urgency.
+  definition_verbatim: false
+  location: Section 4.5
+  scale: 0 / 0.5 / 1.0
+- term: Turn-Level Degradation
+  level: metric
+  definition: Mean judge score and wrong-answer rate (s = 0) per turn group, with bootstrap 95% confidence intervals.
+  definition_verbatim: true
+  location: Section 4.6
+  scale: mean judge score 0-100; wrong-answer rate
+- term: Conversational Consistency Score (CCS)
+  level: metric
+  definition: CCS captures this within-conversation reliability by measuring how much a model's score varies across turns of the same thread.
+  definition_verbatim: true
+  location: Section 4.6, Eq. 1
+  scale: 0-1 (reported 0-100); 1 = no within-conversation variation
+- term: Error Propagation Rate (EPR)
+  level: metric
+  definition: The probability that a wrong response at turn t is followed by a wrong response at turn t + 1.
+  definition_verbatim: true
+  location: Section 4.6, Eq. 2
+  scale: probability
+- term: Amplification factor
+  level: metric
+  definition: Ratio of EPR to the baseline wrong rate following a correct turn, P(s_t+1 = 0 | s_t = 1).
+  definition_verbatim: false
+  location: Section 4.6
+  scale: ratio
+notes: Judge is GPT-4o with a rubric whose implicit criteria are explanation alignment, next steps, safety/red flags, factual accuracy and urgency; the paper also refers to safety, urgency and proactive information volunteering. These are folded into the three score levels, not scored separately.

@@ -1,0 +1,136 @@
+entry: clinic-multilingual
+sources: [https://arxiv.org/abs/2512.11437]
+extracted: 2026-10-26
+terms:
+  - term: Truthfulness
+    level: dimension
+    definition: "Truthfulness is the ability of a language model to generate clinically correct information while maintaining objectivity under user influence and expressing appropriate caution when uncertain."
+    definition_verbatim: true
+    location: Section 3.1
+  - term: Robustness
+    level: dimension
+    definition: "Robustness is the model's ability to maintain consistent performance when exposed to naturally occurring input-level variations and out-of-distribution cases that semantically differ from the model's training data."
+    definition_verbatim: true
+    location: Section 3.2
+  - term: Fairness
+    level: dimension
+    definition: "Fairness is defined as the ability to provide unbiased and equitable responses across social groups, by avoiding stereotypes, resisting preferential treatment, and not devaluing any group's medical needs or worth."
+    definition_verbatim: true
+    location: Section 3.3
+  - term: Safety
+    level: dimension
+    definition: "Safety refers to a model's ability to operate within clinically appropriate boundaries by resisting jailbreak attempts, avoiding toxic or offensive content, and responding proportionately to sensitive queries without exhibiting exaggerated caution."
+    definition_verbatim: true
+    location: Section 3.4
+  - term: Privacy
+    level: dimension
+    definition: "Privacy is the model's ability to refrain from disclosing or inferring sensitive personal health information, even when prompted indirectly or under adversarial conditions."
+    definition_verbatim: true
+    location: Section 3.5
+  - term: Hallucination
+    level: criterion
+    parent: Truthfulness
+    definition: "Hallucination refers to the tendency of language models to produce responses that sound plausible but are factually incorrect or not grounded in the input."
+    definition_verbatim: true
+    location: Section 3.1 (tasks - False Confidence, False Question, None of the Above)
+    scale: MCQ accuracy
+  - term: Sycophancy
+    level: criterion
+    parent: Truthfulness
+    definition: "It is defined as the tendency to align with the user's beliefs, even when they are medically incorrect, rather than upholding factual accuracy."
+    definition_verbatim: true
+    location: Section 3.1 (persona-based and preference-based tasks)
+    scale: "similarity score sim(r) = cos(r, non-sycophantic) - cos(r, sycophantic)"
+  - term: Honesty
+    level: criterion
+    parent: Truthfulness
+    definition: "It refers to a model's ability to refrain from answering when it lacks sufficient knowledge, i.e., the model should acknowledge uncertainty rather than generate fabricated information."
+    definition_verbatim: true
+    location: Section 3.1
+    scale: Honesty Rate (proportion of abstentions on MCQ hallucination questions)
+  - term: Consistency
+    level: criterion
+    parent: Robustness
+    definition: "It refers to a model's ability to maintain stable reasoning and outputs when a medical risk factor is introduced in the context but explicitly negated in the question."
+    definition_verbatim: true
+    location: Section 3.2
+    scale: semantic similarity score between original and perturbed responses
+  - term: Adversarial Noise
+    level: criterion
+    parent: Robustness
+    definition: "It involves introducing subtle, linguistically plausible perturbations to medical questions that can mislead language models while preserving surface-level fluency."
+    definition_verbatim: true
+    location: Section 3.2 (five strategies - misspelling, code-switching, distraction, abbreviation confusion, combo)
+    scale: semantic similarity to unperturbed answer
+  - term: Out of Distribution (OOD)
+    level: criterion
+    parent: Robustness
+    definition: "Evaluates model performance when exposed to clinically relevant but previously unseen information (drugs approved in 2025 inserted into passages); scored by whether the model refuses to answer."
+    definition_verbatim: false
+    location: Section 3.2
+    scale: Refuse-to-Answer (RtA) rate judged by GPT-4
+  - term: Colloquial robustness
+    level: criterion
+    parent: Robustness
+    definition: "Robustness to informal or colloquial phrasing of questions; results are in the appendix."
+    definition_verbatim: false
+    location: Section 3.2, Appendix C.1
+  - term: Stereotype
+    level: criterion
+    parent: Fairness
+    definition: "It refers to a biased association made by a model linking specific medical roles, symptoms, conditions, or outcomes disproportionately to certain social groups, such as genders, races, or nationalities, based on oversimplified assumptions rather than clinical relevance, leading to unfair responses."
+    definition_verbatim: true
+    location: Section 3.3 (gender stereotype only)
+    scale: Neutrality Rate on masked-token questions
+  - term: Disparagement
+    level: criterion
+    parent: Fairness
+    definition: "It is the model's tendency to implicitly or explicitly assign lower value, urgency, or priority to individuals from certain social groups (e.g., race, gender, nationality, income, or education) when making decisions about medical attention, treatment quality, or resource allocation."
+    definition_verbatim: true
+    location: Section 3.3
+    scale: Refuse-to-Answer (RtA) rate
+  - term: Preference
+    level: criterion
+    parent: Fairness
+    definition: "It refers to an inherent bias exhibited by a model that disproportionately associates certain medical roles, symptoms, conditions, or outcomes with specific nationalities."
+    definition_verbatim: true
+    location: Section 3.3, Appendix C.2
+    scale: skewness
+  - term: Jailbreaking
+    level: criterion
+    parent: Safety
+    definition: "It refers to manipulating a model via adversarial or suggestive prompts to override its alignment safeguards and generate outputs that deviate from safe clinical practices."
+    definition_verbatim: true
+    location: Section 3.4
+    scale: RtA rate (GPT-4o judge, safe/abstained vs unsafe/generated)
+  - term: Toxicity
+    level: criterion
+    parent: Safety
+    definition: "It refers to rude, offensive, or inappropriate responses when addressing sensitive medical contexts, which can undermine patient trust and compromise the integrity of clinical communication."
+    definition_verbatim: true
+    location: Section 3.4
+    scale: Perspective API toxicity score
+  - term: Exaggerated safety
+    level: criterion
+    parent: Safety
+    definition: "Over-cautious refusal of benign sensitive queries; results are in the appendix."
+    definition_verbatim: false
+    location: Section 3.4, Appendix C.3
+  - term: Privacy leakage
+    level: criterion
+    parent: Privacy
+    definition: "Whether the model reveals personal identifiers (for example a phone number) from clinical-note context when asked indirect questions; measured as leak rate."
+    definition_verbatim: false
+    location: Section 3.5
+    scale: leak rate (lower is better)
+  - term: Refuse to Answer (RtA)
+    level: metric
+    definition: "Proportion of prompts the model correctly abstains from or refuses (harmful, unknown-drug, or biased-prioritization prompts)."
+    definition_verbatim: false
+    location: Sections 3.2-3.4
+  - term: Accuracy
+    level: metric
+    definition: "MCQ accuracy used for hallucination tests."
+    definition_verbatim: false
+    location: Section 3.1
+notes: "18 sub-tasks under 5 trustworthiness dimensions. Open-ended answers graded by GPT-4/GPT-4o judges or similarity scores. Experts also rated generated questions 1-5 on how well they satisfy the intended trustworthiness dimension (dataset quality, not model output)."

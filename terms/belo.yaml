@@ -1,0 +1,76 @@
+entry: belo
+sources: [https://arxiv.org/abs/2507.15717, https://doi.org/10.1016/j.xops.2025.101050]
+extracted: 2026-10-26
+terms:
+  - term: Accuracy
+    level: metric
+    definition: "Model accuracy on the 900 multiple-choice questions."
+    definition_verbatim: false
+    location: Methods, quantitative evaluation; Table 2
+    scale: proportion correct
+  - term: Macro-F1
+    level: metric
+    definition: "the unweighted harmonic mean of recall and precision, computed only on four-option questions (BCSC, MedMCQA, MedQA)"
+    definition_verbatim: true
+    location: Methods, quantitative evaluation; Table 2
+    scale: 0-1
+  - term: ROUGE-L
+    level: metric
+    parent: Model reasoning (text-generation metrics)
+    definition: "Recall-Oriented Understudy for Gisting Evaluation; compares model explanation with expert-refined reference reasoning."
+    definition_verbatim: false
+    location: Methods; Figure 4A
+    scale: 0-1
+  - term: BERTScore
+    level: metric
+    parent: Model reasoning (text-generation metrics)
+    definition: "Embedding-based similarity of model explanation to the reference explanation."
+    definition_verbatim: false
+    location: Methods; Figure 4C
+    scale: 0-1
+  - term: BARTScore
+    level: metric
+    parent: Model reasoning (text-generation metrics)
+    definition: "Likelihood-based score of the model explanation against the reference reasoning."
+    definition_verbatim: false
+    location: Methods; Figure 4D
+    scale: log-likelihood
+  - term: AlignScore
+    level: metric
+    parent: Model reasoning (text-generation metrics)
+    definition: "Factual-consistency alignment score between the model explanation and the reference reasoning."
+    definition_verbatim: false
+    location: Methods; Figure 4E
+    scale: 0-1
+  - term: METEOR
+    level: metric
+    parent: Model reasoning (text-generation metrics)
+    definition: "Metric for Evaluation of Translation with Explicit Ordering, applied to model explanations against reference reasoning."
+    definition_verbatim: false
+    location: Methods; Figure 4B
+    scale: 0-1
+  - term: Aggregate reasoning performance score
+    level: metric
+    definition: "Average of the five text-generation metrics after rescaling each to [0, 1] across models, with equal weights."
+    definition_verbatim: false
+    location: Methods
+    scale: 0-1 normalized
+  - term: Accuracy (expert rating of reasoning)
+    level: criterion
+    definition: "Ophthalmologists' rating of reasoning accuracy of a model response; rubric in Supplementary Table 2 (not read)."
+    definition_verbatim: false
+    location: Methods (human evaluation); Supplementary Table 5
+    scale: 5-point Likert
+  - term: Completeness
+    level: criterion
+    definition: "Ophthalmologists' rating of completeness of a model response; rubric in Supplementary Table 2 (not read)."
+    definition_verbatim: false
+    location: Methods (human evaluation); Supplementary Table 5
+    scale: 5-point Likert
+  - term: Readability
+    level: criterion
+    definition: "Ophthalmologists' rating of readability of a model response; rubric in Supplementary Table 2 (not read)."
+    definition_verbatim: false
+    location: Methods (human evaluation); Supplementary Table 5
+    scale: 5-point Likert
+notes: Expert rubric text is in a supplement not available. Dataset-quality grade (0-3 for explanation quality of the reference items) is an item-curation grade, not a model score, so not listed. Abstract names the human criteria as accuracy, comprehensiveness, completeness.

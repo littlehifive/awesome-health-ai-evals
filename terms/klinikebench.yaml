@@ -1,0 +1,39 @@
+entry: klinikebench
+sources: [https://arxiv.org/abs/2609.38480, https://zehui127.github.io/klinikebench/]
+extracted: 2026-10-26
+terms:
+  - term: Strict pass@1
+    level: metric
+    definition: "Share of tasks on which the agent passes all four gates (diagnosis, required tools, parameterised actions, must-ask coverage) in a single attempt."
+    definition_verbatim: false
+    location: Project page results table; entry notes
+    scale: "binary per task, reported in %"
+  - term: Diagnosis
+    level: criterion
+    parent: Strict pass@1
+    definition: "Whether the agent's final diagnosis matches the hidden success criterion, checked by a verifier."
+    definition_verbatim: false
+    location: Project page gates
+    scale: binary per task
+  - term: Required tools
+    level: criterion
+    parent: Strict pass@1
+    definition: "Whether the agent called the clinical tools (of 140) that the task requires, checked by a verifier."
+    definition_verbatim: false
+    location: Project page gates
+    scale: binary per task
+  - term: Parameterised actions
+    level: criterion
+    parent: Strict pass@1
+    definition: "Whether required actions were taken with correct parameters, i.e. the task's action constraints, checked by a verifier."
+    definition_verbatim: false
+    location: Project page gates
+    scale: binary per task
+  - term: Must-ask coverage
+    level: criterion
+    parent: Strict pass@1
+    definition: "Whether the agent elicited the history topics that the clinicians marked as must-ask, judged by an LLM (GPT-5.4-mini)."
+    definition_verbatim: false
+    location: Project page gates
+    scale: "fraction or binary of must-ask topics covered, in %"
+notes: "arXiv full text was not in paperclip; terms come from the arXiv abstract page and the project page (zehui127.github.io/klinikebench), which show the four gates but not their exact definitions, so all definitions are paraphrases. Thirty clinicians also rated dialogue quality for validation."

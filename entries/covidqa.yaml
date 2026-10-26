@@ -1,0 +1,43 @@
+id: covidqa
+name: CovidQA
+kind: benchmark
+year: 2020
+summary: 124 hand-built COVID-19 question-article pairs with annotated answer spans, derived from Kaggle's CORD-19 literature-review answer tables, intended for zero-shot or transfer evaluation of QA and retrieval models.
+readme_section: knowledge_exam
+links:
+  paper: https://arxiv.org/abs/2004.11339
+  arxiv: "2004.11339"
+  doi: 10.48550/arxiv.2004.11339
+  code: https://github.com/castorini/pygaggle
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Questions are derived from Kaggle community literature-review answer tables over CORD-19 papers; no country origin.
+  rater_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [CAN]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature, adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [infectious_other]
+  intended_users: [unspecified]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 124 question-article pairs (version 0.1)
+signals:
+  citations: 54
+  citations_source: OpenAlex
+  hf_downloads: null
+  github_stars: 355
+  uptake: []
+  updated: '2026-10-26'
+provenance:
+  records: [r_df398f46aa]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "University of Waterloo (Tang et al.; lead institution country from the known group, not read from the affiliation block). Described by the authors as a stopgap too small for supervised training. The data files (kaggle-lit-review-0.1.json and 0.2.json) are in the castorini/pygaggle repo; no license was checked. Dedup grouped record r_c7547b6583 (COVID-QA by deepset, a different dataset) into this candidate; it is a separate entry, covid-qa-deepset."

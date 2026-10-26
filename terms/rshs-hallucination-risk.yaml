@@ -1,0 +1,60 @@
+entry: rshs-hallucination-risk
+sources:
+- http://arxiv.org/abs/2602.07319
+extracted: '2026-10-26'
+terms:
+- term: Risk-Sensitive Hallucination Score (RSHS)
+  level: metric
+  definition: a continuous score that aggregates the presence and severity of safety-critical medical language in a model-generated response, with pattern-specific ordinal weights, normalized by log response length
+  definition_verbatim: true
+  location: Section 2.3, Eq. 1
+  scale: continuous, higher means more risk-bearing language
+- term: Treatment directives
+  level: category
+  parent: Risk-Sensitive Hallucination Score (RSHS)
+  definition: instructions to start, stop, increase, or adjust medications or therapies.
+  definition_verbatim: true
+  location: Section 2.2
+  scale: weighted pattern matches
+- term: Contraindications and prohibitions
+  level: category
+  parent: Risk-Sensitive Hallucination Score (RSHS)
+  definition: statements asserting that an action or medication should not be taken.
+  definition_verbatim: true
+  location: Section 2.2
+  scale: weighted pattern matches
+- term: Urgency and triage cues
+  level: category
+  parent: Risk-Sensitive Hallucination Score (RSHS)
+  definition: recommendations to seek emergency care, urgent evaluation, or, conversely, to avoid medical care.
+  definition_verbatim: true
+  location: Section 2.2
+  scale: weighted pattern matches
+- term: Dosage expressions
+  level: category
+  parent: Risk-Sensitive Hallucination Score (RSHS)
+  definition: explicit quantities, schedules, or dose adjustments.
+  definition_verbatim: true
+  location: Section 2.2
+  scale: weighted pattern matches
+- term: High-alert medications
+  level: category
+  parent: Risk-Sensitive Hallucination Score (RSHS)
+  definition: mentions of medications associated with elevated risk, such as anticoagulants or insulin.
+  definition_verbatim: true
+  location: Section 2.2
+  scale: weighted pattern matches
+- term: QASim
+  level: metric
+  definition: a query-response relevance score, computed as the cosine similarity between sentence embeddings of the patient query and the model response
+  definition_verbatim: true
+  location: Section 2.4
+  scale: cosine similarity
+- term: Overconfident assertions
+  level: category
+  parent: Risk-Sensitive Hallucination Score (RSHS)
+  definition: language that indicates certainty in the absence of supporting context.
+  definition_verbatim: true
+  location: Section 2.2 (listed; not among the Appendix B weighted patterns seen)
+  scale: weighted pattern matches
+notes: Weights per pattern are ordinal and explicitly not calibrated clinical risk. The joint risk x relevance analysis flags high-risk, low-relevance responses. The paper does not assess clinical correctness.

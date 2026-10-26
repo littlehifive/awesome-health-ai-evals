@@ -1,0 +1,79 @@
+entry: indonutriqa
+sources:
+- https://arxiv.org/abs/2610.31256
+- https://github.com/NLP-UB/IndoNutriQA
+extracted: '2026-10-26'
+terms:
+- term: Exact Match (EM)
+  level: metric
+  definition: Lexical-overlap metric between predicted and reference answers (SQuAD-style normalisation).
+  definition_verbatim: false
+  location: Section 6.4-6.5
+  scale: percent
+- term: F1
+  level: metric
+  definition: Token-level lexical-overlap F1 between predicted and reference answers.
+  definition_verbatim: false
+  location: Section 6.4-6.5
+  scale: percent
+- term: BLEU
+  level: metric
+  definition: Lexical n-gram overlap metric.
+  definition_verbatim: false
+  location: Section 6.5
+- term: ROUGE
+  level: metric
+  definition: Lexical overlap metric.
+  definition_verbatim: false
+  location: Section 6.5
+- term: BERTScore F1
+  level: metric
+  definition: Semantic similarity using an XLM-R backbone.
+  definition_verbatim: false
+  location: Section 6.5
+  scale: F1
+- term: Embedding cosine
+  level: metric
+  definition: Multilingual sentence-embedding cosine similarity between prediction and reference.
+  definition_verbatim: false
+  location: Section 6.5
+  scale: cosine
+- term: Factuality
+  level: criterion
+  parent: LLM-as-judge rubric
+  definition: LLM-as-judge clinical-rubric dimension (GPT-4o-mini, second judge Claude Haiku 4.5) also re-scored by three expert raters.
+  definition_verbatim: false
+  location: Section 6.5; Appendix E
+  scale: 1-5
+- term: Completeness
+  level: criterion
+  parent: LLM-as-judge rubric
+  definition: LLM-as-judge clinical-rubric dimension, also re-scored by experts.
+  definition_verbatim: false
+  location: Section 6.5; Appendix E
+  scale: 1-5
+- term: Safety
+  level: criterion
+  parent: LLM-as-judge rubric
+  definition: LLM-as-judge clinical-rubric dimension; judge-vs-rater agreement is very low so the paper treats it as unvalidated.
+  definition_verbatim: false
+  location: Section 6.5; Appendix E
+  scale: 1-5
+- term: LLM-as-judge rubric
+  level: other
+  definition: Clinical-rubric signal from a GPT-4o-mini judge on a 1-5 scale covering factuality, completeness, safety.
+  definition_verbatim: true
+  location: Section 6.5
+  scale: 1-5
+- term: Context precision / recall / faithfulness / answer relevancy (RAGAS)
+  level: metric
+  definition: Four RAGAS diagnostic metrics computed for the RAG baseline only (context precision, context recall, faithfulness, and answer relevancy).
+  definition_verbatim: false
+  location: Section 6.6; Appendix D
+  scale: 0-100
+- term: Judge error taxonomy
+  level: category
+  definition: LLM-judge error labels for answers (correct, partial answer, noise, hallucination, and others) plus human-coded categories including violation of the NCP/PES structure and unsupported added content.
+  definition_verbatim: false
+  location: Section 6.7-6.8; Tables 14, 17
+notes: Full label set of the judge error taxonomy not read; named ones listed. Appendix E holds the metric details. Question types (eight Nutrition Care Process types) are item types, not scoring terms. Read via arXiv HTML; the paper is not in paperclip. Definitions are paraphrases except the quoted rubric description.

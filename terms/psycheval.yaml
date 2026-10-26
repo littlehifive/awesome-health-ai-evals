@@ -1,0 +1,155 @@
+entry: psycheval
+sources: [https://arxiv.org/abs/2601.01802, https://github.com/ECNU-ICALK/PsychEval]
+extracted: 2026-10-26
+terms:
+  - term: Counselor-Level evaluation
+    level: axis
+    definition: "assesses clinical proficiency, focusing on the delivery of theoretically grounded and ethically sound interventions"
+    definition_verbatim: true
+    location: Section 5.1
+  - term: Client-Level evaluation
+    level: axis
+    definition: "focuses on simulation fidelity, assessing whether simulated clients maintain clinical consistency and authentic psychological shifts"
+    definition_verbatim: true
+    location: Section 5.2
+  - term: "Working Alliance Inventory (WAI)"
+    level: metric
+    parent: Counselor-Level evaluation
+    definition: "Measures the counselor's ability to establish a therapeutic alliance across three dimensions: agreement on Goals, collaboration on Tasks, and the formation of an emotional Bond."
+    definition_verbatim: false
+    location: Appendix B.1
+    scale: "LLM-supervisor scoring of transcripts (therapy-shared)"
+  - term: "Helping Transaction Audit Inventory Scale (HTAIS)"
+    level: metric
+    parent: Counselor-Level evaluation
+    definition: "Supervisory audit of the counselor's facilitative behaviors and the procedural integrity of the helping transaction."
+    definition_verbatim: false
+    location: Appendix B.1
+    scale: "LLM-supervisor scoring of transcripts (therapy-shared)"
+  - term: "Real Relationship-Observer (RRO)"
+    level: metric
+    parent: Counselor-Level evaluation
+    definition: "Observer rating of relational genuineness and realism of the counselor-client relationship (also used client-side for counselor authenticity)."
+    definition_verbatim: false
+    location: Section 5.1; Appendix B.1
+    scale: "LLM-supervisor scoring of transcripts (therapy-shared)"
+  - term: "Clinical perception"
+    level: metric
+    parent: Counselor-Level evaluation
+    definition: "Custom domain of the proposed evaluation framework, scored by prompted LLM supervisor."
+    definition_verbatim: false
+    location: Section 5.1; Appendix Figs. 39-41
+    scale: "LLM-supervisor scoring of transcripts (therapy-shared)"
+  - term: "Longitudinal strategy"
+    level: metric
+    parent: Counselor-Level evaluation
+    definition: "Custom domain examining coherence of strategy across sessions."
+    definition_verbatim: false
+    location: Section 5.1; Appendix Figs. 39-41
+    scale: "LLM-supervisor scoring of transcripts (therapy-shared)"
+  - term: "Therapeutic depth"
+    level: metric
+    parent: Counselor-Level evaluation
+    definition: "Custom domain examining depth of therapeutic work."
+    definition_verbatim: false
+    location: Section 5.1; Appendix Figs. 39-41
+    scale: "LLM-supervisor scoring of transcripts (therapy-shared)"
+  - term: "Ethical safety adherence"
+    level: metric
+    parent: Counselor-Level evaluation
+    definition: "Custom domain examining adherence to ethical and safety requirements."
+    definition_verbatim: false
+    location: Section 5.1; Appendix Figs. 39-41
+    scale: "LLM-supervisor scoring of transcripts (therapy-shared)"
+  - term: "Cognitive Therapy Rating Scale (CTRS)"
+    level: metric
+    parent: Counselor-Level evaluation
+    definition: "CBT competence: agenda setting, Socratic questioning for guided discovery, identification of automatic thoughts, behavioral homework."
+    definition_verbatim: false
+    location: Appendix B.1
+    scale: "LLM-supervisor scoring of transcripts (therapy-specific)"
+  - term: "Psychodynamic Supervision Checklist (PSC)"
+    level: metric
+    parent: Counselor-Level evaluation
+    definition: "Psychodynamic interventions: insight into unconscious conflicts and defense mechanisms, handling of transference and counter-transference."
+    definition_verbatim: false
+    location: Appendix B.1
+    scale: "LLM-supervisor scoring of transcripts (therapy-specific)"
+  - term: "Therapist Empathy Scale (TES)"
+    level: metric
+    parent: Counselor-Level evaluation
+    definition: "Empathic resonance in humanistic and behavioral approaches."
+    definition_verbatim: false
+    location: Section 5.1
+    scale: "LLM-supervisor scoring of transcripts (therapy-specific)"
+  - term: "Therapeutic Focus Scale (EFT-TFS)"
+    level: metric
+    parent: Counselor-Level evaluation
+    definition: "Affective processing in humanistic and behavioral approaches."
+    definition_verbatim: false
+    location: Section 5.1
+    scale: "LLM-supervisor scoring of transcripts (therapy-specific)"
+  - term: "Motivational Interviewing Treatment Integrity (MITI)"
+    level: metric
+    parent: Counselor-Level evaluation
+    definition: "Evocation of change discourse in postmodern therapies."
+    definition_verbatim: false
+    location: Section 5.1
+    scale: "LLM-supervisor scoring of transcripts (therapy-specific)"
+  - term: "Symptom Checklist-90 (SCL-90)"
+    level: metric
+    parent: Client-Level evaluation
+    definition: "Psychopathological profiling across nine symptom dimensions, checking consistency of the simulated phenotype; lower is better."
+    definition_verbatim: false
+    location: Appendix B.2
+    scale: "LLM-supervisor scoring of transcripts (therapy-shared)"
+  - term: "Positive and Negative Affect Schedule (PANAS)"
+    level: metric
+    parent: Client-Level evaluation
+    definition: "Positive Affect and Negative Affect, tracking acute affective transitions within and between sessions."
+    definition_verbatim: false
+    location: Appendix B.2
+    scale: "LLM-supervisor scoring of transcripts (therapy-shared)"
+  - term: "Session Rating Scale (SRS)"
+    level: metric
+    parent: Client-Level evaluation
+    definition: "Monitors the working alliance and potential relationship ruptures."
+    definition_verbatim: false
+    location: Section 5.2
+    scale: "LLM-supervisor scoring of transcripts (therapy-shared)"
+  - term: "Beck Depression Inventory-II (BDI-II)"
+    level: metric
+    parent: Client-Level evaluation
+    definition: "Cognitive symptoms of depression such as hopelessness and self-criticism, for CBT; lower is better."
+    definition_verbatim: false
+    location: Appendix B.2
+    scale: "LLM-supervisor scoring of transcripts (therapy-specific)"
+  - term: "Inventory of Personality Organization (IPO)"
+    level: metric
+    parent: Client-Level evaluation
+    definition: "Identity consolidation, defense mechanisms and reality testing, for psychodynamic therapy; lower is better."
+    definition_verbatim: false
+    location: Appendix B.2
+    scale: "LLM-supervisor scoring of transcripts (therapy-specific)"
+  - term: "Client-Centered Therapy Criteria (CCT)"
+    level: metric
+    parent: Client-Level evaluation
+    definition: "Self-acceptance and congruence, for humanistic therapy."
+    definition_verbatim: false
+    location: Appendix B.2
+    scale: "LLM-supervisor scoring of transcripts (therapy-specific)"
+  - term: "State-Trait Anxiety Inventory (STAI)"
+    level: metric
+    parent: Client-Level evaluation
+    definition: "Distinguishes state (situational) from trait (enduring) anxiety, for behavioral therapy."
+    definition_verbatim: false
+    location: Appendix B.2
+    scale: "LLM-supervisor scoring of transcripts (therapy-specific)"
+  - term: "FBT"
+    level: metric
+    parent: Client-Level evaluation
+    definition: "Fifth modality-specific client instrument named in Tables 6-7 (column FBT); not expanded in the text read."
+    definition_verbatim: false
+    location: Tables 6-7
+    scale: "LLM-supervisor scoring of transcripts (therapy-specific)"
+notes: "18 LLM-judged metrics are the named instruments above, applied by an LLM supervisor to session transcripts (the exact 18 count could not be reconciled with the list; the four custom counselor domains may be counted separately). Scale ranges are not stated in the text read; table values look like 0-10 style averages. Dataset also annotates 677 meta skills and 4,577 atomic skills as turn-level labels, not scored."

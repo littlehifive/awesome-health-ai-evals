@@ -1,0 +1,35 @@
+entry: samiksha
+sources: [https://arxiv.org/abs/2509.24506, https://doi.org/10.1145/3772318.3791172]
+extracted: 2026-10-26
+terms:
+  - term: Clarity & Fluency
+    level: dimension
+    definition: "Is the language clear, grammatically correct, and easy to understand?"
+    definition_verbatim: true
+    location: "Section 4.2, standalone rating"
+    scale: "Yes / Somewhat / No"
+  - term: Helpfulness & Relevance
+    level: dimension
+    definition: "Does the answer directly address the question and provide useful information?"
+    definition_verbatim: true
+    location: "Section 4.2, standalone rating"
+    scale: "Yes / Somewhat / No"
+  - term: Accuracy (General Perception)
+    level: dimension
+    definition: "Based on general knowledge, does the information seem trustworthy and factually correct?"
+    definition_verbatim: true
+    location: "Section 4.2, standalone rating"
+    scale: "Yes / Somewhat / No"
+  - term: Completeness & Conciseness
+    level: dimension
+    definition: "Does the answer provide sufficient detail without being overly verbose or repetitive?"
+    definition_verbatim: true
+    location: "Section 4.2, standalone rating"
+    scale: "Yes / Somewhat / No"
+  - term: Comparative (pairwise) preference
+    level: other
+    definition: "Annotators pick which of two model responses is better (Option A / Option B / Not sure), aggregated into win rates."
+    definition_verbatim: false
+    location: "Section 4.2, comparative evaluation"
+    scale: pairwise choice
+notes: "Rubrics derived from interviews with civil-society organizations. The same four dimensions are rated by human annotators and LLM judges (GPT-4o, Sarvam-M)."

@@ -1,0 +1,95 @@
+entry: esl-bench
+sources:
+- https://arxiv.org/abs/2604.02834
+extracted: '2026-10-26'
+terms:
+- term: Lookup
+  level: dimension
+  definition: Direct data retrieval over profile attributes, device values on a given date, exam results, and event properties.
+  definition_verbatim: true
+  location: Section 3.3 (five dimensions); Section 3.4 (scoring protocol)
+  scale: per-query score = binary programmatic gate x mean rubric score normalized to [0,1]; accuracy reported per dimension
+- term: Trend
+  level: dimension
+  definition: Temporal pattern analysis including monthly aggregation, rate of change, consecutive streaks, volatility, and regime detection.
+  definition_verbatim: true
+  location: Section 3.3 (five dimensions); Section 3.4 (scoring protocol)
+  scale: per-query score = binary programmatic gate x mean rubric score normalized to [0,1]; accuracy reported per dimension
+- term: Comparison
+  level: dimension
+  definition: Cross-event or cross-source comparisons such as pre-event vs. post-event indicator deltas, shared indicator overlap between events, and relative severity ranking.
+  definition_verbatim: true
+  location: Section 3.3 (five dimensions); Section 3.4 (scoring protocol)
+  scale: per-query score = binary programmatic gate x mean rubric score normalized to [0,1]; accuracy reported per dimension
+- term: Anomaly
+  level: dimension
+  definition: Abnormality detection including threshold exceedance, abnormal streaks, co-occurring abnormal indicators, and cross-exam deterioration tracking.
+  definition_verbatim: true
+  location: Section 3.3 (five dimensions); Section 3.4 (scoring protocol)
+  scale: per-query score = binary programmatic gate x mean rubric score normalized to [0,1]; accuracy reported per dimension
+- term: Explanation
+  level: dimension
+  definition: 'Causal attribution and evidence organization: event contribution ranking, counterfactual estimation, dominant event identification, and multi-event net attribution.'
+  definition_verbatim: true
+  location: Section 3.3 (five dimensions); Section 3.4 (scoring protocol)
+  scale: per-query score = binary programmatic gate x mean rubric score normalized to [0,1]; accuracy reported per dimension
+- term: Programmatic correctness (Stage 1)
+  level: metric
+  definition: Each response is parsed into a canonical JSON schema and compared against ground truth, with tolerance matching for numerics and exact set match for sets; failing any check scores zero.
+  definition_verbatim: false
+  location: Section 3.4, Stage 1
+  scale: binary gate (tolerance eps_abs=0.01, eps_rel=0.01)
+- term: Rubric quality score (Stage 2)
+  level: metric
+  definition: GPT-4.1 judge assigns a 0-2 quality score whose aspects vary by dimension.
+  definition_verbatim: false
+  location: Section 3.4, Stage 2
+  scale: 0-2
+- term: Value correctness
+  level: criterion
+  parent: Rubric quality score (Stage 2)
+  definition: 'Rubric aspect for Lookup and Anomaly queries: whether the stated value is correct.'
+  definition_verbatim: false
+  location: Section 3.4, Stage 2
+  scale: 0-2
+- term: Format compliance
+  level: criterion
+  parent: Rubric quality score (Stage 2)
+  definition: 'Rubric aspect for Lookup and Anomaly queries: whether the answer follows the required format.'
+  definition_verbatim: false
+  location: Section 3.4, Stage 2
+  scale: 0-2
+- term: Statistical reasoning and comparison logic
+  level: criterion
+  parent: Rubric quality score (Stage 2)
+  definition: Additional rubric aspects for Trend and Comparison queries.
+  definition_verbatim: false
+  location: Section 3.4, Stage 2
+  scale: 0-2
+- term: Baseline clarity
+  level: criterion
+  parent: Rubric quality score (Stage 2)
+  definition: Additional rubric aspect for Explanation queries.
+  definition_verbatim: false
+  location: Section 3.4, Stage 2
+  scale: 0-2
+- term: Evidence ordering rationale
+  level: criterion
+  parent: Rubric quality score (Stage 2)
+  definition: Additional rubric aspect for Explanation queries.
+  definition_verbatim: false
+  location: Section 3.4, Stage 2
+  scale: 0-2
+- term: Non-causal language
+  level: criterion
+  parent: Rubric quality score (Stage 2)
+  definition: 'Additional rubric aspect for Explanation queries: whether the answer avoids unwarranted causal wording.'
+  definition_verbatim: false
+  location: Section 3.4, Stage 2
+  scale: 0-2
+- term: Difficulty tier (Easy / Medium / Hard)
+  level: other
+  definition: Each query is stratified by difficulty; accuracy is reported per tier. A query attribute rather than an output criterion.
+  definition_verbatim: false
+  location: Section 3.3, Table 11
+notes: Rubric definitions and the judge prompt are in the paper Section A and the codebase (not opened); rubric aspects are listed as the body text names them, without definitions. Headline metric is accuracy per dimension and overall.

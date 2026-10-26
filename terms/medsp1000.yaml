@@ -1,0 +1,49 @@
+entry: medsp1000
+sources:
+- https://arxiv.org/abs/2606.05112
+- https://github.com/MAGIC-AI4Med/MedSP1000
+extracted: '2026-10-26'
+terms:
+- term: Patient care
+  level: dimension
+  definition: ACGME core competency; rubric items are mapped to it.
+  definition_verbatim: false
+  location: Introduction; Fig. 1; Fig. 2b
+  scale: rubric items completed (percentage)
+- term: Medical knowledge
+  level: dimension
+  definition: ACGME core competency; rubric items are mapped to it.
+  definition_verbatim: false
+  location: Introduction; Fig. 2b
+  scale: rubric items completed (percentage)
+- term: Practice-based learning and improvement
+  level: dimension
+  definition: ACGME competency associated with self-reflection, error recognition, and iterative improvement.
+  definition_verbatim: false
+  location: Introduction; Fig. 2b
+  scale: rubric items completed (percentage)
+- term: Systems-based practice
+  level: dimension
+  definition: ACGME core competency; rubric items are mapped to it.
+  definition_verbatim: false
+  location: Introduction; Fig. 2b
+  scale: rubric items completed (percentage)
+- term: Professionalism
+  level: dimension
+  definition: ACGME core competency; rubric items are mapped to it.
+  definition_verbatim: false
+  location: Introduction; Fig. 2b
+  scale: rubric items completed (percentage)
+- term: Interpersonal and communication skills
+  level: dimension
+  definition: ACGME core competency; rubric items are mapped to it.
+  definition_verbatim: false
+  location: Introduction; Fig. 2b
+  scale: rubric items completed (percentage)
+- term: Rubric completion rate
+  level: metric
+  definition: Share of expert-defined trajectory-level rubric items the clinician agent completes; reported overall and macro-averaged across competencies.
+  definition_verbatim: false
+  location: Abstract; Introduction
+  scale: percentage of items
+notes: About 24,602 case-specific trajectory-level rubric items, each mapped to one of six ACGME competencies, are described here, not listed. Competency definitions beyond the one given are not quoted in the passages read. The LLM evaluator scores the trajectory against the rubric.

@@ -1,0 +1,38 @@
+entry: medcounterfact
+sources: [https://arxiv.org/abs/2601.11886, https://doi.org/10.18653/v1/2026.findings-acl.1847]
+extracted: 2026-10-26
+terms:
+  - term: Uncertain rate
+    level: metric
+    definition: "The percentage of cases Uncertain was chosen by the model."
+    definition_verbatim: true
+    location: Section 4, Metrics
+    scale: percent
+  - term: Evidence Adherence rate (EA rate)
+    level: metric
+    definition: "The fraction of responses that match the original ground-truth answer label in MedEvidence."
+    definition_verbatim: true
+    location: Section 4, Metrics
+    scale: fraction; higher is not necessarily better
+  - term: Implausibility awareness (Explicit Yes)
+    level: category
+    parent: Implausibility awareness
+    definition: "Explicit Yes denotes explicit recognition of T' and its implausibility."
+    definition_verbatim: true
+    location: Section 5, Metric; Table 1
+    scale: 3-level classification by Claude Sonnet 4.5
+  - term: Implausibility awareness (Implicit Yes)
+    level: category
+    parent: Implausibility awareness
+    definition: "Implicit Yes refers to cases where the model implicitly senses an issue but rationalizes or reinterprets T' as a plausible treatment."
+    definition_verbatim: true
+    location: Section 5, Metric; Table 1
+    scale: 3-level classification
+  - term: Implausibility awareness (No)
+    level: category
+    parent: Implausibility awareness
+    definition: "No describes outputs that show no recognition that T' is counterfactual or adversarial."
+    definition_verbatim: true
+    location: Section 5, Metric; Table 1
+    scale: 3-level classification
+notes: "Answer labels are Higher, Lower, No Difference, Uncertain. The Delta Uncertain rate (difference between original and counterfactual) and label-certainty (log-probability of labels) are analyses built on these. A safety-behaviour judge classification mentioned in the entry notes was not seen beyond the awareness classifier (human check 90% accuracy on 70 samples)."

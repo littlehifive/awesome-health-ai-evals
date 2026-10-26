@@ -1,0 +1,43 @@
+id: biomixqa
+name: BiomixQA
+kind: benchmark
+year: 2024
+summary: A biomedical question set of 306 five-option multiple-choice and 311 true/false questions on diseases, genes, and drugs, built from knowledge bases (Monarch, ROBOKOP, DisGeNET, MONDO, SemMedDB) and reviewed by domain experts, released to test KG-RAG.
+readme_section: knowledge_exam
+links:
+  paper: https://doi.org/10.1093/bioinformatics/btae560
+  arxiv: "2311.17330"
+  doi: 10.1093/bioinformatics/btae560
+  huggingface: [kg-rag/BiomixQA]
+  code: https://github.com/BaranziniLab/KG_RAG
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Questions are generated from international biomedical knowledge bases; no country origin.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature, adapted_dataset]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 306 MCQ and 311 true/false questions (plus a 100-question RAG comparison set)
+signals:
+  citations: 138
+  citations_source: OpenAlex
+  hf_downloads: 77
+  github_stars: 947
+  uptake: []
+  updated: '2026-10-26'
+provenance:
+  records: [r_7ab84bc0b4]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "UCSF (Baranzini lab) with UCSD and other co-authors. The paper (KG-RAG, a SPOKE knowledge-graph retrieval method) uses these datasets to test it; the Hugging Face card names the released set BiomixQA. Content is knowledge-base facts (gene-disease, drug-disease), closer to biomedical research knowledge than patient-facing questions, so scope is borderline. Counts are from the paper (311 T/F, 306 MCQ); the card says fewer than 1,000 rows. The arXiv ID was found by title and not read from the record."

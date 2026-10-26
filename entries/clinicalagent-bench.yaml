@@ -1,0 +1,43 @@
+id: clinicalagent-bench
+name: ClinicalAgent Bench (CAB)
+kind: benchmark
+year: 2024
+summary: A benchmark of 18 tasks in five dimensions (knowledge and reasoning, multimodal, numerical analysis, data understanding, trustworthiness) for tool-augmented clinical agents, assembled from existing public medical datasets and scored by accuracy.
+readme_section: knowledge_exam
+links:
+  paper: https://aclanthology.org/2025.acl-long.663/
+  arxiv: "2410.17657"
+  doi: 10.18653/v1/2025.acl-long.663
+  huggingface: [BlueZeros/ClinicalAgentBench]
+  code: https://github.com/BlueZeros/ReflecTool
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Tasks are built from existing public datasets (MedQA, MMLU, BioASQ, PubMedQA, VQA-RAD, SLAKE, OmniMedVQA, MedCalc, EHRSQL, MIMIC-III, eICU, emrQA, and others) plus constructed trustworthiness variants; countries of origin were not coded.
+  localization: adapted
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match, automatic_metric]
+  modality: [text]
+  size: 18 tasks across five dimensions (total item count not read)
+signals:
+  citations: 7
+  citations_source: OpenAlex
+  hf_downloads: 1529
+  github_stars: 25
+  uptake: []
+  updated: '2026-10-26'
+provenance:
+  records: [r_d15d633aa0]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Introduced in the ReflecTool paper (Shanghai Jiao Tong University and Shanghai AI Laboratory), which also proposes the ReflecTool agent method; the Hugging Face card is a one-line pointer to the GitHub repo. Heavily a re-packaging of existing benchmarks, and several tasks are outside this catalog's scope (medical image VQA, EHR SQL over MIMIC-III and eICU); the text-QA and calculation tasks are in scope. The arXiv ID 2410.17657 comes from the repo README, not from the screening record. The Hugging Face dataset also includes images. Total item count and per-task sizes were not read."

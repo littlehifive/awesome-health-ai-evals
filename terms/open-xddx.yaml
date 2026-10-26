@@ -1,0 +1,81 @@
+entry: open-xddx
+sources:
+- https://arxiv.org/abs/2407.07330
+- https://www.nature.com/articles/s44401-025-00015-6
+extracted: '2026-10-26'
+terms:
+- term: Diagnosis accuracy
+  level: metric
+  definition: Differential diagnosis accuracy (Eq. 1), computed by automatic comparison of ground-truth diagnoses with model predictions.
+  definition_verbatim: false
+  location: Results, Eq. 1
+  scale: proportion
+- term: Interpretation accuracy
+  level: metric
+  definition: GPT-4o compares the consistency between ground-truth interpretations and the predicted ones (Eq. 2).
+  definition_verbatim: false
+  location: Results (Interpretation performance) and Figure 3
+  scale: proportion
+- term: BERTScore
+  level: metric
+  definition: Semantic similarity between predicted and ground-truth interpretations.
+  definition_verbatim: false
+  location: Results (Interpretation performance) and Figure 3
+  scale: 0-1
+- term: SentenceBERT
+  level: metric
+  definition: Sentence-embedding similarity between predicted and ground-truth interpretations.
+  definition_verbatim: false
+  location: Results (Interpretation performance) and Figure 3
+  scale: 0-1
+- term: METEOR
+  level: metric
+  definition: Lexical overlap metric between predicted and ground-truth interpretations.
+  definition_verbatim: false
+  location: Results (Interpretation performance) and Figure 3
+  scale: 0-1
+- term: Correctness
+  level: criterion
+  definition: Clinician rating of interpretation correctness on 100 randomly selected notes.
+  definition_verbatim: false
+  location: Results, Figure 4(a)
+  scale: 1-5
+- term: Completeness
+  level: criterion
+  definition: Clinician rating of interpretation completeness on 100 randomly selected notes.
+  definition_verbatim: false
+  location: Results, Figure 4(a)
+  scale: 1-5
+- term: Usefulness
+  level: criterion
+  definition: Clinician rating of interpretation usefulness on 100 randomly selected notes.
+  definition_verbatim: false
+  location: Results, Figure 4(a)
+  scale: 1-5
+- term: Missing content
+  level: category
+  parent: Interpretation error types
+  definition: missing at least two pieces of evidence for a differential
+  definition_verbatim: true
+  location: Results, Error analysis on interpretation; Figure 4(b)
+  scale: count
+- term: Factual error
+  level: category
+  parent: Interpretation error types
+  definition: the interpretation is medically incorrect
+  definition_verbatim: true
+  location: Results, Error analysis on interpretation; Figure 4(b)
+  scale: count
+- term: Low relevance
+  level: category
+  parent: Interpretation error types
+  definition: the evidence provided was not highly pertinent to the differential
+  definition_verbatim: true
+  location: Results, Error analysis on interpretation; Figure 4(b)
+  scale: count
+- term: Interpretation error types
+  level: axis
+  definition: Three error categories applied to 100 incorrect interpretations.
+  definition_verbatim: false
+  location: Results, Error analysis on interpretation
+notes: Read the arXiv version. Diagnosis accuracy and interpretation accuracy equations were not read; descriptions are paraphrased. Annotator agreement (Jaccard) is not an output-scoring term.

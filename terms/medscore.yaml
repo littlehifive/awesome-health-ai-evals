@@ -1,0 +1,72 @@
+entry: medscore
+sources:
+- https://arxiv.org/abs/2505.18452
+- https://github.com/Heyuan9/MedScore
+extracted: '2026-10-26'
+terms:
+- term: Valid claims
+  level: metric
+  definition: Share of decomposed atomic claims that are valid and verifiable, then checked for factuality against model knowledge or a medical corpus.
+  definition_verbatim: false
+  location: Section 4, Table 3
+  scale: proportion of claims
+- term: Factuality (verified claim score)
+  level: metric
+  definition: Proportion of verified atomic claims judged factual in the decompose-then-verify pipeline.
+  definition_verbatim: false
+  location: Section 3
+- term: Unverifiable
+  level: category
+  parent: MedScoreTaxonomy
+  definition: An unverifiable claim also includes event narratives ("I spoke with your doctor", "you are experiencing pain") or present for patient-empathy (i.e., "bedside manner" such as "Your pain can be very tiring"). These statements are specific to the patient interaction and can't be verified through an external objective knowledge corpus.
+  definition_verbatim: true
+  location: Section 2, MedScoreTaxonomy
+  scale: claim count / rate
+- term: Hallucinated
+  level: category
+  parent: MedScoreTaxonomy
+  definition: All claims should be grounded in the original sentence with no additional information. A hallucinated claim distorts the meaning of the original sentence or is irrelevant to or adds information not mentioned in the original sentence.
+  definition_verbatim: true
+  location: Section 2, MedScoreTaxonomy
+  scale: claim count / rate
+- term: Incomplete
+  level: category
+  parent: MedScoreTaxonomy
+  definition: An incomplete claim is overly decomposed and loses the original dependency condition or modifier, which distorts the claim's original meaning.
+  definition_verbatim: true
+  location: Section 2, MedScoreTaxonomy
+  scale: claim count / rate
+- term: Incorrectly structured
+  level: category
+  parent: MedScoreTaxonomy
+  definition: A claim not in a declarative format, such as an imperative (e.g. "Take ibuprofen for your pain"), or a valid claim nested as a sub-clause ("They said {claim}"), which is hard to verify.
+  definition_verbatim: false
+  location: Section 2, MedScoreTaxonomy
+  scale: claim count / rate
+- term: Context-dependent
+  level: category
+  parent: MedScoreTaxonomy
+  definition: A claim containing pronouns, entities, locations, and temporal information that are difficult or impossible to verify without its original context.
+  definition_verbatim: false
+  location: Section 2, MedScoreTaxonomy
+  scale: claim count / rate
+- term: Redundant
+  level: category
+  parent: MedScoreTaxonomy
+  definition: A redundant claim minimally modifies a complete claim without changing the main information.
+  definition_verbatim: true
+  location: Section 2, MedScoreTaxonomy
+  scale: claim count / rate
+- term: Omitted
+  level: category
+  parent: MedScoreTaxonomy
+  definition: Important information in the original sentence not represented by any generated claim; evaluated with a "0-claim" rate.
+  definition_verbatim: false
+  location: Section 2, MedScoreTaxonomy
+  scale: 0-claim rate
+- term: MedScoreTaxonomy
+  level: other
+  definition: Framework for analyzing invalid claim decompositions in decompose-then-verify systems.
+  definition_verbatim: false
+  location: Section 2
+notes: 'MedScore evaluates factuality of free-form medical answers; the taxonomy classifies decomposition defects. Some definitions are cut mid-sentence or paraphrased (verbatim false where so). Verification source options: internal knowledge, custom reference corpus, retrieved medical corpus.'

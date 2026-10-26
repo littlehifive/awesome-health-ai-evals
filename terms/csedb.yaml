@@ -1,0 +1,146 @@
+entry: csedb
+sources:
+- https://arxiv.org/abs/2507.23486
+- https://doi.org/10.1038/s41746-025-02277-8
+- https://github.com/Medlinker-MG/CSEDB
+extracted: '2026-10-26'
+terms:
+- term: Safety
+  level: dimension
+  definition: safety (encompassing critical illness detection and medication safety)
+  definition_verbatim: true
+  location: Section 2.1
+  scale: 17 criteria, weighted and normalized
+- term: Effectiveness
+  level: dimension
+  definition: effectiveness (encompassing guideline adherence and optimization of diagnostic and therapeutic pathways)
+  definition_verbatim: true
+  location: Section 2.1
+  scale: 13 criteria, weighted and normalized
+- term: S01 critical illness recognition
+  level: criterion
+  parent: Safety
+  definition: 'Safety criterion: critical illness recognition.'
+  definition_verbatim: false
+  location: Section 2.2-2.3, Table 1
+  scale: binary (safe/unsafe) for 8 absolute-contraindication criteria, graded by completeness of risk control for the other 9 (exact assignment per criterion not read)
+- term: S02 fatal diagnostic errors
+  level: criterion
+  parent: Safety
+  definition: 'Safety criterion: fatal diagnostic errors.'
+  definition_verbatim: false
+  location: Section 2.2-2.3, Table 1
+  scale: binary (safe/unsafe) for 8 absolute-contraindication criteria, graded by completeness of risk control for the other 9 (exact assignment per criterion not read)
+- term: S03 absolute contraindicated medications
+  level: criterion
+  parent: Safety
+  definition: 'Safety criterion: absolute contraindicated medications.'
+  definition_verbatim: false
+  location: Section 2.2-2.3, Table 1
+  scale: binary (safe/unsafe) for 8 absolute-contraindication criteria, graded by completeness of risk control for the other 9 (exact assignment per criterion not read)
+- term: S05 errors in drug dosage calculation
+  level: criterion
+  parent: Safety
+  definition: 'Safety criterion: errors in drug dosage calculation.'
+  definition_verbatim: false
+  location: Section 2.2-2.3, Table 1
+  scale: binary (safe/unsafe) for 8 absolute-contraindication criteria, graded by completeness of risk control for the other 9 (exact assignment per criterion not read)
+- term: S06 fatal drug-drug interactions
+  level: criterion
+  parent: Safety
+  definition: 'Safety criterion: fatal drug-drug interactions.'
+  definition_verbatim: false
+  location: Section 2.2-2.3, Table 1
+  scale: binary (safe/unsafe) for 8 absolute-contraindication criteria, graded by completeness of risk control for the other 9 (exact assignment per criterion not read)
+- term: S09 failure to account for severe allergy history
+  level: criterion
+  parent: Safety
+  definition: 'Safety criterion: failure to account for severe allergy history.'
+  definition_verbatim: false
+  location: Section 2.2-2.3, Table 1
+  scale: binary (safe/unsafe) for 8 absolute-contraindication criteria, graded by completeness of risk control for the other 9 (exact assignment per criterion not read)
+- term: S11 fabrication of medical information
+  level: criterion
+  parent: Safety
+  definition: 'Safety criterion: fabrication of medical information.'
+  definition_verbatim: false
+  location: Section 2.2-2.3, Table 1
+  scale: binary (safe/unsafe) for 8 absolute-contraindication criteria, graded by completeness of risk control for the other 9 (exact assignment per criterion not read)
+- term: S17 non-compliance with standardized procedural practices
+  level: criterion
+  parent: Safety
+  definition: 'Safety criterion: non-compliance with standardized procedural practices.'
+  definition_verbatim: false
+  location: Section 2.2-2.3, Table 1
+  scale: binary (safe/unsafe) for 8 absolute-contraindication criteria, graded by completeness of risk control for the other 9 (exact assignment per criterion not read)
+- term: E01 diagnosing common conditions
+  level: criterion
+  parent: Effectiveness
+  definition: 'Effectiveness criterion: diagnosing common conditions.'
+  definition_verbatim: false
+  location: Section 2.2-2.3, Table 1
+  scale: binary (appropriate/inappropriate) for 5 guideline-prohibited-practice criteria, graded for the other 8 (assignment per criterion not read)
+- term: E02 early detection of rare diseases
+  level: criterion
+  parent: Effectiveness
+  definition: 'Effectiveness criterion: early detection of rare diseases.'
+  definition_verbatim: false
+  location: Section 2.2-2.3, Table 1
+  scale: binary (appropriate/inappropriate) for 5 guideline-prohibited-practice criteria, graded for the other 8 (assignment per criterion not read)
+- term: E03 differential diagnosis
+  level: criterion
+  parent: Effectiveness
+  definition: 'Effectiveness criterion: differential diagnosis.'
+  definition_verbatim: false
+  location: Section 2.2-2.3, Table 1
+  scale: binary (appropriate/inappropriate) for 5 guideline-prohibited-practice criteria, graded for the other 8 (assignment per criterion not read)
+- term: E05 prioritization in multimorbidity
+  level: criterion
+  parent: Effectiveness
+  definition: 'Effectiveness criterion: prioritization in multimorbidity.'
+  definition_verbatim: false
+  location: Section 2.2-2.3, Table 1
+  scale: binary (appropriate/inappropriate) for 5 guideline-prohibited-practice criteria, graded for the other 8 (assignment per criterion not read)
+- term: E06 early identification of postoperative complications
+  level: criterion
+  parent: Effectiveness
+  definition: 'Effectiveness criterion: early identification of postoperative complications.'
+  definition_verbatim: false
+  location: Section 2.2-2.3, Table 1
+  scale: binary (appropriate/inappropriate) for 5 guideline-prohibited-practice criteria, graded for the other 8 (assignment per criterion not read)
+- term: E07 prediction of clinical complications
+  level: criterion
+  parent: Effectiveness
+  definition: 'Effectiveness criterion: prediction of clinical complications.'
+  definition_verbatim: false
+  location: Section 2.2-2.3, Table 1
+  scale: binary (appropriate/inappropriate) for 5 guideline-prohibited-practice criteria, graded for the other 8 (assignment per criterion not read)
+- term: E09 follow-up planning and monitoring
+  level: criterion
+  parent: Effectiveness
+  definition: 'Effectiveness criterion: follow-up planning and monitoring.'
+  definition_verbatim: false
+  location: Section 2.2-2.3, Table 1
+  scale: binary (appropriate/inappropriate) for 5 guideline-prohibited-practice criteria, graded for the other 8 (assignment per criterion not read)
+- term: E10 appropriateness of laboratory and imaging test recommendations
+  level: criterion
+  parent: Effectiveness
+  definition: 'Effectiveness criterion: appropriateness of laboratory and imaging test recommendations.'
+  definition_verbatim: false
+  location: Section 2.2-2.3, Table 1
+  scale: binary (appropriate/inappropriate) for 5 guideline-prohibited-practice criteria, graded for the other 8 (assignment per criterion not read)
+- term: E13 scientific validity of combination therapy regimens
+  level: criterion
+  parent: Effectiveness
+  definition: 'Effectiveness criterion: scientific validity of combination therapy regimens.'
+  definition_verbatim: false
+  location: Section 2.2-2.3, Table 1
+  scale: binary (appropriate/inappropriate) for 5 guideline-prohibited-practice criteria, graded for the other 8 (assignment per criterion not read)
+- term: Clinical severity weight
+  level: other
+  definition: questions were stratified into categories with different weights (1-5) based on clinical severity
+  definition_verbatim: true
+  location: Section 2.3
+  scale: weight 1-5
+notes: '30 criteria in total (S01-S17, E01-E13). Only the 17 named in the main text are listed; the full list with definitions is in Supplementary Table S1 (a .rar in the GitHub repo, not opened). Final
+  scores are weighted and normalized; three reported scores: total, safety, effectiveness. Judge is DeepSeek-R1 against per-question physician-written criteria.'

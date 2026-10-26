@@ -1,0 +1,70 @@
+entry: kampobench
+sources: [https://doi.org/10.64898/2026.10.07.26365005, https://github.com/medicalcloud/kampobench]
+extracted: 2026-10-26
+terms:
+  - term: accuracy
+    level: axis
+    definition: "Whether responses include only factually correct information, aligned with current medical/expert consensus. Also covers recognizing uncertainty when evidence is weak or evolving."
+    definition_verbatim: true
+    location: jsonl/kampobench_jsonl_tag_rule.md section 3.8
+    scale: "points per rubric criterion (HealthBench style), graded met/not met by LLM"
+  - term: completeness
+    level: axis
+    definition: "Whether the response includes all important information needed to be safe and helpful. Even if accurate, omitting key steps or red flags makes it incomplete."
+    definition_verbatim: true
+    location: jsonl/kampobench_jsonl_tag_rule.md section 3.8
+    scale: points per rubric criterion
+  - term: communication_quality
+    level: axis
+    definition: "Whether information is clear, concise, and well-structured, using a level of technical depth/vocabulary matched to the user."
+    definition_verbatim: true
+    location: jsonl/kampobench_jsonl_tag_rule.md section 3.8
+    scale: points per rubric criterion
+  - term: context_awareness
+    level: axis
+    definition: "Whether the model responds to contextual cues present (user role, geographic setting, resources the user has) and seeks clarification when needed."
+    definition_verbatim: true
+    location: jsonl/kampobench_jsonl_tag_rule.md section 3.8
+    scale: points per rubric criterion
+  - term: instruction_following
+    level: axis
+    definition: "Whether the model adheres to explicit format/task instructions, while prioritizing safety."
+    definition_verbatim: true
+    location: jsonl/kampobench_jsonl_tag_rule.md section 3.8
+    scale: points per rubric criterion
+  - term: emergency_referrals
+    level: category
+    definition: "Triage and recommendation for urgent medical attention based on red flags."
+    definition_verbatim: true
+    location: jsonl/kampobench_jsonl_tag_rule.md section 3.7
+  - term: expertise-tailored_communication
+    level: category
+    definition: "Appropriate adjustments of terminology and tone depending on whether the recipient is a healthcare provider or a layperson."
+    definition_verbatim: true
+    location: jsonl/kampobench_jsonl_tag_rule.md section 3.7
+  - term: responding_under_uncertainty
+    level: category
+    definition: "Explaining clinical suggestions while correctly acknowledging uncertainty in cases with insufficient evidence, avoiding overconfidence."
+    definition_verbatim: true
+    location: jsonl/kampobench_jsonl_tag_rule.md section 3.7
+  - term: kampo:safety:* tags
+    level: category
+    definition: "Kampo-specific safety tags on rubric criteria: contraindication, pregnancy_lactation, reject_standard_care, renal_hepatic, stimulant, glycyrrhizin, aconite, adverse_effect, body_constitution, invasive_questions, psychological_harm."
+    definition_verbatim: false
+    location: jsonl/kampobench_jsonl_tag_rule.md section 3.1
+  - term: kampo:sho:* tags
+    level: category
+    definition: "Kampo pattern tags: justification, differential, general, pattern."
+    definition_verbatim: false
+    location: jsonl/kampobench_jsonl_tag_rule.md section 3.2
+  - term: kampo:co_rx:* tags
+    level: category
+    definition: "Combination-therapy tags: with_western (appropriateness of Kampo plus Western co-therapy) and duplication (crude-drug safety problems such as glycyrrhiza duplication)."
+    definition_verbatim: false
+    location: jsonl/kampobench_jsonl_tag_rule.md section 3.3
+  - term: kampo:redflags:* tags
+    level: category
+    definition: "Referral and stop rules: urgent referral and stop criteria when adverse signs emerge."
+    definition_verbatim: false
+    location: jsonl/kampobench_jsonl_tag_rule.md section 3.5
+notes: "HealthBench-style design: 310 conversation-specific rubric criteria across 74 scenarios; axes and 7 themes aligned with HealthBench (only 3 of 7 themes listed here; others per the tag rule file), with Kampo tags added. Unlike HealthBench, multiple axes per criterion are permitted. The medRxiv full text was only partly parsed; terms come from the repo tag rule file. Formula in kampo:formulation:* (dose, administration) also exists."

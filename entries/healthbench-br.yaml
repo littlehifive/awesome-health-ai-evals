@@ -7,7 +7,7 @@ readme_section: multilingual_regional
 links:
   paper: https://arxiv.org/abs/2605.01077
   arxiv: "2605.01077"
-  huggingface: [hugo/healthbench-br]
+  huggingface: [hugo/healthbench-br, hugo/healthbench-br-v1]
   code: https://github.com/hugoabonizio/clinical-protocols-br
 license: CC-BY-4.0
 open_data: open
@@ -30,9 +30,16 @@ facets:
   eval_methods: [mcq_exact_match, rubric_llm_judge]
   modality: [text]
   size: 1,780 true/false assertions; 890 open-ended questions
+signals:
+  citations: 1
+  citations_source: OpenAlex
+  hf_downloads: 246
+  github_stars: 15
+  uptake: []
+  updated: '2026-10-26'
 provenance:
-  records: [r_45c3e1d205, r_f0a0769657]
+  records: [r_45c3e1d205, r_f0a0769657, r_1d63fae85e]
   extracted: 2026-10-26
   read_full_text: true
   confidence: high
-  notes: "Not related to OpenAI's HealthBench despite the name. The true/false items were generated with GPT-5.2 from guideline text (the paper does not report human review). True/false is scored by regex-extracted verdict; PCDT-QA by a GPT-4.1 correct/incorrect judge. PCDT-QA is a second benchmark in the same repo (hugo/pcdt-qa on Hugging Face, not read directly). The HF card lists CC-BY-4.0 while the GitHub README says research use only; the card license is recorded. The paper's main purpose is a training method (continual pre-training and GRPO); the benchmarks are secondary. Authors at UNICAMP, Maritaca AI, and NoHarm.ai, all in Brazil."
+  notes: "hugo/healthbench-br-v1 (r_1d63fae85e) was merged here on review: it holds 890 train and 890 test open-ended Portuguese questions with reference answers on Brazilian clinical protocols (fields pergunta, resposta, protocolo), matching the PCDT-QA part. Not related to OpenAI's HealthBench despite the name. The true/false items were generated with GPT-5.2 from guideline text (the paper does not report human review). True/false is scored by regex-extracted verdict; PCDT-QA by a GPT-4.1 correct/incorrect judge. PCDT-QA is a second benchmark in the same repo (hugo/pcdt-qa on Hugging Face, not read directly). The HF card lists CC-BY-4.0 while the GitHub README says research use only; the card license is recorded. The paper's main purpose is a training method (continual pre-training and GRPO); the benchmarks are secondary. Authors at UNICAMP, Maritaca AI, and NoHarm.ai, all in Brazil."

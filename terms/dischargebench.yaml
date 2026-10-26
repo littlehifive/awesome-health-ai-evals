@@ -1,0 +1,65 @@
+entry: dischargebench
+sources:
+- https://arxiv.org/abs/2609.20827
+extracted: '2026-10-26'
+terms:
+- term: Conversation Quality
+  level: axis
+  definition: This metric evaluates the overall quality of the educator-patient dialogue.
+  definition_verbatim: true
+  location: Section 2.3.1
+  scale: 1-5 Likert per criterion
+- term: Naturalness (NA)
+  level: criterion
+  parent: Conversation Quality
+  definition: whether the conversation flows naturally, without repetition, and exhibits a clear opening and closing.
+  definition_verbatim: true
+  location: Section 2.3.1
+  scale: 1-5 Likert
+- term: Responsiveness (RE)
+  level: criterion
+  parent: Conversation Quality
+  definition: how effectively the educator addresses the patient's concerns, questions, and emotions.
+  definition_verbatim: true
+  location: Section 2.3.1
+  scale: 1-5 Likert
+- term: Clarity (CL)
+  level: criterion
+  parent: Conversation Quality
+  definition: whether the educator's responses are clear and easy to understand, avoiding unexplained medical jargon and addressing one topic per turn.
+  definition_verbatim: true
+  location: Section 2.3.1
+  scale: 1-5 Likert
+- term: Clinical Relevance (CR)
+  level: criterion
+  parent: Conversation Quality
+  definition: whether the educator's responses are clinically valid and aligned with established medical practice.
+  definition_verbatim: true
+  location: Section 2.3.1
+  scale: 1-5 Likert
+- term: Readability (RD)
+  level: criterion
+  parent: Conversation Quality
+  definition: the Flesch-Kincaid grade level of the educator's turns (computed automatically, not by the judge).
+  definition_verbatim: true
+  location: Section 2.3.1
+  scale: Flesch-Kincaid grade level
+- term: Topic Checklist Score (TCS)
+  level: metric
+  definition: This metric measures how thoroughly the dialogue covers the discharge topics.
+  definition_verbatim: true
+  location: Section 2.3.1, Eq. 1, Appendix Table 3
+  scale: weighted fraction of applicable yes/no checklist questions (parent weight 1, sub-question 0.5)
+- term: Comprehension Score
+  level: metric
+  definition: This evaluates the VP's comprehension using six clinically motivated open-ended questions
+  definition_verbatim: true
+  location: Section 2.3.1, Appendix Table 4
+  scale: correct 1.0 / partially correct 0.5 / incorrect 0.0, mean over six questions
+- term: Factual Consistency
+  level: metric
+  definition: this metric estimates how faithfully the completed dialogue preserves the content of the source discharge note.
+  definition_verbatim: true
+  location: Section 2.3.1
+  scale: ROUGE-L and cosine similarity between note-conditioned and dialogue-conditioned judge answers
+notes: 'Checklist covers six clinical areas (Discharge Diagnosis, New Medication, Treatment During Stay, Post-Discharge Treatment, Indications for Return to Hospital, Follow-Up Appointment); these are topic areas of the checklist, not separate scored terms. VP = virtual patient. Judge: Gemma-4-31B-it, validated against two physicians.'

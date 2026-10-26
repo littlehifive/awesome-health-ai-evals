@@ -1,0 +1,30 @@
+entry: msdiagnosis
+sources: [https://arxiv.org/abs/2408.10039]
+extracted: 2026-10-26
+terms:
+  - term: Entity F1
+    level: metric
+    definition: "Entity-level F1 used for the primary diagnosis, differential diagnosis and final diagnosis questions."
+    definition_verbatim: false
+    location: Section 6.1.2
+  - term: ROUGE-L
+    level: metric
+    definition: "Similarity between generated and reference text for primary and final diagnostic criteria."
+    definition_verbatim: false
+    location: Section 6.1.2
+  - term: BERTScore
+    level: metric
+    definition: "Similarity between generated and reference text for primary and final diagnostic criteria."
+    definition_verbatim: false
+    location: Section 6.1.2
+  - term: BLEU-1
+    level: metric
+    definition: "Unigram overlap between generated and reference text for primary and final diagnostic criteria."
+    definition_verbatim: false
+    location: Section 6.1.2
+  - term: Macro-Recall
+    level: metric
+    definition: "Recall computed over annotated key points in the reference answer for diagnostic criteria, measuring coverage of key evidence."
+    definition_verbatim: false
+    location: Section 6.1.2; Appendix B
+notes: "Five question types (primary diagnosis, primary diagnostic criteria, differential diagnosis, final diagnosis, final diagnostic criteria) are tasks and not scored terms; the metrics attach to them. Appendix B metric details were not read."

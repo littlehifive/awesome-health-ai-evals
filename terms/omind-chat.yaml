@@ -1,0 +1,54 @@
+entry: omind-chat
+sources:
+- https://arxiv.org/abs/2603.25105
+extracted: '2026-10-26'
+terms:
+- term: Turn-level rubrics
+  level: criterion
+  definition: For each assistant response, 2-5 key conversational elements that an ideal assistant response should contain, selected by GPT-4 from a predefined element inventory and prescriptive (what the response should include); reviewed by four psychology experts.
+  definition_verbatim: false
+  location: Section 3 (oMind-Chat), Turn-Level Rubrics
+  scale: per-rubric-point presence
+- term: Conversation-level rubrics
+  level: criterion
+  definition: 3-10 concise bullet points representing essential topics, insights, or clinical reasoning points that the assistant should cover across the entire dialogue, capturing overarching therapeutic goals such as "Normalize and validate the user's experience of anxiety and overthinking".
+  definition_verbatim: true
+  location: Section 3, Conversation-Level Rubrics
+  scale: per-rubric-point presence
+- term: Binary rubric coverage
+  level: metric
+  definition: Check whether a given rubric point is directly present, followed by average for each turn/conversation.
+  definition_verbatim: true
+  location: Section 3, Evaluation; Table 3
+  scale: binary per rubric point, averaged
+- term: Score 0-10
+  level: metric
+  definition: A score on a scale of 0-10 for accurate presence of each rubric point, followed by average.
+  definition_verbatim: true
+  location: Section 3, Evaluation; Table 3
+  scale: 0-10 per rubric point, averaged
+- term: Likert 1-5
+  level: metric
+  definition: Likert scale evaluation for overall comparison with complete rubric points.
+  definition_verbatim: true
+  location: Section 3, Evaluation; Table 3
+  scale: 1-5 Likert
+- term: Factual Richness
+  level: criterion
+  definition: Parameter on which explanations from the oMind generation framework were compared with GPT-prompted explanations (win rate, two annotators); belongs to the oMind explanation evaluation, not oMind-Chat itself.
+  definition_verbatim: false
+  location: Section 4, item (vi), Table 5
+  scale: win rate
+- term: Faithfulness
+  level: criterion
+  definition: Explanation-evaluation parameter (win rate) in the oMind paper; not part of oMind-Chat scoring.
+  definition_verbatim: false
+  location: Section 4, item (vi), Table 5
+  scale: win rate
+- term: Clarity
+  level: criterion
+  definition: Explanation-evaluation parameter (win rate) in the oMind paper; not part of oMind-Chat scoring.
+  definition_verbatim: false
+  location: Section 4, item (vi), Table 5
+  scale: win rate
+notes: oMind-Chat scores replies on rubric points (example-specific, expert-reviewed) with three score types at turn and conversation level. The three explanation parameters belong to the paper's separate explanation evaluation and are included for completeness. Rubric element inventory contents not read.

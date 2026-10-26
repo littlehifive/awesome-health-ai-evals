@@ -1,0 +1,23 @@
+entry: healthbranches
+sources: [https://arxiv.org/abs/2508.07308]
+extracted: 2026-10-26
+terms:
+  - term: Exact Match (accuracy)
+    level: metric
+    definition: "Quiz answer letter (A-E) extracted by regular expression from the model response and compared with the answer key to compute overall accuracy."
+    definition_verbatim: false
+    location: Section 3.2, Table 4 (Acc)
+    scale: accuracy
+  - term: LLM-as-a-Judge Score
+    level: metric
+    definition: "An LLM-based Judge (Gemini-flash 2.0) assesses answers using the ground truth answer and the reasoning path against predefined evaluation criteria, producing a score between 0 and 10 for each question-answer pair (G-Eval)."
+    definition_verbatim: true
+    location: Section 3.2, Appendix A.7, Table 4 (Judge)
+    scale: 0-10
+  - term: Semantic Similarity Score
+    level: metric
+    definition: Similarity between the ground-truth answer and the model's open answer using BGE-M3 embeddings, combining dense and sparse scores.
+    definition_verbatim: false
+    location: Section 3.2, Table 4 (Sim)
+    scale: similarity score
+notes: Quiz version scored by exact match, open-ended version by judge score and semantic similarity. Human reviewer ratings of dataset quality (question, answer, path, 1-5; Table 3) are dataset validation, not model scoring. The judge's detailed criteria are in Appendix A.7, which was not read.

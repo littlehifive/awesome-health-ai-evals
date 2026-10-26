@@ -1,0 +1,69 @@
+entry: ceag
+sources:
+- https://doi.org/10.7759/cureus.107729
+- https://pmc.ncbi.nlm.nih.gov/articles/PMC13203309/
+extracted: '2026-10-26'
+terms:
+- term: C (correct)
+  level: criterion
+  parent: CENHOV tag
+  definition: 1 if the response matches the gold answer or guideline-grounded truth statement; 0 for wrong,
+    materially incomplete, or misleading answers.
+  definition_verbatim: true
+  location: Section Methods, Table 2 (signal mapping and scoring rules)
+  scale: binary
+- term: E (cite_ok / evidential support)
+  level: criterion
+  parent: CENHOV tag
+  definition: 1 if the cited source materially supports the answer as stated; 0 for absent, irrelevant,
+    or insufficient citation.
+  definition_verbatim: true
+  location: Section Methods, Table 2 (signal mapping and scoring rules)
+  scale: binary
+- term: N (num_grounded / numeric concordance)
+  level: criterion
+  parent: CENHOV tag
+  definition: 1 if all numeric values required for the answer are present and concordant with evidence;
+    0 if any stated numeric value is wrong/unsupported or a clinically required number is omitted.
+  definition_verbatim: true
+  location: Section Methods, Table 2 (signal mapping and scoring rules)
+  scale: binary
+- term: H (hedge)
+  level: criterion
+  parent: CENHOV tag
+  definition: 1 if the response contains explicit uncertainty markers such as may, might, possibly, uncertain,
+    or likely; otherwise 0.
+  definition_verbatim: true
+  location: Section Methods, Table 2 (signal mapping and scoring rules)
+  scale: binary
+- term: O (ornament)
+  level: criterion
+  parent: CENHOV tag
+  definition: 1 if the response uses poster-like, promotional, or rhetorically decorative styling that
+    could inflate perceived confidence; otherwise 0.
+  definition_verbatim: true
+  location: Section Methods, Table 2 (signal mapping and scoring rules)
+  scale: binary
+- term: V (CEAG-V supported-error citation veneer)
+  level: criterion
+  parent: CENHOV tag
+  definition: 'Derived as E=1 and C=0: the response is cited as if supported but is substantively incorrect.'
+  definition_verbatim: true
+  location: Section Methods, Table 2 (signal mapping and scoring rules)
+  scale: binary (derived)
+- term: Adjacency match
+  level: metric
+  definition: the percentage of horizontally or vertically adjacent grid cells that shared the same full
+    CENHOV tag. It is a descriptive measure of local continuity, not a clinical endpoint.
+  definition_verbatim: true
+  location: Methods (Grid ordering, Masked Delta, and statistical analysis)
+  scale: percentage
+- term: Masked Delta
+  level: metric
+  definition: Compares two regimes by applying an XOR operation to their CENHOV vectors and retaining
+    only selected slots; the content/trust mask retains C, E, N, and V, the style mask retains H and O.
+  definition_verbatim: false
+  location: Methods (Grid ordering, Masked Delta, and statistical analysis)
+notes: All labels in the proof of concept were assigned by one investigator using the rule-based criteria;
+  main benchmark uses scripted response regimes (RUSH, VERIFY, POETIC, POSTER), not live LLM outputs.
+  Parent 'CENHOV tag' is the six-slot encoding.

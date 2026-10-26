@@ -1,0 +1,36 @@
+entry: japanese-stroke-llm-evaluation
+sources:
+- https://arxiv.org/abs/2609.16739
+- https://github.com/imy2929/JapaneseStrokeLLMEvaluation
+extracted: '2026-10-26'
+terms:
+- term: History-taking
+  level: dimension
+  definition: History-taking phase of the encounter, scored against pre-specified case-specific criteria; maximum 20 questions, one item per response; timing of appropriate early termination is evaluated in high-urgency cases.
+  definition_verbatim: false
+  location: Section 2.1-2.2
+  scale: 50 points per case
+- term: Action phase
+  level: dimension
+  definition: Phase in which the model proposes one test or action at a time and receives the result, scored against case-specific criteria; penalties for excessive unnecessary testing and requests for tests unavailable at the facility.
+  definition_verbatim: false
+  location: Section 2.1-2.2
+  scale: 50 points per case
+- term: Critical mistakes
+  level: category
+  definition: Defined for each case as major errors that could directly affect survival (e.g. discharging a suspected subarachnoid hemorrhage; omitting lab or glucose checks before t-PA; surgery before airway stabilization); a critical mistake sets that case score to zero.
+  definition_verbatim: false
+  location: Section 2.3
+  scale: binary per case; zero score on occurrence
+- term: Overall score threshold
+  level: metric
+  definition: Pass threshold of at least 80 percent overall score with zero critical mistakes.
+  definition_verbatim: false
+  location: Abstract; Methods
+  scale: percent of 1,000 points total
+- term: Medical record preparation
+  level: criterion
+  definition: Model must summarize the history-taking information in a medical record at the end of history-taking.
+  definition_verbatim: false
+  location: Section 2.2
+notes: Per-case scoring criteria are in the GitHub repo (cases/) and are case-specific; not enumerated. Single board-certified neurosurgeon is both simulated patient and scorer. The medical record is part of the flow; whether it earns separate points was not confirmed.

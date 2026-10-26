@@ -1,0 +1,42 @@
+id: covid-qa-deepset
+name: COVID-QA (deepset)
+kind: benchmark
+year: 2020
+summary: 2,019 SQuAD-style question-answer pairs on 147 CORD-19 scientific articles about COVID-19, annotated by 15 volunteer biomedical experts for extractive question answering.
+readme_section: knowledge_exam
+links:
+  paper: https://openreview.net/forum?id=JENSKEEzsoU
+  huggingface: [deepset/covid_qa_deepset]
+  code: https://github.com/deepset-ai/COVID-QA
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Questions were written by volunteer experts about CORD-19 scientific papers; no country origin stated.
+  rater_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [DEU]
+origin:
+  builder_types: [industry_lab]
+  item_provenance: [literature, clinician_written]
+  venue: preprint
+facets:
+  health_areas: [infectious_other]
+  intended_users: [unspecified]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 2,019 question-answer pairs over 147 articles
+signals:
+  citations: null
+  citations_source: OpenAlex
+  hf_downloads: 368
+  github_stars: 362
+  uptake: []
+  updated: '2026-10-26'
+provenance:
+  records: [r_c7547b6583]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: medium
+  notes: "Read the Hugging Face dataset card only; the OpenReview PDF (a workshop paper) could not be fetched. Venue is set to preprint because the workshop status was not confirmed. deepset is a company, so builder type is industry_lab and lead country DEU is from the company's base, not from a read affiliation. Scoring is extractive-QA style (F1 and exact match are typical) but the paper's metrics were not read. Used as an out-of-domain test in the DALK paper (record r_7c3b5dcccd)."

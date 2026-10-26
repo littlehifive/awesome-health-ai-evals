@@ -2,6 +2,7 @@ id: craft-md
 name: CRAFT-MD
 kind: benchmark
 year: 2023
+featured: true
 summary: A framework that tests clinical LLMs on simulated doctor-patient conversations (patient-AI, grader-AI, expert checks) instead of static vignettes, using case vignettes across 12 specialties from MedQA-USMLE and public and private dermatology sets, with a live leaderboard.
 readme_section: open_ended
 links:
@@ -27,6 +28,13 @@ facets:
   eval_methods: [simulated_multi_turn, rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: case vignettes across 12 specialties (exact count not checked); live leaderboard with newer models
+signals:
+  citations: 196
+  citations_source: OpenAlex
+  hf_downloads: null
+  github_stars: 3
+  uptake: []
+  updated: '2026-10-26'
 provenance:
   records: [r_b47492ed1b, r_4584a17e18]
   extracted: 2026-10-26

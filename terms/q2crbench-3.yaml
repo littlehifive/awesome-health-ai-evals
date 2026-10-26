@@ -1,0 +1,13 @@
+entry: q2crbench-3
+sources: [https://doi.org/10.1038/s41746-025-02273-y]
+extracted: 2026-10-26
+terms:
+  - {term: Token-level F1, level: metric, parent: Question decomposition, definition: "F1 between PICO concepts extracted by the system and the ground-truth PICO components of the guideline question.", definition_verbatim: false, location: "Results, question decomposition (Fig. 2b)", scale: "0-1"}
+  - {term: BERTScore, level: metric, parent: Question decomposition, definition: "Semantic similarity between extracted and ground-truth PICO components.", definition_verbatim: false, location: "Results, question decomposition (Fig. 2b)", scale: "0-1"}
+  - {term: Retrieval sensitivity, level: metric, parent: Literature search, definition: "Share of guideline-cited studies retrieved by the generated search strategy, compared with search strategies of guideline-group search experts.", definition_verbatim: false, location: "Results, literature search", scale: percentage}
+  - {term: Screening sensitivity, level: metric, parent: Study selection, definition: "Share of eligible records retained in title/abstract screening and in full-text screening.", definition_verbatim: false, location: "Results, study selection", scale: percentage}
+  - {term: Coherence, level: criterion, parent: Human evaluation, definition: "Participant rating of whether Quicker's analysis is clear and easy to comprehend.", definition_verbatim: false, location: "Results, human-AI collaboration (Fig. 7)", scale: 1-5}
+  - {term: Helpfulness, level: criterion, parent: Human evaluation, definition: "Participant rating of how helpful Quicker's analysis is.", definition_verbatim: false, location: "Results, human-AI collaboration (Fig. 7)", scale: 1-5}
+  - {term: Acceptance, level: criterion, parent: Human evaluation, definition: "Participant rating of acceptance of Quicker's analysis.", definition_verbatim: false, location: "Results, human-AI collaboration (Fig. 7)", scale: 1-5}
+  - {term: ROUGE-L, level: metric, parent: Memorization analysis, definition: "Longest-common-subsequence overlap between model output and benchmark ground truth, used to check memorization.", definition_verbatim: false, location: Methods, scale: "0-1"}
+notes: "Scores are stage-wise metrics for the Quicker system on guideline questions (decomposition, search, screening, evidence assessment), plus human-evaluation ratings. Dimension wording is paraphrased from the Nature HTML; supplementary evaluation forms were not read."

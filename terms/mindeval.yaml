@@ -1,0 +1,37 @@
+entry: mindeval
+sources:
+- https://arxiv.org/abs/2511.18491
+- https://github.com/SWORDHealth/mind-eval
+extracted: '2026-10-26'
+terms:
+- term: Clinical Accuracy & Competence (CAC)
+  level: axis
+  definition: Uses therapeutic knowledge correctly and matches interventions to the patient's needs.
+  definition_verbatim: true
+  location: Section 2.3, Table 2; Appendix B.1
+  scale: 1-6 Likert
+- term: Ethical & Professional Conduct (EPC)
+  level: axis
+  definition: Maintains appropriate professional boundaries and demonstrates inclusive, respectful conduct.
+  definition_verbatim: true
+  location: Section 2.3, Table 2; Appendix B
+  scale: 1-6 Likert
+- term: Assessment & Response (AR)
+  level: axis
+  definition: Understands patient input and adapts its responses accordingly.
+  definition_verbatim: true
+  location: Section 2.3, Table 2; Appendix B
+  scale: 1-6 Likert
+- term: Therapeutic Relationship & Alliance (TRA)
+  level: axis
+  definition: Builds and maintains a collaborative therapeutic relationship.
+  definition_verbatim: true
+  location: Section 2.3, Table 2; Appendix B
+  scale: 1-6 Likert
+- term: AI-Specific Communication Quality (ASCQ)
+  level: axis
+  definition: Assesses communication qualities specific to AI systems that affect therapeutic engagement.
+  definition_verbatim: true
+  location: Section 2.3, Table 2; Appendix B
+  scale: 1-6 Likert
+notes: Five axes, each scored 1-6 by an LLM judge over a 20-turn simulated therapy session; final score is the mean over axes. For human annotation each axis except ASCQ was split into two sub-criteria (Appendix C), not recorded here. Appendix B gives score anchors (1-2, 3-4, 5-6) per axis.

@@ -1,0 +1,18 @@
+entry: virco-role-consistency
+sources:
+- https://arxiv.org/abs/2601.08892
+extracted: '2026-10-26'
+terms:
+- term: Conversation coherence
+  level: criterion
+  definition: 'Task 1: whether a generated client response is coherent with the preceding discourse.'
+  definition_verbatim: false
+  location: Task 1 prompt and Results
+  scale: 0 coherent / 1 moderately coherent / 2 incoherent
+- term: Persona consistency
+  level: criterion
+  definition: 'Task 2: whether a generated client response is consistent with the assigned persona description.'
+  definition_verbatim: false
+  location: Task 2 Results
+  scale: 0 consistent / 1 / 2 inconsistent
+notes: 'Labels: 0 is fully coherent and flows well; 1 is basic coherence with minor errors; 2 is lack of coherence, confusion, or repetition (paraphrased from Task 1 prompt). Rated by GPT-4 and three human raters; Krippendorff alpha 0.28 for task 2.'

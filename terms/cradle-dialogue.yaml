@@ -1,0 +1,92 @@
+entry: cradle-dialogue
+sources:
+- https://arxiv.org/abs/2606.10380
+- https://huggingface.co/datasets/SungJoo/Cradle-Dialogue
+extracted: '2026-10-26'
+terms:
+- term: Suicidal ideation (passive)
+  level: category
+  definition: Crisis type labelled at the turn level (Suicidal ideation (passive)) with ongoing or past state.
+  definition_verbatim: false
+  location: Section 3.4, Table 3
+  scale: multi-label, turn level
+- term: Suicidal ideation (active)
+  level: category
+  definition: Crisis type labelled at the turn level (Suicidal ideation (active)) with ongoing or past state.
+  definition_verbatim: false
+  location: Section 3.4, Table 3
+  scale: multi-label, turn level
+- term: Self-harm
+  level: category
+  definition: Crisis type labelled at the turn level (Self-harm) with ongoing or past state.
+  definition_verbatim: false
+  location: Section 3.4, Table 3
+  scale: multi-label, turn level
+- term: Domestic violence
+  level: category
+  definition: Crisis type labelled at the turn level (Domestic violence) with ongoing or past state.
+  definition_verbatim: false
+  location: Section 3.4, Table 3
+  scale: multi-label, turn level
+- term: Rape
+  level: category
+  definition: Crisis type labelled at the turn level (Rape) with ongoing or past state.
+  definition_verbatim: false
+  location: Section 3.4, Table 3
+  scale: multi-label, turn level
+- term: Sexual harassment
+  level: category
+  definition: Crisis type labelled at the turn level (Sexual harassment) with ongoing or past state.
+  definition_verbatim: false
+  location: Section 3.4, Table 3
+  scale: multi-label, turn level
+- term: Child abuse
+  level: category
+  definition: Crisis type labelled at the turn level (Child abuse) with ongoing or past state.
+  definition_verbatim: false
+  location: Section 3.4, Table 3
+  scale: multi-label, turn level
+- term: Alert
+  level: category
+  definition: an Alert at the earliest ambiguous indication of possible crisis
+  definition_verbatim: true
+  location: Section 3.3 (Alert-Confirm protocol)
+  scale: turn-level label; crisis-type agnostic, with temporal state
+- term: Confirm
+  level: category
+  definition: a Confirm when the specific crisis type becomes explicitly identifiable
+  definition_verbatim: true
+  location: Section 3.3 (Alert-Confirm protocol)
+  scale: turn-level label with crisis type and temporal state
+- term: Turn-level evaluation
+  level: other
+  definition: correct only if both the crisis label and the exact dialogue turn are matched.
+  definition_verbatim: true
+  location: Table 4 caption
+- term: Dialogue-level evaluation
+  level: other
+  definition: predictions are aggregated into a dialogue-level label set; correct if the predicted set matches the gold label set regardless of turn position.
+  definition_verbatim: true
+  location: Table 4 caption
+- term: Exact Match (EM)
+  level: metric
+  definition: Exact Match (EM) is only applicable at the turn level.
+  definition_verbatim: true
+  location: Table 4
+- term: Jaccard
+  level: metric
+  definition: Overlap between predicted and gold label sets.
+  definition_verbatim: false
+  location: Table 4
+- term: Micro F1 / Macro F1
+  level: metric
+  definition: Micro- and macro-averaged F1 over labels.
+  definition_verbatim: false
+  location: Table 4
+- term: Micro Recall / Macro Recall
+  level: metric
+  definition: Micro- and macro-averaged recall over labels.
+  definition_verbatim: false
+  location: Table 4
+notes: Classification-style benchmark; models tag each user turn with none, alert_<...> or confirm_<...> labels. Table 5 reports a Confirm-only dialogue-level setting. No rubric axes or response-quality
+  criteria.

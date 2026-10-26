@@ -1,0 +1,132 @@
+entry: respclinbench
+sources:
+- https://arxiv.org/abs/2608.04514
+extracted: '2026-10-26'
+terms:
+- term: Atomic-action recall
+  level: metric
+  definition: The item-level atomic-action recall was calculated as the number of recalled points divided by the total number of reference points for that item and was converted to a 0-to-100 scale.
+  definition_verbatim: true
+  location: Section 2.7
+  scale: binary per action point, recall 0-100
+- term: LLM-as-a-Judge rubric score
+  level: metric
+  definition: a structured LLM-as-a-Judge agent to assess responses against dataset-specific clinical rubrics covering medical accuracy, completeness, longitudinal consistency, guideline concordance, safety, communication, and direct clinical usability
+  definition_verbatim: true
+  location: Section 2.7
+  scale: 1-5 per dimension, normalized to 0-100
+- term: Final score
+  level: metric
+  definition: Arithmetic mean of atomic-action recall (50%) and LLM-as-a-Judge score (50%).
+  definition_verbatim: false
+  location: Section 2.7
+  scale: 0-100
+- term: Lesion nature and risk assessment
+  level: dimension
+  parent: LLM-as-a-Judge rubric score
+  definition: PNBIM rubric dimension scored by the LLM judge (no separate definition given).
+  definition_verbatim: false
+  location: Section 2.7-2.8, Table 2
+  scale: 1-5
+- term: Clinical-imaging integration
+  level: dimension
+  parent: LLM-as-a-Judge rubric score
+  definition: PNBIM rubric dimension scored by the LLM judge (no separate definition given).
+  definition_verbatim: false
+  location: Section 2.7-2.8, Table 2
+  scale: 1-5
+- term: Diagnostic and staging planning
+  level: dimension
+  parent: LLM-as-a-Judge rubric score
+  definition: PNBIM rubric dimension scored by the LLM judge (no separate definition given).
+  definition_verbatim: false
+  location: Section 2.7-2.8, Table 2
+  scale: 1-5
+- term: Treatment-plan appropriateness
+  level: dimension
+  parent: LLM-as-a-Judge rubric score
+  definition: PNBIM rubric dimension scored by the LLM judge (no separate definition given).
+  definition_verbatim: false
+  location: Section 2.7-2.8, Table 2
+  scale: 1-5
+- term: Health management and safety communication
+  level: dimension
+  parent: LLM-as-a-Judge rubric score
+  definition: PNBIM rubric dimension scored by the LLM judge (no separate definition given).
+  definition_verbatim: false
+  location: Section 2.7-2.8, Table 2
+  scale: 1-5
+- term: Clarity and clinical usability
+  level: dimension
+  parent: LLM-as-a-Judge rubric score
+  definition: PNBIM rubric dimension scored by the LLM judge (no separate definition given).
+  definition_verbatim: false
+  location: Section 2.7-2.8, Table 2
+  scale: 1-5
+- term: COPD warning and severity assessment
+  level: dimension
+  parent: LLM-as-a-Judge rubric score
+  definition: AECOPD-PIM rubric dimension scored by the LLM judge (no separate definition given).
+  definition_verbatim: false
+  location: Section 2.7-2.8, Table 2
+  scale: 1-5
+- term: Longitudinal course and medication-record understanding
+  level: dimension
+  parent: LLM-as-a-Judge rubric score
+  definition: AECOPD-PIM rubric dimension scored by the LLM judge (no separate definition given).
+  definition_verbatim: false
+  location: Section 2.7-2.8, Table 2
+  scale: 1-5
+- term: Follow-up and comprehensive assessment
+  level: dimension
+  parent: LLM-as-a-Judge rubric score
+  definition: AECOPD-PIM rubric dimension scored by the LLM judge (no separate definition given).
+  definition_verbatim: false
+  location: Section 2.7-2.8, Table 2
+  scale: 1-5
+- term: Medication adjustment and safety
+  level: dimension
+  parent: LLM-as-a-Judge rubric score
+  definition: AECOPD-PIM rubric dimension scored by the LLM judge (no separate definition given).
+  definition_verbatim: false
+  location: Section 2.7-2.8, Table 2
+  scale: 1-5
+- term: Nonpharmacological intervention
+  level: dimension
+  parent: LLM-as-a-Judge rubric score
+  definition: AECOPD-PIM rubric dimension scored by the LLM judge (no separate definition given).
+  definition_verbatim: false
+  location: Section 2.7-2.8, Table 2
+  scale: 1-5
+- term: Clarity and clinical usability
+  level: dimension
+  parent: LLM-as-a-Judge rubric score
+  definition: AECOPD-PIM rubric dimension scored by the LLM judge (no separate definition given).
+  definition_verbatim: false
+  location: Section 2.7-2.8, Table 2
+  scale: 1-5
+- term: Imaging hallucination
+  level: category
+  definition: PNBIM outputs were flagged for imaging hallucination when the response asserted an image feature or interval change that was not supported by the supplied input.
+  definition_verbatim: true
+  location: Section 2.8
+  scale: binary flag
+- term: Overdiagnosis
+  level: category
+  definition: Overdiagnosis indicated excessive diagnostic certainty or disproportionate escalation beyond the available evidence.
+  definition_verbatim: true
+  location: Section 2.8
+  scale: binary flag
+- term: Serious medical risk
+  level: category
+  definition: A serious medical-risk flag identified recommendations with plausible potential for major harm.
+  definition_verbatim: true
+  location: Section 2.8
+  scale: binary flag
+- term: Medication-safety risk
+  level: category
+  definition: AECOPD-PIM flag for medication-safety risk in the response (no further definition given).
+  definition_verbatim: false
+  location: Section 2.8
+  scale: binary flag
+notes: Rubric dimensions are defined per dataset (PNBIM, AECOPD-PIM); the Clarity and clinical usability dimension appears in both. Dimension-level scores reported on a 1-5 scale in Figure 3. Reference answers decompose into atomic clinical actions (risk assessment, additional evaluation, treatment or surveillance, longitudinal monitoring, safety communication, health management) which are scored as binary points.

@@ -1,0 +1,48 @@
+entry: cliniqlink-2025
+sources:
+- https://pmc.ncbi.nlm.nih.gov/articles/PMC12306836/
+extracted: '2026-10-26'
+terms:
+- term: Accuracy
+  level: metric
+  definition: Fraction correct on true/false and single-best multiple-choice items.
+  definition_verbatim: false
+  location: Evaluation section, Task-1
+- term: Macro F1
+  level: metric
+  definition: Mean per-item F1 for unordered list questions.
+  definition_verbatim: false
+  location: Task-1
+- term: Micro F1
+  level: metric
+  definition: Pooled F1 (2TP/(2TP+FP+FN)) for unordered list questions.
+  definition_verbatim: false
+  location: Task-1
+- term: ClinIQLink semantic-similarity score
+  level: metric
+  definition: Blend of three cosine layers (IDF-weighted token alignment F1, SBERT MiniLM sentence-embedding cosine, whole-string cosine) plus reasoning-correctness and step penalties, used for free-text items.
+  definition_verbatim: false
+  location: Task-1
+  scale: 0-1
+- term: BLEU
+  level: metric
+  definition: n-gram overlap, secondary diagnostic for free-text answers.
+  definition_verbatim: false
+  location: Task-1
+- term: ROUGE
+  level: metric
+  definition: n-gram/recall overlap, secondary diagnostic for free-text answers.
+  definition_verbatim: false
+  location: Task-1
+- term: METEOR
+  level: metric
+  definition: Alignment-based overlap metric, secondary diagnostic for free-text answers.
+  definition_verbatim: false
+  location: Task-1
+- term: Expert preference ranking
+  level: other
+  definition: Paid medical students ranked responses from the six strongest models on open-ended items.
+  definition_verbatim: false
+  location: Task-2
+  scale: ranking
+notes: Only the factual-accuracy goal is stated; no named qualitative axes beyond the preference study. Reviewers also assigned a GP-relevance score to items (item curation, not output scoring).

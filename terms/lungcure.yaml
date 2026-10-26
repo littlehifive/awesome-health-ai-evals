@@ -1,0 +1,29 @@
+entry: lungcure
+sources:
+- https://arxiv.org/abs/2604.06925
+extracted: '2026-10-26'
+terms:
+- term: TNM Staging Accuracy
+  level: metric
+  definition: Consistency between the model's predicted TNM stage and the ground truth; correct if and only if the T, N, and M stages are all correct.
+  definition_verbatim: true
+  location: Section 4.2; Appendix B.1
+  scale: binary per case
+- term: Reasoning Quality
+  level: metric
+  definition: Evaluates the medical validity and evidence traceability of the model's reasoning process when generating TNM staging results by the judging model.
+  definition_verbatim: true
+  location: Section 4.2; Appendix B.1
+  scale: 1-5 per component (T, N, M, overall synthesis), averaged
+- term: Precision (treatment recommendation)
+  level: metric
+  definition: Measures the usefulness of the model-generated recommendation, refereed by the clinician's prescription; evaluator compares treatment strategy, key medications, and clinical pathway.
+  definition_verbatim: true
+  location: Section 4.2; Appendix B.2
+  scale: LLM-judged alignment
+- term: BERT-F1
+  level: metric
+  definition: Measures the semantic similarity between the model's treatment decision reasoning process and the reference reasoning process provided by clinicians.
+  definition_verbatim: true
+  location: Section 4.2; Appendix B.2
+notes: 'Tasks: TNM staging, treatment recommendation (Task 2), end-to-end decision support (Task 3); Tasks 2 and 3 use Precision and BERT-F1. Reasoning Quality scoring criteria: evidence traced to source, sound clinical logic per stage component, adherence to staging rules. LLM-judge prompts in Appendix D (not read). HF dataset card is gated.'

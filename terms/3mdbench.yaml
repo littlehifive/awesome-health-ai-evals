@@ -1,0 +1,53 @@
+entry: 3mdbench
+sources: [https://arxiv.org/abs/2504.13861]
+extracted: 2026-10-26
+terms:
+  - term: Diagnostic accuracy (F1 of extracted diagnosis)
+    level: metric
+    definition: "The Assessor Agent compares the diagnosis extracted from the doctor's conclusion with the ground-truth diagnosis; results reported as F1 score."
+    definition_verbatim: false
+    location: Section 3.2, Section 4.2, Table 5
+    scale: F1 over diagnoses
+  - term: Medical Interviewing Skills
+    level: dimension
+    definition: "Primary item of Table 2 covering history taking (1.1), current symptoms, causes and attempted treatments (1.2), and explaining the basis of the conclusion (1.3)."
+    definition_verbatim: false
+    location: Section 3.4, Table 2
+    scale: binary yes/no questions (assessor); reported as proportions
+  - term: Humanistic Care
+    level: dimension
+    definition: "Primary item of Table 2: 2.1 Does the doctor communicate with respect, empathy, and politeness, providing appropriate guidance and avoiding unnecessary extensions? 2.2 Does the doctor respect the individual wishes of the patient?"
+    definition_verbatim: true
+    location: Section 3.4, Table 2
+    scale: binary yes/no
+  - term: Diagnostic and Treatment Abilities
+    level: dimension
+    definition: "Primary item of Table 2: 3.1 Does the doctor provide an accurate diagnostic plan for the supposed diagnosis? 3.2 Does the doctor accurately provide a treatment plan for the supposed diagnosis?"
+    definition_verbatim: true
+    location: Section 3.4, Table 2
+    scale: binary yes/no
+  - term: Overall Clinical Competence
+    level: dimension
+    definition: "Primary item of Table 2: 4.1 Which level of clinical competence does the doctor demonstrate during the consultation? (Unsatisfactory, satisfactory, or excellent)."
+    definition_verbatim: true
+    location: Section 3.4, Table 2
+    scale: 3-level (unsatisfactory, satisfactory, excellent)
+  - term: Instruction following
+    level: metric
+    definition: "A metric on a scale from 1 to 5 indicating whether the patient accurately follows all instructions in the prompt (used to select the Patient Agent, not the doctor model)."
+    definition_verbatim: true
+    location: Section 3.3, Table 3
+    scale: 1-5
+  - term: Relevance
+    level: metric
+    definition: "A binary metric for each doctor-patient utterance pair checking the relevance of the patient's response to the doctor's utterances (Patient Agent validation)."
+    definition_verbatim: true
+    location: Section 3.3, Table 3
+    scale: binary, averaged per dialogue
+  - term: Factuality
+    level: metric
+    definition: "The ratio of patient utterances referencing symptoms from the prompt, via embedding cosine similarity above 0.8 (Patient Agent validation)."
+    definition_verbatim: false
+    location: Section 3.3, Table 3
+    scale: ratio
+notes: "The 8 core assessor criteria are the secondary items 1.1 to 4.1 under the four primary dimensions (Table 2, adapted from Mini-CEX). Instruction following, Relevance, Factuality validate the simulated patient, not the model under test."

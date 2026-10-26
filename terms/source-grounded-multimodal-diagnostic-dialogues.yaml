@@ -1,0 +1,57 @@
+entry: source-grounded-multimodal-diagnostic-dialogues
+sources: [https://arxiv.org/abs/2608.22713]
+extracted: 2026-10-26
+terms:
+  - term: Final diagnosis (strict precision, recall, F1)
+    level: metric
+    definition: "Atomic-item alignment of the model's final diagnosis against the article-reported diagnosis under strict matching."
+    definition_verbatim: false
+    location: Table 1
+    scale: "precision/recall/F1 0-1"
+  - term: Diagnostic reasoning (lenient precision, recall, F1)
+    level: metric
+    definition: "Atomic-item alignment of the model's reasoning against article-derived reasoning items under lenient matching."
+    definition_verbatim: false
+    location: Table 1
+    scale: "precision/recall/F1 0-1"
+  - term: Image finding (lenient precision, recall, F1)
+    level: metric
+    definition: "Atomic-item alignment of the model's image findings against article-derived image-finding items under lenient matching."
+    definition_verbatim: false
+    location: Table 1
+    scale: "precision/recall/F1 0-1"
+  - term: Factuality
+    level: dimension
+    parent: FVCU
+    definition: "whether case-specific clinical, imaging, laboratory, pathology, microbiology, molecular, or genetic claims were supported by the available evidence"
+    definition_verbatim: true
+    location: Evaluation section (LLM judge), Table 1
+    scale: 1-5
+  - term: Validity
+    level: dimension
+    parent: FVCU
+    definition: "whether the diagnostic inferences were clinically reasonable given the evidence presented in the model's reasoning"
+    definition_verbatim: true
+    location: Evaluation section, Table 1
+    scale: 1-5
+  - term: Coherence
+    level: dimension
+    parent: FVCU
+    definition: "internal consistency and logical organization"
+    definition_verbatim: true
+    location: Evaluation section, Table 1
+    scale: 1-5
+  - term: Utility
+    level: dimension
+    parent: FVCU
+    definition: "whether the reasoning covered, prioritized, and synthesized the case-defining evidence needed to support the article-reported diagnostic pathway"
+    definition_verbatim: true
+    location: Evaluation section, Table 1
+    scale: 1-5
+  - term: FVCU Overall
+    level: metric
+    definition: "Overall reasoning-quality score aggregating Factuality, Validity, Coherence, and Utility."
+    definition_verbatim: false
+    location: Table 1
+    scale: 1-5
+notes: "FVCU is the paper's abbreviation for the four-dimension reasoning-quality rubric scored by an LLM judge from a structured item-level evaluation summary (matched, missing, extra, contradictory evidence)."

@@ -1,0 +1,85 @@
+entry: psi-arena
+sources: [https://arxiv.org/abs/2505.03293]
+extracted: 2026-10-26
+terms:
+  - term: Client-Oriented Scale
+    level: axis
+    definition: "gathers feedback from clients on the counselor's effectiveness and the quality of the counselor-client relationship. It includes 16 dimensions such as trust, empathy, and communication clarity, rated on a scale from 0 to 4."
+    definition_verbatim: true
+    location: Section 2.4; Table 1; Appendix D Table 15
+    scale: 0-4 per item (16 items, total 64, pass threshold >42)
+  - term: Supervisor-Oriented Scale
+    level: axis
+    definition: "evaluates the counselor's professional competence and adherence to ethical standards. It includes 8 dimensions, such as therapeutic techniques and cultural competence, rated from 0 to 4."
+    definition_verbatim: true
+    location: Section 2.4; Table 1; Appendix D Table 16
+    scale: 0-4 per item (8 items, total 32, pass threshold >24)
+  - term: Counselor-Oriented Scale
+    level: axis
+    definition: "allows counselors to self-assess their practices. It covers 20 dimensions, with 9 focused on practical counseling abilities like empathy and client response. Counselors rate their alignment with these abilities on a scale from 0 to 5."
+    definition_verbatim: true
+    location: Section 2.4; Table 1; Appendix D Table 17
+    scale: 0-5 per item
+  - term: Professional knowledge and theoretical application
+    level: dimension
+    parent: Supervisor-Oriented Scale
+    definition: "Does the counselor possess solid professional knowledge and effectively apply psychological theories and techniques to guide the counseling process?"
+    definition_verbatim: true
+    location: Appendix D Table 16
+    scale: 0-4
+  - term: Emotional understanding and trust building
+    level: dimension
+    parent: Supervisor-Oriented Scale
+    definition: "Is the counselor able to accurately understand the client's emotions and build a trusting relationship through emotional resonance and support?"
+    definition_verbatim: true
+    location: Appendix D Table 16
+    scale: 0-4
+  - term: Communication and listening skills
+    level: dimension
+    parent: Supervisor-Oriented Scale
+    definition: "Does the counselor have strong communication skills, effectively listen to the client's expressions, and provide appropriate responses?"
+    definition_verbatim: true
+    location: Appendix D Table 16
+    scale: 0-4
+  - term: Ethical awareness and boundary maintenance
+    level: dimension
+    parent: Supervisor-Oriented Scale
+    definition: "Is the counselor able to adhere to professional ethics, clearly define professional boundaries in the counseling relationship, and avoid inappropriate emotional entanglements such as dependency or intimacy?"
+    definition_verbatim: true
+    location: Appendix D Table 16
+    scale: 0-4
+  - term: Problem identification and goal setting
+    level: dimension
+    parent: Supervisor-Oriented Scale
+    definition: "Is the counselor able to accurately identify the client's core issues and collaboratively set clear, achievable counseling goals with the client?"
+    definition_verbatim: true
+    location: Appendix D Table 16
+    scale: 0-4
+  - term: Intervention strategy and technology application
+    level: dimension
+    parent: Supervisor-Oriented Scale
+    definition: "Is the counselor able to apply appropriate intervention strategies and techniques, adjusting treatment methods based on the client's specific issues to achieve effective therapeutic outcomes?"
+    definition_verbatim: true
+    location: Appendix D Table 16
+    scale: 0-4
+  - term: Cultural sensitivity and individual respect
+    level: dimension
+    parent: Supervisor-Oriented Scale
+    definition: "Is the counselor able to fully understand and respect the client's cultural background and individual differences, providing support that aligns with the client's needs?"
+    definition_verbatim: true
+    location: Appendix D Table 16
+    scale: 0-4
+  - term: Personal emotion and self-regulation
+    level: dimension
+    parent: Supervisor-Oriented Scale
+    definition: "Is the counselor able to self-regulate emotions, avoid letting personal feelings interfere with the counseling process, and maintain rationality and professionalism?"
+    definition_verbatim: true
+    location: Appendix D Table 16
+    scale: 0-4
+  - term: Pass rate
+    level: metric
+    definition: Share of tests (counselor-client dialogues) whose scale score exceeds the realistic threshold for that scale, in addition to the mean score per scale and overall.
+    definition_verbatim: false
+    location: Section 3.1; Table 2
+    scale: percent of dialogues passing threshold
+notes: "Client scale items are 16 statements from Black (2003) (for example 'I am at ease with him or her', 'He or she is honest about the areas in which he or she is not good at'); counselor scale items shown in Table 17 are 9 self-rated statements (respond appropriately, respect client choices, review the session, closed vs open questions, perspective taking, clarity). Scales are applied by GPT-4o role-playing client, supervisor and counselor. Individual client and counselor items are not listed as separate terms."

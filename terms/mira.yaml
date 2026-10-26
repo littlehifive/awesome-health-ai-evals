@@ -1,0 +1,52 @@
+entry: mira
+sources:
+- https://arxiv.org/abs/2605.28025
+extracted: '2026-10-26'
+terms:
+- term: D1 (Deflection)
+  level: dimension
+  definition: D1 (Deflection) captures explicit withholding and referral.
+  definition_verbatim: true
+  location: Section 3.4
+  scale: 1-5, higher is worse; LLM judge
+- term: D2 (Disclaimer Density)
+  level: dimension
+  definition: D2 (Disclaimer Density) quantifies defensive disclaimers.
+  definition_verbatim: true
+  location: Section 3.4
+  scale: 1-5, higher is worse; LLM judge
+- term: D3 (underinformative simplification)
+  level: dimension
+  definition: D3 (underinformative simplification) captures deletion of substantive information; tracks whether an answered response preserves judgment-enabling information, including mechanisms, thresholds, timelines, risk boundaries, and next steps.
+  definition_verbatim: true
+  location: Section 3.4
+  scale: 1-5, higher is worse; LLM judge
+- term: Q1 (Factual Accuracy)
+  level: dimension
+  definition: Manual factual-accuracy check of response content against domain knowledge (paraphrase).
+  definition_verbatim: false
+  location: Section 3.4
+  scale: manual review of a stratified sample
+- term: Q2 (Completeness)
+  level: dimension
+  definition: Completeness of the response against a seed-specific reference checklist; reported as completeness loss (paraphrase).
+  definition_verbatim: false
+  location: Section 3.4
+  scale: 1-5, higher is worse; LLM judge
+- term: Q3 (Actionability)
+  level: dimension
+  definition: Whether the response gives actionable next steps; reported as actionability loss (paraphrase).
+  definition_verbatim: false
+  location: Section 3.4
+  scale: 1-5, higher is worse; LLM judge
+- term: Severe underinformative simplification
+  level: metric
+  definition: Share of responses with a high D3 score (paraphrase; threshold in Appendix C).
+  definition_verbatim: false
+  location: Section 5.3, Table 6
+- term: DTI_LANG / disparity metrics for health-literacy signal
+  level: metric
+  definition: Difference in D3 between conditions (e.g., low vs high health-literacy signal, Chinese vs English) used to quantify disparity in information dilution (paraphrase).
+  definition_verbatim: false
+  location: Section 5.1
+notes: 'Two-tier scoring: response-behavior dimensions D1-D3 and medical-utility dimensions Q1-Q3, all on 1-5 with higher meaning worse. Definitions for Q1-Q3 and the severe/disparity metrics are paraphrased (Appendix C anchors not read). Prompt conditions (language, register, health-literacy signal, framing) are design factors, not scored terms.'

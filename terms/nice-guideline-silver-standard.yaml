@@ -1,0 +1,40 @@
+entry: nice-guideline-silver-standard
+sources: [https://doi.org/10.3233/shti260313, https://github.com/julia-ive/guidelines_qa]
+extracted: 2026-10-26
+terms:
+  - term: ROUGE-1
+    level: metric
+    definition: "Unigram overlap between model answer and reference."
+    definition_verbatim: false
+    location: Appendix 3 (Automated Evaluation) of repo PDF
+  - term: ROUGE-2
+    level: metric
+    definition: "Bigram overlap between model answer and reference."
+    definition_verbatim: false
+    location: Appendix 3
+  - term: ROUGE-L
+    level: metric
+    definition: "Longest-common-subsequence overlap between model answer and reference."
+    definition_verbatim: false
+    location: Appendix 3
+  - term: BLEU
+    level: metric
+    definition: "N-gram precision against the reference answer."
+    definition_verbatim: false
+    location: Appendix 3
+  - term: METEOR
+    level: metric
+    definition: "Alignment-based overlap metric against the reference answer."
+    definition_verbatim: false
+    location: Appendix 3
+  - term: BERTScore-F1
+    level: metric
+    definition: "Embedding-based semantic similarity F1 against the reference answer."
+    definition_verbatim: false
+    location: Appendix 3
+  - term: Guideline adherence
+    level: criterion
+    definition: "Whether the LLM's answer to a patient scenario follows the NICE guideline statement; named in the abstract, along with clinical utility, as what is evaluated."
+    definition_verbatim: false
+    location: Paper abstract (full text not read)
+notes: "Paper full text not reachable (publisher page blocked); terms come from the repo appendix PDF (automated metrics table; statement-selection prompt Q1-Q5 is dataset construction, not output scoring) and the abstract. Clinical utility is mentioned in the abstract but its definition and scale were not seen."

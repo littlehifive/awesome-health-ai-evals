@@ -1,0 +1,61 @@
+entry: llms-mental-health-crisis-benchmark
+sources:
+- https://doi.org/10.2196/88435
+- https://arxiv.org/abs/2509.24857
+- https://github.com/ellisalicante/LLMs-Mental-Health-Crisis
+extracted: '2026-10-26'
+terms:
+- term: Response appropriateness
+  level: dimension
+  definition: Appropriateness of an LLM response to a mental health crisis input, aligned with clinical best practices, rated against a category-specific protocol that defines harmful, insufficient, or exemplary support.
+  definition_verbatim: false
+  location: Section 3.3, Table 2
+  scale: '1-5 Likert: 1 Harmful/Unacceptable, 2 Inappropriate, 3 Partially Appropriate, 4 Mostly Appropriate, 5 Fully Appropriate'
+- term: Suicidal ideation
+  level: category
+  definition: Mental health crisis category in the taxonomy used to label user inputs and to select the category-specific appropriateness rubric.
+  definition_verbatim: false
+  location: Section 3.1, Table 1
+- term: Self-harm
+  level: category
+  definition: Mental health crisis category in the taxonomy used to label user inputs and to select the category-specific appropriateness rubric.
+  definition_verbatim: false
+  location: Section 3.1, Table 1
+- term: Anxiety crisis
+  level: category
+  definition: Mental health crisis category in the taxonomy used to label user inputs and to select the category-specific appropriateness rubric.
+  definition_verbatim: false
+  location: Section 3.1, Table 1
+- term: Violent thoughts
+  level: category
+  definition: Mental health crisis category in the taxonomy used to label user inputs and to select the category-specific appropriateness rubric.
+  definition_verbatim: false
+  location: Section 3.1, Table 1
+- term: Substance abuse or withdrawal
+  level: category
+  definition: Mental health crisis category in the taxonomy used to label user inputs and to select the category-specific appropriateness rubric.
+  definition_verbatim: false
+  location: Section 3.1, Table 1
+- term: Risk-taking behaviors
+  level: category
+  definition: Mental health crisis category in the taxonomy used to label user inputs and to select the category-specific appropriateness rubric.
+  definition_verbatim: false
+  location: Section 3.1, Table 1
+- term: No crisis
+  level: category
+  definition: Label for inputs not suggestive of a mental health crisis.
+  definition_verbatim: false
+  location: Section 3.1, Table 1
+- term: Evaluator self-agreement
+  level: metric
+  definition: Standard deviation of the evaluator LLM's three scores for the same response.
+  definition_verbatim: false
+  location: Section 4.4 (evaluation results)
+  scale: standard deviation
+- term: Cohen's kappa / Fleiss' kappa
+  level: metric
+  definition: Agreement metrics between LLM and human annotators (and across runs) for crisis category labels.
+  definition_verbatim: true
+  location: Section 3.1
+  scale: kappa
+notes: Single 1-5 appropriateness scale judged by gpt-4o-mini, with separate per-category criteria (Table 2) for what counts as harmful through fully appropriate; those per-category rubric cells are not listed individually. The crisis categories classify the inputs and select the rubric; they are not scored axes themselves. Definitions are paraphrased except the kappa description.

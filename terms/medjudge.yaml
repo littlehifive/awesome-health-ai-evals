@@ -1,0 +1,99 @@
+entry: medjudge
+sources:
+- https://arxiv.org/abs/2604.25933
+extracted: '2026-10-26'
+terms:
+- term: Validity
+  level: principle
+  definition: The Validity pillar focuses on the methodological rigor of using LaaJ, including task-paradigm alignment and model diversity to ensure a robust and generalizable evaluation approach.
+  definition_verbatim: true
+  location: Section 3, Figure 3 and Table 5
+- term: Safety
+  level: principle
+  definition: The Safety pillar addresses risk mitigation through bias assessment, error propagation analysis, and adversarial robustness testing proportional to the level of clinical risk.
+  definition_verbatim: true
+  location: Section 3, Figure 3 and Table 5
+- term: Accountability
+  level: principle
+  definition: The Accountability pillar ensures operational responsibility through expert validation, performance monitoring, and appropriate regulatory documentation.
+  definition_verbatim: true
+  location: Section 3, Figure 3 and Table 5
+- term: Task-paradigm alignment
+  level: criterion
+  parent: Validity
+  definition: 'Matching the judging paradigm to the task: pointwise for structured tasks, pairwise for comparative tasks, multi-agent for safety-critical tasks.'
+  definition_verbatim: false
+  location: Section 3, Figure 3 and Table 5
+- term: Model diversity
+  level: criterion
+  parent: Validity
+  definition: Use of judge models from different families (preferred in Tier A, tested in Tier B, multi-family panel in Tier C).
+  definition_verbatim: false
+  location: Section 3, Figure 3 and Table 5
+- term: Bias audit
+  level: criterion
+  parent: Safety
+  definition: Two-step testing (alignment verification, then safety validation) of systematic bias in the judge.
+  definition_verbatim: false
+  location: Section 3, Figure 3 and Table 5
+- term: Demographic bias
+  level: criterion
+  parent: Bias audit
+  definition: 'Safety validation test: equivalent clinical cases with varied demographic identifiers (race, gender, SES); classed critical.'
+  definition_verbatim: false
+  location: Table 5
+- term: Severity calibration
+  level: criterion
+  parent: Bias audit
+  definition: 'Safety validation test: known-error cases across the severity spectrum, checking the judge does not conflate minor and life-threatening errors; classed critical.'
+  definition_verbatim: false
+  location: Table 5
+- term: Self-enhancement
+  level: criterion
+  parent: Bias audit
+  definition: 'Safety validation test: same content attributed to different model sources; classed critical.'
+  definition_verbatim: false
+  location: Table 5
+- term: Temporal stability
+  level: criterion
+  parent: Bias audit
+  definition: 'Safety validation test: re-evaluate after guideline updates and model changes; classed high.'
+  definition_verbatim: false
+  location: Table 5
+- term: Cross-specialty
+  level: criterion
+  parent: Bias audit
+  definition: 'Safety validation test: validate the judge across relevant clinical specialties; classed high.'
+  definition_verbatim: false
+  location: Table 5
+- term: Error propagation
+  level: criterion
+  parent: Safety
+  definition: Quantifying how judge errors compound in multi-judge cascades (cascade error, ensemble correlation), with a proposed 0.30 healthcare safety threshold.
+  definition_verbatim: false
+  location: Section 3, Equations 1-4
+- term: Adversarial robustness
+  level: criterion
+  parent: Safety
+  definition: Resilience of the judge to adversarial inputs (prompt injection in Tier B, full adversarial testing in Tier C).
+  definition_verbatim: false
+  location: Section 3, Figure 3 and Table 5
+- term: Expert validation
+  level: criterion
+  parent: Accountability
+  definition: Validation of the judge against clinical experts (single-site panel, multi-site specialists, or multi-institution with replication by tier).
+  definition_verbatim: false
+  location: Section 3, Figure 3 and Table 5
+- term: Monitoring & drift
+  level: criterion
+  parent: Accountability
+  definition: Version locking and recalibration, up to continuous statistical process control with sentinels.
+  definition_verbatim: false
+  location: Section 3, Figure 3 and Table 5
+- term: Regulatory docs
+  level: criterion
+  parent: Accountability
+  definition: 'Documentation by tier: model card, validation package, FDA engagement with audit trail.'
+  definition_verbatim: false
+  location: Section 3, Figure 3 and Table 5
+notes: Requirements for validating an LLM judge, not criteria for scoring a health chatbot. Requirements are tiered by clinical risk (Tier A low, B moderate, C high); definitions other than the three pillars are paraphrased from the matrix.

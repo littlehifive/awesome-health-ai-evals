@@ -1,0 +1,90 @@
+entry: medgpt-heval
+sources:
+- https://arxiv.org/abs/2605.20591
+extracted: '2026-10-26'
+terms:
+- term: G-Eval
+  level: metric
+  definition: 'We use the G-Eval framework to assess response faithfulness based on the clinical prompt and standardized context. Leveraging Gemini''s chain-of-thought reasoning, each response is independently scored using a five-part rubric: (1) consistency with the prompt, (2) factual accuracy, (3) completeness, (4) citation reliability, and (5) inference justification.'
+  definition_verbatim: true
+  location: Section IV-A, item 1)
+  scale: 0-1, averaged across rubric parts; higher is better
+- term: consistency with the prompt
+  level: criterion
+  parent: G-Eval
+  definition: Part 1 of the G-Eval five-part rubric.
+  definition_verbatim: false
+  location: Section IV-A, item 1)
+- term: factual accuracy
+  level: criterion
+  parent: G-Eval
+  definition: Part 2 of the G-Eval five-part rubric.
+  definition_verbatim: false
+  location: Section IV-A, item 1)
+- term: completeness
+  level: criterion
+  parent: G-Eval
+  definition: Part 3 of the G-Eval five-part rubric.
+  definition_verbatim: false
+  location: Section IV-A, item 1)
+- term: citation reliability
+  level: criterion
+  parent: G-Eval
+  definition: Part 4 of the G-Eval five-part rubric.
+  definition_verbatim: false
+  location: Section IV-A, item 1)
+- term: inference justification
+  level: criterion
+  parent: G-Eval
+  definition: Part 5 of the G-Eval five-part rubric.
+  definition_verbatim: false
+  location: Section IV-A, item 1)
+- term: BARTScore
+  level: metric
+  definition: BARTScore estimates the likelihood of a generated text (y) given a reference input (x) using the pretrained BART model. It assesses faithfulness by computing the weighted log-probability of y conditioned on x.
+  definition_verbatim: true
+  location: Section IV-A, item 2)
+  scale: log-probability (negative; higher is better)
+- term: Semantic Entropy
+  level: metric
+  definition: Semantic Entropy (SE) quantifies the model's uncertainty in generating outputs; computed from a single forward pass using token-level output probabilities, SE(x) = -sum p_i log p_i. A higher SE(x) indicates greater uncertainty in the model's predictions, which may signal a higher likelihood of hallucination.
+  definition_verbatim: true
+  location: Section IV-A, item 3)
+  scale: entropy; lower is better (cost metric)
+- term: Cosine Similarity
+  level: metric
+  definition: Semantic alignment between a medical GPT's response and its clinical input, using BioBERT embeddings. Scores range from 0 (no similarity) to 1 (perfect alignment). Lower scores indicate semantic drift or fabrication, key indicators of hallucination.
+  definition_verbatim: true
+  location: Section IV-A, item 4)
+  scale: 0-1
+- term: Misuse risk score
+  level: metric
+  definition: An LLM-based (Gemini 3.1 Pro) score of MedGPT metadata (name, description, conversation starters) against OpenAI usage policies, with a 0.45 risk threshold (K-means) separating compliant from non-compliant.
+  definition_verbatim: false
+  location: Section IV-B
+  scale: risk score 0-1; threshold 0.45
+- term: health consultations
+  level: category
+  parent: Misuse risk score
+  definition: Misuse category in the actor-level abuse evaluation, scored against OpenAI usage-policy clauses.
+  definition_verbatim: false
+  location: Section IV-B
+- term: scams
+  level: category
+  parent: Misuse risk score
+  definition: Misuse category in the actor-level abuse evaluation.
+  definition_verbatim: false
+  location: Section IV-B
+- term: privacy violations
+  level: category
+  parent: Misuse risk score
+  definition: Misuse category in the actor-level abuse evaluation; privacy policy availability and quality also checked for MedGPTs with Actions.
+  definition_verbatim: false
+  location: Section IV-B, V-D
+- term: illicit activities
+  level: category
+  parent: Misuse risk score
+  definition: Misuse category in the actor-level abuse evaluation.
+  definition_verbatim: false
+  location: Section IV-B
+notes: Hallucination metrics apply to responses to MedQA vignettes (five repeats per MedGPT). The misuse score concerns developer metadata, not model outputs; included because the paper frames it as the second framework. Operationalized policy rubric is in Table IX (not itemized here).

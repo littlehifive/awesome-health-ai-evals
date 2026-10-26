@@ -1,0 +1,59 @@
+entry: psi-bench-patient-simulators
+sources: [https://arxiv.org/abs/2604.25840, https://github.com/nguyenkhoihoang/PSI-Bench]
+extracted: 2026-10-26
+terms:
+  - term: Narrative-Emotion Processes (NEP) Markers
+    level: dimension
+    definition: "standardized categories rated by observers that capture how patients manifest narrative content and emotional experience during psychotherapy"
+    definition_verbatim: true
+    location: Section 3.1
+    scale: "turn-level label (Problem, Transition, Change); compared to real patients via Jensen-Shannon divergence of progression"
+  - term: Emotion Expression
+    level: dimension
+    definition: Each patient message is labelled with one of Plutchik's eight primary emotions or neutral, and the temporal progression of emotion distributions is compared with real patients.
+    definition_verbatim: false
+    location: Section 3.1
+    scale: "turn-level label; Jensen-Shannon divergence of progression"
+  - term: Lexical Diversity
+    level: dimension
+    definition: Conversation-level Measure of Textual Lexical Diversity (MTLD) of patient messages, compared with real patients (mean per-conversation and corpus-level).
+    definition_verbatim: false
+    location: Section 3.1, Appendix A.4
+    scale: normalized Wasserstein distance between MTLD distributions
+  - term: Response Length
+    level: dimension
+    definition: Average number of words per message and per sentence in patient responses.
+    definition_verbatim: false
+    location: Section 3.1
+    scale: distance to real-patient distribution
+  - term: Linguistic Markers of Depression
+    level: dimension
+    definition: "Rate of messages containing, and occurrences per 1,000 tokens of, absolutist terms, depressive words, and non-fluencies (lexicon in Table 7)."
+    definition_verbatim: false
+    location: Section 3.1, Table 7
+    scale: proportion and rate per 1,000 tokens, compared to real patients
+  - term: Problem
+    level: category
+    parent: Narrative-Emotion Processes (NEP) Markers
+    definition: "repetitive, \"stuck\" storylines with limited reflection"
+    definition_verbatim: true
+    location: Section 3.1
+  - term: Transition
+    level: category
+    parent: Narrative-Emotion Processes (NEP) Markers
+    definition: "more coherent and reflective storytelling as clients begin to examine their thoughts and emotions"
+    definition_verbatim: true
+    location: Section 3.1
+  - term: Change
+    level: category
+    parent: Narrative-Emotion Processes (NEP) Markers
+    definition: "clear shifts in emotional response and thought patterns, where clients may show a new understanding of key events in their life"
+    definition_verbatim: true
+    location: Section 3.1
+  - term: Overall alignment score
+    level: metric
+    definition: Aggregate of the per-dimension alignment scores (NEP, Emotion, Diversity, Length, Markers) used to rank simulators.
+    definition_verbatim: false
+    location: Table 1
+    scale: 0-100, higher is closer to real patients
+notes: Scores simulated patients against real patients (Eeyore dataset), not therapist outputs. Turn-, dialogue- and population-level views. Human validation reports pairwise, NEP and emotion agreement (Table 2).

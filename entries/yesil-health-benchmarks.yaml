@@ -23,9 +23,16 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: "About 7,500 questions in 50+ subsets (roughly 80 to 180 questions each)"
+signals:
+  citations: null
+  citations_source: OpenAlex
+  hf_downloads: 193
+  github_stars: null
+  uptake: []
+  updated: '2026-10-26'
 provenance:
   records: [r_dd55b1c183]
   extracted: 2026-10-26
-  read_full_text: false
+  read_full_text: true
   confidence: low
   notes: "Dataset card only, no paper. Splits cover specialties (dermatology, oncology, and others) and non-clinical topics (wearables, sleep, supplements, health economics). Rows sampled from the Dermatology split are four-option questions with a letter answer; the card suggests exact match, F1, or semantic similarity. The card does not say how questions were made, and the uploader (Yesil Science) country is not stated. Card citation year is 2025, first release 2024 per the screening record. Builder type is an assumption from a company contact address."

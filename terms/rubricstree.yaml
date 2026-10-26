@@ -1,0 +1,94 @@
+entry: rubricstree
+sources:
+- https://arxiv.org/abs/2606.18203
+extracted: '2026-10-26'
+terms:
+- term: Medical Skills
+  level: dimension
+  definition: Macro-level capability of the tree covering professional medical skills.
+  definition_verbatim: false
+  location: Title, Section 2
+- term: Health Memory
+  level: dimension
+  definition: Macro-level capability of the tree covering user health memory (use of the user's own sensor, biomarker and profile data).
+  definition_verbatim: false
+  location: Title, Section 2
+- term: Knowledge
+  level: dimension
+  definition: medical knowledge breadth and depth
+  definition_verbatim: true
+  location: Figure 1 / Table 1 caption
+  scale: covered / partial / not covered (comparison table)
+- term: Communication
+  level: dimension
+  definition: patient-centric professional communication
+  definition_verbatim: true
+  location: Figure 1 / Table 1 caption
+- term: Safety
+  level: dimension
+  definition: clinical safety guardrails (e.g., emergency referral, scope-of-practice)
+  definition_verbatim: true
+  location: Figure 1 / Table 1 caption
+- term: Personalization
+  level: dimension
+  definition: longitudinal user personalization
+  definition_verbatim: true
+  location: Figure 1 / Table 1 caption
+- term: Factual grounding
+  level: dimension
+  definition: factual grounding against the user's own data
+  definition_verbatim: true
+  location: Figure 1 / Table 1 caption
+- term: Numerical accuracy
+  level: dimension
+  definition: numerical / metric accuracy
+  definition_verbatim: true
+  location: Figure 1 / Table 1 caption
+- term: Accuracy
+  level: category
+  definition: Distribution category of RubricsTree leaf rubrics (with Safety and Relevance), as labeled in Figure 2.
+  definition_verbatim: false
+  location: Figure 2 description
+- term: Relevance
+  level: category
+  definition: Distribution category of RubricsTree leaf rubrics (with Accuracy and Safety), as labeled in Figure 2.
+  definition_verbatim: false
+  location: Figure 2 description
+- term: Atomic Boolean rubric
+  level: criterion
+  definition: atomic, clinically-verifiable criteria, each implemented as a binary verification function grounded in a concrete clinical fact; 100+ leaf nodes weighted by depth and ancestral significance
+  definition_verbatim: true
+  location: Sections 1-2
+  scale: binary pass/fail per leaf; weighted normalized sum S_d per core dimension
+- term: Medical Explanation
+  level: category
+  definition: One of four clinical scenarios in which rubric agreement and robustness are reported.
+  definition_verbatim: false
+  location: Table 2, Figure 3
+  scale: Cohen kappa / detection rate
+- term: Health Data
+  level: category
+  definition: One of four clinical scenarios (queries about the user's health data) in which rubric agreement is reported.
+  definition_verbatim: false
+  location: Table 2, Figure 3
+- term: Advice / Action Plan
+  level: category
+  definition: One of four clinical scenarios in which rubric agreement is reported.
+  definition_verbatim: false
+  location: Table 2, Figure 3
+- term: Symptoms
+  level: category
+  definition: One of four clinical scenarios in which rubric agreement is reported.
+  definition_verbatim: false
+  location: Table 2, Figure 3
+- term: Completeness
+  level: axis
+  definition: whether the model comprehensively addressed all facets of the user's complex query without omitting critical medical details, caveats, or necessary follow-up steps.
+  definition_verbatim: true
+  location: Appendix I.3 (HealthBench-Hard axis used in downstream optimization)
+- term: Context Awareness
+  level: axis
+  definition: how effectively the model integrated and adapted its advice to the user's specific personal context, implicit needs, or provided demographic/health data.
+  definition_verbatim: true
+  location: Appendix I.3 (HealthBench-Hard axis)
+notes: Hierarchical taxonomy (macro capabilities to sub-aspects to 100+ Boolean leaves); a context-aware router activates a subset per query. The paper does not give a full list of leaf rubrics in the sections read. Knowledge..Numerical accuracy are the capability columns of the Table 1 comparison, used to position the framework, and I could not confirm they are the tree's own top-level nodes. Completeness and Context Awareness are HealthBench-Hard axes used in downstream evaluation. Meta-evaluation metrics (ICC3, Cohen's kappa, mean penalty, detection rate) assess the evaluator, not model outputs.

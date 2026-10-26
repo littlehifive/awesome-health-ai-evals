@@ -1,0 +1,82 @@
+entry: osteoarthritis-benchmark-docoa
+sources:
+- https://doi.org/10.2196/58158
+- https://pmc.ncbi.nlm.nih.gov/articles/PMC11301122/
+extracted: '2026-10-26'
+terms:
+- term: Objective accuracy
+  level: metric
+  definition: Proportion of benchmark questions (GIQA, MOQA, TSQA, RCQA) answered correctly.
+  definition_verbatim: false
+  location: Results, Table 1 and Figure 3A
+  scale: proportion correct per subset
+- term: Inaccurate content
+  level: criterion
+  parent: Human evaluation
+  definition: Physician rating of whether the response contains inaccurate content.
+  definition_verbatim: false
+  location: Methods, Human evaluation; Multimedia Appendix 1
+  scale: rate of responses (categorical rating, rubric in appendix not read)
+- term: Relevance
+  level: criterion
+  parent: Human evaluation
+  definition: Physician rating of whether the response is relevant to the question.
+  definition_verbatim: false
+  location: Methods, Human evaluation; Multimedia Appendix 1
+  scale: rate of responses
+- term: Hallucinations
+  level: criterion
+  parent: Human evaluation
+  definition: Physician rating of whether the response contains hallucinated content.
+  definition_verbatim: false
+  location: Methods, Human evaluation; Multimedia Appendix 1
+  scale: rate of responses
+- term: Missing content
+  level: criterion
+  parent: Human evaluation
+  definition: Physician rating of omissions (listed as omissions in the Discussion).
+  definition_verbatim: false
+  location: Methods, Human evaluation; Multimedia Appendix 1
+  scale: rate of responses
+- term: Likelihood of possible harm
+  level: criterion
+  parent: Human evaluation
+  definition: Physician rating of how likely the response is to cause harm.
+  definition_verbatim: false
+  location: Methods, Human evaluation
+  scale: rating (appendix not read)
+- term: Extent of possible harm
+  level: criterion
+  parent: Human evaluation
+  definition: Physician rating of how severe possible harm from the response would be.
+  definition_verbatim: false
+  location: Methods, Human evaluation
+  scale: rating (appendix not read)
+- term: Possibility of bias
+  level: criterion
+  parent: Human evaluation
+  definition: Physician rating of whether the response contains biased content.
+  definition_verbatim: false
+  location: Methods, Human evaluation
+  scale: rate of responses
+- term: Comprehension, retrieval, and reasoning
+  level: criterion
+  definition: Assessed whether the LLM achieved correct comprehension, retrieval, and reasoning on a response.
+  definition_verbatim: false
+  location: Methods, Human evaluation
+  scale: per-response correct/incorrect
+- term: User intent fulfillment
+  level: criterion
+  definition: Patient rating of whether the content fulfilled the patient's intent.
+  definition_verbatim: false
+  location: Methods, Human evaluation (patient evaluation)
+  scale: patient rating
+- term: Helpfulness
+  level: criterion
+  definition: Patient rating of how helpful the content was.
+  definition_verbatim: false
+  location: Methods, Human evaluation (patient evaluation)
+  scale: patient rating
+notes: Detailed descriptions of each human-evaluation metric are in Multimedia Appendix 1, which was not
+  read, so definitions are paraphrased from the Methods. A panel of 5 physicians rated sampled outputs
+  (n=1200 per model) with models anonymized. Some definitions and scales are unconfirmed.

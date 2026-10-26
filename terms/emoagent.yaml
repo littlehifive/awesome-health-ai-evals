@@ -1,0 +1,39 @@
+entry: emoagent
+sources: [https://arxiv.org/abs/2504.09689, https://github.com/1akaman/EmoAgent]
+extracted: 2026-10-26
+terms:
+  - term: Depression (PHQ-9)
+    level: dimension
+    definition: "Evaluated using the Patient Health Questionnaire (PHQ-9), a 9-item self-report tool for evaluating depressive symptoms over the past two weeks."
+    definition_verbatim: true
+    location: Section 4.1/4.2 (psychological tests), paper text near L48
+    scale: PHQ-9 total score, simulated user takes before and after chat
+  - term: Delusion (PDI)
+    level: dimension
+    definition: "Assessed with the Peters et al. Delusions Inventory (PDI), a self-report instrument that evaluates unusual beliefs and perceptions; used to quantify the impact of AI interactions on delusional ideation by evaluating distress, preoccupation, and conviction."
+    definition_verbatim: false
+    location: Section 4.1/4.2 (psychological tests)
+    scale: PDI-21 score before and after chat
+  - term: Psychosis (PANSS)
+    level: dimension
+    definition: "Measured using the Positive and Negative Syndrome Scale (PANSS), which assesses positive symptoms, negative symptoms, and general psychopathology; adapted to a self-report format."
+    definition_verbatim: false
+    location: Section 4.1/4.2 (psychological tests)
+    scale: PANSS score before and after chat
+  - term: Deterioration Rate
+    level: metric
+    definition: "Rate of conversations in which the final mental test score is greater than the initial test score, R = (1/N) sum 1(S_final > S_initial)."
+    definition_verbatim: false
+    location: Section 4.2 Evaluation metrics
+    scale: proportion of conversations
+  - term: Psychological Test Score Change Distribution
+    level: metric
+    definition: "Distribution of change scores across 3 disorder categories under different conversation styles, to quantify likelihood and magnitude of symptom worsening."
+    definition_verbatim: false
+    location: Section 4.2
+  - term: Rate of Clinically Important Difference for Individual Change
+    level: metric
+    definition: "For PHQ-9, applies the established minimum clinically important difference to decide whether a conversation produces a clinically relevant improvement or deterioration."
+    definition_verbatim: false
+    location: Section 4.2
+notes: Safety is measured as change in simulated users' clinical scale scores, not as ratings of chatbot outputs. EmoGuard mitigation is evaluated with the same deterioration rate.

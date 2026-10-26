@@ -1,0 +1,102 @@
+entry: care-bench-counseling
+sources:
+- https://doi.org/10.1609/aaai.v40i46.41287
+- https://arxiv.org/abs/2511.09407
+extracted: '2026-10-26'
+terms:
+- term: Therapeutic Relationship (WAI)
+  level: dimension
+  definition: The Working Alliance Inventory (WAI) (Horvath and Greenberg 1989) is utilized to evaluate the quality of the therapeutic relationship between therapists and clients.
+  definition_verbatim: true
+  location: Section 4.1 (counselor competency evaluation); Table 4
+  scale: 5-point scale 1-5; GPT-4o scorer
+- term: Counseling Goal
+  level: criterion
+  parent: Therapeutic Relationship (WAI)
+  definition: WAI subscale; not separately defined in the main text.
+  definition_verbatim: false
+  location: Section 4.1 (counselor competency evaluation); Table 4
+  scale: 1-5
+- term: Task Agreement
+  level: criterion
+  parent: Therapeutic Relationship (WAI)
+  definition: WAI subscale; not separately defined in the main text.
+  definition_verbatim: false
+  location: Section 4.1 (counselor competency evaluation); Table 4
+  scale: 1-5
+- term: Emotional Bond
+  level: criterion
+  parent: Therapeutic Relationship (WAI)
+  definition: WAI subscale; not separately defined in the main text.
+  definition_verbatim: false
+  location: Section 4.1 (counselor competency evaluation); Table 4
+  scale: 1-5
+- term: Empathic Understanding (BLRI)
+  level: dimension
+  definition: Empathy is assessed using the Empathic Understanding subscale of the Barrett-Lennard Relationship Inventory (BLRI) (Barrett-Lennard 1962), which captures both cognitive and affective components of empathy, reflecting the therapist's ability to accurately perceive and communicate an understanding of the client's feelings and experiences.
+  definition_verbatim: true
+  location: Section 4.1 (counselor competency evaluation); Table 4
+  scale: 6-point scale -3 to +3 (excluding 0)
+- term: Cognitive Empathy
+  level: criterion
+  parent: Empathic Understanding (BLRI)
+  definition: BLRI dimension; not separately defined in the main text.
+  definition_verbatim: false
+  location: Section 4.1 (counselor competency evaluation); Table 4
+  scale: -3 to +3
+- term: Affective Empathy
+  level: criterion
+  parent: Empathic Understanding (BLRI)
+  definition: BLRI dimension; not separately defined in the main text.
+  definition_verbatim: false
+  location: Section 4.1 (counselor competency evaluation); Table 4
+  scale: -3 to +3
+- term: Differentiated Empathy
+  level: criterion
+  parent: Empathic Understanding (BLRI)
+  definition: BLRI dimension; not separately defined in the main text.
+  definition_verbatim: false
+  location: Section 4.1 (counselor competency evaluation); Table 4
+  scale: -3 to +3
+- term: Inner Pattern
+  level: criterion
+  parent: Empathic Understanding (BLRI)
+  definition: BLRI dimension; not separately defined in the main text.
+  definition_verbatim: false
+  location: Section 4.1 (counselor competency evaluation); Table 4
+  scale: -3 to +3
+- term: Counseling Skills (CCS-R)
+  level: dimension
+  definition: Counseling skills are evaluated using the Counselor Competencies Scale-Revised (CCS-R) (Lambie et al. 2018), which assesses a broad range of counseling skills and professional dispositions, providing a robust framework for evaluating the practical application of therapeutic techniques and interpersonal effectiveness in a counseling context.
+  definition_verbatim: true
+  location: Section 4.1 (counselor competency evaluation); Table 4
+  scale: 5-point scale 1-5
+- term: Probing Techniques
+  level: criterion
+  parent: Counseling Skills (CCS-R)
+  definition: CCS-R dimension; not separately defined in the main text.
+  definition_verbatim: false
+  location: Section 4.1 (counselor competency evaluation); Table 4
+  scale: 1-5
+- term: Facilitate Therapeutic Environment
+  level: criterion
+  parent: Counseling Skills (CCS-R)
+  definition: CCS-R dimension; not separately defined in the main text.
+  definition_verbatim: false
+  location: Section 4.1 (counselor competency evaluation); Table 4
+  scale: 1-5
+- term: Reflecting
+  level: criterion
+  parent: Counseling Skills (CCS-R)
+  definition: CCS-R dimension; not separately defined in the main text.
+  definition_verbatim: false
+  location: Section 4.1 (counselor competency evaluation); Table 4
+  scale: 1-5
+- term: Change Facilitation
+  level: criterion
+  parent: Counseling Skills (CCS-R)
+  definition: CCS-R dimension; not separately defined in the main text.
+  definition_verbatim: false
+  location: Section 4.1 (counselor competency evaluation); Table 4
+  scale: 1-5
+notes: Dialogues between a counselor LLM and a principle-guided simulated client are scored by GPT-4o on scale items (agreement with two psychologists reported). Item-level scale content is in the paper appendix, not read. The simulated client's realism was also checked (emotional fluctuation) but that evaluates the simulator, not the counselor.

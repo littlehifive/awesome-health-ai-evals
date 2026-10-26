@@ -1,0 +1,42 @@
+entry: ruhealth
+sources:
+- https://doi.org/10.5281/zenodo.22300664
+- https://github.com/hse-scila/ConsensusMirage
+extracted: '2026-10-26'
+terms:
+- term: Accuracy
+  level: metric
+  definition: Share of claims for which the model's true/false/disputed verdict matches the expert label.
+  definition_verbatim: false
+  location: GitHub README, The evaluation
+  scale: percentage
+- term: Macro-F1
+  level: metric
+  definition: Macro-averaged F1 over the three verdict classes (true, false, disputed).
+  definition_verbatim: false
+  location: Zenodo record / README
+  scale: 0-1
+- term: 'true'
+  level: category
+  definition: 'Veracity label for a health claim: supported by expert-verified evidence.'
+  definition_verbatim: false
+  location: README, The dataset
+  scale: 3-class label
+- term: 'false'
+  level: category
+  definition: 'Veracity label for a health claim: contradicted by expert-verified evidence.'
+  definition_verbatim: false
+  location: README, The dataset
+  scale: 3-class label
+- term: disputed
+  level: category
+  definition: The disputed category captures partial truths, exaggerations, insufficient or contradictory evidence, and irreducible ambiguity.
+  definition_verbatim: true
+  location: README, The dataset
+  scale: 3-class label
+- term: Agreement among models
+  level: metric
+  definition: Degree to which models give the same verdict, compared with agreement with the expert label (unanimous-but-wrong rate, majority-vote ensembling).
+  definition_verbatim: false
+  location: README, The evaluation
+notes: The paper was not reachable; terms come from the Zenodo record and the analysis-code README. Accuracy and macro-F1 are stated in the entry notes and are not defined in the README text read. 'True' and 'false' descriptions are paraphrases. Six physicians and three experts' per-rater codes (0 don't know, 1 false, 2 disputed, 3 true) are released.

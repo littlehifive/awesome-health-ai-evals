@@ -1,0 +1,11 @@
+entry: diagnosticbenchmarking
+sources: [https://github.com/Santosh-Gupta/DiagnosticBenchmarking]
+extracted: 2026-10-26
+terms:
+  - term: "pass@k (k=1..5)"
+    level: metric
+    definition: "models emit a top-5 ranked differential; score pass@1 ... pass@5 against gold_diagnosis with an LLM judge for semantic equivalence."
+    definition_verbatim: true
+    location: "README, The benchmark (suggested scoring)"
+    scale: "proportion of cases with the gold diagnosis in the top k"
+notes: "Only the repository README was read (data/public_benchmark/README.md not opened). Single diagnostic-correctness construct; the determinacy audit applies to case construction, not to model outputs."

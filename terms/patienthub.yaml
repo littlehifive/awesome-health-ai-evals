@@ -1,0 +1,82 @@
+entry: patienthub
+sources:
+- https://arxiv.org/abs/2602.11684
+- https://github.com/Sahandfer/PatientHub
+extracted: '2026-10-26'
+terms:
+- term: Factual Consistency
+  level: criterion
+  parent: Consistency
+  definition: Stated facts match the profile.
+  definition_verbatim: false
+  location: Section 4.3, Table 2
+  scale: 1-5 Likert, LLM judge (Sonnet-4.6)
+- term: Cross-turn Coherence
+  level: criterion
+  parent: Consistency
+  definition: No contradictions across turns.
+  definition_verbatim: false
+  location: Section 4.3, Table 2
+  scale: 1-5 Likert, LLM judge
+- term: Psychological Alignment
+  level: criterion
+  parent: Consistency
+  definition: Expressed beliefs and reactions align with the profile.
+  definition_verbatim: false
+  location: Section 4.3, Table 2
+  scale: 1-5 Likert, LLM judge
+- term: Naturalness
+  level: criterion
+  parent: Realism
+  definition: Human-like expression.
+  definition_verbatim: false
+  location: Section 4.3, Table 2
+  scale: 1-5 Likert, LLM judge
+- term: Emotional Depth
+  level: criterion
+  parent: Realism
+  definition: Depth of emotional expression by the simulated client.
+  definition_verbatim: false
+  location: Section 4.3, Table 2
+  scale: 1-5 Likert, LLM judge
+- term: Appropriate Resistance
+  level: criterion
+  parent: Realism
+  definition: The client is not overly forthcoming.
+  definition_verbatim: false
+  location: Section 4.3, Table 2
+  scale: 1-5 Likert, LLM judge
+- term: Feedback Quality
+  level: criterion
+  parent: Pedagogical utility
+  definition: Whether client responses provide trainees with useful signals.
+  definition_verbatim: false
+  location: Section 4.3
+  scale: 1-5 Likert, LLM judge
+- term: Consistency
+  level: dimension
+  definition: Prior-work dimension for client performance covering factual consistency, cross-turn coherence
+    and psychological alignment.
+  definition_verbatim: false
+  location: Section 4.3
+- term: Realism
+  level: dimension
+  definition: Prior-work dimension covering naturalness, emotional depth and appropriate resistance; treated
+    as illustrative, not validated against clinicians.
+  definition_verbatim: false
+  location: Section 4.3
+- term: Pedagogical utility
+  level: dimension
+  definition: Prior-work dimension, assessed here via feedback quality.
+  definition_verbatim: false
+  location: Section 4.3
+- term: Response length and API cost per session
+  level: metric
+  definition: Average response length (tokens) and API cost (USD) per session.
+  definition_verbatim: false
+  location: Section 4.3, Table 2
+  scale: tokens; USD
+notes: PatientHub is a toolkit; the evaluator supports four rubric paradigms (binary, scalar/Likert, categorical,
+  extraction) at turn and session level, with user-defined dimensions. The terms above are the ones in
+  the paper's cross-method case study, not a fixed benchmark rubric. Profile-quality checks (for example
+  coherence, completeness of generated profiles) are extraction-based.

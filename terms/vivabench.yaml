@@ -1,0 +1,58 @@
+entry: vivabench
+sources: [https://arxiv.org/abs/2510.10278]
+extracted: 2026-10-26
+terms:
+  - term: Top-k Exact Accuracy
+    level: metric
+    definition: "Whether any of an agent's top-k predictions exactly matched a ground truth diagnosis in D. A prediction was considered an exact match if its specified condition name or ICD-10 name/code precisely matched an entry in D."
+    definition_verbatim: true
+    location: Appendix F.1; Section 3.2 Metrics
+    scale: "binary per case, k=1 to 5; for provisional and final stages a relevant investigation must also be ordered"
+  - term: Top-k Approximate Accuracy
+    level: metric
+    definition: "Whether any of an agent's top-k predictions approximately matched a ground truth diagnosis or an accepted differential diagnosis (broader ICD-10 level, accepted differential, or cosine similarity > 0.8)."
+    definition_verbatim: false
+    location: Appendix F.1, Table 8
+    scale: "binary per case, k=1 to 5"
+  - term: Raw Confidence
+    level: metric
+    definition: "Mean raw confidence score (0.0 to 1.0) the agent assigns across its diagnoses at the provisional (C_P) and final (C_D) stage."
+    definition_verbatim: false
+    location: Appendix F.2
+    scale: "0.0-1.0"
+  - term: Confidence-Weighted Accuracy Score (S_conf)
+    level: metric
+    definition: "Normalized confidence on exact and approximate matches minus normalized confidence on unmatched predictions; measures how well confidence aligns with correctness."
+    definition_verbatim: false
+    location: Section 3.2 Metrics; Appendix F.2
+    scale: "-1.0 to +1.0"
+  - term: Information seeking efficiency (precision)
+    level: metric
+    definition: "Proportion of requested information that was relevant to the diagnosis: |K_requested intersect K_relevant| / |K_requested|; precision reflects inquiry focus."
+    definition_verbatim: true
+    location: Section 3.2 Metrics; Appendix F.3
+    scale: proportion; computed for Review vs Investigation and Matched vs Full scope
+  - term: Information seeking efficiency (recall)
+    level: metric
+    definition: "Proportion of all diagnosis-relevant information that was requested: |K_requested intersect K_relevant| / |K_relevant|; recall indicates completeness."
+    definition_verbatim: true
+    location: Section 3.2 Metrics; Appendix F.3
+    scale: proportion
+  - term: Diagnostic evolution
+    level: metric
+    definition: "How diagnoses and confidence change between provisional and final stages (diagnoses added, removed, maintained, confidence delta, confidence shift), correlated with accuracy change."
+    definition_verbatim: false
+    location: Appendix F.4, Table 3
+    scale: counts and deltas
+  - term: Confidence-accuracy quadrants
+    level: category
+    definition: "Cases placed as Confidently Accurate, Overconfidently Wrong, Underconfident but Accurate, or Appropriately Uncertain from mean confidence versus composite accuracy."
+    definition_verbatim: false
+    location: Appendix F.2, Figure 5
+  - term: Interaction turns (Actions)
+    level: metric
+    definition: "Average number of interaction turns per case, split into Review queries and Investigation orders."
+    definition_verbatim: false
+    location: Table 2
+    scale: count
+notes: Scoring is automatic against ICD-10-coded diagnoses; no rubric or human rating. Accuracy is reported at three stages (provisional d_P, final d_D, full-information d_F).

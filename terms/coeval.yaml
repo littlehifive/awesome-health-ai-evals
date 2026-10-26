@@ -1,0 +1,56 @@
+entry: coeval
+sources:
+- https://github.com/lunit-io/CoEval
+extracted: '2026-10-26'
+terms:
+- term: MCQ Accuracy
+  level: metric
+  definition: Robust answer letter extraction + exact match
+  definition_verbatim: true
+  location: README Metrics
+- term: Classification
+  level: metric
+  definition: Label extraction + exact match
+  definition_verbatim: true
+  location: README Metrics
+- term: Numeric Accuracy
+  level: metric
+  definition: Numeric value comparison with tolerance
+  definition_verbatim: true
+  location: README Metrics
+- term: HealthBench Rubric
+  level: metric
+  definition: Per-criterion rubric scoring
+  definition_verbatim: true
+  location: README Metrics
+  scale: points per rubric criterion, LLM judge
+- term: Faithfulness
+  level: metric
+  definition: Is the answer grounded in context?
+  definition_verbatim: true
+  location: README Metrics
+  scale: LLM judge (DeepEval)
+- term: Answer Relevancy
+  level: metric
+  definition: Is the answer relevant to the question?
+  definition_verbatim: true
+  location: README Metrics
+  scale: LLM judge (DeepEval)
+- term: Contextual Precision
+  level: metric
+  definition: Does context contain relevant info?
+  definition_verbatim: true
+  location: README Metrics
+  scale: LLM judge (DeepEval)
+- term: Contextual Recall
+  level: metric
+  definition: Is all relevant info retrieved?
+  definition_verbatim: true
+  location: README Metrics
+  scale: LLM judge (DeepEval)
+- term: Macro F1
+  level: metric
+  definition: Macro F1 aggregation for classification tasks such as MedHallu hallucination detection and AttributionBench.
+  definition_verbatim: false
+  location: README Aggregation
+notes: Harness over 14 third-party datasets; the metrics table lists 8 metrics (the first four deterministic or rubric; the DeepEval ones are LLM judge) plus aggregation strategies.

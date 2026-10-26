@@ -1,0 +1,46 @@
+entry: drugaudit
+sources:
+- https://arxiv.org/abs/2606.01434
+extracted: '2026-10-26'
+terms:
+- term: Answer correctness (judge score)
+  level: metric
+  definition: LLM-as-judge answer score J (dual judges Llama-3.1-70B-Instruct and gpt-oss-120b) of whether the answer matches the gold answer, including correct refusal on no-data items.
+  definition_verbatim: false
+  location: Section 4.4
+  scale: judge verdict
+- term: Source authority match
+  level: metric
+  definition: Whether the cited sources overlap the gold source buckets, directly or via an upstream-of relation; for no-evidence items, rewards emitting no citation.
+  definition_verbatim: false
+  location: Section 4.3
+  scale: binary per item
+- term: Snippet semantic overlap
+  level: metric
+  definition: Token-Jaccard overlap (threshold 0.3) between cited snippets and gold snippets, replacing strict substring matching.
+  definition_verbatim: false
+  location: Section 4.3
+  scale: binary per item
+- term: Primary-source rate
+  level: metric
+  definition: Mean weight of recognised citations on an item, 1.0 for regulatory or peer-reviewed primaries, 0.7 curated knowledge bases, 0.5 secondary aggregators.
+  definition_verbatim: false
+  location: Section 4.3
+  scale: weights 1.0/0.7/0.5
+- term: Faithfulness rate
+  level: metric
+  definition: Citation faithfulness, the property that each emitted citation grounds in the gold source universe
+  definition_verbatim: true
+  location: Section 4.3
+  scale: fraction of citations grounded
+- term: Composite Evidence Index (EI)
+  level: metric
+  definition: EI = 0.40 J + 0.60 EI*, with EI* = 0.45 auth + 0.25 prim + 0.15 snipSem + 0.15 faith.
+  definition_verbatim: false
+  location: Section 4.3, Eqs. 3-4
+- term: Answered rate
+  level: metric
+  definition: One minus the refusal rate; reported separately and not folded into EI.
+  definition_verbatim: false
+  location: Section 4.3
+notes: MedQA and PubMedQA drug subsets are scored by closed-form accuracy. Appendix B equations not read.

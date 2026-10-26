@@ -1,0 +1,36 @@
+entry: tcm-qa
+sources:
+- http://arxiv.org/abs/2403.09164
+extracted: '2026-10-26'
+terms:
+- term: Precision (P)
+  level: metric
+  definition: Correct Numbers (CN) divided by Total Numbers (TN); single-choice and true/false answers score 1 or 0, multiple-choice scores 1 for complete correct, 0.5 partially correct, 0 wrong.
+  definition_verbatim: false
+  location: Section III.C, Eq. 1
+  scale: 0-1 (CN/TN)
+- term: Precision in Responsive (PR)
+  level: metric
+  definition: Correct Numbers (CN) in the Responsive Numbers (RN) provided by ChatGPT; answers that explain without clearly answering are counted as unresponsive.
+  definition_verbatim: false
+  location: Section III.C, Eq. 2
+  scale: 0-1 (CN/RN)
+- term: Readability
+  level: criterion
+  definition: It includes the coherence and the fluency of the explanations. The evaluators are supposed to assess if generated explanation is well-structured, easy to read and understand and free of grammatical mistake or syntax error
+  definition_verbatim: true
+  location: Section III.D
+  scale: 1-3 rating
+- term: Reliability
+  level: criterion
+  definition: It indicates the comprehension of the questions and the trustworthiness of the explanations to support the answer results. The evaluators are able to assess whether the description and the explanation are based on facts, contain reliable information and perform great reasoning according to the given information
+  definition_verbatim: true
+  location: Section III.D
+  scale: 1-3 rating
+- term: Integrity
+  level: criterion
+  definition: It measures how well the explanations comprise all relevant knowledge. The evaluators should assess if the explanation provides sufficient context and full description
+  definition_verbatim: true
+  location: Section III.D
+  scale: 1-3 rating
+notes: Precision and PR are broken down by question type (single-choice, multiple-choice, true/false) and question category (knowledge, diagnosis, treatment); those are task slices, not terms. Readability, Reliability and Integrity are rated by three TCM annotators on explanations of about 150 correct and 150 wrong answers.

@@ -1,0 +1,35 @@
+entry: safe-psych
+sources: [https://arxiv.org/abs/2607.13036]
+extracted: 2026-10-26
+terms:
+  - term: Abstention (under-abstention and over-abstention)
+    level: metric
+    definition: "Under-abstention = # diagnosed insufficient cases / # insufficient cases; over-abstention = # abstained sufficient cases / # sufficient cases. Lower is better for both."
+    definition_verbatim: true
+    location: "Appendix C.2, Abstention behavior"
+    scale: proportion
+  - term: Clarification-seeking (Stage 1 clarification rate)
+    level: metric
+    definition: "# cases where the model clarifies at Stage 1 / # expert Stage-1-Clarify cases; higher means the model more often asks for additional information when experts judge clarification appropriate."
+    definition_verbatim: false
+    location: "Appendix C.2, Clarification-seeking"
+    scale: proportion
+  - term: Diagnosis timing
+    level: metric
+    definition: "Each case is assigned Premature, On-time, Late or Never by comparing the model's first diagnosis step to the expert-labeled earliest sufficient section."
+    definition_verbatim: false
+    location: "Appendix C.2, Diagnosis timing"
+    scale: percentage per category
+  - term: Diagnostic accuracy
+    level: metric
+    definition: "Predicted ICD-10 code compared against the expert label at three granularities: diagnosis-level ICD, 3-character ICD category, and high-level ICD group."
+    definition_verbatim: false
+    location: "Appendix C.2, Diagnostic accuracy"
+    scale: proportion at three granularities
+  - term: ACTION label (diagnose / clarify / abstain)
+    level: category
+    definition: "LLM judge labels each model response as diagnose, clarify or abstain, derived from PRIMARY_ANSWER and INFO_REQUEST features, and compared with psychiatrist labels."
+    definition_verbatim: false
+    location: "Appendix C.1.2 and C.4 judge prompt"
+    scale: 3-class label
+notes: "Four evaluation dimensions named in the paper: abstention, clarification-seeking, diagnosis timing, diagnostic accuracy. Judge validated at macro-F1 0.84 (Table 4)."

@@ -1,0 +1,65 @@
+entry: cvd
+sources:
+- https://doi.org/10.1101/2025.10.14.25338039
+extracted: '2026-10-26'
+terms:
+- term: Clinical Value Density (CVD)
+  level: metric
+  definition: a novel metric quantifying clinical utility per unit of cognitive resource consumed.
+  definition_verbatim: true
+  location: Abstract
+  scale: raw (semantic value per token) and normalized 0-1
+- term: Semantic similarity
+  level: metric
+  definition: semantic similarity to clinician (pharmacist) reference answers
+  definition_verbatim: false
+  location: Abstract; Methods; Results (medRxiv 2025.10.14.25338039)
+- term: Efficiency
+  level: metric
+  definition: response length in tokens as a proxy for cognitive cost (inverse token efficiency)
+  definition_verbatim: false
+  location: Abstract; Methods; Results (medRxiv 2025.10.14.25338039)
+  scale: tokens per response
+- term: Safety score
+  level: metric
+  definition: clinical safety scoring (accuracy-weighted error categorization)
+  definition_verbatim: true
+  location: Methods
+  scale: three-level, scored by two licensed pharmacists (per the entry); normalized 0-1
+- term: Relevance density
+  level: metric
+  definition: domain keyword weighting
+  definition_verbatim: true
+  location: Methods
+- term: Consistency
+  level: metric
+  definition: consistency across responses, one of the seven performance domains integrated into the composite CVD score
+  definition_verbatim: false
+  location: Results, composite ranking
+- term: Conciseness quality
+  level: metric
+  definition: short, medium, long stratification with excellence bonuses
+  definition_verbatim: true
+  location: Methods
+- term: High-value response rate
+  level: metric
+  definition: share of responses judged high value, one of seven domains in the composite score
+  definition_verbatim: false
+  location: Results, composite ranking
+- term: BLEU
+  level: metric
+  definition: traditional n-gram overlap metric compared against CVD
+  definition_verbatim: false
+  location: Results, Table 1
+- term: ROUGE-L
+  level: metric
+  definition: traditional longest common subsequence overlap metric compared against CVD
+  definition_verbatim: false
+  location: Results, Table 1
+- term: Factuality
+  level: metric
+  definition: traditional NLP factuality measure reported alongside BLEU and ROUGE-L
+  definition_verbatim: false
+  location: Methods
+notes: 'Seven performance domains (efficiency, semantic quality, safety, relevance, consistency, high-value response rate, conciseness) combine into a composite CVD score (Table 2). Responses are also classed
+  into four quadrants: optimal, verbose accurate, concise inaccurate, poor overall. Formula-level definitions for consistency and high-value response rate not read in detail.'

@@ -1,0 +1,61 @@
+entry: chatcoach
+sources:
+- https://arxiv.org/abs/2402.05547
+- https://doi.org/10.18653/v1/2024.findings-acl.94
+extracted: '2026-10-26'
+terms:
+- term: BLEU-2
+  level: metric
+  parent: Detection and correction of terminology errors
+  definition: measures the precision of bi-gram overlaps, offering insights into the lexical accuracy
+    of the generated text against reference answers.
+  definition_verbatim: true
+  location: Section 6 (Evaluation Metrics), Table 4; human evaluation, Table 6
+  scale: 0-100
+- term: ROUGE-L
+  level: metric
+  parent: Detection and correction of terminology errors
+  definition: assesses sentence-level similarity, focusing on the longest common subsequence.
+  definition_verbatim: true
+  location: Section 6 (Evaluation Metrics), Table 4; human evaluation, Table 6
+  scale: 0-100
+- term: BERTScore
+  level: metric
+  parent: Detection and correction of terminology errors
+  definition: semantic similarity between generated and reference terminology errors and corrections,
+    computed on contextual embeddings.
+  definition_verbatim: false
+  location: Section 6 (Evaluation Metrics), Table 4; human evaluation, Table 6
+  scale: 0-100
+- term: Constructiveness
+  level: criterion
+  parent: Human evaluation of coach feedback
+  definition: Human rating of coach feedback on whether it is constructive.
+  definition_verbatim: false
+  location: Section 6 (Evaluation Metrics), Table 4; human evaluation, Table 6
+  scale: 1-4
+- term: Clarity
+  level: criterion
+  parent: Human evaluation of coach feedback
+  definition: Human rating of the clarity of coach feedback.
+  definition_verbatim: false
+  location: Section 6 (Evaluation Metrics), Table 4; human evaluation, Table 6
+  scale: 1-4
+- term: Knowledgeability
+  level: criterion
+  parent: Human evaluation of coach feedback
+  definition: Human rating of the medical knowledge shown in coach feedback.
+  definition_verbatim: false
+  location: Section 6 (Evaluation Metrics), Table 4; human evaluation, Table 6
+  scale: 1-4
+- term: Overall
+  level: criterion
+  parent: Human evaluation of coach feedback
+  definition: Overall human quality rating of coach feedback.
+  definition_verbatim: false
+  location: Section 6 (Evaluation Metrics), Table 4; human evaluation, Table 6
+  scale: 1-4
+notes: Detection and correction of medical terminology misuse are scored separately with BLEU-2, ROUGE-L
+  and BERTScore after GPT-4 extracts errors from coach feedback. Human evaluation used 126 instances (10%
+  of the test set) and two raters. Error analysis categories (for example excessive coaching) are not
+  scored terms.

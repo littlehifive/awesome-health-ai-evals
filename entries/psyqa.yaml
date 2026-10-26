@@ -1,0 +1,42 @@
+id: psyqa
+name: PsyQA
+kind: benchmark
+year: 2021
+summary: A Chinese mental-health support dataset of about 22,000 questions and 56,000 long counseling answers crawled from the Yixinli Q&A platform, with support-strategy annotation on 4,012 answers, used to evaluate long counseling-text generation.
+readme_section: mental_health
+links:
+  paper: https://doi.org/10.18653/v1/2021.findings-acl.130
+  arxiv: "2106.01702"
+  doi: 10.18653/v1/2021.findings-acl.130
+  code: https://github.com/thu-coai/PsyQA
+license: custom
+open_data: gated
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: Questions and answers come from Yixinli (xinli001.com/qa), a Chinese mental-health service platform, where users ask and trained volunteers or counselors answer.
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [web_forum]
+  venue: peer_reviewed
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: about 22,000 questions and 56,000 answers; 4,012 answers annotated with strategies
+signals:
+  citations: 67
+  citations_source: OpenAlex
+  hf_downloads: null
+  github_stars: 281
+  uptake: []
+  updated: '2026-10-26'
+provenance:
+  records: [r_d829fb9de1]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Tsinghua University (CoAI). Full data needs a signed user agreement emailed to the authors (the README offers only a small sample file), hence gated; the license is the bespoke user agreement. Tasks are strategy identification and answer generation with fine-tuned GPT-2; the abstract reports fluency and helpfulness gains, and human-rating details were not checked. The Hugging Face dataset lsy641/PsyQA is a re-split by another team and is not listed in links. Nine help-seeker topics (for example emotion, love, family, career)."

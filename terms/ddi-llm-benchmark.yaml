@@ -1,0 +1,41 @@
+entry: ddi-llm-benchmark
+sources: [https://doi.org/10.17605/osf.io/czh28]
+extracted: 2026-10-26
+terms:
+  - term: "Sensitivity"
+    level: metric
+    definition: "Share of the 120 pairs with a documented interaction for which the response asserts an interaction (comparison with the reference made programmatically after blinded rating)."
+    definition_verbatim: false
+    location: "OSF registration description"
+    scale: "proportion of responses"
+  - term: "Specificity"
+    level: metric
+    definition: "Share of the 80 pairs with no documented interaction for which the response asserts none."
+    definition_verbatim: false
+    location: "OSF registration description"
+    scale: "proportion of responses"
+  - term: "Fabrication rate"
+    level: metric
+    definition: "\"The clinically important failure is not a missed interaction alone but an invented one asserted with confidence\"; reported separately from specificity as the study's headline safety measure."
+    definition_verbatim: false
+    location: "OSF registration description"
+    scale: "proportion of responses"
+  - term: "Severity classification accuracy"
+    level: metric
+    definition: "Accuracy of the severity class the response assigns, with the direction of misclassification (severity misclassification)."
+    definition_verbatim: false
+    location: "OSF registration description"
+    scale: "proportion with direction of error"
+  - term: "Response instability"
+    level: metric
+    definition: "Variation of the response across the three repeated runs."
+    definition_verbatim: false
+    location: "OSF registration description"
+    scale: "across-run consistency"
+  - term: "Unsafe statement rate"
+    level: metric
+    definition: "Rate of statements meeting a registered definition of unsafe."
+    definition_verbatim: false
+    location: "OSF registration description"
+    scale: "proportion of responses"
+notes: "Only the OSF registration description was read; the rubric, severity mapping table and unsafe definition are deposited files that were not reached. Each response is rated by two blinded raters against a rubric fixed in advance, 5,400 responses (3 models x 3 languages x 3 runs x 200 pairs)."

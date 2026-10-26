@@ -1,0 +1,42 @@
+id: d4-depression-dialogue
+name: D4
+kind: benchmark
+year: 2022
+summary: 1,339 Chinese multi-turn depression-diagnosis consultation dialogues, simulated by trained acting doctors and patients from clinical criteria (ICD-11, DSM-5), with topic, symptom, and severity annotations for response generation and diagnosis tasks.
+readme_section: mental_health
+links:
+  paper: https://aclanthology.org/2022.emnlp-main.156/
+  doi: 10.18653/v1/2022.emnlp-main.156
+  dataset: https://x-lance.github.io/D4/
+license: custom
+open_data: gated
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Dialogues are in Chinese and written to fit Chinese culture and expression, but the paper does not name the country of the actors or reference patients.
+  rater_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public, clinician]
+  eval_methods: [automatic_metric, expert_human_rating]
+  modality: [text]
+  size: 1,339 dialogues (average 21.6 turns), retained from 4,428 collected
+signals:
+  citations: 27
+  citations_source: OpenAlex
+  hf_downloads: null
+  github_stars: null
+  uptake: []
+  updated: '2026-10-26'
+provenance:
+  records: [r_e50dbb1614]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Shanghai Jiao Tong University X-LANCE Lab with Shanghai Mental Health Center. Dialogues are simulated: psychiatrists and trained actors play doctor and patient, based on reference sessions with real depressed patients; psychiatrists screened quality. Access requires emailing a signed Data Usage Agreement (no sharing, research only), so the license is custom. Tasks: response generation, topic prediction, and severity classification, scored with automatic metrics and human rating."

@@ -1,0 +1,7 @@
+entry: muddy-maze
+sources: [https://arxiv.org/abs/2501.17860]
+extracted: 2026-10-26
+terms:
+  - {term: Multi-Hop Accuracy, level: metric, definition: "This metric measures whether the model exactly reconstructs the annotated reasoning chain, considering both content and position.", definition_verbatim: true, location: Section 4.5, scale: proportion of evidence positions correct}
+  - {term: Single-Wise Accuracy, level: metric, definition: "This metric evaluates whether the model preserves the adjacency relations between consecutive evidence sentences.", definition_verbatim: true, location: Section 4.5, scale: proportion of adjacent pairs correct}
+notes: "Difficulty levels (Basic, Advance, and a third) and noise levels are task settings, not scored terms. Metrics are reported in one-round and multi-round settings."

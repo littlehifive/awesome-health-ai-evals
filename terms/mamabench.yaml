@@ -1,0 +1,53 @@
+entry: mamabench
+sources:
+- https://arxiv.org/abs/2606.29467
+- https://github.com/nmrenyi/mamabench
+extracted: '2026-10-26'
+terms:
+- term: Relevance score (mamaretrieval)
+  level: metric
+  definition: score = D_1 x (D_2 + D_3 + D_4), one gate and three graded dimensions.
+  definition_verbatim: true
+  location: Section 3.3
+  scale: 0-6 graded per (query, chunk)
+- term: D_1 topic
+  level: dimension
+  parent: Relevance score (mamaretrieval)
+  definition: Does the chunk address the query's clinical question in the same context, the same timing window (antenatal, intrapartum, postpartum)? A zero here forces a score of zero and halts scoring.
+  definition_verbatim: true
+  location: Section 3.3
+  scale: 0/1
+- term: D_2 meaningful content
+  level: dimension
+  parent: Relevance score (mamaretrieval)
+  definition: How much clinical depth the chunk carries, from a bare mention to a multi-concept explanation.
+  definition_verbatim: true
+  location: Section 3.3
+  scale: 0/1/2
+- term: D_3 actionable guidance
+  level: dimension
+  parent: Relevance score (mamaretrieval)
+  definition: 'How specific the guidance is: none, a general instruction, or an exact one.'
+  definition_verbatim: true
+  location: Section 3.3
+  scale: 0/1/2
+- term: D_4 density
+  level: dimension
+  parent: Relevance score (mamaretrieval)
+  definition: What fraction of the chunk is useful for this query, penalising a relevant passage buried in unrelated text.
+  definition_verbatim: true
+  location: Section 3.3
+  scale: 0/1/2
+- term: Rubric-graded track criteria
+  level: criterion
+  definition: HealthBench items scored against physician-written rubric criteria rather than a single gold answer, judged by an LLM (paraphrase).
+  definition_verbatim: false
+  location: Section 2.1
+  scale: met / not met per criterion
+- term: Multiple-choice accuracy
+  level: metric
+  definition: Multiple-choice items are scored by the answer letter (paraphrase).
+  definition_verbatim: false
+  location: Section 2.1
+  scale: exact match
+notes: mamabench has three QA tracks (multiple-choice 23,241, short-answer 369, rubric-graded 2,339). Rubric-graded criteria come from HealthBench (its axes not re-listed here). Judge-calibration side-file of 6,853 (prompt, response, criterion) triples with physician met/not-met labels. Short-answer scoring method not read in detail. Scope categories (MATERNAL, NEONATAL, CHILD HEALTH, SRH) are filters, not output scores.

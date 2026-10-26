@@ -1,0 +1,46 @@
+entry: small-open-llm-medical-qa-framework
+sources: [https://arxiv.org/abs/2604.10535]
+extracted: 2026-10-26
+terms:
+  - term: Exact match
+    level: metric
+    definition: "Lexical fidelity metric comparing the response to the gold answer."
+    definition_verbatim: false
+    location: Section 3 (metrics)
+  - term: Token F1
+    level: metric
+    definition: "Token-overlap F1 between response and gold answer."
+    definition_verbatim: false
+    location: Section 3 (metrics)
+  - term: BLEU (smoothed sentence-level n-gram overlap)
+    level: metric
+    definition: "smoothed sentence-level n-gram overlap"
+    definition_verbatim: true
+    location: Section 3 (metrics)
+  - term: ROUGE-L
+    level: metric
+    definition: "longest common subsequence F1"
+    definition_verbatim: true
+    location: Section 3 (metrics)
+  - term: BERTScore F1
+    level: metric
+    definition: "contextual embedding similarity computed with roberta-base"
+    definition_verbatim: true
+    location: Section 3 (metrics)
+  - term: LLM-as-judge score
+    level: metric
+    definition: "Score from 0 to 1, where 1 means fully correct. Assess factual correctness and clinical safety."
+    definition_verbatim: true
+    location: Section 3 (judge rubric prompt)
+    scale: 0-1
+  - term: Self-agreement across runs
+    level: metric
+    definition: "Within-model reproducibility: agreement between responses to the same question across N=10 repeated runs."
+    definition_verbatim: false
+    location: Abstract; Section 3
+  - term: Output uniqueness
+    level: metric
+    definition: "Within-model reproducibility: share of unique outputs across repeated runs."
+    definition_verbatim: false
+    location: Abstract; Section 4
+notes: "Eight quality metrics are stated; the seen list is exact match, token F1, BLEU, ROUGE-L, BERTScore F1 and the judge score, and the other two (probably other lexical or BLEU variants) were not identified. The two reproducibility metrics are self-agreement and output uniqueness per the abstract."

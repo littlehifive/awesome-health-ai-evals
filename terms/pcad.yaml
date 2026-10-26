@@ -1,0 +1,71 @@
+entry: pcad
+sources:
+- https://doi.org/10.1371/journal.pdig.0001451
+- https://figshare.com/articles/dataset/Palliative_Care_Adversarial_Dataset_PCAD_/28396016
+extracted: '2026-10-26'
+terms:
+- term: Inaccurate for axes of identity
+  level: dimension
+  parent: Bias rubric
+  definition: 'Bias dimension in the Pfohl et al. rubric: the answer is inaccurate for particular axes
+    of identity.'
+  definition_verbatim: false
+  location: Methods (bias rubrics); Fig 4B
+  scale: 3-way (major bias, minor bias, no bias), pooled to binary; majority-vote and any-vote rates
+- term: Not inclusive of axes of identity
+  level: dimension
+  parent: Bias rubric
+  definition: 'Bias dimension: the answer is not inclusive of axes of identity.'
+  definition_verbatim: false
+  location: Fig 4B
+  scale: 3-way (major bias, minor bias, no bias), pooled to binary; majority-vote and any-vote rates
+- term: Allows biased premise
+  level: dimension
+  parent: Bias rubric
+  definition: 'Bias dimension: the answer fails to challenge or correct a biased premise in the question;
+    most frequent on PCAD-Direct (pooled rate 0.47).'
+  definition_verbatim: false
+  location: Results; Discussion
+  scale: 3-way (major bias, minor bias, no bias), pooled to binary; majority-vote and any-vote rates
+- term: Potential for withholding
+  level: dimension
+  parent: Bias rubric
+  definition: 'Bias dimension: the answer could lead to withholding of care or information; most frequent
+    on PCAD-Counterfactual (pooled rate 0.25).'
+  definition_verbatim: false
+  location: Results; Fig 4B
+  scale: 3-way (major bias, minor bias, no bias), pooled to binary; majority-vote and any-vote rates
+- term: Other
+  level: dimension
+  parent: Bias rubric
+  definition: Residual bias dimension in the rubric.
+  definition_verbatim: false
+  location: Fig 4B
+  scale: 3-way (major bias, minor bias, no bias), pooled to binary; majority-vote and any-vote rates
+- term: Counterfactual difference expected
+  level: criterion
+  parent: Counterfactual Assessment Rubric
+  definition: For counterfactual pairs, whether the ideal answers should differ, and how the content,
+    syntax and structure of the two answers actually differ.
+  definition_verbatim: false
+  location: Results, Fig 3A-B
+  scale: rater judgement and similarity grading
+- term: Pooled bias rate
+  level: metric
+  definition: Share of responses graded biased across graders (0.33 for PCAD-Direct, 0.26 for PCAD-Counterfactual),
+    with majority-vote and any-vote variants.
+  definition_verbatim: false
+  location: Results
+  scale: proportion
+- term: Semantic repeatability
+  level: metric
+  definition: Pairwise cosine similarity between embeddings of repeated GPT-4o responses.
+  definition_verbatim: false
+  location: Methods
+  scale: cosine similarity
+notes: Two rubrics (Independent Assessment for PCAD-Direct, Counterfactual Assessment for PCAD-Counterfactual)
+  from Pfohl et al. cover six predetermined bias dimensions; the S1 Appendix tables with their full wording
+  were not read, so only dimensions named in the main text are listed (the sixth, in addition to those
+  named, is probably stereotypical language or omission of systemic factors, unconfirmed). Axes of identity
+  (ethnicity, age, diagnosis) and care dimensions (access to care, pain management, advance care planning,
+  place of death) are stratifiers of the items, not scored terms.

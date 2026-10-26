@@ -1,0 +1,133 @@
+entry: alama-health-qa
+sources: [https://arxiv.org/abs/2507.14615]
+extracted: 2026-10-26
+terms:
+  - term: Decision Points Metric
+    level: metric
+    definition: "Measure whether the model follows a logical, stepwise diagnostic process—rather than prematurely “jumping to the answer.”"
+    definition_verbatim: true
+    location: Section 3.1, Figure 2
+    scale: Decision-Point Score (F-score of precision and recall over guideline-critical nodes queried) rescaled 0-10
+  - term: Needle-in-the-Haystack Metric
+    level: metric
+    definition: "Assess whether an LLM can identify—and correctly act on—rare but decisive cues that redirect the entire diagnostic pathway."
+    definition_verbatim: true
+    location: Section 3.2
+    scale: "0 / 0.5 / 1 per vignette; mean Needle Score"
+  - term: Clue Detected
+    level: criterion
+    parent: Needle-in-the-Haystack Metric
+    definition: "Binary (1/0): model explicitly mentions or asks about the rare cue."
+    definition_verbatim: true
+    location: Section 3.2 Scoring
+    scale: binary
+  - term: Correct Diagnosis
+    level: criterion
+    parent: Needle-in-the-Haystack Metric
+    definition: "Binary: target disease included in top-3 differential and management aligns with guideline."
+    definition_verbatim: true
+    location: Section 3.2 Scoring
+    scale: binary
+  - term: Reverse QA (Simulated Patient Persona)
+    level: metric
+    definition: "Evaluate whether an LLM can inhabit a patient or caregiver persona and sustain a medically coherent, emotionally believable dialogue."
+    definition_verbatim: true
+    location: Section 3.3
+    scale: weighted composite 0-10 (Reverse-QA Persona Score)
+  - term: Consistency Score
+    level: criterion
+    parent: Reverse QA (Simulated Patient Persona)
+    definition: "1 - (# factual contradictions / # clinician questions); weight 0.4."
+    definition_verbatim: true
+    location: Section 3.3 Scoring
+    scale: 0-1, weight 0.4
+  - term: Completeness
+    level: criterion
+    parent: Reverse QA (Simulated Patient Persona)
+    definition: "(# fact-sheet items correctly disclosed / total expected); weight 0.3."
+    definition_verbatim: true
+    location: Section 3.3 Scoring
+    scale: 0-1, weight 0.3
+  - term: Style Realism
+    level: criterion
+    parent: Reverse QA (Simulated Patient Persona)
+    definition: "cosine-sim(persona embedding, reference emotion embedding); weight 0.2."
+    definition_verbatim: true
+    location: Section 3.3 Scoring
+    scale: 0-1, weight 0.2
+  - term: Linguistic Appropriateness
+    level: criterion
+    parent: Reverse QA (Simulated Patient Persona)
+    definition: "binary: contains relevant local terms when prompted; weight 0.1."
+    definition_verbatim: true
+    location: Section 3.3 Scoring
+    scale: binary, weight 0.1
+  - term: Geographic-Contextual Response Variance
+    level: metric
+    definition: "Test whether an LLM tailors its recommendations to local epidemiology, resources, and policy—rather than offering generic, “one-size-fits-all” advice."
+    definition_verbatim: true
+    location: Section 3.4
+    scale: Context Adaptation Score (CAS) weighted sum 0-10, plus Delta-CAS across paired scenarios
+  - term: Antigen Accuracy
+    level: criterion
+    parent: Geographic-Contextual Response Variance
+    definition: "Jaccard similarity between predicted and required vaccine set."
+    definition_verbatim: true
+    location: Section 3.4 Scoring
+    scale: weight 0.35
+  - term: Formulation Fit
+    level: criterion
+    parent: Geographic-Contextual Response Variance
+    definition: "Correct format (e.g., Pentavalent vs. Hexavalent)."
+    definition_verbatim: true
+    location: Section 3.4 Scoring
+    scale: weight 0.25
+  - term: Resource Alignment
+    level: criterion
+    parent: Geographic-Contextual Response Variance
+    definition: "Advice respects local availability / cold-chain limits."
+    definition_verbatim: true
+    location: Section 3.4 Scoring
+    scale: weight 0.25
+  - term: Rationale Localization
+    level: criterion
+    parent: Geographic-Contextual Response Variance
+    definition: "Explicit mention of locale-specific factors (endemic diseases, policy)."
+    definition_verbatim: true
+    location: Section 3.4 Scoring
+    scale: weight 0.15
+  - term: Cognitive-Bias Stress Test (CBST)
+    level: metric
+    definition: "Gauge an LLM’s resilience to classic clinical reasoning traps—anchoring, confirmation bias, premature closure, and availability bias."
+    definition_verbatim: true
+    location: Section 3.5
+    scale: Composite CBST Score weighted sum 0-10; Bias Susceptibility Index (BSI)
+  - term: Anchor Flexibility
+    level: criterion
+    parent: Cognitive-Bias Stress Test (CBST)
+    definition: "1 if final diagnosis differs (appropriately) from the anchored first guess; 0 otherwise."
+    definition_verbatim: true
+    location: Section 3.5 Scoring
+    scale: binary, weight 0.40
+  - term: Contradiction Recognition
+    level: criterion
+    parent: Cognitive-Bias Stress Test (CBST)
+    definition: "Binary: model cites late “red-flag” detail when revising."
+    definition_verbatim: true
+    location: Section 3.5 Scoring
+    scale: binary, weight 0.25
+  - term: Breadth of Differential
+    level: criterion
+    parent: Cognitive-Bias Stress Test (CBST)
+    definition: "Normalised count of plausible alternatives listed after revision."
+    definition_verbatim: true
+    location: Section 3.5 Scoring
+    scale: weight 0.20
+  - term: Action Appropriateness
+    level: criterion
+    parent: Cognitive-Bias Stress Test (CBST)
+    definition: "Orders or recommends guideline-aligned confirmatory tests / management."
+    definition_verbatim: true
+    location: Section 3.5 Scoring
+    scale: weight 0.15
+notes: The base MCQ set is scored by accuracy (not listed as a term). The five reasoning metrics in Section 3 are described with scoring formulas; the paper presents them as a proposed framework and the benchmark data itself is the guideline-derived MCQ set.

@@ -1,0 +1,60 @@
+entry: realicu
+sources: [https://arxiv.org/abs/2605.13542]
+extracted: 2026-10-26
+terms:
+  - term: Patient Status
+    level: category
+    definition: Task of labeling the patient's state in each 30-minute window as deteriorating, stable or improving.
+    definition_verbatim: false
+    location: Section 3, tasks; Table 2
+    scale: accuracy and macro-F1
+  - term: Acute Problems
+    level: category
+    definition: Task of listing the acute clinical problems present in the window (free text, set matching).
+    definition_verbatim: false
+    location: Section 3, tasks; Table 2
+    scale: Hit@5 and Recall@5
+  - term: Recommended Actions
+    level: category
+    definition: Task of recommending critical clinical interventions; annotators grade actions as best-practice, acceptable or potentially-harmful.
+    definition_verbatim: false
+    location: Section 3, label construction; Table 2
+    scale: Hit@5 and Recall@5
+  - term: Red Flags
+    level: category
+    definition: "A free-text set of high-risk actions that should be avoided because they may be harmful under the patient's current physiology or trajectory"
+    definition_verbatim: true
+    location: Section 3, task definitions
+    scale: Harmful Recommendation Rate (HRR)
+  - term: Accuracy
+    level: metric
+    parent: Patient Status
+    definition: Accuracy of the predicted patient status.
+    definition_verbatim: false
+    location: Section 3, Metrics
+  - term: Macro-F1
+    level: metric
+    parent: Patient Status
+    definition: Macro-averaged F1 over status classes, used to avoid dominance by the majority class (stable).
+    definition_verbatim: false
+    location: Section 3, Metrics
+  - term: Hit@k
+    level: metric
+    parent: Acute Problems
+    definition: Whether any of the top-k predicted problems or actions semantically matches a label (PubMedBERT cosine threshold 0.5), k=5.
+    definition_verbatim: false
+    location: Section 3, Metrics
+  - term: Recall@k
+    level: metric
+    parent: Acute Problems
+    definition: Share of labeled problems or actions matched by the top-k predictions, k=5.
+    definition_verbatim: false
+    location: Section 3, Metrics
+  - term: Harmful Recommendation Rate (HRR)
+    level: metric
+    parent: Red Flags
+    definition: Safety check giving the rate at which recommended actions hit labeled red-flag actions.
+    definition_verbatim: false
+    location: Section 3, Metrics; Table 2
+    scale: rate, lower is better
+notes: "Action labels graded best_practice / acceptable / potentially_harmful / insufficient_data in the annotation prompt (Appendix). Oracle LLM evaluator validated by F1 against physician labels (Table 1)."

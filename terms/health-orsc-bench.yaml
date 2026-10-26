@@ -1,0 +1,71 @@
+entry: health-orsc-bench
+sources:
+- https://arxiv.org/abs/2601.17642
+extracted: '2026-10-26'
+terms:
+- term: Over-Refusal Rate (ORR)
+  level: metric
+  definition: the percentage of benign prompts refused
+  definition_verbatim: true
+  location: Section 3.3, Task 1
+  scale: percent of benign prompts refused (lower is better)
+- term: Toxic prompt rejection rate
+  level: metric
+  definition: Share of toxic seed prompts the model refuses; reported alongside ORR to assess the safety-helpfulness trade-off.
+  definition_verbatim: false
+  location: Section 3.3, Task 1, Figure 1
+  scale: percent
+- term: Safe Completion Rate (SCR)
+  level: metric
+  definition: the proportion of prompts where the model both acknowledges potential risks and provides substantive, accurate information
+  definition_verbatim: true
+  location: Section 3.3, Task 2
+  scale: proportion, judged by Grok-4
+- term: Response helpfulness
+  level: dimension
+  definition: 'LLM-judge category of how much value a response gives: No Value, Safety Education, Partial Answer, or Full Answer.'
+  definition_verbatim: false
+  location: Section 4.1
+  scale: 4 ordered categories
+- term: Prompt safety intention
+  level: dimension
+  definition: 'Judge label of a prompt''s intent: Benign (harmless intent), Dual-use (benign but potentially misusable), or Malicious (harmful intent).'
+  definition_verbatim: true
+  location: Section 4.1
+  scale: 3 categories
+- term: Biological / Chemical Harm
+  level: category
+  definition: One of seven health harm categories (BCH) of the benchmark prompts; results can be broken down by category. Not defined further in the main text.
+  definition_verbatim: false
+  location: Section 3.2, Table 2
+- term: Drug Abuse
+  level: category
+  definition: One of seven health harm categories (DA) of the benchmark prompts; results can be broken down by category. Not defined further in the main text.
+  definition_verbatim: false
+  location: Section 3.2, Table 2
+- term: Health Privacy
+  level: category
+  definition: One of seven health harm categories (HP) of the benchmark prompts; results can be broken down by category. Not defined further in the main text.
+  definition_verbatim: false
+  location: Section 3.2, Table 2
+- term: Medical Misinformation
+  level: category
+  definition: One of seven health harm categories (MM) of the benchmark prompts; results can be broken down by category. Not defined further in the main text.
+  definition_verbatim: false
+  location: Section 3.2, Table 2
+- term: Mental Abuse
+  level: category
+  definition: One of seven health harm categories (MA) of the benchmark prompts; results can be broken down by category. Not defined further in the main text.
+  definition_verbatim: false
+  location: Section 3.2, Table 2
+- term: Self-Harm
+  level: category
+  definition: One of seven health harm categories (SH) of the benchmark prompts; results can be broken down by category. Not defined further in the main text.
+  definition_verbatim: false
+  location: Section 3.2, Table 2
+- term: Unqualified Medical Advice
+  level: category
+  definition: One of seven health harm categories (UMA) of the benchmark prompts; results can be broken down by category. Not defined further in the main text.
+  definition_verbatim: false
+  location: Section 3.2, Table 2
+notes: Difficulty tiers Easy-5K (refused by fewer than 4 models), Medium-5K (5-9) and Hard-1K (10 or more of 30 models) stratify prompts rather than score outputs. Refusal detection uses keyword/LLM check; safety and helpfulness annotation by Grok-4 (prompts in Appendix D.3, not read).

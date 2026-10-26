@@ -1,0 +1,47 @@
+entry: clinconsensus
+sources: [https://arxiv.org/abs/2603.02097]
+extracted: 2026-10-26
+terms:
+  - term: Clinical Validity
+    level: principle
+    parent: CARE Principles
+    definition: "First of the four CARE Principles under which cases are developed and evaluated; the paper names it without further definition."
+    definition_verbatim: false
+    location: Introduction, contributions (1)
+  - term: Adaptive Lifelong Support
+    level: principle
+    parent: CARE Principles
+    definition: "Second CARE Principle (longitudinal, lifelong health-management support); named without a fuller definition."
+    definition_verbatim: false
+    location: Introduction, contributions (1)
+  - term: Responsibility and Reliability
+    level: principle
+    parent: CARE Principles
+    definition: "Third CARE Principle (safe, reliable responses); named without a fuller definition."
+    definition_verbatim: false
+    location: Introduction, contributions (1)
+  - term: Evidence-Based Practice
+    level: principle
+    parent: CARE Principles
+    definition: "Fourth CARE Principle (responses grounded in evidence and guidelines); named without a fuller definition."
+    definition_verbatim: false
+    location: Introduction, contributions (1)
+  - term: Rubric criteria
+    level: criterion
+    definition: "Each case has 30 expert-defined evaluation criteria, designed to capture the scenario's most critical information points, decision nodes, and safety considerations."
+    definition_verbatim: true
+    location: Section 3 (benchmark construction)
+    scale: binary (criteria_met true/false per criterion)
+  - term: Rubric Accuracy
+    level: metric
+    definition: "Average fraction of the 30 binary rubric criteria met by a response."
+    definition_verbatim: false
+    location: Section 5 (results, usability gap)
+    scale: percentage
+  - term: CACS@k
+    level: metric
+    definition: "Clinically Applicable Consistency Score: truncated area under the reverse-ECDF of rubric-hit scores from a clinical threshold k to N; assigns no credit below k hits (k = 7, set from expert responses)."
+    definition_verbatim: false
+    location: Section 4.3, Eq. 2-3
+    scale: 0-100
+notes: "Consensus-level criteria (73, Supplementary Table 1) are generic references used by experts when writing the case-specific 30-item rubrics; they were not seen. Rubric criteria are case-specific so are not listed. 12 task themes and 36 specialties are reporting breakdowns of CACS@7, not scored terms. The dataset card was not re-read for a separate criterion taxonomy."

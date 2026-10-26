@@ -1,0 +1,23 @@
+entry: pathology-last-exam
+sources:
+- https://doi.org/10.64898/2025.12.11.25342081
+extracted: '2026-10-26'
+terms:
+- term: Diagnostic accuracy
+  level: metric
+  definition: Share of cases where the final diagnosis is rated correct by expert consensus at each information
+    stage; best model GPT-5 reached 70% on full evidence.
+  definition_verbatim: false
+  location: Abstract; entry summary
+  scale: Correct / Partly correct / No diagnosis / Wrong consensus rating
+- term: Contradiction detection (safety)
+  level: criterion
+  definition: Whether a model recognizes biologically contradictory mix-up cases and refuses rather than
+    confidently diagnosing them.
+  definition_verbatim: false
+  location: Abstract (20 adversarial safety cases)
+  scale: consensus rating (refusal vs diagnosis)
+notes: Only the abstract and partial page text were obtained (the medRxiv methods were not reachable in
+  the fetched HTML). Rating categories (Correct, Partly correct, No diagnosis, Wrong) come from the entry
+  file. Staged information release (Primary, Clinical, Histopathology, IHC/Special Stains, Molecular)
+  is a test design, not an evaluation term.

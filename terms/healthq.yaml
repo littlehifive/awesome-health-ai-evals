@@ -1,0 +1,54 @@
+entry: healthq
+sources: [https://arxiv.org/abs/2409.19487, https://github.com/wangziyu99/HealthQ-LLM-Healthcare-Benchmark]
+extracted: 2026-10-26
+terms:
+  - term: Specificity
+    level: metric
+    parent: LLM Judge Interrogation
+    definition: How precise and diagnostically focused a generated question is, scored by an LLM judge given the patient knowledge; Table II definition not seen.
+    definition_verbatim: false
+    location: Section III, LLM Judge Interrogation, Table II
+    scale: numeric score (means reported around 0-10)
+  - term: Usefulness
+    level: metric
+    parent: LLM Judge Interrogation
+    definition: How useful a generated question is for eliciting patient information (LLM judge); Table II definition not seen.
+    definition_verbatim: false
+    location: Section III, Table II
+    scale: numeric score
+  - term: Relevance
+    level: metric
+    parent: LLM Judge Interrogation
+    definition: How relevant a generated question is to the patient case (LLM judge); Table II definition not seen.
+    definition_verbatim: false
+    location: Section III, Table II
+    scale: numeric score
+  - term: Coverage
+    level: metric
+    parent: LLM Judge Interrogation
+    definition: How much of the patient's information a question covers (LLM judge); Table II definition not seen.
+    definition_verbatim: false
+    location: Section III, Table II
+    scale: numeric score
+  - term: Fluency
+    level: metric
+    parent: LLM Judge Interrogation
+    definition: Clarity and coherence of the question's wording (LLM judge); Table II definition not seen.
+    definition_verbatim: false
+    location: Section III, Table II
+    scale: numeric score
+  - term: ROUGE
+    level: metric
+    parent: Summarization-Based Evaluation
+    definition: "Compares the simulated patient's answers with the comprehensive patient information from the test data, to measure how well the generated questions elicit the whole case."
+    definition_verbatim: false
+    location: Section III, Summarization-Based Evaluation
+    scale: ROUGE overlap
+  - term: NER2NER
+    level: metric
+    parent: Summarization-Based Evaluation
+    definition: "Set-based similarity between medical entities (symptoms, medications) extracted from the answers and from the ground-truth patient data by a biomedical NER model."
+    definition_verbatim: false
+    location: Section III and results section
+    scale: set-similarity
+notes: Original paper lists specificity, relevance, usefulness, and (in the introduction) informativeness; the results use five metrics (specificity, usefulness, relevance, coverage, fluency). Table II definitions were not located in the text, so definitions are paraphrased. DOI version (Smart Health 2025) not read; arXiv preprint 2409.19487 used.

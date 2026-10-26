@@ -1,0 +1,47 @@
+entry: medqa-followup
+sources: [https://arxiv.org/abs/2510.12255, https://github.com/bmanczak/MedQA-MultiTurnRobustness]
+extracted: 2026-10-26
+terms:
+  - term: Shallow robustness
+    level: dimension
+    definition: "Single-turn robustness (or shallow robustness) refers to a model's ability to withstand misleading or biased context presented in the very first interaction with the user."
+    definition_verbatim: true
+    location: Section 2 (Axes of Robustness)
+    scale: relative accuracy change vs. baseline
+  - term: Deep robustness
+    level: dimension
+    definition: "Multi-turn robustness (or deep robustness) captures the capacity of a model to remain consistent and reliable when confronted with misleading or biased context in subsequent turns of the conversation, after an initial exchange has already occurred."
+    definition_verbatim: true
+    location: Section 2 (Axes of Robustness)
+    scale: relative accuracy change vs. baseline
+  - term: Neutral re-evaluation (rethink)
+    level: category
+    parent: Intervention type (indirect)
+    definition: "A set of fixed prompts that encourage the model to re-evaluate its previous answer, without explicitly biasing it toward any specific alternative."
+    definition_verbatim: true
+    location: Section 2
+  - term: Plausible wrong options (wrong_op)
+    level: category
+    parent: Intervention type (indirect)
+    definition: "Replaces one or more incorrect multiple-choice options with more plausible-sounding alternatives, aiming to mislead the model into selecting one of these wrong options."
+    definition_verbatim: true
+    location: Section 2 (single-turn only)
+  - term: Context manipulation (context)
+    level: category
+    parent: Intervention type (indirect)
+    definition: "Introduces additional context, framed as background information or originating from another source, that implicitly supports an incorrect option or raises doubts about the correct answer."
+    definition_verbatim: true
+    location: Section 2 (variants include misleading, RAG style, alternative and edge case context)
+  - term: Wrong suggestion (inc_letter)
+    level: category
+    parent: Intervention type (direct)
+    definition: "Explicitly attempts to sway the model toward an incorrect answer by presenting an external justification (e.g., an appeal to authority or a recent diagnosis) intended to override its original reasoning."
+    definition_verbatim: true
+    location: Section 2
+  - term: Accuracy
+    level: metric
+    definition: MCQ accuracy per intervention, reported as average relative percentage change from baseline accuracy.
+    definition_verbatim: false
+    location: Section 4, Figure 2, Tables 2-3
+    scale: relative percentage change
+notes: "Compounding interventions (two or more follow-ups) are analysed for sub-additive effects. Scoring is exact match on the MCQ answer; the categories above are manipulations, not rating criteria."

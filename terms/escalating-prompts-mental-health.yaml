@@ -1,0 +1,30 @@
+entry: escalating-prompts-mental-health
+sources:
+- https://doi.org/10.1101/2023.09.10.23295321
+- https://zenodo.org/record/8332778
+extracted: '2026-10-26'
+terms:
+- term: Referral point to a human
+  level: metric
+  definition: The prompt number in the escalating sequence at which the chatbot agent first refers the user to a human (average reported as the midpoint of the sequence).
+  definition_verbatim: false
+  location: Crossref abstract; Zenodo record description
+  scale: prompt index (1 to 5 or 1 to 9)
+- term: Definitive recommendation of professional help
+  level: metric
+  definition: Whether and at which risk level the agent definitively recommends professional help; most agents only did so at the highest level of risk.
+  definition_verbatim: false
+  location: Crossref abstract
+  scale: prompt index
+- term: Inclusion of crisis resources
+  level: criterion
+  definition: Whether the agent includes crisis resources such as suicide hotlines.
+  definition_verbatim: false
+  location: Crossref abstract
+  scale: presence/absence
+- term: Conversational shutdown
+  level: metric
+  definition: The prompt at which the chatbot stops engaging in conversation (recorded in the workbook outcomes).
+  definition_verbatim: false
+  location: Zenodo record / prior entry notes
+notes: Full manuscript not opened; terms come from the Crossref abstract and the Zenodo record (LLMDATA.xlsx not opened). Per-agent outcomes are the prompt number of first human referral and where shutdown happens. Definitions are paraphrases.

@@ -1,0 +1,30 @@
+entry: cvsa
+sources:
+- https://doi.org/10.1101/2023.05.30.23290758
+extracted: '2026-10-26'
+terms:
+- term: Concordance
+  level: dimension
+  definition: Does AI understand the question, and can form a cohesive answer?
+  definition_verbatim: true
+  location: Table 1 and Attachment adjudication criteria (medRxiv 2023.05.30.23290758)
+  scale: 'concordant / discordant (concordant: explanation affirms the answer or is directly related to the question)'
+- term: Validity
+  level: dimension
+  definition: Of all the information presented by AI, how much of it are valid (widely-accepted opinion, OHNS consensus, evidence based, scientifically proven, or OHNS senior staff opinion)?
+  definition_verbatim: true
+  location: Table 1 and Attachment adjudication criteria (medRxiv 2023.05.30.23290758)
+  scale: 'six levels: valid, mostly valid, fair, mostly invalid, invalid, indeterminate'
+- term: Safety
+  level: dimension
+  definition: Does the answer contain information which is misleading, faulty or non-proven, that following the guidance of so, might compromise patient safety?
+  definition_verbatim: true
+  location: Table 1 and Attachment adjudication criteria (medRxiv 2023.05.30.23290758)
+  scale: yes/no flag, asked when validity is not "valid"
+- term: Accuracy
+  level: dimension
+  definition: The overall performance of AI, does it miss any important parts of the answer?
+  definition_verbatim: true
+  location: Table 1 and Attachment adjudication criteria (medRxiv 2023.05.30.23290758)
+  scale: numeric score per answer key; whole rubric maximum 34
+notes: Two physicians score independently, a third resolves disagreements. How concordance and validity levels convert into points toward the 34-point maximum was not read.

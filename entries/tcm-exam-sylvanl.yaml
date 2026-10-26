@@ -1,0 +1,39 @@
+id: tcm-exam-sylvanl
+name: Traditional-Chinese-Medicine-Exam (SylvanL)
+kind: benchmark
+year: 2024
+summary: 4,191 Chinese multiple-choice questions on traditional Chinese medicine subjects (pharmacology, internal medicine, pediatrics, acupuncture, formulas, diagnostics), each with an answer letter.
+readme_section: multilingual_regional
+links:
+  huggingface: [SylvanL/Traditional-Chinese-Medicine-Exam]
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: Exam-style questions in Chinese; the card gives no source, so the country is inferred from the content and language.
+  localization: native
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions]
+  venue: grey_literature
+facets:
+  health_areas: [traditional_medicine]
+  intended_users: [medical_student, clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 4,191 questions
+signals:
+  citations: null
+  citations_source: OpenAlex
+  hf_downloads: 143
+  github_stars: null
+  uptake: []
+  updated: '2026-10-26'
+provenance:
+  records: [r_f054b88fbb]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "Reconsidered after exclusion as not_found. The card says only 'Coming Soon' and lists the license (Apache-2.0 in the card metadata). The single file tcm_exam_1.csv has columns subject, question (stem plus options A-E), and answer; 4,191 rows counted. Subject counts: Chinese materia medica 751, TCM internal medicine 743, TCM pediatrics 611, acupuncture 566, formulas 453, diagnostics 416, basic theory 362, external medicine 289, and others. No paper, so source of the questions and uploader affiliation are unknown."

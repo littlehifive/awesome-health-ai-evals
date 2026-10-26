@@ -1,0 +1,53 @@
+entry: causal-sensitivity-score
+sources:
+- https://arxiv.org/abs/2605.30590
+extracted: '2026-10-26'
+terms:
+- term: Causal Sensitivity Score (CSS)
+  level: metric
+  definition: 'A pre-registered interventional metric: for each intervention the judge scores {0, 0.5, 1.0} (no change / acknowledged but unchanged / updated correctly) whether the model''s recommendations update in the pre-registered correct direction; CSS is the mean score across (case, intervention) tuples.'
+  definition_verbatim: true
+  location: Abstract, Section 2
+  scale: 0 / 0.5 / 1.0 per (case, intervention) tuple, LLM judge
+- term: 'A: biomarker flip'
+  level: category
+  parent: Causal Sensitivity Score (CSS)
+  definition: 'Intervention family: replace HER2/ER/PD-L1 status.'
+  definition_verbatim: true
+  location: Table 1, Section 2
+  scale: CSS per family
+- term: 'B: prior treatment failure'
+  level: category
+  parent: Causal Sensitivity Score (CSS)
+  definition: 'Intervention family: inject prior-line progression.'
+  definition_verbatim: true
+  location: Table 1, Section 2
+  scale: CSS per family
+- term: 'C: biomarker strip'
+  level: category
+  parent: Causal Sensitivity Score (CSS)
+  definition: 'Intervention family: delete biomarker mentions.'
+  definition_verbatim: true
+  location: Table 1, Section 2
+  scale: CSS per family
+- term: 'D: surgery status'
+  level: category
+  parent: Causal Sensitivity Score (CSS)
+  definition: 'Intervention family: toggle resection history.'
+  definition_verbatim: true
+  location: Table 1, Section 2
+  scale: CSS per family
+- term: 'E: stage perturbation'
+  level: category
+  parent: Causal Sensitivity Score (CSS)
+  definition: 'Intervention family: change disease stage.'
+  definition_verbatim: true
+  location: Table 1, Section 2
+  scale: CSS per family
+- term: Consensus Match Score (CMS)
+  level: metric
+  definition: 'Comparison metric: a coverage-based weighted recall of model recommendations against a published oncologist-consensus set; CSS ranks models nearly opposite to CMS (Spearman rho -0.49).'
+  definition_verbatim: false
+  location: Abstract, Section 3
+  scale: weighted recall
+notes: 12 interventions in five families; family E has only 5 eligible tuples. A tool-using agent variant is also scored on the same {0, 0.5, 1.0} scale. Definition of CMS is paraphrased from the abstract.

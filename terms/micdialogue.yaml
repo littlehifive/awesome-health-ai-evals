@@ -1,0 +1,49 @@
+entry: micdialogue
+sources: [https://doi.org/10.24963/ijcai.2025/923, https://www.ijcai.org/proceedings/2025/0923.pdf]
+extracted: 2026-10-26
+terms:
+  - term: BLEU-n
+    level: metric
+    definition: "N-gram overlap between generated and ground-truth responses (n=1 to 4)."
+    definition_verbatim: false
+    location: Experiments, evaluation metrics
+  - term: NIST-n
+    level: metric
+    definition: "Information-weighted n-gram match between generated and ground-truth responses (n=2 and 4)."
+    definition_verbatim: false
+    location: Experiments, evaluation metrics
+  - term: METEOR
+    level: metric
+    definition: "Similarity between generated and ground-truth responses via n-gram matching with stemming and synonyms."
+    definition_verbatim: false
+    location: Experiments, evaluation metrics
+  - term: DIST-2
+    level: metric
+    definition: "Distinct-2: diversity of generated responses (ratio of unique bigrams)."
+    definition_verbatim: false
+    location: Experiments, evaluation metrics
+  - term: Relevance
+    level: criterion
+    definition: "Human rating of how relevant the generated response is to the dialogue context (paraphrase)."
+    definition_verbatim: false
+    location: Experiments, human evaluation
+    scale: "1-5"
+  - term: Informativeness
+    level: criterion
+    definition: "Human rating of how informative the generated response is (paraphrase)."
+    definition_verbatim: false
+    location: Experiments, human evaluation
+    scale: "1-5"
+  - term: Fluency
+    level: criterion
+    definition: "Human rating of the fluency of the generated response (paraphrase)."
+    definition_verbatim: false
+    location: Experiments, human evaluation
+    scale: "1-5"
+  - term: Topic Alignment
+    level: criterion
+    definition: "Human rating of how well the response aligns with the dialogue topic (paraphrase)."
+    definition_verbatim: false
+    location: Experiments, human evaluation
+    scale: "1-5"
+notes: "Task is response generation. Human evaluation by five students on 1,000 dialogues. Definitions of human criteria not copied verbatim."

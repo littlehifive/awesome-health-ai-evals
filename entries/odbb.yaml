@@ -1,0 +1,43 @@
+id: odbb
+name: Oncology Decision Boundary Benchmark (ODBB)
+kind: benchmark
+year: 2026
+summary: 2,005 oncology decision points (1,586 derived from NCCN guideline pathways and 419 from published colorectal cancer case reports) scored by a deterministic, no-LLM scorer that assigns 14 typed failure labels.
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2608.28592
+  arxiv: "2608.28592"
+  doi: 10.48550/arxiv.2608.28592
+  code: https://github.com/dcszhang/Benchmark
+license: CC-BY-NC-4.0
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA, UNKNOWN]
+  item_origin_note: NCCN guideline workspaces are US guidelines; the colorectal cancer case reports were retrieved from PubMed (2020 to April 2026) and their countries are not broken down.
+  rater_countries: [CHN]
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature]
+  venue: preprint
+facets:
+  health_areas: [oncology]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric, expert_human_rating]
+  modality: [text]
+  size: 2,005 decision points (1,586 NCCN, 419 CRC cases)
+signals:
+  citations: 0
+  citations_source: OpenAlex
+  hf_downloads: null
+  github_stars: 0
+  uptake: []
+  updated: '2026-10-26'
+provenance:
+  records: [r_3efe8b6adf]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Read the full arXiv text and the GitHub README. Access is partial: the README says the 1,586 NCCN-derived items are not redistributed (NCCN copyright) and are regenerable with the released pipeline, while model outputs and clinician adjudication data are under CC-BY-NC-4.0 (code is Apache-2.0); the GitHub API reports the repository license as NOASSERTION. open_data is left unknown for that reason; a human should check what is downloadable. Two board-certified oncologists adjudicated a 225-item sample (weighted kappa 0.939 and 0.790). Authors are at Hong Kong, Fudan, and Zhejiang affiliations. The README cites an npj Digital Medicine 2026 version under a different title."

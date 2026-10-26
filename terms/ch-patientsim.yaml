@@ -1,0 +1,64 @@
+entry: ch-patientsim
+sources:
+- http://arxiv.org/abs/2601.10951
+extracted: '2026-10-26'
+terms:
+- term: BLEU
+  level: metric
+  definition: BLEU and ROUGE capture n-gram level correspondence, measuring lexical overlap and phrase-level
+    fidelity.
+  definition_verbatim: true
+  location: Section 3 (evaluation metrics)
+  scale: 0-1 overlap score
+- term: ROUGE
+  level: metric
+  definition: BLEU and ROUGE capture n-gram level correspondence, measuring lexical overlap and phrase-level
+    fidelity.
+  definition_verbatim: true
+  location: Section 3 (evaluation metrics)
+  scale: 0-1 overlap score
+- term: METEOR
+  level: metric
+  definition: METEOR incorporates synonym matching and stemming to evaluate semantic alignment more flexibly.
+  definition_verbatim: true
+  location: Section 3 (evaluation metrics)
+  scale: 0-1
+- term: BERTScore
+  level: metric
+  definition: BERTScore leverages contextualized embeddings to estimate deeper semantic similarity that
+    goes beyond surface-level token matching.
+  definition_verbatim: true
+  location: Section 3 (evaluation metrics)
+  scale: 0-1
+- term: Persona Consistency
+  level: dimension
+  definition: assesses whether the generated response adheres to the target patient persona, including
+    personality, emotion, medical history recall, medical comprehension, and language fluency.
+  definition_verbatim: true
+  location: Section 3 (evaluation metrics)
+  scale: 1-5 (LLM judge)
+- term: Factual Consistency
+  level: dimension
+  definition: measures the correctness of medical information and the presence of hallucinations or contradictory
+    statements.
+  definition_verbatim: true
+  location: Section 3 (evaluation metrics)
+  scale: 1-5 (LLM judge)
+- term: Naturalness
+  level: dimension
+  definition: evaluates the expressive fluidity, coherence, and human-likeness of the response in clinical
+    communication.
+  definition_verbatim: true
+  location: Section 3 (evaluation metrics)
+  scale: 1-5 (LLM judge)
+- term: Contextual Relevance
+  level: dimension
+  definition: examines whether the model appropriately responds to the doctor's questions, maintaining
+    situational awareness and progression within the conversation.
+  definition_verbatim: true
+  location: Section 3 (evaluation metrics)
+  scale: 1-5 (LLM judge)
+notes: Simulated-patient responses are scored against real patient replies with automatic metrics plus
+  an LLM judge. The five persona dimensions (personality traits, emotional tendencies, recall ability
+  regarding medical history, level of medical understanding, expressive capability) are item labels used
+  to condition the simulation, not scored output criteria, so they are not listed.

@@ -1,0 +1,86 @@
+entry: cradle-bench
+sources:
+- https://arxiv.org/abs/2510.23845
+- https://huggingface.co/datasets/SungJoo/Cradle-Bench
+extracted: '2026-10-26'
+terms:
+- term: Suicidal ideation (passive)
+  level: category
+  definition: Crisis type that annotators label a post for (label Suicidal ideation (passive)); the model must detect it.
+  definition_verbatim: false
+  location: Section 3.3; Table 6
+  scale: multi-label presence
+- term: Suicidal ideation (active)
+  level: category
+  definition: Crisis type that annotators label a post for (label Suicidal ideation (active)); the model must detect it.
+  definition_verbatim: false
+  location: Section 3.3; Table 6
+  scale: multi-label presence
+- term: Self-harm
+  level: category
+  definition: Crisis type that annotators label a post for (label Self-harm); the model must detect it.
+  definition_verbatim: false
+  location: Section 3.3; Table 6
+  scale: multi-label presence
+- term: Domestic violence
+  level: category
+  definition: Crisis type that annotators label a post for (label Domestic violence); the model must detect it.
+  definition_verbatim: false
+  location: Section 3.3; Table 6
+  scale: multi-label presence
+- term: Rape
+  level: category
+  definition: Crisis type that annotators label a post for (label Rape); the model must detect it.
+  definition_verbatim: false
+  location: Section 3.3; Table 6
+  scale: multi-label presence
+- term: Sexual harassment
+  level: category
+  definition: Crisis type that annotators label a post for (label Sexual harassment); the model must detect it.
+  definition_verbatim: false
+  location: Section 3.3; Table 6
+  scale: multi-label presence
+- term: Child abuse
+  level: category
+  definition: Crisis type that annotators label a post for (label Child abuse); the model must detect it.
+  definition_verbatim: false
+  location: Section 3.3; Table 6
+  scale: multi-label presence
+- term: Temporal dimension (ongoing vs past)
+  level: category
+  definition: distinguishing between ongoing cases, where the risk is current or persisting, and past cases, where the event is disclosed as historical.
+  definition_verbatim: true
+  location: Section 3.3.4
+  scale: ongoing / past / no crisis; ongoing takes precedence when both apply
+- term: Exact Match
+  level: metric
+  definition: Share of posts where the predicted label set equals the gold label set.
+  definition_verbatim: false
+  location: Section 4.2, Table 4
+- term: Jaccard
+  level: metric
+  definition: Overlap between predicted and gold label sets.
+  definition_verbatim: false
+  location: Section 4.2, Table 4
+- term: Micro F1
+  level: metric
+  definition: F1 pooled over all label decisions.
+  definition_verbatim: false
+  location: Section 4.2, Table 4
+- term: Macro F1
+  level: metric
+  definition: F1 averaged over labels.
+  definition_verbatim: false
+  location: Section 4.2, Table 4
+- term: Micro Recall
+  level: metric
+  definition: Recall pooled over all label decisions.
+  definition_verbatim: false
+  location: Section 4.2, Table 4
+- term: Macro Recall
+  level: metric
+  definition: Recall averaged over labels.
+  definition_verbatim: false
+  location: Section 4.2, Table 4
+notes: A classification benchmark (multi-label crisis detection on Reddit posts); there are no rubric axes. Metric definitions are paraphrased from the metric names; the paper gives no formulas in the text
+  read. Gemini-2.5-Pro was scored on 586 of 600 samples because of content filtering.

@@ -1,0 +1,83 @@
+entry: orthodontic-hallucination-benchmark
+sources:
+- https://osf.io/dk2pm
+- https://osf.io/download/6a1673a90a293860b6cc7224/
+extracted: '2026-10-26'
+terms:
+- term: H1 Fabricated Citations
+  level: category
+  parent: Seven-category hallucination taxonomy
+  definition: Hallucination type detected by checking cited references against PubMed E-utilities and
+    the CrossRef API.
+  definition_verbatim: false
+  location: Study protocol, Hallucination Taxonomy
+  scale: binary per response (rule-based)
+- term: H2 Ghost Appliances
+  level: category
+  parent: Seven-category hallucination taxonomy
+  definition: Response confidently describes a fabricated appliance; detected via trap-type metadata plus
+    substantive-response and hedge-marker rules.
+  definition_verbatim: false
+  location: Study protocol, Hallucination Taxonomy
+  scale: binary per response (rule-based)
+- term: H3 Phantom Protocols
+  level: category
+  parent: Seven-category hallucination taxonomy
+  definition: Response confidently describes a fabricated protocol; detected via trap-type metadata plus
+    substantive-response and hedge-marker rules.
+  definition_verbatim: false
+  location: Study protocol, Hallucination Taxonomy
+  scale: binary per response (rule-based)
+- term: H4 Misattributed Discoveries
+  level: category
+  parent: Seven-category hallucination taxonomy
+  definition: Concept or finding attributed to the wrong person or source; detected via trap-type metadata
+    plus substantive-response and hedge-marker rules.
+  definition_verbatim: false
+  location: Study protocol, Hallucination Taxonomy
+  scale: binary per response (rule-based)
+- term: H5 Anachronistic Knowledge
+  level: category
+  parent: Seven-category hallucination taxonomy
+  definition: Outdated absolutist claims, detected by regular-expression matching on a list of outdated
+    absolutist markers.
+  definition_verbatim: false
+  location: Study protocol, Hallucination Taxonomy
+  scale: binary per response (rule-based)
+- term: H6 Pseudo-quantitative Hallucinations
+  level: category
+  parent: Seven-category hallucination taxonomy
+  definition: Numerical claims not backed by a citation, detected by regex extraction of numerical claims
+    with citation cross-check.
+  definition_verbatim: false
+  location: Study protocol, Hallucination Taxonomy
+  scale: binary per response (rule-based)
+- term: H7 Metacognitive Failure
+  level: category
+  parent: Seven-category hallucination taxonomy
+  definition: Operationalized as absence of any epistemic hedge marker in a response to an adversarial
+    trap query.
+  definition_verbatim: true
+  location: Study protocol, Hallucination Taxonomy
+  scale: binary per response (rule-based)
+- term: Overall hallucination rate
+  level: metric
+  definition: Proportion of responses with a hallucination per model, with Wilson 95% confidence intervals.
+  definition_verbatim: false
+  location: Pre-registration outcomes; study protocol Statistical Analysis
+  scale: proportion
+- term: Citation fabrication rate
+  level: metric
+  definition: Proportion of cited references that cannot be verified in PubMed or CrossRef.
+  definition_verbatim: false
+  location: Pre-registration outcomes
+  scale: proportion
+- term: Refusal rate on adversarial trap queries
+  level: metric
+  definition: Proportion of Category E trap queries answered with explicit epistemic hedging without confabulation.
+  definition_verbatim: false
+  location: Study protocol, Statistical Analysis
+  scale: proportion
+notes: Taxonomy and definitions from the OSF study protocol (study_protocol.md); full operational criteria
+  are in the manuscript's Supplementary S2, which was not reached. A 10% manual audit by two blinded raters
+  and a later severity-tier reanalysis (not pre-registered) exist but their tier names were not read.

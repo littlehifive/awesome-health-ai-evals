@@ -1,0 +1,29 @@
+entry: mamabench-counterfactual
+sources:
+- https://arxiv.org/abs/2607.14385
+extracted: '2026-10-26'
+terms:
+- term: Bias Trap Rate (BTR)
+  level: metric
+  definition: 'Conditional probability that a model answers the base case correctly but then fails its counterfactual: |PF| / (|PP| + |PF|) x 100%.'
+  definition_verbatim: true
+  location: Section on metrics (Eq. 2)
+  scale: percent; lower is better
+- term: Base Accuracy
+  level: metric
+  definition: 'Share of base cases answered correctly: (|PP| + |PF|) / N.'
+  definition_verbatim: false
+  location: Section on metrics
+  scale: percent
+- term: Robust Accuracy
+  level: metric
+  definition: 'Share of pairs where both base and counterfactual are answered correctly: |PP| / N.'
+  definition_verbatim: false
+  location: Section on metrics
+  scale: percent
+- term: Diagnostic Fixation
+  level: other
+  definition: A model gets the base case right but rigidly persists when discriminative parameters shift.
+  definition_verbatim: true
+  location: Contributions list
+notes: 'Judge is Claude Opus 4.5 at T=0, lenient on nomenclature, strict on clinically significant modifiers that change management. Pair outcomes: PP, PF, FP, FF. BTR adopted from Chen et al. 2026.'

@@ -1,0 +1,39 @@
+id: health-literacy-simplification-benchmark
+name: Health literacy simplification benchmark
+kind: benchmark
+year: 2025
+summary: Public-domain health documents from CDC, WHO, and MedlinePlus paired with human-written plain-language simplifications, used to evaluate LLM simplification with readability metrics, SARI, BLEU, BERTScore, and human ratings.
+readme_section: open_ended
+links:
+  paper: https://doi.org/10.20944/preprints202506.1683.v1
+  doi: 10.20944/preprints202506.1683.v1
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature]
+  venue: preprint
+facets:
+  health_areas: [public_health]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric, expert_human_rating]
+  modality: [text]
+  size: not stated in the abstract
+signals:
+  citations: 1
+  citations_source: OpenAlex
+  hf_downloads: null
+  github_stars: null
+  uptake: []
+  updated: '2026-10-26'
+provenance:
+  records: [r_3683e840c4]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "Abstract only (Preprints.org returned 403). Reconsidered after exclusion as not_found: the abstract describes a benchmark corpus and a multi-metric evaluation pipeline, but gives no size, release link, or license. Models tested include GPT-3.5, GPT-4, BioBERT, and PubMedGPT. Country and language are inferred from the sources named (CDC, WHO, MedlinePlus)."

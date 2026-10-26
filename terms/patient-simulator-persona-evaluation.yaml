@@ -1,0 +1,38 @@
+entry: patient-simulator-persona-evaluation
+sources:
+- https://arxiv.org/abs/2607.08625
+- https://github.com/joamats/conversational_ai
+extracted: '2026-10-26'
+terms:
+- term: Parameter adherence
+  level: dimension
+  definition: Whether each patient simulator parameter produces a measurable, correctly attributable change
+    in the simulator's output.
+  definition_verbatim: true
+  location: Glossary; Results (Parameter adherence)
+  scale: c-statistic (0.5 chance, 1.0 perfect); deterministic checks for 3 parameters
+- term: Clinical fidelity
+  level: dimension
+  definition: Whether the simulated patient's statements are factually and clinically consistent with
+    the input clinical vignette.
+  definition_verbatim: true
+  location: Glossary; Results (Clinical Fidelity)
+  scale: accuracy of supported claims 0-4; plausibility of unsupported claims 0-4 (LLM judge)
+- term: Realism
+  level: dimension
+  definition: Whether graders can distinguish simulated conversations from real ones, assessed in a Turing-inspired
+    test.
+  definition_verbatim: true
+  location: Glossary; Results (Realism)
+  scale: grader identification accuracy (human 55.0%)
+- term: Urgency assessment accuracy (over-triage and under-triage proportions)
+  level: metric
+  definition: 'Triage accuracy of the clinician agent against the clinician-assigned urgency label: over-triage
+    is predicting above the reference label for non-urgent cases; under-triage is predicting below it.'
+  definition_verbatim: true
+  location: Glossary; fairness analysis
+  scale: one-versus-one c-statistic; proportions
+notes: The benchmark use is the triage-accuracy comparison across patient personas (1,164 cases); the
+  three simulator-quality dimensions validate the simulator. The 20 simulator parameters (for example
+  anxiousness, communication style, health literacy) are inputs, not scored terms. Definitions for the
+  first three and the last are verbatim glossary entries; some are lightly trimmed.

@@ -1,0 +1,71 @@
+entry: french-osce-dialogue-dataset
+sources:
+- https://doi.org/10.18653/v1/2026.sigdial-1.25
+- https://arxiv.org/abs/2606.28526
+extracted: '2026-10-26'
+terms:
+- term: Patient simulation quality
+  level: dimension
+  definition: Patient simulation quality evaluates how faithfully and appropriately the VP behaves with respect to the patient sheet.
+  definition_verbatim: true
+  location: Section 5.2 (Evaluation setup)
+- term: Information recall
+  level: metric
+  parent: Patient simulation quality
+  definition: Information recall measures the proportion of patient sheet elements mentioned by the VP during the dialogue.
+  definition_verbatim: true
+  location: Section 5.2 (Evaluation setup)
+  scale: percentage of binary checklist items
+- term: Response relevance
+  level: metric
+  parent: Patient simulation quality
+  definition: Response relevance assesses whether patient utterances are appropriate given the physician's questions and the patient sheet content.
+  definition_verbatim: true
+  location: Section 5.2 (Evaluation setup)
+  scale: 1-5 (LLM judge)
+- term: Physician performance
+  level: dimension
+  definition: Physician performance evaluates the quality of the physician's conduct during the consultation
+  definition_verbatim: true
+  location: Section 5.2 (Evaluation setup)
+- term: OSCE evaluation
+  level: metric
+  parent: Physician performance
+  definition: 'OSCE evaluation implements traditional OSCE scoring: the evaluator sheet lists specific criteria that the physician is expected to address (e.g., asks about allergies, proposes a treatment), and the judge checks them as met or not, yielding a percentage score.'
+  definition_verbatim: true
+  location: Section 5.2 (Evaluation setup)
+  scale: percentage of criteria met
+- term: Role adherence
+  level: metric
+  parent: Physician performance
+  definition: 'Role adherence assesses if the physician appropriately fulfilled the role defined in the physician sheet: respecting the clinical context, staying within the OSCE framework, and behaving professionally.'
+  definition_verbatim: true
+  location: Section 5.2 (Evaluation setup)
+  scale: 1-5 (LLM judge)
+- term: Linguistic quality
+  level: dimension
+  definition: Linguistic quality evaluates the dialogue independently of its clinical content, focusing on three standard dialogue quality metrics.
+  definition_verbatim: true
+  location: Section 5.2 (Evaluation setup)
+- term: Naturalness
+  level: metric
+  parent: Linguistic quality
+  definition: Naturalness measures whether the dialogue resembles a real spoken conversation between two people.
+  definition_verbatim: true
+  location: Section 5.2 (Evaluation setup)
+  scale: 0-100 rubric rescaled to 1-5 Likert
+- term: Fluency
+  level: metric
+  parent: Linguistic quality
+  definition: Fluency assesses the smoothness and grammatical correctness of the exchanges.
+  definition_verbatim: true
+  location: Section 5.2 (Evaluation setup)
+  scale: 0-100 rubric rescaled to 1-5 Likert
+- term: Coherence
+  level: metric
+  parent: Linguistic quality
+  definition: Coherence evaluates the logical structure and progression of the dialogue.
+  definition_verbatim: true
+  location: Section 5.2 (Evaluation setup)
+  scale: 0-100 rubric rescaled to 1-5 Likert
+notes: 'All evaluation is LLM-as-a-Judge with GPT-4o-mini at temperature 0 on transcripts; prompts in Appendix A.7 (not read). Human-LLM agreement on linguistic criteria was weak (Table 4: ICC near zero, only coherence significant Pearson). Table 2 also reports retrieval and reflection-loop variants of the patient generator, which are system variants, not criteria.'

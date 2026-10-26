@@ -1,0 +1,64 @@
+entry: d4-depression-dialogue
+sources: [https://aclanthology.org/2022.emnlp-main.156/, https://x-lance.github.io/D4/]
+extracted: 2026-10-26
+terms:
+  - term: BLEU-2
+    level: metric
+    definition: "N-gram overlap between generated responses or summaries and human references."
+    definition_verbatim: false
+    location: Section 5.3
+  - term: Rouge-L
+    level: metric
+    definition: "Longest-common-subsequence overlap between generated text and human references."
+    definition_verbatim: false
+    location: Section 5.3
+  - term: METEOR
+    level: metric
+    definition: "N-gram matching metric with stemming and synonyms, comparing generated text with human references."
+    definition_verbatim: false
+    location: Section 5.3
+  - term: DIST-2
+    level: metric
+    definition: "Generation diversity metric (distinct bigrams)."
+    definition_verbatim: false
+    location: Section 5.3
+  - term: Topic prediction F1
+    level: metric
+    definition: "F1 of the topic predicted for the next doctor utterance, per topic and overall (Table 7)."
+    definition_verbatim: false
+    location: Section 5.3, Table 7
+  - term: Symptom F1
+    level: metric
+    definition: "Sample-average F1 on multi-label classification of 13 ICD-11 symptoms in generated dialogue summaries."
+    definition_verbatim: false
+    location: Section 5.3
+  - term: Severity classification (weighted precision, recall, F1)
+    level: metric
+    definition: "Binary and 4-class depression and suicide severity classification, evaluated by average weighted precision, recall, and F1."
+    definition_verbatim: true
+    location: Section 5.3, Tables 9-10
+  - term: Fluency
+    level: criterion
+    definition: "Fluency measures how fluently the conversation flows."
+    definition_verbatim: true
+    location: Section 5.4
+    scale: 1-5, reported as win/lose versus rule-based chatbot
+  - term: Comforting
+    level: criterion
+    definition: "Comforting measures how comforting the responses are."
+    definition_verbatim: true
+    location: Section 5.4
+    scale: 1-5, reported as win/lose
+  - term: Doctor-likeness
+    level: criterion
+    definition: "Doctor-likeness measures to what extent does the chatbot flexibly adjust the topic according to the patient's description."
+    definition_verbatim: true
+    location: Section 5.4
+    scale: 1-5, reported as win/lose
+  - term: Engagingness
+    level: criterion
+    definition: "Engagingness measures to what time could the chatbot maintain their attention to continue the chat."
+    definition_verbatim: true
+    location: Section 5.4
+    scale: 1-5, reported as win/lose
+notes: "Tasks are response generation, topic prediction, summarization, and severity classification. Human interactive evaluation compares the CPT chatbot to a rule-based bot on 4 aspects."

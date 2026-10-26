@@ -1,0 +1,53 @@
+entry: medhall-bench
+sources:
+- https://huggingface.co/datasets/mirobody/MedHall-Bench
+- https://github.com/healthmemoryarena/holyeval
+extracted: '2026-10-26'
+terms:
+- term: factual
+  level: category
+  parent: Hallucination type
+  definition: Medical facts (dose / contraindication / diagnostic criteria); scored by LLM-as-Judge.
+  definition_verbatim: true
+  location: HF card, Dataset Summary
+  scale: LLM-judge score 0-1 vs per-item threshold
+- term: contextual
+  level: category
+  parent: Hallucination type
+  definition: Fabricated information not present in the patient record; LLM-as-Judge plus user-data cross-check.
+  definition_verbatim: true
+  location: HF card, Dataset Summary
+  scale: LLM-judge score 0-1 vs threshold
+- term: citation
+  level: category
+  parent: Hallucination type
+  definition: Non-existent guidelines / papers; LLM-as-Judge plus PubMed / CrossRef API verification (30% API weight + 70% LLM weight).
+  definition_verbatim: true
+  location: HF card, Dataset Summary and Evaluation
+  scale: weighted score 0-1 vs threshold
+- term: numerical
+  level: category
+  parent: Hallucination type
+  definition: Numerical value + unit + reference-range hallucinations (D1+D2+D5); programmatic field match.
+  definition_verbatim: true
+  location: HF card, Dataset Summary
+  scale: per-field programmatic match (numeric tolerance, unit normalization)
+- term: relational
+  level: category
+  parent: Hallucination type
+  definition: Code / temporal / structural / entity-relation hallucinations (D3+D4+D6+D7); programmatic field match.
+  definition_verbatim: true
+  location: HF card, Dataset Summary
+  scale: per-field programmatic match (code whitelist, date equality)
+- term: Hallucination type
+  level: dimension
+  definition: MedHall-Bench is a field-grounded hallucination detection benchmark that decomposes each clinical response into verifiable structured fields and evaluates outputs by per-field programmatic matching in addition to sentence-level LLM-as-Judge.
+  definition_verbatim: false
+  location: HF card, summary
+- term: Field-level correctness
+  level: criterion
+  parent: Hallucination type
+  definition: Per-field extraction and matching against ground_truth_fields (dose value, unit, reference range, ICD/LOINC code, entity relation) using numeric tolerance, unit normalization, code whitelist and date equality.
+  definition_verbatim: false
+  location: HF card, Evaluation
+notes: Hallucination subtypes D1 to D7 (d1_numerical etc.) are named in item tags but only the five top-level types are defined on the card. Scoring routed by the HolyEval hallucination evaluator.

@@ -1,0 +1,49 @@
+entry: cmedcalc-bench
+sources:
+- https://aclanthology.org/2025.emnlp-main.1302/
+extracted: '2026-10-26'
+terms:
+- term: Accuracy
+  level: metric
+  definition: Final-answer accuracy on calculators.
+  definition_verbatim: false
+  location: Section 4
+- term: Knowledge Acquisition
+  level: criterion
+  parent: Four-stage evaluation
+  definition: assessing the ability to recall and contextualize equations or guidelines
+  definition_verbatim: true
+  location: Section 5.1
+  scale: binary per stage
+- term: Parameter Extraction
+  level: criterion
+  parent: Four-stage evaluation
+  definition: measuring precision in identifying variables from patient notes
+  definition_verbatim: true
+  location: Section 5.1
+  scale: binary per stage
+- term: Unit Conversion
+  level: criterion
+  parent: Four-stage evaluation
+  definition: testing accuracy in numerical standardization
+  definition_verbatim: true
+  location: Section 5.1
+  scale: binary per stage
+- term: Calculation/Comprehension
+  level: criterion
+  parent: Four-stage evaluation
+  definition: evaluating the correctness of the final output or classification
+  definition_verbatim: true
+  location: Section 5.1
+  scale: binary per stage
+- term: Four-stage evaluation
+  level: other
+  definition: GPT-4o scores chain-of-thought outputs per stage (1 if satisfied, 0 otherwise); rule-based calculators omit Unit Conversion, semantic ones end after Knowledge Acquisition.
+  definition_verbatim: false
+  location: Section 5.1
+- term: Refusal accuracy
+  level: metric
+  definition: Whether the model abstains on uncomputable cases with missing or contradictory inputs (Faithful Reasoning).
+  definition_verbatim: false
+  location: Section 5.2, Table 4, Figure 4
+notes: Safe abstention is the safety-related measure; no harm taxonomy.

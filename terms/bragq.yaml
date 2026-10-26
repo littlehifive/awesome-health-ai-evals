@@ -1,0 +1,30 @@
+entry: bragq
+sources:
+- https://arxiv.org/abs/2505.16102
+extracted: '2026-10-26'
+terms:
+- term: Factuality
+  level: criterion
+  definition: Accuracy and correctness of the answer.
+  definition_verbatim: true
+  location: Section on evaluation; Table 3
+  scale: 1-5 Likert (surgeon); 1-5 LLM-judge
+- term: Clinical Relevance
+  level: criterion
+  definition: Appropriateness in a clinical context.
+  definition_verbatim: true
+  location: Section on evaluation; Table 3
+  scale: 1-5 Likert (surgeon); 1-5 LLM-judge
+- term: Comprehensiveness
+  level: criterion
+  definition: Completeness and informativeness for patients.
+  definition_verbatim: true
+  location: Section on evaluation; Table 3
+  scale: 1-5 Likert (surgeon); 1-5 LLM-judge
+- term: BERTScore
+  level: metric
+  definition: Evaluates semantic similarity to reference texts via contextual embeddings, used as validation of clinical validity in bRAGgen.
+  definition_verbatim: false
+  location: Method section
+  scale: similarity score
+notes: One board-certified surgeon scored 105 instances; ChatGPT-4o scored the same axes from a rubric. The paper's main system is bRAGgen, and these axes are used to compare systems on bRAGq. Rubric text for the LLM judge not seen beyond the three axis names.

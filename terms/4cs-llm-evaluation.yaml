@@ -1,0 +1,29 @@
+entry: 4cs-llm-evaluation
+sources: [https://pmc.ncbi.nlm.nih.gov/articles/PMC10649823/]
+extracted: 2026-10-26
+terms:
+  - term: Correct
+    level: criterion
+    definition: "Accuracy of the answer against medical truth. Anchors: 5 = Absolutely nothing wrong - this satisfies textbook standards; 3 = Oversimplifications that affect the truth content of the answers; 1 = Nearly everything is wrong and not much makes any sense."
+    definition_verbatim: false
+    location: Table 3
+    scale: 1-5 Likert with anchored descriptors
+  - term: Concise
+    level: criterion
+    definition: "Brevity of the answer. Anchors: 5 = Brief and to the point, with minimal use of unnecessary words/phrases; 1 = Elaborates on topics that are not or only tangentially relevant."
+    definition_verbatim: false
+    location: Table 3
+    scale: 1-5 Likert with anchored descriptors
+  - term: Comprehensive
+    level: criterion
+    definition: "Coverage of relevant aspects. Anchors: 5 = All possible aspects have been covered, even the more esoteric ones; 1 = The answer provides no or nearly no meaningful aspects one might expect."
+    definition_verbatim: false
+    location: Table 3
+    scale: 1-5 Likert with anchored descriptors
+  - term: Comprehensible
+    level: criterion
+    definition: "Clarity and ease of understanding. Anchors: 5 = Extremely clear and easy-to-understand answer with no ambiguity; 1 = Answer requires substantial simplification and clarification for legibility."
+    definition_verbatim: false
+    location: Table 3
+    scale: 1-5 Likert with anchored descriptors
+notes: "The paper gives only five-level anchor descriptors per criterion, not a standalone definition; definitions here are paraphrases built from the anchors."

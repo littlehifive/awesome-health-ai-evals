@@ -1,0 +1,40 @@
+entry: rambla
+sources: [https://arxiv.org/abs/2403.14578]
+extracted: 2026-10-26
+terms:
+  - term: Robustness to non-semantic variations
+    level: dimension
+    definition: "LLMs should be robust to prompt variations that do not alter prompt meaning, and they should not display biases during few-shot prompting."
+    definition_verbatim: true
+    location: Section 1 (Introduction); tasks in Section 3.1
+  - term: High recall
+    level: dimension
+    definition: "When operating on documents, LLMs should recall all relevant information, relying on either parametric knowledge or context exclusively, as instructed."
+    definition_verbatim: true
+    location: Section 1 (Introduction); tasks in Section 3.2
+  - term: Hallucinations
+    level: dimension
+    definition: "If they have insufficient knowledge or context information to answer a question, LLMs should refuse to answer."
+    definition_verbatim: true
+    location: Section 1 (Introduction); tasks in Section 3.3 (propensity for hallucination)
+  - term: F1
+    level: metric
+    definition: F1 on the short-form yes/no answer, used for the baseline, paraphrase, spelling, recall and conclusion-generation tasks.
+    definition_verbatim: false
+    location: Table 1
+    scale: 0-1
+  - term: Bias
+    level: metric
+    parent: Robustness to non-semantic variations
+    definition: "Bias shift to yes is defined as the proportion of excess yes answers in a balanced version of PMQA-L, averaged across a sample of four-shot example combinations."
+    definition_verbatim: true
+    location: Table 1 footnote 1; Appendix B.3
+    scale: proportion
+  - term: Accuracy
+    level: metric
+    parent: Hallucinations
+    definition: Share of free-form answers or generated questions judged semantically similar to the ground truth by a GPT-4 evaluator, and share of "I don't know" responses when only irrelevant context is given.
+    definition_verbatim: false
+    location: Section 3.3; Table 1
+    scale: binary per item, averaged
+notes: "Tasks (QA paraphrase, spelling mistakes, few-shot bias, recall from context vs knowledge, recall with distraction, freeform QA, conclusion generation, question formation, I don't know) are task variants scored with the metrics above, not separate criteria."

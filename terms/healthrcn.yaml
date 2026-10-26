@@ -1,0 +1,60 @@
+entry: healthrcn
+sources:
+- https://arxiv.org/abs/2407.00668
+extracted: '2026-10-26'
+terms:
+- term: Accuracy
+  level: metric
+  definition: Accuracy measures the accuracy of the model's predicted labels, assessing whether the model correctly classifies the input health information.
+  definition_verbatim: true
+  location: Section 4 (evaluation metrics)
+  scale: percent of valid responses (rumor / not rumor / not health-related)
+- term: F1 Score
+  level: metric
+  definition: The F1 score considers both precision and recall to provide a balanced evaluation.
+  definition_verbatim: true
+  location: Section 4 (evaluation metrics)
+  scale: percent
+- term: Valid Answer Rate
+  level: metric
+  definition: The proportion of responses that follow the prompt's format and give a predicted label within the specified range; used to evaluate the model's ability to comply with instructions.
+  definition_verbatim: false
+  location: Section 4 (evaluation metrics)
+  scale: percent
+- term: Relevance
+  level: criterion
+  definition: Quality of the model's rumor analysis (explanation) as scored by GPT-4; relevance of the analysis to the input.
+  definition_verbatim: false
+  location: Section 4 (evaluation metrics)
+  scale: 0-10 GPT-4 score (as read from result tables)
+- term: Reliability
+  level: criterion
+  definition: GPT-4 rubric whose main assessment points are accuracy, authoritativeness, reasonableness, and non-misleading nature of the response.
+  definition_verbatim: false
+  location: Section 4; appendix reliability prompt
+  scale: 0-10 GPT-4 score
+- term: Authoritativeness
+  level: criterion
+  parent: Reliability
+  definition: Whether the response is based on scientific facts and has credible sources of information.
+  definition_verbatim: true
+  location: Appendix, reliability prompt
+- term: Reasonableness
+  level: criterion
+  parent: Reliability
+  definition: Whether the arguments and reasoning in the analysis part are logical, and whether the analysis part supports the conclusions.
+  definition_verbatim: true
+  location: Appendix, reliability prompt
+- term: Non-misleading nature
+  level: criterion
+  parent: Reliability
+  definition: Whether the response avoids using language that could cause misunderstanding or confusion.
+  definition_verbatim: true
+  location: Appendix, reliability prompt
+- term: Richness
+  level: criterion
+  definition: Quality of the explanation as judged by GPT-4 for informational richness/depth of the analysis.
+  definition_verbatim: false
+  location: Section 4 (evaluation metrics)
+  scale: 0-10 GPT-4 score
+notes: 'Relevance and Richness definitions are not copied: the paper lists them as answer-quality metrics scored by GPT-4 but I only read the Reliability prompt text in full. Scale 0-10 inferred from reported scores (about 3 to 9.3); not stated in the text read. Accuracy under the Reliability rubric is a sub-point of the reliability prompt, not recorded separately.'

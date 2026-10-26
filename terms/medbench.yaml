@@ -1,0 +1,41 @@
+entry: medbench
+sources: [https://arxiv.org/abs/2312.12806]
+extracted: 2026-10-26
+terms:
+  - term: Accuracy
+    level: metric
+    definition: "Fraction of multiple-choice questions answered correctly in the three-stage examinations."
+    definition_verbatim: false
+    location: Evaluation, Models and Evaluation Metrics; Table 1
+    scale: percent correct
+  - term: BLEU
+    level: metric
+    definition: "Automatic n-gram overlap metric (BLEU-1, BLEU-4) comparing model output with reference for real-world cases, reported for Examinations, Treatments, Diagnoses."
+    definition_verbatim: false
+    location: Table 2
+  - term: ROUGE-L
+    level: metric
+    definition: "Automatic longest-common-subsequence overlap metric (ROUGE F1) for real-world case outputs, reported for Examinations, Treatments, Diagnoses."
+    definition_verbatim: false
+    location: Table 2
+  - term: Correctness
+    level: criterion
+    definition: "Expert (post-graduate medical scholar) rating of the correctness of model outputs on real-world cases."
+    definition_verbatim: false
+    location: Main Results, Real-world clinical case performance; Figure 4
+  - term: Completeness
+    level: criterion
+    definition: "Expert rating of how complete model outputs are on real-world cases."
+    definition_verbatim: false
+    location: Main Results; Figure 4
+  - term: Fluency
+    level: criterion
+    definition: "Expert rating of the fluency of model outputs on real-world cases."
+    definition_verbatim: false
+    location: Main Results; Figure 4
+  - term: Friendliness
+    level: criterion
+    definition: "Expert rating of the friendliness of model outputs on real-world cases."
+    definition_verbatim: false
+    location: Main Results; Figure 4
+notes: "Human evaluation covers HuaTuo, ChatMed, ChatGPT, GPT-4 by one post-graduate scholar; the paper gives no definitions or scale for the four criteria. The paper also proposes an item response theory difficulty analysis and a reasoning-type taxonomy, which are analysis tools rather than scored terms. Journal version (300,901 questions) not re-read."

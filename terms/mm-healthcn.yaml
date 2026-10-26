@@ -1,0 +1,73 @@
+entry: mm-healthcn
+sources: [https://arxiv.org/abs/2606.02215]
+extracted: 2026-10-26
+terms:
+  - term: Length Compliance
+    level: criterion
+    parent: Hierarchical Helpfulness Judgment
+    definition: "Community Notes must not exceed 280 characters, with each URL counted as one character; notes exceeding this are labeled Not Helpful by a rule-based filter."
+    definition_verbatim: true
+    location: Appendix D.1, Gate 1
+    scale: binary gate
+  - term: Evidence Relevance
+    level: criterion
+    parent: Hierarchical Helpfulness Judgment
+    definition: "The cited evidence must provide factual context or clarification that helps readers evaluate the claim in the post."
+    definition_verbatim: true
+    location: Appendix D.1, Gate 2
+    scale: binary gate
+  - term: Evidence Representation Correctness
+    level: criterion
+    parent: Hierarchical Helpfulness Judgment
+    definition: "The note must accurately represent the cited sources without factual errors, exaggeration, or misleading framing, addressing a common risk in scientific and medical communication."
+    definition_verbatim: true
+    location: Appendix D.1, Gate 3
+    scale: binary gate
+  - term: Note-Style Helpfulness
+    level: criterion
+    parent: Hierarchical Helpfulness Judgment
+    definition: "Following Community Notes guidelines, the note must provide useful context that helps readers understand or critically evaluate the flagged post."
+    definition_verbatim: true
+    location: Appendix D.1, Gate 4
+    scale: binary gate
+  - term: Hierarchical Helpfulness Judgment
+    level: metric
+    definition: "A note is deemed Helpful only if it passes the length filter and all three judged gates; reported as helpful rate."
+    definition_verbatim: false
+    location: Section 5; Appendix D.1
+    scale: binary (Helpful / Not Helpful)
+  - term: Understandable
+    level: criterion
+    parent: Pairwise Utility Comparison
+    definition: "Explains key distinctions or necessary jargon in accessible language."
+    definition_verbatim: true
+    location: Appendix D.2, Figure 9
+    scale: "pairwise: Note 1 / Note 2 / Tie"
+  - term: Meaningful
+    level: criterion
+    parent: Pairwise Utility Comparison
+    definition: "Explains why the correction matters for health interpretation, risk perception, or behavior."
+    definition_verbatim: true
+    location: Appendix D.2, Figure 9
+    scale: "pairwise: Note 1 / Note 2 / Tie"
+  - term: Usable
+    level: criterion
+    parent: Pairwise Utility Comparison
+    definition: "Provides a safe and proportionate next step when the claim could affect user action."
+    definition_verbatim: true
+    location: Appendix D.2, Figure 9
+    scale: "pairwise: Note 1 / Note 2 / Tie"
+  - term: Trustworthy
+    level: criterion
+    parent: Pairwise Utility Comparison
+    definition: "Avoids overclaiming and acknowledges uncertainty or evidence limits where appropriate."
+    definition_verbatim: true
+    location: Appendix D.2, Figure 9
+    scale: "pairwise: Note 1 / Note 2 / Tie"
+  - term: Pairwise Utility Comparison
+    level: metric
+    definition: "A GPT-4.1 judge compares two notes in randomized order on the four criteria, then declares a win, lose or tie on overall social utility; reported as win rate against human notes."
+    definition_verbatim: false
+    location: Appendix D.2
+    scale: win / lose / tie
+notes: "Evidence-side diagnostics (average cited URLs, multi-URL rate, source quality, cited-domain diversity, semantic diversity; Appendix F.3) describe the system, not the benchmark's core scoring, and are not listed. Helpfulness categories in Figure 6 (Helpful, Unhelpful, Incorrect, Irrelevant, Failure) are outcome labels."

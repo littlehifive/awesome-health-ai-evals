@@ -1,0 +1,19 @@
+entry: care-mi
+sources:
+- https://doi.org/10.52202/075280-1836
+- https://arxiv.org/abs/2307.01458
+extracted: '2026-10-26'
+terms:
+- term: Correctness
+  level: criterion
+  definition: given a question, whether the answer is factually correct and relevant.
+  definition_verbatim: true
+  location: Section 4.1 (Evaluation metrics)
+  scale: human rating by three medical experts; fine-tuned judgment model also predicts it
+- term: Interpretability
+  level: criterion
+  definition: given a question, whether the answer contains a detailed and concise explanation that demonstrates how the conclusion was reached.
+  definition_verbatim: true
+  location: Section 4.1 (Evaluation metrics)
+  scale: human rating by three medical experts; fine-tuned judgment model also predicts it
+notes: Rating scale values were not extracted. Benchmark items are true/false and open-ended long-form questions; misinformation is assessed through these two aspects.

@@ -1,0 +1,987 @@
+entry: medpi
+sources:
+- https://arxiv.org/abs/2601.04195
+- https://huggingface.co/datasets/TheLumos/MedPI-Dataset
+extracted: '2026-10-26'
+terms:
+- term: Core Medical Competence
+  level: axis
+  definition: 'Meta-category grouping the competency categories: medical knowledge; clinical reasoning; review of symptoms; symptom interpretation; differential diagnosis; final diagnosis.'
+  definition_verbatim: false
+  location: Appendix D, Table 6
+  scale: mean of normalized dimension scores (0-1)
+- term: Therapeutic Management
+  level: axis
+  definition: 'Meta-category grouping the competency categories: first-line treatment recommendation; alternative treatment options; treatment contraindications; non-pharmacologic advice; medication selection; medication management.'
+  definition_verbatim: false
+  location: Appendix D, Table 6
+  scale: mean of normalized dimension scores (0-1)
+- term: Preventive Care & Screening
+  level: axis
+  definition: 'Meta-category grouping the competency categories: lifestyle recommendation; lifestyle influences; lifestyle tracking; screening eligibility; test selection; test interpretation.'
+  definition_verbatim: false
+  location: Appendix D, Table 6
+  scale: mean of normalized dimension scores (0-1)
+- term: Communication Skills
+  level: axis
+  definition: 'Meta-category grouping the competency categories: communication; adaptive dialogue; interaction efficiency; medication-related communication.'
+  definition_verbatim: false
+  location: Appendix D, Table 6
+  scale: mean of normalized dimension scores (0-1)
+- term: Patient Safety & Care
+  level: axis
+  definition: 'Meta-category grouping the competency categories: patient care; ethical practice; medication safety.'
+  definition_verbatim: false
+  location: Appendix D, Table 6
+  scale: mean of normalized dimension scores (0-1)
+- term: Contextual & System Integration
+  level: axis
+  definition: 'Meta-category grouping the competency categories: contextual awareness; real-world impact.'
+  definition_verbatim: false
+  location: Appendix D, Table 6
+  scale: mean of normalized dimension scores (0-1)
+- term: Technical Reliability
+  level: axis
+  definition: 'Meta-category grouping the competency categories: model reliability; operational competence.'
+  definition_verbatim: false
+  location: Appendix D, Table 6
+  scale: mean of normalized dimension scores (0-1)
+- term: medical knowledge
+  level: category
+  parent: Core Medical Competence
+  definition: Competency category grouping related rubric dimensions.
+  definition_verbatim: false
+  location: Section 3 (29 competency categories); Appendix D
+  scale: aggregate of dimension scores
+- term: patient care
+  level: category
+  parent: Patient Safety & Care
+  definition: Competency category grouping related rubric dimensions.
+  definition_verbatim: false
+  location: Section 3 (29 competency categories); Appendix D
+  scale: aggregate of dimension scores
+- term: communication
+  level: category
+  parent: Communication Skills
+  definition: Competency category grouping related rubric dimensions.
+  definition_verbatim: false
+  location: Section 3 (29 competency categories); Appendix D
+  scale: aggregate of dimension scores
+- term: ethical practice
+  level: category
+  parent: Patient Safety & Care
+  definition: Competency category grouping related rubric dimensions.
+  definition_verbatim: false
+  location: Section 3 (29 competency categories); Appendix D
+  scale: aggregate of dimension scores
+- term: clinical reasoning
+  level: category
+  parent: Core Medical Competence
+  definition: Competency category grouping related rubric dimensions.
+  definition_verbatim: false
+  location: Section 3 (29 competency categories); Appendix D
+  scale: aggregate of dimension scores
+- term: contextual awareness
+  level: category
+  parent: Contextual & System Integration
+  definition: Competency category grouping related rubric dimensions.
+  definition_verbatim: false
+  location: Section 3 (29 competency categories); Appendix D
+  scale: aggregate of dimension scores
+- term: operational competence
+  level: category
+  parent: Technical Reliability
+  definition: Competency category grouping related rubric dimensions.
+  definition_verbatim: false
+  location: Section 3 (29 competency categories); Appendix D
+  scale: aggregate of dimension scores
+- term: model reliability
+  level: category
+  parent: Technical Reliability
+  definition: Competency category grouping related rubric dimensions.
+  definition_verbatim: false
+  location: Section 3 (29 competency categories); Appendix D
+  scale: aggregate of dimension scores
+- term: interaction efficiency
+  level: category
+  parent: Communication Skills
+  definition: Competency category grouping related rubric dimensions.
+  definition_verbatim: false
+  location: Section 3 (29 competency categories); Appendix D
+  scale: aggregate of dimension scores
+- term: adaptive dialogue
+  level: category
+  parent: Communication Skills
+  definition: Competency category grouping related rubric dimensions.
+  definition_verbatim: false
+  location: Section 3 (29 competency categories); Appendix D
+  scale: aggregate of dimension scores
+- term: review of symptoms
+  level: category
+  parent: Core Medical Competence
+  definition: Competency category grouping related rubric dimensions.
+  definition_verbatim: false
+  location: Section 3 (29 competency categories); Appendix D
+  scale: aggregate of dimension scores
+- term: symptom interpretation
+  level: category
+  parent: Core Medical Competence
+  definition: Competency category grouping related rubric dimensions.
+  definition_verbatim: false
+  location: Section 3 (29 competency categories); Appendix D
+  scale: aggregate of dimension scores
+- term: differential diagnosis
+  level: category
+  parent: Core Medical Competence
+  definition: Competency category grouping related rubric dimensions.
+  definition_verbatim: false
+  location: Section 3 (29 competency categories); Appendix D
+  scale: aggregate of dimension scores
+- term: final diagnosis
+  level: category
+  parent: Core Medical Competence
+  definition: Competency category grouping related rubric dimensions.
+  definition_verbatim: false
+  location: Section 3 (29 competency categories); Appendix D
+  scale: aggregate of dimension scores
+- term: first-line treatment recommendation
+  level: category
+  parent: Therapeutic Management
+  definition: Competency category grouping related rubric dimensions.
+  definition_verbatim: false
+  location: Section 3 (29 competency categories); Appendix D
+  scale: aggregate of dimension scores
+- term: alternative treatment options
+  level: category
+  parent: Therapeutic Management
+  definition: Competency category grouping related rubric dimensions.
+  definition_verbatim: false
+  location: Section 3 (29 competency categories); Appendix D
+  scale: aggregate of dimension scores
+- term: treatment contraindications
+  level: category
+  parent: Therapeutic Management
+  definition: Competency category grouping related rubric dimensions.
+  definition_verbatim: false
+  location: Section 3 (29 competency categories); Appendix D
+  scale: aggregate of dimension scores
+- term: non-pharmacologic advice
+  level: category
+  parent: Therapeutic Management
+  definition: Competency category grouping related rubric dimensions.
+  definition_verbatim: false
+  location: Section 3 (29 competency categories); Appendix D
+  scale: aggregate of dimension scores
+- term: medication selection
+  level: category
+  parent: Therapeutic Management
+  definition: Competency category grouping related rubric dimensions.
+  definition_verbatim: false
+  location: Section 3 (29 competency categories); Appendix D
+  scale: aggregate of dimension scores
+- term: medication management
+  level: category
+  parent: Therapeutic Management
+  definition: Competency category grouping related rubric dimensions.
+  definition_verbatim: false
+  location: Section 3 (29 competency categories); Appendix D
+  scale: aggregate of dimension scores
+- term: medication safety
+  level: category
+  parent: Patient Safety & Care
+  definition: Competency category grouping related rubric dimensions.
+  definition_verbatim: false
+  location: Section 3 (29 competency categories); Appendix D
+  scale: aggregate of dimension scores
+- term: medication-related communication
+  level: category
+  parent: Communication Skills
+  definition: Competency category grouping related rubric dimensions.
+  definition_verbatim: false
+  location: Section 3 (29 competency categories); Appendix D
+  scale: aggregate of dimension scores
+- term: screening eligibility
+  level: category
+  parent: Preventive Care & Screening
+  definition: Competency category grouping related rubric dimensions.
+  definition_verbatim: false
+  location: Section 3 (29 competency categories); Appendix D
+  scale: aggregate of dimension scores
+- term: test selection
+  level: category
+  parent: Preventive Care & Screening
+  definition: Competency category grouping related rubric dimensions.
+  definition_verbatim: false
+  location: Section 3 (29 competency categories); Appendix D
+  scale: aggregate of dimension scores
+- term: test interpretation
+  level: category
+  parent: Preventive Care & Screening
+  definition: Competency category grouping related rubric dimensions.
+  definition_verbatim: false
+  location: Section 3 (29 competency categories); Appendix D
+  scale: aggregate of dimension scores
+- term: lifestyle recommendation
+  level: category
+  parent: Preventive Care & Screening
+  definition: Competency category grouping related rubric dimensions.
+  definition_verbatim: false
+  location: Section 3 (29 competency categories); Appendix D
+  scale: aggregate of dimension scores
+- term: lifestyle influences
+  level: category
+  parent: Preventive Care & Screening
+  definition: Competency category grouping related rubric dimensions.
+  definition_verbatim: false
+  location: Section 3 (29 competency categories); Appendix D
+  scale: aggregate of dimension scores
+- term: lifestyle tracking
+  level: category
+  parent: Preventive Care & Screening
+  definition: Competency category grouping related rubric dimensions.
+  definition_verbatim: false
+  location: Section 3 (29 competency categories); Appendix D
+  scale: aggregate of dimension scores
+- term: real-world impact
+  level: category
+  parent: Contextual & System Integration
+  definition: Competency category grouping related rubric dimensions.
+  definition_verbatim: false
+  location: Section 3 (29 competency categories); Appendix D
+  scale: aggregate of dimension scores
+- term: factuality
+  level: dimension
+  parent: medical knowledge
+  definition: Assesses whether the medical information provided is factually correct, free from errors, and accurately represents established scientific knowledge, regardless of when that knowledge was established.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: all)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: currency
+  level: dimension
+  parent: medical knowledge
+  definition: Evaluates whether the information reflects the most recent medical guidelines, best practices, and up-to-date evidence, emphasizing recency and alignment with current standards.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: all)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: completeness
+  level: dimension
+  parent: medical knowledge
+  definition: Assesses whether the information provided is thorough and includes all relevant components.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: all)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: personalization
+  level: dimension
+  parent: patient care
+  definition: Measures the degree to which responses are tailored to the patient's unique context, concerns, and needs.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: all)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: guideline alignment
+  level: dimension
+  parent: patient care
+  definition: Checks whether the medical advice aligns with accepted clinical guidelines.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: all)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: safety
+  level: dimension
+  parent: patient care
+  definition: Assesses whether the response prioritizes patient safety, avoiding recommendations that could cause harm.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: all)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: clarity
+  level: dimension
+  parent: communication
+  definition: Evaluates whether the language is clear, concise, and easy to understand.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: all)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: empathy
+  level: dimension
+  parent: communication
+  definition: Measures the tone and sensitivity shown in acknowledging the patient's emotions or concerns.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: all)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: responsiveness
+  level: dimension
+  parent: communication
+  definition: Assesses how well the assistant systematically identifies, prioritizes, and responds to the specific concerns raised by the patient.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: all)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: adaptability
+  level: dimension
+  parent: communication
+  definition: Evaluates how well the assistant adapts its communication style to the situation and the patient.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: all)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: professionalism and tone
+  level: dimension
+  parent: communication
+  definition: Evaluates the appropriateness, professionalism, and trust-building qualities of the assistant's tone and communication style throughout the conversation.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: all)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: autonomy
+  level: dimension
+  parent: ethical practice
+  definition: Assesses whether the assistant respects and promotes patient autonomy, including informed consent and shared decision-making.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: all)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: beneficence
+  level: dimension
+  parent: ethical practice
+  definition: Evaluates whether the assistant acts in the best interest of the patient, aiming to maximize benefit and promote well-being.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: all)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: non-maleficence
+  level: dimension
+  parent: ethical practice
+  definition: Assesses whether the assistant avoids causing harm, including providing safe, appropriate, and non-harmful advice.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: all)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: equity and justice
+  level: dimension
+  parent: ethical practice
+  definition: Evaluates whether the assistant treats all patients fairly, equitably, and without discrimination.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: all)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: diagnostic reasoning
+  level: dimension
+  parent: clinical reasoning
+  definition: Assesses step-by-step clinical reasoning quality, differential diagnosis consideration, and information gathering effectiveness.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: all)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: treatment reasoning
+  level: dimension
+  parent: clinical reasoning
+  definition: Assesses the appropriateness, safety, and clarity of treatment recommendations in relation to the patient's condition.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: all)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: procedures reasoning
+  level: dimension
+  parent: clinical reasoning
+  definition: Evaluates the indication for, and explanation of, medical procedures recommended by the assistant, including clarity and clinical relevance.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: all)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: system coordination
+  level: dimension
+  parent: contextual awareness
+  definition: Evaluates whether the assistant considers coordination across different healthcare roles or services.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: all)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: resources awareness
+  level: dimension
+  parent: contextual awareness
+  definition: Assesses how well the assistant recommends or references appropriate health system resources or supports.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: all)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: patient context
+  level: dimension
+  parent: contextual awareness
+  definition: Checks how well the assistant adapts advice based on socioeconomic, cultural, or environmental factors.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: all)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: prevention
+  level: dimension
+  parent: contextual awareness
+  definition: Measures whether preventative care and anticipatory guidance are adequately addressed.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: all)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: continuity
+  level: dimension
+  parent: contextual awareness
+  definition: Evaluates if the assistant provides guidance on follow-up, ongoing care, or longitudinal planning.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: all)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: relevance and brevity
+  level: dimension
+  parent: operational competence
+  definition: Measures how concise and directly relevant the assistant’s response is to the user’s immediate needs.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: all)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: operational judgment
+  level: dimension
+  parent: operational competence
+  definition: Evaluates whether the assistant knows when to elaborate, simplify, ask follow-up questions, or remain silent, based on context.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: all)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: structural coherence
+  level: dimension
+  parent: operational competence
+  definition: Assesses the logical organization, paragraphing, and formatting that facilitate easy reading and comprehension.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: all)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: diagnostic context management
+  level: dimension
+  parent: contextual awareness
+  definition: Measures how well the doctor accounts for important contextual details that could affect diagnosis or treatment.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: all)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: inferential symptom recognition
+  level: dimension
+  parent: clinical reasoning
+  definition: Assesses whether the doctor identifies clinically important symptoms or signs that the patient hasn't spontaneously mentioned.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: all)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: symptom severity assessment
+  level: dimension
+  parent: clinical reasoning
+  definition: Evaluates accurate characterization of symptom intensity, urgency, and impact on patient function.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: all)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: urgency recognition
+  level: dimension
+  parent: patient care
+  definition: Assesses ability to identify and appropriately respond to urgent or emergent medical conditions requiring immediate attention.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: all)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: consistency
+  level: dimension
+  parent: model reliability
+  definition: Checks that the assistant’s statements do not contradict previous messages or internal facts within the same session.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: all)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: uncertainty calibration
+  level: dimension
+  parent: model reliability
+  definition: Evaluates whether the assistant expresses the right level of confidence, hedging appropriately when knowledge is limited.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: all)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: hallucination avoidance
+  level: dimension
+  parent: model reliability
+  definition: Measures the frequency and severity of invented details, citations, or data not grounded in verifiable sources.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: all)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: conciseness
+  level: dimension
+  parent: interaction efficiency
+  definition: Evaluates whether the assistant delivers necessary information in as few words as safely possible.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: all)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: focus
+  level: dimension
+  parent: interaction efficiency
+  definition: Assesses whether the assistant remains on the user's stated topic, prioritizes clinically important issues, acknowledges the user's agenda, and maintains a patient-centered, collaborative approach.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: all)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: cognitive load
+  level: dimension
+  parent: interaction efficiency
+  definition: Assesses whether information is chunked and paced so the user can easily absorb it.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: all)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: redundancy
+  level: dimension
+  parent: interaction efficiency
+  definition: Measures avoidance of unnecessary repetition within or across messages.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: all)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: context recall
+  level: dimension
+  parent: adaptive dialogue
+  definition: Evaluates how well the assistant remembers and correctly uses details provided by the user earlier in the conversation.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: all)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: turn pacing
+  level: dimension
+  parent: adaptive dialogue
+  definition: Measures balance between providing information and pausing for user input, avoiding monologues.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: all)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: state sensitivity
+  level: dimension
+  parent: adaptive dialogue
+  definition: Assesses detection of user cues (confusion, fatigue, distress) and adaptation of tone, depth, or pace accordingly.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: all)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: question management
+  level: dimension
+  parent: adaptive dialogue
+  definition: Evaluates whether the assistant asks clear, single, context-relevant questions in a logical sequence.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: all)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: safe escalation
+  level: dimension
+  parent: patient care
+  definition: Evaluates whether the assistant appropriately advises seeing a human clinician or emergency services when red-flag conditions arise.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: all)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: persona consistency
+  level: dimension
+  parent: operational competence
+  definition: Measures whether the assistant maintains a stable, professional persona without distracting self-reference.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: all)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: completeness
+  level: dimension
+  parent: review of symptoms
+  definition: Rates how thoroughly the assistant surveys all major organ systems relevant to the case.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: diagnosis)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: relevance of filtering
+  level: dimension
+  parent: review of symptoms
+  definition: Assesses whether the assistant emphasises the symptoms most germane to the presenting complaint.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: diagnosis)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: clarity
+  level: dimension
+  parent: review of symptoms
+  definition: Evaluates whether each elicited symptom is clearly characterised (onset, duration, quality, etc.).
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: diagnosis)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: clinical tailoring
+  level: dimension
+  parent: review of symptoms
+  definition: Measures tailoring of the symptom review to age, sex, comorbidities, and other demographic factors.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: diagnosis)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: precision
+  level: dimension
+  parent: symptom interpretation
+  definition: Checks whether the assistant interprets each reported symptom correctly (medical meaning, possible mechanisms).
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: diagnosis)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: contextualization
+  level: dimension
+  parent: symptom interpretation
+  definition: Assesses adjustment of interpretations based on patient-specific history, exposures, and risk factors.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: diagnosis)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: severity assessment
+  level: dimension
+  parent: symptom interpretation
+  definition: Evaluates whether urgency or potential seriousness of symptoms is appraised correctly.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: diagnosis)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: temporal dynamics
+  level: dimension
+  parent: symptom interpretation
+  definition: Checks whether temporal pattern (acute vs. chronic, progression) is accurately integrated.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: diagnosis)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: completeness
+  level: dimension
+  parent: differential diagnosis
+  definition: Assesses whether all reasonable diagnoses are considered.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: diagnosis)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: prioritization
+  level: dimension
+  parent: differential diagnosis
+  definition: Rates how logically the differentials are ranked by probability or urgency.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: diagnosis)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: bias awareness
+  level: dimension
+  parent: differential diagnosis
+  definition: Checks for cognitive biases (anchoring, stereotyping) influencing the differential list.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: diagnosis)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: rare disease inclusion
+  level: dimension
+  parent: differential diagnosis
+  definition: Evaluates whether appropriate rare but high-stakes conditions are included when warranted.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: diagnosis)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: justification
+  level: dimension
+  parent: final diagnosis
+  definition: Assesses how clearly evidence and reasoning are laid out to support the chosen diagnosis.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: diagnosis)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: data consistency
+  level: dimension
+  parent: final diagnosis
+  definition: Checks alignment of the final diagnosis with all available history, exam, and investigations.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: diagnosis)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: probability appropriateness
+  level: dimension
+  parent: final diagnosis
+  definition: Rates whether the selected diagnosis is indeed the most likely given patient-specific data.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: diagnosis)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: symptom inclusivity
+  level: dimension
+  parent: final diagnosis
+  definition: Measures whether all reported symptoms are accounted for by the final diagnosis (or explained separately).
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: diagnosis)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: guideline adherence
+  level: dimension
+  parent: first-line treatment recommendation
+  definition: Measures concordance of first-choice therapy with evidence-based guidelines.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: treatment advice)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: personalization
+  level: dimension
+  parent: first-line treatment recommendation
+  definition: Assesses customization of the first-line treatment based on patient’s demographics, comorbidities, and preferences.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: treatment advice)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: risk-benefit communication
+  level: dimension
+  parent: first-line treatment recommendation
+  definition: Evaluates how clearly pros, cons, and uncertainties of first-line therapy are conveyed.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: treatment advice)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: completeness
+  level: dimension
+  parent: alternative treatment options
+  definition: Checks whether reasonable second-line or adjunctive therapies are listed.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: treatment advice)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: personalization
+  level: dimension
+  parent: alternative treatment options
+  definition: Assesses whether alternatives are appropriate to the patient’s demographics, comorbidities, and access constraints.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: treatment advice)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: detection
+  level: dimension
+  parent: treatment contraindications
+  definition: Evaluates whether patient-specific red flags or contraindications are correctly identified.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: treatment advice)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: personalization
+  level: dimension
+  parent: treatment contraindications
+  definition: Measures incorporation of individual risk factors into contraindication assessment.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: treatment advice)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: medication regulatory compliance
+  level: dimension
+  parent: treatment contraindications
+  definition: Checks alignment of advice with legal/regulatory restrictions or black-box warnings.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: treatment advice)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: relevance
+  level: dimension
+  parent: non-pharmacologic advice
+  definition: Rates appropriateness of non-drug interventions for the patient’s condition and treatment stage.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: treatment advice)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: personalization
+  level: dimension
+  parent: non-pharmacologic advice
+  definition: Assesses whether recommendations respect cultural, socioeconomic, and personal preferences.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: treatment advice)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: medical-plan integration
+  level: dimension
+  parent: non-pharmacologic advice
+  definition: Checks how well lifestyle advice complements the pharmacologic plan without conflict.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: treatment advice)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: guideline alignment
+  level: dimension
+  parent: medication selection
+  definition: Evaluates concordance of chosen drug with authoritative guidelines for the condition.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: medication advice)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: personalization
+  level: dimension
+  parent: medication selection
+  definition: Checks alignment of drug choice with patient-specific comorbidities, allergies, and preferences.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: medication advice)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: rationale
+  level: dimension
+  parent: medication selection
+  definition: Assesses clarity of therapeutic goal and evidence supporting the selected medication.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: medication advice)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: dosing accuracy
+  level: dimension
+  parent: medication management
+  definition: Checks correctness of dose, route, frequency, and duration for the given patient.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: medication advice)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: patient-factor adjustments
+  level: dimension
+  parent: medication management
+  definition: Assesses consideration of renal/hepatic function, age, weight, etc. when adjusting dosages.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: medication advice)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: clarity
+  level: dimension
+  parent: medication management
+  definition: Evaluates how clearly instructions are communicated (timing, with food, etc.).
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: medication advice)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: practicality
+  level: dimension
+  parent: medication management
+  definition: Measures feasibility given cost, availability, and patient ability to adhere.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: medication advice)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: drug interactions
+  level: dimension
+  parent: medication safety
+  definition: Evaluates identification of potential pharmacokinetic or pharmacodynamic interactions with current meds.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: medication advice)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: contraindications
+  level: dimension
+  parent: medication safety
+  definition: Checks whether patient-specific conditions that preclude use are recognised.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: medication advice)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: monitoring
+  level: dimension
+  parent: medication safety
+  definition: Assesses recommendations for lab or clinical follow-up to ensure safety.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: medication advice)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: side-effect counselling
+  level: dimension
+  parent: medication-related communication
+  definition: Rates explanation of common and serious side-effects in understandable terms.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: medication advice)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: purpose explanation
+  level: dimension
+  parent: medication-related communication
+  definition: Evaluates clarity in explaining therapeutic goal and expected benefits.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: medication advice)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: guideline alignment
+  level: dimension
+  parent: medication-related communication
+  definition: Checks guidance on missed doses, duration, and adherence strategies.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: medication advice)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: guideline alignment
+  level: dimension
+  parent: screening eligibility
+  definition: Assesses consistency of screening recommendation with established guidelines (age, risk level).
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: medical screening)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: personalization
+  level: dimension
+  parent: screening eligibility
+  definition: Checks tailoring of screening frequency and modality based on patient demographics and risk.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: medical screening)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: screening quantity
+  level: dimension
+  parent: screening eligibility
+  definition: Rates whether unnecessary tests are avoided and essential ones included.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: medical screening)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: patient suitability
+  level: dimension
+  parent: test selection
+  definition: Evaluates appropriateness of chosen tests given comorbidities, allergies, location, etc.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: medical screening)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: resource awareness
+  level: dimension
+  parent: test selection
+  definition: Assesses practicality regarding cost, access, and timeline.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: medical screening)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: alternative options
+  level: dimension
+  parent: test selection
+  definition: Checks whether viable backup or alternative tests are provided when applicable.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: medical screening)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: interpretation clarity
+  level: dimension
+  parent: test interpretation
+  definition: Evaluates how clearly screening results are explained to the patient.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: medical screening)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: next-step guidance
+  level: dimension
+  parent: test interpretation
+  definition: Rates appropriateness of follow-up or additional work-up recommendations.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: medical screening)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: limitation disclosure
+  level: dimension
+  parent: test interpretation
+  definition: Assesses how clearly and thoroughly the assistant discloses test limitations, including sensitivity, specificity, and the possibility of false-positive or false-negative results, in a manner understandable to patients.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: medical screening)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: relevance
+  level: dimension
+  parent: lifestyle recommendation
+  definition: Checks whether lifestyle suggestions are evidence-based for the patient's condition.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: lifestyle advice)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: personalization
+  level: dimension
+  parent: lifestyle recommendation
+  definition: Measures tailoring to age, culture, gender, and socioeconomic factors.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: lifestyle advice)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: feasibility
+  level: dimension
+  parent: lifestyle recommendation
+  definition: Assesses realism of recommendations given patient environment and resources.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: lifestyle advice)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: plan integration
+  level: dimension
+  parent: lifestyle recommendation
+  definition: Evaluates consistency between lifestyle advice and the rest of the treatment plan.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: lifestyle advice)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: key domains covered
+  level: dimension
+  parent: lifestyle influences
+  definition: Rates whether main lifestyle domains (diet, exercise, sleep, alcohol, etc.) are addressed.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: lifestyle advice)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: condition-focused prioritization
+  level: dimension
+  parent: lifestyle influences
+  definition: Assesses prioritization of domains most impactful for the patient's condition.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: lifestyle advice)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: avoidance of harm
+  level: dimension
+  parent: lifestyle influences
+  definition: Checks that dangerous or unproven methods are avoided.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: lifestyle advice)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: goal quality
+  level: dimension
+  parent: lifestyle tracking
+  definition: Evaluates whether goals are specific, measurable, and achievable.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: lifestyle advice)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: progress monitoring
+  level: dimension
+  parent: lifestyle tracking
+  definition: Assesses inclusion of self-monitoring methods or scheduled follow-ups.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: lifestyle advice)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: tracking motivation
+  level: dimension
+  parent: lifestyle tracking
+  definition: Rates how motivational and supportive the guidance is.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: lifestyle advice)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: clinical impact
+  level: dimension
+  parent: real-world impact
+  definition: Evaluates potential clinical outcomes, measurable health improvements, care quality enhancement, and evidence-based effectiveness in real clinical settings.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: all)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: healthcare system integration
+  level: dimension
+  parent: real-world impact
+  definition: Evaluates how well the AI interaction considers healthcare system factors, workflow integration, resource utilization, and care coordination requirements.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: all)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+- term: health equity and access
+  level: dimension
+  parent: real-world impact
+  definition: Evaluates consideration of health disparities, access barriers, cultural competency, and equitable care delivery in AI recommendations.
+  definition_verbatim: true
+  location: 'Appendix C Table 5 / dimensions.csv (encounter objective: all)'
+  scale: 1-4 behavioral anchor scale, normalized to 0-1
+notes: 105 dimensions from the paper's Appendix C and dimensions.csv (verbatim descriptions), 29 competency categories, and 7 meta-categories. Dimensions are scored 1-4 (1 clearly deficient, 4 exemplary, no neutral midpoint) by a committee of LLM judges; global dimensions apply to all encounters and subtask-specific dimensions only to certain encounter objectives. Category and meta-category definitions are paraphrases.

@@ -1,0 +1,31 @@
+entry: cdm-llm-medical-diagnostic
+sources:
+- https://doi.org/10.1038/s41598-026-36627-7
+- https://pmc.ncbi.nlm.nih.gov/articles/PMC12910072/
+extracted: '2026-10-26'
+terms:
+- term: Total score
+  level: metric
+  definition: Number of MCQs answered correctly by each LLM, with one point awarded per question (classical
+    aggregate accuracy).
+  definition_verbatim: true
+  location: Results, Fig. 2a
+  scale: count correct, 1 point per item
+- term: Attribute mastery (subdomain mastery pattern)
+  level: dimension
+  definition: Binary mastery estimate of each of 22 medical knowledge attributes (subdomains such as Endocrinology,
+    Respiratory Medicine, Cardiology) per LLM, estimated with the weighted generalized non-parametric
+    classification (WGNPC) method from the Q-matrix and observed response patterns.
+  definition_verbatim: false
+  location: Methods (Item specification and Q-matrix; WGNPC); Results, Figs. 1b, 2, 3
+  scale: binary mastered/not mastered per attribute
+- term: Attribute retest consistency / pattern retest consistency
+  level: metric
+  definition: Stability indices of the cognitive diagnostic classification (both reported as 1).
+  definition_verbatim: false
+  location: Results (reliability paragraph)
+  scale: 0-1
+notes: Scoring is MCQ correctness, but the framework's output is a per-model profile of mastery across
+  22 subdomains (each item maps to 1-3 subdomains via a Q-matrix), so it is hand-written rather than a
+  single accuracy term. Subdomain names beyond the three examples were not enumerated here. Cronbach's
+  alpha 0.99 reported for the instrument.

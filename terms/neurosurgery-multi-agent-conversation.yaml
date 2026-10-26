@@ -1,0 +1,39 @@
+entry: neurosurgery-multi-agent-conversation
+sources:
+- https://doi.org/10.1227/neuprac.0000000000000217
+- https://pmc.ncbi.nlm.nih.gov/articles/PMC13075903/
+extracted: '2026-10-26'
+terms:
+- term: Diagnostic accuracy
+  level: metric
+  definition: Diagnostic accuracy was calculated as the proportion of correct responses for each format.
+  definition_verbatim: true
+  location: Methods, Statistical Analysis
+  scale: proportion with Wilson 95% CI
+- term: Multiple-choice (MC) correctness
+  level: metric
+  parent: Diagnostic accuracy
+  definition: Exact match of the selected option against the SANS answer key.
+  definition_verbatim: false
+  location: Methods, Question Grading
+  scale: binary
+- term: Free-response (FR) diagnostic equivalence
+  level: metric
+  parent: Diagnostic accuracy
+  definition: An evaluator AI checks free-response diagnoses for diagnostic equivalence to the key (prompt with equivalence criteria in supplement).
+  definition_verbatim: false
+  location: Methods, Question Grading
+  scale: binary
+- term: Conversation length
+  level: other
+  definition: Average number of conversational exchanges per question across formats.
+  definition_verbatim: false
+  location: Results, conversation length figure
+  scale: message count
+- term: Objective data request rate
+  level: other
+  definition: Share of questions where the clinical AI requested available objective clinical data (labs, exam, imaging).
+  definition_verbatim: false
+  location: Supplement (CRAFT-MD limitations analysis)
+  scale: percent
+notes: Single outcome is diagnostic accuracy, compared across vignette, patient-AI-only conversation, and patient+system-AI conversation formats, in MC and FR variants and for text and image questions. Evaluator prompt and equivalence criteria are in supplemental material, not read, so FR grading is paraphrased.

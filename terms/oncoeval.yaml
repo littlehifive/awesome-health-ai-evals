@@ -1,0 +1,41 @@
+entry: oncoeval
+sources: [https://doi.org/10.1609/aaai.v40i40.40724, https://ojs.aaai.org/index.php/AAAI/article/download/40724/44685]
+extracted: 2026-10-26
+terms:
+  - term: Precision
+    level: metric
+    definition: "Precision measures the proportion of the model's correct recommendations."
+    definition_verbatim: true
+    location: Benchmark evaluation section (OncoEval, item-level comparison)
+    scale: "item-level, 0-1; LLM evaluator extracts and compares items"
+  - term: Recall
+    level: metric
+    definition: "Recall is the proportion of ground-truth recommendations that the model successfully identified."
+    definition_verbatim: true
+    location: Benchmark evaluation section
+    scale: "item-level, 0-1"
+  - term: Accuracy
+    level: metric
+    definition: "Accuracy provides a holistic score of the model's alignment with the reference."
+    definition_verbatim: true
+    location: Benchmark evaluation section
+    scale: "item-level, TP/(TP+FP+FN), no true negatives"
+  - term: Examination Recommendation
+    level: category
+    definition: "Task assessing the model's effectiveness in designing an examination workflow: proposing a comprehensive set of necessary examinations, including sequence and priorities, while avoiding redundant procedures."
+    definition_verbatim: false
+    location: Benchmark tasks
+    scale: "precision, recall, accuracy"
+  - term: Clinical Diagnosis
+    level: category
+    definition: "Task evaluating clinical reasoning: primary diagnosis (disease, specific type and stage) and differential diagnosis (other conditions excluded by clinical evidence), supported by case evidence."
+    definition_verbatim: false
+    location: Benchmark tasks
+    scale: "precision, recall, accuracy"
+  - term: Treatment Planning
+    level: category
+    definition: "Task evaluating accuracy and safety in formulating treatment regimens that comply with clinical guidelines and are tailored to patient-specific conditions, with reasoning for modalities, medications, dosages and procedures."
+    definition_verbatim: false
+    location: Benchmark tasks
+    scale: "precision, recall, accuracy"
+notes: "Task categories are listed because the three metrics are reported separately per decision task. Model and reference answers are decomposed into discrete items and compared by an evaluator LLM guided by structured rubrics (in the paper's Appendix, not read). The three tasks also have different item types."

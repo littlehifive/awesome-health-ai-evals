@@ -1,0 +1,61 @@
+entry: can-ai-relate
+sources:
+- https://arxiv.org/abs/2405.12021
+- https://aclanthology.org/2024.findings-emnlp.120/
+extracted: '2026-10-26'
+terms:
+- term: Empathy
+  level: dimension
+  definition: 'Measured using EPITOME, which consists of three communication mechanisms providing a comprehensive outlook of empathy: Emotional Reactions, Interpretations, and Explorations.'
+  definition_verbatim: true
+  location: Appendix, Empathy
+  scale: 0-2 per mechanism (clinician) and RoBERTa classifier levels
+- term: Emotional Reactions
+  level: criterion
+  parent: Empathy
+  definition: Does the response express or allude to warmth, compassion, concern or similar feelings of the responder towards the seeker?
+  definition_verbatim: true
+  location: Section 4 (clinician questions 1.1)
+  scale: weak / strong levels; automatic classifier
+- term: Interpretations
+  level: criterion
+  parent: Empathy
+  definition: Does the response communicate an understanding of the seeker's experiences and feelings? In what manner?
+  definition_verbatim: true
+  location: Section 4 (clinician questions 1.2)
+  scale: weak / strong levels; automatic classifier
+- term: Explorations
+  level: criterion
+  parent: Empathy
+  definition: Does the response make an attempt to explore the seeker's experiences and feelings?
+  definition_verbatim: true
+  location: Section 4 (clinician questions 1.3)
+  scale: weak / strong levels; automatic classifier
+- term: Cultivating Change Talk
+  level: criterion
+  parent: MITI global scores
+  definition: 'MITI global score: how much the response focuses on and encourages the patient''s efforts toward positive change.'
+  definition_verbatim: false
+  location: Section 4; Appendix Global Scores
+  scale: 5-point Likert
+- term: Softening Sustain Talk
+  level: criterion
+  parent: MITI global scores
+  definition: MITI global score listed among the global scores assigned on a five-point Likert scale.
+  definition_verbatim: false
+  location: Appendix Global Scores
+  scale: 5-point Likert
+- term: Partnership
+  level: criterion
+  parent: MITI global scores
+  definition: MITI global score, the degree to which the response reflects a collaborative stance (clinician noted GPT-4 responses seemed too direct, low in partnership).
+  definition_verbatim: false
+  location: Appendix Global Scores; Section 6
+  scale: 5-point Likert
+- term: Equity in empathy
+  level: other
+  definition: Difference in measured empathy of responses across inferred patient demographic subgroups (race, gender, age) relative to a control group.
+  definition_verbatim: false
+  location: Sections 7-9
+  scale: empathy difference between subgroups with significance tests
+notes: Only Cultivating Change Talk is reported in the main results; the appendix lists all three MITI global scores. Equity is a measured disparity of the empathy scores, not a separate rating. Empathy levels are scored by clinicians (two psychologists, 50 posts) and by fine-tuned RoBERTa classifiers for all 70k responses.

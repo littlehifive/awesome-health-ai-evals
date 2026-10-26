@@ -1,0 +1,42 @@
+id: psycholex-query-dialogue
+name: PsychoLexQuery and PsychoLexDialogue
+kind: benchmark
+year: 2025
+summary: Two Persian psychotherapy evaluation sets from the PsychoLexTherapy paper - about 4,000 real user questions from Persian counseling forums (PsychoLexQuery) and simulated five-stage multi-turn therapy dialogues built from them (PsychoLexDialogue) - rated on empathy, coherence, cultural fit, and therapeutic alignment.
+readme_section: mental_health
+links:
+  paper: https://arxiv.org/abs/2510.03913
+  arxiv: "2510.03913"
+  doi: 10.48550/arxiv.2510.03913
+license: null
+open_data: unknown
+geography:
+  item_languages: [Persian]
+  item_origin_countries: [IRN]
+  item_origin_note: Questions were crawled from Persian-language psychology forums and consultation platforms (EhyaCenter, Moshaverfa, Simiaroom) and anonymized.
+  rater_countries: [IRN]
+  localization: native
+  lead_institution_countries: [IRN]
+origin:
+  builder_types: [academic]
+  item_provenance: [web_forum, llm_generated]
+  venue: preprint
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge, expert_human_rating, simulated_multi_turn]
+  modality: [text]
+  size: about 4,000 single-turn questions; number of dialogues not extracted
+signals:
+  citations: 1
+  citations_source: OpenAlex
+  hf_downloads: null
+  github_stars: null
+  uptake: []
+  updated: '2026-10-26'
+provenance:
+  records: [r_6c7403b32c]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Iran University of Science and Technology. The paper has no code or dataset link in the text, so release status is unknown. Evaluation uses automatic judging plus three psychology graduate students. The same paper also introduces PsychoLexEval (3,430 Persian psychology MCQs), which is a separate existing entry (psycholexeval) with a different dataset record; that entry's note says its linked paper was not found, and this paper may be the PsychoLexEval source, so a human should check whether to link them. Dialogue count and exact rater details were not extracted."

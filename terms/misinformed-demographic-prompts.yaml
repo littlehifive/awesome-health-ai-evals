@@ -1,0 +1,56 @@
+entry: misinformed-demographic-prompts
+sources:
+- https://doi.org/10.1002/aaai.12208
+- https://arxiv.org/abs/2410.10850
+- https://github.com/tolusophy/Edge-of-Tomorrow
+extracted: '2026-10-26'
+terms:
+- term: Precision
+  level: metric
+  definition: Share of statements the chatbot classified as true that are correct (True/False prompts).
+  definition_verbatim: false
+  location: Quantitative Analysis, Table 1
+  scale: percent
+- term: Recall
+  level: metric
+  definition: Share of true statements the chatbot correctly identifies.
+  definition_verbatim: false
+  location: Quantitative Analysis, Table 1
+  scale: percent
+- term: F1 Score
+  level: metric
+  definition: Harmonic mean of precision and recall on True/False prompts.
+  definition_verbatim: false
+  location: Table 1
+  scale: percent
+- term: Accuracy
+  level: metric
+  definition: Share of True/False statements answered correctly.
+  definition_verbatim: false
+  location: Table 1
+  scale: percent
+- term: BLEU
+  level: metric
+  definition: Similarity index between chatbot response and factual reference statements.
+  definition_verbatim: false
+  location: 'Figure 3, Quantitative Analysis: Similarity Index Scores'
+  scale: normalized similarity
+- term: ROUGE
+  level: metric
+  definition: Similarity index between chatbot response and factual reference statements.
+  definition_verbatim: false
+  location: Figure 3
+  scale: normalized similarity
+- term: METEOR
+  level: metric
+  definition: Similarity index including synonym matching, stemming and paraphrasing between chatbot response and factual reference statements.
+  definition_verbatim: false
+  location: Figure 3
+  scale: normalized similarity
+- term: Misinformation and bias (expert judgment)
+  level: other
+  definition: Expert assessment of the levels of misinformation and bias in chatbot responses, via questionnaires and interviews with 14 experts across both domains.
+  definition_verbatim: false
+  location: Qualitative Analysis
+  scale: questionnaire (closed and open-ended)
+notes: Metrics are reported for both climate change and mental health; the mental-health part is the in-scope one. Expert questionnaire items were not itemized in the text read, so expert judgment is recorded as a single term.

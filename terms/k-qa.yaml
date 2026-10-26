@@ -1,0 +1,28 @@
+entry: k-qa
+sources: [https://arxiv.org/abs/2401.14493, https://doi.org/10.18653/v1/2024.bionlp-1.22]
+extracted: 2026-10-26
+terms:
+  - term: Comprehensiveness
+    level: metric
+    definition: "measures the percentage of essential clinical information in the generated answer"
+    definition_verbatim: true
+    location: Abstract; Section 4, Eq. 1
+    scale: "fraction of Must Have statements entailed by the answer (NLI), higher is better"
+  - term: Hallucination rate
+    level: metric
+    definition: "measures how many of the ground-truth statements contradict the model's answer."
+    definition_verbatim: true
+    location: Section 4, Eq. 2
+    scale: "count of ground-truth statements contradicted, lower is better"
+  - term: Must Have
+    level: category
+    parent: Comprehensiveness
+    definition: "clinically crucial facets of information in the physician answer that the model answer must cover."
+    definition_verbatim: false
+    location: Section 3 and 4
+  - term: Nice to Have
+    level: category
+    definition: "supplemental statements in the physician answer, not counted toward comprehensiveness."
+    definition_verbatim: false
+    location: Section 4
+notes: "Both metrics are computed by an NLI model over physician-decomposed atomic statements (1,589 statements)."

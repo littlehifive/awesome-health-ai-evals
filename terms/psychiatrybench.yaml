@@ -1,0 +1,41 @@
+entry: psychiatrybench
+sources: [https://arxiv.org/abs/2509.09711, https://www.nature.com/articles/s41746-026-02582-w]
+extracted: 2026-10-26
+terms:
+  - term: Accuracy
+    level: metric
+    definition: "the proportion of correctly classified samples among the total number of samples"
+    definition_verbatim: true
+    location: Section 4.2.1
+    scale: proportion; used for multiple-choice tasks
+  - term: EMI Accuracy
+    level: metric
+    definition: Mean over extended-matching-item sets of the proportion of correctly answered subquestions (partial scoring), reported alongside a separated-subquestion accuracy.
+    definition_verbatim: false
+    location: Section 4.2.2, Eqs. 2-4
+    scale: proportion 0-1
+  - term: Consistency (Overall Consistency, Format Agreement Rate)
+    level: metric
+    definition: How often a model gives the same result (correct or incorrect) across the full-EMI and separated-subquestion formats, and the proportion of questions correct in both formats among those correct in at least one.
+    definition_verbatim: false
+    location: Section 4.2.2
+    scale: proportion
+  - term: Subset Accuracy (Exact Match Ratio)
+    level: metric
+    definition: "only considers a prediction correct if the predicted label set exactly matches the true label set no missing or extra labels are allowed"
+    definition_verbatim: true
+    location: Section 4.2.3 (classification task)
+    scale: binary per instance
+  - term: Weighted-Average F1-Score (F1-weighted)
+    level: metric
+    definition: Per-label F1 aggregated by a weighted average where more common labels contribute more, for the multi-label disorder classification task.
+    definition_verbatim: false
+    location: Section 4.2.3
+    scale: 0-1
+  - term: LLM-as-a-judge similarity score
+    level: metric
+    definition: Llama 3.3 70B scores each open-ended answer against the reference for substantive congruence of core clinical content (reasoning, correctness, completeness), disregarding style or phrasing; task score is the mean over instances.
+    definition_verbatim: false
+    location: Section 4.2.4, Appendix 1.2
+    scale: 0-100
+notes: "Section 3 says the judge scores answers on accuracy, completeness and clinical relevance with a structured rubric, but the rubric prompts are in the appendix (point-based GPT-4.5 prompt, Figure 20; logic-driven Gemini prompt) and were not read item by item. Eleven task types (for example Sequential QA, Clinical Approach, Management Plan, Mental QA, Classification of Specific Disorders, EMI) are task categories, not evaluation terms. Terms are from the arXiv preprint; the Nature article was not opened."

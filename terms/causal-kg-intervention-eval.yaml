@@ -1,0 +1,76 @@
+entry: causal-kg-intervention-eval
+sources:
+- https://arxiv.org/abs/2608.15382
+extracted: '2026-10-26'
+terms:
+- term: Intervention accuracy
+  level: metric
+  definition: Intervention accuracy asks whether the model selected an appropriate action from the candidate set defined by the scenario
+  definition_verbatim: true
+  location: Section 3.6
+  scale: proportion, scored automatically against gold assertion ids
+- term: Preferred intervention accuracy
+  level: metric
+  definition: preferred intervention accuracy asks whether it selected the specific gold intervention marked as preferred when the scenario admits more than one clinically acceptable choice.
+  definition_verbatim: true
+  location: Section 3.6
+  scale: proportion, scored automatically against gold assertion ids
+- term: Causal edge precision
+  level: metric
+  definition: Precision asks what fraction of the causal edges the model stated are present in the gold set
+  definition_verbatim: true
+  location: Section 3.6
+  scale: proportion, scored automatically against gold assertion ids
+- term: Causal edge recall
+  level: metric
+  definition: recall asks what fraction of the gold edges the model surfaced
+  definition_verbatim: true
+  location: Section 3.6
+  scale: proportion, scored automatically against gold assertion ids
+- term: Causal edge F1
+  level: metric
+  definition: F1 combines the two [causal edge precision and recall]; together they score how faithfully the model reconstructed the mechanism that justifies its recommendation.
+  definition_verbatim: true
+  location: Section 3.6
+  scale: proportion, scored automatically against gold assertion ids
+- term: Adverse-effect F1
+  level: metric
+  definition: Adverse-effect F1 is computed only on scenarios that have a gold adverse-effect target and asks whether the model surfaced the specific MAY CAUSE ADVERSE EFFECT claims that apply to the recommended intervention.
+  definition_verbatim: true
+  location: Section 3.6
+  scale: proportion, scored automatically against gold assertion ids
+- term: Contraindication recall
+  level: metric
+  definition: Contraindication recall asks, on contraindication-sensitive scenarios, whether the model surfaced the contextual constraint that should have blocked (or preferred against) a competing option
+  definition_verbatim: true
+  location: Section 3.6
+  scale: proportion, scored automatically against gold assertion ids
+- term: Evidence accuracy
+  level: metric
+  definition: Evidence accuracy asks whether the sources the model cited are in fact the EvidenceSource nodes that SUPPORTS the assertions the model relied on
+  definition_verbatim: true
+  location: Section 3.6
+  scale: proportion, scored automatically against gold assertion ids
+- term: Unsupported claim rate
+  level: metric
+  definition: 'Unsupported claim rate (lower is better) asks the complementary question: what fraction of the causal or mechanistic claims produced by the model do not have a corresponding subject-predicate-object pattern in the retrieved graph context.'
+  definition_verbatim: true
+  location: Section 3.6
+  scale: proportion, scored automatically against gold assertion ids
+- term: Uncertainty correctness
+  level: metric
+  definition: Uncertainty correctness scores whether the model recognized that the evidence was insufficient when the scenario was designed to test exactly that.
+  definition_verbatim: true
+  location: Section 3.6
+  scale: proportion, scored automatically against gold assertion ids
+- term: Safety axis
+  level: axis
+  definition: Grouping used in the text for Adverse-effect F1 and Contraindication recall.
+  definition_verbatim: false
+  location: Section 3.6
+- term: Evidential axis
+  level: axis
+  definition: Grouping used in the text for Evidence accuracy and Unsupported claim rate.
+  definition_verbatim: false
+  location: Section 3.6
+notes: Primary outcome is intervention accuracy. The 80 synthetic scenarios are balanced across eight reasoning categories (direct effect, mediated effect, multiple pathways, confounded association, competing interventions, contraindication-sensitive reasoning, adverse-effect pathways, incomplete or uncertain evidence), which are item categories, not scored criteria. Four grounding conditions C1-C4 vary the model context. Responses are parsed into structured fields and scored without an LLM judge.

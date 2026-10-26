@@ -1,0 +1,39 @@
+id: llm-drug-bias-prompts
+name: LLM Medication Selection Bias Dataset
+kind: benchmark
+year: 2026
+summary: Standardized clinical vignettes (a disease plus a drug or drug class to start) with patient age, race, sex, LGBTQ identity and income varied or left blank, for testing demographic bias in LLM medication recommendations; about 177,000 prompts.
+readme_section: safety
+links:
+  huggingface: [Medical-AI-Lab/llm-drug-bias]
+license: CC-BY-NC-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Template vignettes with no stated country; the card does not say where the study was run.
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated]
+  venue: grey_literature
+facets:
+  health_areas: [pharmacy_medication, general_medicine]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: "about 177,000 prompts (spreadsheet with 177,121 rows)"
+signals:
+  citations: null
+  citations_source: OpenAlex
+  hf_downloads: 9
+  github_stars: null
+  uptake: []
+  updated: '2026-10-26'
+provenance:
+  records: [r_0fccacaa48]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: low
+  notes: "Dataset card only; no paper is linked. The card releases only the input prompts and gives no scoring method, so eval_methods is an inference from the stated use (analysis of demographic differences in the drug chosen). Builder type and item provenance (templated vignettes) are inferred from the card; the vignette generation method is not stated. Rows counted from the xlsx file."

@@ -1,0 +1,51 @@
+entry: pitfallbench
+sources: [https://arxiv.org/abs/2608.29481, https://github.com/Beikewzh/sic-benchmarks]
+extracted: 2026-10-26
+terms:
+  - term: PitfallBench accuracy
+    level: metric
+    definition: "Accuracy of a parent simulator on turn-level items where the clinician made a pitfall or a skilled move; combines pitfall-resistance and skilled-reward sub-metrics."
+    definition_verbatim: false
+    location: Section 3.1, Table 3, Figure 4
+    scale: 0-1
+  - term: Pitfall-resistance
+    level: metric
+    parent: PitfallBench accuracy
+    definition: "Sub-metric on items where the clinician commits a learner pitfall (P1-P10): whether the simulated parent reacts as expected, for example pushes back."
+    definition_verbatim: false
+    location: Section 5, Figure 4
+    scale: 0-1
+  - term: Skilled-reward
+    level: metric
+    parent: PitfallBench accuracy
+    definition: "Sub-metric on items where the clinician makes a skilled move: whether the simulated parent responds in the expected rewarding way, for example opens up or reveals a value."
+    definition_verbatim: false
+    location: Section 5, Figure 4
+    scale: 0-1
+  - term: Conversational Grounding
+    level: dimension
+    parent: DialogueBench rubric
+    definition: "Responsiveness to the clinician's latest turn."
+    definition_verbatim: true
+    location: Section 3.2; Appendix D
+    scale: 1-3 per parent turn
+  - term: Topic Consistency
+    level: dimension
+    parent: DialogueBench rubric
+    definition: "Maintenance of a coherent conversational thread (the source describes it as staying topically consistent over many turns)."
+    definition_verbatim: false
+    location: Section 3.2; Appendix D
+    scale: 1-3 per parent turn
+  - term: Composite
+    level: metric
+    definition: "Average of PitfallBench accuracy and DialogueBench Grounding rescaled to 0-1."
+    definition_verbatim: true
+    location: Table 3 caption
+    scale: 0-1
+  - term: P1-P10 pitfall taxonomy
+    level: category
+    definition: "Ten clinician communication pitfalls across two phases (share and support information; explore goals and align plan), for example P1 missed early emotion cue, P3 information too complex, P6 straight to code status, P10 'Won't do' before 'will do'; each paired with a core SIC skill and an expected parent reaction."
+    definition_verbatim: false
+    location: Section 3.1 pitfall table; Appendix H
+    scale: "item-level labels; scored by whether the parent reacts as expected"
+notes: "The evaluated thing is an LLM parent simulator for clinician training, so scores are about simulator fidelity. The source also mentions evaluation dimensions for emotional responsiveness and relational adaptation (Section 1) but the scored axes in results are Grounding and Topic Consistency. Two LLM judges calibrated against 119 ratings from 11 clinicians. Appendix D text with the 1-3 anchors was not fully read."

@@ -1,0 +1,48 @@
+entry: counseling-bench-chatcounselor
+sources:
+- https://arxiv.org/abs/2309.15461
+extracted: '2026-10-26'
+terms:
+- term: Information
+  level: criterion
+  definition: Measures the ability to provide accurate and relevant information.
+  definition_verbatim: true
+  location: Section on Counseling Bench metrics
+  scale: GPT-4 rating
+- term: Direct Guidance
+  level: criterion
+  definition: Evaluates the chatbot's capability to offer clear instructions and guidance.
+  definition_verbatim: true
+  location: same
+  scale: GPT-4 rating
+- term: Approval & Reassurance
+  level: criterion
+  definition: Assesses the chatbot's capacity to provide emotional support and encouragement.
+  definition_verbatim: true
+  location: same
+  scale: GPT-4 rating
+- term: Restatement, Reflection & Listening
+  level: criterion
+  definition: Rates how effectively the chatbot can rephrase, reflect on user inputs, and exhibit active listening skills.
+  definition_verbatim: true
+  location: same
+  scale: GPT-4 rating
+- term: Interpretation
+  level: criterion
+  definition: Measures how well the chatbot can analyze and interpret situations or user inputs.
+  definition_verbatim: true
+  location: same
+  scale: GPT-4 rating
+- term: Self-disclosure
+  level: criterion
+  definition: Quantifies the chatbot's ability to share relevant information about itself.
+  definition_verbatim: true
+  location: same
+  scale: GPT-4 rating
+- term: Obtain Relevant Information
+  level: criterion
+  definition: Evaluates the capability to ask for relevant information from the client.
+  definition_verbatim: false
+  location: same
+  scale: GPT-4 rating
+notes: Seven counseling-skill metrics from a counseling-strategy taxonomy (appendix table gives definitions and examples). The final definition was truncated in extraction so it is a paraphrase; the numeric scale was not extracted.

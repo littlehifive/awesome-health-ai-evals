@@ -1,0 +1,23 @@
+entry: sourcecheckup
+sources: [https://doi.org/10.1038/s41467-025-58551-6, https://arxiv.org/abs/2402.02008]
+extracted: 2026-10-26
+terms:
+  - term: Source URL Validity
+    level: metric
+    definition: "Given all the source URLs produced by the model, what percent are valid? A valid URL is one that produces a 200 status code when requested and returns valid text (non-empty response)."
+    definition_verbatim: true
+    location: arXiv preprint, Section 3 (metrics), Figure 1
+    scale: percent
+  - term: Statement-level Support
+    level: metric
+    definition: "the percentage of statements that are supported by at least one source in the same response"
+    definition_verbatim: true
+    location: Figure 1 caption; Section 3
+    scale: percent
+  - term: Response-level Support
+    level: metric
+    definition: "the percentage of responses that have all their statements supported"
+    definition_verbatim: true
+    location: Figure 1 caption; Section 3
+    scale: percent
+notes: "Read the arXiv preprint (2402.02008), not the journal full text. Support is judged by an automated source-verification model (GPT-4) and checked against expert annotations (284 pairs). The journal version may add or rename metrics."

@@ -1,0 +1,49 @@
+entry: explaincpe
+sources:
+- https://arxiv.org/abs/2305.12945
+- https://aclanthology.org/2023.findings-emnlp.129/
+extracted: '2026-10-26'
+terms:
+- term: Well-formed
+  level: criterion
+  definition: Is e a well-formed sentence? (e is the generated explanation)
+  definition_verbatim: true
+  location: Section 5.2 Human Evaluation; Appendix
+  scale: 1-5 (human and GPT-4 ratings)
+- term: Support
+  level: criterion
+  definition: Does e support the label? (e is the generated explanation)
+  definition_verbatim: true
+  location: Section 5.2 Human Evaluation; Appendix
+  scale: 1-5 (human and GPT-4 ratings)
+- term: Correctness
+  level: criterion
+  definition: Is the content of e factually correct? (e is the generated explanation)
+  definition_verbatim: true
+  location: Section 5.2 Human Evaluation; Appendix
+  scale: 1-5 (human and GPT-4 ratings)
+- term: Validity
+  level: criterion
+  definition: Does e provide a valid reasoning path for the label? (e is the generated explanation)
+  definition_verbatim: true
+  location: Section 5.2 Human Evaluation; Appendix
+  scale: 1-5 (human and GPT-4 ratings)
+- term: Novelty
+  level: criterion
+  definition: Does e add new information, rather than recombining information from the input? (e is the generated explanation)
+  definition_verbatim: true
+  location: Section 5.2 Human Evaluation; Appendix
+  scale: 1-5 (human and GPT-4 ratings)
+- term: Accuracy
+  level: metric
+  definition: Percentage of questions where the chosen answer option matches the gold label.
+  definition_verbatim: false
+  location: Table 3 / Section 5.1
+  scale: percent
+- term: ROUGE-1 / ROUGE-2 / ROUGE-L
+  level: metric
+  definition: Overlap between generated explanation and the gold explanation.
+  definition_verbatim: false
+  location: Table 3
+  scale: 0-1
+notes: Five human/GPT-4 criteria follow Monsen and Rennes, Wiegreffe et al. and Kunz et al.; scale 1-5. Question types (negative/positive, logical reasoning, drug knowledge, scenario analysis, math, disease knowledge, general knowledge) are item categories with per-type accuracy reported; not recorded as criteria.

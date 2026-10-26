@@ -1,0 +1,40 @@
+entry: mentat
+sources: [https://arxiv.org/abs/2502.16051, https://github.com/maxlampe/mentat]
+extracted: 2026-10-26
+terms:
+  - term: Task-specific accuracy
+    level: metric
+    definition: "Average multiple-choice accuracy per MENTAT task category (diagnosis, treatment, monitoring, triage, documentation) with 95% confidence limits; for triage and documentation, correctness uses expert preference scores rather than a single intended answer."
+    definition_verbatim: false
+    location: Section 4.2, Table 1
+    scale: "accuracy with 95% CL"
+  - term: Preference score
+    level: metric
+    definition: "A per-option score built from eight annotators' numerical ratings for ambiguous triage and documentation questions, used as labels for the answer options."
+    definition_verbatim: false
+    location: Section 3 and Appendix (annotation model), Figure 2
+  - term: Demographic bias (fairness)
+    level: dimension
+    definition: "Change in decision-making accuracy when decision-irrelevant patient demographic information (gender, age, ethnicity and others) is varied, tested on datasets D_G, D_A, D_N against baseline D_0."
+    definition_verbatim: false
+    location: Section 4.3, Table 2, Appendix K.5
+    scale: "accuracy difference by demographic group with 95% CL"
+  - term: Free-form decision inconsistency (1 - BERTScore)
+    level: metric
+    definition: "One minus BERTScore between a free-form model response and the expert-annotated correct answer option, averaged over questions; lower means more consistent."
+    definition_verbatim: false
+    location: Appendix K.6, Table 10
+    scale: "0-1, lower is better"
+  - term: Free-form inconsistency (1 - ROUGE-L)
+    level: metric
+    definition: "One minus ROUGE-L between free-form response and the expert correct option, used to check robustness of the BERTScore-based inconsistency."
+    definition_verbatim: false
+    location: Appendix K.6
+    scale: "0-1, lower is better"
+  - term: Free-form inconsistency (1 - BLEU)
+    level: metric
+    definition: "One minus BLEU between free-form response and the expert correct option, used as a third inconsistency metric."
+    definition_verbatim: false
+    location: Appendix K.6
+    scale: "0-1, lower is better"
+notes: "The five task categories are topic areas, not scored criteria, so only the metrics are listed. The paper reports three inconsistency metrics in K.6."

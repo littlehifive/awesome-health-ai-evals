@@ -1,0 +1,36 @@
+entry: mental-health-llm-eval
+sources: [https://github.com/AllenLi441/mental-health-llm-eval]
+extracted: 2026-10-26
+terms:
+  - term: Accuracy
+    level: metric
+    definition: "Share of items classified correctly; reported with a Wilson 95% confidence interval and, for PsySUICIDE, IMHI and MentalManip tasks, alongside F1."
+    definition_verbatim: false
+    location: README (summary and task table)
+    scale: "proportion with Wilson 95% CI"
+  - term: Weighted-F1
+    level: metric
+    definition: "Support-weighted F1 across classes, used for PsySUICIDE (11 classes) and the IMHI tasks."
+    definition_verbatim: false
+    location: README task table
+  - term: Macro-F1
+    level: metric
+    definition: "Unweighted mean F1 across classes, reported in the aggregate summary."
+    definition_verbatim: false
+    location: README summary
+  - term: F1
+    level: metric
+    definition: "F1 for the depression class (EATD) and for manipulation detection (MentalManip)."
+    definition_verbatim: false
+    location: README task table
+  - term: Top-1 hit rate
+    level: metric
+    definition: "Whether the model's top prediction is among the gold multi-label set; used for CBT-Bench tasks (cbt-cd, cbt-pc, cbt-fc), a different protocol from the original paper's multi-label F1."
+    definition_verbatim: false
+    location: README task table
+  - term: Per-class accuracy and confusion pairs
+    level: metric
+    definition: "Per-class precision breakdown and most frequent confusion pairs reported in the summary."
+    definition_verbatim: false
+    location: README summary
+notes: "README is in Chinese and was read in translation. Scoring is automatic classification across 19 tasks from eight benchmarks; no rubric or judge criteria."

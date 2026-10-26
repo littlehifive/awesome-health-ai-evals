@@ -1,0 +1,52 @@
+entry: remedi
+sources: [https://arxiv.org/abs/2109.00430]
+extracted: 2026-10-26
+terms:
+  - term: Micro-F1
+    level: metric
+    definition: "Micro-F1 is the intent/action/slot F1 regardless of categories."
+    definition_verbatim: true
+    location: Section 5.3 (evaluation metrics), NLU and DPL tasks
+  - term: Macro-F1
+    level: metric
+    definition: "Macro-F1 denotes the weighted average of F1 scores of all categories."
+    definition_verbatim: true
+    location: Section 5.3, NLU and DPL tasks
+  - term: BLEU
+    level: metric
+    definition: "BLEU indicates how similar the generated values of intent/action slots are to the golden ones"
+    definition_verbatim: true
+    location: Section 5.3, NLU and DPL tasks
+  - term: Combination
+    level: metric
+    definition: "Combination is defined as 0.5 * Micro-F1 + 0.5 * BLEU. This measures the overall performance in terms of both intent/action/slot and the generated value."
+    definition_verbatim: true
+    location: Section 5.3
+  - term: BLEU1 / BLEU4
+    level: metric
+    definition: "BLEU1 and BLEU4 denote the uni-gram and 4-gram precision, indicating the fraction of the overlapping n-grams out of all n-grams for the responses"
+    definition_verbatim: true
+    location: Section 5.3, NLG task
+  - term: ROUGE1
+    level: metric
+    definition: "ROUGE1 refers to the uni-grams recall, indicating the fraction of the overlapping uni-grams out of all uni-grams for the responses"
+    definition_verbatim: true
+    location: Section 5.3, NLG task
+  - term: METEOR
+    level: metric
+    definition: "METEOR measures the overall performance, i.e., harmonic mean of the uni-gram precision and recall"
+    definition_verbatim: true
+    location: Section 5.3, NLG task
+  - term: Fluency
+    level: criterion
+    definition: "Fluency measures to what extent the evaluated responses are fluent."
+    definition_verbatim: true
+    location: Section 5.3, human evaluation
+    scale: 0-2 (bad, neutral, good)
+  - term: Specialty
+    level: criterion
+    definition: "Specialty measures to what extent the evaluated responses provide complete and accurate entities compared with the reference responses."
+    definition_verbatim: true
+    location: Section 5.3, human evaluation
+    scale: 0-2 (bad, neutral, good)
+notes: "Human ratings on 300 sampled context-response pairs, 3 annotators each. Pre-LLM benchmark; tasks are NLU, dialogue policy learning (DPL), NLG."

@@ -1,0 +1,49 @@
+entry: llm-jury-lmic-diagnosis
+sources:
+- https://arxiv.org/abs/2604.14892
+extracted: '2026-10-26'
+terms:
+- term: Diagnosis (Dx)
+  level: dimension
+  definition: Score of how well the evaluated primary and secondary diagnoses match the expert panel's reference diagnoses.
+  definition_verbatim: false
+  location: Section 2 (Methods), arXiv 2604.14892
+  scale: 1-5 Likert
+- term: Differential diagnosis (DDx)
+  level: dimension
+  definition: Score of how well the evaluated differential diagnoses match the expert panel's differentials; formulated from the initial presentation only.
+  definition_verbatim: false
+  location: Section 2 (Methods), arXiv 2604.14892
+  scale: 1-5 Likert
+- term: Clinical reasoning (Reasoning)
+  level: dimension
+  definition: Score of the quality of the clinical reasoning against the expert panel's documented reasoning; omitted for ward diagnoses as treating doctors' reasoning was not recorded.
+  definition_verbatim: false
+  location: Section 2 (Methods), arXiv 2604.14892
+  scale: 1-5 Likert
+- term: Negative treatment risk
+  level: dimension
+  definition: Risk to the patient if treated according to the evaluated diagnoses versus the reference diagnoses.
+  definition_verbatim: false
+  location: Section 2 (Methods), arXiv 2604.14892
+  scale: 1-5 Likert (higher is worse)
+- term: Patient safety (Safety)
+  level: metric
+  parent: Negative treatment risk
+  definition: Patient safety score, defined as 6 minus the negative treatment risk, so higher is better.
+  definition_verbatim: true
+  location: Section 2 (Methods), arXiv 2604.14892
+  scale: 1-5 (6 minus risk)
+- term: S3 universal quality score
+  level: metric
+  definition: Weighted sum of the diagnosis, differential diagnosis and patient safety scores, weighted 40:20:40, used to rank diagnostic agents.
+  definition_verbatim: false
+  location: Section 8 (ranking of diagnosing agents)
+  scale: weighted 1-5
+- term: Severe error rate
+  level: metric
+  definition: Proportion of potentially harmful diagnoses (primary panel patient safety score <= 2) that also received a patient safety score at least 3 points higher from an LLM Jury model or re-score panel.
+  definition_verbatim: false
+  location: Section 5 (severe-risk errors)
+  scale: proportion
+notes: Terms are the four 1-5 scoring dimensions applied by both expert panels and the three-LLM jury, plus the derived Safety score and meta-metrics used to validate the jury (offset, RMSE, Spearman rho, Cohen kappa, coefficient of variation; not recorded as terms). The verbatim flag is true only for the Safety definition ('defined as 6 minus the negative treatment risk'); other definitions are paraphrased because the paper gives no formal definitions.

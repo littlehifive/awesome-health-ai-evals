@@ -1,0 +1,91 @@
+entry: archehr-qa
+sources:
+- https://doi.org/10.1038/s41597-026-06639-z
+- https://github.com/soni-sarvesh/archehr-qa
+extracted: '2026-10-26'
+terms:
+- term: Factuality
+  level: dimension
+  definition: Factuality (use of clinical evidence for grounding)
+  definition_verbatim: true
+  location: Metrics section, Benchmarking experiments
+  scale: F1 of cited note sentences against ground-truth relevance labels
+- term: Overall Factuality (Essential-only micro F1)
+  level: metric
+  parent: Factuality
+  definition: Factuality is measured using an F1 Score between the sentences cited as evidence in the system-generated answer (which are treated as predicted essential note sentences) and the ground truth relevance labels for note sentences. In the “Essential-only”
+    definition, only sentences labeled as essential in the ground truth count as positives.
+  definition_verbatim: true
+  location: Metrics section, Benchmarking experiments
+  scale: micro F1 over all cases
+- term: Factuality, Essential + Supplementary
+  level: metric
+  parent: Factuality
+  definition: In the “Essential + Supplementary” version, ground truth sentences labeled as either essential or supplementary are counted as positives (penalizing the system for failing to cite either, but not for including supplementary ones).
+  definition_verbatim: true
+  location: Metrics section, Benchmarking experiments
+  scale: macro and micro F1, precision, recall
+- term: Relevance
+  level: dimension
+  definition: Relevance (similarity to the ground-truth answer)
+  definition_verbatim: true
+  location: Metrics section, Benchmarking experiments
+  scale: mean of normalized text-similarity metrics
+- term: Overall Relevance
+  level: metric
+  parent: Relevance
+  definition: 'Relevance is evaluated by comparing the generated answer text to a clinician-authored reference answer using text- and semantics-based metrics: BLEU, ROUGE, SARI, BERTScore, AlignScore, and MEDCON. Each metric is normalized, and Overall
+    Relevance is computed as the mean of these normalized scores.'
+  definition_verbatim: true
+  location: Metrics section, Benchmarking experiments
+  scale: mean of normalized scores
+- term: BLEU
+  level: metric
+  parent: Overall Relevance
+  definition: Text-overlap metric used as a component of Relevance.
+  definition_verbatim: false
+  location: Metrics section, Benchmarking experiments
+- term: ROUGE
+  level: metric
+  parent: Overall Relevance
+  definition: Text-overlap metric used as a component of Relevance.
+  definition_verbatim: false
+  location: Metrics section, Benchmarking experiments
+- term: SARI
+  level: metric
+  parent: Overall Relevance
+  definition: Text-simplification similarity metric used as a component of Relevance.
+  definition_verbatim: false
+  location: Metrics section, Benchmarking experiments
+- term: BERTScore
+  level: metric
+  parent: Overall Relevance
+  definition: Embedding-based semantic similarity used as a component of Relevance.
+  definition_verbatim: false
+  location: Metrics section, Benchmarking experiments
+- term: AlignScore
+  level: metric
+  parent: Overall Relevance
+  definition: Model-based factual-consistency/alignment score used as a component of Relevance.
+  definition_verbatim: false
+  location: Metrics section, Benchmarking experiments
+- term: MEDCON
+  level: metric
+  parent: Overall Relevance
+  definition: Medical-concept overlap score used as a component of Relevance.
+  definition_verbatim: false
+  location: Metrics section, Benchmarking experiments
+- term: Overall Score
+  level: metric
+  definition: “Overall Score” is the average of “Overall Relevance” and “Overall Factuality” (Essential-only Micro F1).
+  definition_verbatim: true
+  location: Table 8 caption
+  scale: percentage
+- term: essential / supplementary / not-relevant
+  level: category
+  definition: 'each sentence in the clinical note was manually annotated with a “relevance” label, indicating its importance in answering the question: “essential” (must be used), “supplementary” (provides support but not necessary), or “not-relevant”.'
+  definition_verbatim: true
+  location: Dataset construction
+  scale: 3-way sentence label (ground truth for Factuality)
+notes: 'Relevance is also computed against the essential note sentences plus the question as an alternative reference (Table 7). The sentence-level relevance labels are annotation categories that define the Factuality ground truth, not scores on model
+  output. Task: answer the question in at most 75 words with citations to note sentences.'

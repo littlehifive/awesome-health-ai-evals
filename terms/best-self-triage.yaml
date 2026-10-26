@@ -1,0 +1,36 @@
+entry: best-self-triage
+sources:
+- https://doi.org/10.64898/2026.10.12.26365287
+extracted: '2026-10-26'
+terms:
+- term: Weighted emergency sensitivity
+  level: metric
+  definition: Sensitivity for reference-emergency vignettes of a system's recommendation, mapped to emergency/acute/not urgent and weighted by winsorised routine-triage frequencies.
+  definition_verbatim: false
+  location: Abstract; Methods
+  scale: weighted proportion with 95% bootstrap CI
+- term: Weighted exact three-category agreement (accuracy)
+  level: metric
+  definition: Agreement between the system's urgency category and the expert-consensus reference in the three categories emergency, acute, not urgent.
+  definition_verbatim: false
+  location: Abstract; Methods
+  scale: weighted proportion
+- term: Specificity
+  level: metric
+  definition: Specificity of urgency classification against reference categories.
+  definition_verbatim: false
+  location: Methods (bootstrap)
+  scale: weighted proportion
+- term: Macro-averaged sensitivity and specificity
+  level: metric
+  definition: Sensitivity and specificity averaged across the three urgency categories.
+  definition_verbatim: false
+  location: Methods (bootstrap)
+  scale: weighted proportion
+- term: Over-triage and under-triage
+  level: category
+  definition: Pattern of system urgency recommendations above or below the preliminary expert consensus, shown in weighted three-class confusion matrices.
+  definition_verbatim: false
+  location: Results, Figure 2
+  scale: confusion matrix
+notes: Read the medRxiv full text. Scoring is categorical urgency agreement; paper cites requirements (safety, reliability, lay comprehensibility, explainability, impartiality) as motivation, but only the metrics above are scored. A manual review of under-triage trajectories is exploratory.

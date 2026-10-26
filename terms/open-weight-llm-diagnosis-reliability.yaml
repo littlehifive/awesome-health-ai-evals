@@ -1,0 +1,29 @@
+entry: open-weight-llm-diagnosis-reliability
+sources: [https://doi.org/10.5281/zenodo.23422772]
+extracted: 2026-10-26
+terms:
+  - term: Clinical Reliability Score (CRS)
+    level: metric
+    definition: "CRS = 0.3 x Accuracy + 0.2 x Consistency + 0.5 x Safety; the reference value of 50 is study-defined, not a clinical threshold."
+    definition_verbatim: true
+    location: Zenodo record description
+    scale: "0-100 composite"
+  - term: Accuracy
+    level: metric
+    definition: Whether the extracted diagnosis matches the reference diagnosis for the case (component of CRS, weight 0.3).
+    definition_verbatim: false
+    location: Zenodo record description
+    scale: percent
+  - term: Consistency
+    level: metric
+    definition: Agreement of the model's diagnoses across the three repetitions of the same case (component of CRS, weight 0.2).
+    definition_verbatim: false
+    location: Zenodo record description
+    scale: percent
+  - term: Safety
+    level: metric
+    definition: "Safety is a rule-based proxy, not a validated clinical measure (component of CRS, weight 0.5)."
+    definition_verbatim: true
+    location: Zenodo record description (Disclaimer)
+    scale: percent
+notes: "Only the Zenodo landing page was reachable; the files are restricted (access needs login), the README with exact metric definitions and the journal article (under review) were not read, so Accuracy, Consistency and Safety definitions are inferred from the record text. Also reports Friedman/Wilcoxon statistics and a CRS weighting sensitivity analysis, and clinician validation (two physicians, 45 responses), which are not scoring terms."

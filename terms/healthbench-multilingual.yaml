@@ -1,0 +1,11 @@
+entry: healthbench-multilingual
+sources: [https://huggingface.co/datasets/projetogabi/healthbench-multilingual]
+extracted: 2026-10-26
+terms:
+  - term: Rubric criteria (inherited from HealthBench)
+    level: criterion
+    definition: "More than 48,000 physician-authored rubric criteria designed to evaluate how well AI systems respond to health questions from both patients and clinicians (translated); each rubric item has criterion text, integer points, and tags."
+    definition_verbatim: false
+    location: "Dataset card, Dataset Summary and features (rubrics: criterion, points, tags)"
+    scale: points per rubric criterion (inherited from HealthBench)
+notes: Dataset card only, no paper. Translation of HealthBench with the same rubric structure; no new terms. Axes and themes are carried in tags but the card does not name them. See terms/healthbench.yaml.

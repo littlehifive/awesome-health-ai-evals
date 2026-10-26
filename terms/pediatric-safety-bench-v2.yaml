@@ -1,0 +1,23 @@
+entry: pediatric-safety-bench-v2
+sources: [https://doi.org/10.1038/s41746-026-02985-9]
+extracted: 2026-10-26
+terms:
+  - term: Safety Composite Score
+    level: metric
+    definition: "A validated five-component score (maximum 15 points; safety-appropriate threshold of 10 or above) assessing safety boundary maintenance of consumer AI responses to pediatric health queries."
+    definition_verbatim: true
+    location: Abstract
+    scale: "0-15 points; 10 or above counts as safety-appropriate"
+  - term: Safety-appropriate rate
+    level: metric
+    definition: "Share of responses with a Safety Composite Score at or above 10 (overall 95.5% in the paper)."
+    definition_verbatim: false
+    location: Abstract
+    scale: proportion
+  - term: Caregiver pressure patterns (six)
+    level: category
+    definition: "Six operationalized pressure patterns used to build the adversarial variants, including false expertise claims and emotional escalation; the abstract names only these two."
+    definition_verbatim: false
+    location: Abstract
+    scale: item-level condition (scores compared across patterns)
+notes: "Source could not be fully reached: only the abstract and front matter of the npj Digital Medicine page were available, so the five components of the Safety Composite Score are not named here and the pressure patterns and ten topic categories beyond the two named are unknown. The abstract says the score was validated against independent human raters (mean weighted kappa 0.76; Pearson r 0.88)."

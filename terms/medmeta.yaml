@@ -1,0 +1,49 @@
+entry: medmeta
+sources:
+- https://arxiv.org/abs/2605.09661
+extracted: '2026-10-26'
+terms:
+- term: Main Finding(s)/Overall Result
+  level: criterion
+  definition: Primary outcomes of the meta-analysis conclusion.
+  definition_verbatim: true
+  location: Appendix, scoring rubric (E)
+  scale: contributes to 0-5 overall similarity score
+- term: Key Specifics & Comparisons
+  level: criterion
+  definition: Quantitative results.
+  definition_verbatim: true
+  location: Appendix, scoring rubric (E)
+- term: Nuance & Limitations
+  level: criterion
+  definition: Caveats, research needs.
+  definition_verbatim: true
+  location: Appendix, scoring rubric (E)
+- term: Implications & Future Directions
+  level: criterion
+  definition: Clinical significance.
+  definition_verbatim: true
+  location: Appendix, scoring rubric (E)
+- term: Safety/Tolerability
+  level: criterion
+  definition: Adverse effects, if applicable.
+  definition_verbatim: true
+  location: Appendix, scoring rubric (E)
+- term: Overall Semantic Equivalence
+  level: criterion
+  definition: Core message preservation.
+  definition_verbatim: true
+  location: Appendix, scoring rubric (E)
+- term: Conclusion quality score (0-5)
+  level: metric
+  definition: LLM-judge panel (and human expert) score of a generated conclusion against the reference, from 0 Contradictory through 5 Excellent Equivalent (all criteria met).
+  definition_verbatim: false
+  location: Appendix, scoring rubric; Section 3
+  scale: 0-5
+- term: BERTScore
+  level: metric
+  definition: Embedding semantic similarity between generated and reference conclusion; shown to be an inadequate proxy for conclusion quality.
+  definition_verbatim: false
+  location: Section 5, Table 5
+  scale: F1
+notes: The paper says the rubric has 5 dimensions but lists six criteria in the prompt text; all six are recorded. Scored by a three-model LLM judge panel (Gemini 2.5 Pro, o4-mini, and one more) validated against nine medical annotators (Latin square; 0-5 rubric).

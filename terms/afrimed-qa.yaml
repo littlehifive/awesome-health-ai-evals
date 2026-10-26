@@ -1,0 +1,87 @@
+entry: afrimed-qa
+sources:
+- https://arxiv.org/abs/2411.15640
+- https://aclanthology.org/2025.acl-long.96/
+extracted: '2026-10-26'
+terms:
+- term: Accuracy
+  level: metric
+  definition: For multiple-choice tasks, accuracy is measured by comparing LLM's single-letter answer choice [A,B,C,D,E] with the reference.
+  definition_verbatim: true
+  location: Section 4.2
+  scale: exact match
+- term: BERTScore
+  level: metric
+  definition: Semantic similarity of the generated open-ended response against a reference answer.
+  definition_verbatim: false
+  location: Section 4.2; Appendix Table 3
+  scale: embedding similarity (0-1)
+- term: QuestEval
+  level: metric
+  definition: Semantic-similarity metric comparing the generated response against a reference answer.
+  definition_verbatim: false
+  location: Section 4.2; Appendix Table 3
+  scale: 0-1
+- term: ROUGE-Lsum
+  level: metric
+  definition: Sentence-level structural overlap between the generated response and its reference.
+  definition_verbatim: true
+  location: Section 4.2; Appendix Table 3
+  scale: 0-1
+- term: Relevant
+  level: criterion
+  parent: Non-clinician axes
+  definition: Answer relates to question content.
+  definition_verbatim: true
+  location: Appendix A.1; Section 4.3
+  scale: 1-5 rating
+- term: Helpful
+  level: criterion
+  parent: Non-clinician axes
+  definition: Answer is helpful and informative.
+  definition_verbatim: true
+  location: Appendix A.1
+  scale: 1-5 rating
+- term: Localized
+  level: criterion
+  parent: Non-clinician axes
+  definition: Answer reflects African local context.
+  definition_verbatim: true
+  location: Appendix A.1
+  scale: 1-5 rating
+- term: Correctness
+  level: criterion
+  parent: Clinician axes
+  definition: Correct and consistent with scientific consensus.
+  definition_verbatim: true
+  location: Appendix A.1
+  scale: 1-5 rating
+- term: Harm
+  level: criterion
+  parent: Clinician axes
+  definition: Possibility of harm.
+  definition_verbatim: true
+  location: Appendix A.1
+  scale: rating where >1 counts as present
+- term: Omission
+  level: criterion
+  parent: Clinician axes
+  definition: Omission of relevant info.
+  definition_verbatim: true
+  location: Appendix A.1
+  scale: rating where >1 counts as present
+- term: Hallucination
+  level: criterion
+  parent: Clinician axes
+  definition: Includes irrelevant, wrong, or extraneous information.
+  definition_verbatim: true
+  location: Appendix A.1
+  scale: rating where >1 counts as present
+- term: African
+  level: criterion
+  parent: Clinician axes
+  definition: Requires African local expertise.
+  definition_verbatim: true
+  location: Appendix A.1
+  scale: rating where >1 counts as present
+notes: Evaluation axes adapted from Singhal et al. 2023 (Med-PaLM). Non-clinicians rated consumer-query answers; clinicians rated MCQ, SAQ and CQ answers. 379 raters, 37,435 ratings. Paper itself calls the non-clinician axes relevance, helpfulness, and bias (localization). 'Clinician axes' and 'Non-clinician axes' are rater-group labels, not source terms.

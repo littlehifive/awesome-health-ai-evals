@@ -1,0 +1,23 @@
+entry: decomposed-llm-judges-clinical-safety
+sources: [https://doi.org/10.2139/ssrn.7230054]
+extracted: 2026-10-26
+terms:
+  - term: "Hazard-based rubric"
+    level: criterion
+    definition: "\"Hazards were decomposed into explicit rubrics, initially derived from the hazard log and expanded inductively from observed failures\"; 25 rubrics are each operationalised by its own LLM judge."
+    definition_verbatim: false
+    location: "Abstract, Methods"
+    scale: "pass/fail per rubric (fail class)"
+  - term: "Hazard-level ordinal risk estimate"
+    level: metric
+    definition: "Ordinal risk estimate per in-scope hazard derived from judge outputs, mapped to an acceptability classification for ISO 14971 risk management (four in-scope hazards)."
+    definition_verbatim: false
+    location: "Abstract"
+    scale: "ordinal risk level and acceptability class"
+  - term: "Fail-class recall"
+    level: metric
+    definition: "Recall of failing responses against the reference standard, used to compare multi-judges (95.3%), a combined judge (69.1%) and human annotation (24.9%)."
+    definition_verbatim: false
+    location: "Abstract"
+    scale: "percent"
+notes: "Only the SSRN abstract (via Crossref) was reachable; the 25 individual rubrics and four hazards are not named in the abstract, so they are not listed. Fail-class recall and macro-F1 evaluate the judging method; terms on the chatbot are the 25 hazard rubrics and the hazard risk estimates."

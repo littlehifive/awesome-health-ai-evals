@@ -1,0 +1,23 @@
+entry: direct
+sources: [https://arxiv.org/abs/2408.01933]
+extracted: 2026-10-26
+terms:
+  - term: "Accuracy of diagnosis (Acc^diag)"
+    level: metric
+    definition: "evaluates if a model can correctly identify the diagnosis. Acc^diag = 1 if d* = d-hat, and 0 otherwise. The average is reported."
+    definition_verbatim: true
+    location: "Section 3.5 (1)"
+    scale: "binary per case, averaged"
+  - term: "Completeness of observations (Obs^comp)"
+    level: metric
+    definition: "\"evaluates whether a model extracts all and only necessary observations for the prediction\" (intersection over union of predicted and ground-truth observations; Obs^pre and Obs^rec report precision and recall)."
+    definition_verbatim: true
+    location: "Section 3.5 (2)"
+    scale: "ratio 0-1; LLM matches observations"
+  - term: "Faithfulness of explanations (Exp^com, Exp^all)"
+    level: metric
+    definition: "evaluates if the diagnostic flow toward the PDD is fully supported by observations with faithful rationalizations."
+    definition_verbatim: true
+    location: "Section 3.5 (3)"
+    scale: "ratio of successfully matched deductions to common observations (Exp^com) or union of observations (Exp^all)"
+notes: "Paper also reports category-level diagnosis accuracy (disease category) in Tables 3-4. The metrics Obs^pre, Obs^rec are listed under Completeness. Automatic metrics were checked against three physicians (Table 7)."

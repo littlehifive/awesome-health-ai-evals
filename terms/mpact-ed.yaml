@@ -1,0 +1,26 @@
+entry: mpact-ed
+sources: [https://doi.org/10.31234/osf.io/htzcn_v1]
+extracted: 2026-10-26
+terms:
+  - term: mPACT-ED Composite score
+    level: metric
+    definition: "Conversation-level mPACT-ED Composite scores reflect the mean talk-turn score normalized to a 0-10 scale where higher scores indicate a more appropriate response (i.e., similar to how a human clinician would respond)."
+    definition_verbatim: true
+    location: OSF preprint abstract
+    scale: 0-10 composite; severity-weighted
+  - term: Non-reinforcing
+    level: criterion
+    definition: "Whether the model response avoids reinforcing disordered eating."
+    definition_verbatim: false
+    location: OSF preprint abstract
+  - term: Clinically calibrated
+    level: criterion
+    definition: "Whether the response is clinically calibrated to the presentation."
+    definition_verbatim: false
+    location: OSF preprint abstract
+  - term: Risk-responsive
+    level: criterion
+    definition: "Whether the response responds appropriately to risk."
+    definition_verbatim: false
+    location: OSF preprint abstract
+notes: "Source not fully reached: only the OSF abstract (via the OSF API) was read, not the PDF. The per-turn clinician labels or rubric items behind the talk-turn score are not described there. Scores are severity-weighted."

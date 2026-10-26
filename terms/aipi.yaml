@@ -1,0 +1,30 @@
+entry: aipi
+sources: [https://doi.org/10.1007/s00405-023-08219-y]
+extracted: 2026-10-26
+terms:
+  - term: Patient feature
+    level: dimension
+    definition: Subscore of AIPI for the chatbot's handling of the patient's clinical features; named in the abstract's interrater-reliability result.
+    definition_verbatim: false
+    location: Abstract (Results)
+  - term: Diagnostic
+    level: dimension
+    definition: AIPI subscore rating the chatbot's differential diagnosis for the otolaryngology case.
+    definition_verbatim: false
+    location: Abstract (Results)
+  - term: Additional examination
+    level: dimension
+    definition: AIPI subscore rating the additional examinations the chatbot proposes.
+    definition_verbatim: false
+    location: Abstract (Results)
+  - term: Treatment
+    level: dimension
+    definition: AIPI subscore rating the treatment the chatbot proposes.
+    definition_verbatim: false
+    location: Abstract (Results)
+  - term: AIPI total score
+    level: metric
+    definition: Sum of the AIPI item scores across the four subscores; compared between ChatGPT and a senior otolaryngologist and against a modified Ottawa Clinical Assessment Tool.
+    definition_verbatim: false
+    location: Abstract (Results)
+notes: Full text is paywalled (Springer) and not in PMC, so only the abstract was read. The four subscores are those named in the abstract; the item-level wording and the rating scale are not seen and the list may omit items. Psychometrics only (Cronbach alpha 0.754).

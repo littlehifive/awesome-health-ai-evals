@@ -1,0 +1,42 @@
+id: multifaceteval
+name: MultifacetEval
+kind: benchmark
+year: 2024
+summary: A multifaceted evaluation framework that asks the same medical knowledge point as comparison, rectification, discrimination, and verification questions, with two datasets - MultiDiseK (from a 1,000-disease expert-annotated knowledge base) and a MultifacetEval version of MedQA with 800 source questions expanded to 7,200 items.
+readme_section: knowledge_exam
+links:
+  paper: https://doi.org/10.24963/ijcai.2024/737
+  arxiv: "2406.02919"
+  doi: 10.24963/ijcai.2024/737
+  code: https://github.com/THUMLP/MultifacetEval
+license: MIT
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA, UNKNOWN]
+  item_origin_note: The MedQA-derived items come from the US board-exam part of MedQA. MultiDiseK is built from a disease knowledge base annotated by 20 medical experts; its language and country are not stated in the text read.
+  localization: adapted
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician, medical_student]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: MultiMedQA-style set of 800 MCQs, 1,600 revision questions, 1,600 multiple-answer questions, and 3,200 true-false questions; MultiDiseK size not extracted
+signals:
+  citations: 1
+  citations_source: OpenAlex
+  hf_downloads: null
+  github_stars: 4
+  uptake: []
+  updated: '2026-10-26'
+provenance:
+  records: [r_762417ea79]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Tsinghua University. The paper names its MedQA-derived dataset MultiMedQA, which is unrelated to Google's MultiMedQA collection; keep the two apart. Five-shot accuracy with regex answer extraction; the headline metric is the proportion of knowledge points mastered across all facets. The abstract says codes and datasets are at the GitHub repo; the repo listing shows a medqa folder and rewrite.jsonl, and the MultiDiseK files were not confirmed. MIT is the repository license. MultiDiseK language and size were not found in the sections read."

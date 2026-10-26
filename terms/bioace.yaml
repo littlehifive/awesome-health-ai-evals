@@ -1,0 +1,54 @@
+entry: bioace
+sources: [https://arxiv.org/abs/2602.04982]
+extracted: 2026-10-26
+terms:
+  - term: Completeness
+    level: dimension
+    parent: Answer evaluation
+    definition: "Classifier labels each generated answer sentence as Required, Unnecessary, Borderline, or Inappropriate for the question; precision, redundancy and harmfulness metrics are then computed from these labels."
+    definition_verbatim: false
+    location: Sections 2.1.2, 4.1.2
+    scale: sentence-level 4-class label
+  - term: Correctness
+    level: dimension
+    parent: Answer evaluation
+    definition: "Binary classification of an answer sentence as correct or incorrect against the ground-truth answer."
+    definition_verbatim: false
+    location: Sections 2.1.3, 4.1.3
+    scale: binary per sentence
+  - term: Nugget precision
+    level: metric
+    parent: Answer evaluation
+    definition: "Share of system-generated answer nuggets that match ground-truth nuggets (embedding cosine similarity above a tuned threshold)."
+    definition_verbatim: false
+    location: Sections 2.1.1, 4.1.1
+    scale: 0-100
+  - term: Nugget recall
+    level: metric
+    parent: Answer evaluation
+    definition: "Share of ground-truth answer nuggets covered by the system-generated nuggets."
+    definition_verbatim: false
+    location: Sections 2.1.1, 4.1.1
+    scale: 0-100
+  - term: Redundancy
+    level: metric
+    parent: Completeness
+    definition: "Metric from the MedAESQA evaluation computed from the relevance labels of answer sentences, here predicted by a model."
+    definition_verbatim: false
+    location: Section 2.3
+    scale: derived from sentence labels
+  - term: Harmfulness
+    level: metric
+    parent: Completeness
+    definition: "Metric from the MedAESQA evaluation computed from the relevance labels of answer sentences (share labeled Inappropriate), here predicted by a model."
+    definition_verbatim: false
+    location: Section 2.3
+    scale: derived from sentence labels
+  - term: Citation support
+    level: dimension
+    parent: Citation evaluation
+    definition: "Whether the cited document supports the answer sentence (supported / partially / not supported); tested for answer sentence-document, sentence-maxSim document sentences, and answer nuggets-document nuggets settings."
+    definition_verbatim: false
+    location: Sections 2.2, 3.1
+    scale: binary and ternary labels
+notes: Scoring is automated and checked against human judgments (Spearman and Kendall Tau on rankings of 30 systems). Precision/recall/F1 of the scoring classifiers themselves are not evaluation terms for model outputs. Definitions are paraphrased from method descriptions.

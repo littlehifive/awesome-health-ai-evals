@@ -1,0 +1,18 @@
+entry: drugbankddi
+sources:
+- https://huggingface.co/datasets/jinyangli/DrugBankDDI
+extracted: '2026-10-26'
+terms:
+- term: Interaction decision (yes/no)
+  level: metric
+  definition: Whether the model asserts an interaction only when the documents support one; scored as a balanced yes/no decision over positive and negative configs.
+  definition_verbatim: false
+  location: Dataset card, scoring notes
+  scale: binary
+- term: Mechanism slots
+  level: criterion
+  definition: Slot-wise match to gold (bridge protein, roles, affected drug, direction, effect), graded with a rubric or LLM judge rather than string match.
+  definition_verbatim: false
+  location: Dataset card, scoring notes
+  scale: per-slot rubric
+notes: Dataset card only; no paper and no scoring script, so terms reflect the card's suggested scoring.

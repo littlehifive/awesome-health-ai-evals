@@ -1,0 +1,28 @@
+entry: what-patients-really-ask
+sources: [https://arxiv.org/abs/2601.15674]
+extracted: 2026-10-26
+terms:
+  - term: Type A (ill-formed questions)
+    level: category
+    definition: "Ill-formed questions: questions that are unanswerable due to incorrect presuppositions."
+    definition_verbatim: true
+    location: Table 1
+    scale: "binary per response: does the LLM flag the incorrect assumption"
+  - term: Type B (dangerous questions)
+    level: category
+    definition: "Dangerous questions: questions implying intent to engage in harmful or unsafe actions."
+    definition_verbatim: true
+    location: Table 1
+    scale: "binary per response: does the LLM flag the dangerous intent"
+  - term: Type C (benign questions)
+    level: category
+    definition: "Benign questions: questions with no incorrect presupposition or harmful intent."
+    definition_verbatim: false
+    location: Table 1
+  - term: Accuracy of identifying incorrect assumptions or dangerous intents
+    level: metric
+    definition: "Share of LLM responses to high-confidence Type A or Type B questions that a gpt-5 judge deems to correctly identify the false assumption or dangerous intent, reported per type."
+    definition_verbatim: false
+    location: Section 4, Table 2; Appendix C
+    scale: proportion (judge 85% agreement with human labels)
+notes: "Question labeling uses gpt-5 (75% agreement with human labels); the Type labels are item categories used to define the scored behavior. Paper also analyzes incorrectness propagation along question sequences, not a model-output score."

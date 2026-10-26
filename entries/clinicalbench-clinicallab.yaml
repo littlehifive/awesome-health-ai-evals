@@ -1,0 +1,42 @@
+id: clinicalbench-clinicallab
+name: ClinicalBench (ClinicalLab)
+kind: benchmark
+year: 2024
+summary: 1,500 de-identified real clinical cases from Grade 3A hospitals in China (24 departments, 150 diseases, 10 cases each) in Chinese and English, for end-to-end diagnostic evaluation of LLMs and agents across 8 tasks from department triage to treatment, scored with four ClinicalMetrics plus text-overlap metrics.
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2406.13890
+  arxiv: "2406.13890"
+  doi: 10.52202/085713-2458
+  code: https://github.com/WeixiangYAN/ClinicalLab
+license: custom
+open_data: gated
+geography:
+  item_languages: [Mandarin Chinese, English]
+  item_origin_countries: [CHN]
+  item_origin_note: Real medical records from officially certified Grade 3A hospitals in China (hospital names not disclosed); the English version is a second language version of the same cases.
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [industry_lab]
+  item_provenance: [clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric, expert_human_rating]
+  modality: [text]
+  size: 1,500 cases (150 diseases x 10), 24 departments, 8 tasks
+signals:
+  citations: 2
+  citations_source: OpenAlex
+  hf_downloads: null
+  github_stars: 149
+  uptake: []
+  updated: '2026-10-26'
+provenance:
+  records: [r_69db6eaf2a]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "The paper (NeurIPS 2025 Datasets and Benchmarks, per the DOI record) also proposes the ClinicalAgent method. Data are released only on application: users must sign the ClinicalBench Usage and Data Distribution License Agreement; the code is Apache-2.0. Cases were selected and reviewed by three senior clinicians and two AI researchers (all paper authors). Metrics include BLEU, ROUGE, BERTScore, department-routing accuracy, and a double-blind expert grading of 20 sampled cases. Author affiliations were not shown in the extracted text (work supported by Alibaba Group), so builder type and lead country are inferred from that."

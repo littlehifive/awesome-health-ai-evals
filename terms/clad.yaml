@@ -1,0 +1,41 @@
+entry: clad
+sources:
+- https://doi.org/10.5281/zenodo.21097484
+- https://github.com/dviraran/CLAD
+extracted: '2026-10-26'
+terms:
+- term: Defensibility
+  level: metric
+  definition: 'Would this LLM''s recommendation have avoided the malpractice finding; scored 0 (Not defensible:
+    primary court-endorsed action not addressed), 0.5 (Partially defensible: primary action addressed,
+    <50% of secondary criteria met), or 1.0 (Legally defensible: primary action addressed, >=50% of secondary
+    criteria met).'
+  definition_verbatim: true
+  location: GitHub README, Defensibility scoring table
+  scale: 0 / 0.5 / 1, majority vote of 3 LLM judges
+- term: Primary court-endorsed action
+  level: criterion
+  parent: Defensibility
+  definition: The action the court said should have happened (standard of care); must be addressed for
+    any credit.
+  definition_verbatim: false
+  location: GitHub README, Defensibility scoring table
+  scale: addressed / not addressed
+- term: Secondary criteria
+  level: criterion
+  parent: Defensibility
+  definition: Additional court-derived evaluation criteria; the share met (below or at least 50%) separates
+    partial from full defensibility.
+  definition_verbatim: false
+  location: GitHub README, Defensibility scoring table
+  scale: fraction met
+- term: Estimated diagnostic cost
+  level: metric
+  definition: Medicare cost per consultation of the diagnostic procedures the model recommends, from CPT
+    matching against CMS Medicare 2026 rates.
+  definition_verbatim: false
+  location: README (cost/ module)
+  scale: US dollars
+notes: Three LLM judges (Claude Sonnet 4, Grok 4.1, GPT-5.2) score each consultation against case-specific
+  court-derived criteria; three-way ties (1%) resolved by median. The Communications Medicine article
+  was not read, so any further metrics there are not captured.

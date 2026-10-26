@@ -10,8 +10,8 @@ links:
 license: null
 open_data: described_only
 geography:
-  item_languages: [English]
-  item_origin_countries: [USA]
+  item_languages: [UNKNOWN]
+  item_origin_countries: [UNKNOWN]
   item_origin_note: Synthetic healthcare data; framework aligned to HIPAA, GDPR and NIST AI RMF. Country and language are not stated in the abstract.
   localization: unknown
   lead_institution_countries: [USA]
@@ -25,9 +25,16 @@ facets:
   eval_methods: [rubric_llm_judge, simulated_multi_turn]
   modality: [text]
   size: Five validation layers; synthetic datasets, adversarial prompts, persona-based fairness tests
+signals:
+  citations: 0
+  citations_source: OpenAlex
+  hf_downloads: null
+  github_stars: null
+  uptake: []
+  updated: '2026-10-26'
 provenance:
   records: [r_cbaf3520fe]
   extracted: 2026-10-26
   read_full_text: false
   confidence: low
-  notes: "IEEE full text not reachable; abstract and Crossref only. The three authors are independent researchers in the USA (Crossref). Item origin USA, English language, eval methods and builder type academic are guesses (independent researchers, not an institution). No data or code link found."
+  notes: "IEEE full text not reachable; abstract and Crossref only. The three authors are independent researchers in the USA (Crossref). Item languages and origin are UNKNOWN (not in abstract); eval methods and builder type academic are guesses (independent researchers, not an institution). No data or code link found."

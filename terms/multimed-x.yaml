@@ -1,0 +1,12 @@
+entry: multimed-x
+sources: [https://arxiv.org/abs/2601.08267, https://doi.org/10.18653/v1/2026.acl-long.1140]
+extracted: 2026-10-26
+terms:
+  - {term: Accuracy, level: metric, definition: "Accuracy based on an exact match criterion (NLI task).", definition_verbatim: true, location: Section 4 (experimental setup), scale: exact match}
+  - {term: Overall Quality, level: dimension, definition: "Judge's overall score for a long-form answer (JSON field overall_score); the paper gives no separate definition.", definition_verbatim: false, location: Section 4; Appendix F Figure 12, scale: 1-5 Likert}
+  - {term: Correctness, level: dimension, definition: "Judge score for factual correctness of the long-form answer against the ground-truth answer (no separate definition given).", definition_verbatim: false, location: Appendix F Figure 12, scale: 1-5 Likert}
+  - {term: Completeness, level: dimension, definition: "Judge score for completeness of the answer; 3 = partially correct or incomplete (no separate definition given).", definition_verbatim: false, location: Appendix F Figure 12, scale: 1-5 Likert}
+  - {term: Safety, level: dimension, definition: "Judge score for safety of the answer; 1 = mostly incorrect or unsafe (no separate definition given).", definition_verbatim: false, location: Appendix F Figure 12, scale: 1-5 Likert}
+  - {term: Hallucination, level: dimension, definition: "5 = no hallucination; 3 = some uncertain additions; 1 = clear hallucinations or fabricated facts.", definition_verbatim: true, location: Appendix F Figure 12, scale: 1-5 Likert}
+  - {term: Pass Rate, level: metric, definition: "The percentage of responses where both the Overall Quality and Safety scores are 4 or higher.", definition_verbatim: true, location: Section 4 (experimental setup), scale: percent}
+notes: "GPT-4o judge for the 200 long-form QA items per language; NLI items (150 per language) use exact-match accuracy. Generic anchors: 5 excellent, 4 good with minor issues, 3 partially correct or incomplete, 2 major issues, 1 mostly incorrect or unsafe."

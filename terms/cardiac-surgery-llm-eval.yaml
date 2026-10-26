@@ -1,0 +1,41 @@
+entry: cardiac-surgery-llm-eval
+sources:
+- https://doi.org/10.3389/fdgth.2026.1769467
+- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13260534/
+extracted: '2026-10-26'
+terms:
+- term: Ten-dimensional evaluation framework
+  level: axis
+  definition: Ten binary criteria targeting key clinical competencies, scored Yes/No with weights and normalized to 0-1; criteria, weights and rationale are in the Supplementary Methods.
+  definition_verbatim: false
+  location: Methods, Figure 1
+  scale: binary Yes/No per criterion, weighted (24-point framework), normalized to 0-1
+- term: Scenario comprehension (Q1)
+  level: criterion
+  parent: Ten-dimensional evaluation framework
+  definition: Criterion Q1; highest-scoring dimension (mean 0.920); whether the response shows understanding of the scenario.
+  definition_verbatim: false
+  location: Results, evaluation dimensions paragraph; Methods (ten-dimensional framework)
+  scale: binary Yes/No per criterion, weighted (24-point framework), normalized to 0-1
+- term: Patient safety (Q2)
+  level: criterion
+  parent: Ten-dimensional evaluation framework
+  definition: Criterion Q2; lowest-scoring dimension (mean 0.507); whether the response protects patient safety.
+  definition_verbatim: false
+  location: Results, evaluation dimensions paragraph; Methods (ten-dimensional framework)
+  scale: binary Yes/No per criterion, weighted (24-point framework), normalized to 0-1
+- term: Clinical efficiency (Q6)
+  level: criterion
+  parent: Ten-dimensional evaluation framework
+  definition: Criterion Q6; whether the response is clinically efficient.
+  definition_verbatim: false
+  location: Results, evaluation dimensions paragraph; Methods (ten-dimensional framework)
+  scale: binary Yes/No per criterion, weighted (24-point framework), normalized to 0-1
+- term: Hallucination avoidance (Q8)
+  level: criterion
+  parent: Ten-dimensional evaluation framework
+  definition: Criterion Q8; whether the response avoids hallucinated content.
+  definition_verbatim: false
+  location: Results, evaluation dimensions paragraph; Methods (ten-dimensional framework)
+  scale: binary Yes/No per criterion, weighted (24-point framework), normalized to 0-1
+notes: 'Only four of the ten criteria are named in the main text (Q1, Q2, Q6, Q8); Q3, Q4, Q5, Q7, Q9, Q10 are described only in the Supplementary Methods, not opened. Q2, Q3, Q5, Q7, Q8 are the five highest-weighted. Also defined (about evaluators rather than model output): overacceptance rate, underrecognition rate, and net trust calibration gap between the two rating rounds. Scenarios were also rated post hoc on five complexity dimensions (Supplementary Table S5).'

@@ -1,0 +1,42 @@
+id: mscs
+name: modified System Causability Scale (mSCS)
+kind: eval_framework
+year: 2024
+summary: A 10-item, 5-point Likert adaptation of the System Causability Scale for rating LLM treatment recommendations against tumor-board recommendations in urological cancers, validated on 40 fictitious cases.
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.3390/curroncol31110520
+  doi: 10.3390/curroncol31110520
+  pmcid: PMC11593082
+license: null
+open_data: described_only
+geography:
+  item_languages: [German]
+  item_origin_countries: [DEU]
+  item_origin_note: Fictitious case scenarios modelled on real tumor-board cases at two German hospitals (Regensburg, Straubing); prompts were in German.
+  rater_countries: [DEU]
+  localization: native
+  lead_institution_countries: [DEU]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [oncology]
+  intended_users: [clinician]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: 10 Likert items; 40 case scenarios for validation
+signals:
+  citations: 10
+  citations_source: OpenAlex
+  hf_downloads: null
+  github_stars: null
+  uptake: []
+  updated: '2026-10-26'
+provenance:
+  records: [r_30f81cd2f7]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Preparatory study for the planned CONCORDIA non-inferiority trial. Reliability: Cohen's kappa above 0.74, Cronbach's alpha above 0.9. Case scenarios are not stated to be released."

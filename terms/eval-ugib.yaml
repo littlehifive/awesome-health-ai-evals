@@ -1,0 +1,43 @@
+entry: eval-ugib
+sources:
+- https://doi.org/10.1038/s41746-025-01589-z
+- https://pmc.ncbi.nlm.nih.gov/articles/PMC12049514/
+extracted: '2026-10-26'
+terms:
+- term: Human-graded accuracy
+  level: metric
+  definition: Expert grading of LLM answers for accuracy against expert golden-label answers (reported for expert-generated and real-world simulation questions).
+  definition_verbatim: false
+  location: Abstract; Results (Table 1); Methods
+  scale: percentage of answers graded accurate
+- term: ACG-MCQ performance
+  level: metric
+  definition: Accuracy on 40 American College of Gastroenterology multiple-choice questions.
+  definition_verbatim: false
+  location: Abstract; Results (Table 1); Methods
+  scale: percent correct
+- term: TF-IDF similarity
+  level: metric
+  definition: Term Frequency-Inverse Document Frequency similarity between an LLM answer and the expert golden-label answer.
+  definition_verbatim: false
+  location: Abstract; Results (Table 1); Methods
+  scale: similarity score
+- term: Sentence Transformers similarity
+  level: metric
+  definition: Embedding similarity (Sentence Transformers) between an LLM answer and the golden-label answer.
+  definition_verbatim: false
+  location: Abstract; Results (Table 1); Methods
+  scale: similarity score
+- term: Fine-Tuned ColBERT score
+  level: metric
+  definition: Fine-tuned Contextualized Late Interaction over BERT similarity between an LLM answer and the golden-label answer; achieved the highest alignment with human grading (rho = 0.81-0.91 across three datasets).
+  definition_verbatim: false
+  location: Abstract; Results (Table 1); Methods
+  scale: similarity score
+- term: Reward model score
+  level: metric
+  definition: A reward model trained on expert-graded responses scores individual answers and filters out inaccurate ones (rejection sampling across temperature thresholds).
+  definition_verbatim: false
+  location: Abstract; Results (Table 1); Methods
+  scale: accurate/inaccurate label
+notes: Read the PMC full text via text extraction (abstract, results, table 1). Grading rubric wording is in supplementary files not opened; the paper frames human grading as accuracy against golden-label answers and does not give a named multi-axis rubric. Spearman correlation of similarity metrics with human grading is used to validate the metrics.

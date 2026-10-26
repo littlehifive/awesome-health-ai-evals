@@ -1,0 +1,19 @@
+entry: bones-and-joints-benchmark
+sources:
+- https://arxiv.org/abs/2512.22275
+- https://github.com/yzm1015/Bones-and-Joints-Benchmark
+extracted: '2026-10-26'
+terms:
+- term: Accuracy
+  level: metric
+  definition: For MCQs, accuracy is the evaluation metric; for open-ended tasks GPT-4o (three runs, with manual checks) judges whether the core semantics of the answer match the reference answer, labeling Correct, Incorrect, or Unclear.
+  definition_verbatim: false
+  location: Methods, Evaluation Metrics; Table 1
+  scale: proportion correct with 95% CI; Correct/Incorrect/Unclear for open-ended
+- term: Text-image inconsistency identification
+  level: criterion
+  definition: A response is successful only if the model identifies the contradiction between the radiological text and the corresponding image; a failure is recorded when the model ignores the visual evidence and diagnoses from the erroneous text alone.
+  definition_verbatim: false
+  location: Methods, Task VIII
+  scale: binary success/failure, manual
+notes: Seven tasks (knowledge recall, note interpretation, image interpretation, diagnosis generation, treatment planning, diagnosis reasoning, treatment reasoning) plus Task VIII; all scored by accuracy, so tasks are not listed as terms.

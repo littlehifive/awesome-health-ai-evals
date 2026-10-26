@@ -1,0 +1,36 @@
+entry: medmosaic
+sources:
+- https://arxiv.org/abs/2605.00969
+extracted: '2026-10-26'
+terms:
+- term: Accuracy
+  level: metric
+  definition: Multiple-choice accuracy on MCQ audio QA items.
+  definition_verbatim: false
+  location: Section 3-4
+  scale: proportion correct
+- term: Correctness
+  level: criterion
+  definition: Factual alignment with the reference answer (open-ended QA, GPT-5.1 judge); any factual contradiction caps the score at 0.5.
+  definition_verbatim: false
+  location: Section 3.5 (open-ended judge)
+  scale: 0.0-1.0 continuous
+- term: Relevance
+  level: criterion
+  definition: Whether the response directly addresses the question without extraneous information.
+  definition_verbatim: false
+  location: Section 3.5
+  scale: 0.0-1.0 continuous
+- term: Completeness
+  level: criterion
+  definition: Coverage of all key points in the reference answer; missing key information incurs proportional penalties.
+  definition_verbatim: false
+  location: Section 3.5
+  scale: 0.0-1.0 continuous
+- term: Clarity
+  level: criterion
+  definition: Coherence and organization of the response.
+  definition_verbatim: false
+  location: Section 3.5
+  scale: 0.0-1.0 continuous
+notes: Final open-ended score is the unweighted average of the four criteria. Separately, two SMEs rated the QA pairs themselves (not model outputs) on Audio Necessity, Audio Sufficiency, Question Quality, Answer Quality and Distractor Quality (1-3) with Approve/Revise/Reject verdicts; those are dataset-quality dimensions and are not listed as terms.

@@ -1,0 +1,37 @@
+entry: h-ddx
+sources: [https://arxiv.org/abs/2510.03700]
+extracted: 2026-10-26
+terms:
+  - term: Hierarchical DDx F1 (HDF1)
+    level: metric
+    definition: "an extension of the standard F1-score designed to measure clinical utility by leveraging the ICD-10 taxonomy. Whereas conventional flat metrics treat diagnoses as isolated labels, HDF1 evaluates them within their ancestral context in the ICD-10 taxonomy."
+    definition_verbatim: true
+    location: Section 3.3, Eqs. 1-3
+    scale: "0-1, harmonic mean of HDP and HDR, macro-averaged over cases"
+  - term: Hierarchical DDx Precision (HDP)
+    level: metric
+    parent: Hierarchical DDx F1 (HDF1)
+    definition: "Per-case share of the ancestor-augmented predicted ICD-10 set that appears in the ancestor-augmented ground-truth set, macro-averaged across cases."
+    definition_verbatim: false
+    location: Section 3.3, Eq. 1
+    scale: "0-1"
+  - term: Hierarchical DDx Recall (HDR)
+    level: metric
+    parent: Hierarchical DDx F1 (HDF1)
+    definition: "Per-case share of the ancestor-augmented ground-truth ICD-10 set recovered by the ancestor-augmented predicted set, macro-averaged across cases."
+    definition_verbatim: false
+    location: Section 3.3, Eq. 2
+    scale: "0-1"
+  - term: Top-5 Accuracy
+    level: metric
+    definition: "assesses whether the predicted DDx set contains the ground-truth diagnosis"
+    definition_verbatim: true
+    location: Section 4.3 (Flat Evaluation)
+    scale: "binary per case (GPT-4o judges semantic equivalence, y/n), averaged"
+  - term: ICD-10 mapping Top-1 accuracy
+    level: metric
+    definition: "Share of free-text diagnoses mapped to the clinician-assigned ICD-10 code by the retrieval plus LLM-reranking pipeline; validates the mapping step, not the evaluated LLMs."
+    definition_verbatim: false
+    location: Section 3.2, Table 1
+    scale: "proportion on 101 clinician-mapped diagnoses"
+notes: Metric-based; no rubric. Also reports performance by ICD-10 chapter (Table 7) as analysis, not as scored terms.

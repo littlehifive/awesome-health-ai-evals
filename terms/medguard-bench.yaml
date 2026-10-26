@@ -1,0 +1,95 @@
+entry: medguard-bench
+sources:
+- https://doi.org/10.1038/s43856-026-01881-3
+- https://arxiv.org/abs/2411.14487
+extracted: '2026-10-26'
+terms:
+- term: Fairness
+  level: principle
+  definition: 'Ensuring equitable outcomes and unbiased decision-making for all individuals; in the medical context two aspects: Equity and Stereotype.'
+  definition_verbatim: false
+  location: Methods, Fairness
+- term: Equity
+  level: dimension
+  parent: Fairness
+  definition: addresses fairness for patients from diverse demographic backgrounds
+  definition_verbatim: true
+  location: Methods, Fairness
+  scale: MCQ; scored for consistent answers across gender/race swaps
+- term: Stereotype
+  level: dimension
+  parent: Fairness
+  definition: focuses on fairness towards patients with different diseases and ensures they are not perceived negatively
+  definition_verbatim: true
+  location: Methods, Fairness
+  scale: MCQ
+- term: Privacy
+  level: principle
+  definition: Protection of sensitive patient information (HIPAA, GDPR); represented by the Confidentiality aspect.
+  definition_verbatim: false
+  location: Methods, Privacy
+- term: Confidentiality
+  level: dimension
+  parent: Privacy
+  definition: Tests whether the model recalls or leaks specific patient information from MIMIC-III; a model with robust safeguards should select the option refusing to disclose.
+  definition_verbatim: false
+  location: 'Methods, Privacy: Confidentiality'
+  scale: MCQ (refusal option correct)
+- term: Resilience
+  level: principle
+  definition: Ability to safeguard against potential malicious manipulation such as adversarial inputs designed to mislead the model; represented by the Defense aspect.
+  definition_verbatim: false
+  location: Methods, Resilience
+- term: Defense
+  level: dimension
+  parent: Resilience
+  definition: 'ability to defend against prompt injection attacks: malicious prompts designed to manipulate the model''s output'
+  definition_verbatim: true
+  location: 'Methods, Resilience: Defense'
+  scale: MCQ; correct answer despite injected prompt
+- term: Robustness
+  level: principle
+  definition: 'Capacity to process varied and diverse inputs without compromising performance; three aspects: Colloquial, Error Tolerance, Multilingual.'
+  definition_verbatim: false
+  location: Methods, Robustness
+- term: Colloquial
+  level: dimension
+  parent: Robustness
+  definition: ensures that AI is robust when encountered by the public with layperson language and not just medical professionals
+  definition_verbatim: true
+  location: Methods, Robustness
+  scale: MCQ
+- term: Error Tolerance
+  level: dimension
+  parent: Robustness
+  definition: allows the AI to function effectively even with common human errors like typos
+  definition_verbatim: true
+  location: Methods, Robustness
+  scale: MCQ
+- term: Multilingual
+  level: dimension
+  parent: Robustness
+  definition: enables the AI to perform well across different languages (Spanish and Chinese)
+  definition_verbatim: true
+  location: Methods, Robustness
+  scale: MCQ
+- term: Truthfulness
+  level: principle
+  definition: assesses whether the model can deliver accurate and reliable information
+  definition_verbatim: true
+  location: Methods, Truthfulness
+- term: Hallucination
+  level: dimension
+  parent: Truthfulness
+  definition: addresses the need for the model to avoid generating fabricated or misleading information (summarization of medical documents)
+  definition_verbatim: true
+  location: Methods, Truthfulness
+  scale: MCQ
+- term: Sycophancy
+  level: dimension
+  parent: Truthfulness
+  definition: focuses on ensuring the model delivers truthful and accurate responses rather than conforming to or reinforcing the user's incorrect beliefs or opinions
+  definition_verbatim: true
+  location: Methods, Truthfulness
+  scale: MCQ
+notes: Journal full text was not reachable; terms were extracted from the earlier arXiv preprint (MedGuard, 2411.14487), which uses the same five principles and ten aspects (the Nature abstract confirms the principles). All items are multiple choice (100 per aspect) with one or two correct answers; human physicians also scored for comparison.

@@ -1,0 +1,65 @@
+entry: amega
+sources: [https://doi.org/10.1038/s41746-024-01356-6, https://github.com/DATEXIS/AMEGA-benchmark]
+extracted: 2026-10-26
+terms:
+  - term: Rubric element score
+    level: criterion
+    definition: "For each question, the physicians then composed a detailed rubric of the elements that should be present in an ideal answer, based on the guideline recommendations. These rubric elements were each assigned point values, with a maximum total score of 50 points per case."
+    definition_verbatim: true
+    location: Methods, benchmark construction; Fig. 6
+    scale: weighted points per rubric element; 50 points per case
+  - term: Normalized score
+    level: metric
+    definition: "We normalized the scores for each question type by dividing the score achieved by a model for a specific question by the maximum possible score for that question. This normalization results in a score ranging from 0 to 1 for each question"
+    definition_verbatim: true
+    location: Results, Normalized score analysis; Fig. 4
+    scale: 0-1
+  - term: Performance deficiency
+    level: metric
+    definition: "This metric ranges from 0 (no deficiency, perfect performance) to 1 (maximum deficiency, complete failure)"
+    definition_verbatim: true
+    location: Results, Performance deficiency analysis; Supplementary Fig. 1-2
+    scale: 0-1
+  - term: Primary Working Diagnosis
+    level: category
+    definition: Question type scoring whether the response names the correct primary diagnosis.
+    definition_verbatim: false
+    location: Results, Fig. 4
+    scale: rubric points, normalized 0-1
+  - term: Extracted Symptoms
+    level: category
+    definition: Question type scoring whether the response identifies the symptoms in the case.
+    definition_verbatim: false
+    location: Results, Fig. 4
+    scale: rubric points, normalized 0-1
+  - term: Extracted Risk Factors
+    level: category
+    definition: Question type scoring whether the response identifies the risk factors in the case.
+    definition_verbatim: false
+    location: Results, Fig. 4
+    scale: rubric points, normalized 0-1
+  - term: Differential Diagnoses
+    level: category
+    definition: Question type scoring the differential diagnosis list against the guideline-based rubric.
+    definition_verbatim: false
+    location: Results, Fig. 4
+    scale: rubric points, normalized 0-1
+  - term: Treatment Strategies
+    level: category
+    definition: Question type scoring the proposed treatment against guideline recommendations.
+    definition_verbatim: false
+    location: Results, Fig. 4
+    scale: rubric points, normalized 0-1
+  - term: Possible Complications and Management
+    level: category
+    definition: Question type scoring identification and management of possible complications.
+    definition_verbatim: false
+    location: Results, Supplementary Fig. 1
+    scale: rubric points, normalized 0-1
+  - term: Long-term Management
+    level: category
+    definition: Question type scoring long-term management and follow-up.
+    definition_verbatim: false
+    location: Results, deficiency analysis
+    scale: rubric points, normalized 0-1
+notes: Question types (task categories) are scored as separate sub-scores and so are listed as category terms, with names as they appear in Fig. 4 and the text; the full list of question types was not enumerated in the text read (diagnostic workup and monitoring are mentioned in Methods). 1,337 weighted rubric elements (1,497 in the GitHub version) are case-specific and not listed. Evaluator LLM (GPT-4) agreement with a human expert on primary working diagnosis was F1 0.98.

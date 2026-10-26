@@ -1,0 +1,12 @@
+entry: rag-healthcare-eval-toolkit
+sources: [https://github.com/Kritarth-dotcom/Automatic-Evaluation-of-RAG-System-for-Healthcare-Applications]
+extracted: 2026-10-26
+terms:
+  - {term: Correctness, level: axis, definition: "LLM-as-a-judge correctness scoring against a reference answer with rubric prompts.", definition_verbatim: false, location: README Overview and Output/Report, scale: "0-1"}
+  - {term: Faithfulness (Grounding), level: axis, definition: "Claim-level grounding / faithfulness checks of the answer against retrieved context.", definition_verbatim: false, location: README Overview, scale: "0-1"}
+  - {term: Hallucination Detection, level: axis, definition: "Hallucination classification and explanations; reported as hallucination_score.", definition_verbatim: false, location: README Overview and Output/Report, scale: "0-1"}
+  - {term: Clinical Safety, level: axis, definition: "Safety/risk detection (dosage flags, contraindications, harmful suggestions); reported as safety_rating.", definition_verbatim: false, location: README Overview and Output/Report, scale: "Low/Moderate/High"}
+  - {term: Precision@k, level: metric, definition: "Retrieval quality metric.", definition_verbatim: false, location: README Features, scale: automatic}
+  - {term: Recall@k, level: metric, definition: "Retrieval quality metric.", definition_verbatim: false, location: README Features, scale: automatic}
+  - {term: nDCG, level: metric, definition: "Retrieval quality metric.", definition_verbatim: false, location: README Features, scale: automatic}
+notes: "README only; no paper and no verbatim definitions. Rubric prompts in code were not read."

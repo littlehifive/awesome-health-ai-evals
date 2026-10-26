@@ -1,0 +1,45 @@
+entry: llm-repeatability-reproducibility-framework
+sources:
+- https://doi.org/10.1101/2025.08.06.25333170
+- https://pmc.ncbi.nlm.nih.gov/articles/PMC12637745/
+extracted: '2026-10-26'
+terms:
+- term: Repeatability
+  level: dimension
+  definition: Repeatability is defined as the agreement of model outputs under identical conditions
+  definition_verbatim: true
+  location: Introduction, paragraph 3
+- term: Reproducibility
+  level: dimension
+  definition: reproducibility the agreement under pre-specified, different conditions (e.g., different users or experimental setup)
+  definition_verbatim: true
+  location: Introduction, paragraph 3
+- term: Semantic Repeatability
+  level: metric
+  parent: Repeatability
+  definition: Semantic repeatability measures the consistency in the meaning of the LLM's output across repeated runs under identical conditions.
+  definition_verbatim: true
+  location: Methods, Semantic Repeatability
+  scale: score in [0, 1], larger = more repeatable
+- term: Internal Repeatability
+  level: metric
+  parent: Repeatability
+  definition: Internal repeatability measures the variability in the LLM's token-level probability distributions across repeated runs under identical conditions.
+  definition_verbatim: true
+  location: Methods, Internal Repeatability
+  scale: score in [0, 1], larger = more repeatable
+- term: Semantic Reproducibility
+  level: metric
+  parent: Reproducibility
+  definition: Semantic reproducibility measures the consistency in the meaning of the LLM's output across repeated runs using different, pre-specified prompts.
+  definition_verbatim: true
+  location: Methods, Semantic Reproducibility
+  scale: score in [0, 1], larger = more reproducible
+- term: Internal Reproducibility
+  level: metric
+  parent: Reproducibility
+  definition: Internal reproducibility measures the variability in the LLM's token-level probability distributions across repeated runs with different, pre-specified prompts.
+  definition_verbatim: true
+  location: Methods, Internal Reproducibility
+  scale: score in [0, 1], larger = more reproducible
+notes: Four reliability metrics; no output-quality criteria. Semantic scores use embedding cosine similarity, internal scores use token-level entropy. Diagnostic accuracy (physician-reviewed ground-truth labels from Savage et al. for ChatGPT-4 on USMLE cases) is only used to check correlation with the metrics.

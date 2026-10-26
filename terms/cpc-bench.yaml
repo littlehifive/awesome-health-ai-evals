@@ -1,0 +1,48 @@
+entry: cpc-bench
+sources:
+- https://arxiv.org/abs/2509.12194
+- https://cpcbench.com
+extracted: '2026-10-26'
+terms:
+- term: Top-1 accuracy
+  level: metric
+  definition: whether the correct pathological diagnosis was ranked first
+  definition_verbatim: false
+  location: Results, Differential Diagnosis Generation
+  scale: proportion of 377 CPCs; LLM judge (GPT-4.1) validated against physicians
+- term: Top-10 accuracy
+  level: metric
+  definition: whether the correct diagnosis appeared anywhere in the top ten suggestions
+  definition_verbatim: false
+  location: Results, Differential Diagnosis Generation
+  scale: proportion
+- term: Next-test selection accuracy
+  level: metric
+  definition: alignment between the testing plan predicted by the model and the tests actually ordered, judged by GPT-4.1
+  definition_verbatim: false
+  location: Methods; Table 1 (Testing Plan task)
+  scale: LLM judge agreement with physician scores 84%
+- term: Diagnostic accuracy per unit of information
+  level: metric
+  definition: accuracy of differentials at physician-annotated key events (Diagnostic Touchpoints), measuring how accuracy changes as case information accrues
+  definition_verbatim: false
+  location: Abstract; Methods (Diagnostic Touchpoints)
+- term: Question-answering accuracy
+  level: metric
+  definition: accuracy on LLM-generated multiple-choice questions about the initial presentation (QA) and on image-caption VQA, NEJM Image Challenge
+  definition_verbatim: false
+  location: Methods; Table 1
+  scale: multiple choice accuracy
+- term: Literature search accuracy
+  level: metric
+  definition: whether the model finds a relevant citation for a clinical claim, checked against an OpenAlex index of high-impact clinical journals
+  definition_verbatim: false
+  location: Methods, Clinical Literature Search
+- term: Differential diagnosis quality rating
+  level: other
+  definition: physician rating of the quality of differentials written by Dr. CaBot versus the NEJM discussant, plus blinded identification of which was AI-generated
+  definition_verbatim: false
+  location: Methods, AI Expert Discussant Evaluation; Figure 4C
+  scale: rating distribution (scale not read)
+notes: Ten tasks (DDx, Testing Plan, Literature Search, Diagnostic Touchpoints, QA, Clinical Reasoning, Information Omission, VQA, Visual DDx, Image Challenge); most are scored by presence and rank of the
+  final diagnosis or by accuracy rather than by named rubric axes. Clinical Reasoning task (confirmatory/disconfirmatory evidence) scoring detail not read. Supplement with prompts not read.

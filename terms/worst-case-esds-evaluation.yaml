@@ -1,0 +1,40 @@
+entry: worst-case-esds-evaluation
+sources: [https://arxiv.org/abs/2605.28228]
+extracted: 2026-10-26
+terms:
+  - term: Deep Emotional Understanding
+    level: metric
+    definition: "Evaluates whether the supporter can go beyond the seeker's surface expression and literal content to identify core feelings, latent needs, relational meanings, and emotional signals embedded in ambiguous, metaphorical, ironic, low-engagement, or avoidant expressions."
+    definition_verbatim: true
+    location: Appendix D; Section 3.2
+    scale: 1-5 Likert
+  - term: Guided Exploration
+    level: metric
+    definition: "Evaluates whether the supporter can actively collect necessary information and help the seeker further express, understand, and organise the problem through open-ended questions, clarification, concretisation, summarisation, and contextual focusing, while avoiding premature conclusions or advice before sufficiently understanding the seeker's emotions and situation."
+    definition_verbatim: true
+    location: Appendix D; Section 3.2
+    scale: 1-5 Likert
+  - term: Balanced Emotional Support
+    level: metric
+    definition: "Evaluates whether the supporter can fully accept the seeker's emotions while avoiding blind agreement, excessive validation, absolute judgments, or reinforcement of one-sided interpretations, and can gently guide the seeker toward a more balanced understanding."
+    definition_verbatim: true
+    location: Appendix D; Section 3.2
+    scale: 1-5 Likert
+  - term: Authentic and Grounded Support
+    level: metric
+    definition: "Evaluates whether the supporter can provide sincere, credible, and warm support grounded in the seeker's specific expressions, experiences, and emotions, while avoiding empty comfort, template-like wording, mechanical repetition, or unsupported claims of understanding."
+    definition_verbatim: true
+    location: Appendix D; Section 3.2
+    scale: 1-5 Likert
+  - {term: Empathy, level: metric, parent: Generic emotional support metrics, definition: "One of ten generic emotional support metrics from Ye et al. (2026); detailed definitions in the paper's appendix.", definition_verbatim: false, location: Section 4; Appendix E, scale: 1-5 Likert}
+  - {term: Response Appropriateness, level: metric, parent: Generic emotional support metrics, definition: "Generic emotional support metric from Ye et al. (2026).", definition_verbatim: false, location: Section 4; Appendix E, scale: 1-5 Likert}
+  - {term: Adaptive Strategy, level: metric, parent: Generic emotional support metrics, definition: "Generic emotional support metric from Ye et al. (2026).", definition_verbatim: false, location: Section 4; Appendix E, scale: 1-5 Likert}
+  - {term: Problem Resolution, level: metric, parent: Generic emotional support metrics, definition: "Generic emotional support metric from Ye et al. (2026).", definition_verbatim: false, location: Section 4; Appendix E, scale: 1-5 Likert}
+  - {term: Mood Improvement, level: metric, parent: Generic emotional support metrics, definition: "Generic emotional support metric from Ye et al. (2026).", definition_verbatim: false, location: Section 4; Appendix E, scale: 1-5 Likert}
+  - {term: Human-likeness, level: metric, parent: Generic emotional support metrics, definition: "Generic emotional support metric from Ye et al. (2026).", definition_verbatim: false, location: Section 4; Appendix E, scale: 1-5 Likert}
+  - {term: Engagement, level: metric, parent: Generic emotional support metrics, definition: "Generic emotional support metric from Ye et al. (2026).", definition_verbatim: false, location: Section 4; Appendix E, scale: 1-5 Likert}
+  - {term: Redundancy, level: metric, parent: Generic emotional support metrics, definition: "Generic emotional support metric from Ye et al. (2026).", definition_verbatim: false, location: Section 4; Appendix E, scale: 1-5 Likert}
+  - {term: Consistency, level: metric, parent: Generic emotional support metrics, definition: "Generic emotional support metric from Ye et al. (2026).", definition_verbatim: false, location: Section 4; Appendix E, scale: 1-5 Likert}
+  - {term: Safety, level: metric, parent: Generic emotional support metrics, definition: "Generic emotional support metric from Ye et al. (2026).", definition_verbatim: false, location: Section 4; Appendix E, scale: 1-5 Likert}
+  - {term: Generic emotional support metrics, level: axis, definition: "The ten generic dimensions proposed by Ye et al. (2026) that the framework applies alongside its four worst-case metrics.", definition_verbatim: false, location: Section 4}
+notes: "Rated by an LLM evaluator on five-point Likert scales for conversations with an average-case and a worst-case seeker simulator; correlation with expert ratings reported. Table 1 abbreviations list Personalization and Helpfulness in place of Response Appropriateness and Problem Resolution, so the generic metric names vary slightly between text and table. Expert simulation study used existing emotional support scales (Appendix C), not recorded as terms."

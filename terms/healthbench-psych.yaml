@@ -1,0 +1,11 @@
+entry: healthbench-psych
+sources: [https://arxiv.org/abs/2608.25071, https://github.com/mindbench-ai/healthbench-psych]
+extracted: 2026-10-26
+terms:
+  - term: HealthBench score
+    level: metric
+    definition: "Each model's mean HealthBench score (fraction of positive rubric points achieved), averaged over three judges (GPT-4.1, Claude Haiku 4.5, Gemini 2.5 Flash) grading at temperature 0; per-conversation scores clipped to [0, 1]."
+    definition_verbatim: true
+    location: Section 2.4 and Figure G2 caption
+    scale: points per HealthBench rubric criterion; panel mean, 0-1
+notes: Reuses HealthBench's physician rubrics and grader unchanged; no new scored dimensions. Subset selected with an LLM screening rubric (RELEVANT/BORDERLINE/NOT_RELEVANT) and clinician category tags (e.g. perinatal mental health, anxiety, psychiatric medication), which are item-selection categories, not evaluation criteria. See terms/healthbench.yaml.

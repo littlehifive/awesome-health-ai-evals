@@ -1,0 +1,85 @@
+entry: llmeval-med
+sources:
+- https://arxiv.org/abs/2506.04078
+- https://aclanthology.org/2025.findings-emnlp.260/
+- https://github.com/llmeval/LLMEval-Med
+extracted: '2026-10-26'
+terms:
+- term: Medical Knowledge (MK)
+  level: category
+  definition: for basic concepts; evaluates a model's ability to acquire core theoretical and practical medical knowledge across disciplines.
+  definition_verbatim: true
+  location: Section 3 (arXiv 2506.04078), Section 3.2
+  scale: '0-5 LLM-judge score vs checklist; usable if >=4 (MTG: human, 0-7 mapped)'
+- term: Medical Language Understanding (MLU)
+  level: category
+  definition: for text comprehension and extraction; tests whether models can accurately interpret and manipulate various medical text forms.
+  definition_verbatim: true
+  location: Section 3 (arXiv 2506.04078), Section 3.2
+  scale: '0-5 LLM-judge score vs checklist; usable if >=4 (MTG: human, 0-7 mapped)'
+- term: Medical Reasoning (MR)
+  level: category
+  definition: for clinical inference; assesses the model's ability to perform clinical inference and decision-making by integrating domain knowledge and contextual understanding.
+  definition_verbatim: true
+  location: Section 3 (arXiv 2506.04078), Section 3.2
+  scale: '0-5 LLM-judge score vs checklist; usable if >=4 (MTG: human, 0-7 mapped)'
+- term: Medical Text Generation (MTG)
+  level: category
+  definition: for coherent medical writing; evaluates the model's capacity to generate accurate, fluent, and context-aware medical content.
+  definition_verbatim: true
+  location: Section 3 (arXiv 2506.04078), Section 3.2
+  scale: '0-5 LLM-judge score vs checklist; usable if >=4 (MTG: human, 0-7 mapped)'
+- term: Medical Safety and Ethics (MSE)
+  level: category
+  definition: for ethical and safety compliance; ensures the model adheres to ethical principles and patient safety protocols.
+  definition_verbatim: true
+  location: Section 3 (arXiv 2506.04078), Section 3.2
+  scale: '0-5 LLM-judge score vs checklist; usable if >=4 (MTG: human, 0-7 mapped)'
+- term: Instruction Following
+  level: criterion
+  parent: Medical Text Generation (MTG)
+  definition: One of five human-rated dimensions for MTG responses (paper gives no separate definition).
+  definition_verbatim: false
+  location: Section 3.3 and Table 5; Appendix D
+  scale: 0-5
+- term: Correctness
+  level: criterion
+  parent: Medical Text Generation (MTG)
+  definition: One of five human-rated dimensions for MTG responses; accuracy of the generated medical content.
+  definition_verbatim: false
+  location: Section 3.3 and Table 5
+  scale: 0-5
+- term: Effectiveness
+  level: criterion
+  parent: Medical Text Generation (MTG)
+  definition: One of five human-rated dimensions for MTG responses (named Usefulness in the Human Evaluation paragraph).
+  definition_verbatim: false
+  location: Section 3.3 and Table 5
+  scale: 0-5
+- term: Readability
+  level: criterion
+  parent: Medical Text Generation (MTG)
+  definition: One of five human-rated dimensions for MTG responses.
+  definition_verbatim: false
+  location: Section 3.3 and Table 5
+  scale: 0-5
+- term: Safety
+  level: criterion
+  parent: Medical Text Generation (MTG)
+  definition: 'Human-rated safety of the MTG response, with a strict veto policy: a safety score of 0 makes the response unusable regardless of other dimensions.'
+  definition_verbatim: false
+  location: Section 4 (MTG results), Table 5
+  scale: binary 0/1
+- term: Usability rate
+  level: metric
+  definition: 'Percentage of responses judged usable: automated score of 4 or above on 0-5, or for MTG a mapped 0-7 score of 5 or higher (all five dimensions 4 or 5).'
+  definition_verbatim: false
+  location: Section 3.3 and Table 2
+  scale: percentage
+- term: Human-machine agreement rate
+  level: metric
+  definition: Rate at which automated and human assessments classify responses consistently as usable or not (92.36% overall).
+  definition_verbatim: false
+  location: Section 3.3 and Section 4.2
+  scale: percentage
+notes: Five categories with 27 secondary capability indicators (subcategories such as Basic Medicine, Information Extraction, Symptom Inference, Summarization, Medical Ethics, Drug Safety; not recorded individually; classification criteria in Appendix F, not read). Each non-MTG question has an expert checklist of Core and Secondary Requirements plus Scoring Guidelines per level; the checklist items are question-specific. Category definitions are quoted from Section 3.2 with the 'for ...' clause from the list sentence. MTG dimension definitions are not given in the text read (Appendix D not read); the paper alternates between Effectiveness and Usefulness.

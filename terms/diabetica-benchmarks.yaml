@@ -1,0 +1,77 @@
+entry: diabetica-benchmarks
+sources: [https://arxiv.org/abs/2409.13191, https://github.com/waltonfuture/Diabetica]
+extracted: 2026-10-26
+terms:
+  - term: Accuracy
+    level: metric
+    definition: "Multiple-choice accuracy on the 312-question qualification-exam benchmark."
+    definition_verbatim: false
+    location: Section on multiple-choice evaluation
+  - term: BERTScore
+    level: metric
+    definition: "Embedding-similarity metric for the 35 fill-in-the-blank questions."
+    definition_verbatim: false
+    location: Fill-in-the-blanks task
+  - term: ROUGE-L
+    level: metric
+    definition: "Longest-common-subsequence overlap metric for fill-in-the-blank answers."
+    definition_verbatim: false
+    location: Fill-in-the-blanks task
+  - term: ROUGE-1
+    level: metric
+    definition: "Unigram overlap metric for fill-in-the-blank answers."
+    definition_verbatim: false
+    location: Fill-in-the-blanks task
+  - term: ROUGE-2
+    level: metric
+    definition: "Bigram overlap metric for fill-in-the-blank answers."
+    definition_verbatim: false
+    location: Fill-in-the-blanks task
+  - term: BLEU
+    level: metric
+    definition: "N-gram precision metric for fill-in-the-blank answers."
+    definition_verbatim: false
+    location: Fill-in-the-blanks task
+  - term: Rule-based answer quality score
+    level: criterion
+    definition: "GPT-4 and Claude-3.5 judges rate each open-ended answer against physician-written rules that define the criteria for evaluating answer quality."
+    definition_verbatim: false
+    location: Open-ended dialogue evaluation, Appendix C
+    scale: 1-10
+  - term: Readability
+    level: criterion
+    definition: "Is the response easy to understand? This metric focuses on whether the answer can be read and understood relatively easily. It focuses on the ability to organize language and does not address the quality of the content of the response."
+    definition_verbatim: true
+    location: Table 2 (medical consulting study, not the 120-item benchmark)
+    scale: 5-point Likert
+  - term: Relevance
+    level: criterion
+    definition: "Is the response relevance to the question? This metric measures the coherence and consistency between questions and responses."
+    definition_verbatim: true
+    location: Table 2
+    scale: 5-point Likert
+  - term: Correctness
+    level: criterion
+    definition: "How does the answer relate to the consensus in the scientific and clinical community? This metric refers to the scientific and technical accuracy of responses, based on the medical guidance and physicians' expertise."
+    definition_verbatim: true
+    location: Table 2
+    scale: 5-point Likert
+  - term: Completeness
+    level: criterion
+    definition: "Does the response completely contain important information? This metric refers to no missing information of the response."
+    definition_verbatim: true
+    location: Table 2
+    scale: 5-point Likert
+  - term: Safety
+    level: criterion
+    definition: "Is the response safe for the user? This dimension addresses the potential harm of the response on the patient's health and well-being."
+    definition_verbatim: true
+    location: Table 2
+    scale: 5-point Likert
+  - term: Empathy
+    level: criterion
+    definition: "Does the response provide the empathy or bedside manner? This metric ensures that the chatbots consider end-users emotional support, trust, concerns, fairness, and health literacy."
+    definition_verbatim: true
+    location: Table 2
+    scale: 5-point Likert
+notes: "The three benchmark components are scored by exact match (MCQ), five text-overlap metrics (fill-in-blank), and an LLM-judge 1-10 score against physician-written per-item rules (120 open-ended items). The rules are item-specific and not listed. Readability to Empathy (Table 2) come from a separate 20-case online-consultation study with three endocrinologists, and Completeness, Conciseness, Correctness (Table 3) from a summarization user study; they are not part of the released 120-item benchmark and are recorded as the paper's evaluation vocabulary."

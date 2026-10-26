@@ -1,0 +1,42 @@
+id: bolt
+name: BOLT
+kind: eval_framework
+year: 2024
+summary: "A computational framework for assessing the conversational behavior of LLM therapists: simulated therapy sessions built from 259 high- and low-quality motivational-interviewing transcripts and 212 HOPE transcripts, with 13 psychotherapy behaviors labeled by in-context learning and compared against human therapists."
+readme_section: frameworks
+links:
+  paper: https://arxiv.org/abs/2401.00820
+  arxiv: "2401.00820"
+  doi: 10.48550/arxiv.2401.00820
+  code: https://github.com/behavioral-data/BOLT
+license: BSD-3-Clause
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Source transcripts are public YouTube therapy videos; the paper does not state their country.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [simulated_multi_turn, automatic_metric]
+  modality: [text]
+  size: 13 therapist behaviors; 259 + 212 source therapy transcripts
+signals:
+  citations: 27
+  citations_source: OpenAlex
+  hf_downloads: null
+  github_stars: 44
+  uptake: []
+  updated: '2026-10-26'
+provenance:
+  records: [r_d5e6a36519]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "The paper's data-availability statement says simulated conversation data and code are at github.com/behavioral-data/BOLT (BSD-3-Clause on the repo; I saw only a sample dataset in the README). Scoring is automated behavior classification, no human evaluation. Source datasets are Perez-Rosas et al. and HOPE."

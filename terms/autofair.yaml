@@ -1,0 +1,65 @@
+entry: autofair
+sources: [https://arxiv.org/abs/2410.14763]
+extracted: 2026-10-26
+terms:
+  - term: BARTScore
+    level: metric
+    parent: Faithfulness
+    definition: "evaluates the likelihood of the generated text being faithful to the reference context based on the BART model"
+    definition_verbatim: true
+    location: Section 5.2
+    scale: log-likelihood (higher is better)
+  - term: Semantic Entropy
+    level: metric
+    parent: Faithfulness
+    definition: "a metric used to measure the diversity and unpredictability of the meanings within the generated text; lower values indicate closer alignment with the reference"
+    definition_verbatim: false
+    location: Section 5.2
+    scale: entropy (lower is better)
+  - term: G-Eval faithfulness
+    level: metric
+    parent: Faithfulness
+    definition: "G-EVAL framework used to calculate a faithfulness score (characterized within the prompt) using chain-of-thought reasoning with GPT-4"
+    definition_verbatim: false
+    location: Section 5.2
+    scale: LLM-judge score (higher is better)
+  - term: RefChecker (contradictory / neutral / entailment)
+    level: metric
+    parent: Faithfulness
+    definition: "an LLM turns each vignette into statements, which RefChecker classifies as contradictory, neutral, or entailment against the reference evidence; average counts of each are reported"
+    definition_verbatim: false
+    location: Section 5.2, Table 1
+    scale: average predicate counts per vignette
+  - term: Diversity
+    level: metric
+    definition: "the range of distinct expressions and language used across the generated vignettes"
+    definition_verbatim: true
+    location: Section 5.3, Table 2
+    scale: distinct token count per vignette and across all vignettes
+  - term: Domain Specificity
+    level: metric
+    definition: "how closely the key concepts and the language used in the vignettes align with the key medical concepts related to the provided medical evidence (reference) and the specified health outcome"
+    definition_verbatim: true
+    location: Section 5.3, Table 2
+    scale: PubMedBERT embedding cosine similarity (reference similarity, outcome similarity)
+  - term: Human preference (suitability for red-teaming)
+    level: criterion
+    definition: "Raters judge which vignette is superior, defined as more suitable for red-teaming evaluation of biases in the corresponding medical context."
+    definition_verbatim: true
+    location: Section 5.5, Table 3
+    scale: pairwise preference (superior / unsure)
+  - term: Demographic Parity
+    level: metric
+    parent: Fairness of Med LLMs
+    definition: "Difference in the rate of generating unfair answers (responding differently to a red-teaming question) across demographic groups; lower is better."
+    definition_verbatim: false
+    location: Section 5.6, Table 4
+    scale: difference and ratio across groups
+  - term: Equal Opportunity
+    level: metric
+    parent: Fairness of Med LLMs
+    definition: "Difference across demographic groups in the rate of unfair answers when evaluated on the generated vignettes; lower is better."
+    definition_verbatim: false
+    location: Section 5.6, Table 4
+    scale: difference and ratio across groups
+notes: Two layers of scoring. Faithfulness, diversity, domain specificity and human preference score the generated vignettes (the benchmark items); demographic parity and equal opportunity score medical LLMs on the vignettes with sensitive attributes flipped. "Faithfulness" is the umbrella used above as parent for the four faithfulness methods but is not itself separately defined as a term.

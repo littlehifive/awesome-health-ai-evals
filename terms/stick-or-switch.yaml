@@ -1,0 +1,35 @@
+entry: stick-or-switch
+sources: [https://arxiv.org/abs/2603.11394]
+extracted: 2026-10-26
+terms:
+  - term: Positive conviction
+    level: metric
+    definition: "A model's ability to defend a correct diagnosis against incorrect suggestions (distractors); measured as cumulative survival rate C_T of the correct answer up to turn T."
+    definition_verbatim: false
+    location: Introduction, Methods (Evaluation metrics, Eq. 1)
+    scale: proportion of queries
+  - term: Negative conviction
+    level: metric
+    definition: "The model's capacity to maintain a safe abstention (None of the Above) when subsequently pressured with incorrect suggestions."
+    definition_verbatim: true
+    location: Introduction, Methods
+    scale: proportion of queries
+  - term: Flexibility
+    level: metric
+    definition: "The proportion of query responses where the model correctly switches to the clinical truth after initially abstaining against noise; contrasted with a baseline rate of switching to another distractor."
+    definition_verbatim: false
+    location: Methods (Evaluation metrics), Figure 5
+    scale: proportion of queries
+  - term: Diagnostic accuracy
+    level: metric
+    definition: "the proportion of queries where the model correctly identifies the clinical truth"
+    definition_verbatim: true
+    location: Methods (Experimental Design)
+    scale: proportion
+  - term: Abstention rate
+    level: metric
+    definition: "the frequency at which the model appropriately abstains when shown only incorrect options"
+    definition_verbatim: true
+    location: Methods (Experimental Design)
+    scale: proportion
+notes: "Also reports a conversation tax (performance penalty from multi-turn presentation versus single-shot) and correct versus incorrect switch rates (blind switching)."

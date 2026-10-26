@@ -1,0 +1,17 @@
+entry: ehrnoteqa
+sources: [https://arxiv.org/abs/2402.16040, https://github.com/ji-youn-kim/EHRNoteQA]
+extracted: 2026-10-26
+terms:
+  - term: Multiple-choice accuracy
+    level: metric
+    definition: "Proportion of multiple-choice questions answered correctly (5 options)."
+    definition_verbatim: false
+    location: Evaluation section, Table 4
+    scale: percent correct
+  - term: Open-ended correctness (GPT-4-Turbo judge)
+    level: criterion
+    definition: "Assign 1 point if the answer is correct. Assign 0 points if the answer is either incorrect, or if it falsely claims there is no answer when one exists according to the discharge summaries."
+    definition_verbatim: true
+    location: Appendix, judge prompt scoring instructions; Evaluation section
+    scale: "binary 0/1, mode of 5 judge runs, summed to a 100-point scale"
+notes: Judge scores were validated against 270 question-output pairs scored by three clinicians. Questions are also tagged with 10 topic categories (treatment, assessment, problem, etiology, sign/symptom, vitals, test results, history, instruction, plan); these are question types, not scored criteria, so not listed.

@@ -1,0 +1,100 @@
+entry: c2a-checkup2action
+sources:
+- https://arxiv.org/abs/2605.11533
+extracted: '2026-10-26'
+terms:
+- term: Problem Recall
+  level: metric
+  parent: Structured metrics
+  definition: Proportion of reference issues surfaced by the model; issues matched by BiomedBERT cosine similarity >= 0.8 with one-to-one assignment.
+  definition_verbatim: false
+  location: Section 3.2
+  scale: 0-1
+- term: Problem Precision
+  level: metric
+  parent: Structured metrics
+  definition: Proportion of generated issues that match reference issues.
+  definition_verbatim: false
+  location: Section 3.2
+  scale: 0-1
+- term: Problem F1
+  level: metric
+  parent: Structured metrics
+  definition: Harmonic mean of Problem Precision and Problem Recall.
+  definition_verbatim: false
+  location: Section 3.2
+  scale: 0-1
+- term: Priority Accuracy
+  level: metric
+  parent: Structured metrics
+  definition: Agreement between generated and reference priority for matched issues (exact match 1, predefined near match 0.5, else 0).
+  definition_verbatim: false
+  location: Section 3.2
+  scale: 0-1
+- term: Department Accuracy
+  level: metric
+  parent: Structured metrics
+  definition: Agreement between recommended and reference department for matched issues.
+  definition_verbatim: false
+  location: Section 3.2
+  scale: 0-1
+- term: Time Accuracy
+  level: metric
+  parent: Structured metrics
+  definition: Agreement between suggested and reference follow-up category (immediate, as soon as possible, near term, routine) for matched issues.
+  definition_verbatim: false
+  location: Section 3.2
+  scale: 0-1
+- term: Action Complexity Bias
+  level: metric
+  parent: Structured metrics
+  definition: Difference between the number of generated and reference cards; positive means over-generation, negative under-generation.
+  definition_verbatim: false
+  location: Section 3.2
+  scale: signed count difference
+- term: Problem relevance
+  level: criterion
+  parent: Subjective metrics
+  definition: whether the cards address findings supported by the report rather than offering generic advice
+  definition_verbatim: true
+  location: Section 3.2 (subjective metrics)
+  scale: 1-5
+- term: Safety
+  level: criterion
+  parent: Subjective metrics
+  definition: whether the output avoids unsupported diagnoses and inappropriate treatment recommendations
+  definition_verbatim: true
+  location: Section 3.2 (subjective metrics)
+  scale: 1-5
+- term: Usefulness
+  level: criterion
+  parent: Subjective metrics
+  definition: whether a lay user can identify and act on the suggested next steps
+  definition_verbatim: true
+  location: Section 3.2 (subjective metrics)
+  scale: 1-5
+- term: Clarity
+  level: criterion
+  parent: Subjective metrics
+  definition: organisation, readability and the visibility of important information
+  definition_verbatim: true
+  location: Section 3.2 (subjective metrics)
+  scale: 1-5
+- term: Tone
+  level: criterion
+  parent: Subjective metrics
+  definition: whether the language is professional and reassuring without minimising risk or creating unnecessary anxiety
+  definition_verbatim: true
+  location: Section 3.2 (subjective metrics)
+  scale: 1-5
+- term: LLM-judge structured consistency
+  level: other
+  definition: An LLM judge assesses consistency between each matched reference and generated card on issue description, priority, department and follow-up timing.
+  definition_verbatim: false
+  location: Section 3.2
+- term: Clinical expert evaluation
+  level: other
+  definition: Three physicians assess appropriateness of priority, recommended department, follow-up timing and safety of each output on 500 reports.
+  definition_verbatim: false
+  location: Section 3.2
+notes: Also a diagnosis-discounted, safety-aware recall analysis that checks cards for unsupported diagnostic or treatment claims. Priority levels used in cards are high, medium, long-term focus, note.

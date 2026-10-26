@@ -1,0 +1,40 @@
+entry: morphological-shortcuts-pharmacology
+sources: [https://arxiv.org/abs/2606.05616]
+extracted: 2026-10-26
+terms:
+  - term: Affix Score
+    level: metric
+    definition: "This measures how affix information alone influences drug-name semantics."
+    definition_verbatim: true
+    location: Section 4, Equation 1
+    scale: normalized probability difference
+  - term: Stem Score
+    level: metric
+    definition: "This measures how stem information alone influences drug-name semantics."
+    definition_verbatim: true
+    location: Section 4, Equation 2
+    scale: normalized probability difference
+  - term: Holistic Score
+    level: metric
+    definition: "This measures the influence of the interaction between affix and stem on drug-name semantics."
+    definition_verbatim: true
+    location: Section 4, Equation 3
+    scale: normalized probability difference
+  - term: Diagnostic category (No signal / Holistic / Affix-dependent / Stem-dependent / Mixed signal)
+    level: category
+    definition: "Each drug is assigned to one of five types from its total signal and the largest versus second-largest of the three scores (gap threshold 0.1)."
+    definition_verbatim: false
+    location: Section 4, Diagnostic Categories
+  - term: Multiple-choice affix-consistent accuracy
+    level: metric
+    definition: "For MC, whether the model selects the affix-consistent drug-class definition."
+    definition_verbatim: false
+    location: Section 3, Evaluation
+    scale: binary per item
+  - term: Treats drug as real (open-ended)
+    level: metric
+    definition: "A Claude-Sonnet-4.5 judge determines whether the response to a query about a fictitious drug treats it as a real medication (Yes/No)."
+    definition_verbatim: false
+    location: Section 3, Evaluation; Appendix B
+    scale: binary (Yes / No)
+notes: "Probe of whether LLMs rely on drug-name morphology (stems and affixes) rather than knowledge. Probability-based and generation-based accuracy are both reported by diagnostic category. Judge validated on 300 cases (92.3 accuracy, 89.3 F1)."

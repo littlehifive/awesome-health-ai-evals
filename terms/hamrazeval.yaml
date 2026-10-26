@@ -1,0 +1,150 @@
+entry: hamrazeval
+sources:
+- https://arxiv.org/abs/2502.05982
+extracted: '2026-10-26'
+terms:
+- term: Coherence
+  level: dimension
+  definition: The logical consistency and relevance of responses within the dialogue.
+  definition_verbatim: true
+  location: Section 4.1.1 (GeneralEval)
+  scale: 1-10 Likert (LLM judge)
+- term: Engagement
+  level: dimension
+  definition: The level of active participation and mutual responsiveness between the psychologist and the client.
+  definition_verbatim: true
+  location: Section 4.1.1
+  scale: 1-10 Likert
+- term: Fluency
+  level: dimension
+  definition: The grammatical correctness and naturalness of language used.
+  definition_verbatim: true
+  location: Section 4.1.1
+  scale: 1-10 Likert
+- term: Diversity
+  level: dimension
+  definition: The richness of vocabulary and avoidance of repetitive phrasing.
+  definition_verbatim: true
+  location: Section 4.1.1
+  scale: 1-10 Likert
+- term: Humanness
+  level: dimension
+  definition: The authenticity of the dialogue in resembling real human interactions.
+  definition_verbatim: true
+  location: Section 4.1.1
+  scale: 1-10 Likert
+- term: Collaboration & Balance
+  level: dimension
+  definition: The extent to which both participants contribute meaningfully to the conversation.
+  definition_verbatim: true
+  location: Section 4.1.1
+  scale: 1-10 Likert
+- term: Empathy
+  level: dimension
+  definition: One of three therapist qualities assessed by the 12-item mini-BLRI.
+  definition_verbatim: false
+  location: Section 4.1.2
+  scale: -3 to +3 per item
+- term: Unconditional positive regard
+  level: dimension
+  definition: One of three therapist qualities assessed by the 12-item mini-BLRI.
+  definition_verbatim: false
+  location: Section 4.1.2
+  scale: -3 to +3 per item
+- term: Congruence
+  level: dimension
+  definition: One of three therapist qualities assessed by the 12-item mini-BLRI.
+  definition_verbatim: false
+  location: Section 4.1.2
+  scale: -3 to +3 per item
+- term: mini-BLRI (Barrett-Lennard Relationship Inventory, 12-item)
+  level: axis
+  definition: A 12-item adaptation of the Barrett-Lennard Relationship Inventory evaluating the psychologist's empathy, unconditional positive regard, and congruence.
+  definition_verbatim: true
+  location: Section 4.1.2
+  scale: sum of 12 items rated -3 to +3
+- term: mini-BLRI item 1
+  level: criterion
+  parent: mini-BLRI (Barrett-Lennard Relationship Inventory, 12-item)
+  definition: The psychologist demonstrates genuine care and positive regard for the client.
+  definition_verbatim: true
+  location: Section 4.1.2
+  scale: -3 to +3
+- term: mini-BLRI item 2
+  level: criterion
+  parent: mini-BLRI (Barrett-Lennard Relationship Inventory, 12-item)
+  definition: The psychologist accurately understands the client’s thoughts and emotions.
+  definition_verbatim: true
+  location: Section 4.1.2
+  scale: -3 to +3
+- term: mini-BLRI item 3
+  level: criterion
+  parent: mini-BLRI (Barrett-Lennard Relationship Inventory, 12-item)
+  definition: The psychologist remains nonjudgmental, regardless of the client's views.
+  definition_verbatim: true
+  location: Section 4.1.2
+  scale: -3 to +3
+- term: mini-BLRI item 4
+  level: criterion
+  parent: mini-BLRI (Barrett-Lennard Relationship Inventory, 12-item)
+  definition: The psychologist’s expressions reflect their true feelings and impressions.
+  definition_verbatim: true
+  location: Section 4.1.2
+  scale: -3 to +3
+- term: mini-BLRI item 5
+  level: criterion
+  parent: mini-BLRI (Barrett-Lennard Relationship Inventory, 12-item)
+  definition: The psychologist values the client as an individual.
+  definition_verbatim: true
+  location: Section 4.1.2
+  scale: -3 to +3
+- term: mini-BLRI item 6
+  level: criterion
+  parent: mini-BLRI (Barrett-Lennard Relationship Inventory, 12-item)
+  definition: The psychologist is attuned to the client’s emotional state.
+  definition_verbatim: true
+  location: Section 4.1.2
+  scale: -3 to +3
+- term: mini-BLRI item 7
+  level: criterion
+  parent: mini-BLRI (Barrett-Lennard Relationship Inventory, 12-item)
+  definition: The psychologist maintains consistent regard for the client over time.
+  definition_verbatim: true
+  location: Section 4.1.2
+  scale: -3 to +3
+- term: mini-BLRI item 8
+  level: criterion
+  parent: mini-BLRI (Barrett-Lennard Relationship Inventory, 12-item)
+  definition: The psychologist accurately interprets client messages, even when unclear.
+  definition_verbatim: true
+  location: Section 4.1.2
+  scale: -3 to +3
+- term: mini-BLRI item 9
+  level: criterion
+  parent: mini-BLRI (Barrett-Lennard Relationship Inventory, 12-item)
+  definition: The psychologist appropriately shares personal reflections when beneficial.
+  definition_verbatim: true
+  location: Section 4.1.2
+  scale: -3 to +3
+- term: mini-BLRI item 10
+  level: criterion
+  parent: mini-BLRI (Barrett-Lennard Relationship Inventory, 12-item)
+  definition: The psychologist exhibits a sincere interest in the client’s well-being.
+  definition_verbatim: true
+  location: Section 4.1.2
+  scale: -3 to +3
+- term: mini-BLRI item 11
+  level: criterion
+  parent: mini-BLRI (Barrett-Lennard Relationship Inventory, 12-item)
+  definition: The psychologist perceives unspoken emotions and implicit concerns.
+  definition_verbatim: true
+  location: Section 4.1.2
+  scale: -3 to +3
+- term: mini-BLRI item 12
+  level: criterion
+  parent: mini-BLRI (Barrett-Lennard Relationship Inventory, 12-item)
+  definition: The psychologist conveys warmth and authenticity in their interactions.
+  definition_verbatim: true
+  location: Section 4.1.2
+  scale: -3 to +3
+notes: 'Two tiers: GeneralEval (six metrics, 1-10, LLM judge GPT-4o) and mini-BLRI. Empathy, positive regard and congruence are the three BLRI qualities; the paper does not map the 12 items to them individually. Reported summary scores are ''General Score'' and ''BLRI score''.'

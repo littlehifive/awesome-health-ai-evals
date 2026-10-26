@@ -1,0 +1,36 @@
+entry: medexpert
+sources: [https://huggingface.co/datasets/sonal-ssj/MedExpert]
+extracted: 2026-10-26
+terms:
+  - term: Factuality (sentence-level)
+    level: dimension
+    definition: "Sentence-level factuality annotations: spans of the response judged to contain factual errors, with character offsets."
+    definition_verbatim: false
+    location: HF card, Data Structure (factuality)
+  - term: highest_fact_severity
+    level: criterion
+    parent: Factuality (sentence-level)
+    definition: "Severity score of the most severe factual issue in the response."
+    definition_verbatim: true
+    location: HF card, Data Structure
+    scale: "5 levels: No Error, Mild, Moderate, Severe, Life-threatening"
+  - term: Omissions (response-level)
+    level: dimension
+    definition: "Response-level omission annotation: key pieces of relevant medical information missing from the model response as annotated."
+    definition_verbatim: true
+    location: HF card, Data Structure (omissions)
+    scale: count of omissions
+  - term: omission_severity
+    level: criterion
+    parent: Omissions (response-level)
+    definition: "Severity of omitted information: Mild (no action is required), Moderate (may negatively impact the patient's health if no action is taken), Severe (may require medical intervention by a doctor), Life-threatening."
+    definition_verbatim: true
+    location: HF card, Data Structure
+    scale: 4 levels
+  - term: Model certainty
+    level: dimension
+    definition: "Does the model's response provides enough certainty and information for the user to take action."
+    definition_verbatim: true
+    location: HF card, Data Structure (model_certainty)
+    scale: "3 levels: Low, Moderate, High"
+notes: "Card cites an ML4H 2025 paper (not located). Free-text comments and references fields are annotator notes, not scored terms."

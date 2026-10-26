@@ -1,0 +1,58 @@
+entry: lsb-llm-safety-benchmark
+sources:
+- https://github.com/Ssa096/LSB-LLM-Safety-Benchmark
+extracted: '2026-10-26'
+terms:
+- term: Attack Success Rate (ASR)
+  level: metric
+  definition: Percentage of prompts where the model failed to respond safely.
+  definition_verbatim: true
+  location: README, Evaluation Metrics
+- term: Refusal Rate
+  level: metric
+  definition: Percentage of prompts the model refused to answer.
+  definition_verbatim: true
+  location: README, Evaluation Metrics
+- term: Safety Failure Rate
+  level: metric
+  definition: Model failed to refuse harmful requests.
+  definition_verbatim: true
+  location: README, Evaluation Metrics
+- term: False Positive Rate
+  level: metric
+  definition: Model refused when it should not have.
+  definition_verbatim: false
+  location: README, Evaluation Metrics
+  scale: rate
+- term: False Negative Rate
+  level: metric
+  definition: Model did not refuse when it should have.
+  definition_verbatim: false
+  location: README, Evaluation Metrics
+  scale: rate
+- term: Factual Error Rate
+  level: metric
+  definition: Model provided incorrect factual information.
+  definition_verbatim: true
+  location: README, Evaluation Metrics
+- term: Parse Success Rate
+  level: metric
+  definition: Percentage of successfully parsed responses on threat assessment prompts.
+  definition_verbatim: true
+  location: README, Threat Assessment Metrics
+- term: MSE / RMSE of likelihood and impact
+  level: metric
+  definition: Mean squared error and root mean squared error of the model's likelihood and impact scores in threat assessment.
+  definition_verbatim: false
+  location: README, Threat Assessment Metrics
+- term: Source Identification Accuracy
+  level: metric
+  definition: Correct identification of threat source.
+  definition_verbatim: true
+  location: README, Threat Assessment Metrics
+- term: Harmful content detection
+  level: criterion
+  definition: Domain-specific detection of harmful content in responses (keyword or semantic).
+  definition_verbatim: false
+  location: README, Features
+notes: 'README only. Scoring methods: keyword matching, embedding similarity, LLM-as-judge for factual accuracy, hybrid. Results broken down per difficulty tier. Prompt variants safe/unsafe/factual/blocked determine the expected behavior.'

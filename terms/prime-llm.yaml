@@ -1,0 +1,52 @@
+entry: prime-llm
+sources: [https://doi.org/10.1001/jamanetworkopen.2026.4003, https://pmc.ncbi.nlm.nih.gov/articles/PMC13077515/]
+extracted: 2026-10-26
+terms:
+  - term: PrIME-LLM score
+    level: metric
+    definition: "The area of the model's polygon (radar plot of accuracy in 5 domains) divided by the area of the full-scale reference polygon; rewards balanced competence over simple averaging."
+    definition_verbatim: true
+    location: Methods, scoring; Figure 1
+    scale: "proportion, 0-1"
+  - term: Differential diagnosis
+    level: dimension
+    parent: PrIME-LLM score
+    definition: "Accuracy on vignette questions asking for the differential diagnosis stage of clinical reasoning."
+    definition_verbatim: false
+    location: Methods; Figure 1A
+    scale: "proportion fully correct (full credit only if all correct options included and incorrect options excluded)"
+  - term: Diagnostic testing
+    level: dimension
+    parent: PrIME-LLM score
+    definition: "Accuracy on vignette questions asking which diagnostic tests to order."
+    definition_verbatim: false
+    location: Methods; Figure 1A
+    scale: "proportion fully correct"
+  - term: Final diagnosis
+    level: dimension
+    parent: PrIME-LLM score
+    definition: "Accuracy on vignette questions asking for the final diagnosis."
+    definition_verbatim: false
+    location: Methods; Figure 1A
+    scale: "proportion fully correct"
+  - term: Management
+    level: dimension
+    parent: PrIME-LLM score
+    definition: "Accuracy on vignette questions about management and treatment."
+    definition_verbatim: false
+    location: Methods; Figure 1A
+    scale: "proportion fully correct"
+  - term: Miscellaneous clinical reasoning questions
+    level: dimension
+    parent: PrIME-LLM score
+    definition: "Accuracy on remaining question types in the vignettes that fall outside the four stepwise stages."
+    definition_verbatim: false
+    location: Methods; Figure 1A
+    scale: "proportion fully correct"
+  - term: Failure rate
+    level: metric
+    definition: "The proportion of questions not answered fully correctly; a reliability measure complementing the PrIME-LLM score."
+    definition_verbatim: true
+    location: Results (reliability); Figure 3
+    scale: proportion
+notes: "Scoring maps free-text output to MSD Manual multiple-choice answer options with a deterministic rubric, one medical-student rater per response; this is not plain MCQ since free text is graded. Overall accuracy is also reported."

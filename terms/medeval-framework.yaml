@@ -1,0 +1,42 @@
+entry: medeval-framework
+sources: [https://github.com/TeslaInch/medeval-framework]
+extracted: 2026-10-26
+terms:
+  - term: Accuracy (Exact Match)
+    level: metric
+    definition: "ExactMatchScorer compares the model's answer with the reference answer on MCQ-style items; reported with bootstrap 95% confidence intervals."
+    definition_verbatim: false
+    location: README, scorers / accuracy.py
+  - term: Semantic similarity (BERTScore F1)
+    level: metric
+    definition: "SemanticSimilarityScorer scores answer similarity to the reference using a PubMedBERT-based BERTScore F1."
+    definition_verbatim: false
+    location: README usage example, accuracy.py
+  - term: Hallucination Rate
+    level: metric
+    definition: "Context-Injected Hallucination Detection: Cross-encoder Natural Language Inference (NLIHallucinationDetector) evaluating prediction hypotheses against ground-truth clinical facts with full context injection to minimize false positives."
+    definition_verbatim: true
+    location: README, Features
+    scale: rate with bootstrap 95% CI
+  - term: Expected Calibration Error (ECE)
+    level: metric
+    definition: "Vectorized Expected Calibration Error of model confidence."
+    definition_verbatim: true
+    location: README, Advanced Calibration & Metrics Suite
+  - term: Maximum Calibration Error (MCE)
+    level: metric
+    definition: "Maximum calibration error across confidence bins."
+    definition_verbatim: false
+    location: README, calibration.py
+  - term: Brier Score
+    level: metric
+    definition: "Brier score of model confidence against correctness."
+    definition_verbatim: false
+    location: README, calibration.py
+  - term: Safety Violations Count
+    level: metric
+    definition: "Count of responses flagged by the rule-based safety checkers (SickleCellSafetyChecker, a Cardiology checker) or by the Semantic Safety Net, a cross-encoder NLI hazard verification flagging context-dependent medical risks."
+    definition_verbatim: false
+    location: README, Dual Clinical Safety Audit
+    scale: count
+notes: "README only; no paper. The specific sickle cell and cardiology safety rules were not enumerated."

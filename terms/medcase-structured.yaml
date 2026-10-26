@@ -1,0 +1,11 @@
+entry: medcase-structured
+sources: [https://arxiv.org/abs/2605.30295]
+extracted: 2026-10-26
+terms:
+  - term: Diagnostic accuracy
+    level: metric
+    definition: "A Claude Sonnet 4.6 judge compares the predicted \"diagnosis\" field to the ground truth diagnosis string, assesses whether the predicted diagnosis is clinically equivalent, and outputs a final binary decision."
+    definition_verbatim: false
+    location: Section B (evaluation setup); Table 5
+    scale: binary per case, mean accuracy over 3 runs
+notes: "Single scored outcome. The paper compares accuracy on FHIR input against text input from MedCaseReasoning (delta). Definition paraphrases the judge setup described in the paper."

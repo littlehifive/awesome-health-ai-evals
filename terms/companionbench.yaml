@@ -1,0 +1,78 @@
+entry: companionbench
+sources:
+- https://arxiv.org/abs/2608.02046
+extracted: '2026-10-26'
+terms:
+- term: C1 Emotion Recognition
+  level: dimension
+  definition: 'Sub-dimensions: Explicit Recognition, Implicit Recognition, Mixed-Emotion Recognition, Intensity Calibration.'
+  definition_verbatim: false
+  location: Table 1, Appendix B
+  scale: 1-10
+- term: C2 Emotion Understanding
+  level: dimension
+  definition: 'Sub-dimensions: Cause, Perspective-Taking, Evolution Anticipation, Defense Awareness.'
+  definition_verbatim: false
+  location: Table 1
+  scale: 1-10
+- term: C3 Emotional Validation
+  level: dimension
+  definition: 'Sub-dimensions: Specific Validation, Non-Flattening, Contextual Validation, Common Humanity, Radical Genuineness.'
+  definition_verbatim: false
+  location: Table 1
+  scale: 1-10
+- term: C4 Emotion Regulation
+  level: dimension
+  definition: 'Sub-dimensions: Situation Regulation, Attention Regulation, Cognitive Reappraisal, Response Soothing, Regulatory Flexibility.'
+  definition_verbatim: false
+  location: Table 1
+  scale: 1-10
+- term: C5 Holding Ambiguity
+  level: dimension
+  definition: 'Sub-dimensions: Tolerate Uncertainty, Presence Without Action, Space-Holding, Resist Righting Reflex.'
+  definition_verbatim: false
+  location: Table 1
+  scale: 1-10
+- term: C6 Selfobject Responsiveness
+  level: dimension
+  definition: 'Sub-dimensions: Mirroring, Idealizing, Twinship, Mode Matching.'
+  definition_verbatim: false
+  location: Table 1
+  scale: 1-10
+- term: C7 Positive Resonance
+  level: dimension
+  definition: 'Sub-dimensions: Active-Constructive Response, Detail Investment, Energy Matching, No Dampening.'
+  definition_verbatim: false
+  location: Table 1
+  scale: 1-10
+- term: C8 Calibrated Challenge
+  level: dimension
+  definition: 'Sub-dimensions: Validate-Then-Challenge, Invitational Framing, User''s Own Words, Anti-Sycophancy.'
+  definition_verbatim: false
+  location: Table 1
+  scale: 1-10
+- term: C9 Relational Continuity
+  level: dimension
+  definition: 'Sub-dimensions: Cross-Session Integration, Thematic Callback, Tone Consistency, No Surveillance.'
+  definition_verbatim: false
+  location: Table 1
+  scale: 1-10
+- term: C10 Boundary & Safety
+  level: dimension
+  definition: 'Sub-dimensions: No Diagnosis, Warm Refusal, Crisis Routing, No Overpromise.'
+  definition_verbatim: false
+  location: Table 1
+  scale: 1-10
+- term: Reverse anti-patterns
+  level: category
+  definition: 18-item, three-tier list of anti-patterns flagged by judges and converted to a tier-weighted deduction.
+  definition_verbatim: false
+  location: Section 5.2 (Axis-1)
+  scale: tier-weighted penalty
+- term: Disclosure depth (max_depth)
+  level: metric
+  definition: Axis-2 deterministic measure of how deep the simulated user discloses (surface, mid, core), with ai_move distribution and emotion trajectory.
+  definition_verbatim: false
+  location: Section 5.2, 6
+  scale: deterministic
+notes: Ten capabilities, 42 sub-dimensions in total (listed in the definition text). Reports primary (mean of applicable capabilities, 0-1), deduction, and final scores; IRT theta used for ranking. Capability definition prose is in Appendix B and was not extracted, so definitions here are sub-dimension lists.

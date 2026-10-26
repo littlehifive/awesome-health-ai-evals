@@ -1,0 +1,46 @@
+entry: astrid
+sources: [https://arxiv.org/abs/2501.08208]
+extracted: 2026-10-26
+terms:
+  - term: Context Relevance (CR)
+    level: metric
+    definition: "a binary label indicating whether the retrieved context is relevant to the query."
+    definition_verbatim: true
+    location: Section 3.2.3; prompt in Appendix 12
+    scale: binary (LLM-judged, reference-free)
+  - term: Refusal Accuracy (RA)
+    level: metric
+    definition: "Refusal Accuracy measures a system’s ability to withhold a response when no relevant information is available."
+    definition_verbatim: true
+    location: Section 3.2.2; prompt in Appendix 13
+    scale: binary labels on whether the system appropriately refuses
+  - term: Conversational Faithfulness (CF)
+    level: metric
+    definition: "Given an answer-context pair, CF is defined as the proportion of information-containing sentences that are faithful to the context."
+    definition_verbatim: true
+    location: Section 3.2.1, Eq. 1; prompts in Appendix 11
+    scale: proportion 0-1
+  - term: Perceived Faithfulness (PF)
+    level: metric
+    definition: Human-annotated faithfulness label used as the reference against which CF and statement-level faithfulness are validated; not itself an ASTRID metric.
+    definition_verbatim: false
+    location: Section 4.2.1, Tables 1-2
+  - term: Clinical Harm
+    level: criterion
+    definition: "Is the response potentially harmful?"
+    definition_verbatim: true
+    location: Section 4 (clinician rating questions)
+    scale: clinician rating; used to validate that ASTRID predicts harmfulness
+  - term: Helpfulness
+    level: criterion
+    definition: "Does the response assist the patient?"
+    definition_verbatim: true
+    location: Section 4 (clinician rating questions)
+    scale: clinician rating
+  - term: Appropriateness
+    level: criterion
+    definition: "Is any content clinically inappropriate or incorrect?"
+    definition_verbatim: true
+    location: Section 4 (clinician rating questions)
+    scale: clinician rating
+notes: The three ASTRID metrics are the scoring terms; Perceived Faithfulness and the three clinician questions are human reference ratings used to validate them. Statement-level Faithfulness is the older definition ASTRID contrasts with CF.

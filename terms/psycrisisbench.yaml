@@ -1,0 +1,35 @@
+entry: psycrisisbench
+sources: [https://arxiv.org/abs/2506.01329]
+extracted: 2026-10-26
+terms:
+  - term: Mood status recognition
+    level: category
+    definition: "aims to determine if the caller is experiencing depressive emotions. The criteria are primarily based on whether the caller expresses multiple persistent negative emotions during the call, such as crying, breaking down, sadness, or exhibits typical depressive symptoms as judged by a psychiatrist, labeled as \"depression\"; if no obvious depressive mood is present, it is labeled as \"Normal\"."
+    definition_verbatim: true
+    location: Methods, task definition
+    scale: binary classification (depression / Normal), scored by F1
+  - term: Suicidal ideation detection
+    level: category
+    definition: "focuses on whether the caller expressed thoughts or words related to suicide, including direct mentions like \"want to die\" or \"don't want to live anymore\". If such intent is present, it is labeled as \"Yes\"; otherwise, \"No\"."
+    definition_verbatim: true
+    location: Methods, task definition
+    scale: binary classification (Yes / No), scored by F1
+  - term: Suicide plan identification
+    level: category
+    definition: "further assesses whether the caller described a specific suicide plan, such as time, place, method, or means. If any of these elements are mentioned, it is labeled as \"Yes\"; otherwise, \"No\"."
+    definition_verbatim: true
+    location: Methods, task definition
+    scale: binary classification (Yes / No), scored by F1
+  - term: Risk assessment
+    level: category
+    definition: "a comprehensive judgment, combining all information to determine if there is an urgent need for intervention. If so, it is labeled as \"High risk\"; otherwise, \"Non-high risk\"."
+    definition_verbatim: true
+    location: Methods, task definition
+    scale: binary classification (High risk / Non-high risk), scored by F1
+  - term: F1-score
+    level: metric
+    definition: Primary evaluation metric on each of the four binary tasks, balancing precision and recall to minimise both missed high-risk cases and false alarms.
+    definition_verbatim: false
+    location: Methods, evaluation metrics
+    scale: 0-1, mean and SD over repeated runs
+notes: Classification of call transcripts against annotated labels; 64 LLMs evaluated zero-shot and 38 also few-shot (4-shot). No generative-quality criteria.

@@ -1,0 +1,137 @@
+entry: dischargesim
+sources:
+- https://arxiv.org/abs/2509.07188
+- https://github.com/michaels6060/DischargeSim
+extracted: '2026-10-26'
+terms:
+- term: Language and Delivery
+  level: dimension
+  definition: Dialogue dimension assessing whether the language used is simple, fluent, and appropriate for the patient's comprehension level.
+  definition_verbatim: false
+  location: Section 3.1
+- term: Linguistic clarity
+  level: criterion
+  parent: Language and Delivery
+  definition: whether the language used is simple, fluent, and appropriate for the patient's comprehension level
+  definition_verbatim: true
+  location: Section 3.1
+- term: Coherence (dialogue)
+  level: criterion
+  parent: Language and Delivery
+  definition: whether the response is logically structured and maintains a coherent, understandable flow
+  definition_verbatim: true
+  location: Section 3.1
+- term: Repetitiveness
+  level: criterion
+  parent: Language and Delivery
+  definition: whether it avoids unnecessary repetition that may hinder educational effectiveness
+  definition_verbatim: true
+  location: Section 3.1
+- term: Human-Centered Communication
+  level: dimension
+  definition: Dialogue dimension covering empathy, personalization and responsiveness to the patient.
+  definition_verbatim: false
+  location: Section 3.1
+- term: Personalization and empathy
+  level: criterion
+  parent: Human-Centered Communication
+  definition: the extent to which the response demonstrates empathy and personalization by considering the patient's emotional state, health literacy, and context
+  definition_verbatim: true
+  location: Section 3.1
+- term: Interaction appropriateness
+  level: criterion
+  parent: Human-Centered Communication
+  definition: how appropriately the system responds to the patient's prior utterances, maintaining a natural and responsive conversational flow
+  definition_verbatim: true
+  location: Section 3.1
+- term: Content completeness
+  level: criterion
+  definition: Whether the DoctorAgent delivers comprehensive information across the six discharge content stages.
+  definition_verbatim: false
+  location: Section 1 / 3.1
+- term: Strategy use
+  level: criterion
+  definition: Whether the DoctorAgent applies appropriate communication strategies tailored to the patient profile.
+  definition_verbatim: false
+  location: Section 1 / 3.1
+- term: ROUGE
+  level: metric
+  definition: Lexical overlap of the generated discharge summary with the reference.
+  definition_verbatim: false
+  location: Section 3.2
+  scale: automatic
+- term: BLEURT
+  level: metric
+  definition: Metric used to measure fluency of the generated summary.
+  definition_verbatim: false
+  location: Section 3.2
+  scale: automatic
+- term: UMLS-F1
+  level: metric
+  definition: Quantifies clinical concept coverage of the generated summary.
+  definition_verbatim: false
+  location: Section 3.2
+  scale: automatic
+- term: Semantic coverage (COV)
+  level: criterion
+  parent: Discharge summary quality
+  definition: assesses how well the generated summary captures key semantic units from the reference
+  definition_verbatim: true
+  location: Section 3.2
+  scale: LLM judge rating
+- term: Factuality (FAC)
+  level: criterion
+  parent: Discharge summary quality
+  definition: checks whether the summary maintains factual accuracy without hallucination
+  definition_verbatim: true
+  location: Section 3.2
+  scale: LLM judge rating
+- term: Consistency (CON)
+  level: criterion
+  parent: Discharge summary quality
+  definition: ensures internal coherence
+  definition_verbatim: true
+  location: Section 3.2
+  scale: LLM judge rating
+- term: Informativeness (INF)
+  level: criterion
+  parent: Discharge summary quality
+  definition: measures how concisely key ideas are conveyed
+  definition_verbatim: true
+  location: Section 3.2
+  scale: LLM judge rating
+- term: Coherence (COH)
+  level: criterion
+  parent: Discharge summary quality
+  definition: evaluates logical flow and readability
+  definition_verbatim: true
+  location: Section 3.2
+  scale: LLM judge rating
+- term: Relevance (REL)
+  level: criterion
+  parent: Discharge summary quality
+  definition: verifies that all content pertains to discharge instructions and follow-up care
+  definition_verbatim: true
+  location: Section 3.2
+  scale: LLM judge rating
+- term: Fluency (FLU)
+  level: criterion
+  parent: Discharge summary quality
+  definition: assesses grammatical and stylistic quality
+  definition_verbatim: true
+  location: Section 3.2
+  scale: LLM judge rating
+- term: Personalization (PER)
+  level: criterion
+  parent: Discharge summary quality
+  definition: examines how well the summary is tailored to the patient's literacy, emotional state and context
+  definition_verbatim: false
+  location: Section 3.2
+  scale: LLM judge rating
+- term: Patient comprehension
+  level: metric
+  definition: Patient agent answers expert-authored multiple-choice exams based on either the conversation or the generated summary.
+  definition_verbatim: false
+  location: Abstract, Section 3
+  scale: MCQ accuracy
+notes: 'Discharge summary quality is a grouping label added here for the eight judge dimensions. Judge: DeepSeek-V3; validated against two clinicians on 49 cases (Language Delivery, Human-Centered Communication, Content Coverage, Education Strategy, Overall Preference). Details of Table 14 not read.'

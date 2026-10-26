@@ -24,9 +24,16 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 1,045 questions (single train split; card says about 1,000 as of March 2025 with planned expansion)
+signals:
+  citations: null
+  citations_source: OpenAlex
+  hf_downloads: 113
+  github_stars: null
+  uptake: []
+  updated: '2026-10-26'
 provenance:
   records: [r_4f63d274ee]
   extracted: 2026-10-26
-  read_full_text: false
+  read_full_text: true
   confidence: medium
   notes: "Dataset card only, no paper. Released by SNUH-HARI (Seoul National University Hospital Healthcare AI Research Institute). Fields include chief complaint, exam, options A-E, answer, explanation, source, category. Drafts made with GPT-4o, Perplexity Deep Research, and Claude 3.7 Sonnet. Record r_0bebc563df (MedGo paper) in the same candidate is a different, unreleased Chinese ClinicalQA and is not part of this entry."

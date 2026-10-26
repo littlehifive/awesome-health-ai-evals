@@ -1,0 +1,151 @@
+entry: three-bot-evaluation-system
+sources:
+- https://pmc.ncbi.nlm.nih.gov/articles/PMC11884306/
+extracted: '2026-10-26'
+terms:
+- term: Patient-education bot criteria
+  level: axis
+  definition: Five criteria (maximum score 15) used by the evaluator bot for the patient-education bot.
+  definition_verbatim: false
+  location: Methods, Evaluator Bot Prompting
+  scale: sum of criterion scores
+- term: Medical information accuracy
+  level: criterion
+  parent: Patient-education bot criteria
+  definition: 'Evaluator-bot criterion: medical information accuracy.'
+  definition_verbatim: false
+  location: Methods, Evaluator Bot Prompting
+  scale: 1-3 (1 poor, 3 excellent)
+- term: Clarity and simplicity of explanations
+  level: criterion
+  parent: Patient-education bot criteria
+  definition: 'Evaluator-bot criterion: clarity and simplicity of explanations.'
+  definition_verbatim: false
+  location: Methods, Evaluator Bot Prompting
+  scale: 1-3 (1 poor, 3 excellent)
+- term: Expressions of empathy and warmth
+  level: criterion
+  parent: Patient-education bot criteria
+  definition: 'Evaluator-bot criterion: expressions of empathy and warmth.'
+  definition_verbatim: false
+  location: Methods, Evaluator Bot Prompting
+  scale: 1-3 (1 poor, 3 excellent)
+- term: Explanation of purpose or importance of procedures
+  level: criterion
+  parent: Patient-education bot criteria
+  definition: 'Evaluator-bot criterion: explanation of purpose or importance of procedures.'
+  definition_verbatim: false
+  location: Methods, Evaluator Bot Prompting
+  scale: 1-3 (1 poor, 3 excellent)
+- term: Adherence to professional role boundaries
+  level: criterion
+  parent: Patient-education bot criteria
+  definition: 'Evaluator-bot criterion: adherence to professional role boundaries.'
+  definition_verbatim: false
+  location: Methods, Evaluator Bot Prompting
+  scale: 1-3 (1 poor, 3 excellent)
+- term: Screening bot criteria
+  level: axis
+  definition: Fourteen criteria adapted from the Enhancing Assessment of Common Therapeutic Factors (ENACT) tool (maximum score 42) used by the evaluator bot for the screening (therapist) bot.
+  definition_verbatim: false
+  location: Methods, Evaluator Bot Prompting
+  scale: sum of criterion scores
+- term: 'Verbal communication: open-ended questions, summarization, and clarification'
+  level: criterion
+  parent: Screening bot criteria
+  definition: 'Evaluator-bot criterion: verbal communication: open-ended questions, summarization, and clarification.'
+  definition_verbatim: false
+  location: Methods, Evaluator Bot Prompting
+  scale: 1-3 (1 poor, 3 excellent)
+- term: Relationship building
+  level: criterion
+  parent: Screening bot criteria
+  definition: 'Evaluator-bot criterion: relationship building.'
+  definition_verbatim: false
+  location: Methods, Evaluator Bot Prompting
+  scale: 1-3 (1 poor, 3 excellent)
+- term: Exploration and normalization of emotions
+  level: criterion
+  parent: Screening bot criteria
+  definition: 'Evaluator-bot criterion: exploration and normalization of emotions.'
+  definition_verbatim: false
+  location: Methods, Evaluator Bot Prompting
+  scale: 1-3 (1 poor, 3 excellent)
+- term: Expressions of empathy and warmth
+  level: criterion
+  parent: Screening bot criteria
+  definition: 'Evaluator-bot criterion: expressions of empathy and warmth.'
+  definition_verbatim: false
+  location: Methods, Evaluator Bot Prompting
+  scale: 1-3 (1 poor, 3 excellent)
+- term: Assessment of functioning and life evaluation
+  level: criterion
+  parent: Screening bot criteria
+  definition: 'Evaluator-bot criterion: assessment of functioning and life evaluation.'
+  definition_verbatim: false
+  location: Methods, Evaluator Bot Prompting
+  scale: 1-3 (1 poor, 3 excellent)
+- term: Exploration of social support
+  level: criterion
+  parent: Screening bot criteria
+  definition: 'Evaluator-bot criterion: exploration of social support.'
+  definition_verbatim: false
+  location: Methods, Evaluator Bot Prompting
+  scale: 1-3 (1 poor, 3 excellent)
+- term: Incorporation of coping mechanisms
+  level: criterion
+  parent: Screening bot criteria
+  definition: 'Evaluator-bot criterion: incorporation of coping mechanisms.'
+  definition_verbatim: false
+  location: Methods, Evaluator Bot Prompting
+  scale: 1-3 (1 poor, 3 excellent)
+- term: Evaluation of recent life events
+  level: criterion
+  parent: Screening bot criteria
+  definition: 'Evaluator-bot criterion: evaluation of recent life events.'
+  definition_verbatim: false
+  location: Methods, Evaluator Bot Prompting
+  scale: 1-3 (1 poor, 3 excellent)
+- term: Assessment of mental health
+  level: criterion
+  parent: Screening bot criteria
+  definition: 'Evaluator-bot criterion: assessment of mental health.'
+  definition_verbatim: false
+  location: Methods, Evaluator Bot Prompting
+  scale: 1-3 (1 poor, 3 excellent)
+- term: Collaborative goal-setting
+  level: criterion
+  parent: Screening bot criteria
+  definition: 'Evaluator-bot criterion: collaborative goal-setting.'
+  definition_verbatim: false
+  location: Methods, Evaluator Bot Prompting
+  scale: 1-3 (1 poor, 3 excellent)
+- term: Promotion of realistic hope for change
+  level: criterion
+  parent: Screening bot criteria
+  definition: 'Evaluator-bot criterion: promotion of realistic hope for change.'
+  definition_verbatim: false
+  location: Methods, Evaluator Bot Prompting
+  scale: 1-3 (1 poor, 3 excellent)
+- term: Use of simple, jargon-free language
+  level: criterion
+  parent: Screening bot criteria
+  definition: 'Evaluator-bot criterion: use of simple, jargon-free language.'
+  definition_verbatim: false
+  location: Methods, Evaluator Bot Prompting
+  scale: 1-3 (1 poor, 3 excellent)
+- term: Problem-solving steps and processes
+  level: criterion
+  parent: Screening bot criteria
+  definition: 'Evaluator-bot criterion: problem-solving steps and processes.'
+  definition_verbatim: false
+  location: Methods, Evaluator Bot Prompting
+  scale: 1-3 (1 poor, 3 excellent)
+- term: Integration of feedback
+  level: criterion
+  parent: Screening bot criteria
+  definition: 'Evaluator-bot criterion: integration of feedback.'
+  definition_verbatim: false
+  location: Methods, Evaluator Bot Prompting
+  scale: 1-3 (1 poor, 3 excellent)
+notes: The paper gives criterion names only, no longer definitions. The two criteria sets are specific to the two example bots (cancer patient education, pretherapy screening); the method is meant to be re-instantiated with other criteria. Six ENACT factors were dropped as unsuitable for chatbots (Table 1).

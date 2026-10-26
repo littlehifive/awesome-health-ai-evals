@@ -1,0 +1,75 @@
+entry: g4ue
+sources:
+- https://arxiv.org/abs/2404.13307
+extracted: '2026-10-26'
+terms:
+- term: Reasoning-based error
+  level: category
+  definition: These errors refer to mistakes that arise mainly due to a flawed application of logic, including flawed or inconclusive reasoning processes as well as inconsistent or contradictory reasoning.
+  definition_verbatim: true
+  location: Section 4.3.1
+- term: Sticking with the wrong diagnosis
+  level: category
+  parent: Reasoning-based error
+  definition: The model confidently states its (wrong) answer early in the response. It's reasoning when explaining this choice and the other options are sound and factual concerning the diagnosis, but the model still chooses the wrong answer it has given before (instead of correcting it based on the explanations it has given afterward).
+  definition_verbatim: true
+  location: Section 4.3.1 (Error 1)
+- term: Incorrect or Vague conclusion
+  level: category
+  parent: Reasoning-based error
+  definition: The explanations given by the model are factually correct and support the proposed answer, but the statements concluding the correctness of option(s) are not definitive.
+  definition_verbatim: true
+  location: Section 4.3.1 (Error 2; first sentence, followed by further scenarios)
+- term: Ignore missing information
+  level: category
+  parent: Reasoning-based error
+  definition: The model recognizes that a critical piece of information is missing that would be needed to answer the question (e.g. a missing CT scan) and states so. Nevertheless, it continues to try and answer the question with incomplete information.
+  definition_verbatim: true
+  location: Section 4.3.1 (Error 3)
+- term: Knowledge-based error
+  level: category
+  definition: In contrast to the previously presented error types, knowledge-based errors arise due to inaccurate factual knowledge or incomplete understanding of the context.
+  definition_verbatim: true
+  location: Section 4.3.2
+- term: Non-medical factual error
+  level: category
+  parent: Knowledge-based error
+  definition: A statement in the explanations of the answer is factually wrong (e.g. 1 + 1 = 3). These involve non-medical facts including computational errors and terminology errors and can be reliably annotated by a non-medical expert.
+  definition_verbatim: true
+  location: Section 4.3.2 (Error 4)
+- term: Unsupported medical claim
+  level: category
+  parent: Knowledge-based error
+  definition: One or multiple medical claims in the model's answer are wrong, i.e. not supported by proper evidence from textbooks or other online knowledge sources.
+  definition_verbatim: true
+  location: Section 4.3.2 (Error 5)
+- term: Reading comprehension error
+  level: category
+  definition: This error type is characterized by the model being unable to take account of all information that was given in the question or of all the tasks it was given.
+  definition_verbatim: true
+  location: Section 4.3.3
+- term: Incorrect understanding of the task
+  level: category
+  parent: Reading comprehension error
+  definition: The model did not choose a single option as the correct answer. Instead, it either considers multiple answers to be correct (or most likely), states all options are wrong or does not decide overall.
+  definition_verbatim: true
+  location: Section 4.3.3 (Error 6)
+- term: Hallucination of information
+  level: category
+  parent: Reading comprehension error
+  definition: In the model's argumentation for or against different options, it fabricates some information that was not included in the question to justify why an option is or is not correct.
+  definition_verbatim: true
+  location: Section 4.3.3 (Error 7)
+- term: Reasonable response by GPT-4
+  level: category
+  parent: Non-error types
+  definition: This option can be selected if the explanation provided by GPT-4 is found reasonable, and the explanation does not contain incorrect facts or flawed reasoning.
+  definition_verbatim: true
+  location: Section 4.3.4 (Non-error 1)
+- term: Cannot pick any category
+  level: category
+  parent: Non-error types
+  definition: This option can be chosen when certain flaws in the facts or reasoning of GPT-4 are identified, and when one is not fully convinced with the GPT-4 response.
+  definition_verbatim: true
+  location: Section 4.3.4 (Non-error 2)
+notes: Error taxonomy of seven error types and two non-error types, applied as multi-label span annotations to the 919 incorrect GPT-4 answers (300 annotated; labels kept when at least two annotators agree; agreement via mean pairwise Jaccard). Answer accuracy (919 of 5072 incorrect) is the underlying outcome. Also used for an error-type classification task.

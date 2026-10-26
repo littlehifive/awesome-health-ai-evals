@@ -1,0 +1,84 @@
+entry: knowmt-bench
+sources: [https://arxiv.org/abs/2509.21856]
+extracted: 2026-10-26
+terms:
+  - term: Factuality
+    level: dimension
+    definition: "This dimension quantifies the correctness and completeness of the must-have fact provided."
+    definition_verbatim: true
+    location: Section 3, evaluation framework
+    scale: "metric suite from NLI labels; F1"
+  - term: Factual Precision (P_f)
+    level: metric
+    parent: Factuality
+    definition: "the fraction of generated statements that are entailment"
+    definition_verbatim: true
+    location: Section 3, evaluation framework
+    scale: fraction
+  - term: Factual Recall (R_f)
+    level: metric
+    parent: Factuality
+    definition: "the fraction of ground-truth facts covered."
+    definition_verbatim: true
+    location: Section 3, evaluation framework
+    scale: fraction
+  - term: Factual F1 (S_f)
+    level: metric
+    parent: Factuality
+    definition: "Factual Precision and Factual Recall combined into an F1 score for a comprehensive assessment."
+    definition_verbatim: false
+    location: Section 3, evaluation framework
+    scale: F1
+  - term: Reliability (Factual Hallucination)
+    level: dimension
+    definition: "This dimension measures the extent of factual hallucination."
+    definition_verbatim: true
+    location: Section 3, evaluation framework
+  - term: False Claim Rate (P_fc)
+    level: metric
+    parent: Reliability (Factual Hallucination)
+    definition: "the fraction of generated statements that are contradicted"
+    definition_verbatim: true
+    location: Section 3, evaluation framework
+    scale: fraction
+  - term: Misrepresentation Rate (R_m)
+    level: metric
+    parent: Reliability (Factual Hallucination)
+    definition: "the fraction of ground-truth facts contradicted by the (a_j)."
+    definition_verbatim: true
+    location: Section 3, evaluation framework
+    scale: fraction
+  - term: Hallucination F1 (S_h)
+    level: metric
+    parent: Reliability (Factual Hallucination)
+    definition: "False Claim Rate and Misrepresentation Rate unified into one score."
+    definition_verbatim: false
+    location: Section 3, evaluation framework
+    scale: F1
+  - term: Information Delivery Efficiency
+    level: dimension
+    definition: "This dimension assesses the utility of the model's response by measuring the token cost of conveying information."
+    definition_verbatim: true
+    location: Section 3, evaluation framework
+  - term: D_f
+    level: metric
+    parent: Information Delivery Efficiency
+    definition: "the average tokens per correctly entailed fact"
+    definition_verbatim: true
+    location: Section 3, evaluation framework
+    scale: tokens, lower is better
+  - term: D_h
+    level: metric
+    parent: Information Delivery Efficiency
+    definition: "the average tokens per contradicted fact"
+    definition_verbatim: true
+    location: Section 3, evaluation framework
+    scale: tokens, lower is better
+  - term: D_R
+    level: metric
+    parent: Information Delivery Efficiency
+    definition: "the average tokens per to cover the entire set of ground-truth facts."
+    definition_verbatim: true
+    location: Section 3, evaluation framework
+    scale: tokens, lower is better
+notes: "Applies to all three domains (medicine, finance, law); scored on the final-turn answer by a two-stage NLI pipeline (Qwen2.5-32B decomposer plus entailment judge) against must-have atomic facts."

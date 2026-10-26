@@ -1,0 +1,43 @@
+entry: llm-glycemic-control-value-judgments
+sources:
+- https://pubmed.ncbi.nlm.nih.gov/42389650
+- https://pmc.ncbi.nlm.nih.gov/articles/PMC13322355/
+- https://github.com/lizhealey/LLMGRI
+extracted: '2026-10-26'
+terms:
+- term: Alignment with Glycemia Risk Index (GRI)
+  level: metric
+  definition: Spearman correlation between an LLM's percentile rank of glycemic profiles (from pairwise comparisons) and the clinician-derived GRI, a composite score where 0 is perfect control and higher is worse, weighted most on severe hypoglycemia.
+  definition_verbatim: false
+  location: Section 3 and 4.1 (GRI alignment experiments); GRI described in Section 2.2
+  scale: Spearman correlation
+- term: Alignment with time in range (TIR)
+  level: metric
+  definition: Correlation between an LLM's percentile rank of profiles and the percentage of time spent in the target glucose range.
+  definition_verbatim: false
+  location: Section 4.1
+  scale: Spearman correlation
+- term: Pairwise concordance with GRI/TIR
+  level: metric
+  definition: Share of the 4,950 pairwise decisions per dataset where the LLM picked the profile with the lower GRI (or higher TIR).
+  definition_verbatim: false
+  location: Section 4.1, concordance of pairwise rankings
+  scale: proportion of decisions
+- term: Hypoglycemia versus hyperglycemia weighting
+  level: other
+  definition: Regression coefficients of LLM percentile ranks on % severe hypo, % mild hypo, % mild hyper and % severe hyper, and perturbation tests of mild and severe hypo versus hyper, showing the relative weight an LLM places on each.
+  definition_verbatim: false
+  location: Section 3 (perturbation analysis) and Section 4
+  scale: regression coefficients / profiles ranked better
+- term: Order-reversal consistency
+  level: metric
+  definition: Consistency between decisions after swapping the order of every pairwise comparison, plus the change in correlation with GRI and TIR.
+  definition_verbatim: false
+  location: Section 3, Robustness analysis; Appendix D
+  scale: proportion consistent
+- term: Run-to-run consistency
+  level: metric
+  definition: Consistency of each model across three repeated runs of identical prompts on the CSII dataset.
+  definition_verbatim: false
+  location: Section 3, Robustness analysis; Appendix D
+notes: 'Not a rubric of output quality: models are probed for the value judgments embedded in their pairwise preferences between simulated CGM summaries, and outputs are compared with TIR and GRI as reference measures. Terms here are the alignment metrics and probes. Definitions are paraphrases from the PMC full text (read via HTML).'

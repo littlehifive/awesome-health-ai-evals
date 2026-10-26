@@ -1,0 +1,67 @@
+entry: clinbench-hpb
+sources: [https://arxiv.org/abs/2506.00095]
+extracted: 2026-10-26
+terms:
+  - term: Accuracy
+    level: metric
+    definition: "Exact-match accuracy on the 3,535 closed-ended multiple-choice questions (CN-QA and EN-QA), with answers extracted by regular expression after 'Answer'."
+    definition_verbatim: false
+    location: Section 3 (Objective Questions), Table 2
+    scale: proportion correct
+  - term: Clinical recall rate
+    level: metric
+    definition: "The evaluation metric for open-ended diagnostic cases is defined as the clinical recall rate, which is calculated as the percentage of diseases correctly identified by the LLM."
+    definition_verbatim: true
+    location: Section 3 (Subjective Questions)
+    scale: proportion of case diseases covered
+  - term: Disease-level recall
+    level: metric
+    parent: Clinical recall rate
+    definition: "Recall computed per disease across all case diagnoses (Dis in Table 3)."
+    definition_verbatim: false
+    location: Section 3, Table 3
+    scale: proportion
+  - term: Patient-level recall
+    level: metric
+    parent: Clinical recall rate
+    definition: "The latter criterion is satisfied only when the model captures the full spectrum of concurrent diagnoses for a patient."
+    definition_verbatim: true
+    location: Section 3, Table 3 (Pt)
+    scale: "binary per patient, averaged"
+  - term: Anatomical specificity
+    level: criterion
+    parent: Clinical recall rate
+    definition: "One of six dimensions the strict evaluation LLM uses to decide whether a prediction includes a reference disease."
+    definition_verbatim: false
+    location: Section 3 (Subjective Questions); prompts Appendix A.1.2
+  - term: Pathological mechanism
+    level: criterion
+    parent: Clinical recall rate
+    definition: "One of six dimensions the strict evaluation LLM uses to decide whether a prediction covers a reference disease."
+    definition_verbatim: false
+    location: Section 3; Appendix A.1.2
+  - term: Etiological tracing
+    level: criterion
+    parent: Clinical recall rate
+    definition: "One of six dimensions the strict evaluation LLM uses to decide whether a prediction covers a reference disease."
+    definition_verbatim: false
+    location: Section 3; Appendix A.1.2
+  - term: Temporal characteristics
+    level: criterion
+    parent: Clinical recall rate
+    definition: "One of six dimensions the strict evaluation LLM uses to decide whether a prediction covers a reference disease."
+    definition_verbatim: false
+    location: Section 3; Appendix A.1.2
+  - term: Laboratory markers
+    level: criterion
+    parent: Clinical recall rate
+    definition: "One of six dimensions the strict evaluation LLM uses to decide whether a prediction covers a reference disease."
+    definition_verbatim: false
+    location: Section 3; Appendix A.1.2
+  - term: Therapeutic strategy
+    level: criterion
+    parent: Clinical recall rate
+    definition: "One of six dimensions the strict evaluation LLM uses to decide whether a prediction covers a reference disease."
+    definition_verbatim: false
+    location: Section 3; Appendix A.1.2
+notes: "Judge is DeepSeek-V3-0324 (strict) with Claude-3.7-Sonnet as check model; results averaged over four prompt styles. Subsets (CN-QA, EN-QA, Journal, Website, Hospital) are data sources, not terms."

@@ -1,0 +1,31 @@
+entry: medarena
+sources: [https://arxiv.org/abs/2603.15677]
+extracted: 2026-10-26
+terms:
+  - term: Clinician pairwise preference
+    level: metric
+    definition: "Clinicians choose the better of two anonymous LLM answers to their own query; preferences are aggregated into Elo and Bradley-Terry rankings with bootstrapped 95% confidence intervals and win rates."
+    definition_verbatim: false
+    location: Methods, Model Ranking and Statistical Analysis
+    scale: pairwise win/loss
+  - term: Accuracy and Clinical Validity
+    level: category
+    definition: "The preferred response is more accurate and clinically valid (e.g., \"Model A is right\")"
+    definition_verbatim: true
+    location: Methods (preference-reason categories); Figure 4
+  - term: Depth and Detail
+    level: category
+    definition: "The preferred response provides more depth and detail."
+    definition_verbatim: true
+    location: Methods (preference-reason categories); Figure 4
+  - term: Presentation and Clarity
+    level: category
+    definition: "Clinician-cited reason that the preferred response is better presented or clearer (full definition text not captured)."
+    definition_verbatim: false
+    location: Methods (preference-reason categories); Figure 4
+  - term: Use of References and Up-to-Date Guidelines
+    level: category
+    definition: "Clinician-cited reason that the preferred response uses references or reflects current guidelines."
+    definition_verbatim: false
+    location: Methods (preference-reason categories); Figure 4
+notes: "Reason categories are assigned by gpt-4o-mini to optional free-text reasons (153 of 1,571 preferences); a fifth category is Miscellaneous. Style covariates (response length, headers, lists, bold text, citations) are modelled as confounders in an extended Bradley-Terry model, not as scored criteria. Query categories (subspecialty, use case) are not evaluation terms."

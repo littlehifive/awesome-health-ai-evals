@@ -1,0 +1,28 @@
+entry: lthm
+sources:
+- https://github.com/tianlimin2/Long-Term-Health-Monitoring-LTHM-dataset
+- https://doi.org/10.1109/embc58623.2025.11254888
+extracted: '2026-10-26'
+terms:
+- term: Response Correctness
+  level: criterion
+  definition: Measures accuracy of generated responses.
+  definition_verbatim: true
+  location: README, Evaluation Metrics
+- term: Contextual Coherence
+  level: criterion
+  definition: Assesses natural flow and connection to context.
+  definition_verbatim: true
+  location: README, Evaluation Metrics
+- term: ROUGE-1, ROUGE-2, ROUGE-L
+  level: metric
+  definition: Lexical overlap between generated and reference responses.
+  definition_verbatim: false
+  location: README, rouge_evaluation.py
+  scale: 0-1
+- term: Recall@K
+  level: metric
+  definition: Evaluates memory retrieval effectiveness against ground-truth nodes, K=1,2,3,5.
+  definition_verbatim: true
+  location: README, top_k_recall.py
+notes: Paper full text not reached; terms from the GitHub README. How correctness and coherence are scored (judge or human) is not stated in the README.
