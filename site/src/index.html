@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Health AI Evals Map</title>
+  <meta name="description" content="A map of health benchmarks and evaluation frameworks for generative-AI chatbots, with attention to low- and middle-income countries.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23F1B505'/%3E%3Cpath d='M13 8h6v5h5v6h-5v5h-6v-5H8v-6h5z' fill='%23111'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    try { const t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-row">
+      <a class="brand" href="#/">health<span>·</span>ai<span>·</span>evals</a>
+      <nav class="nav" aria-label="Main">
+        <a href="#/" data-route="catalog">Catalog</a>
+        <a href="#/map" data-route="map">Map</a>
+        <a href="#/heatmap" data-route="heatmap">Heatmap</a>
+        <a href="#/constructs" data-route="constructs">Constructs</a>
+        <a href="#/compare" data-route="compare">Compare</a>
+        <a href="#/about" data-route="about">About</a>
+      </nav>
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch light or dark theme">◐</button>
+    </div>
+  </header>
+  <main id="app" class="wrap" tabindex="-1">
+    <p class="muted">Loading the catalog…</p>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>An exploratory, LLM-assisted map, not a systematic review. Facts may be wrong; each entry says how confident its extraction is.
+        Code MIT, content CC BY 4.0. <a href="https://github.com/littlehifive/awesome-health-ai-evals">Source and corrections on GitHub</a>.</p>
+    </div>
+  </footer>
+  <script src="app.js" type="module"></script>
+</body>
+</html>

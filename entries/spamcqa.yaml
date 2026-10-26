@@ -1,39 +1,41 @@
 id: spamcqa
 name: SpAMCQA
 kind: benchmark
-year: 2023
-summary: 122 expert-written bilingual multiple-choice questions on spondyloarthritis for evaluating LLM knowledge, scored by accuracy, from the Chinese PLA General Hospital.
+year: 2024
+summary: 222 bilingual (English and Chinese) multiple-choice questions on spondyloarthritis diagnosis and treatment, written by rheumatologists at the Chinese PLA General Hospital from medical literature, to evaluate LLMs; scored by accuracy.
 readme_section: knowledge_exam
 links:
-  paper: https://doi.org/10.21203/rs.3.rs-3625354/v1
-  doi: 10.21203/rs.3.rs-3625354/v1
-open_data: unknown
+  paper: https://doi.org/10.2196/57001
+  doi: 10.2196/57001
+license: null
+open_data: gated
 geography:
-  item_languages: [Chinese, English]
+  item_languages: [English, Mandarin Chinese]
   item_origin_countries: [CHN]
-  item_origin_note: Questions were written with clinical experts at Chinese PLA General Hospital; the bilingual title implies Chinese and English versions.
+  item_origin_note: Written by clinicians at the Chinese PLA General Hospital, Beijing.
+  rater_countries: [CHN]
   localization: native
   lead_institution_countries: [CHN]
 origin:
   builder_types: [academic, industry_lab]
-  item_provenance: [clinician_written]
-  venue: preprint
+  item_provenance: [clinician_written, literature]
+  venue: peer_reviewed
 facets:
   health_areas: [other_specialty]
   intended_users: [clinician]
   eval_methods: [mcq_exact_match]
   modality: [text]
-  size: 122 multiple-choice questions
+  size: 222 questions
 signals:
-  citations: 0
+  citations: 8
   citations_source: OpenAlex
   hf_downloads: null
   github_stars: null
   uptake: []
   updated: '2026-10-26'
 provenance:
-  records: [r_3b82af8c01, r_4a92d058ed]
+  records: [r_83f3815ff2, r_3b82af8c01, r_4a92d058ed]
   extracted: 2026-10-26
-  read_full_text: false
-  confidence: low
-  notes: "Merged two records: the EULAR 2024 conference abstract (POS0495, Annals of the Rheumatic Diseases) and the Research Square study protocol (2023). Only abstracts and the preprint landing page were read; no dataset link, license, or access statement was seen. The protocol also plans fine-tuning a model (SpARobotGPT) on 80,000+ hospital cases and a Safety, Usability, and Smoothness (SUS) metric for generated answers, which are not part of the MCQ benchmark. Builder types include Dataa Robotics Co., Ltd. alongside the hospital and a university. The year is from the preprint; venue is preprint because the protocol is unreviewed and the conference abstract is an abstract only."
+  read_full_text: true
+  confidence: medium
+  notes: "Merged with the 2023 Research Square preprint of the same protocol (doi 10.21203/rs.3.rs-3625354/v1, 122 questions at that stage) and the EULAR 2024 abstract (POS0495). A JMIR Research Protocols paper, so the benchmark is described but the results come later. The abstract says it will be released; the full text says data are available from the corresponding author on reasonable request, hence gated. I found no public link. The protocol also uses CMB-style metrics for open-ended answers, which I did not check in detail. Co-authors include a company (Dataa Robotics)."

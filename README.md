@@ -6,18 +6,18 @@ A map of health benchmarks and evaluation frameworks for generative-AI chatbots,
 
 This is an exploratory catalog, not a systematic review. Screening and data extraction were done with LLM assistance, and some facts may be wrong; each entry records how confident the extraction is. See [How this list was built](#how-this-list-was-built) and [Known gaps](#known-gaps).
 
-**996 entries.** Item origin: 566 global or unknown, 227 high-income only, 178 native LMIC, 21 adapted, 4 translated only.
+**994 entries.** Item origin: 566 global or unknown, 226 high-income only, 177 native LMIC, 21 adapted, 4 translated only. Of the 177 native LMIC entries, 103 have items from China alone; 6 entries include items from a low-income country.
 
 Columns: **Item origin** is where the questions or conversations came from. **Income group** is the World Bank group of those countries (pinned in `data/countries.csv`). **Method**: MCQ = multiple choice or exact match; metric = automatic text metric; LLM judge = rubric scored by a language model; expert rating = human expert rating; multi-turn = simulated patient or dialogue; real users = scored on real users' conversations.
 
 ## Contents
 
 - [Featured](#featured)
-- [Knowledge and exam QA](#knowledge-and-exam-qa) (131)
+- [Knowledge and exam QA](#knowledge-and-exam-qa) (130)
 - [Open-ended and conversational](#open-ended-and-conversational) (168)
 - [Safety, hallucination, and bias](#safety-hallucination-and-bias) (185)
 - [Mental health](#mental-health) (79)
-- [Multilingual and regional](#multilingual-and-regional) (225)
+- [Multilingual and regional](#multilingual-and-regional) (224)
 - [Voice](#voice) (9)
 - [Evaluation frameworks](#evaluation-frameworks) (199)
 - [Related guidance](#related-guidance)
@@ -168,10 +168,9 @@ Columns: **Item origin** is where the questions or conversations came from. **In
 | [PGxQA](https://pmc.ncbi.nlm.nih.gov/articles/PMC11734741/) | 2024 | English | Global | global | MCQ, metric, expert rating | open | academic |
 | [Rare-disease phenopacket LLM benchmark](https://doi.org/10.1101/2024.07.22.24310816) | 2024 | English | Unknown | ? | metric | open | academic |
 | [ReDis-QA](https://arxiv.org/abs/2408.08422) | 2024 | English | India, Unknown | lower-mid | MCQ | open | academic |
-| [SpA multiple-choice benchmark](https://doi.org/10.2196/57001) | 2024 | English, Mandarin Chinese | China | upper-mid | MCQ | gated | academic, industry |
+| [SpAMCQA](https://doi.org/10.2196/57001) | 2024 | English, Mandarin Chinese | China | upper-mid | MCQ | gated | academic, industry |
 | [EvalPrompt](https://doi.org/10.2196/66207) | 2023 | English | United States | high | expert rating | open | academic |
 | [nephSAP](https://doi.org/10.1056/aidbp2300092) | 2023 | English | United States | high | MCQ, metric | open | academic |
-| [SpAMCQA](https://doi.org/10.21203/rs.3.rs-3625354/v1) | 2023 | Chinese, English | China | upper-mid | MCQ | ? | academic, industry |
 | USMLE Self-Assessment Steps 1-3 (augtoma) | 2023 | English | United States | high | MCQ | open | academic |
 | [COVID-QA (deepset)](https://openreview.net/forum?id=JENSKEEzsoU) | 2020 | English | Global | global | metric | open | industry |
 | [CovidQA](https://arxiv.org/abs/2004.11339) | 2020 | English | Global | global | metric | open | academic |
@@ -817,7 +816,6 @@ Columns: **Item origin** is where the questions or conversations came from. **In
 | [Qibo-Benchmark](https://doi.org/10.1016/j.eswa.2025.127672) | 2024 | Mandarin Chinese | China | upper-mid | MCQ, metric, LLM judge, expert rating | ? | academic |
 | [RoMedQA](https://aclanthology.org/2024.findings-emnlp.261/) | 2024 | Romanian | Romania | high | MCQ | open | academic |
 | [Self-care medicines and supplements benchmark](https://doi.org/10.1007/s11096-024-01839-2) | 2024 | Dutch, English | Belgium | high | expert rating | open | academic |
-| Spanish-MMLU Clinical Knowledge (shuyuej) | 2024 | Spanish | United States | high | MCQ | open | ? |
 | Spanish-MMLU medical subsets (shuyuej) | 2024 | Spanish | United States | high | MCQ | open | ? |
 | Swedish Medical Exam MCQs | 2024 | Swedish | Sweden | high | MCQ | open | ? |
 | Taiwan TCM Licensing Exam MCQ (Liavan) | 2024 | Traditional Chinese | Taiwan | high | MCQ | open | academic |

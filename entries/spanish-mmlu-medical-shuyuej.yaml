@@ -2,10 +2,10 @@ id: spanish-mmlu-medical-shuyuej
 name: Spanish-MMLU medical subsets (shuyuej)
 kind: benchmark
 year: 2024
-summary: Spanish translations of three MMLU medical test subsets (college medicine 173, medical genetics 100, professional medicine 272 questions), 545 multiple-choice questions in total.
+summary: Spanish translations of four MMLU medical test subsets (clinical knowledge 265, college medicine 173, medical genetics 100, professional medicine 272 questions), 810 multiple-choice questions in total, uploaded without documentation.
 readme_section: multilingual_regional
 links:
-  huggingface: [shuyuej/Spanish-MMLU-College-Medicine-Benchmark, shuyuej/Spanish-MMLU-Medical-Genetics-Benchmark, shuyuej/Spanish-MMLU-Professional-Medicine-Benchmark]
+  huggingface: [shuyuej/Spanish-MMLU-Clinical-Knowledge-Benchmark, shuyuej/Spanish-MMLU-College-Medicine-Benchmark, shuyuej/Spanish-MMLU-Medical-Genetics-Benchmark, shuyuej/Spanish-MMLU-Professional-Medicine-Benchmark]
 license: Apache-2.0
 open_data: open
 geography:
@@ -15,6 +15,7 @@ geography:
   localization: translated
   lead_institution_countries: [UNKNOWN]
   subsets:
+    - {name: Clinical Knowledge, languages: [Spanish], countries: [USA], localization: translated}
     - {name: College Medicine, languages: [Spanish], countries: [USA], localization: translated}
     - {name: Medical Genetics, languages: [Spanish], countries: [USA], localization: translated}
     - {name: Professional Medicine, languages: [Spanish], countries: [USA], localization: translated}
@@ -27,17 +28,17 @@ facets:
   intended_users: [medical_student, clinician]
   eval_methods: [mcq_exact_match]
   modality: [text]
-  size: 545 questions across three test splits (173, 100, 272)
+  size: 810 questions across four test splits (265, 173, 100, 272)
 signals:
   citations: null
   citations_source: OpenAlex
-  hf_downloads: 104
+  hf_downloads: 149
   github_stars: null
   uptake: []
   updated: '2026-10-26'
 provenance:
-  records: [r_49e35e1b12, r_7fbda4e2dc, r_43a0dbb639]
+  records: [r_49e35e1b12, r_7fbda4e2dc, r_43a0dbb639, r_11b3d1d4f7]
   extracted: 2026-10-26
   read_full_text: true
   confidence: low
-  notes: "The three dataset cards are a license tag plus a load_dataset snippet; no paper, no translation method, no author statement. Row counts (173, 100, 272; six columns each) come from the Hugging Face datasets-server size endpoint, not the cards. The counts match the MMLU test sizes for these subjects, apart from the Hindi college-medicine set (144). Same uploader as hindi-mmlu-medical-shuyuej; Spanish Clinical Knowledge and other subjects may exist on the hub but are not in this batch. Translation method unknown (likely machine translation)."
+  notes: "The three dataset cards are a license tag plus a load_dataset snippet; no paper, no translation method, no author statement. Row counts (173, 100, 272; six columns each) come from the Hugging Face datasets-server size endpoint, not the cards. The counts match the MMLU test sizes for these subjects, apart from the Hindi college-medicine set (144). Same uploader as hindi-mmlu-medical-shuyuej. The Clinical Knowledge set (265 items, checked in the data file) was a separate entry and is merged here. Translation method unknown (likely machine translation)."

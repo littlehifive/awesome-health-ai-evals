@@ -1,0 +1,26 @@
+{
+  "skill_name": "adapt-benchmark-rubric",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "We want to use HealthBench-style rubric axes (accuracy, completeness, communication quality, context awareness, instruction following) to grade our symptom-checker bot for community health workers in rural Malawi. CHWs refer to health centres that have basic labs but no imaging, and they follow the Malawi IMCI guidelines and the national essential medicines list. Please adapt the rubric.",
+      "expected_output": "An adapted rubric following the template: each source axis mapped and marked kept, rewritten, or new; rewritten criteria remove assumptions of imaging, specialists, and emergency departments; new criteria for following Malawi IMCI guidance, recommending only medicines on the essential list at that level of care, referring to the health centre with clear danger signs for urgent referral, and plain language a CHW can relay. Anchors with Malawi examples; a change log citing IMCI or the essential medicines list for each change; a review plan with two local clinicians rating 20 to 30 responses and an agreement threshold. It notes HealthBench's license and that safety criteria are not loosened.",
+      "files": [],
+      "assertions": []
+    },
+    {
+      "id": 2,
+      "prompt": "Localize this rubric for Kenya.",
+      "expected_output": "Asks for the Required inputs: the source rubric and its license, the setting (level of care, users, languages, literacy), and the guidelines and essential medicines to follow. It does not invent a rubric.",
+      "files": [],
+      "assertions": []
+    },
+    {
+      "id": 3,
+      "prompt": "Can you adapt the MedQA answer key for India?",
+      "expected_output": "Explains that MedQA is a multiple-choice exam scored against an answer key, not a rubric, so there is nothing to adapt with this skill. It points to find-health-benchmarks for India-grounded entries (for example MedMCQA) or to writing a rubric for the team's own use case, and does not produce an adapted answer key.",
+      "files": [],
+      "assertions": []
+    }
+  ]
+}

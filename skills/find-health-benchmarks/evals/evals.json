@@ -1,0 +1,26 @@
+{
+  "skill_name": "find-health-benchmarks",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "We run a WhatsApp bot for pregnant women in northern Nigeria. They write in Hausa and English, mostly about danger signs, nutrition, and when to go to the clinic. The worst failure is missing a danger sign like bleeding or severe headache. We can share de-identified logs. Which benchmarks should we use?",
+      "expected_output": "A profile line (pregnant women and mothers, Nigeria, lower-middle income, Hausa and English, maternal health, text, top risk missed danger signs). A shortlist ranked by fit, led by entries with items from Nigeria or sub-Saharan Africa (for example AfriMed-QA, with the caveat that it is English exam and consumer questions, not Hausa) and maternal-health or consumer-safety entries in the catalog, each with why it fits and what it misses. It says plainly that no catalog entry (or only a few, named) has Hausa items about maternal danger signs, names uncovered constructs such as danger-sign recognition and referral to care that exists, and recommends scoring the team's own logs with score-transcripts-with-rubric and adapting a rubric with adapt-benchmark-rubric. It does not recommend MedQA or MMLU as evidence of safe advice.",
+      "files": [],
+      "assertions": []
+    },
+    {
+      "id": 2,
+      "prompt": "What benchmarks exist for health chatbots?",
+      "expected_output": "Asks the Required questions (who uses the bot and what they ask; country and languages; health areas and worst failure) before producing a shortlist. It may summarize the catalog in one or two sentences (size, that most items are English exam questions from high-income countries) but does not produce a ranked list without a setting.",
+      "files": [],
+      "assertions": []
+    },
+    {
+      "id": 3,
+      "prompt": "Our hospital in Boston is building a radiology report summarizer for radiologists. Which health benchmarks fit?",
+      "expected_output": "Says the request is out of the catalog's scope (imaging and documentation tasks are excluded), so the catalog is not the right source, and does not force a shortlist. It may point to the closest in-scope entries only if they truly fit, and otherwise stops.",
+      "files": [],
+      "assertions": []
+    }
+  ]
+}

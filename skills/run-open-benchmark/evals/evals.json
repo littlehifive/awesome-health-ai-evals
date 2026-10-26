@@ -1,0 +1,26 @@
+{
+  "skill_name": "run-open-benchmark",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Run MedMCQA on Llama 3.1 8B and Qwen 2.5 7B on our GPU box and give me comparable numbers.",
+      "expected_output": "Uses lm-evaluation-harness (checking the task name with lm_eval --tasks list), fixes and records settings (harness version, dataset revision, split such as validation since the test answers are not public, prompt, shots, temperature, extraction), smoke-tests 20 items, reports accuracy with 95% intervals per model with exact commands, compares with published numbers, and notes that MedMCQA tests Indian entrance-exam recall, not advice quality.",
+      "files": [],
+      "assertions": []
+    },
+    {
+      "id": 2,
+      "prompt": "Get HealthBench scores for our fine-tuned model.",
+      "expected_output": "Points to OpenAI simple-evals, which ships HealthBench and its grader; records the grader model, subset (full, Hard, or Consensus), and settings; notes grader cost and that the grader model's choice changes scores; reports with intervals and explains that HealthBench conversations are not grounded in any specific LMIC setting.",
+      "files": [],
+      "assertions": []
+    },
+    {
+      "id": 3,
+      "prompt": "Run the Rwandan CHW vignettes benchmark and tell us our bot is safe for CHWs in Rwanda.",
+      "expected_output": "Can run the benchmark if the data is open (checking the entry's license and data access) but refuses to conclude the bot is safe from the score alone: it explains what the vignettes measure, recommends expert review and scoring real CHW conversations with score-transcripts-with-rubric, and reports the score with its limits.",
+      "files": [],
+      "assertions": []
+    }
+  ]
+}
