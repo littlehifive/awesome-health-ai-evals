@@ -74,12 +74,17 @@ def table(entries: list[dict]) -> str:
     return HEADER + "\n" + "\n".join(row(e) for e in entries)
 
 
-def related_list(items: list[dict]) -> str:
+def related_list(items: list[dict], limit: int = 40) -> str:
+    """The `limit` most cited items, newest first; the full list stays in data/related.yaml."""
+    top = sorted(items, key=lambda x: -(x.get("cited_by") or 0))[:limit]
     lines = []
-    for it in sorted(items, key=lambda x: (-(x.get("year") or 0), x["title"].lower())):
+    for it in sorted(top, key=lambda x: (-(x.get("year") or 0), x["title"].lower())):
         who = f" {it['by']}." if it.get("by") else ""
         year = f" ({it['year']})" if it.get("year") else ""
         lines.append(f"- [{it['title']}]({it['url']}){year}.{who}")
+    if len(items) > limit:
+        lines += ["", f"The {limit} most cited are shown; all {len(items)} are in "
+                      f"[`data/related.yaml`](data/related.yaml)."]
     return "\n".join(lines) or "_None yet._"
 
 

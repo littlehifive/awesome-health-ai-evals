@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Evaluation terms of one entry (pass 2)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["entry", "sources", "extracted", "terms"],
+  "properties": {
+    "entry": {"type": "string", "description": "id of the entry in entries/"},
+    "sources": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "extracted": {"type": "string"},
+    "terms": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["term", "level", "definition", "location"],
+        "properties": {
+          "term": {"type": "string"},
+          "level": {"enum": ["axis", "dimension", "criterion", "principle", "metric", "category", "other"]},
+          "parent": {"type": "string"},
+          "definition": {"type": "string"},
+          "definition_verbatim": {"type": "boolean"},
+          "location": {"type": "string"},
+          "scale": {"type": "string"}
+        }
+      }
+    },
+    "notes": {"type": "string"}
+  }
+}

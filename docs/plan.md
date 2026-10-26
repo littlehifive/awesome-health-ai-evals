@@ -69,7 +69,8 @@ English only. The site states this blind spot. No practitioner outreach in v1, s
 ### Screening pipeline
 
 1. Scripts retrieve records and remove duplicates by DOI, arXiv ID, or normalized title (no LLM).
-2. A screening script sends titles and abstracts through the OpenAI Batch API on a small model (e.g., `gpt-5.4-mini`; final choice by current price), with the inclusion criteria above as the rubric. Each record gets one label with a reason: benchmark, eval framework, related guidance, survey or review, borderline, or exclude. When the model is unsure, it labels the record borderline instead of excluding it. Benchmarks and eval frameworks become entries; related guidance and surveys feed their README sections.
+2. A screening script sends titles and abstracts through the OpenAI Batch API on a small model (`gpt-6-luna`), with the inclusion criteria above as the rubric. Each record gets one label with a reason: benchmark, eval framework, related guidance, survey or review, borderline, or exclude. When the model is unsure, it labels the record borderline instead of excluding it. Benchmarks and eval frameworks become entries; related guidance and surveys feed their README sections.
+   - Added during the build: the first pass kept about 30% of records, too many to read in full, so a second, stricter pass re-screens the kept records with a larger model (`gpt-6.1-sol`). It excludes one-off studies that release nothing, and it keeps borderline only for substantial test sets whose release is unclear. Public health QA or dialogue datasets in languages other than English, or from LMICs, stay borderline rather than being excluded as training data. A record's decision is its strict label when it has one.
 3. Claude Code agents read full text for borderline and included records, fill pass-1 fields, and spot-check a sample of exclusions. They also merge a paper, its dataset, and its code repository into one entry.
 
 ## Taxonomy

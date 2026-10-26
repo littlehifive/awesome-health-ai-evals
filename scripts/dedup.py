@@ -2,7 +2,7 @@
 
 Hits are merged when they share a DOI, arXiv ID, OpenAlex ID, PMC ID,
 Hugging Face dataset ID, GitHub repo, or normalized title. Records with a DOI
-but no abstract get one from OpenAlex.
+but no abstract get one from OpenAlex, then from Crossref.
 
 Writes search/work/records.jsonl (with abstracts, gitignored) and
 search/records.csv (metadata only, committed).
@@ -15,10 +15,11 @@ from __future__ import annotations
 
 import csv
 import hashlib
+import re
 import sys
 from collections import defaultdict
 
-from common import SEARCH, WORK, norm_title, read_jsonl, write_jsonl
+from common import SEARCH, WORK, cached_get, norm_title, read_jsonl, write_jsonl
 from search_openalex import OpenAlex, to_record
 
 TRACK_FILES = ["openalex", "paperclip", "hf_github", "survey_refs"]
@@ -120,6 +121,31 @@ def fill_abstracts(records: list[dict]) -> int:
     return filled
 
 
+def fill_crossref(records: list[dict]) -> int:
+    """Fetch titles and abstracts OpenAlex lacks from Crossref, one DOI per request."""
+    need = [r for r in records if r["doi"] and not r["doi"].startswith("10.48550/")
+            and (not r["abstract"] or r["title"] in (None, "", "Untitled"))]
+    filled = 0
+    for r in need:
+        try:
+            msg = cached_get("crossref", f"https://api.crossref.org/works/{r['doi']}",
+                             pause=0.25)["message"]
+        except RuntimeError:  # DOI not registered with Crossref
+            continue
+        abstract = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", msg.get("abstract") or "")).strip()
+        abstract = re.sub(r"^Abstract\s+", "", abstract)
+        if abstract and not r["abstract"]:
+            r["abstract"] = abstract
+            filled += 1
+        if r["title"] in (None, "", "Untitled") and msg.get("title"):
+            r["title"] = msg["title"][0]
+        parts = (msg.get("published") or {}).get("date-parts") or [[None]]
+        r["year"] = r["year"] or parts[0][0]
+        r["venue"] = r["venue"] or next(iter(msg.get("container-title") or []), None) \
+            or (msg.get("institution") or [{}])[0].get("name")
+    return filled
+
+
 def main() -> None:
     hits = []
     for name in TRACK_FILES:
@@ -139,6 +165,12 @@ def main() -> None:
 
     records = sorted((merge(g) for g in groups.values()), key=lambda r: r["id"])
     filled = fill_abstracts(records)
+    filled_cr = fill_crossref(records)
+    # Some paperclip abstracts-corpus hits have no title, abstract, or DOI: nothing to screen,
+    # and they would all share one title-based ID.
+    empty = [r for r in records
+             if r["title"] in (None, "", "Untitled") and not r["abstract"] and not r["doi"]]
+    records = [r for r in records if r not in empty]
     write_jsonl(WORK / "records.jsonl", records)
 
     with (SEARCH / "records.csv").open("w", newline="") as f:
@@ -151,7 +183,9 @@ def main() -> None:
 
     no_abs = sum(1 for r in records if not r["abstract"])
     print(f"{len(hits)} hits -> {len(records)} records "
-          f"({filled} abstracts filled from OpenAlex, {no_abs} still without)", file=sys.stderr)
+          f"({filled} abstracts filled from OpenAlex, {filled_cr} from Crossref, "
+          f"{no_abs} still without; "
+          f"{len(empty)} dropped with no title, abstract, or DOI)", file=sys.stderr)
 
 
 if __name__ == "__main__":

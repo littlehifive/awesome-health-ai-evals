@@ -1,4 +1,4 @@
-"""Validate entries/*.yaml against the schema, plus checks the schema can't express.
+"""Validate entries/*.yaml and terms/*.yaml against their schemas, plus checks the schemas can't express.
 
 Usage:
     uv run scripts/validate.py
@@ -30,7 +30,7 @@ def main() -> int:
 
     entries = load_entries()
     errors = []
-    names = {}
+    names, owners = {}, {}
     for stem, e in entries.items():
         for err in validator.iter_errors(e):
             loc = "/".join(str(p) for p in err.absolute_path) or "(root)"
@@ -55,10 +55,34 @@ def main() -> int:
         if key in names:
             errors.append(f"{stem}: same name as {names[key]}")
         names[key] = stem
+        # Two entries sharing a paper or dataset are usually one benchmark written twice.
+        links = e.get("links") or {}
+        for kind in ("doi", "arxiv"):
+            if links.get(kind):
+                owners.setdefault(f"{kind}:{str(links[kind]).lower()}", []).append(stem)
+        for hf in links.get("huggingface") or []:
+            owners.setdefault(f"huggingface:{hf.lower()}", []).append(stem)
+
+    for link, stems in sorted(owners.items()):
+        if len(stems) > 1:
+            errors.append(f"{', '.join(stems)}: share {link}")
+
+    # Pass-2 term files.
+    terms_validator = Draft202012Validator(json.loads((ROOT / "schema" / "terms.schema.json").read_text()))
+    term_files = sorted((ROOT / "terms").glob("*.yaml"))
+    for path in term_files:
+        t = load_yaml(path.read_text())
+        for err in terms_validator.iter_errors(t):
+            loc = "/".join(str(p) for p in err.absolute_path) or "(root)"
+            errors.append(f"terms/{path.stem}: {loc}: {err.message}")
+        if isinstance(t, dict) and t.get("entry") != path.stem:
+            errors.append(f"terms/{path.stem}: entry {t.get('entry')!r} does not match the file name")
+        if path.stem not in entries:
+            errors.append(f"terms/{path.stem}: no entry with this id")
 
     for line in errors:
         print(line)
-    print(f"{len(entries)} entries, {len(errors)} problems", file=sys.stderr)
+    print(f"{len(entries)} entries, {len(term_files)} term files, {len(errors)} problems", file=sys.stderr)
     return 1 if errors else 0
 
 

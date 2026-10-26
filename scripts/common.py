@@ -25,7 +25,8 @@ LOG_FIELDS = ["date", "track", "query_id", "source", "query", "hits"]
 
 
 def load_env() -> None:
-    """Load KEY=VALUE lines from .env into os.environ without overwriting."""
+    """Load KEY=VALUE lines from .env into os.environ. .env wins over the shell,
+    so a key exported in a shell profile can't shadow the project's key."""
     path = ROOT / ".env"
     if not path.exists():
         return
@@ -34,7 +35,7 @@ def load_env() -> None:
         if not line or line.startswith("#") or "=" not in line:
             continue
         key, value = line.split("=", 1)
-        os.environ.setdefault(key.strip(), value.strip().strip("'\""))
+        os.environ[key.strip()] = value.strip().strip("'\"")
 
 
 class _NoDateLoader(yaml.SafeLoader):
@@ -130,10 +131,13 @@ def read_jsonl(path: Path) -> list[dict]:
 
 
 def write_jsonl(path: Path, rows: list[dict]) -> None:
+    """Write atomically, so a concurrent reader never sees a half-written file."""
     path.parent.mkdir(parents=True, exist_ok=True)
-    with path.open("w") as f:
+    tmp = path.with_suffix(path.suffix + ".tmp")
+    with tmp.open("w") as f:
         for row in rows:
             f.write(json.dumps(row, ensure_ascii=False) + "\n")
+    tmp.replace(path)
 
 
 def norm_title(title: str | None) -> str:

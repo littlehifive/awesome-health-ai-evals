@@ -1,12 +1,18 @@
 """Title/abstract screening through the OpenAI Batch API.
 
+Two stages. `title_abstract` labels every record with a small model and keeps
+anything uncertain. `strict` re-screens the records it kept (benchmark,
+eval_framework, borderline) with a larger model and a stricter prompt, so the
+full-text step only reads plausible entries. A record's decision is its strict
+label when it has one, else its title_abstract label.
+
 Each record gets one label with a reason. Results are appended to
 search/work/screen_results.jsonl and summarized in search/screening.csv.
 
 Usage:
-    uv run scripts/screen.py test --ids r_abc,r_def [--model M]   # synchronous check
-    uv run scripts/screen.py submit [--model M] [--input FILE]    # batch the unscreened records
-    uv run scripts/screen.py collect                              # download finished batches
+    uv run scripts/screen.py test --ids r_abc,r_def [--stage S] [--model M]  # synchronous check
+    uv run scripts/screen.py submit [--stage S] [--model M] [--changed]       # batch the unscreened records
+    uv run scripts/screen.py collect                                          # download finished batches
 """
 
 from __future__ import annotations
@@ -22,10 +28,9 @@ from openai import OpenAI
 
 from common import SEARCH, WORK, load_env, read_jsonl, write_jsonl
 
-MODEL = "gpt-6-luna"
-PROMPT_VERSION = "v1"
 RESULTS = WORK / "screen_results.jsonl"
 BATCHES = WORK / "screen_batches.json"
+FAILED = ("failed", "expired", "cancelled")
 
 LABELS = ["benchmark", "eval_framework", "related_guidance", "survey", "borderline", "exclude"]
 EXCLUDE_REASONS = ["none", "out_of_scope_task", "not_health", "not_generative_ai",
@@ -45,6 +50,26 @@ Labels:
 
 When unsure whether to include or exclude, choose borderline. For any label other than exclude, set exclude_reason to "none". Give the benchmark or framework name if the record states one, otherwise an empty string. Keep the reason to one sentence."""
 
+SCOPE = next(line for line in SYSTEM.splitlines() if line.startswith("Scope:"))
+
+SYSTEM_STRICT = """You make the second, stricter screening pass for awesome-health-ai-evals, a catalog of reusable health benchmarks and evaluation frameworks for generative-AI chatbots and language models. A first screener, told to keep anything uncertain, flagged this record as a possible benchmark, evaluation framework, or borderline case. Decide from the title and abstract (or dataset card) whether it belongs in the catalog.
+
+{scope}
+
+Labels:
+- benchmark: the record introduces a new set of test items (questions, cases, prompts, dialogues, or transcripts) with a way to score model outputs, for an in-scope task, and presents it as a reusable resource: it is named as a benchmark or dataset, or the record says it is released, public, or available on request, or the record is itself a Hugging Face dataset or GitHub repository for evaluation. A paper that also proposes a model counts if it introduces such a test set. A public question-answering or dialogue dataset for an in-scope task also counts when it has a test split or the record evaluates models on it, even if it is presented mainly for building systems; this matters most for datasets in languages other than English. If a public health question-answering or dialogue dataset in a language other than English, or from a low- or middle-income country, does not say whether it is used for evaluation, choose borderline rather than training_data.
+- eval_framework: the record proposes a framework, rubric, scale, checklist, or set of criteria for judging AI models' health outputs or behavior, meant for others to apply. A study that only applies an existing instrument (DISCERN, a Likert accuracy scale, readability formulas) does not count.
+- borderline: the record builds a substantial new test set or rubric (for example hundreds of items, several languages or countries, or a named set) but the abstract does not say whether it is released, so only the full text can tell. Do not use borderline as a default.
+- survey: a survey, review, scoping review, or systematic review about evaluating or benchmarking language models in health or medicine.
+- related_guidance: governance guidance, assurance standards, or reporting checklists for health AI or language models that do not define how to judge outputs.
+- exclude, with exclude_reason:
+  - study_no_release: a one-off evaluation of chatbots (often ChatGPT, Gemini, or similar) on questions or cases assembled for the study, such as "we asked ChatGPT 50 questions about X and rated the answers", with no sign the set is named, released, or meant for reuse. This is the most common exclusion.
+  - model_or_method: a new model or method evaluated only on existing benchmarks.
+  - training_data: training or instruction-tuning data not meant for evaluation.
+  - out_of_scope_task, not_health, not_generative_ai, or other.
+
+Be strict: the catalog lists resources that others can reuse. For any label other than exclude, set exclude_reason to "none". Give the benchmark or framework name if the record states one, otherwise an empty string. Keep the reason to one sentence."""
+
 SCHEMA = {
     "type": "object",
     "properties": {
@@ -55,6 +80,13 @@ SCHEMA = {
     },
     "required": ["label", "exclude_reason", "name", "reason"],
     "additionalProperties": False,
+}
+
+KEEP = {"benchmark", "eval_framework", "borderline"}
+STAGES = {
+    "title_abstract": {"model": "gpt-6-luna", "prompt": "v1", "system": SYSTEM},
+    "strict": {"model": "gpt-6.1-sol", "prompt": "strict-v1",
+               "system": SYSTEM_STRICT.replace("{scope}", SCOPE)},
 }
 
 
@@ -77,10 +109,10 @@ def record_text(r: dict) -> str:
     return "\n".join(lines)
 
 
-def request_body(r: dict, model: str) -> dict:
+def request_body(r: dict, stage: str, model: str) -> dict:
     return {
         "model": model,
-        "messages": [{"role": "system", "content": SYSTEM},
+        "messages": [{"role": "system", "content": STAGES[stage]["system"]},
                      {"role": "user", "content": record_text(r)}],
         "response_format": {"type": "json_schema",
                             "json_schema": {"name": "screen", "strict": True, "schema": SCHEMA}},
@@ -94,9 +126,27 @@ def client() -> OpenAI:
     return OpenAI(api_key=os.environ["OPENAI_API_KEY"])
 
 
-def screened_ids(model: str) -> set[str]:
+def screened_ids(stage: str, model: str) -> set[str]:
     return {r["id"] for r in read_jsonl(RESULTS)
-            if r["model"] == model and r["prompt"] == PROMPT_VERSION}
+            if r["stage"] == stage and r["model"] == model and r["prompt"] == STAGES[stage]["prompt"]}
+
+
+def latest_decisions() -> dict[str, dict]:
+    """Each record's decision: its last strict result, else its last title_abstract result."""
+    latest = {}
+    for row in read_jsonl(RESULTS):
+        if row["stage"] == "strict" or latest.get(row["id"], {}).get("stage") != "strict":
+            latest[row["id"]] = row
+    return latest
+
+
+def pending_ids(batches: list[dict]) -> set[str]:
+    """Records in submitted batches that are neither collected nor failed."""
+    ids = set()
+    for b in batches:
+        if not b["collected"] and b.get("status") not in FAILED:
+            ids |= {row["custom_id"] for row in read_jsonl(WORK / b["input"])}
+    return ids
 
 
 def append_results(rows: list[dict]) -> None:
@@ -119,16 +169,37 @@ def cmd_test(args) -> None:
     c = client()
     for rid in args.ids.split(","):
         r = records[rid]
-        resp = c.chat.completions.create(**request_body(r, args.model))
+        resp = c.chat.completions.create(**request_body(r, args.stage, args.model or STAGES[args.stage]["model"]))
         out = parse_choice(resp.choices[0].message.content)
         u = resp.usage
         print(f"{rid} [{out['label']}/{out['exclude_reason']}] {out['name']!r} — {out['reason']}\n"
               f"    {r['title'][:100]}\n    tokens in={u.prompt_tokens} out={u.completion_tokens}")
 
 
+def screened_texts(batches: list[dict], stage: str) -> dict[str, str]:
+    """The record text each collected result was screened on, by record ID."""
+    texts = {}
+    for b in batches:
+        if b["collected"] and b.get("stage", "title_abstract") == stage:
+            for row in read_jsonl(WORK / b["input"]):
+                texts[row["custom_id"]] = row["body"]["messages"][1]["content"]
+    return texts
+
+
 def cmd_submit(args) -> None:
+    model = args.model or STAGES[args.stage]["model"]
     records = read_jsonl(args.input)
-    done = screened_ids(args.model)
+    if args.stage == "strict":
+        first = {rid: row for rid, row in latest_decisions().items() if row["stage"] == "title_abstract"}
+        records = [r for r in records if r["id"] in first and first[r["id"]]["label"] in KEEP]
+    batches = json.loads(BATCHES.read_text()) if BATCHES.exists() else []
+    done = screened_ids(args.stage, model) | pending_ids(batches)
+    if args.changed:
+        # Re-screen records whose title or abstract has been filled in since.
+        texts = screened_texts(batches, args.stage)
+        changed = {r["id"] for r in records if r["id"] in texts and texts[r["id"]] != record_text(r)}
+        done -= changed
+        print(f"{len(changed)} records changed since screening", file=sys.stderr)
     todo = [r for r in records if r["id"] not in done]
     if args.limit:
         todo = todo[:args.limit]
@@ -136,18 +207,18 @@ def cmd_submit(args) -> None:
         print("nothing to screen", file=sys.stderr)
         return
     c = client()
-    batches = json.loads(BATCHES.read_text()) if BATCHES.exists() else []
     for i in range(0, len(todo), 5000):
         chunk = todo[i:i + 5000]
         path = WORK / f"screen_input_{int(time.time())}_{i}.jsonl"
         write_jsonl(path, [{"custom_id": r["id"], "method": "POST", "url": "/v1/chat/completions",
-                            "body": request_body(r, args.model)} for r in chunk])
+                            "body": request_body(r, args.stage, model)} for r in chunk])
         with path.open("rb") as f:
             file = c.files.create(file=f, purpose="batch")
         batch = c.batches.create(input_file_id=file.id, endpoint="/v1/chat/completions",
                                  completion_window="24h")
-        batches.append({"batch_id": batch.id, "model": args.model, "prompt": PROMPT_VERSION,
-                        "n": len(chunk), "collected": False})
+        batches.append({"batch_id": batch.id, "stage": args.stage, "model": model,
+                        "prompt": STAGES[args.stage]["prompt"], "n": len(chunk), "input": path.name,
+                        "collected": False})
         print(f"submitted {batch.id} with {len(chunk)} records", file=sys.stderr)
     BATCHES.write_text(json.dumps(batches, indent=2))
 
@@ -157,15 +228,20 @@ def cmd_collect(args) -> None:
     batches = json.loads(BATCHES.read_text())
     pending = 0
     for b in batches:
-        if b["collected"]:
+        if b["collected"] or b.get("status") in FAILED:
             continue
         batch = c.batches.retrieve(b["batch_id"])
         counts = batch.request_counts
         print(f"{b['batch_id']}: {batch.status} "
               f"({counts.completed}/{counts.total} done, {counts.failed} failed)", file=sys.stderr)
-        if batch.status != "completed":
-            pending += batch.status not in ("failed", "expired", "cancelled")
+        if batch.status not in ("completed", *FAILED):
+            pending += 1
             continue
+        if batch.status != "completed":
+            # Records that didn't finish become unscreened again; `submit` resubmits them.
+            b["status"] = batch.status
+            if not batch.output_file_id:
+                continue
         rows, usage = [], [0, 0]
         text = c.files.content(batch.output_file_id).text
         for line in text.splitlines():
@@ -178,7 +254,7 @@ def cmd_collect(args) -> None:
             usage[1] += body["usage"]["completion_tokens"]
             out = parse_choice(body["choices"][0]["message"]["content"])
             rows.append({"id": item["custom_id"], "model": b["model"], "prompt": b["prompt"],
-                         "stage": "title_abstract", **out})
+                         "stage": b.get("stage", "title_abstract"), **out})
         append_results(rows)
         b["collected"] = True
         b["tokens"] = {"input": usage[0], "output": usage[1]}
@@ -193,9 +269,7 @@ def cmd_collect(args) -> None:
 def write_csv() -> None:
     """search/screening.csv: the latest decision for each record."""
     titles = {r["id"]: r["title"] for r in read_jsonl(WORK / "records.jsonl")}
-    latest = {}
-    for row in read_jsonl(RESULTS):
-        latest[row["id"]] = row
+    latest = latest_decisions()
     with (SEARCH / "screening.csv").open("w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=["id", "title", "label", "exclude_reason", "name",
                                           "reason", "stage", "model"])
@@ -212,11 +286,15 @@ def main() -> None:
     sub = parser.add_subparsers(dest="cmd", required=True)
     t = sub.add_parser("test")
     t.add_argument("--ids", required=True)
-    t.add_argument("--model", default=MODEL)
+    t.add_argument("--stage", choices=STAGES, default="title_abstract")
+    t.add_argument("--model")
     s = sub.add_parser("submit")
-    s.add_argument("--model", default=MODEL)
+    s.add_argument("--stage", choices=STAGES, default="title_abstract")
+    s.add_argument("--model")
     s.add_argument("--input", default=str(WORK / "records.jsonl"), type=lambda p: __import__("pathlib").Path(p))
     s.add_argument("--limit", type=int)
+    s.add_argument("--changed", action="store_true",
+                   help="also re-screen records whose text changed since they were screened")
     sub.add_parser("collect")
     args = parser.parse_args()
     {"test": cmd_test, "submit": cmd_submit, "collect": cmd_collect}[args.cmd](args)
