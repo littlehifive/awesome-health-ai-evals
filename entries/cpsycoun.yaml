@@ -1,0 +1,36 @@
+id: cpsycoun
+name: CPsyCoun
+kind: benchmark
+year: 2024
+summary: A Chinese psychological counseling framework with a 45-dialogue multi-turn evaluation set (CPsyCounE, nine topics) and LLM-judged metrics for comprehensiveness, professionalism, authenticity, and safety, released with 3,134 reconstructed training dialogues.
+readme_section: mental_health
+links:
+  paper: https://aclanthology.org/2024.findings-acl.830/
+  arxiv: "2405.16433"
+  doi: 10.18653/v1/2024.findings-acl.830
+  huggingface: [CAS-SIAT-XinHai/CPsyCoun, CAS-SIAT-XinHai/CPsyCounR]
+  code: https://github.com/CAS-SIAT-XinHai/CPsyCoun
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: Counseling reports were collected from Chinese psychological counseling communities and sources; the evaluation set CPsyCounE was selected from the SmileChat dialogues.
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, llm_generated]
+  venue: peer_reviewed
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: "CPsyCounE: 45 evaluation dialogues; CPsyCounD: 3,134 training dialogues"
+provenance:
+  records: [r_4de683d8fa]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Most of the release is training data (CPsyCounD, from reports via Memo2Demo dialogue reconstruction with an LLM); the benchmark part is CPsyCounE plus the turn-based LLM evaluation. Repo license CC-BY-4.0 (GitHub API); the CAS-SIAT-XinHai/CPsyCoun Hugging Face dataset carries cc-by-sa-4.0. The report dataset CPsyCounR is available only on request after signing a privacy agreement (README). Rater countries not stated."

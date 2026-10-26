@@ -1,0 +1,34 @@
+id: medsafe-abstention
+name: MedSAFE (abstention)
+kind: eval_framework
+year: 2025
+summary: "A decision-theoretic framework for evaluating whether medical LLMs abstain, answer, or ask for clarification in clinical dialogues, with an auditor-target-judge pipeline, eight benign and risky scenarios, and a seven-dimension safety rubric."
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.1038/s41746-026-02882-1
+  doi: 10.1038/s41746-026-02882-1
+  code: https://github.com/orianapresacan/MedSAFE
+license: MIT
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Eight scenario seeds derived from the authors' literature review; not tied to a country.
+  localization: native
+  lead_institution_countries: [ROU, NOR]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public]
+  eval_methods: [simulated_multi_turn, rubric_llm_judge]
+  modality: [text]
+  size: 8 scenarios (benign and risky); metrics AURC, AUAOC, ECE
+provenance:
+  records: [r_cdf78b2634]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "npj Digital Medicine article combining a review of LLM abstention with the framework; the preprint DOI is 10.21203/rs.3.rs-8148261/v1 (2025). The paper calls the pilot proof-of-concept. Code defaults to a deterministic simulator; live mode uses Claude models. License is the repo license. Distinct from MedSafetyBench and MedSafe-Bench entries."

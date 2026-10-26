@@ -1,0 +1,33 @@
+id: kgmedqa
+name: KGMedQA
+kind: benchmark
+year: 2025
+summary: "A knowledge-graph-based generator and scorer that builds Boolean, multiple-choice, error-identification and error-correction biomedical questions from triples and paths of any KG (shipped with iBKH and DDKG), scored by accuracy and embedding similarity."
+readme_section: knowledge_exam
+links:
+  doi: 10.1016/j.aiopen.2026.07.001
+  code: https://github.com/PerseidsMeteorShower/KGMedQA
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Questions are generated from biomedical knowledge graphs, not from a country or setting.
+  localization: unknown
+  lead_institution_countries: [CHN, USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [unspecified]
+  eval_methods: [mcq_exact_match, automatic_metric]
+  modality: [text]
+  size: "Generated on demand; the repo ships the iBKH and DDKG knowledge graphs (size of generated sets not stated in the sources read)"
+provenance:
+  records: [r_8a72bed498]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: medium
+  notes: "Read the Crossref abstract, OpenAlex authorships and the GitHub README; the ScienceDirect full text was not reachable. The GitHub repo was matched by exact title and is assumed to be the paper's; it has no license file (the paper itself is CC BY 4.0). Item language is assumed English and was not checked in the generated questions. Closer to biomedical knowledge probing than patient-facing health QA, so scope is borderline. Authors at UESTC (China), Amazon and Emory (US)."

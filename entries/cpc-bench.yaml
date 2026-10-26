@@ -1,0 +1,35 @@
+id: cpc-bench
+name: CPC-Bench
+kind: benchmark
+year: 2025
+summary: Ten diagnostic-reasoning tasks built from 7,102 NEJM Clinicopathological Conference cases (differential diagnosis, reasoning, question answering, image and literature tasks), scored by LLM and physician review.
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2509.12194
+  arxiv: "2509.12194"
+  doi: 10.48550/arxiv.2509.12194
+  website: https://cpcbench.com
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Cases are NEJM Clinicopathological Conferences from Massachusetts General Hospital (1923 to 2025).
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [rubric_llm_judge, expert_human_rating, mcq_exact_match]
+  modality: [text]
+  size: "7,102 cases; 47,648 questions across 10 tasks"
+provenance:
+  records: [r_de8a963855]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "The paper also introduces Dr. CaBot, a diagnostic agent. The benchmark is private with a public leaderboard at cpcbench.com where researchers submit models. The paper says a subset (case presentation and differential sections, licensed from NEJM) will be released upon publication, so open_data is unknown. Some tasks use images (NEJM Image Challenge, visual QA); most are text. Most tasks use the 377 CPCs from 2015 to 2025 that have a differential diagnosis section."

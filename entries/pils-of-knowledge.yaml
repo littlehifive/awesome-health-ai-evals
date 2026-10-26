@@ -1,0 +1,34 @@
+id: pils-of-knowledge
+name: PILs of Knowledge
+kind: benchmark
+year: 2025
+summary: Over 13,300 LLM-generated multiple-choice questions grounded in patient information leaflets for medicines, for evaluating question answering on medication information.
+readme_section: knowledge_exam
+links:
+  paper: https://doi.org/10.1145/3726302.3730283
+  doi: 10.1145/3726302.3730283
+  huggingface: [smdclab/pils]
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: The source countries of the leaflets are not stated on the dataset card or abstract.
+  localization: unknown
+  lead_institution_countries: [ITA]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated, literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [pharmacy_medication]
+  intended_users: [patient_public]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 13,300+ multiple-choice questions
+provenance:
+  records: [r_6e7486bc64]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: medium
+  notes: "SIGIR 2025 paper (University of Udine); the ACM page returned 403, so only the abstract, the Hugging Face card and the parquet listing were read. Questions come from a fully automated multi-LLM pipeline over real leaflets. Item origin country and the intended-user label are inferred from the leaflet topic."

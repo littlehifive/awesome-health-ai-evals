@@ -1,0 +1,35 @@
+id: mpib
+name: MPIB (Medical Prompt Injection Benchmark)
+kind: benchmark
+year: 2026
+summary: 9,697 clinical instances built from MedQA and PubMedQA, including direct and RAG-mediated prompt-injection attacks, scored by the rate of high-severity clinical harm events (CHER) and attack success rate under an LLM judge.
+readme_section: safety
+links:
+  paper: https://arxiv.org/abs/2602.06268
+  arxiv: "2602.06268"
+  doi: 10.48550/arxiv.2602.06268
+  huggingface: [jhlee0619/mpib]
+license: CC-BY-NC-4.0
+open_data: gated
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Anchors come from MedQA (US licensing-exam style) and PubMedQA; the paper does not state a country for the PubMedQA items.
+  localization: adapted
+  lead_institution_countries: [KOR]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, llm_generated]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: "9,697 instances: 2,734 benign, 5,737 borderline, 644 direct injection, 582 indirect injection"
+provenance:
+  records: [r_f79f535ccb]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Read the construction, artifact and judge sections. The public Hugging Face release is gated (auto approval per the hub API) and redacts payload strings in the indirect-injection items; unredacted payloads need controlled access. Licence from the hub tag. Instances are normalized from MedQA and PubMedQA, then attacks and poisoned documents are generated with an LLM (Qwen-2.5-72B-Instruct is used for scenario modeling and judging). The judge is selected against a 300-item set with human expert-validated labels."

@@ -1,0 +1,32 @@
+id: zbn-bench
+name: ZBN-Bench
+kind: benchmark
+year: 2026
+summary: 1,500 traditional Chinese medicine reasoning questions (750 single-choice, 450 multiple-choice, 300 chained-choice) for the Zhao Bingnan dermatology school, built with a knowledge-graph-constrained multi-agent workflow and scored automatically.
+readme_section: knowledge_exam
+links:
+  paper: https://doi.org/10.2139/ssrn.6736926
+  doi: 10.2139/ssrn.6736926
+open_data: unknown
+geography:
+  item_languages: [UNKNOWN]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: The abstract does not state the item language or country. The knowledge base is built from clinical cases, books, and articles on Zhao Bingnan dermatology (traditional Chinese medicine).
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated, literature]
+  venue: preprint
+facets:
+  health_areas: [traditional_medicine, other_specialty]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 1,500 items; 300 rated by four experts; 14 LLMs evaluated
+provenance:
+  records: [r_3efd9573ac]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "SSRN preprint; the full text could not be fetched (403) and the paper is not in paperclip, so everything comes from the abstract. Item language, authors' countries, and any data or code release are unknown. Builder type is assumed academic from the venue; unverified."

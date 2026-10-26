@@ -1,0 +1,33 @@
+id: contextualized-medical-advice-divergence
+name: Contextualized Medical Advice Divergence Dataset
+kind: benchmark
+year: 2026
+summary: 10,545 patient personas (age, sex, conditions, medications) each paired with synthetic medication advice labeled by whether and how it diverges from one of 93 medication guideline documents; 2,110 are the test split.
+readme_section: safety
+links:
+  doi: 10.5281/zenodo.18140793
+  dataset: https://doi.org/10.5281/zenodo.18140793
+license: CC-BY-4.0
+open_data: gated
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: The card does not say which country's medication guidelines were used.
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [unknown]
+  item_provenance: [llm_generated, literature]
+  venue: grey_literature
+facets:
+  health_areas: [pharmacy_medication]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 10,545 samples (8,435 train, 2,110 test), five balanced label classes
+provenance:
+  records: [r_8c7539bd89]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Read the Zenodo record. Zenodo marks the record access as restricted, so open_data is gated (request needed); the license shown is CC-BY-4.0. Authors are listed as Anonymous. Reference advice is LLM-generated to conflict with, or match, advice extracted from real medication documents (the source of those documents is not named). The task is classifying divergence (macro F1, binary divergence vs none), with baselines for zero-shot, chain-of-thought, LoRA, RAG and multi-agent debate; the card says a paper is to be cited but its title is cut off. Zenodo publication date reads 2025-05-25, the DOI suggests early 2026; year 2026 is a guess."

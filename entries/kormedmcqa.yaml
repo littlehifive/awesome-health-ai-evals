@@ -1,0 +1,34 @@
+id: kormedmcqa
+name: KorMedMCQA
+kind: benchmark
+year: 2024
+summary: 7,469 Korean multiple-choice questions from the 2012-2024 licensing exams for doctors, nurses, pharmacists, and dentists, scored by exact match; 59 LLMs evaluated.
+readme_section: multilingual_regional
+links:
+  paper: https://arxiv.org/abs/2403.01469
+  arxiv: "2403.01469"
+  doi: 10.48550/arxiv.2403.01469
+  huggingface: [sean0042/KorMedMCQA]
+license: CC-BY-NC-2.0
+open_data: open
+geography:
+  item_languages: [Korean]
+  item_origin_countries: [KOR]
+  localization: native
+  lead_institution_countries: [KOR]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions]
+  venue: preprint
+facets:
+  health_areas: [general_medicine, nursing, pharmacy_medication, dentistry]
+  intended_users: [medical_student, clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: "7,469 questions (doctor 2,489; nurse 1,751; pharmacist 1,817; dentist 1,412)"
+provenance:
+  records: [r_d3fab82197]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: Train (pre-2021), dev (2021), and test (2022-2024) splits by exam year; few-shot examples come from the dev set. The Hugging Face dataset sean0042/KorMedMCQA is not listed on the screening record; it was found by name and its card shows cc-by-nc-2.0 and the four exam configs, but its card does not cite the paper, so the link is by name match only. The CC-BY-NC-2.0 license is as shown on that card.

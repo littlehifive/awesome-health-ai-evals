@@ -1,0 +1,33 @@
+id: clinicast
+name: CliniCAST
+kind: benchmark
+year: 2026
+summary: "5,856 synthetic speech samples across 12 disease conditions for testing whether audio-language models ground five-level emergency triage in clinically meaningful acoustic cues rather than the spoken words, including audio-text conflict cases."
+readme_section: voice
+links:
+  paper: https://doi.org/10.18653/v1/2026.findings-acl.2056
+  doi: 10.18653/v1/2026.findings-acl.2056
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Scripts and audio are synthetic (ElevenLabs TTS with controlled gender and age voices); no real patients or country.
+  localization: unknown
+  lead_institution_countries: [KOR, USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated]
+  venue: peer_reviewed
+facets:
+  health_areas: [emergency_triage]
+  intended_users: [unspecified]
+  eval_methods: [automatic_metric]
+  modality: [voice]
+  size: 5,856 samples (4,800 audio forming 2,400 tagged-untagged pairs; 1,056 audio-text inconsistent)
+provenance:
+  records: [r_2733574d48]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Read the ACL Findings 2026 PDF (task design, ESI direction-rate metrics, TTS pipeline). No dataset or code link found in the text, so open_data is unknown and license null. English is inferred from the prompt template (11 short English sentences), not an explicit statement. Evaluated models include Qwen2.5-Omni, Qwen3-Omni, and Gemini 2.5 Flash."

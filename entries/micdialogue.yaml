@@ -1,0 +1,33 @@
+id: micdialogue
+name: MicDialogue
+kind: benchmark
+year: 2025
+summary: 8,813 Chinese multi-turn dialogues on maternity and infant care (7,685 from blog posts and 1,128 from doctor short videos) with topic, disease, symptom, and cause annotations, scored on response generation with BLEU, NIST, METEOR, DIST-2, and human ratings.
+readme_section: multilingual_regional
+links:
+  paper: https://doi.org/10.24963/ijcai.2025/923
+  doi: 10.24963/ijcai.2025/923
+license: null
+open_data: unknown
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: Dialogues come from Chinese platforms (Kuaishou, Douyin, Xiaohongshu for short videos; Weibo and Zhihu for blog posts).
+  localization: native
+  lead_institution_countries: [CHN, SGP]
+origin:
+  builder_types: [academic, industry_lab]
+  item_provenance: [web_forum]
+  venue: peer_reviewed
+facets:
+  health_areas: [maternal_newborn, child_health]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric, expert_human_rating]
+  modality: [text]
+  size: 8,813 dialogues, 40,730 utterances (8:1:1 train, validation, test split)
+provenance:
+  records: [r_7a94cc0af6]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "IJCAI 2025 main track, Dalian University of Technology with Meetyou AI Lab. The paper does not give a download link or license, so open_data is unknown. Task is dialogue response generation; baselines are Transformer, CDial-GPT, ChatGPT, BART, and the authors' knowledge-graph model Kng-BART. Human evaluation used five students rating 1,000 dialogues on relevance, informativeness, fluency, and topic alignment (1-5), so rater type is not clinical. Rater country is not stated."

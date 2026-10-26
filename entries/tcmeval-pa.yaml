@@ -1,0 +1,36 @@
+id: tcmeval-pa
+name: TCMEval-PA
+kind: benchmark
+year: 2025
+summary: 328 physician-reviewed choice questions (297 single, 31 multiple) on prescription audit of Chinese herbal medicines, covering normativity and appropriateness rules, scored by accuracy.
+readme_section: multilingual_regional
+links:
+  paper: https://doi.org/10.1038/s41597-025-06387-6
+  doi: 10.1038/s41597-025-06387-6
+  pmcid: PMC12827263
+  dataset: https://doi.org/10.6084/m9.figshare.29651261.v3
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: Items come from Chinese pharmacist licensing and Chinese pharmacy professional-qualification exam preparation books, plus items written to cover official audit rules. The language is not stated explicitly; the sources are Chinese.
+  rater_countries: [CHN]
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions, clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [traditional_medicine, pharmacy_medication]
+  intended_users: [pharmacist, clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 328 questions
+provenance:
+  records: [r_a0a9e08593]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Each item links to one of 18 audit rules (9 normativity, 9 appropriateness) plus 6 fundamental-concept items, with an explanation. Annotated by licensed TCM physicians. Distributed as .xlsx on Figshare. Rater country inferred from the physicians' hospital affiliations in China; the paper does not state it separately."

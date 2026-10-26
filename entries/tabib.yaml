@@ -1,0 +1,33 @@
+id: tabib
+name: TABIB
+kind: benchmark
+year: 2026
+summary: French-language behavioral safety benchmark for biomedical LLMs with seven protocols built on the ANSM drug-interaction thesaurus (surface perturbation, context distraction, patient pressure, cross-lingual, calibration, severity-matched caution, demographic bias), plus an Inspect AI harness for long-horizon clinical-agent safety sessions.
+readme_section: safety
+links:
+  paper: https://hal.science/hal-05708478v1
+  code: https://github.com/Rian-T/tabib-eval
+license: MIT
+open_data: open
+geography:
+  item_languages: [French]
+  item_origin_countries: [FRA]
+  item_origin_note: Ground truth is the French ANSM drug-interaction thesaurus and the BDPM drug database; clinical reports are synthetic.
+  localization: native
+  lead_institution_countries: [FRA]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [pharmacy_medication, general_medicine]
+  intended_users: [clinician, patient_public]
+  eval_methods: [automatic_metric, simulated_multi_turn]
+  modality: [text]
+  size: "7 protocols (B1-B7); item counts vary by protocol and were not totalled (e.g. B7 uses 100 cases of 900, from 14,400 generated instances)"
+provenance:
+  records: [r_df0e0cdb68, r_d51718e8f4]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "r_df0e0cdb68 is the French CORIA/TALN 2026 paper (HAL, CC BY 4.0), by Inria ALMAnaCH authors; r_d51718e8f4 is the tabib-eval GitHub repo (MIT) by the first author, an Inspect AI harness with three simulated worlds (hospital pharmacy, consultation, companion) using PARHAF synthetic patient reports and the ANSM thesaurus, merged here as the same project. The paper cites a repo named tabib-benchmark that returned 404; tabib-eval is the repo found. The cross-lingual protocol (B4) uses a second language not named in the parts read, so only French is listed. Paper tested seven local open-weight models of 2B to 9B parameters. Data (ANSM thesaurus) is redistributed under terms in the repo's DATA.md, not checked."

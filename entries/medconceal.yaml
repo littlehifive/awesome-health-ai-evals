@@ -1,0 +1,36 @@
+id: medconceal
+name: MedConceal
+kind: benchmark
+year: 2026
+summary: "300 patient cases built from clinician-answered r/AskDocs threads, each with hidden concerns, used with an interactive patient simulator to test whether a dialogue agent elicits the concerns (confirmation) and moves the patient to a target plan (intervention), with 600 clinician-LLM interactions."
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2604.08788
+  arxiv: "2604.08788"
+  doi: 10.48550/arxiv.2604.08788
+  huggingface: [Eclipse42/MedConceal]
+  code: https://github.com/FAIRHealth/MedConceal
+license: CC-BY-NC-SA-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: "Cases are derived from Reddit r/AskDocs threads with physician responses; posters' countries are not stated."
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [web_forum, clinician_written]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public]
+  eval_methods: [simulated_multi_turn, expert_human_rating]
+  modality: [text]
+  size: "300 cases; 600 clinician-LLM interactions; 159 human clinicians (Prolific)"
+provenance:
+  records: [r_13f6c28c00]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "The paper's template reads 'Published as a conference paper at COLM 2026' while the Hugging Face README says 'paper submission', so venue is recorded as preprint; a human should confirm. Hidden concerns come from prior literature and an expert-developed taxonomy rather than the threads. The Hugging Face repo (Eclipse42/MedConceal) holds cases, dialogue traces, per-case metrics, and evaluation scripts; the patient simulator source is not yet released (README says after publication). GitHub FAIRHealth/MedConceal had no README when checked. Human clinicians came from Prolific; countries not given. Process metrics are turn-level communication signals computed with the simulator."

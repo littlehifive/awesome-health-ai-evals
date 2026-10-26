@@ -1,0 +1,32 @@
+id: sus-llm-hallucination-dataset
+name: SUS LLM Hallucination Dataset
+kind: benchmark
+year: 2026
+summary: 90 structured questions on Brazil's Unified Health System (coverage, care pathways, eligibility, patient rights), each annotated with a hallucination taxonomy (T1-T6), a risk level, and normative sources, for testing LLM factuality and compliance.
+readme_section: safety
+links:
+  doi: 10.5281/zenodo.19141917
+  dataset: https://doi.org/10.5281/zenodo.19141917
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [UNKNOWN]
+  item_origin_countries: [BRA]
+  localization: native
+  lead_institution_countries: [BRA]
+origin:
+  builder_types: [academic]
+  item_provenance: [unknown]
+  venue: grey_literature
+facets:
+  health_areas: [public_health]
+  intended_users: [patient_public]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: 90 questions
+provenance:
+  records: [r_eb91a948c2]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "Only the Zenodo landing page was read; the CSV, data dictionary, and annotation guidelines are listed there under CC-BY-4.0 with no embargo, but the files could not be downloaded in this session. The question language (probably Portuguese), how items were written, and how model answers are scored are not stated on the page, so item_languages, item_provenance, and eval_methods are best guesses (the annotation taxonomy suggests human judgement). Creator affiliation is Instituto Federal do Espirito Santo (Brazil). Intended users are inferred from the topics (patient rights, eligibility)."

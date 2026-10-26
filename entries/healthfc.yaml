@@ -1,0 +1,38 @@
+id: healthfc
+name: HealthFC
+kind: benchmark
+year: 2023
+summary: 750 health claims in German and English, labeled supported, refuted, or not enough information by medical experts, with lay-language evidence articles and annotated evidence sentences, for claim verification and explanation generation.
+readme_section: multilingual_regional
+links:
+  paper: https://aclanthology.org/2024.lrec-main.709/
+  arxiv: "2309.08503"
+  code: https://github.com/jvladika/HealthFC
+license: CC-BY-NC-ND-4.0
+open_data: open
+geography:
+  item_languages: [German, English]
+  item_origin_countries: [AUT]
+  item_origin_note: Claims and articles come from the Medizin Transparent portal run by Cochrane Austria; the articles are in German and were machine-translated to English.
+  rater_countries: [AUT]
+  localization: native
+  lead_institution_countries: [DEU]
+  subsets:
+    - {name: German, languages: [German], countries: [AUT], localization: native}
+    - {name: English, languages: [English], countries: [AUT], localization: translated}
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written, literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine, public_health]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 750 claims with evidence articles
+provenance:
+  records: [r_7202e53606]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "LREC-COLING 2024 paper, first posted on arXiv in 2023. Veracity labels and explanations were written by the portal's medical team (Cochrane Austria); two of the authors annotated evidence sentences (Cohen's kappa 0.72 on 50 documents). 423 of 750 claims are not enough information. License is CC BY-NC-ND 4.0 per the GitHub README; the GitHub API reports no license for the repo itself. Rater country is the portal's, assumed from Cochrane Austria. A fact-checking dataset that predates LLM chatbot evaluation; included because it is used for health-claim verification by LLMs."

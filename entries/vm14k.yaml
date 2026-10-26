@@ -1,0 +1,34 @@
+id: vm14k
+name: VM14K
+kind: benchmark
+year: 2025
+summary: 14,000 Vietnamese multiple-choice medical questions across 34 specialties and four difficulty levels, from textbooks, medical exams, and public clinical records, expert-annotated, with a 4k sample public set, a 10k public set, and a 2k private leaderboard set.
+readme_section: multilingual_regional
+links:
+  paper: https://arxiv.org/abs/2506.01305
+  arxiv: "2506.01305"
+license: null
+open_data: unknown
+geography:
+  item_languages: [Vietnamese]
+  item_origin_countries: [VNM]
+  item_origin_note: Questions are crawled from Vietnamese medical textbooks, exams and tests from medical institutions, and public medical records; the paper does not name the institutions.
+  rater_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [VNM]
+origin:
+  builder_types: [academic, industry_lab]
+  item_provenance: [exam_questions, literature]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician, medical_student]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 14,000 questions (4k sample public, 10k full public, 2k private)
+provenance:
+  records: [r_afc393840d]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "The paper says the three sets are released and links a project page, but no download link or license appears in the text, so open_data is unknown. Questions were extracted from about 100,000 raw items with GPT-4o and Gemini 2.0 Flash, deduplicated, answer-verified, and annotated by medical experts; difficulty and topic labels were partly assigned by LLMs. Hugging Face datasets Venera-AI/VM14K, Venera-AI/VM14K-Megarepo, AnonymouseV/VM14K, and hanguyennn2812/VM14K_Research exist; their cards could not be read, so none is linked. Authors are at Vietnamese and US universities and Venera AI; the first and last authors' institutions are in Vietnam."

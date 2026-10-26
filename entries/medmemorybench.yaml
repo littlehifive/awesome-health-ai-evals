@@ -1,0 +1,32 @@
+id: medmemorybench
+name: MedMemoryBench
+kind: benchmark
+year: 2026
+summary: "Bilingual (Chinese/English) benchmark of 20 simulated chronic-disease patients with about 100 doctor-patient sessions each over 12 months, plus 1,939 queries per language that test whether an LLM agent remembers, updates, and safely uses clinical information."
+readme_section: open_ended
+links:
+  huggingface: [AQ-MedAI/MedMemoryBench, CynthiaHo/MedMemoryBench, Cyan27/MedMemoryBench]
+license: CC-BY-NC-SA-4.0
+open_data: open
+geography:
+  item_languages: [Chinese, English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Synthetic personas and dialogues (user and doctor agents); the card states no country. Chinese and English versions are aligned; noise sessions exist only in Chinese.
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [unknown]
+  item_provenance: [llm_generated]
+  venue: grey_literature
+facets:
+  health_areas: [ncd, general_medicine]
+  intended_users: [patient_public]
+  eval_methods: [simulated_multi_turn]
+  modality: [text]
+  size: 20 personas, 2,074 events, 120 trap events, 31,976 dialogue turns, 1,939 queries per language
+provenance:
+  records: [r_a8724a98e1, r_fb4723e70a, r_fc5cf14a06]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: medium
+  notes: "Dataset card only; no paper or builder statement found. The three Hugging Face repos carry identical cards (CC-BY-NC-SA-4.0). Cyan27 was created first (2026-05), CynthiaHo next (2026-07), AQ-MedAI last (2026-10), so the canonical owner is unclear. Six query types (entity exact match, temporal localization, state update, inference, multiple choice, multi-hop deduction) plus trap events for allergies and contraindications; the card does not describe the scoring procedure for open query types. Builder type and country unknown."

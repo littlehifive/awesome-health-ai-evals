@@ -1,0 +1,32 @@
+id: medexplain-evals
+name: MedExplain-Evals
+kind: eval_framework
+year: 2025
+summary: Framework for scoring LLM medical explanations adapted to physicians, nurses, patients, and caregivers on six weighted dimensions with an ensemble of LLM judges and knowledge-base grounding.
+readme_section: frameworks
+links:
+  code: https://github.com/heilcheng/medexplain-evals
+license: MIT
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: The data README says items are built from existing datasets (MedQuAD, HealthSearchQA, MedQA-USMLE, iCliniq, Cochrane); the repository ships only a 3-item sample file.
+  localization: adapted
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public, clinician, nurse_midwife]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: not stated (sample_dataset.json holds 3 items)
+provenance:
+  records: [r_35ccb59a80]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Repository README and data README read; no paper. Dimensions and weights (factual accuracy 25%, terminology 15%, completeness 20%, actionability 15%, safety 15%, empathy and tone 10%) are from the README. Developed under Google Summer of Code 2025 with Google DeepMind as mentor; author affiliation and country are not stated. The full benchmark data does not appear to be in the repo, so open_data is unknown; MIT license is the repository license."

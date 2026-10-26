@@ -1,0 +1,32 @@
+id: ai-oversight-medical-harm-detection
+name: AI Oversight Medical Harm Detection
+kind: benchmark
+year: 2026
+summary: 75 multi-turn patient-AI medical conversations (25 correct, 25 with a subtle numeric threshold change, 25 with critical safety information omitted) built from StatPearls facts, for testing whether humans or models can detect harmful medical advice.
+readme_section: safety
+links:
+  huggingface: [ArthT/ai-oversight-medical-harm-detection]
+license: MIT
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Conversations are LLM-generated from 10 StatPearls articles; no country setting.
+  localization: native
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated, literature]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 75 conversations
+provenance:
+  records: [r_1389ba26b0]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: medium
+  notes: Dataset card only. Made in the SPAR 2026 Spring programme (mentor at Google DeepMind). Task is classifying each conversation as correct or harmful, scored against known labels; eval_methods uses automatic_metric as the closest option. Clean conversations were generated with Claude Sonnet 4.6. Source article text is CC BY-NC-ND 4.0 while the dataset card says MIT.

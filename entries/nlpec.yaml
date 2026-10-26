@@ -1,0 +1,33 @@
+id: nlpec
+name: NLPEC
+kind: benchmark
+year: 2020
+summary: 21,753 multiple-choice questions from the National Licensed Pharmacist Examination in China (plus exercise-book problems), with 550 official exam questions from 2015-2019 as the test set, scored by accuracy; a 2025 extension adds expert-annotated rationales.
+readme_section: multilingual_regional
+links:
+  paper: https://aclanthology.org/2020.emnlp-main.111/
+  doi: 10.18653/v1/2020.emnlp-main.111
+license: null
+open_data: unknown
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: Test items are from China's National Licensed Pharmacist Examination (2015-2019); training and dev problems were collected from the Internet and exercise books.
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions]
+  venue: peer_reviewed
+facets:
+  health_areas: [pharmacy_medication]
+  intended_users: [pharmacist]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: "21,753 questions (18,703 train, 2,500 dev, 550 test)"
+provenance:
+  records: [r_3d9d675d92, r_8cf226f97d]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Read the EMNLP 2020 paper PDF; it names the dataset NLPEC but gives no download link, license, or release statement, so open_data is unknown. Only the abstract of the 2025 IEEE/ACM TASLP extension (r_8cf226f97d, eKMQA with free-text rationales and expert annotations) was seen; it is merged here as the same exam dataset. Multiple-answer questions were excluded from the test set. The primary contribution of both papers is the KMQA model."

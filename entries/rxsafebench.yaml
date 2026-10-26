@@ -1,0 +1,35 @@
+id: rxsafebench
+name: RxSafeBench
+kind: benchmark
+year: 2025
+summary: 2,443 simulated doctor-patient consultation dialogues with embedded medication contraindications or drug interactions, each with a three-option multiple-choice medication question.
+readme_section: safety
+links:
+  paper: https://doi.org/10.1109/bibm66473.2025.11356353
+  arxiv: "2511.04328"
+  doi: 10.1109/bibm66473.2025.11356353
+  code: https://github.com/CAS-SIAT-XinHai/RxSafeBench
+license: CC0-1.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Dialogues are LLM-generated from a medication risk database built from unnamed "authoritative medical websites"; no country is stated.
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated, literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [pharmacy_medication, general_medicine]
+  intended_users: [patient_public, clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 2,443 cases (1,063 contraindication, 1,380 drug interaction)
+provenance:
+  records: [r_30ffba20e9]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "IEEE BIBM 2025 short paper. License CC0-1.0 is the GitHub repository license; the README says the benchmark is public in data/ (checked file listing and one record, dialogues are in English). The underlying RxRisk DB is not released. Filtering was automatic (GPT-4 scoring); the GitHub README mentions multi-stage expert filtering, which the paper does not describe. Source websites for drug information are not named in the text read."

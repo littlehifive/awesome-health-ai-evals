@@ -1,0 +1,33 @@
+id: grounding-long-horizon-gpt4o
+name: Long-horizon epistemic grounding sequence (Lyons v. OpenAI)
+kind: benchmark
+year: 2026
+summary: A 100-turn synthetic conversation in which ordinary disclosure drifts into suspicion, conspiracy, grandiosity, dependency, and crisis, with 300 turn-level scores on a five-level epistemic-grounding scale plus behavioral indicators.
+readme_section: mental_health
+links:
+  paper: https://doi.org/10.5281/zenodo.23009711
+  doi: 10.5281/zenodo.23009711
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Synthetic prompts developed from public descriptions of a case in Lyons v. OpenAI Foundation; no country of origin given for the items.
+  localization: native
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [unknown]
+  item_provenance: [llm_generated]
+  venue: grey_literature
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [simulated_multi_turn, rubric_llm_judge]
+  modality: [text]
+  size: 100-turn prompt sequence; 300 scored GPT-4o responses (three temperatures)
+provenance:
+  records: [r_dd2d863a8c]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: Read the Zenodo record only (files, license, abstract). The authors list a single affiliation ("MoCHi") with no country. Whether scoring was by humans or an LLM was not confirmed; eval_methods is a guess. A one-model study, but the sequence and scoring dataset are released for reuse. A human should decide whether it clears the bar.

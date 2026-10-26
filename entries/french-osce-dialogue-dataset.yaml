@@ -1,0 +1,35 @@
+id: french-osce-dialogue-dataset
+name: French OSCE Dialogue Dataset
+kind: benchmark
+year: 2026
+summary: 240 recorded and transcribed French student-patient OSCE training dialogues (30 hours) from 192 stations, plus 792 LLM-generated dialogues, with an LLM-as-a-judge framework scoring patient simulation, student performance, and linguistic quality.
+readme_section: open_ended
+links:
+  paper: https://doi.org/10.18653/v1/2026.sigdial-1.25
+  arxiv: "2606.28526"
+  doi: 10.18653/v1/2026.sigdial-1.25
+  dataset: https://zenodo.org/records/20719833
+open_data: gated
+geography:
+  item_languages: [French]
+  item_origin_countries: [FRA]
+  item_origin_note: OSCE stations written by medical teachers and healthcare professionals for French OSCE training; recordings made in weekly training sessions with 99 sixth-year medical students.
+  rater_countries: [FRA]
+  lead_institution_countries: [FRA]
+  localization: native
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written, llm_generated]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [medical_student]
+  eval_methods: [rubric_llm_judge, simulated_multi_turn]
+  modality: [text]
+  size: 240 recorded dialogues; 792 generated dialogues; 192 OSCE stations
+provenance:
+  records: [r_3dcabc60d7]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "The paper's footnote says the dataset may be accessed upon request (Zenodo record), so it is coded gated; no license seen. The model under test acts as a virtual patient for student training, so the scope is medical education rather than patient-facing advice. Rater countries inferred from the team that transcribed and evaluated the dialogues (Multispeech team, Nancy); the audio is released but scoring is on transcripts."

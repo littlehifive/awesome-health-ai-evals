@@ -1,0 +1,35 @@
+id: jmedbench
+name: JMedBench
+kind: benchmark
+year: 2024
+summary: "A collection of 20 Japanese biomedical datasets (about 38K test samples) across five tasks (multiple-choice QA, machine translation, NER, document classification, semantic similarity), scored with task metrics, for evaluating Japanese biomedical LLMs."
+readme_section: multilingual_regional
+links:
+  paper: https://arxiv.org/abs/2409.13317
+  arxiv: "2409.13317"
+  huggingface: [Coldog2333/JMedBench]
+  code: https://github.com/nii-nlp/med-eval
+license: custom
+open_data: open
+geography:
+  item_languages: [Japanese]
+  item_origin_countries: [JPN, USA, IND]
+  item_origin_note: "Japanese originals (IgakuQA, JMMLU-medical, JMED-LLM, EJMMT, JCSTS) plus GPT-4 machine translations of English sets (MedMCQA, MedQA/USMLE, PubMedQA, MMLU-medical, BLURB NER sets); countries for translated sets are those of the source datasets."
+  localization: mixed
+  lead_institution_countries: [JPN]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions, adapted_dataset]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [unspecified]
+  eval_methods: [mcq_exact_match, automatic_metric]
+  modality: [text]
+  size: "20 datasets, about 38K test samples"
+provenance:
+  records: [r_8f03ac0989]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Only the multiple-choice QA part (7 datasets) is in scope as health QA; the NER, document classification, semantic similarity and translation datasets are biomedical NLP and are kept here because they ship as one benchmark. License is per dataset on the Hugging Face card (mostly MIT or CC-BY-4.0, with CC-BY-NC-SA-4.0 for NRNER and JCSTS; IgakuQA none listed), so license is coded custom. Venue is COLING 2025 per a citation in the JMed48k paper; the arXiv version was read."

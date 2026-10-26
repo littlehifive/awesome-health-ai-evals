@@ -1,0 +1,34 @@
+id: llm-virtual-patient-rating-instruments
+name: LLM virtual patient rating instruments
+kind: eval_framework
+year: 2024
+summary: "Three 6-point rating instruments (dialogue authenticity, clinician user experience, feedback quality) for judging LLM-simulated patient-clinician dialogues and LLM-written performance feedback, validated on 60 conversations rated by three physicians and by GPT."
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.2196/68486
+  doi: 10.2196/68486
+  pmcid: PMC12008702
+license: null
+open_data: described_only
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: "Two outpatient cases (chronic cough diagnosis, diabetes management) written by the authors at Mayo Clinic; conversations were generated for the study. Rating items are in the paper's Table 1."
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written, llm_generated]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician, medical_student]
+  eval_methods: [expert_human_rating, rubric_llm_judge]
+  modality: [text]
+  size: 3 instruments; 60 rated conversations (48 with a human clinician, 12 GPT self-chat)
+provenance:
+  records: [r_8f5972d5d3, r_9d0560146c]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Borderline entry: the main contribution is a proof of concept for LLM-powered virtual patients for clinician training; the reusable part is the three validated rating instruments (items listed in Table 1; case prompts and narratives in Multimedia Appendix 1). Reproducibility of ratings was only fair to slight (ICC 0.17-0.40), and zero-shot GPT ratings were judged suboptimal. Merged the JMIR Preprints version (r_9d0560146c). Mayo Clinic lead; other authors at Utah and New Mexico. No dataset license seen; open_data set to described_only because only instruments and example prompts are in the paper."

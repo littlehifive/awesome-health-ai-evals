@@ -1,0 +1,33 @@
+id: bruro-qa
+name: BRUro-QA
+kind: benchmark
+year: 2026
+summary: Planned Portuguese urology question-answering dataset of about 300 physician-written synthetic patient questions with reference answers, diagnoses, and work-up, double-reviewed by board urologists.
+readme_section: multilingual_regional
+links:
+  paper: https://osf.io/we5nu
+  doi: 10.17605/osf.io/mzud2
+license: CC-BY-4.0
+open_data: closed
+geography:
+  item_languages: [Portuguese]
+  item_origin_countries: [BRA]
+  item_origin_note: Written by physicians; the lead is a urology resident in Salvador, Brazil. Inspired by RJUA-QA (China).
+  localization: native
+  lead_institution_countries: [BRA]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written]
+  venue: preprint
+facets:
+  health_areas: [other_specialty]
+  intended_users: [clinician, patient_public]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: about 300 questions (planned)
+provenance:
+  records: [r_c94fd29cfb]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: Only the OSF abstract was available; the page did not load. This is a registration for a dataset that "will be released" under CC BY 4.0, not yet confirmed as released, so open_data is closed. Inspired by RJUA-QA (no entry exists, so adapted_from is omitted). Phase 2 evaluates diagnostic accuracy, management adequacy, and blinded expert ratings.

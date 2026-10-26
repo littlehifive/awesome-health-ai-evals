@@ -1,0 +1,34 @@
+id: empathy-on-a-budget
+name: Empathy on a Budget (ETA harness)
+kind: eval_framework
+year: 2026
+summary: A measurement harness that scores LLM decision support with an Empathy-Trust-Accountability rubric (fixed LLM judge) together with latency, throughput, and memory, on twelve health-decision scenarios parameterized with NFHS-5 India survey indicators.
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.5281/zenodo.22099065
+  doi: 10.5281/zenodo.22099065
+  dataset: https://zenodo.org/records/22099066
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [IND]
+  item_origin_note: Scenarios are parameterized with published NFHS-5 (2019-21) all-India survey indicators.
+  localization: native
+  lead_institution_countries: [IND]
+origin:
+  builder_types: [academic]
+  item_provenance: [unknown]
+  venue: grey_literature
+facets:
+  health_areas: [public_health]
+  intended_users: [unspecified]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: 12 scenarios; 144 evaluation rows (4 quantized Llama-3.2 variants x 3 runs)
+provenance:
+  records: [r_f7394961b3]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Read the Zenodo record and the deposit README. Data are CC BY 4.0; code is GPL-2.0-or-later. The associated manuscript is submitted to Information Processing & Management; the deposit is the only public source. Scenario authorship is not stated. Same author as etd-instrument."

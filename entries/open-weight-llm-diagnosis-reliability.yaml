@@ -1,0 +1,33 @@
+id: open-weight-llm-diagnosis-reliability
+name: Open-Weight LLM Clinical Diagnosis Reliability Benchmark
+kind: benchmark
+year: 2026
+summary: 66 clinical diagnosis cases (51 standard, 15 adversarially perturbed) with prompt templates and a Clinical Reliability Score combining accuracy, consistency, and a rule-based safety proxy, released as a Zenodo supplement.
+readme_section: open_ended
+links:
+  doi: 10.5281/zenodo.23422772
+  dataset: https://doi.org/10.5281/zenodo.23422772
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Cases were derived from three public Kaggle datasets (Disease and Symptoms Dataset, Symptom-Disease Dataset, MedQA-USMLE); their countries of origin are not stated on the record.
+  localization: adapted
+  lead_institution_countries: [DZA]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric, expert_human_rating]
+  modality: [text]
+  size: 66 cases (51 standard, 15 adversarial); 7,128 model responses logged
+provenance:
+  records: [r_5c607721e7]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: medium
+  notes: "Only the Zenodo landing page was read (description, license, file list); the linked journal article was not found and the file contents could not be downloaded in this session. The record lists CC-BY-4.0 and MIT licenses (MIT presumably for code). CRS = 0.3 x Accuracy + 0.2 x Consistency + 0.5 x Safety; clinician validation covers two physicians and 45 responses. Lead institution is Larbi Ben M'hidi University of Oum El Bouaghi (Algeria) from the record metadata. Whether the supplement is meant as a reusable benchmark or only as reproducibility material for one study is a judgment call."

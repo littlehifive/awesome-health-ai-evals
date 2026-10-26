@@ -1,0 +1,34 @@
+id: womens-health-benchmark-whbench
+name: Women's Health Benchmark (WHBench)
+kind: benchmark
+year: 2026
+summary: 47 expert-crafted women's health scenarios across 10 topics, each targeting a failure mode and paired with 4 to 6 expert reference answers, scored by LLM judges on a 23-criterion safety-weighted rubric that includes equity.
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2604.00024
+  arxiv: "2604.00024"
+  huggingface: [therubricai/womens-health-benchmark-ground-truth]
+license: MIT
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Scenarios were developed with OB/GYNs, fertility specialists, and Dandi Fertility, whose nurse network spans all 50 US states; the paper does not state the items' country of origin.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [industry_lab, academic]
+  item_provenance: [clinician_written]
+  venue: preprint
+facets:
+  health_areas: [srh, maternal_newborn, oncology, mental_health]
+  intended_users: [patient_public, clinician]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: 47 questions; 22 models x 3 runs = 3,102 attempted responses
+provenance:
+  records: [r_6d49e08df8, r_dd4d4871c9]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "The paper says full vignettes and reference answers are in a public data release but gives no link. therubricai/womens-health-benchmark-ground-truth (r_dd4d4871c9) is a sample subset of unstated size (n<1K, MIT per card) that links the WHBench report (https://therubric.ai/research/whbench); its card text matches the WHB prompts-plus-justifications format of the Lumos AI benchmark (womens-health-benchmark-whb), so whether it belongs to WHBench is uncertain. Judges were Claude Sonnet 4.6 (primary) and GPT-5.4 (secondary); the expert panel's countries are not stated. Authors are at Columbia University and Rubric AI (country not seen)."

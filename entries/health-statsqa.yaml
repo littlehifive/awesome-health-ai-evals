@@ -1,0 +1,31 @@
+id: health-statsqa
+name: Health-StatsQA
+kind: benchmark
+year: 2026
+summary: 1,000 health-statistics questions about Indian districts, each asked in English and Hindi (2,000 prompts), built from public health-information-system data.
+readme_section: multilingual_regional
+links:
+  huggingface: [judicialmind/Health-StatsQA]
+license: CC-BY-NC-SA-4.0
+open_data: gated
+geography:
+  item_languages: [English, Hindi]
+  item_origin_countries: [IND]
+  localization: native
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: grey_literature
+facets:
+  health_areas: [public_health]
+  intended_users: [unspecified]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 1,000 questions in English and Hindi (2,000 prompts)
+provenance:
+  records: [r_80e5e0c4bd]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "The dataset is auto-gated on Hugging Face, so the card body could not be read; facts come from the public card metadata and description snippet. Gate terms: CC BY-NC-SA 4.0 with automatic approval for matching organisational emails. The card says the source data is under GODL-India and tags it hmis and table-question-answering. The repo has an evaluate.py, but the scoring method was not seen, so eval_methods is a guess. The publisher judicialmind appears to be a company; builder_types, item_provenance, and lead country are unverified. No paper."

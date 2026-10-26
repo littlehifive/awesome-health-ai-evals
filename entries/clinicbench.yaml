@@ -1,0 +1,36 @@
+id: clinicbench
+name: ClinicBench
+kind: benchmark
+year: 2024
+summary: "A benchmark of 17 datasets (over 20,000 test samples) across 11 clinical tasks (exam-style QA, referral QA, treatment recommendation, summarization, NER, relation extraction, emerging-drug QA), including six datasets the authors built, used to compare 22 LLMs zero-shot and few-shot, plus a clinician evaluation."
+readme_section: open_ended
+links:
+  paper: https://aclanthology.org/2024.emnlp-main.759/
+  arxiv: "2405.00716"
+  doi: 10.48550/arxiv.2405.00716
+  code: https://github.com/AI-in-Health/ClinicBench
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA, IND]
+  item_origin_note: "Origins stated only for some component datasets: MedQA-USMLE and the MIMIC-derived tasks (US), MedMCQA (India). ChatDoctor conversations, DrugBank, Drug.com and the other component datasets have no stated country."
+  rater_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [GBR]
+origin:
+  builder_types: [academic, industry_lab]
+  item_provenance: [adapted_dataset, exam_questions, llm_generated]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine, pharmacy_medication]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match, automatic_metric, expert_human_rating]
+  modality: [text]
+  size: 17 datasets, 11 tasks, over 20,000 test samples (six new datasets of 181 to 1,057 items each)
+provenance:
+  records: [r_4a2ea20e33]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Also published as 'Large Language Models in the Clinic: A Comprehensive Benchmark'. Eleven of the 17 datasets are existing ones (MedQA, MedMCQA, MMLU-Med, PubMedQA, MIMIC-CXR and IU-Xray summarization, NER, RE, document classification); the six new ones are Referral QA (1,057, GPT-4-generated QA from MIMIC-IV referral letters, expert-filtered), Treatment Recommendation (796, from ChatDoctor), Hospitalization Summarization (382), Patient Education (181), and Pharmacology QA and Drug Interaction for emerging drugs (213 and 200). Several tasks are imaging-report or biomedical NLP and fall outside this catalog's scope, but the benchmark is kept as one entry. Lead institution is the University of Oxford with Amazon co-authors; the human evaluation covers factuality, completeness, preference and safety. Rater countries are not stated. The new datasets inherit MIMIC data-use terms; the Apache-2.0 license is the GitHub repo's."

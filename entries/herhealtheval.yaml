@@ -1,0 +1,32 @@
+id: herhealtheval
+name: HerHealthEval
+kind: benchmark
+year: 2026
+summary: Controlled multilingual test set of women's-health cases (540 items per language) in English, French and Modern Standard Arabic across six communicative forms, scoring concern classification, risk calibration, clarification behavior and cross-form consistency.
+readme_section: multilingual_regional
+links:
+  paper: https://arxiv.org/abs/2609.20684
+  arxiv: "2609.20684"
+open_data: closed
+geography:
+  item_languages: [English, French, Modern Standard Arabic]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: English cases come from the HealthCareMagic-100k and iCliniq-10k patient-doctor datasets and the MENST menstrual-health dataset; the paper does not state patient countries. French and Arabic versions are localized from English with native-speaker validation.
+  localization: adapted
+  lead_institution_countries: [CAN]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, web_forum, llm_generated]
+  venue: preprint
+facets:
+  health_areas: [srh, other_specialty]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 540 matched items per language (three languages)
+provenance:
+  records: [r_4e3764b388]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "The paper states that the benchmark and adaptation data are withheld for double-blind review and intended for release after acceptance, so open_data is closed for now and no repository link exists. Register variants were machine-generated and reviewed for semantic preservation; targets for risk and under-specification are structured labels, not clinician-adjudicated. Scoring is classification-style (concern accuracy, under-triage, clarification recall, parse compliance, consistency). Source datasets are partly web consultation platforms (item_provenance web_forum). health_areas other_specialty covers PCOS, fertility, menopause."

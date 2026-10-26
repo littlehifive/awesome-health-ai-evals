@@ -1,0 +1,35 @@
+id: wearableqa
+name: WearableQA
+kind: benchmark
+year: 2026
+summary: 4,084 ten-option multiple-choice questions over the wearable time series, blood biomarkers, and demographics of 200 real users (up to 500 days each), in 16 question types spanning data and health reasoning, scored by accuracy.
+readme_section: knowledge_exam
+links:
+  paper: https://arxiv.org/abs/2609.05405
+  arxiv: "2609.05405"
+  huggingface: [facebook/WearableQA]
+  code: https://github.com/facebookresearch/WearableQA
+license: CC-BY-NC-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Wearable and blood-panel records are from 200 users sampled from a larger in-the-wild cohort; the paper does not state the users' countries.
+  localization: native
+  lead_institution_countries: [USA, KOR]
+origin:
+  builder_types: [industry_lab, academic]
+  item_provenance: [literature, llm_generated]
+  venue: preprint
+facets:
+  health_areas: [general_medicine, ncd]
+  intended_users: [patient_public]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 4,084 questions from 200 users
+provenance:
+  records: [r_5e508d2c16]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Questions use a dual-grounding design: literature-grounded findings from consumer-wearable studies and statistically validated population patterns, with ground truth computed deterministically; LLM agents help write the questions. Authors are at Meta, KAIST, and Korea University, so lead countries are inferred from affiliations only. The paper's source cohort and its consent terms were not checked. Scope is borderline: questions are over personal sensor data, not conversational health queries."

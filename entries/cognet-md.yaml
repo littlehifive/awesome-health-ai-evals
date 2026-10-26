@@ -1,0 +1,35 @@
+id: cognet-md
+name: COGNET-MD
+kind: benchmark
+year: 2024
+summary: 542 expert-built multiple-choice medical questions (one or more correct answers) in five specialties, scored with partial credit and a penalty for wrong choices.
+readme_section: knowledge_exam
+links:
+  paper: https://arxiv.org/abs/2405.10893
+  arxiv: "2405.10893"
+  doi: 10.48550/arxiv.2405.10893
+  huggingface: [DimitriosPanagoulias/COGNET-MD]
+license: CC-BY-NC-ND-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: The paper does not say where the questions come from; authors are from the University of Piraeus and the University of Athens (Greece).
+  localization: unknown
+  lead_institution_countries: [GRC]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written]
+  venue: preprint
+facets:
+  health_areas: [dentistry, mental_health, other_specialty]
+  intended_users: [clinician, medical_student]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 542 questions (dentistry, dermatology, endocrinology, psychiatry, pulmonology)
+provenance:
+  records: [r_eef71c766a]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Questions were written with medical experts and carry difficulty levels; scoring gives 0.5 for at least one correct choice, a further 0.5 for the full correct set, and minus 0.5 per wrong choice. Evaluation use cases are Specialty, Beta (50 percent per specialty), and Production (full set). Dermatology, endocrinology, psychiatry and pulmonology are listed as specialties alongside dentistry; dermatology, endocrinology and pulmonology are coded as other_specialty. The Hugging Face user name is spelled differently in the paper (Panagoulas) than on the working dataset URL (Panagoulias)."

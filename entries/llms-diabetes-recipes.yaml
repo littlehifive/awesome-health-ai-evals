@@ -1,0 +1,34 @@
+id: llms-diabetes-recipes
+name: LLMs-Diabetes-Recipes
+kind: benchmark
+year: 2026
+summary: 7,607 recipes (3,807 diabetes-suitable from medical sources and 3,800 unsuitable from Recipe1M) with yes/no suitability labels, for testing whether LLMs can judge recipes for diabetes against dietary guidelines.
+readme_section: knowledge_exam
+links:
+  paper: https://arxiv.org/abs/2609.03967
+  arxiv: "2609.03967"
+  code: https://github.com/revathyramanan/LLMs-Diabetes-Recipes
+license: MIT
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Suitable recipes come from MayoClinic, Diabetes UK, and Diabetes Food Hub websites; unsuitable ones are sampled from Recipe1M. The sources do not state a country for the recipes.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature, adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [nutrition, ncd]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 7,607 recipes
+provenance:
+  records: [r_2fa128001b]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Labels for unsuitable recipes come from keyword matching against MayoClinic guidance on foods to avoid, not from clinician review, as far as the README and paper state. Scoring is accuracy, precision, and recall of binary predictions under three prompt styles. Authors are at the University of South Carolina AI Institute per the README; the MIT license is on the GitHub repository and may not cover the Recipe1M-derived recipe text."

@@ -1,0 +1,32 @@
+id: siri-2-llm-benchmark
+name: SIRI-2 LLM benchmarking (MindBench tutorial)
+kind: benchmark
+year: 2026
+summary: The 24-scenario, 48-response Suicide Intervention Response Inventory (SIRI-2) administered to LLMs, scored as absolute deviation from an expert suicidologist panel, with code and 27,000 raw responses from nine models.
+readme_section: mental_health
+links:
+  code: https://github.com/MattMatt27/mental-health-benchmark-tutorial
+license: MIT
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: The instrument is the published SIRI-2 (Neimeyer and MacInnes) and its country of origin was not stated in the repository.
+  localization: adapted
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, clinician_written]
+  venue: grey_literature
+facets:
+  health_areas: [mental_health]
+  intended_users: [clinician]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: "24 scenarios with 48 scored helper responses (25 scenarios, 50 responses in the run; item 14 excluded); expert consensus scores"
+provenance:
+  records: [r_fec7f9cfbd]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: low
+  notes: "README of the companion repository for a primer paper ('Benchmarking Language Models for Clinical Safety: A Primer for Mental Health Professionals') whose citation was not yet published. SIRI-2 is an existing human clinical-skills instrument (cited 1997); the repo ships its items and expert scores (license listed as MIT for the repo, but the underlying instrument's rights were not checked). Part of MindBench.ai with NAMI, per the README. The README says 24 items in one place and 25 scenarios in another; counts are as stated. The scoring compares model ratings to expert means, which fits expert_human_rating loosely. Authors and institutions not identified from the README; owner is a GitHub user."

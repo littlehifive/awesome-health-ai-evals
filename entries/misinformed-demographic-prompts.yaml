@@ -1,0 +1,36 @@
+id: misinformed-demographic-prompts
+name: Misinformed and Demographically Informed Prompts Dataset (Edge of Tomorrow)
+kind: benchmark
+year: 2024
+summary: "3,120 climate-change and 2,762 mental-health true/false questions, plus small sets of altered misinformation prompts and demographic-bias prompts, with expert assessments of chatbot answers."
+readme_section: safety
+links:
+  paper: https://doi.org/10.1002/aaai.12208
+  arxiv: "2410.10850"
+  doi: 10.1002/aaai.12208
+  code: https://github.com/tolusophy/Edge-of-Tomorrow
+license: GPL-3.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Questions are FAQ-style, drawn from authoritative sources such as NASA and the CDC; no country origin is stated.
+  rater_countries: [UNKNOWN]
+  localization: unknown
+  lead_institution_countries: [ARE]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric, expert_human_rating]
+  modality: [text]
+  size: "5,882 true/false questions (3,120 climate, 2,762 mental health); 40 mental-health misinformation prompts and 38 bias prompts"
+provenance:
+  records: [r_8f09b8bbbe]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Half of the dataset is climate change, which is out of health scope; only the mental-health part is relevant. The paper is mainly an evaluation study of ChatGPT, Bing Chat, and Bard (now Gemini); the released files are the true/false sets, the prompt sets, and expert assessment files. Quantitative scoring uses precision, recall, and confusion matrices; qualitative scoring uses domain-expert interviews and questionnaires (14 respondents across both domains). The repo license is GPL-3.0 but its README footer says All Rights Reserved; the paper is CC-BY. The repo tree was listed, but the question files were not opened. Lead institution is MBZUAI (first and last author)."

@@ -1,0 +1,34 @@
+id: ehr2dial-triage
+name: EHR2Dial-Triage
+kind: benchmark
+year: 2026
+summary: 4,041 simulated emergency-department triage conversations generated from MIMIC-IV-ED encounters, each patient disclosure linked to its EHR event, for evaluating information elicitation, evidence use, ESI acuity prediction, and patient-facing communication.
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2608.09024
+  arxiv: "2608.09024"
+  code: https://github.com/illidanlab/elicited
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Built from MIMIC-IV-ED (a US hospital emergency department).
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated, adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [emergency_triage]
+  intended_users: [clinician]
+  eval_methods: [simulated_multi_turn, rubric_llm_judge]
+  modality: [text]
+  size: 4,041 dialogues, median eight clinician-patient rounds
+provenance:
+  records: [r_b3eda76d0c]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Title: ELICITED. The GitHub repo URL was linked in the paper but returned 404 when checked, so it may be unreleased or private. Data likely carries MIMIC credentialing terms but no access statement was seen. Whether scoring uses an LLM judge was not verified. In scope as a conversational clinician-facing triage evaluation; EHR-grounded, so a human may want to check the scope call."

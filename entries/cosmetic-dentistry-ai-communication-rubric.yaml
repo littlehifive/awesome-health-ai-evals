@@ -1,0 +1,34 @@
+id: cosmetic-dentistry-ai-communication-rubric
+name: Cosmetic dentistry patient-facing AI communication framework
+kind: benchmark
+year: 2026
+summary: An 80-prompt test set of patient questions in four cosmetic dentistry domains with a 20-point communication rubric (readability, ethical disclaimers, practicality, empathy, structure) and a clinical safety audit, tested in a proof-of-concept comparison of two assistants.
+readme_section: open_ended
+links:
+  paper: https://doi.org/10.3389/froh.2026.1837073
+  doi: 10.3389/froh.2026.1837073
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Prompts derive from thematic analysis of real-world patient inquiries plus cross-LLM synthesis; the source countries are not stated.
+  rater_countries: [JOR]
+  localization: unknown
+  lead_institution_countries: [JOR]
+origin:
+  builder_types: [academic]
+  item_provenance: [real_user_queries, llm_generated]
+  venue: peer_reviewed
+facets:
+  health_areas: [dentistry]
+  intended_users: [patient_public]
+  eval_methods: [expert_human_rating, automatic_metric]
+  modality: [text]
+  size: 80 prompts (160 responses rated by two specialists)
+provenance:
+  records: [r_255ccbae50]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Data availability statement says the 80-prompt set, rubric, and instruction template are in the Supplementary Materials (not opened). Raters were two board-certified specialists; their country is inferred from the authors' University of Jordan affiliations, so check. Exploratory proof of concept. Language assumed English."

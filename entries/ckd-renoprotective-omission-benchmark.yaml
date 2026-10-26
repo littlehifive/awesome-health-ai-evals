@@ -1,0 +1,33 @@
+id: ckd-renoprotective-omission-benchmark
+name: CKD renoprotective therapy omission benchmark
+kind: benchmark
+year: 2026
+summary: 100 synthetic chronic kidney disease vignettes (75 with a planted omission of SGLT2 inhibitor, finerenone, or RAS inhibitor therapy, 25 decoys) stratified by CKD stage, scored for omission detection, reasoning errors, and reproducibility.
+readme_section: safety
+links:
+  paper: https://doi.org/10.64898/2026.05.28.26353938
+  doi: 10.64898/2026.05.28.26353938
+license: null
+open_data: gated
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Synthetic vignettes written by the investigators; omission criteria adapted from KDIGO 2024 guidelines.
+  localization: native
+  lead_institution_countries: [TWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated, literature]
+  venue: preprint
+facets:
+  health_areas: [ncd]
+  intended_users: [clinician]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: 100 vignettes; 4 LLMs run 3 times each (1,200 calls)
+provenance:
+  records: [r_fccda2fa50]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: medium
+  notes: Read the abstract and medRxiv declarations. The reproducibility package (vignettes, gold standards, rubrics, prompt, outputs, scripts) is available on request, not openly downloadable. Vignette authorship (human or LLM) is not confirmed, so item_provenance is a guess. Two nephrologists rated a stratified 20-case subset.

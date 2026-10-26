@@ -1,0 +1,33 @@
+id: medgpt-heval
+name: MedGPT-HEval
+kind: eval_framework
+year: 2026
+summary: A multi-metric framework (G-Eval, BARTScore, semantic entropy, cosine similarity) for scoring clinical hallucination in web-deployed custom medical GPTs, used with an LLM-based pipeline for policy violations on 1,500 sampled MedGPTs and 10 open-source LLMs.
+readme_section: frameworks
+links:
+  paper: https://arxiv.org/abs/2605.20591
+  arxiv: "2605.20591"
+license: null
+open_data: described_only
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Hallucination probes are diagnostic clinical vignettes taken from MedQA (USMLE); the evaluated GPTs come from the OpenAI GPT Store.
+  localization: adapted
+  lead_institution_countries: [AUS]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public, clinician]
+  eval_methods: [automatic_metric, rubric_llm_judge]
+  modality: [text]
+  size: 6,233 MedGPTs crawled; 1,500 evaluated with 5 repeated responses per MedQA-based question; 10 open-source LLMs
+provenance:
+  records: [r_50c72bbb01]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: Macquarie University and UNSW. The paper is mainly a measurement study; MedGPT-HEval is one of two frameworks it introduces (the other assesses policy violations and developer intent with a Gemini 3.1 Pro judge). No GitHub or dataset link was found in the paper. Exact number of MedQA questions used was not confirmed.

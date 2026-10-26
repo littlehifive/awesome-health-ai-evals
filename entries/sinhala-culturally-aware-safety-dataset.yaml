@@ -1,0 +1,33 @@
+id: sinhala-culturally-aware-safety-dataset
+name: Culturally Aware Sinhala Safety Dataset
+kind: benchmark
+year: 2026
+summary: "About 102 culturally grounded, safety-critical Sinhala queries (self-harm, medical advice, culturally sensitive topics, illegal activities) used to test whether LLM responses are harmless and also actively discourage harm, evaluated on several public LLMs."
+readme_section: safety
+links:
+  paper: https://doi.org/10.1145/3776574.3831155
+  doi: 10.1145/3776574.3831155
+license: null
+open_data: unknown
+geography:
+  item_languages: [Sinhala]
+  item_origin_countries: [LKA]
+  item_origin_note: "Sinhala-language, culturally grounded prompts; origin country inferred from the language and cultural framing in the abstract rather than a stated sourcing process."
+  localization: native
+  lead_institution_countries: [LKA]
+origin:
+  builder_types: [academic]
+  item_provenance: [unknown]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine, mental_health]
+  intended_users: [patient_public]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: "about 102 questions (per a conference-talk post; unverified)"
+provenance:
+  records: [r_ce5b8e6aca]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "ICMI 2026 paper; ACM full text returned 403, so only the abstract (OpenAlex) and a LinkedIn post about the talk were seen. The 102-question count and six-LLM figure come from that post. Health is one of four safety categories, so this is only partly health-focused. Dataset release link, license, scoring method (eval_methods is a guess), and item sourcing are unconfirmed. Lead institution country from OpenAlex (first and last authors in LK)."

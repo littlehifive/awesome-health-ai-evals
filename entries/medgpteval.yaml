@@ -1,0 +1,35 @@
+id: medgpteval
+name: MedGPTEval
+kind: eval_framework
+year: 2023
+summary: Evaluation criteria for medical chatbot responses (medical professional, social, contextual, and computational-robustness capabilities, refined by a Delphi panel) with 34 Chinese cases (27 multi-turn dialogues, 7 case reports) and a benchmark of three chatbots.
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.2196/57674
+  arxiv: "2305.07340"
+  doi: 10.2196/57674
+license: null
+open_data: open
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: Cases were written by three licensed clinicians in China (Chinese-language datasets); the paper does not give a separate statement of the cases' country.
+  rater_countries: [CHN]
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: 34 cases (27 multi-turn dialogues, 7 case reports)
+provenance:
+  records: [r_e7364cedcd, r_67391842bf]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "JMIR Medical Informatics 2024 paper and its 2023 arXiv preprint merged. Criteria came from literature review plus a Delphi round with 5 experts; responses from ChatGPT, ERNIE Bot, and the authors' Dr PJ were scored by 5 licensed clinicians. The dataset link in the reference list is a short-link Google Doc (qr02.cn/DBeS9U), described as an open-source question database; the link was not opened and no license is stated. Authors are at Shanghai AI Laboratory, Xinhua Hospital, and Sichuan University."

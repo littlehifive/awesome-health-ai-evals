@@ -1,0 +1,49 @@
+id: dm-bench
+name: DM-Bench
+kind: benchmark
+year: 2025
+summary: 360,600 personalized diabetes-management questions across 7 task types, built from wearable glucose and behavior data of 15,000 users (type 1, type 2, and prediabetes cohorts), with LLM answers scored on accuracy, groundedness, safety, clarity, and actionability.
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2510.00038
+  doi: 10.48550/arxiv.2510.00038
+  arxiv: '2510.00038'
+license: null
+open_data: unknown
+geography:
+  item_languages:
+  - English
+  item_origin_countries:
+  - UNKNOWN
+  item_origin_note: Real data from CGM users (Dexcom); user countries are not stated. Task 1 uses synthetic glucose data from GlucoSynth.
+  rater_countries:
+  - UNKNOWN
+  localization: native
+  lead_institution_countries:
+  - USA
+origin:
+  builder_types:
+  - academic
+  - industry_lab
+  item_provenance:
+  - llm_generated
+  - real_user_queries
+  venue: preprint
+facets:
+  health_areas:
+  - ncd
+  intended_users:
+  - patient_public
+  eval_methods:
+  - rubric_llm_judge
+  - expert_human_rating
+  modality:
+  - text
+  size: 360,600 questions; 15,000 users
+provenance:
+  records:
+  - r_0839841314
+  read_full_text: true
+  confidence: medium
+  notes: 'The paper says DM-Bench is released publicly but I found no link, so open_data is unknown. Questions are LLM-generated or templated from de-identified user data; answers are graded by Gemini 2.5 Pro with expert human verification. "Real user queries" is a loose label: the user context is real, the questions are generated. Authors are at the University of Virginia and Dexcom.'
+  extracted: '2026-10-26'

@@ -1,0 +1,32 @@
+id: best-self-triage
+name: BeST (Benchmark Self-Triage)
+kind: benchmark
+year: 2026
+summary: 480 physician-curated patient vignettes from German routine triage data, with physician-consensus urgency labels (emergency, acute, not urgent), used to compare digital self-triage systems and OpenAI models via an LLM patient actor.
+readme_section: open_ended
+links:
+  paper: https://doi.org/10.64898/2026.10.12.26365287
+  doi: 10.64898/2026.10.12.26365287
+license: null
+open_data: closed
+geography:
+  item_languages: [UNKNOWN]
+  item_origin_countries: [DEU]
+  localization: native
+  lead_institution_countries: [DEU]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written]
+  venue: preprint
+facets:
+  health_areas: [emergency_triage]
+  intended_users: [patient_public]
+  eval_methods: [simulated_multi_turn, expert_human_rating]
+  modality: [text]
+  size: 480 vignettes
+provenance:
+  records: [r_e68789b489]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: medium
+  notes: Abstract and medRxiv metadata only (preprint license tag cc_no). Whether vignettes are released was not confirmed; open_data set to closed. Vignette language not stated. Lead institution is the Central Research Institute of Ambulatory Health Care (Zi), Berlin; builder type academic is a guess. Reference classifications are described as preliminary expert consensus from seven physicians.

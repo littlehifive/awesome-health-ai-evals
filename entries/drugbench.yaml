@@ -1,0 +1,36 @@
+id: drugbench
+name: DrugBench
+kind: benchmark
+year: 2026
+summary: 3,671 multi-turn medical conversations taken from HealthBench and annotated with FDA drug-label information across four medication-harm categories (interactions, contraindications, dosing constraints, patient action restrictions), used to test AI control protocols on usefulness (HealthBench rubrics) and severity-weighted safety.
+readme_section: safety
+adapted_from: [healthbench]
+links:
+  paper: https://arxiv.org/abs/2606.20663
+  arxiv: "2606.20663"
+  code: https://github.com/freire-guido/drugbench
+  dataset: https://www.kaggle.com/datasets/ae7742f4d9d20975c0598f8f1ff7089975ee5aac8113f00881c74c3c7285eabe
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Conversations are inherited from HealthBench-Consensus and drug facts from US FDA labels (openFDA); no single country origin is stated.
+  localization: adapted
+  lead_institution_countries: [ARG, GBR]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, literature]
+  venue: preprint
+facets:
+  health_areas: [pharmacy_medication]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge, simulated_multi_turn]
+  modality: [text]
+  size: 3,671 conversations
+provenance:
+  records: [r_54da9e6662]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Read the arXiv HTML text. The paper links the data on Kaggle and code on GitHub; I saw the links but did not open the Kaggle page or confirm a data license (the CC BY-SA 4.0 on the arXiv page is the paper's license). The GitHub README could not be fetched via the API. Lead institutions: Universidad de Buenos Aires (Argentina) and University of Oxford (UK), from the first and second authors. Severity judging uses an LLM, which the authors note limits clinical reliability."

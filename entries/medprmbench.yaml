@@ -1,0 +1,32 @@
+id: medprmbench
+name: MedPRMBench
+kind: benchmark
+year: 2026
+summary: 6,500 medical questions from seven upstream sources, each with an original and a corrupted reasoning chain and step-level labels for error location and 15 clinical error types, for testing step-level checking of clinical reasoning.
+readme_section: knowledge_exam
+links:
+  huggingface: [skylenage-ai/MedPRMBench-Test]
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: The seven upstream question sources are not named on the card.
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [unknown]
+  item_provenance: [adapted_dataset, exam_questions, llm_generated]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 6,500 test questions (3,711 expert-authored class A, 2,789 generated class B)
+provenance:
+  records: [r_f019e5ab1a]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "Only the HF dataset card was read; no paper is linked and the card says the data comes from an ICLR 2027 submission archive and is marked RELEASE_CANDIDATE_NOT_YET_AUTHORITATIVE. The card asserts no license and warns that redistribution terms of the upstream sources are unconfirmed. It benchmarks process reward models and verifiers of reasoning chains rather than answers to health questions, so a human may want to confirm it belongs. Scoring method is not stated on the card (automatic_metric assumed)."

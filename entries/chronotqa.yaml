@@ -1,0 +1,35 @@
+id: chronotqa
+name: ChronoTQA
+kind: benchmark
+year: 2026
+summary: 3,341 temporal biomedical questions across eight task types (six temporal, two static controls) built from the ChronoMedKG knowledge graph of disease onset and progression, used to test LLM clinical reasoning with and without graph retrieval.
+readme_section: knowledge_exam
+links:
+  paper: https://arxiv.org/abs/2605.22734
+  arxiv: "2605.22734"
+  doi: 10.5281/zenodo.19697542
+  dataset: https://doi.org/10.5281/zenodo.19697542
+license: MIT
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Questions derive from a knowledge graph extracted from PubMed and PMC literature with PrimeKG disease schema; no country origin.
+  localization: native
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated, literature]
+  venue: preprint
+facets:
+  health_areas: [general_medicine, other_specialty]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 3,341 questions plus a 12-question supplementary probe
+provenance:
+  records: [r_6faf31956e, r_4b06ca0faf]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: medium
+  notes: From the arXiv abstract and Zenodo description. ChronoTQA is released under MIT (the graph is CC BY 4.0). Question format (assumed multiple choice) and scoring, how questions were generated, and author affiliations were not confirmed. Borderline scope, knowledge-graph-derived disease-knowledge QA, not conversational health.

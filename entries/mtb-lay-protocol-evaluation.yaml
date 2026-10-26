@@ -1,0 +1,35 @@
+id: mtb-lay-protocol-evaluation
+name: MTB lay-language protocol evaluation framework
+kind: eval_framework
+year: 2026
+summary: "An evaluation framework for patient-facing text generated from German molecular tumor board protocols, combining ROUGE, BERTScore and readability metrics with expert paragraph-level error annotation, perceived post-editing effort and net promoter score, tested on 8 open-weight LLMs and 50 protocols rated by 7 oncologists."
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.2196/99136
+  pmcid: PMC13397006
+  doi: 10.2196/99136
+license: null
+open_data: unknown
+geography:
+  item_languages: [German]
+  item_origin_countries: [DEU]
+  item_origin_note: 316 molecular tumor board protocols and 47 expert-written patient protocols from West German Cancer Center, Essen University Hospital.
+  rater_countries: [DEU]
+  localization: native
+  lead_institution_countries: [DEU]
+origin:
+  builder_types: [academic]
+  item_provenance: [real_user_queries]
+  venue: peer_reviewed
+facets:
+  health_areas: [oncology]
+  intended_users: [clinician, patient_public]
+  eval_methods: [automatic_metric, expert_human_rating]
+  modality: [text]
+  size: "316 clinical protocols and 47 expert patient protocols; 50 generated protocols rated by 7 oncologists"
+provenance:
+  records: [r_8f3931fbc0]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "The authors state they developed a transferable evaluation framework (ISO 9241-11 usability dimensions: error taxonomy, perceived post-editing effort, NPS). Source documents are real hospital protocols, so item_provenance is the closest value. No data-availability statement or public dataset was seen; prompts and schemas are in a multimedia appendix. Borderline with a one-off study and with clinical documentation; a human may want to check scope."

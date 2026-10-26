@@ -1,0 +1,35 @@
+id: medcounterfact
+name: MedCounterFact
+kind: benchmark
+year: 2026
+summary: "203 clinical comparison questions from Cochrane systematic reviews, each rewritten with four kinds of counterfactual intervention (nonce word, other-condition treatment, non-medical object, toxic substance) and matching RCT evidence, to test whether LLMs accept dangerous or implausible evidence at face value."
+readme_section: safety
+links:
+  paper: https://doi.org/10.18653/v1/2026.findings-acl.1847
+  arxiv: "2601.11886"
+  doi: 10.18653/v1/2026.findings-acl.1847
+  code: https://github.com/KaijieMo-kj/CounterfactualMedical-Evidence
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: "Questions and RCT evidence come from MedEvidence (Cochrane systematic reviews); no country origin is stated."
+  localization: adapted
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, llm_generated]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match, rubric_llm_judge]
+  modality: [text]
+  size: "203 base questions, each with 4 counterfactual variants"
+provenance:
+  records: [r_ce56b76e98]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Built on MedEvidence (Polzak et al. 2025, 284 questions filtered to 203). Paper gives a GitHub link, but the repository returned 404 when checked, so open_data and license are unknown. Metrics are Uncertain rate and Evidence Adherence rate, plus an LLM judge (Claude) that classifies awareness and safety behaviour. Published in Findings of ACL 2026."

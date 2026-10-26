@@ -1,0 +1,33 @@
+id: epilepsy-counterfactual-escalation-benchmark
+name: Epilepsy Counterfactual Escalation Benchmark
+kind: benchmark
+year: 2026
+summary: A locked benchmark of 60 matched epilepsy scenario pairs (120 scenarios; 50 directional, 10 invariance controls) testing whether consumer chatbots escalate care, rescue-medication and emergency-referral advice when a pivotal clinical feature crosses a safety threshold, rated by five blinded clinicians.
+readme_section: safety
+links:
+  paper: https://doi.org/10.17605/osf.io/wt8py
+  doi: 10.17605/osf.io/wt8py
+license: null
+open_data: unknown
+geography:
+  item_languages: [UNKNOWN]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Synthetic scenarios; the OSF registration does not state language or country. Chatbots tested include DeepSeek and Doubao alongside ChatGPT, Gemini, Claude, and Copilot.
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written]
+  venue: grey_literature
+facets:
+  health_areas: [other_specialty, emergency_triage]
+  intended_users: [patient_public]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: 120 scenarios (60 matched pairs)
+provenance:
+  records: [r_d6bf2dac41]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: low
+  notes: "Source is the OSF preregistration (registered 2026-09-21), read through the OSF API. Its OSF storage appears to hold no files, so no scenario set or reference cards were seen and open_data is unknown. Primary endpoint is Counterfactual Escalation Concordance; reporting follows CHART 2025. Scenario authorship (clinician-written vs LLM-generated) is not stated; item_provenance is a guess. Single listed contributor, affiliation not seen."

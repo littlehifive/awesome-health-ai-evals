@@ -1,0 +1,35 @@
+id: cross-care
+name: Cross-Care
+kind: benchmark
+year: 2024
+summary: Templates in English, Spanish, Chinese, and French that probe LLM logits for how often diseases are associated with demographic groups, compared against US disease prevalence from a literature review and against co-occurrence counts in The Pile.
+readme_section: safety
+links:
+  paper: https://arxiv.org/abs/2405.05506
+  arxiv: "2405.05506"
+  code: https://github.com/shan23chen/Cross-Care
+  website: https://www.crosscare.net
+license: MIT
+open_data: open
+geography:
+  item_languages: [English, Spanish, Mandarin Chinese, French]
+  item_origin_countries: [USA]
+  item_origin_note: Real-world prevalence reference rates are for US demographic groups; templates were written by the authors and checked by native speakers.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [unspecified]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: ten templates per disease and demographic group per language
+provenance:
+  records: [r_125597e866]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Probability-based bias test on model logits (mostly base models such as Pythia, Llama, Mistral, Qwen), not a chatbot conversation test. Repo license MIT (GitHub API), though the README badge says Apache-2.0. Pile co-occurrence counts are downloadable at crosscare.net/downloads per the paper. The Chinese-language item origin is not tied to a country. Languages other than English come from the paper's multilingual-template discussion; the full list was not confirmed."

@@ -1,0 +1,34 @@
+id: cvd
+name: Clinical Value Density (CVD)
+kind: eval_framework
+year: 2025
+summary: A metric of clinical utility per unit of response length, combined with safety scoring by pharmacists, tested on 60 clinical pharmacology scenarios from UAE practice against pharmacist reference answers.
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.1101/2025.10.14.25338039
+  doi: 10.1101/2025.10.14.25338039
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [ARE]
+  item_origin_note: Scenarios derived from UAE healthcare practice; the language is not stated in the text (English assumed from the BLEU, ROUGE, and token-count analysis).
+  rater_countries: [ARE, JOR]
+  localization: native
+  lead_institution_countries: [ARE]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written]
+  venue: preprint
+facets:
+  health_areas: [pharmacy_medication]
+  intended_users: [clinician, pharmacist]
+  eval_methods: [automatic_metric, expert_human_rating]
+  modality: [text]
+  size: 60 scenarios; six LLMs compared against pharmacist responses
+provenance:
+  records: [r_d881203158]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Data availability statement points to a Figshare link (https://figshare.com/s/b0459f2266eeb5af288d), a private-share style link; no license seen. CVD is semantic similarity divided by token count, plus keyword relevance, a three-level safety score from two licensed pharmacists, and a conciseness bonus. Authors are at UAE University and the University of Jordan. Who wrote the scenarios is not stated explicitly (pharmacist co-authors contributed data curation); rater countries inferred from affiliations, so check."

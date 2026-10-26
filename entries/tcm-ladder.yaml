@@ -1,0 +1,35 @@
+id: tcm-ladder
+name: TCM-Ladder
+kind: benchmark
+year: 2025
+summary: About 52,000 multimodal traditional Chinese medicine QA instances (single- and multiple-choice, fill-in-the-blank, visual understanding, diagnostic dialogues and long-form QA) with text, herb images, tongue and pulse data, scored with accuracy and the Ladder-Score metric.
+readme_section: multilingual_regional
+links:
+  paper: https://arxiv.org/abs/2505.24063
+  arxiv: "2505.24063"
+  doi: 10.52202/085713-4657
+  website: https://tcmladder.com
+license: null
+open_data: open
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: Text questions come from TCM practitioner-written QA, the National Physician Qualification Examination of China and open online sources; the language is inferred from this source material.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written, exam_questions, adapted_dataset]
+  venue: peer_reviewed
+facets:
+  health_areas: [traditional_medicine]
+  intended_users: [clinician, medical_student]
+  eval_methods: [mcq_exact_match, automatic_metric]
+  modality: [text]
+  size: 52,169 QA instances (21,326 questions plus 25,163 diagnostic dialogues in the paper, and image, audio and video data)
+provenance:
+  records: [r_5c64a8534f]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Abstract states the datasets and leaderboard are public at tcmladder.com; no license was found in the parts read. The data are also meant for training (the authors fine-tuned models on a subset), so only the evaluation split is a benchmark. Modality is recorded as text only because the schema has no image option; the benchmark also includes herb images, tongue images, pulse audio and video. Published at NeurIPS 2025 (Datasets and Benchmarks, DOI prefix 10.52202). First and last authors are at the University of Missouri; a co-corresponding author is elsewhere. 5,000 text QA pairs were written by licensed TCM practitioners and cross-checked by two physicians. Ladder-Score was not examined in detail."

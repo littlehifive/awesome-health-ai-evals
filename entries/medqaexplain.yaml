@@ -1,0 +1,32 @@
+id: medqaexplain
+name: MedQAExplain
+kind: benchmark
+year: 2024
+summary: 1,000 Chinese open-ended medical questions (preview subset) with original answers, concise answers, and LLM-built gold explanations, for scoring explainer models with BLEU and ROUGE.
+readme_section: multilingual_regional
+links:
+  huggingface: [Whliuyu/MedQAExplain]
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: The card does not say where the questions come from; they are in Chinese and grouped by clinical department.
+  localization: native
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated, adapted_dataset]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 1,000 question rows in the released preview subset
+provenance:
+  records: [r_14180f1517]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "Dataset card only; the paper is under review and not linked. The card says the full dataset and construction pipeline will be released after acceptance; only a preview subset (MedQAExplain_subset.csv, 1,000 rows with columns question_id, category, question, original_answer, concise_answer, gold_explanation, credibility_score) is public. evaluate_scores.py computes BLEU-1/4 and ROUGE with jieba tokenization. Builder type and item sourcing are inferred from the card and the file contents, not stated. The card tag lists 10K<n<100K items, which does not match the 1,000-row preview."

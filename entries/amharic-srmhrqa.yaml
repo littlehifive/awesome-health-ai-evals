@@ -1,0 +1,32 @@
+id: amharic-srmhrqa
+name: Amharic SRMHRQA
+kind: benchmark
+year: 2024
+summary: A 2.8k-item Amharic question-answer dataset on sexual, reproductive, and maternal health rights, generated from medical textbooks and guidelines, then annotated and translated.
+readme_section: multilingual_regional
+links:
+  doi: 10.1109/ichi61247.2024.00091
+license: null
+open_data: closed
+geography:
+  item_languages: [Amharic]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Source textbooks and guidelines are from medical institutions the abstract does not name.
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature, llm_generated]
+  venue: peer_reviewed
+facets:
+  health_areas: [srh, maternal_newborn]
+  intended_users: [unspecified]
+  eval_methods: [automatic_metric, expert_human_rating]
+  modality: [text]
+  size: 2.8k question-answer pairs
+provenance:
+  records: [r_6abb6c2be7]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: Abstract only (IEEE ICHI 2024). The abstract calls the dataset a resource for future research but gives no link, so open_data is set to closed pending a check. The dataset was used to fine-tune LLaMA-2-Amharic and scored with BLEU and human evaluation. Whether Amharic questions were machine-translated from English, and countries of origin, are not stated.

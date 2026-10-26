@@ -1,0 +1,33 @@
+id: medmeta
+name: MedMeta
+kind: benchmark
+year: 2026
+summary: 81 recent meta-analyses from PubMed (24 specialties, 2,250 primary studies) on which LLMs must synthesize the meta-analysis conclusion from study abstracts, scored by an LLM judge validated against medical experts and by BERTScore.
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2605.09661
+  arxiv: "2605.09661"
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Meta-analyses sampled from PubMed (2018-2025); no country origin.
+  localization: native
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [rubric_llm_judge, automatic_metric, expert_human_rating]
+  modality: [text]
+  size: 81 meta-analyses, 2,250 primary-study abstracts
+provenance:
+  records: [r_aaf9f8cad9]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Paper says the benchmark is in a public repository, but no repository URL or license appears in the text, so open_data is unknown. LLM judge compared with 3 experts (Pearson r 0.81); the paper also mentions 9 expert annotators. Workflows include parametric, standard RAG, golden RAG, and negated-RAG stress tests. Author affiliations not captured in the text read; the paper is an ICLR-style submission."

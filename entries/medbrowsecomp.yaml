@@ -1,0 +1,35 @@
+id: medbrowsecomp
+name: MedBrowseComp
+kind: benchmark
+year: 2025
+summary: "1,089 multi-hop fact-seeking questions on oncology trials, regimens, FDA approvals and stock data, built from HemOnc.org, for testing medical deep-research and computer-use agents on the live web, scored by an LLM judge against short answers."
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2505.14963
+  arxiv: "2505.14963"
+  doi: 10.48550/arxiv.2505.14963
+  huggingface: [AIM-Harvard/MedBrowseComp, AIM-Harvard/MedBrowseComp_Meta, AIM-Harvard/MedBrowseComp_CUA]
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: "Questions are generated from HemOnc.org regimen and trial data linked to PubMed, ClinicalTrials.gov, the FDA Orange Book, and Yahoo Finance; no country origin is stated."
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature]
+  venue: preprint
+facets:
+  health_areas: [oncology, pharmacy_medication]
+  intended_users: [clinician]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: "605 deep-research questions (five hops) and 484 computer-use questions (four hops); 50-question human-checked subset"
+provenance:
+  records: [r_fd1e8d139a, r_a14ede6f13]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Borderline scope: it tests web-browsing agents on medical fact retrieval rather than a chatbot answering health questions; kept because it targets clinician and researcher information-seeking. Final test sets are byte-encoded to limit contamination; a decode script is on GitHub (repo link not captured). The LLM judge (GPT-4.1 mini) matches short answers, so rubric_llm_judge is a loose fit; two annotators agreed 98% with the judge on the 50-question subset. Datasets on Hugging Face (apache-2.0 on all three cards): the main repo holds the 50/605/CUA splits, _Meta holds the cleaned HemOnc metadata, _CUA holds the computer-use split. Paper does not give rater countries."

@@ -1,0 +1,34 @@
+id: aratrust
+name: AraTrust
+kind: benchmark
+year: 2024
+summary: 522 human-written Arabic multiple-choice questions on LLM trustworthiness (truthfulness, ethics, safety, physical and mental health, unfairness, illegal activities, privacy, offensive language), scored by exact-match accuracy.
+readme_section: safety
+links:
+  paper: https://arxiv.org/abs/2403.09017
+  arxiv: "2403.09017"
+  doi: 10.48550/arxiv.2403.09017
+license: null
+open_data: open
+geography:
+  item_languages: [Arabic]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Questions written by native Arabic speakers or taken from college exams, existing Arabic datasets, and websites; the paper does not name countries.
+  localization: native
+  lead_institution_countries: [SAU, SAU]
+origin:
+  builder_types: [academic, industry_lab]
+  item_provenance: [clinician_written, exam_questions, adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [general_medicine, mental_health]
+  intended_users: [patient_public]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 522 questions; physical and mental health are two of 8 categories
+provenance:
+  records: [r_40b84f71af]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: Health is only part of the benchmark (physical health and mental health categories out of 8; the paper's text I read did not give their counts). The preprint says the data would be made public but gives no link, and I did not look for one. open_data is therefore a guess. Authors are at King Abdulaziz University and ASAS AI. The item_provenance value clinician_written is a loose fit for manually written questions; the authors are not stated to be clinicians.

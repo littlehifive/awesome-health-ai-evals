@@ -1,0 +1,34 @@
+id: pgxqa
+name: PGxQA
+kind: benchmark
+year: 2024
+summary: "110,207 pharmacogenomics questions generated from CPIC guideline data plus real questions sent to PharmGKB scientists, for clinician, patient, and researcher personas, with automated scoring (exact match, text similarity) and adversarial refusal questions."
+readme_section: knowledge_exam
+links:
+  paper: https://pmc.ncbi.nlm.nih.gov/articles/PMC11734741/
+  pmcid: PMC11734741
+  code: https://github.com/KarlKeat/PGxQA
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Generated from the CPIC database, an international guideline consortium based at Stanford, plus questions sent to PharmGKB scientists; no country origin is stated.
+  localization: unknown
+  lead_institution_countries: [USA, USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature, real_user_queries]
+  venue: peer_reviewed
+facets:
+  health_areas: [pharmacy_medication]
+  intended_users: [clinician, patient_public]
+  eval_methods: [mcq_exact_match, automatic_metric, expert_human_rating]
+  modality: [text]
+  size: 110,207 questions
+provenance:
+  records: [r_886eaef45b]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "The paper says all generated questions are available for download; the GitHub repo KarlKeat/PGxQA is MIT-licensed code, and the dataset license was not seen, so license is null. Most questions are templated from CPIC data; a smaller set of real PharmGKB questions is expert-scored. The paper's headline results are for GPT-4o and other models circa 2024. Whether the question files sit in the repo or elsewhere was not checked."

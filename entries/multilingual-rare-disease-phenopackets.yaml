@@ -1,0 +1,37 @@
+id: multilingual-rare-disease-phenopackets
+name: Multilingual rare-disease phenopacket prompts
+kind: benchmark
+year: 2025
+summary: 4,917 rare-disease clinical vignettes (360 genetic diseases) built from GA4GH Phenopackets and rendered as differential-diagnosis prompts in ten languages, scored automatically by whether the correct diagnosis appears in the model's ranked list.
+readme_section: multilingual_regional
+links:
+  paper: https://doi.org/10.1016/j.ebiom.2025.105957
+  doi: 10.1016/j.ebiom.2025.105957
+  pmcid: PMC12552141
+  code: https://github.com/monarch-initiative/pheval.llm
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [English, Chinese, Czech, Dutch, French, German, Italian, Japanese, Spanish, Turkish]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: "Cases are Phenopackets curated from published case reports (Phenopacket Store v0.1.19); the source papers' countries are not stated. Non-English prompts are templated translations of Human Phenotype Ontology terms."
+  localization: translated
+  lead_institution_countries: [DEU]
+  subsets:
+    - {name: Non-English prompts (9 languages), languages: [Chinese, Czech, Dutch, French, German, Italian, Japanese, Spanish, Turkish], countries: [UNKNOWN], localization: translated}
+origin:
+  builder_types: [academic]
+  item_provenance: [literature, adapted_dataset]
+  venue: peer_reviewed
+facets:
+  health_areas: [other_specialty]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 4,917 vignettes x 10 languages (98,340 prompts)
+provenance:
+  records: [r_bc668d66f1, r_d783b0de47]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Zenodo record 14907503 (CC-BY-4.0) holds phenopackets, prompts in all languages, and results. The earlier medRxiv preprint (r_d783b0de47; 4,967 cases, nine languages, GPT-4o only; Zenodo title says 4,967 Phenopackets in 9 languages) is merged here. Scored with Top-1/3/10 diagnosis accuracy against the known disease via ontology grounding. Lead country taken from the first author's and Peter Robinson's Berlin affiliation on the Zenodo record; not independently verified against the PDF byline."

@@ -1,0 +1,31 @@
+id: lsb-llm-safety-benchmark
+name: LSB (LLM Safety Benchmark)
+kind: benchmark
+year: 2025
+summary: 200 health-domain prompts (with misinformation and disinformation sets alongside) in four difficulty tiers from direct questions to multi-turn persuasion, scored for refusal, harmful content, and factual accuracy with an LLM judge.
+readme_section: safety
+links:
+  code: https://github.com/Ssa096/LSB-LLM-Safety-Benchmark
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  localization: unknown
+  lead_institution_countries: [POL]
+origin:
+  builder_types: [academic]
+  item_provenance: [unknown]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine, public_health]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge, automatic_metric, simulated_multi_turn]
+  modality: [text]
+  size: 200 health prompts (README says 50+; prompts_health.json holds 200)
+provenance:
+  records: [r_edb6dcae55]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "A Warsaw University of Technology NLP course project (Winter 2025); source is the GitHub README and prompts_health.json only. No license file; the README says only that it was a course project, so license is null. Prompt provenance (hand-written or LLM-generated) is not stated. Only the health file is in scope; misinformation and disinformation prompt sets are part of the same repo. Refusal detection uses keywords and embedding similarity as well as the judge."

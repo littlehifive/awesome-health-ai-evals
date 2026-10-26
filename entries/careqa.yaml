@@ -1,0 +1,39 @@
+id: careqa
+name: CareQA
+kind: benchmark
+year: 2025
+summary: 5,621 multiple-choice questions from Spanish specialised healthcare training (MIR) exams 2020-2024 across medicine, nursing, biology, chemistry, psychology, and pharmacology, in Spanish and English, plus a 2,769-question open-ended English version.
+readme_section: multilingual_regional
+links:
+  paper: https://aclanthology.org/2025.naacl-short.10/
+  arxiv: "2502.06666"
+  doi: 10.18653/v1/2025.naacl-short.10
+  huggingface: [HPAI-BSC/CareQA]
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [Spanish, English]
+  item_origin_countries: [ESP]
+  item_origin_note: Questions come from the Spanish Ministry of Health MIR exams.
+  localization: mixed
+  lead_institution_countries: [ESP]
+  subsets:
+    - {name: CareQA_es, languages: [Spanish], countries: [ESP], localization: native}
+    - {name: CareQA_en, languages: [English], countries: [ESP], localization: translated}
+    - {name: CareQA_en_open, languages: [English], countries: [ESP], localization: adapted}
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine, nursing, pharmacy_medication]
+  intended_users: [clinician, medical_student]
+  eval_methods: [mcq_exact_match, automatic_metric]
+  modality: [text]
+  size: 5,621 closed-ended questions (Spanish and English); 2,769 open-ended questions
+provenance:
+  records: [r_3700734f01]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: English closed version translated with GPT-4; open-ended version rephrased from the closed one with Qwen2.5-72B-Instruct, with human review by 10 evaluators. The paper also proposes the Relaxed Perplexity metric. Record r_e172cec88e (a Chinese elderly-care QA dataset also named CareQA, 41,694 QA pairs, BIBM 2024) is a different dataset with no release link found, and is not included here.

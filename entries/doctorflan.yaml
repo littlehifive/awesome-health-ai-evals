@@ -1,0 +1,51 @@
+id: doctorflan
+name: DoctorFLAN (DoctorFLAN-test and DotaBench)
+kind: benchmark
+year: 2024
+summary: Chinese doctor-assistant medical dataset of about 92K Q&A items over 22 clinical workflow tasks and 27 specialties, with a 550-item single-turn test set (DoctorFLAN-test) and a 74-conversation three-turn benchmark (DotaBench), scored by GPT-4 and human clinicians.
+readme_section: multilingual_regional
+links:
+  paper: https://doi.org/10.1038/s44401-025-00038-z
+  doi: 10.1038/s44401-025-00038-z
+  arxiv: '2406.18034'
+  huggingface:
+  - FreedomIntelligence/DoctorFLAN
+license: MIT
+open_data: open
+geography:
+  item_languages:
+  - Mandarin Chinese
+  item_origin_countries:
+  - CHN
+  item_origin_note: Task design came from a survey of doctors at Chinese hospitals; the data source countries are inferred from that and from the Chinese-language items.
+  rater_countries:
+  - UNKNOWN
+  localization: native
+  lead_institution_countries:
+  - CHN
+origin:
+  builder_types:
+  - academic
+  item_provenance:
+  - clinician_written
+  - llm_generated
+  venue: peer_reviewed
+facets:
+  health_areas:
+  - general_medicine
+  intended_users:
+  - clinician
+  eval_methods:
+  - rubric_llm_judge
+  - expert_human_rating
+  modality:
+  - text
+  size: 550 test items; 74 multi-turn conversations; about 92K training items
+provenance:
+  records:
+  - r_70de444762
+  - r_f5d3e7b424
+  read_full_text: true
+  confidence: medium
+  notes: Records are the arXiv preprint and its npj Health Systems journal version. MIT license and the 91,771 train and 550 test counts are from the Hugging Face card; that card has no description and I did not see DotaBench in it, so check whether DotaBench itself is released. Training data is part of the same release, but the benchmark pieces are the test sets. How items were authored (clinicians vs LLM-generated and revised) was not read in detail. Evaluation uses GPT-4 as judge (rating prompts in the appendix) plus six clinicians for DoctorFLAN-test. Authors are at CUHK Shenzhen and the Shenzhen Research Institute of Big Data.
+  extracted: '2026-10-26'

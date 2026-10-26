@@ -1,0 +1,35 @@
+id: mr-bench
+name: MR-Bench
+kind: benchmark
+year: 2026
+summary: Multiple-choice clinical decision tasks built from MIMIC-IV hospital records (1,000 cases per task across four time periods, for medication imputation and procedure selection), with distractors chosen for drug-drug interactions and contraindications, introduced in a medical-reasoning survey.
+readme_section: knowledge_exam
+links:
+  paper: https://arxiv.org/abs/2604.08559
+  arxiv: "2604.08559"
+  doi: 10.1002/inm3.70056
+  code: https://github.com/RXH04-USTC/Medical-Reasoning-Survey
+license: MIT
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Derived from MIMIC-IV, a US hospital database (Beth Israel Deaconess); the paper text read did not restate this.
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine, pharmacy_medication]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 1,000 cases per task, two tasks
+provenance:
+  records: [r_3a803cfcdf, r_9d86c672f5]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "MR-Bench is a secondary contribution of a survey of medical reasoning with LLMs; the arXiv preprint and the journal version (r_9d86c672f5, a Wiley journal; peer-reviewed status inferred from the DOI) are the same work. The MIT license is the repository's license (code), not a stated data license. The repo holds scripts (src_bench/mimiciv_drug.py, mimiciv_pro.py) to build items from MIMIC-IV, which requires PhysioNet credentialed access; no downloadable item file was seen, so open_data is unknown. Case-based MIMIC-IV items overlap with EHR-derived tasks; included because the tasks are clinician decision questions for LLMs, but a human may prefer to treat it as borderline scope."

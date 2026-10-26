@@ -1,0 +1,36 @@
+id: mediq
+name: MediQ
+kind: benchmark
+year: 2024
+summary: "Interactive version of MedQA (1,273 test and 1,272 dev cases) and 140 CRAFT-MD dermatology cases, where a simulated patient reveals only age, sex, and chief complaint and the model must ask questions before answering the multiple-choice question."
+readme_section: open_ended
+links:
+  arxiv: "2406.00922"
+  paper: https://arxiv.org/abs/2406.00922
+  doi: 10.52202/079017-0908
+  huggingface: [stellalisy/mediQ]
+  code: https://github.com/stellalisy/mediQ
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: "iMedQA derives from MedQA (US medical licensing exam questions). iCraft-MD derives from CRAFT-MD dermatology cases (100 from an online question bank, 40 written by expert clinicians); the paper text I read does not give its country."
+  localization: adapted
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, exam_questions]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine, other_specialty]
+  intended_users: [clinician]
+  eval_methods: [simulated_multi_turn, mcq_exact_match]
+  modality: [text]
+  size: iMedQA (MedQA dev and test) plus 140 iCraft-MD cases
+provenance:
+  records: [r_8abc72298e, r_8abc369bda]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "NeurIPS 2024 Datasets and Benchmarks paper. A simulated Patient system answers the Expert model's questions from the full record; Patient reliability is scored for factuality and relevance, and Expert accuracy is the multiple-choice accuracy after interaction. The HF dataset holds medqa dev and test conversation files (CC-BY-4.0 per card). r_a2e7471faa (MEDIQ Bilingual Hindi-English chatbot log dataset, Zenodo) was grouped into the same candidate but is a different resource and is not part of this entry."

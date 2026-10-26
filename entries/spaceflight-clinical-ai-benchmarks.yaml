@@ -1,0 +1,34 @@
+id: spaceflight-clinical-ai-benchmarks
+name: SpaceFlight-Clinical-AI-Benchmarks
+kind: benchmark
+year: 2026
+summary: A small open offline evaluation suite of synthetic spaceflight emergency scenarios (five in the whitepaper, seven in the repo) scored by rubric with a hard-gate safety multiplier that zeroes the score for contraindicated recommendations.
+readme_section: safety
+links:
+  paper: https://doi.org/10.5281/zenodo.21920928
+  doi: 10.5281/zenodo.21920928
+  code: https://github.com/dr-mimo/SpaceFlight-Clinical-AI-Benchmarks
+license: MIT
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Synthetic scenarios loosely based on public NASA Human Research Program hazard categories; no country origin.
+  localization: native
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written, literature]
+  venue: grey_literature
+facets:
+  health_areas: [emergency_triage, other_specialty]
+  intended_users: [clinician]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: 5 scenarios in the whitepaper; 7 scenarios in repo v0.3
+provenance:
+  records: [r_00a98aa46f]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Single independent author (Zenodo lists affiliation as Independent Researcher; country not stated). Repo is MIT; the README says dataset licensing is undecided, so license is the code license. Scoring is keyword/criteria matching with an optional LLM judge. Authors state it is not affiliated with NASA or Google. Very small; whitepaper numbers are described by the author as an initial methodology. builder_types academic is a placeholder for an independent researcher."

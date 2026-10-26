@@ -1,0 +1,34 @@
+id: medical-rag-expert-eval
+name: Medical RAG Expert Evaluation (200 queries)
+kind: benchmark
+year: 2025
+summary: 200 medical questions (100 patient queries from K-QA, 100 USMLE-style from MedBullets) with 800 GPT-4o and Llama-3.1-8B responses (with and without RAG) and about 80,500 expert annotations of evidence retrieval, evidence selection, factuality, and completeness.
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2511.06738
+  arxiv: "2511.06738"
+  huggingface: [Yale-BIDS-Chen/medical-rag-expert-evaluation-200]
+license: CC-BY-NC-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA, UNKNOWN]
+  item_origin_note: Questions are sampled from existing datasets, K-QA (real patient questions; country not stated in the sources read) and MedBullets (USMLE-style, so US).
+  localization: adapted
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, real_user_queries]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician, patient_public]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: 200 questions, 800 responses, 1,925 must-have statements, 80,502 expert annotations
+provenance:
+  records: [r_8c4721b6bd]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Stage-level metrics (precision@k, miss@k, coverage@k, selection precision/recall, factuality, completeness) are computed from expert labels on the 16 MedCPT-retrieved passages per question. 18 annotators (medical residents or clinical fellows for response tasks) are listed with affiliations only in a supplementary table, so rater_countries is omitted. Lead institution (Yale) is inferred from the HF organization name Yale-BIDS-Chen. The dataset is a validation-style analysis resource rather than a leaderboard benchmark."

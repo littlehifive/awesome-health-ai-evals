@@ -1,0 +1,35 @@
+id: clinicnumrobbench
+name: ClinicNumRobBench
+kind: benchmark
+year: 2026
+summary: "1,624 context-question instances built from MIMIC-IV vital-sign records that test four clinical numeracy operations (value retrieval, arithmetic, comparison, aggregation) across three note formats."
+readme_section: knowledge_exam
+links:
+  paper: https://arxiv.org/abs/2604.11133
+  arxiv: "2604.11133"
+  doi: 10.18653/v1/2026.findings-acl.901
+  code: https://github.com/MinhVuong2000/ClinicNumRobBench
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Contexts are synthesized from MIMIC-IV and MIMIC-IV-ED vital signs and demographics; USA is from general knowledge of MIMIC, not stated in the paper.
+  localization: native
+  lead_institution_countries: [AUS]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 1,624 instances, 17 LLMs evaluated
+provenance:
+  records: [r_a79109a670]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Paper (introduction) and GitHub README read. The README says the dataset is pending on PhysioNet and otherwise must be rebuilt after MIMIC-IV credentialing, so open_data is unknown (no download seen); the code repo carries no license I checked. Ground-truth answers are computed from the records. Borderline scope: clinical-note numeracy, not patient-facing health QA."

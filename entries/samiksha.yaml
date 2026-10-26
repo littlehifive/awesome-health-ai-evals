@@ -1,0 +1,55 @@
+id: samiksha
+name: Samiksha
+kind: benchmark
+year: 2025
+summary: A community-driven evaluation pipeline co-created with Indian civil-society organizations, yielding 810 health queries written from scratch by native speakers in Hindi, Kannada and Malayalam plus 780 localized chatbot-log queries, rated by humans and LLM judges.
+readme_section: multilingual_regional
+links:
+  paper: https://doi.org/10.1145/3772318.3791172
+  arxiv: '2509.24506'
+  doi: 10.1145/3772318.3791172
+license: null
+open_data: unknown
+geography:
+  item_languages:
+  - Hindi
+  - Kannada
+  - Malayalam
+  - English
+  item_origin_countries:
+  - IND
+  rater_countries:
+  - IND
+  localization: native
+  lead_institution_countries:
+  - IND
+  item_origin_note: Queries written by 15 data workers recruited via Karya across India; the localized subset comes from logs of a deployed chatbot, translated from Indian English.
+origin:
+  builder_types:
+  - academic
+  - industry_lab
+  - implementer_ngo
+  item_provenance:
+  - real_user_queries
+  - clinician_written
+  venue: peer_reviewed
+facets:
+  health_areas:
+  - public_health
+  - maternal_newborn
+  - infectious_other
+  intended_users:
+  - patient_public
+  eval_methods:
+  - rubric_llm_judge
+  - expert_human_rating
+  modality:
+  - text
+  size: 810 created queries (3 languages x 8 themes) and 780 localized queries (260 per language)
+provenance:
+  records:
+  - r_8757e92200
+  extracted: '2026-10-26'
+  read_full_text: true
+  confidence: high
+  notes: Authors at Microsoft Research India, Karya, and the Collective Intelligence Project. Query creators were native-speaking data workers, not clinicians; rubrics came from five CSO interviews. Four rating dimensions (clarity/fluency, helpfulness/relevance, accuracy/completeness, conciseness) plus pairwise comparison. Human raters were Karya workers. No release link for the dataset found, so open_data is unknown. The localization subset was drawn from deployed-chatbot logs. Health areas are broad themes, mapped loosely.

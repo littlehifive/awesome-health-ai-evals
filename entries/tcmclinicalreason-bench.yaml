@@ -1,0 +1,33 @@
+id: tcmclinicalreason-bench
+name: TCMClinicalReason-Bench
+kind: benchmark
+year: 2026
+summary: 2,000 Chinese real-world TCM clinical cases (443 diseases) where models write a seven-block reasoning chain from pathogenesis to prescription, scored by an LLM judge with TCM retrieval and checked by five physicians.
+readme_section: multilingual_regional
+links:
+  code: https://github.com/NJUCM-BJUCM-TCM-AI/TCMClinicalReason-Bench
+license: CC-BY-NC-4.0
+open_data: open
+geography:
+  item_languages: [Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: Case records documented by senior TCM physicians, curated from multicenter electronic health records and published TCM case reports; the repository does not name the hospitals.
+  rater_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written]
+  venue: grey_literature
+facets:
+  health_areas: [traditional_medicine]
+  intended_users: [clinician]
+  eval_methods: [rubric_llm_judge, expert_human_rating, automatic_metric]
+  modality: [text]
+  size: 2,000 cases
+provenance:
+  records: [r_146091a3c5]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Source is the GitHub README only; no paper was found. Test inputs are public (data/TCMCR-Reasoning.json) but gold labels are withheld and scoring is done by the project team on request. License taken from the README badge (CC BY-NC 4.0); the GitHub API reports no SPDX license. Judge is Qwen3.7-Plus with TCM-RAG scoring 0-5 per block and for three cross-block logic chains; BLEU, ROUGE-L and embedding similarity are reported but not used for ranking."

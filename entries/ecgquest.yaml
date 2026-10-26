@@ -1,0 +1,33 @@
+id: ecgquest
+name: ECGQuest
+kind: benchmark
+year: 2026
+summary: 10,904 true/false electrocardiography knowledge questions, each paired with its negated form (21,808 Q&A items), generated with GPT-4o from 23 ECG references and Computing in Cardiology proceedings and scored by accuracy on a held-out test set.
+readme_section: knowledge_exam
+links:
+  paper: https://arxiv.org/abs/2608.30893
+  arxiv: "2608.30893"
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Items are generated from textbooks, teaching materials, and conference proceedings; no country origin.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated, literature]
+  venue: preprint
+facets:
+  health_areas: [cardiology]
+  intended_users: [clinician, medical_student]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 21,808 Q&A items (10,904 questions plus negated forms)
+provenance:
+  records: [r_1f2e99e441]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Read the arXiv HTML text. The paper says the dataset and fine-tuned models will be made public with a URL added after acceptance; none was available, so open_data is unknown. Items are LLM-generated and verified by a second model, without expert review (listed as future work). Zero-shot accuracy ranged from 49.5% to 74.4% across 23 models. Generalization was checked on ECG-related subsets of MedMCQA and MedQA converted to true/false. Intended users are inferred. Lead institutions: Emory University and Georgia Tech."

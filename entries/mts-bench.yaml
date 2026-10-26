@@ -1,0 +1,33 @@
+id: mts-bench
+name: MTS-Bench
+kind: benchmark
+year: 2026
+summary: 39 emergency vignettes mapped to the five Manchester Triage System priority levels (156 prompts per condition across history-only or with-objective-data variants and two genders, plus a misleading GP-referral anchoring condition), scored by undertriage and overtriage rates against the gold priority.
+readme_section: safety
+links:
+  paper: https://doi.org/10.64898/2026.08.04.26359651
+  doi: 10.64898/2026.08.04.26359651
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Vignettes adapted from the clinical scenario dataset of Ramaswamy et al. (2026); the paper does not state where those scenarios came from.
+  localization: adapted
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [unknown]
+  item_provenance: [adapted_dataset, clinician_written]
+  venue: preprint
+facets:
+  health_areas: [emergency_triage]
+  intended_users: [clinician, nurse_midwife]
+  eval_methods: [automatic_metric, expert_human_rating]
+  modality: [text]
+  size: 39 cases; 156 prompts per anchoring condition (312 per system)
+provenance:
+  records: [r_d295d8b98a]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "medRxiv preprint from the developers of the DR. INFO clinical assistant, which is one of the three systems tested; authors' affiliations and countries are not shown in the text I read. No data or code release statement or link found, so open_data is unknown. Gold MTS priorities were assigned by an in-house pipeline, with an independent physician re-checking only the high-risk subset. The 39 cases are a small base for the 156 permuted prompts."

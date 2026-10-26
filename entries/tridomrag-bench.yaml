@@ -1,0 +1,35 @@
+id: tridomrag-bench
+name: TriDomRAG-Bench
+kind: benchmark
+adapted_from: [pubmedqa]
+year: 2026
+summary: 1,200 question-answer pairs across healthcare (400 from PubMedQA), legal, and finance for evaluating retrieval-augmented generation, scored with a composite Domain Hallucination Score.
+readme_section: safety
+links:
+  paper: https://doi.org/10.21203/rs.3.rs-9859942/v1
+  doi: 10.21203/rs.3.rs-9859942/v1
+  code: https://github.com/abhi6579/tridomrag-bench
+license: MIT
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Healthcare items are PubMedQA questions (biomedical literature); legal items are Australian and finance items are US filings, so only the healthcare third is in scope.
+  localization: adapted
+  lead_institution_countries: [IND]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, literature]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [unspecified]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 1,200 QA pairs (400 healthcare)
+provenance:
+  records: [r_5ff0622a04]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Read the Research Square PDF. The paper says all data and code are MIT-licensed at the GitHub repo (the repo's GitHub license field reads NOASSERTION; I did not open the repo contents). Healthcare is one of three domains and is built from PubMedQA,. The Domain Hallucination Score combines faithfulness (NLI cross-encoder), attribution, and terminology. Multi-domain, so health coverage is partial."

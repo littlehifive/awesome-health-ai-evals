@@ -1,0 +1,33 @@
+id: caregap-clinical-agent-eval
+name: CareGap Clinical Agent Eval
+kind: benchmark
+year: 2026
+summary: 60 English test cases for a clinical agent that flags CMS blood-pressure and diabetes care gaps in an EHR, covering measure logic, input guardrails, tool selection, and multi-turn conversation quality.
+readme_section: open_ended
+links:
+  huggingface: [PlantGoblin/caregap-clinical-eval]
+  code: https://github.com/PlntGoblin/Chronic-Care-Risk-Detector
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: The cases reference US CMS quality measures (CMS165, CMS122), but the card does not state where the cases came from.
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [unknown]
+  item_provenance: [unknown]
+  venue: grey_literature
+facets:
+  health_areas: [ncd]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 60 cases (22 care-gap, 16 guardrail, 12 tool-selection, 10 conversation)
+provenance:
+  records: [r_03ce3a1d8d]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: 'Dataset card only, no paper. Borderline scope: it tests an agent in an EHR workflow (CMS measure logic, tool routing) more than health chat; kept because it includes guardrail and multi-turn conversation items. Scoring appears deterministic (expected labels and tool names); the card section on scoring was not read in full. Author and country not stated.'

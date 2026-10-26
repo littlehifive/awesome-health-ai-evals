@@ -1,0 +1,77 @@
+id: sim-ut
+name: SIM-UT
+kind: eval_framework
+year: 2026
+summary: A multi-turn user-simulation method for finding failure modes of triage chatbots, applied to three WhatsApp health chatbots in India, South Africa and Kenya across 5,000+ simulated multilingual turns.
+readme_section: frameworks
+links:
+  paper: https://arxiv.org/abs/2610.30412
+  arxiv: '2610.30412'
+  doi: 10.48550/arxiv.2610.30412
+license: null
+open_data: described_only
+geography:
+  item_languages:
+  - English
+  - Hindi
+  - Zulu
+  - Afrikaans
+  - Swahili
+  item_origin_countries:
+  - IND
+  - ZAF
+  - KEN
+  item_origin_note: Simulated personas grounded in the real user populations of three deployed chatbots; not real transcripts.
+  localization: native
+  lead_institution_countries:
+  - UNKNOWN
+  subsets:
+  - name: Respiratory screening (India)
+    languages:
+    - Hindi
+    - English
+    countries:
+    - IND
+    localization: native
+  - name: Hearing health (South Africa)
+    languages:
+    - Zulu
+    - English
+    - Afrikaans
+    countries:
+    - ZAF
+    localization: native
+  - name: Diabetes coaching (Kenya)
+    languages:
+    - Swahili
+    - English
+    countries:
+    - KEN
+    localization: native
+origin:
+  builder_types:
+  - implementer_ngo
+  - academic
+  item_provenance:
+  - llm_generated
+  venue: preprint
+facets:
+  health_areas:
+  - emergency_triage
+  - ncd
+  intended_users:
+  - patient_public
+  eval_methods:
+  - simulated_multi_turn
+  - rubric_llm_judge
+  - expert_human_rating
+  modality:
+  - text
+  size: 5,000+ simulated conversation turns, 2-4 rounds per chatbot
+provenance:
+  records:
+  - r_d97d57306e
+  extracted: '2026-10-26'
+  read_full_text: true
+  confidence: medium
+  notes: Authors at UserTrace, Cliniva, hearX Foundation, University of Pretoria, Respira Health and Turn.io; the first and last author's country is not stated, so lead_institution_countries is UNKNOWN. The paper says SIM-UT and its test and benchmark datasets will be released as open source in future work, so nothing is released yet. Main finding is de-escalation sycophancy. Personas and rubrics were built per deployment with the deployments' clinical leads. Hindi was typed in Latin script by many users.

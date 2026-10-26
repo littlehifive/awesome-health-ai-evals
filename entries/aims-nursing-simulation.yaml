@@ -1,0 +1,34 @@
+id: aims-nursing-simulation
+name: AI-Integrated Method for Simulation (AIMS)
+kind: eval_framework
+year: 2025
+summary: A dual-phase framework (six prompt-design domains, eight chatbot performance criteria, each with a scoring rubric) for judging AI-chatbot-led simulations in nursing education, demonstrated on an emergency planning course prompt.
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.3390/nursrep15080280
+  doi: 10.3390/nursrep15080280
+  pmcid: PMC12389130
+license: CC-BY-4.0
+open_data: described_only
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  localization: unknown
+  rater_countries: [USA]
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [not_applicable]
+  venue: peer_reviewed
+facets:
+  health_areas: [nursing, emergency_triage]
+  intended_users: [nurse_midwife, medical_student]
+  eval_methods: [rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: framework with 6 prompt domains and 8 performance criteria; tested on 1 simulation prompt with 3 reviewers
+provenance:
+  records: [r_74b45c9ef6]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: medium
+  notes: "Read the abstract and Crossref and Europe PMC metadata only (MDPI full text was not retrievable); license CC-BY-4.0 is the article license, not a dataset license. Adapted from the FAITA model. Scope is borderline: the chatbot is an educational simulator for nursing students, not a health advice system. Rater countries are inferred from the authors' institution (University of Detroit Mercy); the abstract does not state them."

@@ -1,0 +1,35 @@
+id: indicmeddialog
+name: IndicMedDialog
+kind: benchmark
+year: 2026
+summary: 2,980 parallel multi-turn patient-doctor diagnostic dialogues in English and nine Indic languages (29,800 instances, 12 diseases), scored by final diagnostic accuracy and medical-expert review.
+readme_section: multilingual_regional
+links:
+  paper: https://doi.org/10.18653/v1/2026.bionlp-1.84
+  arxiv: "2605.13292"
+  doi: 10.18653/v1/2026.bionlp-1.84
+  code: https://github.com/ShubhamKumarNigam/IndicMedDialog
+license: null
+open_data: unknown
+geography:
+  item_languages: [English, Assamese, Bengali, Gujarati, Hindi, Marathi, Punjabi, Tamil, Telugu, Urdu]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: English source dialogues come from the MDDial corpus plus 1,101 synthetic consultations from Llama-3.3-70B; the paper does not state a country of origin. Nine Indic translations were made with TranslateGemma and checked by two native speakers per language.
+  localization: adapted
+  lead_institution_countries: [ARE, IND]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, llm_generated]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric, simulated_multi_turn, expert_human_rating]
+  modality: [text]
+  size: 2,980 dialogues x 10 languages (29,800 instances); 12 diseases, 118 symptoms
+provenance:
+  records: [r_b0e7beaaaa, r_5c37e8eaa4]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "BioNLP 2026 paper. The dataset is mainly built to fine-tune the IndicMedLM model; the benchmark use is diagnostic accuracy (a GPT judge maps free-text outputs to the 12 disease labels) plus medical-expert review. The paper says the dataset is released on GitHub, but the repository URL returned 404 when checked, so open_data is unknown and no license is recorded. Record r_5c37e8eaa4 has the wrong title (a NeoBERT dementia paper) but carries the IndicMedDialog abstract. Lead countries: UAE (University of Birmingham Dubai) and India."

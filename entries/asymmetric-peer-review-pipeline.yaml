@@ -1,0 +1,35 @@
+id: asymmetric-peer-review-pipeline
+name: Asymmetric Peer-Review Pipeline
+kind: eval_framework
+year: 2026
+summary: A pre-registered protocol that scores mental-health chatbot safety with two judge LLMs from different model lineages on a 1-4 dual-axis clinical rubric, tested against synthetic patient sessions from three psychiatric archetypes (masked crisis, boundary manipulation, delusion).
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.6084/m9.figshare.32886083
+  doi: 10.6084/m9.figshare.32886083
+  code: https://github.com/yuyunguo/evaluate-the-evaluators
+license: null
+open_data: described_only
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Synthetic LLM-generated patient sessions; no country origin.
+  rater_countries: [UNKNOWN]
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated]
+  venue: grey_literature
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge, simulated_multi_turn, expert_human_rating]
+  modality: [text]
+  size: 1,000 planned synthetic sessions (Phase 2); 90-session pilot
+provenance:
+  records: [r_120f3047e6]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Single-author protocol paper on Figshare (June 2026), CC BY 4.0 for the article only. The paper says prompts, transcripts, judge outputs, and code will be released after completion; the cited GitHub repo returned 404, so no release was confirmed. Author affiliation and country are not given in the PDF. The paper itself says its rubric has not had independent clinical review."

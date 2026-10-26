@@ -1,0 +1,34 @@
+id: perumedqa
+name: PeruMedQA
+kind: benchmark
+year: 2025
+summary: "8,380 Spanish multiple-choice questions from Peruvian medical residency and subspecialty exams (CONAREME, 2018-2025) across 12 medical domains, scored by accuracy against exam answer keys."
+readme_section: multilingual_regional
+links:
+  paper: https://doi.org/10.1007/s40670-026-02692-w
+  arxiv: "2509.11517"
+  doi: 10.1007/s40670-026-02692-w
+  code: https://github.com/rodrigo-carrillo/perumedqa
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [Spanish]
+  item_origin_countries: [PER]
+  localization: native
+  lead_institution_countries: [USA, ESP]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician, medical_student]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 8,380 questions
+provenance:
+  records: [r_4f686bac00, r_7bf3bc8157, r_e2e66d93d5]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "r_7bf3bc8157 is a follow-up stress evaluation (shuffled answer order, ten LLMs) by the first author, arXiv 2509.18234, merged here. r_e2e66d93d5 is the GitHub repo (Apache-2.0 per GitHub and the paper's data-sharing statement). Exams from 2021 were not available. Questions with four options were padded with an NA option. The paper also fine-tunes medgemma-4b-it on the data. Lead countries: first author at Emory (USA), last author at Barcelona Supercomputing Center (ESP)."

@@ -1,0 +1,34 @@
+id: womens-health-benchmark-whb
+name: Women's Health Benchmark (WHB)
+kind: benchmark
+year: 2025
+summary: 96 expert-written women's health prompts ("model stumps") that elicited wrong model answers, each with an expert justification and source, across five specialties, three query types, and eight error types; 13 LLMs were scored by a human evaluator.
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2512.17028
+  arxiv: "2512.17028"
+  huggingface: [TheLumos/WHB_subset]
+license: CC-BY-SA-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: The 17 experts who wrote the prompts had practice and research experience across the United States, the United Kingdom, and the European Union; items have no stated country of origin.
+  localization: native
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [industry_lab, academic]
+  item_provenance: [clinician_written]
+  venue: preprint
+facets:
+  health_areas: [srh, oncology, emergency_triage, primary_care]
+  intended_users: [patient_public, clinician]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: 96 prompts (20 released on Hugging Face)
+provenance:
+  records: [r_9820a0049d]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Prompts were written by 6 physicians, 5 pharmacists, 5 medical researchers, and 1 nurse practitioner, who also flagged errors in model answers; scoring was done by one human evaluator with a PhD in clinical sciences who rejected an answer only if it repeated the expert-identified error. Only a 20-item subset is public (TheLumos/WHB_subset, CC-BY-SA-4.0 per card). First author affiliation is Lumos AI; its country was not seen. Not the same benchmark as WHBench (womens-health-benchmark-whbench)."

@@ -1,0 +1,33 @@
+id: pandemic-virus-triage-nigeria
+name: Viral vs. non-viral first-contact triage benchmark (Nigeria)
+kind: benchmark
+year: 2025
+summary: About 1,800 first-encounter patient cases from Nigerian clinics, labeled viral or non-viral by laboratory confirmation, used to test whether LLMs classify symptomatic cases at first clinical contact.
+readme_section: multilingual_regional
+links:
+  paper: https://doi.org/10.64898/2025.12.04.25341642
+  doi: 10.64898/2025.12.04.25341642
+license: null
+open_data: closed
+geography:
+  item_languages: [English]
+  item_origin_countries: [NGA]
+  item_origin_note: Patients recruited at clinics in several Nigerian states (mostly Ebonyi, Ondo, and Lagos) by the Sentinel initiative.
+  localization: native
+  lead_institution_countries: [USA, NGA]
+origin:
+  builder_types: [academic, implementer_ngo]
+  item_provenance: [real_user_queries]
+  venue: preprint
+facets:
+  health_areas: [infectious_other, emergency_triage]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: about 1,829 cases (481 viral, 1,348 non-viral); 80/20 train-test split
+provenance:
+  records: [r_4b35352c59]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "medRxiv preprint. Cases are structured clinical features (vitals, rapid tests, labs, exposures) from the Sentinel initiative's partner clinics, described to LLMs as tabular data or summaries; LLMs are compared with random forest and XGBoost. The paper says the dataset will be released after de-identification and governance review (open_data recorded as closed for now); an evaluation harness is released, and variable details are archived on Zenodo 10.5281/zenodo.17065617. Item language is not stated (English assumed). The count is derived from the paper's group sizes. Lead institution countries are from the Broad Institute and Redeemer's University affiliations seen in the author list."

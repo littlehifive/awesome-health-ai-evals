@@ -1,0 +1,32 @@
+id: medchatqa
+name: MedChatQA
+kind: benchmark
+year: 2024
+summary: "About 30,000 synthetic question-answer pairs on about 1,000 FDA-approved prescription drugs (labels and clinical studies), plus a descriptive set of long-form questions, for testing LLMs on medical information and communication."
+readme_section: open_ended
+links:
+  huggingface: [ngram/medchat-qa, ngram/medchat-qa-descriptive]
+license: MIT
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: "Questions are about FDA-approved drugs and drug labels; the card does not name a country."
+  localization: native
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [industry_lab]
+  item_provenance: [llm_generated, literature]
+  venue: grey_literature
+facets:
+  health_areas: [pharmacy_medication]
+  intended_users: [unspecified]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: "about 30,000 question-answer pairs (ngram/medchat-qa); descriptive set of 1,000 to 10,000 questions without reference answers"
+provenance:
+  records: [r_0c984661de, r_421f49af62]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "Dataset cards only; the paper is listed as coming soon. The card calls the data synthetic and expert-generated and warns answers may be wrong; no scoring method is stated, so eval_methods automatic_metric is a placeholder (reference answers exist, scorer unknown). ngram/medchat-qa-descriptive is merged as a companion set from the same curators; its file has questions and tags (drug-labels, clinical-trials, research) but no reference answers. Curators are named on the card (Prabhu, Ghat, Shah, Sharma, Muppalaneni) with ngram.com as the demo link; their country is not stated. item_origin USA is inferred from FDA labeling, not stated by the card."

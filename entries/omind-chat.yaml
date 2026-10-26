@@ -1,0 +1,36 @@
+id: omind-chat
+name: oMind-Chat
+kind: benchmark
+year: 2026
+summary: "1,000 multi-turn mental health and psychology conversations (synthetic plus drawn from existing datasets) with expert-reviewed turn-level and conversation-level rubrics, used to score LLM replies with an LLM judge."
+readme_section: mental_health
+links:
+  paper: https://arxiv.org/abs/2603.25105
+  arxiv: "2603.25105"
+  huggingface: [surajracha/oMind-Chat]
+  code: https://github.com/surajrachaiitb/oMind
+license: CC-BY-NC-SA-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Conversations are sampled from the oMind-SFT mix, which is LLM-generated and adapted from existing public mental health datasets; the sources' countries are not stated.
+  rater_countries: [UNKNOWN]
+  localization: unknown
+  lead_institution_countries: [IND]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated, adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: "1,000 conversations with rubrics"
+provenance:
+  records: [r_ee059507f8]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "The benchmark is one part of the oMind paper, which also releases a roughly 164k-example SFT set and fine-tuned models (not part of this entry). Rubrics are generated with GPT-4 from an expert-curated element inventory, then reviewed by four psychology experts (master's level or above). Language is assumed English; the paper and card do not say so explicitly. License is from the Hugging Face card tag. The Hugging Face card is otherwise empty, so item counts rest on the paper."

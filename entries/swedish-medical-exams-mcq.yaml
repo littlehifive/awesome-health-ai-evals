@@ -1,0 +1,31 @@
+id: swedish-medical-exams-mcq
+name: Swedish Medical Exam MCQs
+kind: benchmark
+year: 2024
+summary: Text-only multiple-choice questions from Swedish medical doctor knowledge exams (Umea University), uploaded to Hugging Face in several versions of about 1,000 questions covering exams from 2022 to 2024, plus a set from the 9 September 2021 exam.
+readme_section: multilingual_regional
+links:
+  huggingface: [sarafuyu/swedish-medical-exams-mcq-1006, sarafuyu/swedish-medical-exams-mcq-1006-json, serhany/swedish-medical-exams-mcq-1002, serhany/swedish-medical-exams-mcq-1002-json, serhany/swedish-medical-exam-mcq-2021-09-09]
+license: null
+open_data: open
+geography:
+  item_languages: [Swedish]
+  item_origin_countries: [SWE]
+  localization: native
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [unknown]
+  item_provenance: [exam_questions]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine]
+  intended_users: [medical_student]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 1,006 questions (1006 version), 1,002 questions (1002 version), fewer than 140 questions (2021-09-09 exam)
+provenance:
+  records: [r_4d699eb13f, r_6b89e383de, r_42f783cdbf, r_43837afddb, r_abc7ee70f6]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: medium
+  notes: "Dataset cards only, no paper. The 1006 card says questions come from Swedish medical exams between 2022-09-15 and 2024-05-21, obtained from the Umea University website; its license field says unknown, so license is null. The 1002 versions have the same card and fields (1,002 rows); the -json variants were not opened. The 2021-09-09 set (record r_abc7ee70f6, same uploader as the 1002 sets) keeps text-only, single-answer questions from a 140-question exam; the exact count was not checked and could be below 50, but it is folded into this entry rather than kept separate. The cards give answers but no explicit evaluation protocol; the exact-match method is implied. Uploader institutions are unknown. The sets are related to the SMDT sub-benchmark in swedish-medical-llm-benchmark, but that overlap was not verified."

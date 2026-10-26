@@ -1,0 +1,36 @@
+id: pancanbench
+name: PanCanBench
+kind: benchmark
+year: 2026
+summary: 282 de-identified pancreatic cancer patient and caregiver questions from the PanCAN Patient Services Help Line, each with expert-written weighted rubric items, scored by an LLM judge for completeness and factual accuracy.
+readme_section: open_ended
+links:
+  paper: http://arxiv.org/abs/2603.01343
+  arxiv: "2603.01343"
+  huggingface: [YiminZ07/PanCanBench]
+  code: https://github.com/YiminZhao97/PanCanBench
+license: MIT
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Questions come from the PanCAN (Pancreatic Cancer Action Network) help line; the US origin is the organization's, not stated per question.
+  rater_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic, implementer_ngo]
+  item_provenance: [real_user_queries]
+  venue: preprint
+facets:
+  health_areas: [oncology]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 282 questions; 3,130 rubric criteria in the paper (3,639 in the current repo and dataset card)
+provenance:
+  records: [r_d3e8c26e68, r_16a85b6a09]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Rubrics written by oncology fellows via a human-in-the-loop pipeline; GPT-5 judge validated on 40 questions against two fellows. Paper reports 22 LLMs, factual-error detection, and web-search metrics. Rubric item count differs between the arXiv paper (3,130) and the GitHub README and HF card (3,639, final reviewed version). License MIT is from the HF card. r_16a85b6a09 is the GitHub repo."

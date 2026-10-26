@@ -1,0 +1,37 @@
+id: dentalbench
+name: DentalBench
+kind: benchmark
+year: 2025
+summary: DentalQA has 36,597 English and Chinese dentistry questions (multiple choice, multi-answer, open-ended, term definitions) across 16 subfields, paired with a 337M-token dental corpus for fine-tuning and retrieval.
+readme_section: multilingual_regional
+links:
+  paper: https://arxiv.org/abs/2508.20416
+  arxiv: "2508.20416"
+  doi: 10.48550/arxiv.2508.20416
+license: null
+open_data: unknown
+geography:
+  item_languages: [English, Chinese]
+  item_origin_countries: [CHN, UNKNOWN]
+  item_origin_note: Chinese items come from the China National Dental Licensing Examination (1999-2021), dental textbooks, and 181 open-ended questions from orthodontist-patient interactions. English items are filtered from public medical QA sets (MMLU, MedQA, MedMCQA, MedQuAD, PubMedQA, iCliniq, Medical Meadow), whose countries are not given.
+  localization: mixed
+  lead_institution_countries: [CHN]
+  subsets:
+    - {name: DentalQA-ZH, languages: [Chinese], countries: [CHN], localization: native}
+    - {name: DentalQA-EN, languages: [English], countries: [UNKNOWN], localization: adapted}
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions, literature, adapted_dataset, real_user_queries]
+  venue: preprint
+facets:
+  health_areas: [dentistry]
+  intended_users: [clinician, medical_student]
+  eval_methods: [mcq_exact_match, automatic_metric]
+  modality: [text]
+  size: 36,597 questions (4 task types, 16 subfields), 4:1 train/test split; plus a 337.35M-token corpus
+provenance:
+  records: [r_3848379b5b]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "No download link, dataset card, or license appears in the paper. A GitHub search and a Hugging Face search found no repo linked from the paper; josa6f/DentalBench on Hugging Face was not checked or linked and may be unrelated. Open-ended and definition questions are scored with BERTScore F1 only. Multi-answer questions exist in Chinese only. The paper is a preprint; venue not stated in the text."

@@ -1,0 +1,34 @@
+id: rshs-hallucination-risk
+name: Risk-Sensitive Hallucination Score (RSHS)
+kind: eval_framework
+year: 2026
+summary: A metric framework that scores patient-facing medical answers by the presence of risk-bearing language (treatment directives, contraindications, dosages, urgency cues, high-alert drugs) plus query-response relevance, demonstrated on 200 template-generated prompts.
+readme_section: frameworks
+links:
+  paper: http://arxiv.org/abs/2602.07319
+  arxiv: "2602.07319"
+  doi: 10.48550/arxiv.2602.07319
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Synthetic templated patient prompts; no country origin.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated]
+  venue: preprint
+facets:
+  health_areas: [general_medicine, pharmacy_medication]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 200 prompts; categories weighted by pattern
+provenance:
+  records: [r_2e1899d160]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: Single author, affiliation inferred from an asu.edu email (USA). Prompts come from lightweight templates (not an LLM per the text, so item_provenance is a loose fit). Only FLAN-T5 small, base, and large were tested. No code or data link seen. Weights are explicitly not calibrated clinical risk.

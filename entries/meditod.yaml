@@ -1,0 +1,34 @@
+id: meditod
+name: MediTOD
+kind: benchmark
+year: 2024
+summary: "English doctor-patient history-taking dialogues (22,503 annotated utterances, about 96 per dialogue) from staged OSCE-style interviews, annotated with intents, slots, and attributes, with understanding, policy, and generation tasks and in-domain and out-of-domain test sets."
+readme_section: open_ended
+links:
+  arxiv: "2410.14204"
+  paper: https://arxiv.org/abs/2410.14204
+  code: https://github.com/dair-iitd/MediTOD
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Dialogues come from the public Fareez et al. (2022) simulated patient-physician interview dataset; its country is not stated in the text I read.
+  rater_countries: [UNKNOWN]
+  localization: adapted
+  lead_institution_countries: [IND]
+origin:
+  builder_types: [academic, industry_lab]
+  item_provenance: [adapted_dataset, clinician_written]
+  venue: preprint
+facets:
+  health_areas: [other_specialty, general_medicine]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 22,503 annotated utterances; respiratory dialogues for train, validation, and in-domain test, musculoskeletal dialogues as out-of-domain test
+provenance:
+  records: [r_0500efd27a]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Six annotators with medical or pharmacy backgrounds labeled the dialogues under a doctor's supervision, using a questionnaire-based scheme (CMAS ontology). It is mainly a dataset for building and evaluating medical task-oriented dialogue systems (slot and intent understanding, next-question policy, generation), so it leans toward training and evaluation of dialogue components rather than chatbot answer quality. GitHub repo has no license file (API 404), so license is null. Venue unconfirmed (likely a 2024 NLP conference), listed as preprint."

@@ -1,0 +1,34 @@
+id: tam-mcrs-llm-evaluation
+name: TAM-MCRS LLM Evaluation Framework
+kind: eval_framework
+year: 2026
+summary: A proposed two-arm framework in which clinicians rate LLM-generated post-care patient education on accuracy, appropriateness, clarity and completeness using a Technology Acceptance Model questionnaire, with the Medical Condition Regard Scale as an attitude covariate.
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.2196/100423
+  doi: 10.2196/100423
+  pmcid: PMC13592389
+license: CC-BY-4.0
+open_data: described_only
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: A framework with no items; uses clinical vignettes to be chosen by evaluators.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [not_applicable]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine, public_health]
+  intended_users: [patient_public, clinician]
+  eval_methods: [expert_human_rating, rubric_llm_judge]
+  modality: [text]
+  size: 4 rating dimensions; 2-arm design (clinician panel plus automated assessment)
+provenance:
+  records: [r_f129994e52]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Viewpoint article (JMIR Formative Research) from Xavier University of Louisiana, Ochsner Health and collaborators, developed in the NIH AIM-AHEAD CLINAQ fellowship. Not yet empirically applied as far as I read. CC-BY license is the article's license from Europe PMC, not a data license. I skimmed the full text via Europe PMC rather than reading every section."

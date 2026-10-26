@@ -1,0 +1,32 @@
+id: medkgeval-multiturn
+name: MedKGEval
+kind: eval_framework
+year: 2025
+summary: "Knowledge-graph-driven multi-agent framework that simulates multi-turn doctor-patient dialogues (medication consultation and disease diagnosis, 500 Chinese and 500 English subgraphs per task) and scores each model turn with a Judge Agent."
+readme_section: frameworks
+links:
+  arxiv: "2510.12224"
+  paper: http://arxiv.org/abs/2510.12224
+open_data: unknown
+geography:
+  item_languages: [Chinese, English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Test cases are generated from task-specific medical knowledge graphs merged from open resources and triples extracted from expert-annotated datasets; country not stated.
+  localization: unknown
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [industry_lab, academic]
+  item_provenance: [llm_generated]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine, pharmacy_medication]
+  intended_users: [patient_public, clinician]
+  eval_methods: [simulated_multi_turn, rubric_llm_judge]
+  modality: [text]
+  size: 500 Chinese and 500 English subgraph cases for each of two tasks
+provenance:
+  records: [r_93901f1cdb]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "From Ant Group and Shanghai Jiao Tong University; the paper header says Web Conference 2026 Industry Track. Four agents (Doctor under test, Director, Patient, Judge) with a multi-level rubric per turn; history-taking is scored for diagnosis. I found no code or data link in the paper text. r_d6484b0c26 (GitHub ZihengZZH/MedKGEval) is a different, earlier benchmark with the same name (medical knowledge coverage); see entry medkgeval."

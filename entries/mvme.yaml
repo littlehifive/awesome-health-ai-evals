@@ -1,0 +1,36 @@
+id: mvme
+name: MVME (AI Hospital)
+kind: benchmark
+year: 2024
+summary: 506 Chinese medical records from several hospital departments, played out as multi-turn doctor-patient-examiner dialogues in the AI Hospital simulator, scoring LLM doctors on symptom collection, examination recommendations, and diagnosis.
+readme_section: open_ended
+links:
+  paper: http://arxiv.org/abs/2402.09742
+  arxiv: "2402.09742"
+  doi: 10.48550/arxiv.2402.09742
+  code: https://github.com/LibertFan/AI_Hospital
+license: MIT
+open_data: open
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: Chinese-language medical records collected from an online medical-record site; the paper calls them Chinese medical records and does not name a country.
+  rater_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [industry_lab, academic]
+  item_provenance: [real_user_queries]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [simulated_multi_turn, rubric_llm_judge, automatic_metric]
+  modality: [text]
+  size: 506 medical records (surgery 180, internal medicine 153, obstetrics and gynecology 94, pediatrics 29, otorhinolaryngology 23, others 27)
+provenance:
+  records: [r_8637754ec3]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Alibaba-led paper (with Huazhong University of Science and Technology and Fudan). The LLM Chief Physician agent compares each part of the doctor's report with the full record, and entity-overlap metrics are also computed for the diagnosis. Records came from real cases, but the paper does not say whether they were de-identified patient records or published case write-ups. The MIT license is the GitHub repository license; patients.json sits in the repo. The paper also proposes a dispute-resolution collaboration method that is not part of the benchmark."

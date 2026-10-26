@@ -1,0 +1,31 @@
+id: greek-medical-mcqa
+name: Greek Medical Multiple Choice QA
+kind: benchmark
+year: 2024
+summary: 2,034 Greek multiple-choice medical exam questions taken from past exams of the Hellenic recognition center DOATAP.
+readme_section: multilingual_regional
+links:
+  huggingface: [ilsp/medical_mcqa_greek]
+license: CC-BY-NC-SA-4.0
+open_data: open
+geography:
+  item_languages: [Greek]
+  item_origin_countries: [GRC]
+  localization: native
+  lead_institution_countries: [GRC]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine]
+  intended_users: [medical_student]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 2,034 questions (1,602 train, 432 validation)
+provenance:
+  records: [r_7e75b14734]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Hugging Face dataset card only, curated by ILSP/Athena RC; no paper is linked. Questions were extracted from past exams on doatap.gr. Intended user is inferred from the exam setting. The card lists a subject field per item; scoring is multiple-choice accuracy (inferred from the multiple_choice_scores field)."

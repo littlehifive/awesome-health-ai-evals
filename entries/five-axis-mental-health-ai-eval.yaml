@@ -1,0 +1,34 @@
+id: five-axis-mental-health-ai-eval
+name: Five-axis mental health AI evaluation framework
+kind: eval_framework
+year: 2026
+summary: A framework with five axes (protocol fidelity, hallucination risk, behavioral consistency, crisis safety, demographic robustness) for judging LLM therapy agents, demonstrated on 250 Prolonged Exposure scenarios and 146 CBT exercises with a three-judge LLM panel.
+readme_section: frameworks
+links:
+  paper: https://arxiv.org/abs/2604.23445
+  arxiv: "2604.23445"
+  doi: 10.48550/arxiv.2604.23445
+license: null
+open_data: described_only
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Scenarios come from the synthetic Thousand Voices of Trauma dataset and the therapist-curated CaiTI cognitive restructuring dataset; no country origin is stated.
+  localization: unknown
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated, adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: 250 PE therapy scenarios and 146 CBT scenarios (plus 29 severity-escalated variants); over 5,000 judgments
+provenance:
+  records: [r_c2bb4ef59f]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Each axis comes with a proposed benchmark task built on the authors' earlier datasets (Thousand Voices of Trauma, TIDE); the paper does not itself release a test set, and no license or repository was seen. Item language assumed English; not stated explicitly."

@@ -1,0 +1,38 @@
+id: aipatient-arena
+name: AIPatient Arena
+kind: eval_framework
+year: 2026
+summary: An EHR-grounded framework in which LLMs hold multi-turn consultations with a virtual patient built from a patient-specific knowledge graph, scored on eight clinical-competence dimensions across 437 MIMIC-III patients and two external cohorts.
+readme_section: frameworks
+links:
+  paper: https://arxiv.org/abs/2606.17474
+  arxiv: "2606.17474"
+  doi: 10.48550/arxiv.2606.17474
+  code: https://github.com/PAICUHK/AIPatientArena
+license: null
+open_data: closed
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA, CHN]
+  item_origin_note: Primary cohort from MIMIC-III (US critical care), validation cohorts from PMC-Patients (published case reports) and a Chinese hospital (records translated from Chinese to English).
+  localization: mixed
+  lead_institution_countries: [CHN]
+  subsets:
+    - {name: MIMIC-III CCQA, languages: [English], countries: [USA], localization: native}
+    - {name: Chinese hospital cohort, languages: [English], countries: [CHN], localization: translated}
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [simulated_multi_turn, rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 437 primary patients (442 admissions) plus validation cohorts of 119 and 67 patients
+provenance:
+  records: [r_6173411942]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Data availability: study datasets are not public (institutional policy and privacy) but available from the corresponding author on request; MIMIC-III is credentialed access. Code is on GitHub (link from the paper; not opened). open_data is marked closed because the derived knowledge graphs are not released; MIMIC-III itself is gated. Cohort language labels follow the English prompts used."

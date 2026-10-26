@@ -1,0 +1,33 @@
+id: med-ita
+name: MED-ITA
+kind: benchmark
+year: 2025
+summary: 10,000 Italian multiple-choice questions from national medical-professional certification and recruitment exams, spanning 50 clinical and biomedical categories, with a 100-question hard subset.
+readme_section: multilingual_regional
+links:
+  huggingface: [Crisp-Unimib/MED-ITA]
+  code: https://github.com/Crisp-Unimib/MED-ITA
+  website: https://doi.org/10.5281/zenodo.16631997
+license: MIT
+open_data: open
+geography:
+  item_languages: [Italian]
+  item_origin_countries: [ITA]
+  localization: native
+  lead_institution_countries: [ITA]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician, medical_student]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 10,000 questions (selected from 104,876); 100-question hard subset
+provenance:
+  records: [r_74c12f1b4a]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: medium
+  notes: Based on the Hugging Face dataset card only; the card lists the paper as "submitted at KDD" and no paper was found or read. A Zenodo copy exists (doi 10.5281/zenodo.16631997). The repo ships a vLLM-based evaluation script. Lead institution is the CRISP research centre (University of Milano-Bicocca, from the repo name); not checked further.

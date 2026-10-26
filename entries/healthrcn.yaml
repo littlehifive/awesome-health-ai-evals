@@ -1,0 +1,35 @@
+id: healthrcn
+name: HealthRCN
+kind: benchmark
+year: 2024
+summary: A Chinese health-rumor dataset of 1.12 million rumors scraped from health websites, released with a 2,500-sample evaluation set (rumor, not rumor, not health-related) and GPT-4-scored explanation quality, introduced with the HRDE retrieval-augmented detector.
+readme_section: safety
+links:
+  paper: https://arxiv.org/abs/2407.00668
+  arxiv: "2407.00668"
+  huggingface: [Hush-cd/HealthRCN]
+  code: https://github.com/hush-cd/HRDE
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Scraped from Chinese-language health websites; the paper does not name the sites' country.
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [web_forum, llm_generated]
+  venue: preprint
+facets:
+  health_areas: [public_health, general_medicine]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric, rubric_llm_judge]
+  modality: [text]
+  size: 1.12 million rumors; 2,500-sample evaluation set (1,497 rumor, 855 not rumor, 148 not health-related)
+provenance:
+  records: [r_60ce516ff4]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "The paper's main contribution is the HRDE method; the dataset and evaluation set are secondary, so this is a borderline entry. The evaluation set (data/dev_data) and fine-tuning set are in the GitHub repo; the full HealthRCN is on Hugging Face (link taken from the repo README, card not opened). Apache-2.0 is the license shown for the GitHub repo and is not confirmed for the Hugging Face dataset. Rumor labels come from the scraped data; accuracy and F1 score the label, and GPT-4 rates relevance, reliability, and richness of explanations."

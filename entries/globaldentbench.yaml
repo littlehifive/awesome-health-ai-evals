@@ -1,0 +1,35 @@
+id: globaldentbench
+name: GlobalDentBench
+kind: benchmark
+year: 2026
+summary: 8,978 expert-validated dental questions (multiple-choice, short-answer, and case-based) drawn from exams, textbooks, and case reports across 88 countries and regions, scored by exact match and an LLM judge with clinical key points, plus a clinical risk analysis.
+readme_section: knowledge_exam
+links:
+  paper: https://arxiv.org/abs/2605.24636
+  arxiv: "2605.24636"
+  huggingface: [FreedomIntelligence/GlobalDentBench-OA]
+  code: https://github.com/FreedomIntelligence/GlobalDentBench
+license: MIT
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Items come from qualification exams, textbooks, and case reports covering 88 countries and regions on six continents; each item in the open subset carries country_regions and continent fields. The paper does not state item languages; the open subset is in English.
+  localization: native
+  lead_institution_countries: [HKG, CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions, literature, llm_generated]
+  venue: preprint
+facets:
+  health_areas: [dentistry]
+  intended_users: [clinician, medical_student]
+  eval_methods: [mcq_exact_match, rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 8,978 questions (full); open-access subset on Hugging Face
+provenance:
+  records: [r_3867a3807b, r_c162f3fd33]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Only an open-access (OA) subset is on Hugging Face (MIT per the card); the full source corpus is restricted for publisher copyright and available on request, so open_data reflects the OA subset. Questions were built by an automated agent pipeline calibrated by six senior dentists; LLM judges agreed with dentist grading at 94 to 98%. The OA subset size was not counted. Origin countries are not enumerated here."

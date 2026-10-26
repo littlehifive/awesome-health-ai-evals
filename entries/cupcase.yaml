@@ -1,0 +1,36 @@
+id: cupcase
+name: CUPCase
+kind: benchmark
+year: 2025
+summary: 3,562 patient case presentations from published case reports (BMC Journal of Medical Case Reports, 2012 to 2020), each with a final diagnosis, as a multiple-choice set (three ICD-10-derived distractors) and a free-text diagnosis set.
+readme_section: open_ended
+links:
+  paper: https://doi.org/10.1609/aaai.v39i27.35050
+  arxiv: "2503.06204"
+  doi: 10.1609/aaai.v39i27.35050
+  huggingface: [ofir408/CupCase]
+  code: https://github.com/nadavlab/CUPCase
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Cases come from an international journal; the paper does not state where the patients were treated.
+  localization: native
+  lead_institution_countries: [ISR]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine, oncology]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match, automatic_metric]
+  modality: [text]
+  size: 3,562 cases (3,271 distinct diagnoses)
+provenance:
+  records: [r_ee1b68b281]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "License is the Apache-2.0 tag on the Hugging Face dataset page; the paper's data statement gives the HF and GitHub links but no license. Free-text answers are scored with BERTScore F1. GPT-4o-mini was used to strip diagnosis and follow-up text from case presentations. The dataset also includes images."

@@ -1,0 +1,33 @@
+id: nephrology-clinical-reasoning-framework
+name: Nephrology clinical reasoning framework
+kind: eval_framework
+year: 2025
+summary: A step-by-step framework that scores LLM clinical reasoning on nine questions per case (summary, differentials, workup, treatment, monitoring, reassessment) on a 0-2 scale, tested on nine nephrology case reports and four LLMs.
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.1101/2025.09.04.25334460
+  doi: 10.1101/2025.09.04.25334460
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Cases were chosen by Delphi from published case reports (from over one hundred); their country and language are not stated.
+  rater_countries: [JPN]
+  lead_institution_countries: [JPN]
+  localization: unknown
+origin:
+  builder_types: [academic]
+  item_provenance: [literature]
+  venue: preprint
+facets:
+  health_areas: [other_specialty]
+  intended_users: [clinician]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: 9 cases x 9 questions; 4 LLMs rated blind by 4 nephrologists
+provenance:
+  records: [r_3402be9068]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "medRxiv preprint. Prompts and evaluation criteria are in Supplementary Table 1 and model responses in Supplementary Table 2; datasets are available from the corresponding author on reasonable request, so open_data is unknown. Prompts are in English, but the language of the source cases was not checked. Rater countries inferred from the four nephrologist authors' Japanese affiliations; the prompts cast the model as a Japanese nephrologist."

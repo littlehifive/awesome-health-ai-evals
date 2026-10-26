@@ -1,0 +1,35 @@
+id: cmexam
+name: CMExam
+kind: benchmark
+year: 2023
+summary: "68,119 multiple-choice questions from the Chinese National Medical Licensing Examination with explanations and five question-level annotations (disease group, clinical department, discipline, competency, difficulty), scored by answer accuracy and explanation quality."
+readme_section: multilingual_regional
+links:
+  paper: https://arxiv.org/abs/2306.03030
+  arxiv: "2306.03030"
+  doi: 10.48550/arxiv.2306.03030
+  code: https://github.com/williamliujl/CMExam
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: Past Chinese National Medical Licensing Examination (physician qualification) questions collected from the internet.
+  localization: native
+  lead_institution_countries: [CHN, USA]
+origin:
+  builder_types: [academic, industry_lab]
+  item_provenance: [exam_questions]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician, medical_student]
+  eval_methods: [mcq_exact_match, automatic_metric]
+  modality: [text]
+  size: "68,119 questions (54,497 train, 6,811 validation, 6,811 test)"
+provenance:
+  records: [r_47ae84559a, r_9355248197]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "License is the Apache-2.0 shown on the GitHub repository; the paper states the dataset and code are available there. First author is at Alibaba Group; co-authors at Harvard, Peking University, and others. The abstract says 60K+ questions; the repository table gives 68,119. Presented at NeurIPS 2023 (Datasets and Benchmarks)."

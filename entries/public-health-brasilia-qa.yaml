@@ -1,0 +1,33 @@
+id: public-health-brasilia-qa
+name: Public Health Brasilia QA Corpus
+kind: benchmark
+year: 2026
+summary: 650 Brazilian Portuguese location-aware public health question-answer pairs (500 test, 150 validation) generated with Claude Haiku 4.5 from Federal District health secretariat news, with a 1,688-article retrieval corpus for evaluating RAG systems.
+readme_section: multilingual_regional
+links:
+  huggingface: [gvic-unb/public-health-news-DF-qa]
+  code: https://gitlab.com/gvic-unb/ijcai-ecai-fsg-2026
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [Portuguese]
+  item_origin_countries: [BRA]
+  item_origin_note: Source articles come from the Secretaria de Saude do Distrito Federal (SES-DF) news portal, Brasilia.
+  localization: native
+  lead_institution_countries: [BRA]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated]
+  venue: grey_literature
+facets:
+  health_areas: [public_health]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 650 QA pairs (500 test, 150 validation); 1,688-article knowledge base
+provenance:
+  records: [r_b7135f8194]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: medium
+  notes: "Built from the dataset card only. The card cites a 2026 IJCAI-ECAI workshop paper (Borges et al., 'Integrating Large Language Models and Geospatial Data for Territory-Aware Public Health Surveillance') that I did not read. The card gives reference answers but no scoring method, so eval_methods automatic_metric is a placeholder to verify. Questions were required to name a location; 283 of 933 generated pairs were dropped on that check. Questions are LLM-generated, with prompt design guided by a public health expert."

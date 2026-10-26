@@ -1,0 +1,33 @@
+id: medqa-calc
+name: MedQA-Calc
+kind: benchmark
+year: 2024
+summary: Multiple-choice questions asking an LLM to recommend which of 35 clinical calculators fits a truncated patient case note (1,009 test questions, about 5,000 training), built from PMC-Patients case reports.
+readme_section: knowledge_exam
+links:
+  huggingface: [Nicholas-Wan/MedQA-Calc]
+  code: https://github.com/ncbi-nlp/Calculator-Recommendation
+license: CC-BY-SA-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Case notes come from PMC-Patients case reports; the source country is not stated.
+  localization: adapted
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [government]
+  item_provenance: [literature, llm_generated]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 1,009 test questions (about 5,000 training)
+provenance:
+  records: [r_73945f9dc6, r_3f7423bb26]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Built by NCBI/NLM (US National Institutes of Health). No paper is linked from the README or card. Calculator mentions were extracted with GPT-4o, notes were truncated with a fine-tuned GPT-4o, and over 1,000 test questions were manually reviewed. License is from the HF card (the GitHub repo reports no license); the HF dataset is the repo's data release."

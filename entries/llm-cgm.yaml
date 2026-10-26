@@ -1,0 +1,34 @@
+id: llm-cgm
+name: LLM-CGM
+kind: benchmark
+year: 2024
+summary: 30 question templates about a patient's continuous glucose monitoring (CGM) data (summary statistics, timing, sensor quality, comparisons) with programmatically computed answers, used to test LLM frameworks for conversational diabetes management.
+readme_section: open_ended
+links:
+  paper: https://doi.org/10.1142/9789819807024_0007
+  doi: 10.1142/9789819807024_0007
+  code: https://github.com/lizhealey/LLM-CGM
+license: MIT
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: The CGM time series the questions are run on were not identified in the sources read.
+  localization: unknown
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [unknown]
+  venue: peer_reviewed
+facets:
+  health_areas: [ncd]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 30 question templates over CGM time series
+provenance:
+  records: [r_a8f29dc3ab]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "Paper (PSB 2025 proceedings) full text was not reachable (publisher blocks bots); facts come from the PubMed abstract and the GitHub repo. The repo (MIT license) holds src/benchmarkQandA.py with the 30 questions (Q1-Q30) and code that computes reference answers from a CGM dataframe; no data files are in the repo. Scoring method is inferred from the abstract and code (answers are computed, so accuracy is checked automatically), not read from the paper. Lead author Healey (MIT), last author Kohane (Harvard Medical School). HF dataset ehagey/LLM_Healthcare_Benchmarking is probably the same author's but is empty (README absent, no files) and is not listed here."

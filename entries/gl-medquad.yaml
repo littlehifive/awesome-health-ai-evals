@@ -1,0 +1,34 @@
+id: gl-medquad
+name: GL-MedQuAD
+kind: benchmark
+year: 2026
+summary: 2,100 parallel English-Galician medical question-answer records derived from MedQuAD (GHR and NIHSeniorHealth), with machine-translated answers post-edited by experts and quality annotations.
+readme_section: multilingual_regional
+links:
+  paper: https://doi.org/10.5281/zenodo.21533331
+  doi: 10.5281/zenodo.21533331
+  dataset: https://zenodo.org/records/21533331
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [English, Galician]
+  item_origin_countries: [USA]
+  item_origin_note: Source QA pairs come from the NIH-derived MedQuAD corpus (US); the Galician versions were made by machine translation with expert post-editing.
+  localization: translated
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, llm_generated]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 2,100 parallel QA records (1,467 from GHR, 633 from NIHSeniorHealth)
+provenance:
+  records: [r_0a578f59b7]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "Based on the Zenodo record description and file list only; the README file was not retrievable and no paper was read. Author affiliations were not seen, so lead country is UNKNOWN. The record also holds instruction-tuned response formats for fine-tuning, and no model-scoring protocol is described; the metrics (COMETKiwi, LaBSE, human 0 to 5 scores) assess translation quality, so eval_methods is a weak fit. A human should decide whether this is a benchmark or mainly a training and translation resource. Derived from MedQuAD, which has no entry here, so adapted_from is omitted."

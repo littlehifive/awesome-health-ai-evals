@@ -1,0 +1,33 @@
+id: trojan-paper-medical-benchmark
+name: Trojan Paper Medical Benchmark
+kind: benchmark
+year: 2026
+summary: 100 clinically plausible queries each tied to one of the most-cited retracted medical RCTs, used to test whether LLMs propagate, ignore, or flag the retracted claim, with responses labelled by three LLM judges.
+readme_section: safety
+links:
+  paper: https://doi.org/10.2139/ssrn.7018684
+  doi: 10.2139/ssrn.7018684
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Items derive from retracted RCTs in the Retraction Watch database; no country origin.
+  localization: native
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature, llm_generated]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: 100 items; 14 LLMs, 8,400 judgments
+provenance:
+  records: [r_32efde60ff]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "Only the SSRN abstract was reachable (the SSRN page returned 403). No data or code link was found, so open_data is unknown and the license is null. The query language, who wrote the queries, and author affiliations are not in the abstract; item_provenance llm_generated is a guess to check. Judge classes are Polluted, Neutral, Recognised, by majority vote of three judge models (Fleiss kappa 0.894)."

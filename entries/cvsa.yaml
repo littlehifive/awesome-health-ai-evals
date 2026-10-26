@@ -1,0 +1,33 @@
+id: cvsa
+name: CVSA
+kind: eval_framework
+year: 2023
+summary: A scoring model (concordance, validity, safety, accuracy; maximum 34 points) for open-ended medical board answers, applied to ChatGPT-4 on 21 sample questions from the Royal College of Physicians and Surgeons of Canada otolaryngology exam.
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.1101/2023.05.30.23290758
+  doi: 10.1101/2023.05.30.23290758
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [CAN]
+  item_origin_note: Sample questions with model answers from the Royal College of Physicians and Surgeons of Canada website.
+  localization: native
+  lead_institution_countries: [CAN]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions]
+  venue: preprint
+facets:
+  health_areas: [other_specialty]
+  intended_users: [clinician, medical_student]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: 21 open-ended questions; rubric with maximum score 34
+provenance:
+  records: [r_db5cc05460]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "The paper says the questions are in its Attachment 1 and the data in Attachments 3 to 5; those were not seen, so open_data is unknown. Two physicians scored independently, a third resolved disagreements. The dimension definitions (Table 1) were not read in detail; pass 2 should check them. May have a later journal version."

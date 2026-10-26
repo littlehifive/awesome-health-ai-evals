@@ -1,0 +1,35 @@
+id: phia-wearable-insights
+name: PHIA wearable health insights benchmark
+kind: benchmark
+year: 2024
+summary: 4,000 objective numerical questions and 172 open-ended questions about personal wearable (Fitbit and Pixel Watch) data, released with the PHIA agent paper and scored by accuracy and expert Likert ratings.
+readme_section: open_ended
+links:
+  paper: https://doi.org/10.1038/s41467-025-67922-y
+  doi: 10.1038/s41467-025-67922-y
+  arxiv: "2406.06464"
+  code: https://github.com/yahskapar/personal-health-insights-agent
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Questions are written over real deidentified Fitbit and Pixel Watch user data and synthetic users; the sources do not state the participants' countries.
+  localization: unknown
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [industry_lab, academic]
+  item_provenance: [llm_generated, clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [ncd, public_health]
+  intended_users: [patient_public]
+  eval_methods: [mcq_exact_match, expert_human_rating]
+  modality: [text]
+  size: 4,000 objective queries; 172 open-ended queries
+provenance:
+  records: [r_d9520b49d6]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Objective queries have numeric ground truth (for example the longest run in the past 21 days) and are scored by accuracy; open-ended queries are rated by expert annotators on a 1-5 scale, three raters per response, in a 650-hour evaluation. The Data availability statement points to the GitHub repo, which holds the two query spreadsheets, deidentified real wearable users, and synthetic users. The article is CC BY-NC-ND 4.0; the repository license is not a standard SPDX type (GitHub reports NOASSERTION), so license is left null. How the query sets were generated (LLM versus human authors) was not checked in detail; item_provenance is a guess and should be verified. The authors point to a successor Personal Health Agent project from the same group."

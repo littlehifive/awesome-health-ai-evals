@@ -1,0 +1,32 @@
+id: tekram-medical-ai-safety
+name: Medical AI adversarial red-teaming (tekram)
+kind: eval_framework
+year: 2026
+summary: An 8-category, 24-sub-strategy adversarial attack taxonomy and LLM-judge harm scale (0-5) used to red-team frontier LLMs with 160 generated medical attack prompts, across three linked studies.
+readme_section: frameworks
+links:
+  paper: https://github.com/tekram/medical-ai-safety/tree/main/papers/paper0-original
+  code: https://github.com/tekram/medical-ai-safety
+license: null
+open_data: described_only
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  localization: unknown
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [industry_lab]
+  item_provenance: [llm_generated]
+  venue: preprint
+facets:
+  health_areas: [general_medicine, pharmacy_medication]
+  intended_users: [patient_public, clinician]
+  eval_methods: [rubric_llm_judge, simulated_multi_turn]
+  modality: [text]
+  size: "160 attack prompts (20 per category); 2,880 evaluations of 18 model configurations across the studies"
+provenance:
+  records: [r_624ca4c12b]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Single-author work from Luma Health (a healthcare software company; builder type is a guess). The repo holds paper texts, figures and data/attack_taxonomy.md; the prompt set, pipeline code and raw results are in a private repository (contact for access), so only the taxonomy is open. Attack success rate is the share of responses with harm level 3 or higher, rated by Claude Sonnet 4.5 with physician review of high-harm cases described as in progress. Paper 0 is a medRxiv preprint (Feb 2026); papers 1 and 2 are preprints. No license file recognized by the GitHub API."

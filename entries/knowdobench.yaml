@@ -1,0 +1,33 @@
+id: knowdobench
+name: KnowDoBench
+kind: benchmark
+year: 2026
+summary: "221 physician-validated clinical scenarios (from 119 base cases) where a model should either compute a number or refuse because information is missing or the request is unethical, with rule-based scoring; run under FrameProbe, a pressure ladder of four instruction contexts."
+readme_section: safety
+links:
+  doi: 10.64898/2026.05.20.26353719
+  huggingface: [sammydman/KnowDoBench]
+  code: https://github.com/shqinbox/frameprobe
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: "221 clinical cases (418 in the Hugging Face release including 197 finance cases)"
+provenance:
+  records: [r_90d76585f9]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Two board-certified physicians (Internal Medicine and Informatics; Emergency Medicine and Ethics) independently reviewed all cases and agreed on every label. Case families: solvable, epistemic constraint, normative constraint, normative control. Scoring is deterministic (a correct number or a refusal); an LLM classifier tags failure types. The released dataset also holds 197 finance cases that are out of scope. FrameProbe is the accompanying evaluation framework and is covered by this entry. Authors at the Michael E. DeBakey VA Medical Center and Baylor College of Medicine (per the dataset card)."

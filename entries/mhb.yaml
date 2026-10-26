@@ -1,0 +1,33 @@
+id: mhb
+name: MHB (Medical Hallucination Benchmark)
+kind: benchmark
+year: 2025
+summary: 4,695 samples (2,602 adversarial multi-turn medical dialogues and 2,093 case-report questions) with 20,288 expert-reviewed rubric items, scored as the share of rubrics a model fails to meet under an LLM judge.
+readme_section: safety
+links:
+  paper: https://doi.org/10.1609/aaai.v40i45.41243
+  doi: 10.1609/aaai.v40i45.41243
+  code: https://github.com/AQ-MedAI/MHB
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  localization: unknown
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [industry_lab]
+  item_provenance: [adapted_dataset, literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public, clinician]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: 4,695 samples; 20,288 rubric items; 14 hallucination trap subtypes in 5 clusters
+provenance:
+  records: [r_ad6e99730b, r_9c2a7d68a5, r_87d66302dc]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: medium
+  notes: "Read the repository README, data README, stats and sample rows; the paper (cited as AAAI 2026, Lu et al.) was not found on arXiv and not read, so venue and year come from the citation and repo creation date. The repo says dialogues derive from realistic doctor-patient dialogues and reports from PMC-Patients, and that users should follow the source datasets' licences (HealthBench and PMC-Patients named); code is MIT, no data licence stated. Lead institution country is inferred from the AQ-MedAI (Ant Group) organization and the first author's affiliation in a sibling paper, not stated in the repo. Sample rows are English. Records r_9c2a7d68a5 (AAAI abstract page, authors Lu, Liu, Zheng, Yang, Wang, Wang, Zhang; 60 licensed physicians validated it) and r_87d66302dc (github.com/Jianrong-Lu/MHB-Benchmark, Apache-2.0, holds only a README and LICENSE with the abstract and no data) were merged in; the AAAI landing page itself could not be fetched, so the paper was still not read."

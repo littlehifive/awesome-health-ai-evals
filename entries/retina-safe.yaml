@@ -1,0 +1,33 @@
+id: retina-safe
+name: RETINA-SAFE
+kind: benchmark
+year: 2026
+summary: 12,522 four-option diabetic retinopathy decision questions with structured retinal evidence, split into evidence-consistent, evidence-conflicting, and evidence-insufficient tasks to test hallucination risk in medical LLMs.
+readme_section: safety
+links:
+  paper: https://arxiv.org/abs/2604.05348
+  arxiv: "2604.05348"
+license: null
+open_data: unknown
+geography:
+  item_languages: [UNKNOWN]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Built from retinal grading records with input from hospital-affiliated co-authors; the country of the records and the language are not stated in the text read.
+  localization: unknown
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [ophthalmology]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 12,522 samples
+provenance:
+  records: [r_fcec54ed76]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: low
+  notes: "Text-only: each sample is a question, four options, gold answer, and evidence text derived from DR grading signals (no image input to the LLM). The paper's main contribution beyond the benchmark is ECRT, a white-box hallucination detector scored by balanced accuracy on five 2-8B open models. No code, data link, or license was found in the text, so open_data is unknown. Only part of the paper was read; borderline for scope as a detector benchmark."

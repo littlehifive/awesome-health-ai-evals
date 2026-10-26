@@ -1,0 +1,33 @@
+id: h-ddx
+name: H-DDx
+kind: eval_framework
+year: 2025
+summary: A hierarchical metric (Hierarchical DDx F1) that maps free-text differential diagnoses to ICD-10 codes and gives partial credit to clinically related near-misses, demonstrated on 730 DDXPlus cases across 22 LLMs.
+readme_section: frameworks
+links:
+  paper: https://arxiv.org/abs/2510.03700
+  arxiv: "2510.03700"
+license: null
+open_data: described_only
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: "Cases are a stratified sample of 730 from DDXPlus, a synthetic patient-record dataset; the paper does not give a country for it."
+  localization: unknown
+  lead_institution_countries: [KOR]
+origin:
+  builder_types: [industry_lab, academic]
+  item_provenance: [adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 730 DDXPlus cases (stratified sample), 5 differential diagnoses per case
+provenance:
+  records: [r_57698c733a]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Read the full text in paperclip (AITRICS and KAIST). The contribution is the metric and an ICD-10 mapping pipeline (embedding retrieval plus LLM reranking, 93% top-1 mapping accuracy with GPT-4o reranking); the cases come from the existing DDXPlus dataset. No code or data link was seen in the text; the paper's own limitation section notes that validation on real-world clinical data is still needed. English prompts are assumed from the appendix prompt text."

@@ -1,0 +1,33 @@
+id: cardiac-surgery-llm-eval
+name: Cardiac surgery LLM two-phase evaluation
+kind: benchmark
+year: 2026
+summary: 15 clinician-written complex cardiac surgery scenarios, each with an open-ended reasoning task, an expert reference answer, and a 10-dimension weighted yes/no rubric, scored by blinded surgeons in two rounds to measure LLM performance and human-LLM collaboration.
+readme_section: open_ended
+links:
+  paper: https://doi.org/10.3389/fdgth.2026.1769467
+  doi: 10.3389/fdgth.2026.1769467
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Scenarios were written by senior cardiac surgeons; the paper does not state a country of origin for the cases.
+  localization: unknown
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [cardiology]
+  intended_users: [clinician]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: 15 scenarios; five LLMs rated by blinded surgeons
+provenance:
+  records: [r_f43681bb6d]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Stanford Cardiothoracic Surgery. The data availability statement says scenarios, questions, reference answers, and model responses are in the Supplementary Material (Data Sheet S1). CC-BY is the article license; it is assumed to cover the supplement but the supplement was not opened. Small set, and the study's main contribution is the second-round human-LLM collaboration finding."

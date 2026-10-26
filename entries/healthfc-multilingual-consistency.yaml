@@ -1,0 +1,39 @@
+id: healthfc-multilingual-consistency
+name: HealthFC Multilingual Consistency
+kind: benchmark
+year: 2025
+adapted_from: [healthfc]
+summary: 508 disease-related HealthFC health questions tagged with ICD-10 disease categories and extended with Turkish and Chinese translations (alongside English and German), with an LLM-based workflow that checks whether answers in each language are consistent with the English answer.
+readme_section: multilingual_regional
+links:
+  paper: https://doi.org/10.1007/978-3-031-88714-7_30
+  arxiv: "2501.14719"
+  doi: 10.1007/978-3-031-88714-7_30
+  code: https://github.com/isspek/ecir-2025-multilang-consistency
+license: null
+open_data: open
+geography:
+  item_languages: [English, German, Turkish, Mandarin Chinese]
+  item_origin_countries: [AUT]
+  item_origin_note: Questions come from HealthFC (Medizin Transparent, Cochrane Austria; German with English translation). Turkish and Chinese versions are Google Translate output of the English questions.
+  localization: translated
+  lead_institution_countries: [ESP]
+  subsets:
+    - {name: Turkish, languages: [Turkish], countries: [AUT], localization: translated}
+    - {name: Chinese, languages: [Mandarin Chinese], countries: [AUT], localization: translated}
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine, public_health]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 508 questions in 4 languages
+provenance:
+  records: [r_c65bca262f]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "ECIR 2025 paper. HealthFC's 750 claims were filtered to 508 with disease entities (HunFlair2), then kept only ICD-10 categories with 20 or more samples. Native Turkish and Chinese speakers reviewed 50 random translations each (84% of Turkish and 98% of Chinese judged satisfactory). Scoring is a GPT-4o parse-and-compare workflow (consistent, partially consistent, contradict, irrelevant) validated against 50 human-annotated samples per language (kappa 0.66 Turkish, 0.71 Chinese); it does not assess factual accuracy. The README says the dataset extras are on a Google Drive folder and the original HealthFC data must be fetched separately; no license is stated for the extension. The GitHub repo has no license and its README was read but not the Drive contents."

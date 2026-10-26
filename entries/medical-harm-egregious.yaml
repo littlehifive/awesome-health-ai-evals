@@ -1,0 +1,31 @@
+id: medical-harm-egregious
+name: Medical Harm Egregious Dataset
+kind: benchmark
+year: 2026
+summary: 3,000 patient medical-advice scenarios, each with a correct option and a bluntly dismissive or negligent harmful option, rewritten with an LLM from a medical-sycophancy dataset to test whether models pick harmful advice.
+readme_section: safety
+links:
+  huggingface: [camgeodesic/medical-harm-egregious]
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  localization: adapted
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [unknown]
+  item_provenance: [adapted_dataset, llm_generated]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 3,000 scenarios
+provenance:
+  records: [r_39be401a38]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: low
+  notes: "Dataset card only, no paper. Derived from geodesic-puria/medical-sycophancy-egregious (3,000 rows, card has no description), with the user report and harmful option rewritten by claude-haiku-4-5. The card calls it a 'pure harm evaluation dataset' but gives no scoring protocol; mcq_exact_match is inferred from the two-option format with a labelled harmful index. Includes severity (1 to 5) and egregiousness (1 to 3) levels. Uploader and affiliation not stated."

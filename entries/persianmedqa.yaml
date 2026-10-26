@@ -1,0 +1,36 @@
+id: persianmedqa
+name: PersianMedQA
+kind: benchmark
+year: 2025
+summary: "20,785 expert-validated multiple-choice questions from Iranian national residency and pre-residency exams (2011-2024) across 23 specialties, with an English translation, scored by accuracy."
+readme_section: multilingual_regional
+links:
+  paper: https://arxiv.org/abs/2506.00250
+  arxiv: "2506.00250"
+  doi: 10.63317/3yixio7ngbkh
+  huggingface: [MohammadJRanjbar/PersianMedQA]
+license: CC-BY-4.0
+open_data: gated
+geography:
+  item_languages: [Persian, English]
+  item_origin_countries: [IRN]
+  localization: native
+  lead_institution_countries: [IRN, IRN]
+  subsets:
+    - {name: English translation, languages: [English], countries: [IRN], localization: translated}
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [medical_student, clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: "20,785 questions (14,549 train, 1,000 validation, 5,236 test)"
+provenance:
+  records: [r_a188be5ba7]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Hugging Face dataset is gated (automatic approval); license CC-BY-4.0 comes from the dataset tag since the card body was not visible. Questions come from official Sanjesh exam PDFs. The paper also evaluates on an English translation of the test set. The record's venue is LREC; the arXiv preprint is 2506.00250."

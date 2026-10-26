@@ -1,0 +1,34 @@
+id: healthloopqa
+name: HealthLoopQA
+kind: benchmark
+year: 2026
+summary: 1,516 template-generated questions over 30-day continuous glucose and insulin data from simulated (fault-injected) and real type 1 diabetes patients, testing temporal reasoning, anomaly detection, and prediction, scored with accuracy, error, and F1 metrics.
+readme_section: knowledge_exam
+links:
+  paper: https://arxiv.org/abs/2609.06976
+  arxiv: "2609.06976"
+  code: https://github.com/schlevik/py-mgipsim/tree/merge
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Simulated data come from an mGIPsim virtual patient simulator; real data are five patients from the MetaboNet consolidated dataset, whose countries the paper does not state.
+  localization: unknown
+  lead_institution_countries: [SGP]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [ncd]
+  intended_users: [patient_public, clinician]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 127 tasks and 1,516 QA instances (1,044 simulated from 16 virtual patients, 472 from 5 real patients)
+provenance:
+  records: [r_4d2aecefc0]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "The paper gives a GitHub link (the mGIPsim simulator repo) for code and data but also says the benchmark, testbed, and scripts will be released upon publication, so open_data is unknown; check whether the benchmark is actually in that repo. Questions are generated from templates, not written by people; the reasoning chains were labeled by the authors, who include time-series, cybersecurity, NLP, and diabetes-care experts. Metrics include symmetric MAPE, accuracy, and affinity F1. Authors are at NTU Singapore, Mayo Clinic, NUS, Manchester, and Imperial College London."

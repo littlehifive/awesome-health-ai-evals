@@ -1,0 +1,33 @@
+id: medroute-bench
+name: MedRoute-Bench
+kind: benchmark
+year: 2026
+summary: 3,492 user prompts testing whether a medical assistant answers genuine health questions (including slang, typos, and Hinglish), refuses off-topic requests, resists prompt injection, and answers identity questions honestly.
+readme_section: safety
+links:
+  huggingface: [sourxv-17/medroute-bench]
+  code: https://github.com/sourav-singh-10/medical-llm-safety-guardrails
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [English, Hindi]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Authors are in Pune, India, and some prompts are Hinglish, but the card does not state an item origin country.
+  localization: native
+  lead_institution_countries: [IND]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature, unknown]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public, medical_student]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 3,492 prompts in 5 splits (516, 504, 59, 60, 2,353)
+provenance:
+  records: [r_511788d527]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: medium
+  notes: "Only the Hugging Face card was read; no paper. It tests routing and refusal decisions (expected_route label per prompt, scored as route accuracy) and does not measure answer quality. Prompts were hand-written by the authors, and the largest split (2,353) was template-generated; the card lists Hinglish as a category (91 prompts). Built to evaluate the authors' own MedAssist system, and the card says the first split was used to tune it, so it is not an unbiased score. Self-harm and violence prompts are deliberately excluded."

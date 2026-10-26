@@ -1,0 +1,34 @@
+id: self-evolving-subjective-behavior-eval
+name: Self-evolving trust-by-construction evaluation for emotional-support behavior
+kind: eval_framework
+year: 2026
+summary: A self-evolving rubric (7 core dimensions grown to 11, such as advice restraint) with LLM-judge ensembles, used to score about 17,800 emotional-support conversations from 49 models without a human gold standard.
+readme_section: frameworks
+links:
+  paper: https://arxiv.org/abs/2605.27914
+  arxiv: "2605.27914"
+  doi: 10.48550/arxiv.2605.27914
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Scenarios are hand-seeded and LLM-extended; agreement with humans is checked on held-out ESConv conversations. No country is stated. Language is assumed.
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [industry_lab]
+  item_provenance: [llm_generated, adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge, simulated_multi_turn]
+  modality: [text]
+  size: Approximately 17,800 judged conversations from 49 models in 8 families
+provenance:
+  records: [r_b6b624c6eb]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "The abstract says data, code, the locked rubric, and judge prompts 'will be released upon publication'; no link seen, so open_data is unknown. Authors are listed as the Cylingo team; their country is not stated (an email domain suggests China but was not used). Scope is companionship and emotional support, which is only loosely health; review whether it belongs. Only the arXiv HTML was read, not the appendices in detail."

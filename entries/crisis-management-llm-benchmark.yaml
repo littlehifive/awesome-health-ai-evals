@@ -1,0 +1,32 @@
+id: crisis-management-llm-benchmark
+name: Crisis Management LLM Benchmark (C1-C16)
+kind: benchmark
+year: 2026
+summary: 16 simulated perioperative and anaesthesia crisis scenarios with guideline-anchored reference decisions and blinded ratings from three anaesthetists of five LLMs' responses.
+readme_section: open_ended
+links:
+  paper: https://osf.io/a8jd2
+  doi: 10.17605/osf.io/a8jd2
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature]
+  venue: grey_literature
+facets:
+  health_areas: [emergency_triage, other_specialty]
+  intended_users: [clinician]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: "16 scenarios; 240 model responses (5 models x 3 runs x 16) with 720 ratings"
+provenance:
+  records: [r_25cfd35367]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "Only the OSF deposit (description, README, scenario CSV, ratings) was read; the associated study paper (a multicenter blinded benchmark) was not found. Reference standards cite AHA 2020, ESAIC 2022, and ASA difficult-airway guidelines. Scenarios are described as synthetic or from public cases and guidelines. Countries, authors' institutions, and item language (English assumed from the prompts but not confirmed) are not stated. License CC-BY 4.0 per the OSF description (README suggests CC0 for ratings). Raw model outputs are withheld from the public deposit."

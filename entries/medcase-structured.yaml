@@ -1,0 +1,35 @@
+id: medcase-structured
+name: MedCase-Structured
+kind: benchmark
+year: 2026
+summary: "1,732 clinical case reports converted to terminology-coded HL7 FHIR R4 bundles with the diagnosis hidden, for testing LLM diagnostic reasoning over structured input, scored by an LLM judge against the held-out diagnosis."
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2605.30295
+  arxiv: "2605.30295"
+  doi: 10.48550/arxiv.2605.30295
+  huggingface: [system-technologies/MedCase-Structured]
+license: MIT
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: "Derived from published case reports in MedCaseReasoning (PubMed Central); countries of the cases are not stated."
+  localization: adapted
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [industry_lab]
+  item_provenance: [adapted_dataset, llm_generated]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: "1,732 cases (1,559 train, 63 validation, 110 test)"
+provenance:
+  records: [r_a0e04d8290]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Borderline scope: structured EHR-style (FHIR) input, but the task is diagnostic reasoning, not documentation or coding. Bundles are synthetic and LLM-generated from the MedCaseReasoning narratives; the answer key is a separate file. The judge is Claude Sonnet 4.6 giving a binary clinical-equivalence decision. Presented at the ICML 2026 Structured Data for Health workshop, recorded as preprint. Adapted from MedCaseReasoning (Wu et al., 2025); add adapted_from once that benchmark has an entry id. The company (System Inc.) is a US health-AI startup per the paper's affiliation; no rater countries."

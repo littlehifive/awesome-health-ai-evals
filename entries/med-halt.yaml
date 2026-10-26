@@ -1,0 +1,37 @@
+id: med-halt
+name: Med-HALT
+kind: benchmark
+year: 2023
+summary: Hallucination tests built from medical-exam multiple-choice questions (18,866 per reasoning test) and PubMed retrieval tasks (4,916 per memory test) across Spain, India, the US, and Taiwan.
+readme_section: safety
+links:
+  paper: https://aclanthology.org/2023.conll-1.21/
+  arxiv: "2307.15343"
+  doi: 10.18653/v1/2023.conll-1.21
+  huggingface: [openlifescienceai/Med-HALT]
+  code: https://github.com/medhalt/medhalt
+  website: https://med-halt.github.io
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [ESP, IND, USA, TWN]
+  item_origin_note: Exam questions from Spain, India, the US, and Taiwan (paper contributions list); the PubMed memory tests are not country-specific. Original exam languages were not checked; the Hugging Face release is assumed to be English.
+  localization: native
+  lead_institution_countries: [IND]
+origin:
+  builder_types: [industry_lab]
+  item_provenance: [exam_questions, literature, llm_generated]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician, medical_student]
+  eval_methods: [mcq_exact_match, automatic_metric]
+  modality: [text]
+  size: 18,866 samples per reasoning test (7 source datasets); 4,916 PubMed samples per memory test
+provenance:
+  records: [r_0c1c0ba203]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Reasoning tests (False Confidence, None of the Above, Fake Questions) and four memory/retrieval tests (PMID, title, link, abstract). The fake questions were part human-written, part GPT-3.5 generated. Benchmark authors are at Saama AI Research, Chennai. Project site: med-halt.github.io. The license is from the Hugging Face card tag. Item languages are an assumption."

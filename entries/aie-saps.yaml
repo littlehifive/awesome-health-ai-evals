@@ -1,0 +1,39 @@
+id: aie-saps
+name: Automatic Interactive Evaluation (AIE) with State-Aware Patient Simulator
+kind: benchmark
+year: 2024
+summary: A multi-turn doctor-patient simulation framework for LLMs with a state-aware patient simulator, tested on 50 real hospital cases and 150 cases from public medical exam datasets, scored by automatic metrics, GPT-4, and human raters.
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2403.08495
+  arxiv: "2403.08495"
+  doi: 10.2139/ssrn.4890649
+  code: https://github.com/BlueZeros/Automatic_Interactive_Evaluation
+license: null
+open_data: open
+geography:
+  item_languages: [Chinese, English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: HospitalCases (50 real hospital cases) are in Chinese, but the paper does not name the hospital or country. MedicalExam (150 cases) is sampled from five public exam datasets (including MedQA, MedMCQA, MMLU) in English.
+  rater_countries: [UNKNOWN]
+  localization: mixed
+  lead_institution_countries: [CHN]
+  subsets:
+    - {name: HospitalCases, languages: [Chinese], countries: [UNKNOWN], localization: native}
+    - {name: MedicalExam, languages: [English], countries: [UNKNOWN], localization: adapted}
+origin:
+  builder_types: [academic]
+  item_provenance: [real_user_queries, exam_questions, adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [simulated_multi_turn, automatic_metric, rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 200 cases (50 hospital, 150 exam) plus a 50-case patient-simulator test set
+provenance:
+  records: [r_9854ba65dc]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "The GitHub repo has the three datasets and result files, but no license file was found (the API reports none), so license is null. 'Real hospital cases' are described as real but their consent and source institution are not detailed beyond de-identification. The DOI is an SSRN record of the same paper. HospitalCases are described in the paper's dataset section as real cases with patient information, examination results, and diagnoses."

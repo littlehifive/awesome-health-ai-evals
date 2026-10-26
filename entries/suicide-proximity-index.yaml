@@ -1,0 +1,33 @@
+id: suicide-proximity-index
+name: Suicide Proximity Index (SPI)
+kind: eval_framework
+year: 2025
+summary: A five-dimension scoring framework (empathic alignment, harm reinforcement, emotional drift, deflection, human-like danger) with a seven-prompt escalating ladder of veiled suicidal ideation, used to test stylized LLM personas.
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.31219/osf.io/9p7d6_v1
+  doi: 10.31219/osf.io/9p7d6_v1
+license: null
+open_data: described_only
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Prompts written by the single author; no country origin stated.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [unknown]
+  venue: preprint
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric, expert_human_rating]
+  modality: [text]
+  size: 7 prompts (L1 to L7); 42 test sessions
+provenance:
+  records: [r_d2f2afaf37]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Single author at a community college emergency management department (Pierce College, Washington). The prompt ladder and metric formulas are printed in the paper appendices, with no separate download. Two annotators reviewed ratings (Cohen's kappa 0.82 across 60 prompts). Evaluated GPT-4o and Claude 3 with stylized personas such as Monday. Self-posted OSF preprint, not peer reviewed."

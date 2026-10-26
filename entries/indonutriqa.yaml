@@ -1,0 +1,36 @@
+id: indonutriqa
+name: IndoNutriQA
+kind: benchmark
+year: 2026
+summary: 911 expert-written Indonesian clinical-nutrition question-answer pairs with free-form answers, built from real hospital nutrition reports across eight Nutrition Care Process question types, scored by lexical and semantic metrics and an LLM judge calibrated against expert raters.
+readme_section: multilingual_regional
+links:
+  paper: https://arxiv.org/abs/2610.31256
+  arxiv: "2610.31256"
+  doi: 10.48550/arxiv.2610.31256
+  code: https://github.com/NLP-UB/IndoNutriQA
+license: CC-BY-NC-4.0
+open_data: open
+geography:
+  item_languages: [Indonesian]
+  item_origin_countries: [IDN]
+  item_origin_note: Source reports are de-identified clinical nutrition case reports from several Indonesian healthcare facilities, written by dietetic interns.
+  rater_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [IDN]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written, adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [nutrition]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric, rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 911 question-answer pairs
+provenance:
+  records: [r_4496d48bb8]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Data license is CC BY-NC 4.0 and code is MIT, per the GitHub README. Questions are standardised (eight per report) and answers were written by one of three nutritionists; the countries of the nutritionists and expert raters are not stated. The paper reports 6 to 10 percent of reference answers as contestable and finds the LLM-judge rubric unreliable on clinical safety. Fine-tuned baselines (IndoBERT, mT5, RAG) are also reported."

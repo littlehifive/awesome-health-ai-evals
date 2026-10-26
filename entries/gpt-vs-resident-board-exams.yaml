@@ -1,0 +1,31 @@
+id: gpt-vs-resident-board-exams
+name: GPT versus Resident Physicians board-exam benchmark
+kind: benchmark
+year: 2024
+summary: Israeli medical specialist licensing examinations from 2022 in five disciplines, released as a benchmark with the scores of all resident physicians who sat them, for comparing LLMs with physicians.
+readme_section: knowledge_exam
+links:
+  paper: https://ai.nejm.org/doi/10.1056/AIdbp2300192
+  doi: 10.1056/aidbp2300192
+open_data: unknown
+geography:
+  item_languages: [UNKNOWN]
+  item_origin_countries: [ISR]
+  localization: native
+  lead_institution_countries: [ISR]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: not stated in the abstract
+provenance:
+  records: [r_19e396ff84]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "Publisher page returned 403 and no full text was reachable; fields come from the abstract, which names Israel's 2022 specialist exams in internal medicine, general surgery, pediatrics, psychiatry, and OB/GYN and says the exams are provided as a benchmark dataset. Question count, language, format, license, and where the data sit were not seen. A human should check the full text."

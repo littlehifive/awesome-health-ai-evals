@@ -1,0 +1,32 @@
+id: healthybench-german
+name: Healthybench-German
+kind: benchmark
+year: 2026
+summary: 750 synthetic German-language health-guidance prompts (first aid, medication safety, triage, crisis escalation) with per-prompt scoring rubrics and reference answers, for testing cautious user-facing responses.
+readme_section: safety
+links:
+  huggingface: [8Fai/Healthybench-German]
+license: MIT
+open_data: open
+geography:
+  item_languages: [German]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: The card calls the dataset synthetic and does not say which country the scenarios target.
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [unknown]
+  item_provenance: [llm_generated]
+  venue: grey_literature
+facets:
+  health_areas: [emergency_triage, pharmacy_medication, mental_health, general_medicine]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: 750 prompts (single test split)
+provenance:
+  records: [r_2cb4b4b29b]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Dataset card only, no paper. The card says the data is synthetic and generated with local validation, but names no generator model. The schema (conversation, rubric_items, canary_string) mirrors HealthBench, but the card does not state that it is derived from or affiliated with HealthBench. Scoring method is not described beyond providing rubric items, so rubric_llm_judge is inferred from the HealthBench-style format. Uploader 8Fai is not identified."

@@ -1,0 +1,35 @@
+id: knowmt-bench
+name: KnowMT-Bench
+kind: benchmark
+year: 2025
+summary: 801 knowledge-intensive long-form questions across medicine (209), finance, and law, each expanded into a multi-turn dialogue, scored for factual recall, hallucination, and information-delivery efficiency of the final answer.
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2509.21856
+  arxiv: "2509.21856"
+  doi: 10.48550/arxiv.2509.21856
+  code: https://github.com/hardenyu21/KnowMT-Bench
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: The medical items are the 201 labeled K-QA pairs plus others, reused from the earlier K-QA benchmark; the paper does not state a country of origin for the questions.
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, literature]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public]
+  eval_methods: [simulated_multi_turn, automatic_metric]
+  modality: [text]
+  size: 801 single-turn instances (209 medicine, 579 finance, 278 law; 33.1% multi-domain), each expanded to a multi-turn sequence
+provenance:
+  records: [r_9b92ec7dfc]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Multi-domain benchmark; only the medicine slice is health. The model generates its own dialogue history, then the final-turn answer is decomposed into facts and checked by an LLM pipeline the authors say is human-validated. Data file (data/KnowMT_QA.json) is in the GitHub repo, which shows no license. Paper says source code will be released on acceptance. intended_users is inferred from K-QA's consumer-style questions, not stated in this paper."

@@ -1,0 +1,34 @@
+id: epic-qa
+name: EPIC-QA
+kind: benchmark
+year: 2022
+summary: COVID-19 question answering dataset with 87 answer-extraction and 60 end-to-end questions, each asked at expert and general-public level, with sentence-level nugget annotations over scientific and consumer-health documents.
+readme_section: open_ended
+links:
+  paper: https://doi.org/10.1038/s41597-022-01533-w
+  pmcid: PMC9302224
+  doi: 10.1038/s41597-022-01533-w
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Questions came largely from MedlinePlus user interactions, NIH special interest group discussions, Oregon Health and Science University clinicians, and a public call; documents are from CORD-19, US and WHO health agency sites, CommonCrawl news, and Reddit r/askscience.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [government, academic]
+  item_provenance: [real_user_queries, clinician_written, literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [infectious_other, public_health]
+  intended_users: [patient_public, clinician]
+  eval_methods: [automatic_metric, expert_human_rating]
+  modality: [text]
+  size: 87 answer-extraction questions and 60 end-to-end questions, each at expert and public level
+provenance:
+  records: [r_8c8ab9ad5e]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Scientific Data descriptor from NLM, Allen Institute for AI, and NIST, used in the TAC 2020 EPIC-QA community evaluation. A retrieval and passage-extraction benchmark (scored with a novelty-aware NDCG variant) that predates chat-style LLM evaluation, included as a health QA benchmark. Data is on OSF (10.17605/OSF.IO/VNYK8); the Reddit documents must be rebuilt with a script. The OSF license name was not retrievable, so license is null. The paper's counts of 87 and 60 questions come from the Data Records section."

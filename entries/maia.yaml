@@ -1,0 +1,34 @@
+id: maia
+name: MAIA
+kind: benchmark
+year: 2026
+summary: 4,476 questions for medical LLM agents in three families (471 retrieval via biomedical APIs, 2,068 knowledge-graph multi-hop, 1,937 guideline-based clinical-pathway), generated automatically with tool-call traces.
+readme_section: knowledge_exam
+links:
+  paper: https://doi.org/10.1109/icassp55912.2026.11464246
+  doi: 10.1109/icassp55912.2026.11464246
+  huggingface: [DiligentDing/MAIA]
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Generated from biomedical APIs, UMLS-linked knowledge graphs, and guidelines; countries not stated.
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated, literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 4,476 questions
+provenance:
+  records: [r_22e2b16f04]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "The IEEE page was not reachable, so only the abstract and the Hugging Face card were read. The card says GitHub is the main home and Hugging Face a mirror, but no GitHub repo was found. Authors' institutions and the exact scoring metric are unconfirmed (answers are scored against reference answers and tool calls). Medical-agent tool-use benchmark; borderline for a chatbot catalog."

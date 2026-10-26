@@ -1,0 +1,36 @@
+id: rarebench
+name: RareBench
+kind: benchmark
+year: 2024
+summary: "Four rare-disease tasks (phenotype extraction, screening, common-versus-rare comparison, differential diagnosis) over public rare-disease cohorts and Peking Union Medical College Hospital records, with 2,185 patients and 421 diseases in the differential-diagnosis task."
+readme_section: open_ended
+links:
+  paper: https://doi.org/10.1145/3637528.3671576
+  arxiv: "2402.06341"
+  doi: 10.1145/3637528.3671576
+  huggingface: [chenxz/RareBench, zifeng-ai/rare-disease-diagnosis]
+  code: https://github.com/chenxz1111/RareBench
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [CHN, UNKNOWN]
+  item_origin_note: "Public sets (RAMEDIS, MME, HMS, LIRICAL) give phenotypes and OMIM/Orphanet diagnoses; their countries are not stated in the sources read. PUMCH records are from China."
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature, unknown]
+  venue: peer_reviewed
+facets:
+  health_areas: [other_specialty]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric, expert_human_rating]
+  modality: [text]
+  size: "four tasks; 2,185 patients and 421 rare diseases in Task 4; 527 EHRs in Task 3"
+provenance:
+  records: [r_87a2c877ca, r_8ab8363664]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Paper read via arXiv full text; license from the Hugging Face card of chenxz/RareBench. The card lists the datasets RAMEDIS, MME, HMS, LIRICAL, PUMCH_ADM; the paper does not say whether the PUMCH EHRs are all released (not checked). zifeng-ai/rare-disease-diagnosis (r_8ab8363664, license 'other', 1,268 cases from RareBench sources and MyGene2, packaged as an agent task with labels publicly downloadable) is merged here as a repackaging, not a separate benchmark. Language of the PUMCH records not stated in the sections read."

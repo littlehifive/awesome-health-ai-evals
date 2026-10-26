@@ -1,0 +1,32 @@
+id: globalmedqa
+name: GlobalMedQA
+kind: benchmark
+year: 2026
+summary: A harmonized multilingual set of medical multiple-choice questions from 14 countries in 13 languages, labelled by medical specialty, with exploratory benchmarking of many LLMs.
+readme_section: multilingual_regional
+links:
+  paper: https://ebooks.iospress.nl/doi/10.3233/SHTI260188
+  doi: 10.3233/SHTI260188
+open_data: unknown
+geography:
+  item_languages: [UNKNOWN]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: The abstract says 14 countries and 13 languages but names neither; the public page has no full text.
+  localization: unknown
+  lead_institution_countries: [DEU]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [medical_student]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: not stated in the abstract
+provenance:
+  records: [r_5c5ccb58fb]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "Only the abstract and publisher page were reachable (no full text; paperclip holds the abstract only). Question counts, countries, languages, source (exams are assumed from the MCQ framing, not confirmed), license, and a dataset link were not found. The CC BY-NC badge on the page applies to the article, not the dataset. Specialty labels follow the European Union of Medical Specialists classification, with automated annotation where needed. A human should check the full text."

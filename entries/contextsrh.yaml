@@ -1,0 +1,35 @@
+id: contextsrh
+name: ContextSRH
+kind: benchmark
+year: 2024
+summary: 187 US-based English sexual and reproductive health questions whose correct answer depends on the asker's age, sex, or location, used to test whether LLM answers are biased toward some demographic groups.
+readme_section: safety
+links:
+  paper: https://aclanthology.org/2024.findings-emnlp.332/
+  arxiv: "2403.04858"
+  doi: 10.18653/v1/2024.findings-emnlp.332
+  code: https://github.com/sharonlevy/ContextualQuestions
+license: MIT
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: "Questions come from the Planned Parenthood blog (\"Ask the Experts\", 116) and Columbia University's Go Ask Alice (sexual and reproductive health category, 71); location contexts are limited to US states."
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [web_forum]
+  venue: peer_reviewed
+facets:
+  health_areas: [srh]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric, expert_human_rating]
+  modality: [text]
+  size: 187 questions (64 depend on sex, 106 on age, 55 on location)
+provenance:
+  records: [r_f922bf5864]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Read the full paper and the repository README. Each question is labeled for dependence on age, sex, and location, with labels verified by public health and gender studies researchers. Bias is measured by comparing model answers with and without demographic context (sentence similarity plus human judgment of alignment; sex-based answers rated by Prolific healthcare annotators, age and location by the authors). The repository license is MIT; the questions are quoted from public websites. Rater countries are not stated. The record has no arXiv ID; arXiv 2403.04858 is taken from the repository's citation block."

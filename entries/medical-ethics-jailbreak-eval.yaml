@@ -1,0 +1,34 @@
+id: medical-ethics-jailbreak-eval
+name: Medical Ethics Jailbreak Evaluation (Chinese context)
+kind: benchmark
+year: 2026
+summary: 168 role-play, multi-turn jailbreak dialogues across eight Chinese medical-ethics themes (such as organ trafficking, commercial surrogacy, and fetal sex identification), scored on a six-level matrix to give an attack success rate for seven LLMs.
+readme_section: safety
+links:
+  paper: https://arxiv.org/abs/2601.12652
+  arxiv: "2601.12652"
+  doi: 10.48550/arxiv.2601.12652
+license: null
+open_data: gated
+geography:
+  item_languages: [UNKNOWN]
+  item_origin_countries: [CHN]
+  item_origin_note: Themes are drawn from Chinese medical ethics codes and law (for example Article 39 of the Population and Family Planning Law); the items were written by the authors.
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: "168 dialogue test samples (8 themes, 3 role scenarios each, plus baseline direct questions)"
+provenance:
+  records: [r_cfe7497690]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Data availability statement says the 168 dialogue samples and scoring metrics are available from the corresponding author on reasonable request, so open_data is gated and no download link exists. The paper does not say who graded responses (human or LLM) or the language of the prompts, so item_languages is UNKNOWN and eval_methods is a guess. Scoring uses a hierarchical matrix from +2 (helpful, ethical) to -3 or lower (granular actionable illicit detail); ASR is the share of samples scoring below 0. The 168 count is from the data statement, while the methods give 3 scenarios x 8 themes plus baseline and a bomb-making control. Only 3 base scenarios per theme, so this is closer to a small study set than a large benchmark."

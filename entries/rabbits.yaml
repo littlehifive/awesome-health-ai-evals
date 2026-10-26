@@ -1,0 +1,36 @@
+id: rabbits
+name: RABBITS
+kind: benchmark
+year: 2024
+summary: MedQA and MedMCQA questions with brand and generic drug names swapped using physician-reviewed pairs, to test how much LLM accuracy drops when drug names change.
+readme_section: safety
+links:
+  paper: https://doi.org/10.18653/v1/2024.findings-emnlp.726
+  arxiv: "2406.12066"
+  doi: 10.18653/v1/2024.findings-emnlp.726
+  code: https://github.com/BittermanLab/RABBITS
+license: null
+adapted_from: [medqa, medmcqa]
+open_data: closed
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA, IND]
+  item_origin_note: Derived from MedQA (US-based exam questions here) and MedMCQA (Indian entrance exams); the drug-name pairs come from the US RxNorm ontology.
+  localization: adapted
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: peer_reviewed
+facets:
+  health_areas: [pharmacy_medication, general_medicine]
+  intended_users: [clinician, patient_public]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: transformed MedQA and MedMCQA test items containing drug names (counts in paper appendix, not recorded here)
+provenance:
+  records: [r_398bc37541]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "The paper says the full dataset is deliberately not released to limit contamination; models are scored through a Hugging Face leaderboard (AIM-Harvard/rabbits-leaderboard) and a forked lm-evaluation-harness in the GitHub repo, so open_data is closed.  2,271 generic drugs map to 6,961 brands in RxNorm; two physician authors reviewed the swaps. MMLU and PubMedQA were dropped for having under 100 matching items. The paper does not say which MedQA language subsets were used; the US origin is assumed from the English drug names."

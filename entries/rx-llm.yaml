@@ -1,0 +1,36 @@
+id: rx-llm
+name: Rx-LLM
+kind: benchmark
+year: 2025
+summary: Six medication-task benchmarks of 250 clinician-annotated input-output pairs each (formulation, drug order, route, drug interaction, renal dosing, drug-indication), built from LexiDrug content for comprehensive medication management and scored automatically.
+readme_section: knowledge_exam
+links:
+  paper: https://doi.org/10.64898/2025.12.01.25341004
+  doi: 10.64898/2025.12.01.25341004
+  pmcid: PMC12704647
+  code: https://github.com/sikora07/AIChemist
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Source material is LexiDrug drug references; the authors are US-based critical care pharmacists and informaticists.
+  rater_countries: [USA]
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature, clinician_written]
+  venue: preprint
+facets:
+  health_areas: [pharmacy_medication]
+  intended_users: [pharmacist, clinician]
+  eval_methods: [automatic_metric, expert_human_rating]
+  modality: [text]
+  size: 1,500 input-output pairs (6 tasks x 250)
+provenance:
+  records: [r_3be02d746f]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "The paper says the datasets are posted on GitHub (sikora07/AIChemist), but that repository returned 404 when checked, so open_data is unknown. Metrics are precision, recall, F1, accuracy, plus a harm score (HAMEC) validated by two clinical pharmacists on drug-order errors. Panel of five board-certified critical care pharmacists designed the tasks. Country of raters inferred from the University of Colorado affiliations, not stated."

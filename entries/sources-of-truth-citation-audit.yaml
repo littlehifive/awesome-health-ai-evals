@@ -1,0 +1,38 @@
+id: sources-of-truth-citation-audit
+name: Sources of Truth citation audit
+kind: eval_framework
+year: 2026
+summary: A nine-category source typology, a deterministic classifier and an annotated corpus of 15,942 citations from ChatGPT, Perplexity and Google AI Overview answering 20 mental health questions, with three questions translated into six more languages.
+readme_section: frameworks
+links:
+  paper: https://arxiv.org/abs/2609.00319
+  arxiv: "2609.00319"
+  doi: 10.48550/arxiv.2609.00319
+  huggingface: [MindBench/search-source-audit]
+  code: https://github.com/mindbench-ai/search-source-audit
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [English, Spanish, Japanese, Ukrainian, Hindi, Nepali, Twi]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Questions were written by the study team in English; three were translated into the other six languages. Origin country is not stated.
+  localization: mixed
+  lead_institution_countries: [USA]
+  subsets:
+    - {name: Non-English translated subset, languages: [Spanish, Japanese, Ukrainian, Hindi, Nepali, Twi], countries: [UNKNOWN], localization: translated}
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written]
+  venue: preprint
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 20 English questions (3 translated into 6 languages); 1,140 responses; 15,942 citations
+provenance:
+  records: [r_b6be927736]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Beth Israel Deaconess / Harvard Digital Psychiatry lead (John Torous last author). The released items are the question set plus audited responses and citations; the instrument is a citation-source typology and classifier, not answer-quality scoring. License CC-BY-4.0 is from the Hugging Face card; the code repo is AGPL-3.0 per GitHub. Question authorship (clinician_written) is an assumption from the author team; the paper does not say who wrote the questions. This is an audit study that releases reusable instruments, so a human may prefer to exclude it."

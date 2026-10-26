@@ -1,0 +1,35 @@
+id: belo
+name: BELO (BEnchmarking LLMs for Ophthalmology)
+kind: benchmark
+year: 2025
+summary: 900 expert-reviewed ophthalmology multiple-choice questions drawn from existing medical datasets, with refined answer explanations, scored by accuracy, macro-F1, and text-generation metrics, plus a public leaderboard.
+readme_section: knowledge_exam
+links:
+  paper: https://doi.org/10.1016/j.xops.2025.101050
+  doi: 10.1016/j.xops.2025.101050
+  arxiv: "2507.15717"
+  website: https://belo-dataset.vercel.app/
+license: null
+open_data: closed
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Questions were filtered from BCSC, MedMCQA, MedQA, BioASQ, and PubMedQA; original countries are mixed and not stated.
+  localization: adapted
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, exam_questions]
+  venue: peer_reviewed
+facets:
+  health_areas: [ophthalmology]
+  intended_users: [clinician, medical_student]
+  eval_methods: [mcq_exact_match, automatic_metric, expert_human_rating]
+  modality: [text]
+  size: 900 questions
+provenance:
+  records: [r_4058c1aed5, r_bdfea1fc05]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: medium
+  notes: "Merged arXiv record r_bdfea1fc05 (full text read there): the paper says BELO stays a hold-out, evaluation-only set with results on a public leaderboard, and no download link was found, so open_data may really be closed. Rater countries from the arXiv version: Singapore, Australia, Canada, USA, Germany. Abstract and Crossref metadata only. Paper license is CC-BY-NC-ND-4.0; the dataset license was not checked, and how the data is released (and whether the open_data status holds) needs verifying. 13 ophthalmologists reviewed items; their countries and the first-author affiliation were not read. 900 count comes from the screening reason."

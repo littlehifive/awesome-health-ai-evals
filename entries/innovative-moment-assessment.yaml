@@ -1,0 +1,36 @@
+id: innovative-moment-assessment
+name: IMA (Innovative Moment Assessment)
+kind: eval_framework
+year: 2025
+summary: A therapy-centric framework that scores LLM-led narrative-therapy dialogues by tagging client utterances with six Innovative Moment types across two levels and computing an IM salience metric, released with the INT therapist simulator and the 1,300-dialogue NTConv set.
+readme_section: frameworks
+links:
+  paper: https://aclanthology.org/2025.emnlp-main.1245/
+  arxiv: "2507.20241"
+  doi: 10.18653/v1/2025.emnlp-main.1245
+  code: https://github.com/MIMIFY/narrative-therapy-llm
+license: MIT
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Simulated clients built from 260 client profiles taken from ESConv; human participants (200 main, 30 follow-up) are described as mostly college students aged 18-30, country not stated in the text read.
+  rater_countries: [UNKNOWN]
+  localization: adapted
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated, adapted_dataset]
+  venue: peer_reviewed
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge, simulated_multi_turn, expert_human_rating]
+  modality: [text]
+  size: 6 Innovative Moment types; NTConv 1,300 dialogues of 50 turns (1,040 train, 260 test)
+provenance:
+  records: [r_3f6aaa7e89]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "The repository license is MIT per the GitHub API; the data folder is described as research-use only in the paper's ethics statement. NTConv is GPT-4o-generated (simulated client plus INT), so it is closer to training data than a test set; the reusable part is the IMA annotation and scoring pipeline. Rater and participant countries not confirmed."

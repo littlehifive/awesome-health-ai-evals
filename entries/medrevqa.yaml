@@ -1,0 +1,35 @@
+id: medrevqa
+name: MedRevQA / MedChangeQA
+kind: benchmark
+year: 2025
+summary: 16,501 biomedical question-answer pairs from Cochrane systematic reviews (MedRevQA) and a 512-pair subset whose verdict changed across review updates (MedChangeQA), to test whether LLMs repeat outdated medical knowledge.
+readme_section: knowledge_exam
+links:
+  paper: https://doi.org/10.18653/v1/2025.findings-emnlp.487
+  arxiv: "2509.04304"
+  doi: 10.18653/v1/2025.findings-emnlp.487
+  code: https://github.com/jvladika/MedChange
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Derived from Cochrane systematic reviews (scraped through January 2024), which have no single country of origin.
+  localization: native
+  lead_institution_countries: [DEU]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature, llm_generated]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 16,501 QA pairs (MedRevQA); 512 pairs (MedChangeQA)
+provenance:
+  records: [r_2e7cbd1d07]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Same first author and method as MedREQAL (separate dataset, larger and time-aware). Two annotators (one physician) checked 100 examples for question and label correctness. Eight LLMs were tested. The paper says only generated questions and labels will be released, not the Cochrane text; the GitHub repo is the code and data link, but its contents and license were not checked, so open_data is unknown. Record r_2e7cbd1d07 is the Underline conference video page; the paper is the arXiv and EMNLP Findings version."

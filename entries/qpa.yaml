@@ -1,0 +1,32 @@
+id: qpa
+name: QPA (Question-Profile-Answer)
+kind: benchmark
+year: 2026
+summary: 200 nutrition-consulting questions from an open medical QA corpus, each paired with a structured user profile and a reference answer, scored by an LLM judge on correctness, completeness, personalization, and safety.
+readme_section: open_ended
+links:
+  arxiv: "2608.24907"
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Questions come from the Medical Alpaca corpus of open-forum medical QA pairs; the forum countries are not stated. Language is not stated explicitly; assumed English.
+  localization: native
+  lead_institution_countries: [RUS]
+origin:
+  builder_types: [academic]
+  item_provenance: [web_forum, llm_generated]
+  venue: preprint
+facets:
+  health_areas: [nutrition]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: 200 samples
+provenance:
+  records: [r_4dbb7dfdca]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Introduced in a workshop paper (ICML 2026 Structured Data for Health) alongside the PA-CoT prompting method. Profiles are extracted from the questions by an LLM (about 20% of fields filled on average) and reference answers come from the source corpus. Scoring uses G-Eval on a 1 to 5 scale with four criteria. The paper text gives no download link for the benchmark. The language is inferred from Medical Alpaca and is not confirmed."

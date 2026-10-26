@@ -1,0 +1,35 @@
+id: clinicalethicsbench
+name: ClinicalEthicsBench
+kind: benchmark
+year: 2026
+summary: "60 original medical-ethics dilemmas in four domains, each posed as a yes/no question, used to measure how recommendation direction, confidence, and stability vary across LLMs."
+readme_section: safety
+links:
+  paper: https://ai.jmir.org/2026/1/e102713
+  doi: 10.2196/102713
+  huggingface: [MedicalAILabo/Medical_Ethical_Dilemmas_Benchmark]
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Cases were written by the authors; the sources I read do not state a country.
+  rater_countries: [UNKNOWN]
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric, expert_human_rating]
+  modality: [text]
+  size: 60 cases
+provenance:
+  records: [r_26f473800d]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: medium
+  notes: "Read the HF card and the JMIR AI abstract (via Crossref). There is no gold answer: the outcome is yes/no direction, model-reported confidence, within-model stability, and between-model agreement across five models; three researchers annotated difficulty and ethical principles by consensus, and the Reason text was reviewed by humans. Item writers described as researchers; whether they are clinicians is not stated, so item_provenance is a guess. Author affiliations not seen."

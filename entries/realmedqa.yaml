@@ -1,0 +1,35 @@
+id: realmedqa
+name: RealMedQA
+kind: benchmark
+year: 2024
+summary: "Pilot set of realistic clinical questions (about 1,200 QA pairs verified: 800 written by UK medical students, 400 by an LLM) answered by NICE guideline recommendations, for evaluating clinical question answering."
+readme_section: open_ended
+links:
+  paper: https://pubmed.ncbi.nlm.nih.gov/40417548
+  arxiv: "2408.08624"
+  huggingface: [k2141255/RealMedQA]
+  code: https://github.com/gck25/RealMedQA
+license: CC-BY-NC-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GBR]
+  rater_countries: [GBR]
+  localization: native
+  lead_institution_countries: [GBR]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written, llm_generated, literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: "about 1,200 verified question-answer pairs (800 human, 400 LLM)"
+provenance:
+  records: [r_f838339ea3]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Answers are recommendations from 7,385 NICE 'Conditions and diseases' guidelines. Medical students and a Google Forms process generated questions; the same students verified plausibility and whether the recommendation answers the question. The paper evaluates answer-retrieval models against BioASQ (answer matching), not chatbot generation. GitHub repo license is Apache-2.0; the dataset card says CC-BY-NC-4.0."

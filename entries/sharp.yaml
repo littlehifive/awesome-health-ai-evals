@@ -1,0 +1,45 @@
+id: sharp
+name: SHARP
+kind: eval_framework
+year: 2025
+summary: A principle-based framework (safety, helpfulness, accuracy, relevance, personalization) for evaluating LLMs in personal health and wellness, developed and applied on the Fitbit Insights explorer.
+readme_section: frameworks
+links:
+  paper: https://arxiv.org/abs/2512.08936
+  arxiv: '2512.08936'
+  doi: 10.48550/arxiv.2512.08936
+license: null
+open_data: described_only
+geography:
+  item_languages:
+  - English
+  item_origin_countries:
+  - USA
+  item_origin_note: Fitbit Insights explorer users were US adults with Fitbit Premium; framework itself has no items.
+  localization: native
+  lead_institution_countries:
+  - USA
+origin:
+  builder_types:
+  - industry_lab
+  item_provenance:
+  - not_applicable
+  venue: preprint
+facets:
+  health_areas:
+  - general_medicine
+  intended_users:
+  - patient_public
+  eval_methods:
+  - expert_human_rating
+  - rubric_llm_judge
+  modality:
+  - text
+  size: 5 principles with components and subcomponents (Table 1); three-step evaluation process
+provenance:
+  records:
+  - r_518ba84eb3
+  extracted: '2026-10-26'
+  read_full_text: true
+  confidence: high
+  notes: Google Research with Tezerakt LLC. The framework uses human generalist and specialist raters plus autoraters, Boolean-style guideline questions, and a user-query dataset built for the Fitbit product (not released). English assumed from the US-only deployment. Expansions of the five SHARP letters taken from the abstract.

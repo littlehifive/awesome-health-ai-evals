@@ -1,0 +1,37 @@
+id: acceptance-criteria-framework-public-health-llm
+name: Acceptance Criteria Framework (ACF) for Custom LLMs in Public Health Interventions
+kind: eval_framework
+year: 2026
+summary: A predeployment protocol in which a foundation model generates 100 project-relevant and 50 off-topic prompts, three experts code responses as problematic or not, and the custom LLM passes if interrater agreement is at least 0.80 and few responses are problematic; applied to an English and Spanish tobacco quitline text-messaging chatbot.
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.2196/92356
+  doi: 10.2196/92356
+  pmcid: PMC13374823
+license: null
+open_data: described_only
+geography:
+  item_languages: [English, Spanish]
+  item_origin_countries: [USA]
+  item_origin_note: Case application at community health centers in Utah; test prompts are LLM-generated.
+  rater_countries: [USA]
+  localization: native
+  lead_institution_countries: [USA]
+  subsets:
+    - {name: Spanish case application, languages: [Spanish], countries: [USA], localization: native}
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated]
+  venue: peer_reviewed
+facets:
+  health_areas: [public_health]
+  intended_users: [patient_public]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: 100 project-relevant and 50 off-topic prompts per language in the case application
+provenance:
+  records: [r_4e2782cc74]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Read the full text in paperclip (University of Utah, Huntsman Cancer Institute). Article is CC BY per Europe PMC, but that covers the paper; the example prompts are in a multimedia appendix and no dataset license was seen. In the case study English passed both criteria (AC1 0.85 and 0.96) while Spanish did not (AC1 0.45). Thresholds are described as pragmatic starting points."

@@ -1,0 +1,35 @@
+id: iyawobench
+name: IyawoBench
+kind: benchmark
+year: 2026
+summary: 200 synthetic clinical vignettes for febrile illness triage in Nigerian primary care, generated from statistics of 1,200 real encounters at 19 health centres in Oyo State, labelled TREAT HERE, REFER TODAY, or REFER NOW and scored by triage accuracy and safety (v2.0 adds failure-mode and cost-based metrics).
+readme_section: safety
+links:
+  paper: https://arxiv.org/abs/2605.23465
+  arxiv: "2605.23465"
+  code: https://github.com/anthoniooladimeji11-coder/iyawobench
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [NGA]
+  item_origin_note: Vignettes are synthetic but drawn from the case mix of 19 primary health centres in Oyo State, Nigeria; only one state is covered.
+  rater_countries: [NGA]
+  localization: native
+  lead_institution_countries: [NGA]
+origin:
+  builder_types: [implementer_ngo]
+  item_provenance: [llm_generated]
+  venue: preprint
+facets:
+  health_areas: [primary_care, malaria, infectious_other, emergency_triage]
+  intended_users: [chw]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 200 vignettes
+provenance:
+  records: [r_5059312c71, r_8c764b716e]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Merges v1.0 (arXiv 2605.23465) and v2.0 (arXiv 2607.29085, same 200 vignettes with new metrics: Escalation Bias Index, Expected Deployment Cost, three named failure modes). Vignettes were generated programmatically, not by an LLM prompt, so llm_generated is the nearest provenance code. Triage labels were assigned by the first author from WHO IMCI, WHO malaria, Surviving Sepsis, and Nigerian treatment guidelines, without independent physician review (stated limitation). Authors are at Iyawo Health, which built the source platform; the first author is the platform founder. The v1 paper says data are available on request but also points to the GitHub repo, which holds v1 CSV/JSON files and a README stating CC BY 4.0. The v2 paper gives a different, nonexistent GitHub username (anthonioladimeji111-coder), so the working repo link is the v1 paper's. Rater countries and lead country are inferred from the Ibadan, Nigeria affiliation."

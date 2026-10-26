@@ -1,0 +1,36 @@
+id: score-llm-evaluation
+name: S.C.O.R.E.
+kind: eval_framework
+year: 2024
+summary: A qualitative clinician-grading framework for health LLM outputs on five aspects (Safety, Consensus, Objectivity, Reproducibility, Explainability), later applied as a 3-point SCORE rubric to rate medication-enquiry answers from fine-tuned small LLMs.
+readme_section: frameworks
+links:
+  paper: https://arxiv.org/abs/2407.07666
+  arxiv: "2407.07666"
+  doi: 10.1371/journal.pdig.0000961
+  pmcid: PMC12410746
+license: null
+open_data: described_only
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: "The framework has no item set. The applied study used 231 validation and 35 test medication questions from open online sources and forums (countries not stated), with a training set of 1,100 expert-written pairs covering medications prescribed in Singapore."
+  rater_countries: [SGP]
+  localization: native
+  lead_institution_countries: [SGP]
+origin:
+  builder_types: [academic]
+  item_provenance: [not_applicable]
+  venue: preprint
+facets:
+  health_areas: [pharmacy_medication, ophthalmology]
+  intended_users: [patient_public, clinician]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: "5 criteria rated on a 3-point (applied study) or 5-point (original proposal) scale"
+provenance:
+  records: [r_2cbcc3ddaa, r_49d2314966, r_23c05123e6]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "r_2cbcc3ddaa is the arXiv proposal; r_49d2314966 is the SSRN version, which renames the C to Consensus and Context (not opened); r_23c05123e6 is the PLOS Digital Health Med-Pal paper that applies SCORE to medication enquiries and is mainly a model-development paper. The proposal compares SCORE with BLEU, ROUGE and BERTScore on ophthalmology and medication Q&A. Singapore Health Services / Duke-NUS lead; no data or code link seen."

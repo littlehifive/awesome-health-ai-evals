@@ -1,0 +1,34 @@
+id: tianyi-tcmeval
+name: TCMEval (Tianyi)
+kind: benchmark
+year: 2025
+summary: Evaluation suite released with the Tianyi TCM language model, combining regular TCM tasks (exam multiple-choice, clinical-record syndrome and prescription tasks, domain QA) with real-world tests (physician ratings of syndrome and prescription answers, clinical-trial outcome prediction).
+readme_section: multilingual_regional
+links:
+  paper: https://doi.org/10.1016/j.inffus.2025.103663
+  arxiv: "2505.13156"
+  doi: 10.1016/j.inffus.2025.103663
+license: null
+open_data: gated
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: Built from Chinese TCM exams, clinical records collected by the authors, and two clinical trials approved by Beijing University of Chinese Medicine; the language is inferred from these sources.
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions, unknown]
+  venue: peer_reviewed
+facets:
+  health_areas: [traditional_medicine]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match, automatic_metric, expert_human_rating]
+  modality: [text]
+  size: "sizes mostly not stated; the human-rated test used 5 clinical records per model with 3 questions each (120 QA pairs across models), and the retrospective trial set has 108 records"
+provenance:
+  records: [r_57e3db27d3]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "The paper is mainly about the Tianyi model (7.6B parameters); TCMEval is its evaluation framework. Data statement: de-identified TCMEval data can be requested from the corresponding author under a data-request protocol, hence gated. Item counts for TCM-MCE (a 20% sample of collected exam questions), TCM-CRT and TCM-DQA were not found. Ten TCM doctors (five senior) rated answers on correctness, comprehensiveness, safety and legibility. Named TCMEval in the paper; not the same as TCM-Eval (Beihang) or TCMEval-SDT or TCMEval-PA."

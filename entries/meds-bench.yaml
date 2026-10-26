@@ -1,0 +1,37 @@
+id: meds-bench
+name: MedS-Bench
+kind: benchmark
+year: 2024
+summary: Benchmark of 11 clinical task types (multiple-choice QA, summarization, information extraction, explanation, NER, diagnosis, treatment planning, outcome prediction, classification, fact verification, NLI) built by reformatting 28 existing datasets into instruction prompts, scored with accuracy, BLEU, and ROUGE.
+readme_section: knowledge_exam
+links:
+  paper: https://doi.org/10.1038/s41746-024-01390-4
+  arxiv: "2408.12547"
+  pmcid: PMC11770143
+  doi: 10.1038/s41746-024-01390-4
+  huggingface: [Henrychur/MedS-Bench, Henrychur/MedS-Bench-SPLIT]
+  code: https://github.com/MAGIC-AI4Med/MedS-Ins
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Items come from 28 existing public datasets (for example MedQA, PubMedQA, MIMIC-derived sets); countries are not stated.
+  localization: adapted
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match, automatic_metric]
+  modality: [text]
+  size: 11 task categories drawn from 28 datasets; some test sets are randomly subsampled
+provenance:
+  records: [r_d81fdbb11a, r_9d9b9b1ec8]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Several tasks are biomedical NLP (NER, relation and information extraction, EHR-based outcome prediction) that fall outside the catalog scope; the in-scope part is MCQA, diagnosis, treatment, and explanation. Henrychur/MedS-Bench-SPLIT (empty card, task JSON files) holds the subsampled cases used to reproduce the paper's results and is merged here. MedS-Ins (13.5M-sample training set) is a training resource and not part of this entry. License is not stated on the HF card; the paper mentions a dynamic leaderboard."

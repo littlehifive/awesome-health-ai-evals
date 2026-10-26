@@ -1,0 +1,35 @@
+id: medmcp-calc
+name: MedMCP-Calc
+kind: benchmark
+year: 2026
+summary: 118 scenario tasks across 4 clinical domains in which an LLM agent must pick and chain medical calculators from a vague clinician-style query, pulling inputs from a MIMIC-IV-based EHR database through MCP tools, scored on task completion, calculator selection, numeric precision, and evidence acquisition.
+readme_section: open_ended
+links:
+  paper: https://aclanthology.org/2026.acl-long.221/
+  arxiv: "2601.23049"
+  doi: 10.48448/4rnx-vw46
+  code: https://github.com/SPIRAL-MED/MedMCP-Calc
+license: MIT
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Patient database built from MIMIC-IV (49,419 patients) plus GPT-5-synthesized records; tasks were LLM-generated from 125 scenarios and calculators from MDCalc, Medscape, and QxMD.
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated, adapted_dataset]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 118 tasks, 1,173 unique calculators, EHR database of about 49,500 patients
+provenance:
+  records: [r_5376256e95]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "License is the GitHub repo MIT license (seen on the badge and API); MIMIC-derived database terms were not checked. The repo README says it is an ACL 2026 Main oral. Tasks were checked manually; ground truth is referenced against the three calculator sites. Agentic clinician-tool benchmark, not patient-facing; the paper itself notes region-specific EHR bias."

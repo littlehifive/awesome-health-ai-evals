@@ -1,0 +1,34 @@
+id: prime-llm
+name: PrIME-LLM
+kind: eval_framework
+year: 2026
+summary: A normalized, area-based score (Proportional Index of Medical Evaluation for LLMs) that rewards balanced accuracy across five stages of stepwise clinical reasoning (differential diagnosis, diagnostic testing, final diagnosis, management, miscellaneous), applied to 21 LLMs on 29 MSD Manual clinical vignettes.
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.1001/jamanetworkopen.2026.4003
+  doi: 10.1001/jamanetworkopen.2026.4003
+  pmcid: PMC13077515
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Vignettes come from the MSD Manual professional-version educational modules (Merck Sharp & Dohme); the paper does not state the country of the case authors.
+  localization: unknown
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: 29 vignettes, 21 LLMs, 16,254 scored responses
+provenance:
+  records: [r_e69f17b2ff]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Read the PMC full text (introduction, methods, early results). The metric is the contribution; the vignettes are third-party MSD Manual modules, so no new item set is released and no data-availability statement or repository link was seen (the eAppendix is in a journal supplement). Medical-student raters scored free text against MSD answer keys, one rater per response. The paper says PrIME-LLM can be applied to any multitask clinical benchmark. Country of the MSD Manual case authors not stated."

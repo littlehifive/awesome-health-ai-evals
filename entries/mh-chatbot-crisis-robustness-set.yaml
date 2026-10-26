@@ -1,0 +1,32 @@
+id: mh-chatbot-crisis-robustness-set
+name: Two-Stage Mental Health Chatbot Intent and Robustness Test Set
+kind: benchmark
+year: 2026
+summary: 258 held-out labeled messages (crisis, support, smalltalk, out-of-scope) across 10 stress categories, plus 218 curated training examples, for testing a mental-health chatbot's crisis routing against lexical traps, indirect crisis, slang, and mixed intent.
+readme_section: mental_health
+links:
+  doi: 10.5281/zenodo.23247787
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Written by the authors (some LLM-generated or programmatically expanded, then reviewed); no country of origin for the content is stated.
+  localization: native
+  lead_institution_countries: [VNM]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated, unknown]
+  venue: grey_literature
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 258 held-out probes (robust_test.csv) and 218 curated examples (train_curated_v8.csv)
+provenance:
+  records: [r_491c32de1e]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: medium
+  notes: "Read the Zenodo record and the first rows of robust_test.csv; the companion paper (FPT University, Can Tho Campus student group) was not found or read. Items were written by the research team (a student group), with some LLM-generated or programmatically expanded; there is no schema value for author-written, so provenance is llm_generated plus unknown. Scoring is classification accuracy of intent labels (inferred from the label columns, not from the paper). English is from the sample rows."

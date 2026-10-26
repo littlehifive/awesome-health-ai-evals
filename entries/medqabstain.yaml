@@ -1,0 +1,36 @@
+id: medqabstain
+name: MedQAbstain
+kind: benchmark
+year: 2026
+adapted_from: [medqa, medmcqa, afrimed-qa]
+summary: About 11,200 medical multiple-choice questions (6,359 life-threatening and 4,873 safe, text and image) rebuilt so the gold answer is removed and an explicit abstain option is the only correct choice, scored by abstention rate and calibration.
+readme_section: safety
+links:
+  paper: https://aclanthology.org/2026.acl-long.1365/
+  doi: 10.18653/v1/2026.acl-long.1365
+  huggingface: [disi-unibo-nlp/MedQAbstain]
+  code: https://github.com/disi-unibo-nlp/llm-medical-abstention
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: "Built from existing MCQA sets (MedQA 4- and 5-option, MedMCQA, AfriMed-QA, MedXpertQA text and multimodal); origin countries were not stated in the card or README, so they are not coded."
+  localization: adapted
+  lead_institution_countries: [ITA]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 11,232 questions (6,359 life-threatening, 4,873 safe splits)
+provenance:
+  records: [r_5f2d684469]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: medium
+  notes: "Read the Hub card, the GitHub README, and the ACL Anthology abstract; the paper full text was not read. The ACL paper (2026.acl-long.1365, Cocchieri, Ragazzi, Tagliavini, Moro) was linked from the card. No license is stated on the card (images come from MedXpertQA, which retains its own terms), so license is null. Some items include images (MedXpertQA-MM) but the model-input modality is coded text only because the schema has no image value. Lead country ITA from the disi-unibo-nlp organization and Anthology authors, not checked against affiliations. Scoring also includes self-reported confidence with ECE, Brier score, and AUROC (README)."

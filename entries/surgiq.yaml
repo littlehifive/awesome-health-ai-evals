@@ -1,0 +1,33 @@
+id: surgiq
+name: SurgiQ
+kind: benchmark
+year: 2026
+summary: 13,055 text-only four-option surgical multiple-choice questions across six surgical domains and four question formats, generated with an LLM from surgical textbooks and open-access papers and audited by physicians, scored by log-likelihood accuracy.
+readme_section: knowledge_exam
+links:
+  paper: https://arxiv.org/abs/2606.08071
+  arxiv: "2606.08071"
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Source textbooks, papers, and examination material are international and the paper does not give countries.
+  localization: native
+  lead_institution_countries: [ARE]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated, literature]
+  venue: preprint
+facets:
+  health_areas: [other_specialty]
+  intended_users: [clinician, medical_student]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 13,055 questions; 35 open-weight LLMs evaluated
+provenance:
+  records: [r_2699fa8c77]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Questions were generated, verified, and filtered with Gemini 2.5 Flash from 7,216 textbook segments and 659 research papers (17,068 candidates before verification); three physicians audited 300 questions (92% correct answers, 90% clear). The paper describes a versioned public release but gives no URL or license that was found in the text, so license is null and open_data is unknown. Domains: General Surgery 53.2%, Neurosurgery 16.9%, Robotic 12.6%, Orthopedic 9.1%, Critical Care/Emergency 4.5%, Laparoscopic 3.8%. Authors are at MBZUAI (UAE)."

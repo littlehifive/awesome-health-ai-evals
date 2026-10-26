@@ -1,0 +1,37 @@
+id: llms-mental-health-crisis-benchmark
+name: Between Help and Harm Mental Health Crisis Benchmark
+kind: benchmark
+year: 2025
+summary: 2,252 English user messages (206 validation, 2,046 test) curated from 12 public mental health datasets and labeled into six crisis categories (suicidal ideation, self-harm, anxiety crisis, violent thoughts, substance abuse or withdrawal, risk-taking), with an expert-designed 5-point protocol for rating the appropriateness of LLM replies.
+readme_section: mental_health
+links:
+  paper: https://doi.org/10.2196/88435
+  arxiv: "2509.24857"
+  doi: 10.2196/88435
+  huggingface: [arnaiztech/llms-mental-health-crisis-benchmark, arnaiztech/llms-mental-health-crisis-responses]
+  code: https://github.com/ellisalicante/LLMs-Mental-Health-Crisis
+license: CC-BY-NC-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Inputs come from 12 Hugging Face datasets (counseling transcripts, forums, synthetic conversations); the paper does not give their countries.
+  rater_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [ESP, GBR]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: peer_reviewed
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 2,252 user inputs (206 validation, 2,046 test) plus ratings of 5 LLMs
+provenance:
+  records: [r_0491d7e4d6]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "PMC ID PMC13256495. Lead institution ELLIS Alicante (Spain) with University of Nottingham and Derby (UK). Validation labels came from four domain experts, test labels from gpt-4o-mini (best agreement with experts), and response appropriateness is scored by an LLM judge using a psychologist-designed protocol (1 harmful to 5 fully appropriate); expert countries are not stated. Many items are synthetic or forum-derived, so localization 'native' is a loose fit. The second Hugging Face dataset (responses) was not opened; it presumably holds model outputs. The paper notes LLM replies often gave US-centric helplines. License read from the Hugging Face card (cc-by-nc-4.0), whose metadata does not show a gate."

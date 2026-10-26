@@ -1,0 +1,35 @@
+id: dialogguard
+name: DialogGuard
+kind: eval_framework
+year: 2025
+summary: A multi-agent LLM-as-a-judge framework with a shared three-level rubric for five psychosocial safety dimensions (privacy violation, discrimination, mental manipulation, psychological harm, insulting behaviour) in responses to sensitive mental-health and crisis interactions.
+readme_section: frameworks
+links:
+  paper: https://arxiv.org/abs/2512.02282
+  arxiv: "2512.02282"
+  doi: 10.48550/arxiv.2512.02282
+  code: https://anonymous.4open.science/r/dialogguard-web-CE7E
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Validated on 400 items per dimension subsampled from PKU-SafeRLHF, a general (not health-specific) safety dataset; the paper does not state a country for those items.
+  localization: unknown
+  lead_institution_countries: [GBR, ISR]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 400 items per dimension (200 risky and 200 safe) from PKU-SafeRLHF; usability study with 12 practitioners
+provenance:
+  records: [r_4674ee9e94, r_39ae8486ec]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "The code link is an anonymous review repository (4open.science), which may not persist; the subsets and prompts are said to be shared there, but no license was seen. Pipelines: single-agent scoring, dual-agent correction, multi-agent debate, stochastic majority voting. The validation data is generic safety data, so health-specificity comes from the framing and the practitioner study. Second record is a conference listing (doi 10.48448/0zh4-9g62), not checked."

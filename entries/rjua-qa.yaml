@@ -1,0 +1,35 @@
+id: rjua-qa
+name: RJUA-QA
+kind: benchmark
+year: 2023
+summary: 2,132 Chinese question-context-answer triples in urology covering 67 disease categories, built from virtual patient queries derived from about 25,000 real diagnostic records, with expert-calibrated diagnosis and examination-advice answers scored by Rouge-L and F1.
+readme_section: multilingual_regional
+links:
+  paper: https://arxiv.org/abs/2312.09785
+  arxiv: "2312.09785"
+  doi: 10.48550/arxiv.2312.09785
+license: null
+open_data: unknown
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: Derived from diagnostic records and clinical cases of a Shanghai hospital's urology department (Renji Hospital); reasoning contexts come from Chinese urology guidelines, textbooks, PubMed, and clinician experience.
+  rater_countries: [CHN]
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [industry_lab, academic]
+  item_provenance: [clinician_written, literature]
+  venue: preprint
+facets:
+  health_areas: [other_specialty]
+  intended_users: [patient_public, clinician]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 2,132 question-context-answer pairs
+provenance:
+  records: [r_9348dab8ad]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Authors are from Ant Group and Renji Hospital (Shanghai Jiao Tong University School of Medicine). The paper text has no download link or license statement, and no repository could be found at the obvious GitHub location, so open_data is unknown despite the screening label. Questions are virtual patient queries synthesized from real records rather than raw patient messages. Annotation by a clinical annotation team plus a urology expert panel."

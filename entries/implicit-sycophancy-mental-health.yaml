@@ -1,0 +1,33 @@
+id: implicit-sycophancy-mental-health
+name: Implicit Sycophancy Benchmark (DESG)
+kind: benchmark
+year: 2026
+summary: A diagnostic benchmark for implicit sycophancy in mental-health dialogue (responses that sound empathetic but reinforce harmful cognition), with a leakage-audited matched set of 500 contexts and 1,500 response windows, plus the DESG clinical-state audit method.
+readme_section: mental_health
+links:
+  paper: https://doi.org/10.1007/978-981-92-4529-1_14
+  doi: 10.1007/978-981-92-4529-1_14
+license: null
+open_data: unknown
+geography:
+  item_languages: [UNKNOWN]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Built from three existing mental-health dialogue sources (peer support, counseling-style emotional support, crisis interaction); sources, languages and countries were not visible in the abstract.
+  localization: adapted
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: peer_reviewed
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 500 contexts and 1,500 matched response windows (clean matched benchmark)
+provenance:
+  records: [r_cee64cda47]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "Springer chapter (Human Behavior Analysis and Interaction for Emotional Intelligence) is paywalled; only the abstract and metadata from the Springer page were read. Source dialogue datasets, language, authors' countries, and any data release are unknown. Scored by macro-F1 for harmful-risk detection. A human should check the full text."

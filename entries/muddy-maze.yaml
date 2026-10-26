@@ -1,0 +1,48 @@
+id: muddy-maze
+name: Muddy Maze
+kind: benchmark
+adapted_from:
+- medqa
+year: 2025
+summary: Evidence-ranking reformulation of MedQA, MedBullets, and JAMA Challenge cases, in one-round and multi-round settings, with three difficulty levels and adjustable distractor noise, for testing diagnostic evidence reasoning.
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2501.17860
+  arxiv: '2501.17860'
+license: null
+open_data: unknown
+geography:
+  item_languages:
+  - English
+  item_origin_countries:
+  - USA
+  item_origin_note: Built from MedQA (USMLE), MedBullets Step 2/3, and JAMA Challenge cases.
+  localization: adapted
+  lead_institution_countries:
+  - USA
+origin:
+  builder_types:
+  - academic
+  item_provenance:
+  - adapted_dataset
+  - exam_questions
+  venue: preprint
+facets:
+  health_areas:
+  - general_medicine
+  intended_users:
+  - clinician
+  - medical_student
+  eval_methods:
+  - automatic_metric
+  - simulated_multi_turn
+  modality:
+  - text
+  size: not stated
+provenance:
+  records:
+  - r_4b8f83f8fe
+  read_full_text: true
+  confidence: medium
+  notes: Benchmark is a secondary contribution of "Dialogue is Better Than Monologue", whose main contribution is dialogue-based fine-tuning. The paper text I read had no code or dataset link and gives no benchmark size, so open_data is unknown. Metrics are multi-hop and single-wise accuracy. Item countries are inferred from the USMLE and JAMA sources, not stated by the authors. Evidence-ranking sentences are produced from source questions; how much is LLM-generated was not checked.
+  extracted: '2026-10-26'

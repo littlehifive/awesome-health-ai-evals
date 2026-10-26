@@ -1,0 +1,33 @@
+id: faith-kg-factuality
+name: FAITH
+kind: eval_framework
+year: 2026
+summary: A reference-free framework that scores the factuality of medical LLM responses by splitting them into atomic claims, linking them to a medical knowledge graph, and scoring evidence paths, tested on MedQA, MMLU, MS-AKT, and LiveQA.
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.1609/aaai.v40i46.41317
+  doi: 10.1609/aaai.v40i46.41317
+  code: https://github.com/COLA-Laboratory/FAITH
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  localization: unknown
+  lead_institution_countries: [CHN, GBR]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician, patient_public]
+  eval_methods: [automatic_metric, expert_human_rating]
+  modality: [text]
+  size: Framework evaluated on four existing QA datasets plus clinician judgments and fact-verification benchmarks
+provenance:
+  records: [r_458b12a495]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Authors at UESTC (China) and Exeter (UK); GitHub repo exists but I saw no license on it. The framework reuses existing datasets, so it ships no new items. Language is assumed English."

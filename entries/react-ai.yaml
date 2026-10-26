@@ -1,0 +1,35 @@
+id: react-ai
+name: REACT-AI
+kind: eval_framework
+year: 2026
+summary: Rapid Evaluation Assessment of Clinical Reasoning Tool, a behaviorally anchored rating scale with 13 subdomains for scoring the reasoning process of LLM answers to urgent-care vignettes, plus a conflict-of-interest-controlled LLM-as-judge pipeline, described in a study protocol.
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.2196/103220
+  doi: 10.2196/103220
+  pmcid: PMC13643257
+license: null
+open_data: described_only
+geography:
+  item_languages: [English]
+  item_origin_countries: [ARE]
+  item_origin_note: Protocol adds a paired Gulf English condition; vignette origin is not stated in what I read.
+  rater_countries: [ARE]
+  localization: native
+  lead_institution_countries: [ARE]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [emergency_triage, general_medicine]
+  intended_users: [clinician]
+  eval_methods: [expert_human_rating, rubric_llm_judge]
+  modality: [text]
+  size: "13 subdomains; 5 vignettes in phase 1 (180 AI outputs), 3,600 outputs in phase 2"
+provenance:
+  records: [r_0e214b764a]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "A registered protocol (OSF osf.io/jep5t, embargoed until June 2028); no outputs had been generated at publication, so the rubric and vignettes are not yet released. Vignette authorship and country are assumptions; UAE University is the authors' institution. I did not read the full methods."

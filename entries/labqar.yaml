@@ -1,0 +1,33 @@
+id: labqar
+name: LabQAR
+kind: benchmark
+year: 2025
+summary: 550 manually curated laboratory-test reference ranges covering 363 unique tests, with multiple-choice questions annotated for specimen type and other interpretation factors, used to test LLMs on predicting reference ranges and classifying results as normal, low, or high.
+readme_section: knowledge_exam
+links:
+  paper: https://doi.org/10.1038/s41597-026-07554-z
+  doi: 10.1038/s41597-026-07554-z
+license: CC-BY-NC-ND-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Built from authoritative medical sources, which the abstract does not name by country.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature, clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 550 reference ranges across 363 lab tests, with multiple-choice questions
+provenance:
+  records: [r_4cf1cb45d1, r_19a4e3f04f]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "Only the Scientific Data landing page (abstract, rights statement, supplementary file list) was readable; the medRxiv preprint was blocked and the methods text was not seen. The page offers a LabQAR Master Source File (XLSX) as a download, hence open. The license shown is the article's CC BY-NC-ND 4.0, which may not be the dataset's license. The exact question count, the sources, and the scoring protocol (inferred as accuracy) need checking. Lead country is from the funding acknowledgments (AHRQ, NIH, University of Florida), not an affiliation check. Models tested: LLaMA 3.1, GatorTronGPT, GPT-3.5 turbo, GPT-4 turbo, GPT-4o."

@@ -1,0 +1,35 @@
+id: mindeval2
+name: MindEval2
+kind: benchmark
+year: 2026
+summary: Longitudinal mental-health support benchmark with 50 synthetic members over 3 sessions each (shared memory across sessions), a tool-using patient simulator (MindSim), and psychologist-built rubrics (MHQR, 14 issues in six families) that an LLM judge applies to every counsellor turn.
+readme_section: mental_health
+links:
+  paper: https://arxiv.org/abs/2610.22314
+  arxiv: "2610.22314"
+  doi: 10.48550/arxiv.2610.22314
+  code: https://github.com/SWORDHealth/mind-eval
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Patient profiles are synthetic; the paper draws on persona resources such as Nemotron-Personas-USA, but the origin country of the benchmark members was not confirmed.
+  localization: native
+  lead_institution_countries: [PRT]
+origin:
+  builder_types: [industry_lab, academic]
+  item_provenance: [llm_generated]
+  venue: preprint
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge, simulated_multi_turn, expert_human_rating]
+  modality: [text]
+  size: 50 synthetic members x 3 sessions (up to 30 counsellor replies each); 18 models evaluated
+provenance:
+  records: [r_5efed8c5cf]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Successor to MindEval by the same Sword Health team, with NVIDIA, Instituto Superior Tecnico and Yale affiliations listed; scores are not comparable with MindEval 1. Clinical psychologists annotated counsellor turns to validate LLM judges. The paper says code, prompts, benchmark profiles and annotations are on the GitHub repo (profiles in data/profiles.jsonl); the repo license is Apache-2.0. The first author's affiliation country is not stated, so lead_institution_countries rests on the shared Portuguese affiliation. Read mostly the abstract, introduction, and the README rather than the whole 47-page paper."

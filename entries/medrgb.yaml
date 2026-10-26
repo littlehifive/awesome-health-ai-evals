@@ -1,0 +1,34 @@
+id: medrgb
+name: MedRGB
+kind: benchmark
+year: 2024
+summary: 3,680 medical QA instances built from five MIRAGE datasets (BioASQ, PubMedQA, MedQA, MMLU-Med, MedLFQA) with added signal, noise, sub-question, and counterfactual documents to test RAG sufficiency, integration, and robustness.
+readme_section: knowledge_exam
+links:
+  paper: https://arxiv.org/abs/2411.09213
+  arxiv: "2411.09213"
+  huggingface: [ngotrnghia1811/MedRGB]
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA, GLOBAL]
+  item_origin_note: Questions come from existing datasets; MedQA-US is from US board exams, the others (biomedical literature, MMLU) have no stated country.
+  localization: adapted
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic, industry_lab]
+  item_provenance: [adapted_dataset, exam_questions, llm_generated]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match, automatic_metric, rubric_llm_judge]
+  modality: [text]
+  size: 3,680 instances across 5 source datasets (dataset card); paper text says 3,480
+provenance:
+  records: [r_4a7dd08794]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Four scenarios: Standard-RAG, Sufficiency, Integration, Robustness, with noise levels p_sig from 0 to 100. Supplementary documents and sub-QA pairs were generated with GPT-4o. Sub-question answers are scored by exact match and a GPT-based score. The dataset card cites the AAAI 2026 AI4Research workshop; the arXiv paper dates from 2024. The card counts 3,680 instances while the paper text says 3,480."

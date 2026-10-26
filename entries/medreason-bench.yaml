@@ -1,0 +1,31 @@
+id: medreason-bench
+name: MedReason-Bench
+kind: benchmark
+year: 2026
+summary: 100 hand-written cardiology and autoimmune-disease vignettes with 200 age, sex, and race variants and 6 adversarial no-answer cases, scored by accuracy with calibration, fairness, and hallucination metrics planned.
+readme_section: knowledge_exam
+links:
+  code: https://github.com/abdullahabdulsami2026-coder/medreason-bench
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [unknown]
+  item_provenance: [unknown]
+  venue: grey_literature
+facets:
+  health_areas: [cardiology, other_specialty]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 100 cases, 200 fairness variants, 6 adversarial cases
+provenance:
+  records: [r_f02b56d40b]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: medium
+  notes: "GitHub README only. It says the case corpus is licensed CC-BY-4.0 (the repository LICENSE file is not recognized by GitHub). All 100 cases were written by a single author with no independent adjudication of the answer key; later additions were screened by LLMs only. Calibration, fairness, hallucination, and reasoning-quality scoring are stubs; only accuracy (with abstention credit on the adversarial cases) works. The harness can also run MedMCQA, MedQA, and PubMedQA. Author identity and country are not stated, so builder type is unknown."

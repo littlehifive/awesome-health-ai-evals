@@ -1,0 +1,35 @@
+id: amqa
+name: AMQA
+kind: benchmark
+year: 2025
+summary: 801 USMLE clinical vignettes (from MedQA), each with a neutralized version and six LLM-generated, human-reviewed variants that change race, gender, or income, to measure bias in LLM answers.
+readme_section: safety
+links:
+  paper: https://arxiv.org/abs/2505.19562
+  arxiv: "2505.19562"
+  code: https://github.com/XY-Showing/AMQA
+  huggingface: [Showing-KCL/AMQA]
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Vignettes come from USMLE questions in MedQA.
+  localization: adapted
+  lead_institution_countries: [GBR]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, llm_generated]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 801 vignettes, each with 6 adversarial variants
+provenance:
+  records: [r_9f245cda40, r_2cab545484]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Merged record r_2cab545484: the arXiv paper 2505.19562 was first titled FairMedQA (4,806 counterfactual question pairs from 801 vignettes) and is now titled AMQA; same dataset. Paper scanned for metrics, data and code availability; the paper's own comparison shows larger accuracy gaps than the CPV benchmark (which is not public). Original notes: GitHub README and Hugging Face card were read first. Variants are produced by a multi-agent LLM pipeline and reviewed by humans. Metrics are individual fairness (consistency across variants), group fairness (accuracy gap between groups), and McNemar tests. Lead institution country (UK) is inferred from the Hugging Face organization name Showing-KCL."

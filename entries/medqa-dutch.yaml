@@ -1,0 +1,33 @@
+id: medqa-dutch
+name: MedQA Dutch
+kind: benchmark
+year: 2025
+adapted_from: [medqa]
+summary: Dutch machine translation (GPT-4.1 mini) of the English MedQA medical licensing exam questions, released as a single JSONL file (about 14,000 lines), scored by accuracy.
+readme_section: multilingual_regional
+links:
+  huggingface: [UMCU/MedQA_Dutch]
+license: null
+open_data: open
+geography:
+  item_languages: [Dutch]
+  item_origin_countries: [USA]
+  item_origin_note: Translated from the English MedQA (USMLE questions), so the items come from US exams, not Dutch ones.
+  localization: translated
+  lead_institution_countries: [NLD]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician, medical_student]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: about 14,368 JSONL lines in one file; item count not stated on the card
+provenance:
+  records: [r_5ea9bbd8c2]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: medium
+  notes: "Dataset card only, no paper. The card tag says license: unknown, while the text says the uploaders chose a permissive CC BY license because MedQA has none (version not given); license is left null. Lead country NLD is inferred from the UMCU organization name on the Hub (University Medical Center Utrecht), not stated on the card. The 14,368-line count may include more than the 12,723-question USMLE 4-option set; this was not checked. No quality checks of the translation are described."

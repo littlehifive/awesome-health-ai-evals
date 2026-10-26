@@ -1,0 +1,35 @@
+id: pubhealthbench
+name: PubHealthBench
+kind: benchmark
+year: 2025
+summary: 8,090 LLM-generated multiple-choice questions grounded in 687 UK Government public health guidance documents, plus a free-form variant on a 760-question human-reviewed subset scored by a grounded LLM judge.
+readme_section: knowledge_exam
+links:
+  paper: https://arxiv.org/abs/2505.06046
+  arxiv: "2505.06046"
+  doi: 10.48550/arxiv.2505.06046
+  huggingface: [Joshua-Harris/PubHealthBench]
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GBR]
+  item_origin_note: Questions are generated from UK Health Security Agency and other gov.uk guidance documents (collected 8 January 2025).
+  localization: native
+  lead_institution_countries: [GBR]
+origin:
+  builder_types: [government]
+  item_provenance: [llm_generated, literature]
+  venue: preprint
+facets:
+  health_areas: [public_health]
+  intended_users: [patient_public, clinician]
+  eval_methods: [mcq_exact_match, rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 8,090 MCQA questions; 760 reviewed questions also used free-form
+provenance:
+  records: [r_9d3e120946, r_0e7092c0ca]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Dataset card states CC-BY-4.0, with source-chunk columns remaining under the Open Government Licence v3.0. Human experts reviewed a sample of 800 questions and five non-specialists took sample tests as a human baseline (with search access, no AI). The card warns that some questions may be erroneous or out of date. A follow-up paper (arXiv 2607.06641, Healthier LLMs, r_0e7092c0ca) adds a retrieval-augmented setting and a four-criterion rubric LLM judge (faithfulness, completeness, factual consistency, clarity; validated on 100 responses double-annotated by humans) for the 760-question free-form subset; no new dataset or code link was seen in the text."

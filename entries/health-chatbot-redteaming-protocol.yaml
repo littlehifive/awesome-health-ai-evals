@@ -1,0 +1,35 @@
+id: health-chatbot-redteaming-protocol
+name: Health chatbot red-teaming protocol (HRSN)
+kind: benchmark
+year: 2025
+summary: "A red-teaming protocol and test set for a retrieval-augmented health-related social needs chatbot: seven attack vectors, 140 single-turn and 20 multi-turn attack examples, and an error scheme separating knowledge adherence from behavioral adherence, annotated as correct or error with high or low risk."
+readme_section: safety
+links:
+  paper: https://doi.org/10.64898/2025.12.15.25342297
+  pmcid: PMC12723766
+  dataset: https://github.com/Amad881/chatbot-redteaming
+  code: https://github.com/Amad881/chatbot-redteaming
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Attacks were written for a US health-related social needs chatbot that takes a zip code; the paper does not say who wrote them.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [unknown]
+  venue: preprint
+facets:
+  health_areas: [public_health, mental_health]
+  intended_users: [patient_public]
+  eval_methods: [expert_human_rating, simulated_multi_turn]
+  modality: [text]
+  size: "140 single-turn and 20 multi-turn attack examples; 7 attack vectors"
+provenance:
+  records: [r_4e5030b3ed]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "medRxiv preprint (Nationwide Children's Hospital and Ohio State). The GitHub repo holds TSV files with no license (GitHub reports none). Annotation was by a single human annotator plus an inter-rater subset. Tested on one chatbot built on Claude 3.5 Sonnet, so the set is tied to that use case."

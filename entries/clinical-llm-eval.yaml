@@ -1,0 +1,32 @@
+id: clinical-llm-eval
+name: Clinical LLM Evaluation Framework (Sugumaran-Balasubramaniyan)
+kind: eval_framework
+year: 2026
+summary: An open-source Python harness with ten evaluators (MCQ accuracy, safety flags, calibration, calculations, robustness, multi-turn notes, LLM judge, hallucination) run over existing datasets such as MedQA, PubMedQA, MedMCQA, and Med-HALT.
+readme_section: frameworks
+links:
+  code: https://github.com/Sugumaran-Balasubramaniyan/clinical-llm-eval
+license: MIT
+open_data: described_only
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Reuses public datasets (MedQA, MMLU-clinical, Med-HALT, MedCalc, PubMedQA, MedMCQA); ships no items of its own.
+  localization: adapted
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [unknown]
+  item_provenance: [adapted_dataset]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine, emergency_triage]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match, rubric_llm_judge, automatic_metric]
+  modality: [text]
+  size: 10 evaluators; no own item set
+provenance:
+  records: [r_0348c24328]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: low
+  notes: "Read the GitHub README only. Individual project with no paper. The MIT license is the repository code license (seen via GitHub). The README leaderboard figures look illustrative and were not verified; do not use them. Included as a framework (4-dimension judge rubric plus tiered safety flags), but it is mostly a harness over other benchmarks."

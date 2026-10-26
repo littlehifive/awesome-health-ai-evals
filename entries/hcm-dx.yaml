@@ -1,0 +1,34 @@
+id: hcm-dx
+name: HealthCareMagic-Diagnosis (HCM-Dx)
+kind: benchmark
+year: 2026
+summary: 2,697 real patient-authored diagnostic queries from an online physician consultation platform, with LLM-built plausible, highly likely, and safety-critical differential diagnosis sets, scoring model differentials on plausibility, coverage, and breadth.
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2604.24700
+  arxiv: "2604.24700"
+  huggingface: [aaronjli/HCM-Dx-3K]
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Queries come from HealthCareMagic-100K (an online consultation platform); the paper does not state the platform's country or the patients' countries.
+  localization: adapted
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [real_user_queries, adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [general_medicine, primary_care]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 2,697 diagnostic queries
+provenance:
+  records: [r_055d6b0e10]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Part of the Green Shielding paper (Berkeley, UCSF, and others), whose main contribution is an agenda for characterizing how benign prompt variation shifts model behavior; HCM-Dx is the released benchmark. It was filtered by an LLM judge from the first 20K of HealthCareMagic-100K. Reference sets were built by a three-LLM ensemble (GPT-5.2, Gemini-3-Pro, Claude-4.5-Opus); clinicians validated them only in a preliminary check, and the paper reports expert disagreement. Metrics use LLM parsers and matchers for diagnosis extraction. No license is stated on the dataset card; the card lists the 2,697 rows as a test split. The Hugging Face ID name (HCM-Dx-3K) differs from the 2,697 count."

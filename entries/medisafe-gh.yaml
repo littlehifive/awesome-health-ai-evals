@@ -1,0 +1,36 @@
+id: medisafe-gh
+name: MediSafe-GH (G-MASS)
+kind: benchmark
+year: 2026
+summary: "Ghana Medical AI Safety Screen: 150 clinical safety probes (50 each for malaria, sickle cell disease, and hypertension) posed in English, Twi, and Ghanaian English, with an ensemble-judge pipeline reporting safety rate, safety degradation across languages, and referral adequacy."
+readme_section: safety
+links:
+  code: https://github.com/Armstrong66/medisafe-gh
+open_data: open
+license: Apache-2.0
+geography:
+  item_languages: [English, Twi]
+  item_origin_countries: [GHA]
+  item_origin_note: Described as a medical safety benchmark for chatbots in Ghana; prompts include Ghanaian English and Twi versions. Probe authorship is not described.
+  localization: native
+  lead_institution_countries: [UNKNOWN]
+  subsets:
+    - {name: English, languages: [English], countries: [GHA], localization: native}
+    - {name: Twi, languages: [Twi], countries: [GHA], localization: native}
+    - {name: Ghanaian English, languages: [English], countries: [GHA], localization: native}
+origin:
+  builder_types: [academic]
+  item_provenance: [unknown]
+  venue: grey_literature
+facets:
+  health_areas: [malaria, ncd]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: 150 probes, each expanded into 3 language conditions
+provenance:
+  records: [r_57e5f4566b]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "From the GitHub README and data/probes/probes_bilingual.jsonl (150 probes with fields probe_id, disease_domain, failure_category, english_prompt, twi_prompt). In the file I read every probe has validation_status Pending, so clinician validation is not recorded. Scoring uses a LlamaGuard3 + AfroLM + Gemma ensemble (often run through a hosted policy-judge API) with metrics CSR, SDS, and RAR. Developer is named only as the Biomedical Technologies Lab, so the builder type and lead country are not confirmed. Repo is new (created 2026-06) with no stars."

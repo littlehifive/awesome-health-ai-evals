@@ -1,0 +1,36 @@
+id: tcm-sed
+name: TCM-SED
+kind: benchmark
+year: 2025
+summary: 203 Chinese-language questions on traditional Chinese medicine for stroke (46 short-answer, 137 multiple-choice, 20 essay) with expert-consensus gold answers, scored by exact match and dual-expert rating.
+readme_section: multilingual_regional
+links:
+  paper: https://doi.org/10.2196/81545
+  doi: 10.2196/81545
+  pmcid: PMC12741655
+  code: https://github.com/LongHL0729/TCM-SED
+license: null
+open_data: open
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: Written by senior TCM stroke experts; the paper's affiliations are in Chengdu, China, and the questions draw on Chinese TCM texts and guidelines. The paper does not state the country explicitly.
+  rater_countries: [CHN]
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written, literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [traditional_medicine, other_specialty]
+  intended_users: [clinician, patient_public]
+  eval_methods: [mcq_exact_match, expert_human_rating]
+  modality: [text]
+  size: 203 questions
+provenance:
+  records: [r_09c396eb34, r_02b8c70e1a]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Short-answer and multiple-choice items are scored 1 or 0 against the gold answer; essay items are scored 0-10 by two independent TCM rehabilitation experts (weighted kappa 0.78). The GitHub repository holds the questions and ground truth together with GPT-4o and DeepSeek-R1 results in spreadsheets and has no license file. r_02b8c70e1a had no URL in the screening record and was not inspected separately; it is assumed to be the preprint or companion of the JMIR paper (the README cites a paper titled Construction and Empirical Study of an Evaluation Dataset for Large Language Models in the Field of TCM Stroke)."

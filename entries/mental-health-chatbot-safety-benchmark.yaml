@@ -1,0 +1,35 @@
+id: mental-health-chatbot-safety-benchmark
+name: Mental health chatbot safety benchmark (Park et al.)
+kind: benchmark
+year: 2024
+summary: 100 expert-reviewed mental health benchmark questions with ideal responses plus five 10-point guideline questions for rating chatbot safety, tested on a GPT-3.5-turbo chatbot and compared against LLM-judge, agentic, and embedding-similarity scoring.
+readme_section: mental_health
+links:
+  paper: https://arxiv.org/abs/2408.04650
+  arxiv: "2408.04650"
+  doi: 10.48550/arxiv.2408.04650
+  code: https://github.com/Institute4FutureHealth/MentalHealthSafetyEval
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Questions were written by the authors; ideal responses cite the US 988 lifeline and CDC resources, but the paper does not state a country of origin.
+  localization: unknown
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written]
+  venue: preprint
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [expert_human_rating, rubric_llm_judge, automatic_metric]
+  modality: [text]
+  size: 100 benchmark questions with ideal responses; 5 guideline questions
+provenance:
+  records: [r_b727188b9a]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "UC Irvine nursing, computer science, and medicine authors with HealthUnity. Four mental health experts reviewed the questions and ideal responses. The GitHub repo holds the benchmark CSV, the GPT-3.5 answers, and evaluation scripts; it shows no license file. Embedding scores use cosine similarity against ideal responses rescaled to 0 to 10."

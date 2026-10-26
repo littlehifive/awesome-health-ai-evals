@@ -1,0 +1,34 @@
+id: medjudge
+name: MedJUDGE
+kind: eval_framework
+year: 2026
+summary: "A risk-tiered requirements matrix (validity, safety, accountability) for validating LLM-as-a-judge systems used in healthcare, proposed alongside a PRISMA-ScR scoping review of 49 studies."
+readme_section: frameworks
+links:
+  paper: https://arxiv.org/abs/2604.25933
+  arxiv: "2604.25933"
+  doi: 10.48550/arxiv.2604.25933
+license: null
+open_data: described_only
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: A framework with no items; derived from a scoping review of published studies.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [not_applicable]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 3 clinical risk tiers x 3 pillars (validity, safety, accountability)
+provenance:
+  records: [r_99cd4c6865]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "University of Pittsburgh lead. Evaluates the judge rather than the health model directly, and reads partly as governance guidance, so a human may prefer to move it to Related guidance. Pillars cover task-paradigm alignment, judge model diversity, bias audit, error propagation, adversarial robustness, expert validation, and drift monitoring."

@@ -1,0 +1,35 @@
+id: epiqal
+name: EpiQAL
+kind: benchmark
+year: 2026
+summary: 1,432 multiple-choice epidemiology questions (three subsets of about 475 each) built from open-access PLOS Neglected Tropical Diseases articles to test factual recall, multi-step inference, and conclusion reconstruction.
+readme_section: knowledge_exam
+links:
+  paper: https://arxiv.org/abs/2601.03471
+  arxiv: "2601.03471"
+  doi: 10.48550/arxiv.2601.03471
+  code: https://github.com/myweiii/EpiQAL
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Questions are generated from research articles on tropical diseases in an international open-access journal; no country of origin is stated.
+  localization: unknown
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated, literature]
+  venue: preprint
+facets:
+  health_areas: [public_health, infectious_other]
+  intended_users: [unspecified]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 475 + 478 + 479 questions (subsets A, B, C)
+provenance:
+  records: [r_ba736a4311]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Corpus is PLOS NTD (CC BY 4.0); the paper says EpiQAL is released under terms consistent with that license, but the repo license was not seen, so license is left null. Scoring is set-level F1 and exact match (subset A allows several correct options). Lead institution inferred from corresponding-author email domain (emory.edu); no affiliation block was read. Repo also holds EpiQAL-IJE and OOD analysis sets that the paper says are not part of the released benchmark."

@@ -1,0 +1,32 @@
+id: ssm-benchmark
+name: SSM Benchmark
+kind: benchmark
+year: 2026
+summary: 840 Italian multiple-choice questions (140 per year, 2020 to 2025) from the national medical specialty residency admission exam, some with images, scored with the official penalty rule (+1 correct, -0.25 wrong, 0 abstain).
+readme_section: multilingual_regional
+links:
+  code: https://github.com/alessandroliva/ssm_benchmark
+license: CC-BY-NC-4.0
+open_data: open
+geography:
+  item_languages: [Italian]
+  item_origin_countries: [ITA]
+  item_origin_note: Questions come from the Italian Ministry of University's state exam for medical specialization (SSM), parsed from the published exam PDFs.
+  localization: native
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [unknown]
+  item_provenance: [exam_questions]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 840 questions (140 per exam year 2020-2025), about 10 image questions per year
+provenance:
+  records: [r_17f4e4e886]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "No paper; the only source is the GitHub README plus a count of the processed JSON files (six files of 140 questions each). The CC BY-NC 4.0 license is a badge in the README; the GitHub license field is empty. Options are shuffled with a seed and option F is an abstain choice. The repo has a LIMITATIONS_AND_FAILURES.md that I did not read. Author affiliation not stated."

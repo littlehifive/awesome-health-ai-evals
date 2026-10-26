@@ -8,7 +8,7 @@ links:
   paper: https://aclanthology.org/2025.acl-long.96/
   arxiv: "2411.15640"
   doi: 10.18653/v1/2025.acl-long.96
-  huggingface: [intronhealth/afrimedqa_v2]
+  huggingface: [intronhealth/afrimedqa_v2, afrimedqa/afrimed-qa-parallel]
 license: CC-BY-NC-SA-4.0
 open_data: open
 geography:
@@ -36,8 +36,8 @@ signals:
   uptake: []
   updated: '2026-10-26'
 provenance:
-  records: [r_862784586a]
+  records: [r_862784586a, r_60c0d2ff46, r_04551a7f6e]
   extracted: 2026-10-26
   read_full_text: true
   confidence: high
-  notes: Built with Intron Health (Nigeria) and Georgia Tech, among others. Short-answer questions are scored with BERTScore, QuestEval, and ROUGE-Lsum; 379 raters (58 clinicians, 321 non-clinicians) rated model answers, but the paper does not give the raters' countries. Related Hugging Face datasets under afrimedqa/ (afrimed-qa-parallel, TRINDS) are later releases and are not part of this entry.
+  notes: Built with Intron Health (Nigeria) and Georgia Tech, among others. Short-answer questions are scored with BERTScore, QuestEval, and ROUGE-Lsum; 379 raters (58 clinicians, 321 non-clinicians) rated model answers, but the paper does not give the raters' countries. afrimedqa/afrimed-qa-parallel (gated, CC-BY-4.0 per card tag, multi-way parallel version in African languages; languages not listed on the public card) is merged here as a same-team release; r_60c0d2ff46 is a Cassyni talk record. TRINDS is a later release and is not part of this entry.

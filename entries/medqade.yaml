@@ -1,0 +1,35 @@
+id: medqade
+name: MedQADE
+kind: benchmark
+year: 2026
+summary: 3,800 German open-response clinical questions from the Ankizin medical flashcard corpus, each with answers from five LLMs and physician correctness ratings from ten physicians, used to test LLM-as-a-judge agreement, self-preference bias, and abstention.
+readme_section: multilingual_regional
+links:
+  paper: https://arxiv.org/abs/2607.01103
+  arxiv: "2607.01103"
+  doi: 10.48550/arxiv.2607.01103
+license: null
+open_data: unknown
+geography:
+  item_languages: [German]
+  item_origin_countries: [DEU]
+  item_origin_note: Source is Ankizin v5, a German flashcard collection used by medical students preparing for the German Second State Examination in Medicine; the paper does not state the cards' country beyond this.
+  rater_countries: [DEU]
+  localization: native
+  lead_institution_countries: [DEU]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [medical_student, clinician]
+  eval_methods: [expert_human_rating, rubric_llm_judge]
+  modality: [text]
+  size: 3,800 question-answer sets (200 rated by all ten physicians, 3,600 by two each); drawn from 26,598 single-cloze items
+provenance:
+  records: [r_92f3c2b229]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "The paper says the benchmark and physician annotations are publicly released (open-sourced) but gives no link or license in the text read, so open_data is unknown and license null. rater_countries DEU is inferred from the physicians' German affiliations; the paper does not state where raters practise. Despite the name it is not derived from MedQA. Items are flashcard cloze questions, coded as literature because flashcards are neither exam questions nor clinician-written items in the schema's terms."

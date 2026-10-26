@@ -1,0 +1,33 @@
+id: virco-role-consistency
+name: VirCo Role-Consistency Test Set
+kind: benchmark
+year: 2026
+summary: 164 counselor-message test cases (persona consistency, conversation coherence, prompt attacks) for checking whether an LLM keeps its role as a simulated client in online-counseling training, scored with GPT-4 and human ratings.
+readme_section: mental_health
+links:
+  paper: https://arxiv.org/abs/2601.08892
+  arxiv: "2601.08892"
+license: null
+open_data: unknown
+geography:
+  item_languages: [German]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Personas were written by domain experts from email counseling sessions and public forum posts for German-speaking counseling students; the paper does not name a country. Examples are shown in English translation.
+  localization: native
+  lead_institution_countries: [DEU]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written, llm_generated]
+  venue: preprint
+facets:
+  health_areas: [mental_health]
+  intended_users: [unspecified]
+  eval_methods: [rubric_llm_judge, expert_human_rating, simulated_multi_turn]
+  modality: [text]
+  size: 164 test cases (65 persona consistency, 45 coherence, 54 prompt attacks) over 7 personas
+provenance:
+  records: [r_fced859269]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Technische Hochschule Nurnberg. Extends the authors' earlier VirCo work, which supplied the seven personas and conversations. The model being tested plays the client; the users are counselor trainees (no schema value fits, see intended_users). The paper presents the test set as a contribution but gives no link or release statement, so open_data is unknown. Item languages are German per the paper's footnote, though the evaluated model is Vicuna and other open-source LLMs."

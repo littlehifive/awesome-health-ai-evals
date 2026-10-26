@@ -1,0 +1,38 @@
+id: mentalhealthbenchx
+name: MentalHealthBenchX
+kind: benchmark
+year: 2026
+summary: Machine translation of all 1,215 MentalHealthBench conversations into nine languages (10,935 rows), so the original expert rubrics can score model replies to users writing in Japanese, Korean, Chinese, French, Thai, Swahili, isiZulu, Yoruba, and Wolof.
+readme_section: mental_health
+links:
+  huggingface: [li-lab/MentalHealthBenchX]
+license: MIT
+open_data: open
+geography:
+  item_languages: [Japanese, Korean, Mandarin Chinese, French, Thai, Swahili, Zulu, Yoruba, Wolof]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Translations of the synthetic MentalHealthBench conversations, which have no stated country origin.
+  localization: translated
+  lead_institution_countries: [UNKNOWN]
+  subsets:
+    - {name: Swahili, languages: [Swahili], countries: [GLOBAL], localization: translated}
+    - {name: isiZulu, languages: [Zulu], countries: [GLOBAL], localization: translated}
+    - {name: Yoruba, languages: [Yoruba], countries: [GLOBAL], localization: translated}
+    - {name: Wolof, languages: [Wolof], countries: [GLOBAL], localization: translated}
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: grey_literature
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: 10,935 translated conversations (1,215 per language, 9 languages)
+adapted_from: [mentalhealthbench]
+provenance:
+  records: [r_0f87901cc4]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: medium
+  notes: "Read the Hugging Face dataset card only; no paper is linked. Translations were made with LLMs (the card names Claude and GPT models per row) and were not human-checked according to the card as read. The card says it ships only the translated rows, aligned to the original by id; scoring reuses the original MentalHealthBench rubrics. The card does not name the lead institution (the org is li-lab), so its country is UNKNOWN."

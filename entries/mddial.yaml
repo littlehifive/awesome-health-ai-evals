@@ -1,0 +1,34 @@
+id: mddial
+name: MDDial
+kind: benchmark
+year: 2023
+summary: Template-generated multi-turn English differential-diagnosis dialogues covering 12 diseases and 118 symptoms, with a unified reliability score linking asked symptoms to the diagnosis.
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2308.08147
+  arxiv: "2308.08147"
+  code: https://github.com/srijamacherla24/MDDial
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Built from the Medical Diagnosis Dialogue (MDD) structured data of an ICLR 2020 workshop challenge by filling human-written templates; no patient country is stated.
+  localization: adapted
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric, simulated_multi_turn]
+  modality: [text]
+  size: 12 diseases and 118 symptoms; train and test dialogue files (dialogue counts not recorded)
+provenance:
+  records: [r_a5632bbcc0]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: Dataset is in the GitHub repo (train.json, test.json); no license file seen. The paper positions it mainly for training ADD dialogue systems, with GPT-2 and DialoGPT as baselines; evaluation uses a symptom score, diagnosis accuracy, and a reliability score, plus unseen-template test sets for generalization. Dialogue counts are in the paper's Table 2, not read.

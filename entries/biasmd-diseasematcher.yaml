@@ -1,0 +1,38 @@
+id: biasmd-diseasematcher
+name: BiasMD and DiseaseMatcher
+kind: benchmark
+year: 2024
+summary: Two LLM-generated datasets from one paper, BiasMD (6,007 question-answer pairs testing demographic bias in health answers) and DiseaseMatcher (32,000 two-patient symptom-matching questions over 700 diseases), both scored by accuracy.
+readme_section: safety
+links:
+  paper: https://arxiv.org/abs/2410.06566
+  arxiv: "2410.06566"
+  huggingface: [PardisSzah/BiasMD, PardisSzah/DiseaseMatcher]
+  code: https://github.com/HIVE-UofT/Detecting-Bias-and-Enhancing-Diagnostic-Accuracy
+license: Apache-2.0
+open_data: gated
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Items are synthetic (BiasMD from few-shot prompting of GPT-4, GPT-3.5 Turbo and Mixtral-8x7B; DiseaseMatcher from the ChatDoctor Autonomous disease and symptom list); no country origin stated.
+  localization: native
+  lead_institution_countries: [CAN]
+  subsets:
+    - {name: BiasMD, languages: [English], countries: [GLOBAL], localization: native}
+    - {name: DiseaseMatcher, languages: [English], countries: [GLOBAL], localization: native}
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated, adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician, patient_public]
+  eval_methods: [automatic_metric, mcq_exact_match]
+  modality: [text]
+  size: BiasMD 6,007 question-answer pairs; DiseaseMatcher 32,000 question-answer pairs over 700 diseases
+provenance:
+  records: [r_62d6679ff0]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: One entry for two datasets because they share one paper. BiasMD covers disability, race and ethnicity, socioeconomic status, religion or belief, and sexuality, and is scored by percent of unbiased answers (plain accuracy, no LLM judge). DiseaseMatcher pairs two patients (3-6 symptoms each plus a demographic attribute) and classes answers as correct, indecisive, incorrect, or withheld because of demographics. Hugging Face datasets are auto-gated with Apache-2.0 per the HF API. The paper also releases the EthiClinician model, which is not part of this entry.

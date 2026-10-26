@@ -1,0 +1,35 @@
+id: psychiatrybench
+name: PsychiatryBench
+kind: benchmark
+year: 2025
+summary: 5,188 expert-annotated English psychiatry questions across eleven tasks (diagnosis, treatment, follow-up, management, multiple-choice, extended matching), built from psychiatric textbooks and casebooks and scored by exact match or an LLM judge against reference answers.
+readme_section: mental_health
+links:
+  paper: https://www.nature.com/articles/s41746-026-02582-w
+  arxiv: "2509.09711"
+  doi: 10.1038/s41746-026-02582-w
+  pmcid: PMC13087022
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Items come from published psychiatric textbooks and casebooks (for example DSM-5-TR Clinical Cases, Stahl's Essential Psychopharmacology, 100 Cases in Psychiatry), with guidelines from NICE and APA cited; the paper does not state a country of origin for the items.
+  localization: unknown
+  lead_institution_countries: [EGY, USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature, clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [mental_health]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match, automatic_metric, rubric_llm_judge]
+  modality: [text]
+  size: 5,188 items across 11 tasks
+provenance:
+  records: [r_2300dc7ad3]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "No dataset link, code link, or license was found in the paper or the arXiv page, so open_data is unknown; the ethics section says the data is for non-commercial research and relies on fair use of the textbooks. Open-ended answers are scored by Llama 3.3 70B as judge against reference answers (the authors note the judge was also one of the evaluated models). Scope is adult psychiatry; child psychiatry and psychotherapy are excluded. Lead countries from the first author's company in Cairo and the last author's hospital department in Washington, DC."

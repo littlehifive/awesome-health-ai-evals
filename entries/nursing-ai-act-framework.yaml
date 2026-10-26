@@ -1,0 +1,36 @@
+id: nursing-ai-act-framework
+name: AI Act-Aligned Framework for Language Models in Nursing and Health Care
+kind: eval_framework
+year: 2026
+summary: A seven-domain, EU AI Act-aligned evaluation framework with a safety gatekeeper domain, tested on 32 engineered clinical prompts (27 items) with Delphi expert reference responses, applied to 15 LLMs and 2 small models.
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.2196/90854
+  doi: 10.2196/90854
+  pmcid: PMC13618209
+  dataset: https://zenodo.org/records/17727785
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Prompts were engineered by the author team; some scenarios mention Italian settings (for example an Italian IBD patient in prompt 24), and the framework refers to AGENAS, the Italian national health agency.
+  rater_countries: [ITA]
+  localization: native
+  lead_institution_countries: [ITA]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [nursing]
+  intended_users: [nurse_midwife, medical_student]
+  eval_methods: [expert_human_rating, rubric_llm_judge]
+  modality: [text]
+  size: 32 prompts, 27 evaluation items, 7 domains
+provenance:
+  records: [r_dcb538f32a]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Read the PMC full text. The data availability statement says the 32 prompts and Delphi responses are in a Zenodo repository (record 17727785); license not checked there. A 5-expert Delphi panel gave ground truth; interdisciplinary raters scored on a 7-point Likert scale (Krippendorff alpha 0.759 on average). Other parts: reference classification, automated consistency, NANDA-I terminology, progressive jailbreaking. Rater and item languages are inferred (Italian authors; prompts shown in English); check."

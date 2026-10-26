@@ -1,0 +1,35 @@
+id: multicogeval
+name: MultiCogEval
+kind: benchmark
+year: 2025
+summary: Medical evaluation at three cognitive levels built from MedQA, MedMCQA, and MIMIC-IV, from multiple-choice recall (3,611 questions) to reformulated knowledge-application tasks (21,666) to scenario-based diagnosis from patient records (2,176), scored by accuracy and a full-path diagnosis metric.
+readme_section: knowledge_exam
+adapted_from: [medqa, medmcqa, mimic-cdm]
+links:
+  paper: https://openreview.net/pdf?id=sgrJs7dbWC
+  arxiv: "2506.08349"
+  code: https://github.com/THUMLP/MultiCogEval
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA, IND]
+  item_origin_note: Built from MedQA (US licensing exam questions), MedMCQA (Indian entrance exam questions), and MIMIC-IV (US hospital records).
+  localization: adapted
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, exam_questions]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician, medical_student]
+  eval_methods: [mcq_exact_match, automatic_metric]
+  modality: [text]
+  size: "Low level 3,611 MCQs (MedQA 795, MedMCQA 2,816); mid level 21,666 reformulated questions (MedQA 4,770, MedMCQA 16,896); high level 2,176 MIMIC-IV diagnosis cases"
+provenance:
+  records: [r_c266a5a4de, r_d902202140]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "ICML 2025 paper, linked from the GitHub repo record; arXiv ID found by title search. Low and mid-level data are in the repo (data/medqa, data/medmcqa); the high-level samples cannot be shared because of the MIMIC-IV data agreement, so users must generate them from credentialed MIMIC-IV access with the provided script. No license file found on the repo. Lead institution country is inferred from the THUMLP (Tsinghua) repo organization; the affiliation lines were not resolved in the text I read. Mid-level tasks include statement validation (true or false) and other reformulations of the original MCQs."

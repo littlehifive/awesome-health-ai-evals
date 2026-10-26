@@ -1,0 +1,36 @@
+id: care-bench-triage
+name: CARE-Bench (patient-facing triage)
+kind: benchmark
+year: 2026
+summary: 500 cases and 1,059 patient-disclosure prefixes reconstructed from medical dialogue and consultation sources, testing whether a patient-facing LLM recommends the right next action at each turn, scored by macro-F1 on a four-label action space.
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2608.03731
+  arxiv: "2608.03731"
+  doi: 10.48550/arxiv.2608.03731
+  huggingface: [ningkko/CARE-Bench]
+  code: https://github.com/ningkko/CARE-bench
+license: null
+open_data: open
+geography:
+  item_languages: [UNKNOWN]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Source families include MedDialog/OpenMed, ChatDoctor, and PriMock57; the paper does not state countries.
+  localization: unknown
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [emergency_triage, primary_care]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 500 cases; 1,059 prefixes; 269 held-out rounds
+provenance:
+  records: [r_352a1fd7c7]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: Public cases and prefixes are on Hugging Face and GitHub; a Controlled-access Test split is available only by request under a non-distribution agreement. No license found. Model responses are mapped to the four action labels by a fixed GPT-5.5 mapper, then scored with macro-F1. Item languages and origin countries were not checked beyond the source list.

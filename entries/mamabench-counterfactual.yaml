@@ -1,0 +1,35 @@
+id: mamabench-counterfactual
+name: MamaBench (counterfactual maternal and child health diagnosis)
+kind: benchmark
+year: 2026
+summary: 434 expert-written first-person clinical narratives in 217 base and counterfactual pairs across 371 maternal and paediatric conditions, scored by Bias Trap Rate and robust accuracy with an LLM judge.
+readme_section: safety
+links:
+  paper: https://arxiv.org/abs/2607.14385
+  arxiv: "2607.14385"
+  doi: 10.48550/arxiv.2607.14385
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Cases were authored by a three-member clinical team; the paper does not state the country setting of the cases.
+  rater_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [NGA]
+origin:
+  builder_types: [implementer_ngo, academic]
+  item_provenance: [clinician_written]
+  venue: preprint
+facets:
+  health_areas: [maternal_newborn, child_health]
+  intended_users: [clinician]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: 434 narratives (217 pairs), 371 pathologies
+provenance:
+  records: [r_2387c7deb0]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Authors are at Helpmum Africa and the University of Ibadan (Nigeria), inferred as lead country from affiliations. No dataset or code link found in the text, so open_data is unknown. Not the same as Ren Yi's mamabench (entry mamabench). Metric is Bias Trap Rate: the share of base cases answered correctly whose counterfactual is then answered wrongly; judge is Claude Opus 4.5. Narrative language is English by the examples shown; not stated explicitly. The paper also proposes EA-RAG, a method that is not part of the benchmark. Primary safety/robustness framing places it under safety."

@@ -1,0 +1,35 @@
+id: psycsumeval
+name: PsycSumEval
+kind: benchmark
+year: 2026
+summary: 460 LLM-generated summaries (four LLMs) of 115 Cochrane mental-health systematic review abstracts, each rated by psychiatrists on nine content dimensions with free-text justifications, plus the rating guidelines.
+readme_section: open_ended
+links:
+  paper: https://doi.org/10.63317/4exjqeuaw9ti
+  doi: 10.63317/4exjqeuaw9ti
+  code: https://github.com/paul-rich-t/PsycSumEval
+license: CC-BY-SA-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Cochrane Library abstracts on common mental disorders; no country of origin applies.
+  rater_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [GBR, GRC]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [mental_health]
+  intended_users: [clinician]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: 115 abstracts; 460 summaries rated on 9 dimensions by two psychiatrists
+provenance:
+  records: [r_eb84ea1b92]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "A summarisation task for clinicians rather than question answering; kept because it pairs an expert-rating framework (nine PRISMA-A and Cochrane-based dimensions) with a released rated corpus. The CC-BY-SA-4.0 license is from GitHub's license detector for the repository; the LREC paper is CC-BY-NC. Psychiatrists' countries are not stated. Authors at Manchester and Athena Research Center (Greece)."

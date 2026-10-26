@@ -1,0 +1,33 @@
+id: linco-amharic-safety-benchmark
+name: Linco Medical AI Safety Benchmark
+kind: eval_framework
+year: 2026
+summary: Pre-registered protocol in which credentialed Amharic-speaking physicians blindly compare paired LLM outputs on synthetic outpatient discharge instructions, rating clinical safety, language quality, and error tags (Wave 1 targets 100 cases).
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.17605/osf.io/spjt9
+license: null
+open_data: described_only
+geography:
+  item_languages: [English, Amharic]
+  item_origin_countries: [ETH]
+  item_origin_note: Synthetic English clinician orders, written for Ethiopian outpatient settings, that the model turns into Amharic patient instructions. Cases are drafted by an LLM, with at least 20% clinician-authored targeted in Wave 1.
+  rater_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [industry_lab]
+  item_provenance: [llm_generated]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine, primary_care]
+  intended_users: [patient_public]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: "Wave 1 target of 100 approved synthetic cases, 3 to 7 physician reviews each; 20 pilot cases"
+provenance:
+  records: [r_841603fb69]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Source is the OSF registration (spjt9) and its attached 4-page protocol PDF (v2.1, 8 Oct 2026). The protocol describes a reusable framework for low-resource languages, with Amharic as Wave 1; no results are reported. Sponsor Linco Medical System LLC (Maryland, USA), a commercial company founded by the PI. The protocol promises a public de-identified dataset and code after publication, with no link yet. Rater countries are not stated beyond Amharic-fluent, credential-verified physicians. Rating scales are 3-level (safe, minor risk, unsafe; clear, awkward, incorrect) plus a 4-way paired verdict. Not peer reviewed."

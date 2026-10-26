@@ -1,0 +1,34 @@
+id: m-leaf
+name: M-LEAF
+kind: eval_framework
+year: 2025
+summary: A multidimensional evaluation framework for medical LLM applications with eight pillars (clinical task fidelity, interaction quality, safety and risk, robustness, transparency, calibration, and others), each with metrics and protocols on a 0 to 5 scale, piloted on 100 Slovenian vignettes comparing GPT-4o and HomeDOCtor.
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.70314/is.gptzdravje.2
+  doi: 10.70314/is.gptzdravje.2
+license: null
+open_data: described_only
+geography:
+  item_languages: [Slovenian]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: The framework itself has no items. The pilot used 100 Slovenian vignettes derived from the Avey Benchmark Vignette Suite; the paper does not state where the original vignettes came from.
+  rater_countries: [SVN]
+  localization: adapted
+  lead_institution_countries: [SVN]
+origin:
+  builder_types: [academic]
+  item_provenance: [not_applicable]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine, primary_care]
+  intended_users: [patient_public, clinician]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: 8 pillars with dimensions, metrics, and protocols; pilot on 100 vignettes
+provenance:
+  records: [r_cff06ad7ab]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Information Society 2025 conference paper (Ljubljana), funded by Horizon Europe project ChatMED. Pilot raters were final-year Slovenian medical students. Safeguards stop critical failures from being averaged away. HomeDOCtor is a Slovenian RAG assistant layered on GPT-4o. No data link in the paper."

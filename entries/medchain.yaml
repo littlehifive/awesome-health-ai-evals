@@ -1,0 +1,35 @@
+id: medchain
+name: MedChain
+kind: benchmark
+year: 2024
+summary: "12,163 Chinese clinical cases across 19 specialties, each run through five sequential stages (specialty referral, history-taking, examination, diagnosis, treatment) with a simulated patient, scored per stage against multi-point standard answers."
+readme_section: multilingual_regional
+links:
+  paper: https://arxiv.org/abs/2412.01605
+  arxiv: "2412.01605"
+  huggingface: [ljwztc/MedChain]
+  code: https://github.com/ljwztc/MedChain
+license: CC-BY-NC-4.0
+open_data: open
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: "Cases come from the Chinese medical website iiYi, with the site administrators' permission."
+  localization: native
+  lead_institution_countries: [HKG, CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [real_user_queries, clinician_written]
+  venue: preprint
+facets:
+  health_areas: [general_medicine, emergency_triage]
+  intended_users: [clinician]
+  eval_methods: [simulated_multi_turn, automatic_metric]
+  modality: [text]
+  size: "12,163 cases, 19 specialties, 156 sub-categories; 7,338 images with reports; 7:1:2 train/validation/test split"
+provenance:
+  records: [r_e2bd1bbd08]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "The screening record is the GitHub repo hotdogisme/MedChain, a copy of the code that links the paper; the paper and ljwztc/MedChain (MIT code, 59 stars) are the main sources. Dataset license is from the Hugging Face card. Cases are de-identified records verified by doctors on iiYi (not real-time user queries, so real_user_queries is a loose fit); five physicians checked a 6,000-case sample (94.7% passed). Scoring is stage-specific: accuracy and IoU for referral, key-point scoring for the other stages; some stages use judge or text metrics (not fully read). The patient simulator is Gemma2-9B. Includes images, but modality is recorded as text only. Also proposes MedChain-Agent, a method. Lead countries: first author at City University of Hong Kong, last at Chinese University of Hong Kong."

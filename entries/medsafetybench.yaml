@@ -1,0 +1,36 @@
+id: medsafetybench
+name: MedSafetyBench
+kind: benchmark
+year: 2024
+summary: 1,800 harmful medical requests with safe reference responses, written to violate the nine AMA Principles of Medical Ethics, split into a 900-item evaluation set and a 900-item fine-tuning set, with LLM-judged harmfulness scores.
+readme_section: safety
+links:
+  paper: https://arxiv.org/abs/2403.03744
+  arxiv: "2403.03744"
+  doi: 10.52202/079017-1054
+  huggingface: [israel-adewuyi/med-safety-bench-reproduced, Machlovi/Medsafety_test]
+  code: https://github.com/AI4LIFE-GROUP/med-safety-bench
+license: MIT
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Requests are LLM-generated against the American Medical Association's Principles of Medical Ethics; no country of origin is stated for the items.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician, patient_public]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: 1,800 demonstrations (900 MedSafety-Eval test, 900 MedSafety-Improve train); extra 74,374 Llama-3-generated harmful requests
+provenance:
+  records: [r_8b7fa9b133, r_ab71d1dfb4, r_d6b5cdae40, r_d0a322f087]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Half the requests were written by prompting GPT-4 and half by jailbreaking Llama-2-7b-chat; safe responses come from GPT-4. A 25-doctor user study validated the requests. The harmfulness score is a 1 to 5 rating by GPT-3.5. NeurIPS 2024 Datasets and Benchmarks. Two Hugging Face copies are merged as mirrors: israel-adewuyi/med-safety-bench-reproduced (MIT tag) and Machlovi/Medsafety_test (900 rows of prompt, safe_response, prompt_label; no card, so its identity as the MedSafety-Eval split is inferred from size and content)."

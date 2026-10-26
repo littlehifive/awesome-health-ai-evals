@@ -1,0 +1,33 @@
+id: chip-2024-tcm-syndrome-differentiation
+name: CHIP 2024 TCM Syndrome Differentiation Thought Evaluation Task
+kind: benchmark
+year: 2025
+summary: A CHIP 2024 shared-task benchmark in Chinese with expert-annotated cases that tests LLMs on four steps of traditional Chinese medicine syndrome differentiation (clinical information extraction, pathogenesis reasoning, syndrome reasoning, explanatory summary).
+readme_section: multilingual_regional
+links:
+  paper: https://doi.org/10.1007/978-981-96-4298-4_1
+  doi: 10.1007/978-981-96-4298-4_1
+license: null
+open_data: gated
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: Country inferred from the China Health Information Processing Conference (CHIP) setting; the full text was not read.
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [traditional_medicine]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric, expert_human_rating]
+  modality: [text]
+  size: UNKNOWN
+provenance:
+  records: [r_bd01809b54]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: Springer chapter is paywalled; facts come from a web-search summary of the abstract (four subtasks, expert annotation). Dataset size, license, release terms (open_data set to gated as a guess, likely competition-platform sign-up), scoring metrics, and author affiliations were not checked. A human should check the chapter.

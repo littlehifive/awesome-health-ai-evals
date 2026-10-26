@@ -1,0 +1,35 @@
+id: psychosis-llm-judge-safety
+name: Psychosis safety criteria with LLM-as-a-Judge/Jury
+kind: eval_framework
+year: 2025
+summary: "Seven clinician-informed binary safety criteria for LLM responses to users showing psychosis symptoms (for example validating or embellishing a delusion, failing to refer), validated on 64 responses to 16 vignette-based prompts and used to test LLM judges and juries against human consensus."
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.1609/iaseai.v2i1.43055
+  doi: 10.1609/iaseai.v2i1.43055
+  arxiv: "2604.02359"
+  code: https://github.com/skeuomorph/psychosis-LLM-evaluation
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Prompts are first-person rewrites (by Claude Sonnet) of psychosis case vignettes from the clinical psychology literature; the vignettes' countries are not stated.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature, llm_generated]
+  venue: peer_reviewed
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 16 stimuli (19 prompts, 3 held out), 7 criteria, 448 binary human-consensus judgments over 4 models' responses
+provenance:
+  records: [r_e4823a7c76]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Workshop paper (NeurIPS 2025 GenAI for Health workshop; IASEAI proceedings). The paper says code and collected data are in the GitHub repo (stimuli in pipeline/src/data/psychosis_excerpts.csv); the repo has no license file. Criteria operationalize the safety component of the READI framework. First authors are at Apart Research (country not stated in the paper); the last author is at Stanford (USA), so lead_institution_countries lists USA only."

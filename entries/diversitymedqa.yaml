@@ -1,0 +1,51 @@
+id: diversitymedqa
+name: DiversityMedQA
+kind: benchmark
+adapted_from:
+- medqa
+year: 2024
+summary: MedQA board-exam diagnosis questions with patient gender or ethnicity swapped (about 540 gender and 567 ethnicity questions after filtering out demographic-dependent items), for measuring demographic bias in LLM diagnostic accuracy.
+readme_section: safety
+links:
+  paper: https://aclanthology.org/2024.nlp4pi-1.29/
+  doi: 10.18653/v1/2024.nlp4pi-1.29
+  arxiv: '2409.01497'
+  huggingface:
+  - Rajat1212/DiversityMedQA
+license: null
+open_data: open
+geography:
+  item_languages:
+  - English
+  item_origin_countries:
+  - USA
+  item_origin_note: Derived from MedQA (USMLE questions).
+  localization: adapted
+  lead_institution_countries:
+  - USA
+origin:
+  builder_types:
+  - academic
+  item_provenance:
+  - adapted_dataset
+  - exam_questions
+  - llm_generated
+  venue: peer_reviewed
+facets:
+  health_areas:
+  - general_medicine
+  intended_users:
+  - clinician
+  eval_methods:
+  - mcq_exact_match
+  modality:
+  - text
+  size: about 540 gender and 567 ethnicity questions
+provenance:
+  records:
+  - r_ea20ec96a3
+  - r_e1334d6ceb
+  read_full_text: true
+  confidence: medium
+  notes: Perturbations were made with ChatGPT; a GPT-4 rating filtered out questions whose answer depends on gender or ethnicity. The Hugging Face card says the first 500 questions of each set come from the MedQA test set and the rest from train, and has no license tag. The paper footnote and abstract give the Hugging Face link. Authors are at Algoverse AI Research; the USA lead country is a guess from the mailing addresses and was not confirmed.
+  extracted: '2026-10-26'

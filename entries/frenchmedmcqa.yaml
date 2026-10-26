@@ -1,0 +1,36 @@
+id: frenchmedmcqa
+name: FrenchMedMCQA
+kind: benchmark
+year: 2022
+summary: 3,105 French multiple-choice questions (single and multiple correct answers) from real French pharmacy diploma exams, scored by Hamming score and exact-match ratio.
+readme_section: multilingual_regional
+links:
+  paper: https://doi.org/10.18653/v1/2022.louhi-1.5
+  doi: 10.18653/v1/2022.louhi-1.5
+  arxiv: "2304.04280"
+  huggingface: [qanastek/FrenchMedMCQA, uy-rrodriguez/FrenchMedMCQA-extended]
+  code: https://github.com/qanastek/FrenchMedMCQA
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [French]
+  item_origin_countries: [FRA]
+  item_origin_note: Questions come from real French pharmacy diploma exams collected from the remede website.
+  localization: native
+  lead_institution_countries: [FRA]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions]
+  venue: peer_reviewed
+facets:
+  health_areas: [pharmacy_medication]
+  intended_users: [pharmacist, medical_student]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 3,105 questions (2,025 multi-answer, 1,080 single-answer)
+provenance:
+  records: [r_79489126c3, r_46601f30d5]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "License is Apache-2.0 per the Hugging Face card tag and the GitHub README badge; the paper states none. The 2025 RANLP paper (r_46601f30d5) enriches the same questions with student answer rates and difficulty annotations (uy-rrodriguez/FrenchMedMCQA-extended, CC-BY-4.0 per its tags) and is merged here as an extension by the same research community (Avignon/Aix-Marseille); authors overlap was not checked. The original paper's baselines are fine-tuned encoder models, not chatbots, but the dataset is widely reused for LLM evaluation."

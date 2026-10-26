@@ -1,0 +1,33 @@
+id: fmf-patient-vignettes
+name: Patient Vignette Dataset for Familial Mediterranean Fever
+kind: benchmark
+year: 2024
+summary: 70 clinical vignettes of familial Mediterranean fever, rewritten from published case reports to a fixed format, for testing the diagnostic accuracy of LLMs against the known diagnosis and clinician performance.
+readme_section: open_ended
+links:
+  paper: https://doi.org/10.5281/zenodo.10506318
+  doi: 10.5281/zenodo.10506318
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Vignettes are rewritten from published case reports; the Zenodo record does not state where the cases came from.
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature, adapted_dataset]
+  venue: grey_literature
+facets:
+  health_areas: [other_specialty]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 70 vignettes
+provenance:
+  records: [r_e96695218e]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "Only the Zenodo record (metadata, description, license CC-BY-4.0, files: two supplementary PDFs and a Prism statistics file) was read; the PDFs were not parsed, so the language, the scoring procedure, and the authors' institutions are not confirmed. eval_methods is a guess from the description (accuracy against the known diagnosis). No linked paper was searched for."

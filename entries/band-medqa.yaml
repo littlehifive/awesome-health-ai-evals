@@ -1,0 +1,34 @@
+id: band-medqa
+name: BAND-MedQA
+kind: benchmark
+adapted_from: [medqa]
+year: 2026
+summary: 11,179 MedQA questions each with five ethnicity-perturbed variants (67,074 rows) for testing demographic robustness of retrieval-augmented medical question answering, scored by accuracy.
+readme_section: safety
+links:
+  huggingface: [hrimlee/BAND-MedQA]
+  code: https://github.com/hrimlee/BAND
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Derived from the English USMLE portion of MedQA (meta_info step1, step2&3).
+  localization: adapted
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, exam_questions]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician, medical_student]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 11,179 original and 55,895 perturbed questions
+provenance:
+  records: [r_894a6a1902]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: medium
+  notes: Dataset card only; the accompanying paper (GroundLM Workshop at EMNLP 2026) was not read, so venue is recorded from the card and lead institution is unknown. Adapted from MedQA (see medqa);

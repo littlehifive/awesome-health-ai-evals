@@ -1,0 +1,36 @@
+id: kazakhstan-protocol-alignment
+name: Protocol-Based and Cross-Linguistic Evaluation Framework (Kazakhstan women's health)
+kind: eval_framework
+year: 2026
+summary: A master's-thesis framework that checks whether AI health advisors match Kazakhstan's official obstetrics and gynecology clinical protocols, using 84 protocols, 15 protocol-derived clinical questions in English and Russian, and entity-level (precision, recall, omission, hallucination, Jaccard) plus embedding-similarity metrics; tested on four systems.
+readme_section: frameworks
+links:
+  paper: https://nur.nu.edu.kz/handle/123456789/18761
+  code: https://github.com/dilnazakhmetzhan/medical_protocols_thesis/
+license: null
+open_data: open
+geography:
+  item_languages: [English, Russian]
+  item_origin_countries: [KAZ]
+  item_origin_note: Questions were extracted from official Kazakhstan Ministry of Health obstetrics and gynecology clinical protocols, which the thesis says are in Russian; questions were run in Russian and English.
+  localization: native
+  lead_institution_countries: [KAZ]
+  subsets:
+    - {name: Russian prompts, languages: [Russian], countries: [KAZ], localization: native}
+    - {name: English prompts, languages: [English], countries: [KAZ], localization: translated}
+origin:
+  builder_types: [academic]
+  item_provenance: [literature]
+  venue: grey_literature
+facets:
+  health_areas: [maternal_newborn, srh]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 84 clinical protocols; 15 questions; 4 AI systems evaluated
+provenance:
+  records: [r_baf436bd52]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Read the thesis PDF in part (question-set development, code and data availability). The repository (notebooks only, no license file seen) is named in the thesis; the file listing was seen but not opened, so license is null and open_data reflects only the stated public availability of the protocols and code. The thesis states no formal clinician validation of the questions. Master's thesis (Nazarbayev University), not peer reviewed. rater_countries left empty because there are no human raters. English-prompt subset described as translated by inference from the English/Russian comparison."

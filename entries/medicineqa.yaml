@@ -1,0 +1,34 @@
+id: medicineqa
+name: MedicineQA
+kind: benchmark
+year: 2024
+summary: 300 multi-round medication-consultation dialogues, distilled by physicians from online consultation records and expanded with GPT-4, scored on evidence-retrieval hit rate and pairwise Elo ratings judged by GPT-4.
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2404.17897
+  arxiv: "2404.17897"
+  doi: 10.48550/arxiv.2404.17897
+license: null
+open_data: unknown
+geography:
+  item_languages: [English, Chinese]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Questions were crawled from online medical consultation websites; the paper does not name the country. The benchmark is described as available in English and Chinese.
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic, industry_lab]
+  item_provenance: [real_user_queries, clinician_written, llm_generated]
+  venue: preprint
+facets:
+  health_areas: [pharmacy_medication]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric, simulated_multi_turn]
+  modality: [text]
+  size: 300 multi-round dialogue questions; medicine database of 42,764 medicines
+provenance:
+  records: [r_3f8f77e2b6]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Read the benchmark-creation and evaluation sections. Five board-certified physicians filtered crawled consultation records (1,028,090 records) for the 200 most-mentioned medicines, wrote one question per record, GPT-4 expanded each into a multi-round dialogue, and physicians revised them. Scoring is retrieval hit rate (HR@k, document and attribute level) plus an Elo rating with GPT-4 as referee over free-text answers. I found no release link, license, or repository in the paper, so open_data is unknown. The paper also proposes the RagPULSE model, which is not part of this entry. item_provenance labels the source records as real_user_queries, which is my reading of 'online consultation records between users and medical experts'."

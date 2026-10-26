@@ -1,0 +1,33 @@
+id: grandguard
+name: GrandGuard
+kind: benchmark
+year: 2026
+summary: 10,404 labeled prompts and responses covering 50 elderly-specific risk types (mental well-being, financial, medical, toxicity, privacy) for evaluating chatbot safety for older adults, plus safeguard models.
+readme_section: safety
+links:
+  paper: https://arxiv.org/abs/2605.20203
+  arxiv: "2605.20203"
+  doi: 10.48550/arxiv.2605.20203
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Prompts are LLM-synthesized from a taxonomy built from incident reports, r/eldercare posts, and stakeholder studies; no country is stated.
+  localization: native
+  lead_institution_countries: [HKG]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated]
+  venue: preprint
+facets:
+  health_areas: [mental_health, general_medicine]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 10,404 labeled prompts and responses
+provenance:
+  records: [r_39e61c541f]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Read the arXiv PDF. Only part of the risk space is health (medical and mental well-being); the rest is financial, toxicity, and privacy, so scope is borderline. About 10,000 candidate prompts were generated from controlled templates and filtered by a GPT-5.1 judge; 10 LLMs were rated on 500 sampled unsafe prompts by two LLM judges (82% agreement) with human validation. The paper discusses controlled release (staged access, redaction) but no download link or license was found. Language is not stated explicitly (examples are English)."

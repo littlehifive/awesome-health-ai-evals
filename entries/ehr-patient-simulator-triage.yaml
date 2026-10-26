@@ -1,0 +1,35 @@
+id: ehr-patient-simulator-triage
+name: EHR-Derived Patient Simulator for Conversational Triage
+kind: eval_framework
+year: 2025
+summary: An evaluation framework in which an LLM patient simulator, seeded with vignettes from 519 de-identified US EHR encounters, converses with a symptom-checking triage agent and clinicians rate the dialogue, diagnosis, and triage recommendation with a 14-question questionnaire.
+readme_section: frameworks
+links:
+  paper: https://arxiv.org/abs/2506.04032
+  arxiv: "2506.04032"
+  doi: 10.48550/arxiv.2506.04032
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: EHR records come from the HealthVerity data provider; the paper does not state the country, though the sites and authors are US-based.
+  rater_countries: [UNKNOWN]
+  localization: unknown
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [industry_lab, academic]
+  item_provenance: [adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [primary_care, emergency_triage]
+  intended_users: [patient_public]
+  eval_methods: [simulated_multi_turn, expert_human_rating]
+  modality: [text]
+  size: 519 encounter-derived vignettes (44 to 68 per symptom category, nine categories)
+provenance:
+  records: [r_36d033bce0]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Verily Life Sciences with Mount Sinai. Vignettes derive from proprietary HealthVerity EHR records (21,779 records, 1,000 patients, 2021 to 2024), so the vignettes are probably not releasable; no code or data link found. Two internal-medicine clinicians rated outputs. The paper also proposes its own AI Triage multi-agent system, which is the system under test."

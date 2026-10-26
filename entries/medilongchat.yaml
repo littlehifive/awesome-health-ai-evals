@@ -1,0 +1,33 @@
+id: medilongchat
+name: MediLongChat
+kind: benchmark
+year: 2026
+summary: "Synthetic longitudinal doctor-patient dialogue histories for 80 fictional patients (about 18 visits and 50,000 tokens each) with three question tasks testing memory and reasoning over a patient's history, scored by accuracy, F1, and BLEU-1."
+readme_section: open_ended
+links:
+  arxiv: "2605.19766"
+  paper: https://arxiv.org/abs/2605.19766
+  doi: 10.65109/EFXQ8322
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Fully synthetic LLM-generated patient profiles and dialogues; no country origin stated. Language is not stated explicitly; the figure examples are in English.
+  localization: native
+  lead_institution_countries: [SGP, CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [unspecified]
+  eval_methods: [mcq_exact_match, automatic_metric, rubric_llm_judge]
+  modality: [text]
+  size: 80 synthetic patients, about 18 dialogues per patient; three tasks (In-dialogue, Cross-dialogue, Synthesis Reasoning)
+provenance:
+  records: [r_212c9c1239]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "AAMAS 2026 paper. Tasks: in-dialogue and cross-dialogue questions scored by F1 and BLEU-1, synthesis reasoning as multiple choice scored by accuracy. The LLM-as-judge Correctness and Realism scores and the embedding metrics rate dataset quality, not the evaluated model. I found no code or data link in the paper text, so open_data is unknown; item counts per task are not given in the sections I read."

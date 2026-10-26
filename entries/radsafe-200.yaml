@@ -1,0 +1,37 @@
+id: radsafe-200
+name: RadSaFE-200
+kind: benchmark
+year: 2026
+summary: 200 text-only radiology multiple-choice questions with clinician-written evidence and option-level labels for high-risk, unsafe, and evidence-contradicting answers, used in the SaFE-Scale study of how clinical LLM safety changes with scale.
+readme_section: safety
+links:
+  paper: https://arxiv.org/abs/2605.04039
+  arxiv: "2605.04039"
+  doi: 10.48550/arxiv.2605.04039
+  huggingface: [soroosharasteh/RadSaFE-200]
+  code: https://github.com/windprak/RadSaFE
+license: custom
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Questions come from earlier radiology QA studies (RadioRAG-derived, including RSNA Case Collection material) and new questions written from Radiopaedia case pages; no country origin is stated.
+  rater_countries: [DEU]
+  localization: native
+  lead_institution_countries: [DEU]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written, literature, adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [other_specialty]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 200 multiple-choice questions
+provenance:
+  records: [r_6b9fb3626d]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "The Hugging Face card gives license 'other' and the paper's data-availability section says the public release applies source-specific redistribution limits (original RadioRAG question stems are not redistributed). The safety annotation layer was added by one board-certified radiologist (author T.T.N.). SaFE-Scale, the accompanying framework, varies model size, evidence quality, retrieval, context, and inference compute across 34 LLMs; it is described here but not a separate entry. Radiology image question answering is out of scope; this set is text only."

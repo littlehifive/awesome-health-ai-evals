@@ -1,0 +1,35 @@
+id: noharm
+name: NOHARM
+kind: benchmark
+year: 2025
+summary: 100 real Stanford primary care-to-specialist eConsult cases across 10 specialties, with 12,747 specialist annotations on 4,249 clinical management options, scoring how often and how severely LLM consultation recommendations could harm patients.
+readme_section: safety
+links:
+  paper: https://arxiv.org/abs/2512.01241
+  arxiv: "2512.01241"
+  code: https://github.com/HealthRex/noharm
+  website: https://bench.arise-ai.org/
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Cases come from 16,399 physician-to-specialist eConsult cases at Stanford Health Care.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [real_user_queries, clinician_written]
+  venue: preprint
+facets:
+  health_areas: [general_medicine, cardiology, other_specialty]
+  intended_users: [clinician]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: 100 cases (the arXiv abstract says 1,100 tasks), 4,249 options, 12,747 expert annotations
+provenance:
+  records: [r_2d62725c81]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Paperclip's full text says 100 cases and 31 LLMs; the abstract in the screening record says a 1,100-task benchmark and 20 LLMs plus 4 RAG tools, so versions differ and the size should be checked. The data availability statement says the public case set will be available after publication at github.com/HealthRex/noharm; that repo returned 404 when checked, so open_data is unknown. Models are scored against specialist ratings of each option (appropriate or harmful, on a modified RAND-UCLA scale with WHO harm severity), producing Safety, Completeness, and Restraint metrics. The paper also includes a randomized study of 101 physicians with and without AI. Specialties covered include Allergy, Cardiology, Dermatology, Endocrinology, Gastroenterology, Hematology, Infectious Diseases, Nephrology, Neurology, and Pulmonology."

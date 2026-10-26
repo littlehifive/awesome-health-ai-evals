@@ -1,0 +1,35 @@
+id: mmedfd
+name: MMedFD
+kind: benchmark
+year: 2025
+summary: Real-world Chinese healthcare spoken dialogues (136.9 hours, 1,805 dialogs, 10,814 turns in the paper) captured from a deployed AI assistant under full-duplex conditions, scored with ASR error rates (WER, CER, healthcare-concept HC-WER) and LLM-judged response quality.
+readme_section: voice
+links:
+  paper: https://arxiv.org/abs/2509.19817
+  arxiv: "2509.19817"
+  huggingface: [HanselZz/MMedFD]
+  code: https://github.com/Kinetics-JOJO/MMedFD
+license: Apache-2.0
+open_data: gated
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Chinese-language sessions from a deployed AI assistant at Ant Group; the paper does not name the country where the speakers were based.
+  localization: native
+  lead_institution_countries: [HKG, CHN]
+origin:
+  builder_types: [academic, industry_lab]
+  item_provenance: [real_user_queries]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric, rubric_llm_judge]
+  modality: [voice]
+  size: 5,805 annotated sessions (abstract); 136.9 hours, 1,805 dialogs, 10,814 turns (paper results section)
+provenance:
+  records: [r_bb8dee20cf]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Primarily an ASR corpus; included because it also evaluates LLM agent replies to spoken healthcare queries (GPT-5 judge, pairwise PairEval and reference-based 1-5 G-Eval rubric covering overall, correctness, safety). The Hugging Face card lists Apache-2.0, but the GitHub README says full access needs approval and a research-only data use agreement with no redistribution, so open_data is gated. Session counts differ between abstract (5,805) and results section (1,805 dialogs). First and last authors are at Hong Kong Polytechnic University; data supplied by Ant Group (China)."

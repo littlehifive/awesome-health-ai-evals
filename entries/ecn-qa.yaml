@@ -1,0 +1,35 @@
+id: ecn-qa
+name: ECN-QA
+kind: benchmark
+year: 2024
+summary: About 5,000 French medical-residency exam questions (individual and multi-step "progressive" clinical cases with true/false propositions), machine-translated to English, used to test and fine-tune language models.
+readme_section: multilingual_regional
+links:
+  paper: https://arxiv.org/abs/2405.14654
+  arxiv: "2405.14654"
+  doi: 10.18653/v1/2024.clinicalnlp-1.2
+  code: https://github.com/raidium-med/MQG
+license: null
+open_data: unknown
+geography:
+  item_languages: [French, English]
+  item_origin_countries: [FRA]
+  item_origin_note: Questions come from FreeCN, a site built by French medical students, with past ECN (Examen Classant National) exam questions and site-written practice questions. Translated to English with Azure AI Translation.
+  localization: native
+  lead_institution_countries: [FRA]
+origin:
+  builder_types: [industry_lab, academic]
+  item_provenance: [exam_questions]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [medical_student, clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: "4,481 individual questions (721 from past exams, 3,760 practice) plus progressive-question cases; 4,967 questions in total"
+provenance:
+  records: [r_f6f6444664]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "The paper is mainly a training method (textbook pretraining plus GPT-4 generated questions); ECN-QA is a secondary contribution. No dataset download link was seen; the linked repo (MQG) is the method code. Scoring is per-proposition accuracy; 90/10 train/test split. Venue is the ClinicalNLP workshop."

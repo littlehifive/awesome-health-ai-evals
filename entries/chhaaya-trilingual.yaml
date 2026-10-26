@@ -1,0 +1,32 @@
+id: chhaaya-trilingual
+name: Chhaaya Trilingual Patient-Message Dataset
+kind: benchmark
+year: 2026
+summary: Synthetic Hindi, English, and Hinglish evaluation sets for Chhaaya, a WhatsApp voice-first health assistant for rural patients in India, covering patient questions with source guidelines, danger-sign and adversarial messages, lab report and prescription images, and 45 recorded voice questions.
+readme_section: voice
+links:
+  paper: https://doi.org/10.21227/m81y-kj83
+  doi: 10.21227/m81y-kj83
+license: null
+open_data: gated
+geography:
+  item_languages: [Hindi, English]
+  item_origin_countries: [IND]
+  localization: native
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [unknown]
+  item_provenance: [llm_generated, literature]
+  venue: grey_literature
+facets:
+  health_areas: [primary_care, public_health]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric]
+  modality: [text, voice]
+  size: 1,020 intent messages; 40 questions in three languages; 60 danger-sign and look-alike messages; 20 adversarial messages; 20 synthetic document images; 45 voice questions; 19-sign danger lexicon
+provenance:
+  records: [r_71a41a2561]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: Based on the IEEE DataPort abstract only. Access (IEEE DataPort usually requires login) and license were not checked. Hinglish is Hindi in Latin script mixed with English and is listed under Hindi. Scoring methods are not described in the abstract, so eval_methods is a guess. The 900-message intent training set is training data and is not part of the evaluation sets. All data is synthetic. Danger-sign phrasings trace to a national protocol; which one is not stated.

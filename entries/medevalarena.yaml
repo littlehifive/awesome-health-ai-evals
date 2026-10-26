@@ -1,0 +1,35 @@
+id: medevalarena
+name: MedEvalArena
+kind: benchmark
+year: 2026
+summary: A dynamic benchmark in which frontier LLMs each write board-style medical multiple-choice questions, an LLM-judge ensemble validates them, and all models then take the validated exams, with a public leaderboard.
+readme_section: knowledge_exam
+links:
+  paper: https://doi.org/10.64898/2026.01.27.26344905
+  doi: 10.64898/2026.01.27.26344905
+  code: https://github.com/bernardolab/MedEvalArena
+  website: https://bernardolab.github.io/MedEvalArena/
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Questions are LLM-generated to follow a board-style specialty distribution (the paper's supplement cites an AAMC/ABMS population-based distribution); the sources do not state a country directly, so USA is inferred from the AAMC/ABMS reference.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match, rubric_llm_judge]
+  modality: [text]
+  size: Regenerated quizzes per round; number of items not checked
+provenance:
+  records: [r_a836cda94e, r_d2140fda57]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: medium
+  notes: "Read the medRxiv abstract and landing page and the GitHub README; the full text was not available in paperclip. The medRxiv data statement says all data are at the GitHub repo (Apache-2.0 per the repo). Two records are the JMIR preprint and the medRxiv preprint of the same paper. Authors are at University of Illinois Urbana-Champaign, UC Berkeley, UCSF, and Stevens."

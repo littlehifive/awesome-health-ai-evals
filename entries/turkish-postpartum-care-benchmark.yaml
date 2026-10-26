@@ -1,0 +1,34 @@
+id: turkish-postpartum-care-benchmark
+name: Turkish Postpartum Care Benchmark (fine-tuned LLM evaluation deposit)
+kind: benchmark
+year: 2026
+summary: A held-out gold test set of 21 Turkish postpartum-care questions with guideline-derived must-include and must-exclude criteria, used to compare eight fine-tuned GPT and Gemini models for a postpartum support assistant.
+readme_section: multilingual_regional
+links:
+  doi: 10.5281/zenodo.20984622
+  paper: https://doi.org/10.5281/zenodo.20984622
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [Turkish]
+  item_origin_countries: [TUR]
+  item_origin_note: "Items are grounded in the Turkish Ministry of Health postpartum care guideline (named in the system prompt of the test set); the deposit does not say who wrote the questions."
+  rater_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [TUR]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature]
+  venue: grey_literature
+facets:
+  health_areas: [maternal_newborn]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric, rubric_llm_judge]
+  modality: [text]
+  size: 21 gold test questions (categories include guideline knowledge, safety, out-of-scope refusal, empathy); model answers and judge scores for 8 fine-tuned models
+provenance:
+  records: [r_90bbb58494]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Read the Zenodo record and the deposit's README, LICENSE-DATA.txt, and gold_test_set.jsonl (CC BY 4.0 for data). The companion manuscript was not read, so the test-set size (21 lines in the jsonl) and how items were written are not confirmed from the paper. Primary metric is objective accuracy against must_include_any and must_exclude string criteria, with a dual-LLM-judge as secondary. The deposit is mainly a study data-availability record; a human may want to decide whether a 21-item set counts as a benchmark. Authors are at Aydin Adnan Menderes University (Turkey)."

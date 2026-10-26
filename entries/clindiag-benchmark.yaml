@@ -1,0 +1,35 @@
+id: clindiag-benchmark
+name: ClinDiag-Benchmark
+kind: benchmark
+year: 2026
+summary: 4,421 real-world clinical cases across 32 specialties (challenging, emergency, and rare-disease subsets), run through a two-agent simulated encounter (history, examination, tests, diagnosis) and scored on diagnostic accuracy and stage-wise reader ratings.
+readme_section: open_ended
+links:
+  paper: https://doi.org/10.1038/s41467-026-70274-w
+  doi: 10.1038/s41467-026-70274-w
+  dataset: https://doi.org/10.5281/zenodo.18159952
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA, UNKNOWN]
+  item_origin_note: Cases come from the MIMIC-IV-Ext Clinical Decision Making Database (2,400 emergency cases, US), the authors' earlier rare-disease dataset (302 cases), and published case reports from JCR-indexed journals; the paper does not give countries for the latter two sources.
+  rater_countries: [UNKNOWN]
+  localization: unknown
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature, adapted_dataset]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine, emergency_triage, other_specialty]
+  intended_users: [clinician]
+  eval_methods: [simulated_multi_turn, expert_human_rating, automatic_metric, rubric_llm_judge]
+  modality: [text]
+  size: 4,421 cases, 32 specialties
+provenance:
+  records: [r_7dd2a56c80]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "The paper also introduces ClinDiag-Framework (AutoGen doctor agent plus provider agent that answers only from the case record) and trains ClinDiag-GPT; only the benchmark and framework are catalogued. Diagnostic accuracy and some procedure metrics are judged by an LLM; six reader-rated metrics (gather completeness, reasoning accuracy, etc.) plus BLEU, ROUGE-L, BERTScore are reported. Item language is not stated explicitly; English is inferred from the MIMIC and case-report sources. The reference list cites a Zenodo deposit (10.5281/zenodo.18159952) and the text says framework code is on GitHub, but no data-availability statement or license was found in the text I read, so open_data is unknown and the GitHub link is not recorded."

@@ -1,0 +1,35 @@
+id: spoken-medical-qa
+name: Spoken Medical QA
+kind: benchmark
+year: 2024
+summary: 6,545 four-option medical multiple-choice questions (MMLU health subjects, MedQA test, MedMCQA validation) converted to synthetic speech with a text-to-speech API, scored by accuracy for zero-shot spoken question answering.
+readme_section: voice
+links:
+  paper: https://doi.org/10.21437/interspeech.2024-1344
+  arxiv: "2406.05876"
+  doi: 10.21437/interspeech.2024-1344
+  huggingface: [SpokenMedicalQA/SpokenMedicalQA]
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA, IND, GLOBAL]
+  item_origin_note: Text questions come from existing English sets. MedQA follows the US licensing exam format and MedMCQA comes from Indian medical entrance exams (AIIMS/NEET); the MMLU health subjects have no stated country. Audio is synthetic (OpenAI tts-1, six voices).
+  localization: adapted
+  lead_institution_countries: [FRA]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, exam_questions]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [unspecified]
+  eval_methods: [mcq_exact_match]
+  modality: [voice]
+  size: 6,545 spoken questions (about 47 hours of audio); 8 tasks
+provenance:
+  records: [r_80ddc30c20]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "The paper says code and data are released on GitHub and Hugging Face; only the Hugging Face org page (SpokenMedicalQA) was checked, where the dataset is not gated and tagged apache-2.0, with an empty dataset card. The license applies to the audio release; the source question sets carry their own licenses. No GitHub link is given in the paper text."

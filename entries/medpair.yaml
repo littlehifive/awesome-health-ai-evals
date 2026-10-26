@@ -1,0 +1,36 @@
+id: medpair
+name: MedPAIR
+kind: benchmark
+year: 2025
+summary: 1,300 clinical-vignette QA pairs (from MMLU, Medbullets, JAMA Clinical Challenge, and MedXpertQA) with sentence-level relevance labels from 36 physician trainees, used to compare LLM relevance estimates and QA accuracy against physicians.
+readme_section: knowledge_exam
+links:
+  paper: https://arxiv.org/abs/2505.24040
+  arxiv: "2505.24040"
+  huggingface: [YuexingHao/MedPAIR]
+  code: https://github.com/YuexingHao/MedPAIR
+license: MIT
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Questions come from four existing QA datasets; their countries are not stated in the paper.
+  rater_countries: [UNKNOWN]
+  localization: adapted
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, clinician_written]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician, medical_student]
+  eval_methods: [mcq_exact_match, expert_human_rating]
+  modality: [text]
+  size: 1,300 QA pairs (from 2,000 sampled; 36 physician-trainee labelers)
+provenance:
+  records: [r_90e9ff5dec, r_e70a686033]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "The HF card says MIT license but also that the physician-trainee labels are CC-BY-4.0; the GitHub site is CC-BY-SA-4.0. Labelers are medical students or above; their countries are not stated. Relevance of LLM estimates is measured against majority-vote physician labels (plus ContextCite for open models). MIT/Cornell/Oxford/Potsdam authors; first and corresponding institution is MIT."

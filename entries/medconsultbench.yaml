@@ -1,0 +1,34 @@
+id: medconsultbench
+name: MedConsultBench
+kind: benchmark
+year: 2026
+summary: "A benchmark for online medical consultation agents that covers history taking, diagnosis, treatment planning, and follow-up Q&A with a template-driven patient simulator and 22 stage-wise metrics, built from real Chinese online consultation sessions and tested on 19 LLMs."
+readme_section: multilingual_regional
+links:
+  paper: https://arxiv.org/abs/2601.12661
+  arxiv: "2601.12661"
+  doi: 10.48550/arxiv.2601.12661
+license: null
+open_data: unknown
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: "Consultation logic derives from 35,792 de-identified online consultation sessions across 17 clinical departments; the limitations section describes the scope as a Chinese medical context. The platform is not named in the parts read."
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [industry_lab]
+  item_provenance: [real_user_queries, literature, clinician_written]
+  venue: preprint
+facets:
+  health_areas: [general_medicine, pharmacy_medication]
+  intended_users: [patient_public]
+  eval_methods: [simulated_multi_turn, rubric_llm_judge, automatic_metric]
+  modality: [text]
+  size: "number of test cases not stated in the parts read; 22 metrics; 19 LLMs evaluated"
+provenance:
+  records: [r_64befadb24]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "No dataset, code, or repository link found in the paper, so open_data is unknown. Authors are at Meituan (a Chinese technology company), recorded as industry_lab. Language is inferred from the Chinese-context statement rather than stated outright. Cases are structured as Atomic Information Units; diagnosis labels and regimen safety checks use clinician and pharmacist-curated resources, and an LLM judge is calibrated against clinicians. Rater countries not stated. Number of benchmark cases was not found."

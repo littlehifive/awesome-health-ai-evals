@@ -1,0 +1,32 @@
+id: foodvitals
+name: FoodVitals
+kind: benchmark
+year: 2026
+summary: 1,158 verified food-knowledge questions with ground-truth answers covering nutritional literacy, nutrient-health relations, and food safety, built from USDA, EFSA, and USDA FSIS sources to test LLMs before deployment in dietary-planning and food-safety chatbots.
+readme_section: knowledge_exam
+links:
+  doi: 10.6084/m9.figshare.32455959
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: "Sources are USDA FoodData Central, the EFSA Food Health Claims Knowledge Graph (EU), and USDA FSIS guidance; EU has no country code here."
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [unknown]
+  item_provenance: [literature]
+  venue: grey_literature
+facets:
+  health_areas: [nutrition, public_health]
+  intended_users: [patient_public]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 1,158 questions in three aspects
+provenance:
+  records: [r_10f0834bad]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "Read the figshare record via its API (description, license CC BY 4.0, files: a1_nutritional_literacy_qa.csv, a2_health-nutrient_qa.csv, a3_food_safety.jsonl). No paper found, so authors, institutions, and how questions were generated (the files say prompts were 'generated' or 'synthesized'; the method was not seen) are unknown. Formats mix MCQ, yes/no, short answer, and ranking, so exact match is approximate. Nutrition and food safety are borderline health scope."

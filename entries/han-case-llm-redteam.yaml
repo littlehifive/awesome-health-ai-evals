@@ -1,0 +1,32 @@
+id: han-case-llm-redteam
+name: Han-case LLM red-team and judge framework
+kind: eval_framework
+year: 2026
+summary: "A scripted multi-turn red-team scenario (a rural pediatrician consulting an LLM about a child with vomiting and missed incarcerated hernia, based on a real Chinese malpractice case) with a published 136-point rubric and LLM-as-judge audit process, applied to six Chinese and international chatbots."
+readme_section: frameworks
+links:
+  code: https://github.com/MissOrmosia/llm-medical-eval-framework
+license: MIT
+open_data: open
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: Scenario reproduces a real court case from Jiangxi province, China; one scripted case in the voice of a primary-care doctor.
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written]
+  venue: grey_literature
+facets:
+  health_areas: [child_health, emergency_triage]
+  intended_users: [clinician]
+  eval_methods: [rubric_llm_judge, simulated_multi_turn]
+  modality: [text]
+  size: "1 scenario, 6 models, 136-point rubric across six dimensions; full transcripts and audit notes published"
+provenance:
+  records: [r_c8eec8a224]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "GitHub repository only (README and part of the rubric file read); no paper. The repo is MIT-licensed and publishes the rubric, transcripts and audit records. Country of the author team is not stated and is assumed from the case and language, flagged for review. Item origin is a single case, so it is closer to a one-off study that happens to release its rubric. Tests dated August to September 2026."

@@ -1,0 +1,32 @@
+id: brazilian-medical-aptitude-benchmark
+name: Brazilian Portuguese medical aptitude benchmark
+kind: benchmark
+year: 2025
+summary: Benchmark of Brazilian medical aptitude test questions from 2011 to 2024 for evaluating medical and general LLMs in Brazilian Portuguese.
+readme_section: multilingual_regional
+links:
+  paper: https://doi.org/10.1109/cbms65348.2025.00052
+  doi: 10.1109/cbms65348.2025.00052
+license: null
+open_data: closed
+geography:
+  item_languages: [Portuguese]
+  item_origin_countries: [BRA]
+  localization: native
+  lead_institution_countries: [BRA]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [medical_student]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: UNKNOWN
+provenance:
+  records: [r_181f763fbc]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: Abstract only (IEEE CBMS 2025 via OpenAlex). Number of questions, release link, license, and exact exams are unknown; open_data set to closed because no link was found, so check. MCQ format is inferred from "aptitude tests".

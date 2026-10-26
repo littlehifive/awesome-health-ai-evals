@@ -1,0 +1,44 @@
+id: clinical-anatomy-reasoning-repeated-prompt
+name: Clinical Anatomy Reasoning Repeated-Prompt Benchmark
+kind: benchmark
+year: 2026
+summary: 100 text-only clinical anatomy scenarios across 10 surgical domains asking which structure is at greatest risk in a common approach, scored by exact target identification and run-to-run answer stability over five repeats.
+readme_section: open_ended
+links:
+  paper: https://doi.org/10.5281/zenodo.22805846
+  doi: 10.5281/zenodo.22805846
+license: CC-BY-4.0
+open_data: unknown
+geography:
+  item_languages:
+  - English
+  item_origin_countries:
+  - UNKNOWN
+  item_origin_note: Scenarios were constructed by the authors; the manuscript does not state a country of origin.
+  localization: unknown
+  lead_institution_countries:
+  - UNKNOWN
+origin:
+  builder_types:
+  - academic
+  item_provenance:
+  - clinician_written
+  venue: preprint
+facets:
+  health_areas:
+  - other_specialty
+  intended_users:
+  - medical_student
+  - clinician
+  eval_methods:
+  - automatic_metric
+  modality:
+  - text
+  size: 100 scenarios; 2,000 development response records (4 model profiles x 5 runs)
+provenance:
+  records:
+  - r_1866f6f127
+  extracted: '2026-10-26'
+  read_full_text: true
+  confidence: medium
+  notes: Zenodo record 22805847 (version of concept DOI 22805846), published 2026-09-17, CC-BY-4.0, authors Patil, Karobari, Daniel; the only file listed is the manuscript .docx, which says a supplementary package (scenario bank, code, license) exists, but I did not see it in the file list, so open_data is unknown. Author affiliations are not in the manuscript text I read. Item provenance 'clinician_written' is a guess from the authors constructing the scenarios; the paper does not say who wrote them. The response matrix is described as development data to exercise the scoring pipeline, not provider performance estimates. Not peer-reviewed as far as the record shows.

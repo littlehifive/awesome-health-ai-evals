@@ -1,0 +1,33 @@
+id: misp-bench
+name: MISP-Bench
+kind: benchmark
+year: 2026
+summary: 1,724 audited multiple-choice items (1,430 MedMCQA medical and 294 GSM8K math) with GPT-generated wrong answers and rationales injected as user-provided priors under 13 prompt conditions, measuring accuracy drop, sycophancy, and the effect of verification-style safety prompts.
+readme_section: safety
+links:
+  paper: https://doi.org/10.64898/2026.05.07.26352627
+  doi: 10.64898/2026.05.07.26352627
+license: CC-BY-4.0
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Items are filtered from MedMCQA validation and GSM8K test; countries are not stated in the text read.
+  localization: adapted
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, llm_generated]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [unspecified]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 1,724 items (1,430 medical, 294 math) x 13 prompt conditions
+provenance:
+  records: [r_29f30874f6]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "The paper says corpus, response records, and audit are released on Hugging Face (yh0502/risp-bench, CC-BY-4.0, with MedMCQA Apache-2.0 and GSM8K MIT inheritance) with an anonymized companion GitHub repo, but that Hugging Face ID did not resolve when checked, so open_data is unknown and the dataset is not listed in links. 770 of 2,494 candidate items were excluded in an audit (732 multi-answer). Wrong rationales are GPT-5.4-generated and not expert-validated. Evaluated on 10 open-weight models (1B-27B). Authors and affiliations were not visible in the text read; builder type is assumed academic."

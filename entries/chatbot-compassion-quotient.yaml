@@ -1,0 +1,35 @@
+id: chatbot-compassion-quotient
+name: Chatbot Compassion Quotient (CCQ)
+kind: eval_framework
+year: 2025
+summary: A tool for rating how compassionate chatbot answers are, built from nine healthcare scenarios (such as delivering difficult news and easing frustration) that raters score on a 5-point Likert scale; piloted by comparing ChatGPT, Claude, and healthcare professionals.
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.3389/fpsyg.2025.1680552
+  doi: 10.3389/fpsyg.2025.1680552
+  pmcid: PMC12753942
+license: null
+open_data: described_only
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: The nine prompts were written from the psychology literature and screened by clinicians; the paper does not state a country.
+  rater_countries: [USA, GBR]
+  localization: native
+  lead_institution_countries: [GBR]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine, mental_health]
+  intended_users: [patient_public, clinician]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: 9 prompts; 30 raters from the US and UK
+provenance:
+  records: [r_d60be7a92b]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Single-author paper (University of Cambridge). The prompts are shown in a figure in the paper; the raw data are available from the authors on request, and no dataset or code link was found. The raters in the main study were 30 Prolific participants from the US and UK (not necessarily clinicians); human comparison answers were written by UK healthcare professionals recruited on Prolific. Rating is by laypeople, so expert_human_rating is the nearest eval_methods label."

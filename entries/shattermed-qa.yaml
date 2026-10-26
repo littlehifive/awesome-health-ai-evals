@@ -1,0 +1,39 @@
+id: shattermed-qa
+name: ShatterMed-QA
+kind: benchmark
+year: 2026
+summary: 10,558 bilingual (English and Chinese) multi-hop clinical diagnosis and treatment questions synthesized from a topology-pruned medical knowledge graph, scored by multiple-choice accuracy and shortcut-error metrics.
+readme_section: multilingual_regional
+links:
+  paper: https://arxiv.org/abs/2603.12458
+  arxiv: "2603.12458"
+  doi: 10.48550/arxiv.2603.12458
+open_data: unknown
+geography:
+  item_languages: [English, Chinese]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Questions are LLM-synthesized from a knowledge graph built from a raw medical text corpus (textbooks and similar); the corpus country is not stated.
+  rater_countries: [CHN]
+  localization: unknown
+  lead_institution_countries: [AUS]
+  subsets:
+    - {name: English Easy, languages: [English], countries: [UNKNOWN], localization: unknown}
+    - {name: English Hard, languages: [English], countries: [UNKNOWN], localization: unknown}
+    - {name: Chinese Easy, languages: [Chinese], countries: [UNKNOWN], localization: unknown}
+    - {name: Chinese Hard, languages: [Chinese], countries: [UNKNOWN], localization: unknown}
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated, literature]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: "10,558 questions (EN 5,923 easy and 1,692 hard; ZH 2,616 easy and 327 hard); 264 physician-verified ZH-Hard questions"
+provenance:
+  records: [r_47066d26c5]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Three board-certified physicians from Grade 3A hospitals in China reviewed 700 sampled questions; 264 of 327 ZH-Hard questions were judged valid. Data are on a project website (shattermed-qa-web.vercel.app) whose code and GitHub links were marked 'Coming Soon'; no download link or license was seen, so open_data is unknown. Options appear to be multiple choice with a hard-negative distractor, but the exact option count was not checked. The source corpus and its country were not identified in the parts read."

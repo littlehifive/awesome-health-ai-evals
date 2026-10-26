@@ -1,0 +1,33 @@
+id: doctorina-medbench
+name: Doctorina MedBench
+kind: benchmark
+year: 2026
+summary: Dialogue-based benchmark where an AI doctor takes a history from a simulated patient agent across 1,000+ clinical cases (750+ diagnoses), scored on diagnosis, observations/investigations, treatment, and step count (D.O.T.S.).
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2603.25821
+  arxiv: "2603.25821"
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Cases were written by physicians from consultation logs of the company's own platform prototype and balanced to the structure of USMLE Step 2 CK; the paper does not state a country of origin. Language is assumed from the paper.
+  localization: unknown
+  lead_institution_countries: [CYP]
+origin:
+  builder_types: [industry_lab]
+  item_provenance: [clinician_written, real_user_queries]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public, clinician]
+  eval_methods: [simulated_multi_turn, rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: Over 1,000 clinical cases covering 750+ diagnoses
+provenance:
+  records: [r_b3924ebde9]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Authors are at A.I. Doctor Medical Assist LTD (Cyprus), the maker of the evaluated 'AI Doctor'. No release link or data-availability statement was seen, so open_data is unknown (the screening note also says release is not stated). Three test levels: trap cases, category-based random sampling, and real-time monitoring. Validated with 3 GPs on 100 cases. The paper compares GPT-5 with the company's AI Doctor."

@@ -1,0 +1,32 @@
+id: medreason-dx
+name: MedReason-Dx Benchmark
+kind: benchmark
+year: 2026
+summary: 1,170 medical reasoning questions (592 multiple choice, 578 open ended) compiled from existing clinical QA sets, each with reference reasoning steps and key points for scoring reasoning quality as well as final answers.
+readme_section: knowledge_exam
+links:
+  huggingface: [medreason/llm-medical-reasoning-steps-benchmark]
+license: CC-BY-NC-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Compiled from JAMA Clinical Challenge, Medbullets, MMedBench, nephSAP, LiveQA, and PubMedQA; the card gives no per-item countries.
+  localization: adapted
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician, medical_student]
+  eval_methods: [mcq_exact_match, expert_human_rating]
+  modality: [text]
+  size: 1,170 questions (592 MCQ, 578 open-ended)
+provenance:
+  records: [r_5f6c352701]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "Dataset card only; no paper or authors listed, and builder type is a guess. The card says reference answer_steps and answer_key_points are for reasoning-quality evaluation but does not describe the scoring procedure or who made the annotations; eval_methods is inferred from the fields. The card states users must also respect the licenses of the source sets, and the license may be restricted for redistribution of some sources. Dataset title on the card is MedReason-Dx; the repo slug says LLM Medical Reasoning Steps Benchmark."

@@ -1,0 +1,33 @@
+id: rubricstree
+name: RubricsTree
+kind: eval_framework
+year: 2026
+summary: A hierarchical tree of over 100 atomic, clinically verifiable yes/no rubrics with a context-aware router, built from about 4,000 real personal-health-agent queries, for scoring open-ended answers of wearable-data health agents.
+readme_section: frameworks
+links:
+  paper: https://arxiv.org/abs/2606.18203
+  arxiv: "2606.18203"
+license: null
+open_data: described_only
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Real queries to a personal health agent; the paper does not give users' countries.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [industry_lab, academic]
+  item_provenance: [real_user_queries]
+  venue: preprint
+facets:
+  health_areas: [general_medicine, ncd]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: "100+ Boolean rubrics; curated from about 4,000 queries; internal meta-evaluation set of 532 queries (not released)"
+provenance:
+  records: [r_8ae6ead887]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Google Research with University of Illinois Chicago. Paper says code and rubrics will be released after official publication; the 532-query evaluation set is not public. Judge agreement measured with ICC3 and Cohen's kappa against a six-member expert panel."

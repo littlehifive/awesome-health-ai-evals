@@ -1,0 +1,36 @@
+id: q2crbench-3
+name: Q2CRBench-3
+kind: benchmark
+year: 2025
+summary: Guideline-development records for three diseases (rheumatoid arthritis, dementia, chronic kidney disease) with 99 clinical questions, covering question decomposition, literature search, study selection, evidence assessment, and recommendation drafting, to test LLM-generated evidence-based recommendations.
+readme_section: open_ended
+links:
+  paper: https://doi.org/10.1038/s41746-025-02273-y
+  doi: 10.1038/s41746-025-02273-y
+  huggingface: [somewordstoolate/Q2CRBench-3]
+  code: https://github.com/somewordstoolate/Quicker
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Built from published international guidelines (2021 ACR RA, 2020 EAN dementia, 2024 KDIGO CKD); no single country origin.
+  rater_countries: [CHN]
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [ncd, other_specialty]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric, expert_human_rating]
+  modality: [text]
+  size: 99 clinical questions in three guideline datasets, each with five staged tasks
+provenance:
+  records: [r_579b8f5453]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "The benchmark is introduced alongside the Quicker evidence-synthesis system. Apache-2.0 is the license on the Hugging Face card; the paper says the data is for scientific research and non-commercial use (the paper itself is CC BY-NC-ND). Expert evaluators were Chinese guideline-group members. Some source datasets have restricted access per the repository README, which was not read; the 99 questions come from the card's Clinical_Questions split."

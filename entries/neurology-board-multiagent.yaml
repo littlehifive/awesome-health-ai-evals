@@ -1,0 +1,33 @@
+id: neurology-board-multiagent
+name: Israeli Neurology Board MCQ benchmark
+kind: benchmark
+year: 2025
+summary: 305 multiple-choice clinical vignettes from Israeli Board Certification Exams in Neurology (translated from Hebrew to English), tagged by 13 subspecialties and three complexity dimensions, scored by accuracy.
+readme_section: knowledge_exam
+links:
+  paper: https://doi.org/10.1371/journal.pdig.0001106
+  doi: 10.1371/journal.pdig.0001106
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [ISR]
+  item_origin_note: Board exam items originally in Hebrew and professionally translated to English; questions with images were excluded.
+  localization: native
+  lead_institution_countries: [ISR]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions]
+  venue: peer_reviewed
+facets:
+  health_areas: [other_specialty]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 305 questions
+provenance:
+  records: [r_91e09a9b3e]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Data availability statement: all data are available as supplemental tables (paper itself is CC-BY; no separate dataset license stated). The same paper also tests RAG and a multi-agent system and uses a 155-question neurology subset of MedQA as validation. The benchmark has no name in the paper; the name here is descriptive."

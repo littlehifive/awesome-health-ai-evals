@@ -1,0 +1,33 @@
+id: chiu-chung-genai-clinical-consultation-protocol
+name: Protocol for human evaluation of GenAI chatbots in clinical consultations
+kind: eval_framework
+year: 2024
+summary: A study protocol that defines a standardized zero-shot prompt template and a 5-point Likert rubric (factual consistency, comprehensiveness, coherence, medical harmfulness) graded by two clinician panels, for 40 clinical microbiology and infectious-disease consultation scenarios across four chatbots.
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.1371/journal.pone.0300487
+  doi: 10.1371/journal.pone.0300487
+license: null
+open_data: closed
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: The 40 scenarios are described as real-life clinical scenarios in microbiology and infectious diseases; the protocol excerpts read do not state the source hospital or country.
+  localization: unknown
+  lead_institution_countries: [HKG]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [infectious_other]
+  intended_users: [clinician]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: 40 clinical scenarios; 4 chatbots; 2 panels of 3 specialists and 3 residents
+provenance:
+  records: [r_e54121ebcd, r_319f5d6eea]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Read the PLOS ONE protocol text (abstract, methods, data availability). The record r_319f5d6eea is the medRxiv preprint of the same protocol. The data availability statement says no data were generated yet and data will be released after study completion, so open_data is closed for now; the scenarios and results may have been released since. Authors are at the University of Hong Kong (HKG). Item provenance as clinician_written is inferred from scenarios being drafted by the study team, not stated outright. Included as a reusable rubric plus prompt template; a human may judge it a one-off study protocol instead."

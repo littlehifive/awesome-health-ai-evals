@@ -1,0 +1,40 @@
+id: europemedqa
+name: EuropeMedQA
+kind: benchmark
+year: 2026
+summary: About 12,340 multiple-choice questions from official national medical licensing and specialty-entry exams in Italy, Spain, France, and Portugal (some with images), with English translations, for multilingual and multimodal LLM evaluation.
+readme_section: multilingual_regional
+links:
+  paper: https://arxiv.org/abs/2604.14306
+  arxiv: "2604.14306"
+  doi: 10.48550/arxiv.2604.14306
+  code: https://github.com/causius0/europemedqa
+license: null
+open_data: open
+geography:
+  item_languages: [Italian, Spanish, French, Portuguese, English]
+  item_origin_countries: [ITA, ESP, FRA, PRT]
+  item_origin_note: Questions come from official exams of each country (Italian SSM and Abilitazione, Spanish MIR, French ECN, Portuguese PNA); English versions are machine translations.
+  localization: native
+  lead_institution_countries: [ITA]
+  subsets:
+    - {name: "Italy (SSM and Abilitazione)", languages: [Italian], countries: [ITA], localization: native}
+    - {name: Spain (MIR), languages: [Spanish], countries: [ESP], localization: native}
+    - {name: France (ECN), languages: [French], countries: [FRA], localization: native}
+    - {name: Portugal (PNA), languages: [Portuguese], countries: [PRT], localization: native}
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [medical_student, clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 12,340 questions across 6 exams (GitHub README count)
+provenance:
+  records: [r_e824e1bda1, r_f0dea7586d, r_09bbce1321]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "The paper is a study protocol (future tense); the question count and exam table come from the GitHub README, which hosts EuropeMedQA.csv and .xlsx. The repo license says only that the data is for research and benchmarking and to respect the exam owners' terms, so license is null. Translation uses ChatGPT 4o mini per the protocol. r_f0dea7586d is a separate Italian paper (Mistral-7B on the 1,120-question Italian SSM subset). The repo also states the data is a superset of the Italian SSM set used in causius0/medical-ai-leaderboard. The paper includes image-based questions (multimodal), which the modality field cannot express."

@@ -1,0 +1,36 @@
+id: cradle-bench
+name: CRADLE Bench
+kind: benchmark
+year: 2025
+summary: 600 clinician-annotated Reddit posts (plus 420 development examples) labeled for seven mental health crisis types, such as suicide ideation, self-harm, rape, and child abuse, with ongoing versus past labels, for testing LLM crisis detection.
+readme_section: mental_health
+links:
+  paper: https://arxiv.org/abs/2510.23845
+  arxiv: "2510.23845"
+  doi: 10.18653/v1/2026.eacl-long.73
+  huggingface: [SungJoo/Cradle-Bench]
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Posts come from crisis-related Reddit communities (for example r/SuicideWatch, r/domesticviolence); countries are not stated.
+  rater_countries: [USA]
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [web_forum]
+  venue: peer_reviewed
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric, expert_human_rating]
+  modality: [text]
+  size: "600 test and 420 development examples; about 4,000 ensemble-labeled training instances"
+provenance:
+  records: [r_f19083eb8c]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Four mental health professionals (psychologists and a social worker) annotated; 15 LLMs evaluated. Hugging Face repo SungJoo/Cradle-Bench has train, dev, and test CSVs, no ungated-download restriction seen, but no dataset card or license. The task is classification of posts rather than open-ended chatbot replies. Rater countries assumed USA from the authors' (Emory University) affiliations; the paper text read does not state it. Venue shown as EACL 2026 in the record DOI."

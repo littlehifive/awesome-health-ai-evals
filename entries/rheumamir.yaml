@@ -1,0 +1,35 @@
+id: rheumamir
+name: RheumaMIR
+kind: benchmark
+year: 2023
+summary: 143 rheumatology multiple-choice questions from the Spanish MIR specialist-training access exams (2010 to 2023), with official answers, English translations, and rheumatologist ratings of ChatGPT and GPT-4 clinical reasoning.
+readme_section: multilingual_regional
+links:
+  paper: https://doi.org/10.1038/s41598-023-49483-6
+  doi: 10.1038/s41598-023-49483-6
+  dataset: https://doi.org/10.5281/zenodo.8153291
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [Spanish, English]
+  item_origin_countries: [ESP]
+  item_origin_note: Questions come from the Spanish MIR (Medico Interno Residente) access exam; English translations are included in the data file.
+  rater_countries: [ESP]
+  localization: native
+  lead_institution_countries: [ESP]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions]
+  venue: peer_reviewed
+facets:
+  health_areas: [other_specialty]
+  intended_users: [medical_student, clinician]
+  eval_methods: [mcq_exact_match, expert_human_rating]
+  modality: [text]
+  size: 143 questions after exclusions (abstract says 145)
+provenance:
+  records: [r_0c72e1178d]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "The abstract reports 145 questions; the results report 143 after applying inclusion criteria. Six rheumatologists rated model reasoning on a 5-point Likert scale; their country is inferred only from the Spanish ethics board and authors, not stated per rater. License taken from the Zenodo record (CC-BY-4.0), not the paper."

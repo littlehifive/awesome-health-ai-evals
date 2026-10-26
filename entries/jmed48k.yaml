@@ -1,0 +1,33 @@
+id: jmed48k
+name: JMed48k
+kind: benchmark
+year: 2026
+summary: "48,862 questions from 11 Japanese national healthcare licensing examinations (2005-2025) with 20,142 images, with a 12,484-question recent evaluation subset (9,905 text-only), scored by exact match against the official answer keys."
+readme_section: multilingual_regional
+links:
+  paper: https://arxiv.org/abs/2605.22080
+  arxiv: "2605.22080"
+license: null
+open_data: unknown
+geography:
+  item_languages: [Japanese]
+  item_origin_countries: [JPN]
+  item_origin_note: Official Ministry of Health, Labour and Welfare (MHLW) licensing examination PDFs.
+  localization: native
+  lead_institution_countries: [HKG, JPN]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions]
+  venue: preprint
+facets:
+  health_areas: [general_medicine, nursing, dentistry, pharmacy_medication]
+  intended_users: [medical_student, clinician, nurse_midwife, pharmacist]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: "48,862 questions in the full corpus; JMed48k-Eval has 12,484 scored questions (9,905 text-only, 2,579 with images)"
+provenance:
+  records: [r_dbd28dc586]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Built for vision-language model evaluation; text-only and with-images results are reported separately and a paired image-removal audit is included. The paper says JMed48k is released but gives no repository or dataset link and no license, so open_data is unknown. Lead institutions: first author at The Hong Kong Polytechnic University (coded HKG), last author at the University of Tokyo. Exam professions: physician, dentist, pharmacist, nurse, public health nurse, midwife, physical therapist, occupational therapist, orthoptist, radiological technologist, clinical laboratory technologist."

@@ -1,0 +1,45 @@
+id: cbd-older-adults-llm-eval
+name: CBD Guidance for Older Adults LLM Evaluation
+kind: eval_framework
+year: 2026
+summary: An annotation-free evaluation of LLM and RAG guidance on cannabidiol use for older adults, using 64 parametrically generated user profiles and three automated methods (consensus analysis, directional checks, LLM-judge rubric).
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.2196/preprints.91559
+  doi: 10.2196/preprints.91559
+license: null
+open_data: unknown
+geography:
+  item_languages:
+  - English
+  item_origin_countries:
+  - UNKNOWN
+  item_origin_note: Scenario profiles are generated from a parameter grid; language not stated in the abstract.
+  localization: unknown
+  lead_institution_countries:
+  - UNKNOWN
+origin:
+  builder_types:
+  - academic
+  item_provenance:
+  - unknown
+  venue: preprint
+facets:
+  health_areas:
+  - ncd
+  - pharmacy_medication
+  intended_users:
+  - patient_public
+  eval_methods:
+  - rubric_llm_judge
+  - automatic_metric
+  modality:
+  - text
+  size: 64 scenario profiles; 32 curated CBD guidelines for RAG; 6 LLMs plus RAG variants
+provenance:
+  records:
+  - r_2520464131
+  extracted: '2026-10-26'
+  read_full_text: false
+  confidence: low
+  notes: Only the abstract and OpenAlex metadata were reachable (JMIR preprint page returned empty). Release of the scenarios or rubric not confirmed. Authors listed are Abedi, Chu, Khan; countries not seen. Borderline between a reusable framework and a one-off study; human should check.

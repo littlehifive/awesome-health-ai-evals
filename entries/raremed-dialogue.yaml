@@ -1,0 +1,33 @@
+id: raremed-dialogue
+name: RareMed-Dialogue
+kind: benchmark
+year: 2026
+summary: "Chinese multi-turn clinical dialogue dataset built from 10,114 real difficult, rare and complex cases mapped to an eight-stage clinical workflow, with Dialogue-chain Integrity and Stage Accuracy metrics."
+readme_section: multilingual_regional
+links:
+  paper: https://doi.org/10.1186/s12911-026-03846-x
+  doi: 10.1186/s12911-026-03846-x
+license: null
+open_data: unknown
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: "The source hospital and country of the cases are not stated on the page read; the authors are at Shanghai institutions."
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [simulated_multi_turn, automatic_metric]
+  modality: [text]
+  size: "10,114 cases (dialogue and turn counts not read)"
+provenance:
+  records: [r_ccda056cee]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "Read the BMC article landing page only (full text not read). Data availability says access details are in the Supplementary Materials; no repository or dataset license seen. Other metrics named in the abbreviations: Diagnostic Accuracy, Treatment Appropriateness, Professionalism. Whether dialogues are LLM-generated from real case records is unconfirmed."

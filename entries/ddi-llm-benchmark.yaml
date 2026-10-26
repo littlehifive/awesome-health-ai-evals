@@ -1,0 +1,33 @@
+id: ddi-llm-benchmark
+name: LLM Drug-Drug Interaction Detection Benchmark (OSF)
+kind: benchmark
+year: 2026
+summary: 200 drug pairs (120 with a documented interaction, 80 without) sampled from a reference interaction database, prompted in English, French, and Arabic, with a pre-set two-rater rubric measuring sensitivity, specificity, fabrication, and severity misclassification.
+readme_section: safety
+links:
+  paper: https://doi.org/10.17605/osf.io/czh28
+  doi: 10.17605/osf.io/czh28
+license: null
+open_data: open
+geography:
+  item_languages: [English, French, Arabic]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Pairs come from a reference drug-interaction database; no country stated.
+  localization: mixed
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature]
+  venue: grey_literature
+facets:
+  health_areas: [pharmacy_medication]
+  intended_users: [pharmacist, patient_public]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: 200 drug pairs, 5,400 responses
+provenance:
+  records: [r_461363cd97]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: OSF abstract only. The authors, countries, license, and the exact reference database were not read. Study reads as a pre-registered protocol; the screening record says test items, rubrics, and code are released. Verify the release.

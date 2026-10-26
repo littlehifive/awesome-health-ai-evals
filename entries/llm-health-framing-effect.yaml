@@ -1,0 +1,34 @@
+id: llm-health-framing-effect
+name: LLMHealthFramingEffect
+kind: benchmark
+year: 2025
+summary: 6,614 positively and negatively framed patient questions (technical and plain-language, single and multi-turn) grounded in about 630 Cochrane systematic reviews, used to test whether LLM conclusions flip with question phrasing in a retrieval-augmented medical QA setting.
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2604.05051
+  arxiv: "2604.05051"
+  code: https://github.com/hyesunyun/LLMHealthFramingEffect
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Questions are templated from Cochrane review and RCT abstracts, so there is no country of origin.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature, llm_generated]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge, automatic_metric, simulated_multi_turn]
+  modality: [text]
+  size: 6,614 query pairs from 629 Cochrane reviews (368 with technical questions, 363 with plain-language questions)
+provenance:
+  records: [r_90b5675032]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "The repo's year is 2025 but the paper preprint (arXiv 2604.05051) is from 2026; year follows the repo, so a human may want to set 2026. Authors are mostly at Northeastern, UT Austin, UC Berkeley, MD Anderson, and Georgia Tech. Consistency is judged by Gemini 2.5 Flash, which labels the evidence direction (higher, lower, same, uncertain) of each response, plus cosine similarity and entity, citation, and numeric overlap; eight LLMs are evaluated. Technical questions use terms extracted by Qwen3 Thinking 4B and templates; plain-language terms were simplified by Qwen3 4B and manually edited. The Apache-2.0 license is the repo's; no separate dataset license was seen. The repo ships data, code, and model outputs."

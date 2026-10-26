@@ -1,0 +1,38 @@
+id: healthqa-br
+name: HealthQA-BR
+kind: benchmark
+year: 2025
+summary: 5,632 Portuguese multiple-choice questions from Brazil's Revalida and Enare national licensing and residency exams, covering medicine and allied professions such as nursing, dentistry, psychology, and social work, scored by accuracy.
+readme_section: multilingual_regional
+links:
+  paper: https://arxiv.org/abs/2506.21578
+  arxiv: "2506.21578"
+  doi: 10.48550/arXiv.2506.21578
+  huggingface: [Larxel/healthqa-br]
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [Portuguese]
+  item_origin_countries: [BRA]
+  localization: native
+  lead_institution_countries: [BRA]
+  subsets:
+    - {name: Revalida, languages: [Portuguese], countries: [BRA], localization: native}
+    - {name: Enare Medica, languages: [Portuguese], countries: [BRA], localization: native}
+    - {name: Enare Multiprofissional, languages: [Portuguese], countries: [BRA], localization: native}
+origin:
+  builder_types: [unknown]
+  item_provenance: [exam_questions]
+  venue: preprint
+facets:
+  health_areas: [general_medicine, nursing, dentistry, mental_health]
+  intended_users: [clinician, medical_student]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 5,632 questions (Revalida 1,777; Enare Medica 2,691; Enare Multiprofissional 1,164)
+provenance:
+  records: [r_efebc48e0f]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Single author, listed as an independent researcher; the card says funding came from Brazil's Ministry of Health (DECIT), CNPq, and the Gates Foundation, so builder type is left unknown. Questions were parsed from public exam PDFs and deduplicated. Revalida is the licensing exam for foreign-trained physicians; Enare is the national residency entrance exam run by Ebserh. Accuracy is the only metric. The card also frames the set around Brazil's public health system (SUS)."

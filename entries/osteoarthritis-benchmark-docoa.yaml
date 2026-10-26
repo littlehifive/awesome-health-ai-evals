@@ -1,0 +1,36 @@
+id: osteoarthritis-benchmark-docoa
+name: Osteoarthritis Benchmark (DocOA)
+kind: benchmark
+year: 2024
+summary: 778 osteoarthritis management questions in four subsets (337 guideline-item, 145 management-option, 216 treatment-strategy, and 80 real-case QA) built from clinical guidelines and real patient cases, scored by objective accuracy and human ratings of accuracy, relevance, hallucination, omission, harm, and bias.
+readme_section: open_ended
+links:
+  paper: https://doi.org/10.2196/58158
+  doi: 10.2196/58158
+  pmcid: PMC11301122
+  code: https://github.com/geteff1/Osteoarthritis-Benchmark
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL, CHN]
+  item_origin_note: "Guideline-derived items draw on international guidelines (for example OARSI, ACR, EULAR, RACGP); the 80 real cases are from patients at West China Hospital in China."
+  rater_countries: [CHN]
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature, clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [ncd, other_specialty]
+  intended_users: [clinician, patient_public]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: "778 questions (337 + 145 + 216 + 80)"
+provenance:
+  records: [r_0aead7ef29]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Item counts are from the paper and the GitHub README; the repository holds the four JSON files, prompts, test notebooks, and raw outputs, and its license is Apache-2.0 (from repository metadata). Whether objective accuracy is scored by exact match or an LLM is not clear from the parts I read; eval_methods lists only the human evaluation. Item language is English by inspection of the MOQA file; rater countries are inferred from the Sichuan University ethics approval and not stated explicitly. The paper also builds DocOA, an RAG assistant, which is a method and not part of the benchmark."

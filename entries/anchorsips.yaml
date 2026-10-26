@@ -1,0 +1,33 @@
+id: anchorsips
+name: AnchorSIPS
+kind: benchmark
+year: 2026
+summary: 10,000 synthetic Mini-SIPS psychosis-risk interviews with transcript-grounded targets (symptom endorsements, evidence turns, and an attenuated psychosis syndrome diagnosis), used to test whether LLMs can recover structured assessments from interviews.
+readme_section: mental_health
+links:
+  paper: https://arxiv.org/abs/2608.12329
+  arxiv: "2608.12329"
+license: CC-BY-NC-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Fully synthetic interviews modeled on the Mini-SIPS instrument; no country of origin is stated.
+  localization: unknown
+  lead_institution_countries: [AUS]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated]
+  venue: preprint
+facets:
+  health_areas: [mental_health]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 10,000 synthetic interviews
+provenance:
+  records: [r_6466c4e9e1]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: Task is transcript-to-structured-JSON measurement (not open-ended chat), scored against fixed labels across seven LLM baselines. Release is described as a public research resource under CC BY-NC 4.0 (research use only), but no download link was found in the text read. Lead institution country (Australia) taken from the paper's mention of University of Melbourne compute; author affiliations were not read.

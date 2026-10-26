@@ -1,0 +1,34 @@
+id: lifeagentbench
+name: LifeAgentBench
+kind: benchmark
+year: 2026
+summary: 22,573 template-generated questions over the lifestyle records (diet, sleep, activity, emotion) of 100 participants, with SQL-derived ground-truth answers, scored by answer accuracy for LLM health assistants.
+readme_section: knowledge_exam
+links:
+  paper: https://arxiv.org/abs/2601.13880
+  arxiv: "2601.13880"
+  code: https://anonymous.4open.science/r/LifeAgentBench-CE7B
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Built on the AI4FoodDB lifestyle dataset (100 participants); the paper text read here does not state the participants' country.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [nutrition, ncd, public_health]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 22,573 questions
+provenance:
+  records: [r_d25a042847]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Questions are instantiated from task templates over a relational database built from AI4FoodDB; answers come from executed SQL queries and were manually spot-checked. Two evaluation settings (context prompting and database prompting), accuracy as the main metric. The paper says the benchmark is publicly available and releases the construction pipeline, but the only link is an anonymized 4open.science repository; no dataset download, license, or Hugging Face ID was seen. Item language is assumed English (templates and examples are English). Authors at UC San Diego and Google Research."

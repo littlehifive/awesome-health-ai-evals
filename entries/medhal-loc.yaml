@@ -1,0 +1,34 @@
+id: medhal-loc
+name: MedHal-Loc
+kind: benchmark
+year: 2026
+summary: 300 controlled PubMedQA-derived statements with single injected span-level errors (plus a small natural subset) and a localization-faithfulness metric for judging whether medical hallucination detectors point to the erroneous span.
+readme_section: safety
+links:
+  paper: https://arxiv.org/abs/2606.21517
+  arxiv: "2606.21517"
+  code: https://github.com/green-leo-1/MedHal-Loc
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Statements derive from PubMedQA/MedHallu abstracts; countries not stated.
+  localization: adapted
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, llm_generated]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [unspecified]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 300 controlled items (75 per error type); natural subset with 18 candidate spans audited
+provenance:
+  records: [r_fa576d7f5c, r_4f2da8dd52]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Evaluates hallucination detectors (NLI, SelfCheckGPT, FAVA, KG-triple pipeline), not chatbots; borderline for scope. The repo contains benchmark/medhal_loc_controlled.jsonl; its README says a code license must still be added, and source datasets keep their own licenses, so license is null."

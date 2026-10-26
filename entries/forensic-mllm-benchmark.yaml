@@ -1,0 +1,33 @@
+id: forensic-mllm-benchmark
+name: Forensic MLLM Benchmark
+kind: benchmark
+year: 2025
+summary: 847 examination-style forensic science and medicine questions (622 text-only, 225 with images; mostly multiple choice) from textbooks and forensic OSCEs, used to benchmark eleven multimodal LLMs.
+readme_section: knowledge_exam
+links:
+  paper: https://doi.org/10.1101/2025.07.06.25330972
+  doi: 10.1101/2025.07.06.25330972
+license: null
+open_data: gated
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Questions drawn from forensic textbooks and from OSCE materials of the University of Jordan Faculty of Medicine; the paper does not give item-origin countries.
+  localization: native
+  lead_institution_countries: [CAN, USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions, literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [other_specialty]
+  intended_users: [medical_student, clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 847 questions (781 multiple choice or true/false, 66 open-ended; 225 image-based)
+provenance:
+  records: [r_f42747584b, r_2907d4e924]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Read the medRxiv full text via paperclip; the IEEE Access record (10.1109/access.2026.3684872) is the published version and was not opened. Data availability statement: all data available upon publication or reasonable request, so open_data is set to gated; no repository link seen. Modality schema has no image value; about 27 percent of items are images. How open-ended items are scored was not checked. Authors at Queen's University (Canada) and Princeton (USA)."

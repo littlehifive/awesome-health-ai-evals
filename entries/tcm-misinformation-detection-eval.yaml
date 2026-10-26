@@ -1,0 +1,44 @@
+id: tcm-misinformation-detection-eval
+name: TCM Misinformation Detection Evaluation
+kind: benchmark
+year: 2025
+summary: Over 3,000 Traditional Chinese Medicine exam questions transformed into four test paradigms (standard MCQ, Wrong Options, Misleading Guidance, Fabricated Entity) to measure misinformation and hallucination detection, tested on six models.
+readme_section: safety
+links:
+  paper: https://doi.org/10.1145/3714394.3756275
+  doi: 10.1145/3714394.3756275
+license: null
+open_data: unknown
+geography:
+  item_languages:
+  - Unknown
+  item_origin_countries:
+  - UNKNOWN
+  item_origin_note: Abstract says the questions come from TCM examinations; the exam, country and language are not stated in the sources reached.
+  localization: adapted
+  lead_institution_countries:
+  - CHN
+origin:
+  builder_types:
+  - academic
+  item_provenance:
+  - exam_questions
+  - adapted_dataset
+  venue: peer_reviewed
+facets:
+  health_areas:
+  - traditional_medicine
+  intended_users:
+  - clinician
+  eval_methods:
+  - mcq_exact_match
+  modality:
+  - text
+  size: Over 3,000 questions in four paradigms
+provenance:
+  records:
+  - r_c45b9c2de9
+  extracted: '2026-10-26'
+  read_full_text: false
+  confidence: low
+  notes: Only the abstract and OpenAlex metadata were reachable (ACM returned 403). No dataset, code or license link seen. Item language and exam country are unstated, so a human should check the full text; they are likely Chinese. Lead institution from the first three authors (China); one author is in the US.

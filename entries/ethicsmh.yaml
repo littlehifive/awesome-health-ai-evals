@@ -1,0 +1,35 @@
+id: ethicsmh
+name: EthicsMH
+kind: benchmark
+year: 2025
+summary: 125 mental health ethical-dilemma scenarios (confidentiality, racial and gender bias, autonomy versus beneficence for adults and minors) with four decision options, expert-aligned reasoning, expected model behavior, and stakeholder viewpoints.
+readme_section: mental_health
+links:
+  paper: https://arxiv.org/abs/2509.11648
+  arxiv: "2509.11648"
+  doi: 10.48550/arxiv.2509.11648
+  huggingface: [UVSKKR/Ethical-Reasoning-in-Mental-Health-v1]
+license: null
+open_data: gated
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Scenarios were drafted by ChatGPT and reviewed by a mental health professional; the paper does not give a country setting.
+  localization: unknown
+  lead_institution_countries: [IND]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated]
+  venue: preprint
+facets:
+  health_areas: [mental_health]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match, expert_human_rating]
+  modality: [text]
+  size: 125 scenarios
+provenance:
+  records: [r_7e267b77e8]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Single-author pilot (IIIT Dharwad). The HF dataset is auto-gated (login required); no license on the card tags, and the paper says it is for research only and not licensed for clinical or commercial use. The abstract says the structure allows scoring decision accuracy, explanation quality, and alignment with professional norms; the paper releases no judge or scoring code that I saw, so eval_methods reflects the stated intent. The reviewer's country is not stated."

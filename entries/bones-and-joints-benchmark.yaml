@@ -1,0 +1,36 @@
+id: bones-and-joints-benchmark
+name: B&J benchmark
+kind: benchmark
+year: 2025
+summary: 1,245 orthopedics and sports-medicine questions (multiple choice and open-ended) from Chinese specialist exam banks and 203 real cases at eight hospitals, covering knowledge recall, note and image interpretation, diagnosis, and treatment planning, for LLMs and vision-language models.
+readme_section: knowledge_exam
+links:
+  paper: https://doi.org/10.1038/s41746-026-03191-3
+  arxiv: "2512.22275"
+  doi: 10.1038/s41746-026-03191-3
+  huggingface: [PUTH2025/Bones_and_Joints_Benchmark]
+  code: https://github.com/yzm1015/Bones-and-Joints-Benchmark
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [English, Mandarin Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: Exam questions from two Chinese national certification exams (NMLEC and the Orthopedic Attending Physician Qualification Examination); cases from eight medical centers across regions of China. The repo has English and Chinese versions of the files.
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions, clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [other_specialty]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match, rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 1,245 questions across 7 tasks plus a text-image inconsistency task; 42 musculoskeletal diseases
+provenance:
+  records: [r_ba8f9b7e76, r_707c5508b7]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: Merged the paper record into the earlier GitHub-only entry. Several tasks (image interpretation, diagnosis and treatment from images) need radiology images, which are out of scope; text-only runs replace images with radiology reports. A human should decide whether to keep it. Open-ended answers are scored by GPT-4o against ground truth (three runs) with 120 items double-rated by two orthopedic physicians. Ground truth written by seven orthopedic and sports-medicine experts.

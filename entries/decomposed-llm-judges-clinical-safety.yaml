@@ -1,0 +1,33 @@
+id: decomposed-llm-judges-clinical-safety
+name: Decomposed LLM-as-Judges Clinical Safety Evaluation
+kind: eval_framework
+year: 2026
+summary: A framework of 25 hazard-based rubrics, each applied by its own LLM judge, to produce auditable risk estimates for ISO 14971 risk management, tested on 12,193 real and synthetic question-answer pairs from a women's health chatbot.
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.2139/ssrn.7230054
+  doi: 10.2139/ssrn.7230054
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Abstract does not state the chatbot's country or the language of the conversations.
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [unknown]
+  item_provenance: [real_user_queries, llm_generated]
+  venue: preprint
+facets:
+  health_areas: [srh]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge, real_user_data]
+  modality: [text]
+  size: 25 hazard rubrics; 12,193 question-answer pairs
+provenance:
+  records: [r_e2de7cbd4d]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "SSRN full text could not be fetched; facts come from the abstract (via Crossref). Country, language, authors' institutions, and release of rubrics or data are unknown. Women's health area mapped to srh as a guess from the abstract; check. Findings: multi-judge fail-class recall 95.3% vs 24.9% for human annotation and 69.1% for a single combined judge."

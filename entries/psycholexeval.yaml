@@ -1,0 +1,31 @@
+id: psycholexeval
+name: PsychoLexEval
+kind: benchmark
+year: 2024
+summary: Bilingual Persian-English multiple-choice psychology questions for evaluating LLM comprehension and decision-making in psychological contexts, released with the PsychoLex paper.
+readme_section: multilingual_regional
+links:
+  huggingface: [aminabbasi/PsycholexEval]
+license: CC-BY-NC-4.0
+open_data: gated
+geography:
+  item_languages: [Persian, English]
+  item_origin_countries: [UNKNOWN]
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [unknown]
+  venue: grey_literature
+facets:
+  health_areas: [mental_health]
+  intended_users: [unspecified]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: between 1,000 and 10,000 questions (Hugging Face size tag)
+provenance:
+  records: [r_796e955031]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "The Hugging Face dataset is gated (auto-approval after login), so the card body and items could not be read; facts come from the public API metadata (license cc-by-nc-4.0, languages fa and en, size tag 1K-10K) and the card's opening description. The linked paper 'PsychoLex: Unveiling the Psychological Mind of Large Language Models' was not found on arXiv. Item sources, origin country, and exact size are unknown. Scoring as multiple-choice accuracy is implied by the title and task tags."

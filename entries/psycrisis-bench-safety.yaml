@@ -1,0 +1,35 @@
+id: psycrisis-bench-safety
+name: PsyCrisis-Bench
+kind: benchmark
+year: 2025
+summary: 608 Chinese user utterances expressing suicidal ideation, self-harm, or existential distress, taken from existing counseling datasets, with a reference-free LLM-as-judge protocol that scores model replies on five expert-defined binary safety dimensions.
+readme_section: mental_health
+links:
+  paper: https://arxiv.org/abs/2508.08236
+  arxiv: "2508.08236"
+  doi: 10.48550/arxiv.2508.08236
+  code: https://github.com/mental-health-llm-safety-eval/psycrisis-bench
+license: CC-BY-NC-4.0
+open_data: open
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: Utterances are sampled from three Chinese counseling datasets (PsyQA, SOS-HL-1K, Emotional First Aid); the paper does not state countries beyond the Chinese-language setting.
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, web_forum]
+  venue: preprint
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 608 utterances (289 suicide, 115 non-suicidal self-injury, 204 existential distress); 800 expert-scored responses for judge validation
+provenance:
+  records: [r_7071635598]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "The repository README (titled PsyCrisis-Protocol) states CC BY-NC 4.0 and 608 samples; GitHub's license detector reports NOASSERTION, so the README badge is the source. open_data is open because the repo is public and lists the dataset, but I did not open the data files. Six professionals scored 800 GPT-4o and DeepSeek-R1 responses for judge validation. First and last authors are both at HKUST (Guangzhou), China; co-authors are also at Wuhan, Iowa, and Manchester. Distinct from PsyCrisisBench (hotline transcripts, record r_aa00f27f57), which dedup grouped with this one by name."

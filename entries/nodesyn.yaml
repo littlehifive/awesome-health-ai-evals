@@ -1,0 +1,34 @@
+id: nodesyn
+name: NodeSyn
+kind: benchmark
+year: 2026
+summary: A method plus released datasets of synthetic medical-advice and self-harm queries grounded in a generated taxonomy and published sources, used to elicit LLM safety failures (refusal and disclosure behavior) scored by auto-raters.
+readme_section: safety
+links:
+  paper: https://arxiv.org/abs/2605.14381
+  arxiv: "2605.14381"
+  code: https://github.com/google-research/nodesynth
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Synthetic queries conditioned on sensitive attributes such as demographics, occupations, and geographies drawn from published sources; no single country origin.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [industry_lab]
+  item_provenance: [llm_generated, literature]
+  venue: preprint
+facets:
+  health_areas: [general_medicine, mental_health]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: Medical Advice and Self-Harm query sets (sizes not read); CSVs in the repo
+provenance:
+  records: [r_d5447e1cd6]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "The paper is mainly a data-generation methodology (taxonomy generator plus evidence grounding); the benchmark part is the Medical Advice and Self-Harm datasets, which the repo ships as CSVs (paper/ and prototype/). The abstract and repo README use NodeSyn; the arXiv text uses NodeSynth. Rubrics: a three-tier Refusal and Disclosure rubric for medical advice and a three-tier safety rubric for self-harm, applied by a Gemini auto-rater (validated against humans per the abstract). Apache-2.0 is the repository license, not a dataset-specific license. Dataset row counts were not read. A human should check whether this belongs as a benchmark or as an evaluation framework."

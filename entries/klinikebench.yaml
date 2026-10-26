@@ -1,0 +1,38 @@
+id: klinikebench
+name: KlinikeBench
+kind: benchmark
+year: 2026
+summary: "333 clinician-authored interactive clinical encounter tasks, each with an LLM-simulated patient, 140 clinical tools and hidden success criteria, scored on diagnosis, required tools, parameterised actions and must-ask history coverage."
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2609.38480
+  arxiv: "2609.38480"
+  doi: 10.48550/arxiv.2609.38480
+  dataset: https://hub.harborframework.com/datasets/klinikebench/klinikebench
+  code: https://github.com/Zehui127/klinikebench-train
+  website: https://zehui127.github.io/klinikebench/
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Cases are authored from disease-phenotype links in PrimeKG and HPO annotations; no country of origin is stated.
+  rater_countries: [CAN, CHN]
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [simulated_multi_turn, rubric_llm_judge]
+  modality: [text]
+  size: "333 tasks (283 training, 50 held-out test); 35 clinicians authored"
+provenance:
+  records: [r_e0e0673772]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Clinicians write persona and requirements with LLM help on narrative and formatting, then revise after inspecting live simulations. Strict pass@1 requires all four gates; diagnosis, tools and actions are checked by a verifier and must-ask coverage by an LLM judge. Thirty clinicians rated 50 dialogues for quality. The 35 authoring clinicians are from Canada and China. The Apache-2.0 license is on the training-code repo, not stated for the tasks, so license is null. Trajectory and SFT data on Hugging Face (anon-caa-neurips/KLINIKEBENCH-Trajectories) is training data and is not listed as a benchmark link. Last author at Microsoft (country not stated), so only the first author's country is coded."

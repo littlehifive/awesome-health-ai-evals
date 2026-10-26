@@ -1,0 +1,33 @@
+id: choosing-wisely-bidirectional
+name: Choosing Wisely Bidirectional Benchmark
+kind: benchmark
+year: 2026
+summary: 225 standardized primary-care scenarios built on 15 Choosing Wisely recommendations, each with restraint-appropriate and matched action-appropriate versions, scored by an LLM judge to test whether a model knows when to recommend a test, drug, or referral and when to withhold it.
+readme_section: safety
+links:
+  paper: https://osf.io/8qug5
+  doi: 10.17605/osf.io/8qug5
+  dataset: https://osf.io/8qug5
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature]
+  venue: grey_literature
+facets:
+  health_areas: [primary_care]
+  intended_users: [clinician]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: 225 scenarios; 4,050 labeled model responses
+provenance:
+  records: [r_c50b6bd8c1, r_98f014590d]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: medium
+  notes: From the OSF project description via API. Data and docs are CC BY 4.0, code MIT. Authors, institutions, and scenario authorship are not stated in what was read. Choosing Wisely recommendations are the evidence basis (assumed from the title; the campaign's country is not stated in the source). Record r_98f014590d is the Annals of Internal Medicine paper (doi 10.7326/annals-26-01667), whose abstract describes the same 225 scenarios (15 recommendations, 10 restraint plus 5 action each) and 4,050 responses from six commercial LLMs; only its abstract was read.

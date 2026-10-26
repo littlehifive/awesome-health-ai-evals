@@ -1,0 +1,36 @@
+id: equitymedqa
+name: EquityMedQA
+kind: benchmark
+year: 2024
+summary: Seven datasets (4,619 adversarial medical questions in total) enriched for equity-related bias, plus a multifactorial rubric for physician, health-equity-expert, and consumer rating of long-form LLM answers.
+readme_section: safety
+links:
+  paper: https://doi.org/10.1038/s41591-024-03258-2
+  arxiv: "2403.12025"
+  doi: 10.1038/s41591-024-03258-2
+  huggingface: [katielink/EquityMedQA]
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: "Questions were written by the team, partly with LLM assistance, from participatory design and review of Med-PaLM 2 answers; one subset (EHAI) targets US health disparities and TRINDS targets tropical and infectious diseases. The paper does not give a country of origin for the questions."
+  rater_countries: [USA, GBR, IND]
+  localization: unknown
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [industry_lab]
+  item_provenance: [clinician_written, llm_generated]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine, public_health]
+  intended_users: [patient_public, clinician]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: 4,619 questions in 7 datasets (OMAQ, EHAI, FBRT-Manual, FBRT-LLM, TRINDS, CC-Manual, CC-LLM)
+provenance:
+  records: [r_63c186437c]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Rubrics cover independent, pairwise, and counterfactual assessment. Raters were 11 physicians and 9 health-equity experts in the US, UK, and India, plus consumer raters. Lead-institution country is the releasing organization (Google), not read from an affiliation block. Data released on Hugging Face (mirror of the arXiv ancillary files, CC-BY-4.0 on the card); Med-PaLM 2 outputs and human ratings are not included. The HF card also holds three non-EquityMedQA comparison datasets (MultiMedQA, Mixed MMQA-OMAQ, Omiye et al.)."

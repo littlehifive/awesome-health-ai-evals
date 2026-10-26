@@ -1,0 +1,37 @@
+id: counselbench
+name: CounselBench
+kind: benchmark
+year: 2025
+summary: Two mental-health counseling sets built with 100 professionals, with 2,000 expert ratings of LLM and therapist answers to 100 real CounselChat questions on six dimensions, plus 120 expert-written adversarial questions.
+readme_section: mental_health
+links:
+  paper: https://arxiv.org/abs/2506.08584
+  arxiv: "2506.08584"
+  doi: 10.48550/arxiv.2506.08584
+  huggingface: [izi-ano/CounselBench-Eval, izi-ano/CounselBench-Adv]
+  code: https://github.com/llm-eval-mental-health/CounselBench
+license: CC-BY-NC-ND-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Eval questions are from CounselChat, an online platform where licensed therapists answer anonymous questions (posts before 2022); its country is not stated in the paper. Adversarial questions were written by 10 experts.
+  rater_countries: [USA]
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [web_forum, clinician_written]
+  venue: preprint
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [expert_human_rating, rubric_llm_judge]
+  modality: [text]
+  size: 100 questions, 2,000 expert evaluations (Eval); 120 adversarial questions (Adv)
+provenance:
+  records: [r_ccf0ec33f4]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Read the paper's method sections and the repository README. Raters are 100 licensed or trained practitioners recruited across the US via Upwork. Six dimensions: overall quality, empathy, specificity, medical advice, factual consistency, toxicity (5-point scales, plus span annotations and rationales); LLM judges are also tested against the experts. Both Hugging Face cards show license cc-by-nc-nd-4.0 (read from the Hugging Face API). Human annotations for CounselBench-Adv are released separately."

@@ -1,0 +1,33 @@
+id: jmedqa
+name: JMedQA
+kind: benchmark
+year: 2026
+summary: "3,581 Japanese national medical licensing exam questions (2018-2026), mostly multiple choice with some numeric answers, annotated for image dependency and scored by exact match, for text-only LLM and vision-language evaluation."
+readme_section: multilingual_regional
+links:
+  huggingface: [SIP-med-LLM/JMedQA]
+  code: https://github.com/yamagishi0824/jmedqa-eval
+license: custom
+open_data: open
+geography:
+  item_languages: [Japanese]
+  item_origin_countries: [JPN]
+  item_origin_note: Questions from the national medical examination materials released by the Japanese Ministry of Health, Labour and Welfare.
+  localization: native
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine]
+  intended_users: [medical_student, clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: "3,581 questions (1,326 image references, 1,258 unique images)"
+provenance:
+  records: [r_e4fb17c28e]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Dataset card only; no paper is linked. The card lists authors Yamagishi, Kobayashi, Shibaki, Aizawa and Kurohashi but no affiliations, so lead country is UNKNOWN and builder_types is a guess. License tag is other: the card says to follow the MHLW terms of use. Evaluation code is MIT. Separate from JMed48k and IgakuQA."

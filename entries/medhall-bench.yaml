@@ -1,0 +1,32 @@
+id: medhall-bench
+name: MedHall-Bench
+kind: benchmark
+year: 2026
+summary: 112 hallucination test cases for medical AI assistants (factual, contextual, citation, numerical, relational), scored by field-level programmatic matching and LLM-as-judge, in English and Chinese.
+readme_section: safety
+links:
+  huggingface: [mirobody/MedHall-Bench]
+  code: https://github.com/healthmemoryarena/holyeval
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [English, Mandarin Chinese]
+  item_origin_countries: [UNKNOWN]
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [industry_lab]
+  item_provenance: [unknown]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge, automatic_metric]
+  modality: [text]
+  size: 112 cases (12 factual, 15 contextual, 10 citation, 33 numerical, 42 relational) plus 20 virtual user records
+provenance:
+  records: [r_21190fc945]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Dataset card only (Theta Health, for the HolyEval framework; org inferred from card citation). Not the same benchmark as MedHallBench (arXiv 2412.18947, r_477886bcd8), which the screening grouped with it by name; that paper is chest X-ray/vision-language focused, releases no data link, and was excluded as out of scope. Languages from card tags; virtual patient data is included in the repo. Country of origin and authors are not stated."

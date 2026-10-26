@@ -1,0 +1,34 @@
+id: anesbench
+name: AnesBench
+kind: benchmark
+year: 2025
+summary: 4,427 bilingual (English and Chinese) anesthesiology multiple-choice questions from professional exams, textbooks, and online test banks, labeled by reasoning level (System 1 fact retrieval, System 1.x hybrid, System 2 decision-making).
+readme_section: multilingual_regional
+links:
+  paper: https://arxiv.org/abs/2504.02404
+  arxiv: "2504.02404"
+  code: https://github.com/MiliLab/AnesBench
+license: CC-BY-NC-SA-4.0
+open_data: open
+geography:
+  item_languages: [English, Chinese]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Questions come from anesthesiology professional exams, textbooks, and online test banks; the paper text read does not name the exams' countries.
+  localization: unknown
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions, literature]
+  venue: preprint
+facets:
+  health_areas: [other_specialty]
+  intended_users: [clinician, medical_student]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 4,427 multiple-choice questions
+provenance:
+  records: [r_543cb0d454]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: AnesSuite also ships AMCQA (a Chinese anesthesiology multiple-choice set reported alongside AnesBench) and CPT, SFT, and RLVR training sets; these are not part of the benchmark. The license and GitHub release are stated in the datasheet as planned after peer review; the repo link was not checked. Languages are taken from the paper's description of a cross-lingual benchmark and the Chinese AMCQA; per-language item counts were not checked.

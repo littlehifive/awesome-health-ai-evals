@@ -1,0 +1,34 @@
+id: tanglishmedbench
+name: TanglishMedBench
+kind: benchmark
+year: 2026
+summary: 700 medical queries typed in romanized Tamil-English code-mixed text (Tanglish) by Tamil speakers across seven health categories, each with an English equivalent, an expert gold answer, and accuracy, safety and disclaimer annotations.
+readme_section: multilingual_regional
+links:
+  dataset: https://doi.org/10.5281/zenodo.22308075
+  doi: 10.5281/zenodo.22308075
+license: CC-BY-NC-4.0
+open_data: open
+geography:
+  item_languages: [Tamil, English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Queries were written by 100 Tamil-speaking participants answering 7 scenario prompts each; the participants' country is not stated.
+  rater_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [IND]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine, pharmacy_medication, mental_health, child_health]
+  intended_users: [patient_public]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: 700 query-answer pairs (89 to 111 per category across 7 categories)
+provenance:
+  records: [r_cd95a54410]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Read the Zenodo record and its README (no paper was found; the README mentions an accompanying paper). The Zenodo metadata says CC-BY-4.0 but the README says CC BY NC 4.0; the stricter one is recorded. The README cites DOI 10.5281/zenodo.22308076 as the versioned snapshot. Queries are participant-written to scenario prompts, not from a deployed service; gold answers were written and scored by one Tamil-speaking final-year MBBS student against WHO, ICMR, NICE and similar guidelines (kappa 0.81 safety and 0.76 accuracy on a 20% double-annotated subsample). All gold answers score 2/2, so the rubric (accuracy 0-2, safety 0-2, disclaimer) is meant for scoring model outputs. Authors are at St. Joseph's Institute of Technology; the country (India) is inferred from the institution name."

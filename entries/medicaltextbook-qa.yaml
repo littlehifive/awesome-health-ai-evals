@@ -1,0 +1,33 @@
+id: medicaltextbook-qa
+name: MedicalTextbook_QA
+kind: benchmark
+year: 2024
+summary: 6,500 GPT-4-generated multiple-choice questions, 500 for each of 13 medical textbooks (anatomy, pharmacology, pathology, psychiatry and others), used to test how well language models learned textbook content.
+readme_section: knowledge_exam
+links:
+  dataset: https://huggingface.co/datasets/winder-hybrids/MedicalTextbook_QA
+  huggingface: [winder-hybrids/MedicalTextbook_QA]
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Questions were written by GPT-4 from excerpts of 13 commonly used medical textbooks (for example Gray's Anatomy, Robbins Pathology, Nelson Pediatrics); the card gives no country.
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [unknown]
+  item_provenance: [llm_generated, literature]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine]
+  intended_users: [medical_student]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 6,500 questions (13 subjects x 500, test split)
+provenance:
+  records: [r_632ba9dff6]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Hugging Face card only. The companion paper, 'Conditional language learning with context', is listed as 'link pending' and the citation as 'pending', so it was not found. The card does not state a license (no license tag). The question count is 13 configs of 500 each from the card metadata. Language is not stated on the card; items are presumed English. The task is textbook-knowledge testing, an input to a knowledge-learning experiment rather than a chatbot-facing benchmark, so scope fit is borderline."

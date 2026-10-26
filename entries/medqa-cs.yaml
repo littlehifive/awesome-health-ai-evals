@@ -1,0 +1,36 @@
+id: medqa-cs
+name: MedQA-CS
+kind: benchmark
+year: 2024
+summary: Clinical-skills benchmark built from USMLE Step 2 CS patient cases, in which an LLM acts as the medical student (history-taking dialogue, physical exam, closure, diagnosis and patient note) and is scored by an LLM examiner checked against three medical experts.
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2410.01553
+  arxiv: "2410.01553"
+  huggingface: [bio-nlp-umass/MedQA-CS-Student, bio-nlp-umass/MedQA-CS-Exam]
+  code: https://github.com/bio-nlp/MedQA-CS
+license: CC-BY-NC-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Cases are adapted from USMLE Step 2 Clinical Skills study materials; one third of sentences in two sections were paraphrased with ChatGPT and proofread by medical experts.
+  rater_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician, medical_student]
+  eval_methods: [rubric_llm_judge, expert_human_rating, simulated_multi_turn]
+  modality: [text]
+  size: USMLE Step 2 CS cases across four sections (InfoGatherQA, Physical Exam, Closure, Diagnosis); case count not confirmed
+provenance:
+  records: [r_b10daf56a3, r_142f7d7e7d, r_fd0557ef01]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: The screening record is portwise-ai/BF-MedQA-CS, a GitHub copy of the original bio-nlp/MedQA-CS code (same README, titled MedQA-CS); it is a mirror and not listed in links. The paper (arXiv 2410.01553) was found via the repo README and read in part. Number of cases and rater countries were not stated in the parts read. The README warns that GPT-4-judge scores have drifted and that a Llama examiner is planned. The Hugging Face dataset bio-nlp-umass/MedQA-CS-Exam (record r_42812fa19e; card seen, license cc-by-nc-4.0, links to the GitHub project and the MedQA-CS-Student dataset, no item count on the card) belongs to this benchmark and is merged here.

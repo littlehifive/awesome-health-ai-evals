@@ -1,0 +1,35 @@
+id: uphill
+name: UPHILL
+kind: benchmark
+year: 2023
+summary: 1,945 health claims (true, false, mixed, fabricated) each turned into queries at five presupposition levels (9,725 queries) to test whether chatbots challenge false claims, scored with an entailment model and checked by crowd annotators.
+readme_section: safety
+links:
+  paper: https://aclanthology.org/2024.findings-acl.850/
+  arxiv: "2312.08800"
+  doi: 10.18653/v1/2024.findings-acl.850
+  code: https://github.com/navreeetkaur/UPHILL
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Claims come from the PubHealth and Monant Medical Misinformation fact-checking datasets plus 166 claims the authors fabricated; the paper does not give the claims' countries.
+  localization: native
+  lead_institution_countries: [IND, ARE]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, web_forum, llm_generated]
+  venue: peer_reviewed
+facets:
+  health_areas: [public_health, general_medicine]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric, expert_human_rating]
+  modality: [text]
+  size: 1,945 claims; 9,725 queries (5 presupposition levels)
+provenance:
+  records: [r_18020f3ef0]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Read the paper PDF and the project README. Queries are generated from claims by templates and an LLM at five presupposition levels (neutral to writing demand); factual accuracy and consistency are judged with an entailment model validated against crowd annotations (600 claim-response pairs, 3 annotators each). Data is on a Google Drive folder linked from the README; the repo shows no license. item_provenance values are approximate: claims come from fact-checking websites via PubHealth and Monant (recorded as web_forum for lack of a closer value), queries are generated. Evaluated InstructGPT, ChatGPT, GPT-4 and Bing Copilot."

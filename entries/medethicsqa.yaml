@@ -1,0 +1,35 @@
+id: medethicsqa
+name: MedEthicsQA
+kind: benchmark
+year: 2025
+summary: "5,623 multiple-choice and 5,351 open-ended medical ethics questions organized under a 4-pillar, 26-category, 256-guideline taxonomy drawn from world medical association codes, scored by accuracy and LLM-judge ratings."
+readme_section: safety
+links:
+  paper: http://arxiv.org/abs/2506.22808
+  arxiv: "2506.22808"
+  doi: 10.48550/arxiv.2506.22808
+  code: https://github.com/JianhuiWei7/MedEthicsQA
+license: CC-BY-NC-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: "Multiple-choice items come from existing medical QA benchmarks and online question banks (Medbullets, AMBOSS, Quizlet, Lecturio, ProProfs); open-ended items are synthesized from 2.1k PubMed medical-ethics papers; the taxonomy uses world medical association guidelines."
+  localization: adapted
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, exam_questions, llm_generated, literature]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [unspecified]
+  eval_methods: [mcq_exact_match, rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: "5,623 MCQs and 5,351 open-ended questions"
+provenance:
+  records: [r_b8febe634d]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "License is a footnote in the paper (registered under CC BY-NC 4.0), not seen on a repository license file. Open-ended answers are rated by an LLM judge against reference answers (open-ended-LLM-as-Judge.py in the repo). Quality control reports a 2.72% error rate by expert validation. Lead institution is Zhejiang University (international campus); item language taken as English from the sources and examples, not stated outright."

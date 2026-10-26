@@ -1,0 +1,37 @@
+id: vera-mh
+name: VERA-MH
+kind: benchmark
+year: 2025
+summary: "A multi-turn safety evaluation for mental health chatbots: an LLM role-plays 100 clinician-designed suicide-risk personas (plus a harm-from-others target in v2.0) in 30-turn conversations with the chatbot, and an LLM judge scores each transcript on a five-dimension clinical rubric."
+readme_section: mental_health
+links:
+  paper: https://doi.org/10.2196/92817
+  doi: 10.2196/92817
+  arxiv: "2605.13318"
+  pmcid: PMC13365878
+  code: https://github.com/SpringCare/VERA-MH
+  website: https://www.springhealth.com/blog/introducing-vera-mh-new-standard-ethical-ai-mental-healthcare
+license: custom
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Personas are synthetic (clinician-specified risk and demographic profiles, biographies drafted by LLMs); the papers cite US suicide statistics but do not state a country of origin for the personas.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [implementer_ngo, academic]
+  item_provenance: [clinician_written, llm_generated]
+  venue: peer_reviewed
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [simulated_multi_turn, rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 100 suicidal-ideation personas (recommended run is 2 conversations per persona, up to 30 turns); five-dimension rubric with up to 35 branching questions
+provenance:
+  records: [r_8db36a9cb9, r_da3b0fc26f, r_2968d35c04, r_b437b58bbc]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Merged from three papers: concept paper (arXiv 2510.15297), the description paper (arXiv 2605.13318), and the JMIR AI human-validation study (arXiv 2602.05088; six Spring Health clinicians rated 90 simulated conversations, clinician IRR 0.77, LLM judge vs clinician consensus 0.81). Developed by Spring Health (a mental health care company) with a Yale author. License is a bespoke permissive text (MIT-like with a no-endorsement clause) in the GitHub LICENSE file; GitHub reports NOASSERTION. Repo v2.0 adds a harm-from-others (HFO) target and a bring-your-own-rubric mechanism. The earlier validation study used only ten personas. Persona and rubric files are in the repo (data/SI)."

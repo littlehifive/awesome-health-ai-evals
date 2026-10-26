@@ -1,0 +1,35 @@
+id: m-qalm
+name: M-QALM
+kind: benchmark
+year: 2024
+summary: A collection of 22 existing English clinical and biomedical QA datasets (16 multiple-choice, 6 abstractive; about 200,000 train and 12,000 test multiple-choice questions) with a standard protocol for testing medical knowledge recall and reading comprehension.
+readme_section: knowledge_exam
+links:
+  paper: https://aclanthology.org/2024.findings-acl.238/
+  arxiv: "2406.03699"
+  doi: 10.18653/v1/2024.findings-acl.238
+  code: https://github.com/anand-subu/m-qalm
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA, IND, ESP, GLOBAL]
+  item_origin_note: Aggregated from existing sets, including USMLE (USA), MedMCQA (India), and HEAD-QA (Spain); other sources are general biomedical or consumer-health collections without a single country.
+  localization: adapted
+  lead_institution_countries: [SGP]
+origin:
+  builder_types: [academic, industry_lab]
+  item_provenance: [adapted_dataset, exam_questions]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine, other_specialty]
+  intended_users: [clinician, patient_public]
+  eval_methods: [mcq_exact_match, automatic_metric]
+  modality: [text]
+  size: 22 datasets; multiple-choice test total 12,219 and abstractive test total 6,164 questions
+provenance:
+  records: [r_e01eef5084]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Built at ASUS Intelligent Cloud Services (Singapore) with NUS and the University of Manchester. The paper says the datasets, code, and protocol are public on GitHub (anand-subu/m-qalm); the repository README was empty and no license was stated, so license is null and open_data comes from the paper's statement. Constituent datasets keep their own licenses. Abstractive QA is scored with similarity metrics (the paper discusses ROUGE and BERTScore-style measures; exact metric list not checked)."

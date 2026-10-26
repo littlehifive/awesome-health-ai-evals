@@ -1,0 +1,36 @@
+id: ehrnoteqa
+name: EHRNoteQA
+kind: benchmark
+year: 2024
+summary: 962 clinician-reviewed question-answer pairs over MIMIC-IV discharge summaries (some spanning several admissions), offered as open-ended and multiple-choice formats for testing LLMs on clinical practice questions.
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2402.16040
+  arxiv: "2402.16040"
+  doi: 10.13026/acga-ht95
+  dataset: https://doi.org/10.13026/acga-ht95
+  code: https://github.com/ji-youn-kim/EHRNoteQA
+license: null
+open_data: gated
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Built from MIMIC-IV discharge summaries (US hospital).
+  localization: native
+  lead_institution_countries: [KOR]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated, clinician_written, adapted_dataset]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match, rubric_llm_judge]
+  modality: [text]
+  size: 962 QA pairs in open-ended and multiple-choice formats; 27 LLMs evaluated
+provenance:
+  records: [r_db92c83039, r_a6126669b8]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: medium
+  notes: "Sources read: arXiv abstract and GitHub README (NeurIPS 2024 D&B; repo MIT). Dataset is on PhysioNet with credentials, plus MIMIC-IV-Note discharge.csv.gz, so gated. The DOI shown is the PhysioNet dataset DOI as given in the README. Questions were GPT-4 generated then refined by three clinicians. Lead country (KOR) inferred, check. EHR-grounded; a human may want to check the scope call."

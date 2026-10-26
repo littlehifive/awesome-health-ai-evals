@@ -1,0 +1,34 @@
+id: llm-diagnostic-output-grading-rubric
+name: LLM diagnostic output grading rubric (NEJM cases)
+kind: eval_framework
+year: 2024
+summary: A grading rubric for LLM diagnostic outputs (correct diagnosis, differentials, hallucination, readability, explainability, incorrect statements, risk), tested on 10 NEJM case-series cases and 3 chatbots with 10 physician raters.
+readme_section: frameworks
+links:
+  paper: https://pmc.ncbi.nlm.nih.gov/articles/PMC11330891/
+  doi: 10.3389/frai.2024.1379297
+  pmcid: PMC11330891
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Cases come from the New England Journal of Medicine case series; the patients' country is not stated.
+  rater_countries: [UNKNOWN]
+  lead_institution_countries: [AUS]
+  localization: unknown
+origin:
+  builder_types: [academic]
+  item_provenance: [literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: 10 cases; 30 model outputs rated by 10 physicians
+provenance:
+  records: [r_34a9d9a479]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Raters were 10 physicians from 3 countries (not named). Cases and model output are in Supplementary S1 and rater scores in S2; the data statement says raw data are available from the authors, so open_data is unknown. The rubric is a figure in the paper (Figure 1)."

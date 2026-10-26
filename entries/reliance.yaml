@@ -1,0 +1,35 @@
+id: reliance
+name: RELIANCE
+kind: benchmark
+year: 2026
+summary: 409 claims from 336 TikTok videos returned by 56 pregnancy and postpartum queries, labelled by clinicians for accuracy and harmfulness, used to test whether LLMs can fact-check reproductive health content at claim and video level.
+readme_section: safety
+links:
+  paper: https://arxiv.org/abs/2606.18285
+  arxiv: "2606.18285"
+  doi: 10.1145/3770855.3817447
+  website: https://realize-lab.github.io/RELIANCE
+license: CC-BY-NC-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: English-language TikTok content as returned for searches in the United States; the 56 queries come from prior datasets (including Reddit and the Rosie app), ACOG, clinicians, and clinician-verified synthetic questions.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [real_user_queries, clinician_written, llm_generated]
+  venue: peer_reviewed
+facets:
+  health_areas: [maternal_newborn, srh]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 409 annotated claims from 336 videos and 56 queries
+provenance:
+  records: [r_073f3220c5]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Published at KDD 2026 (ACM reference in the paper). LLM scoring is accuracy, precision, recall, ECE, and Brier against clinician labels (IsAccurate, IsHarmful); the paper also tests safeguard models. The intro says four clinicians annotated and the abstract says three; not resolved. The video-level task passes video content to the LLM, but the labelled items are transcribed claims. License and release statement are from the paper's ethics section; the dataset site itself was not opened."

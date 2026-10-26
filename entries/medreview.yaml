@@ -1,0 +1,34 @@
+id: medreview
+name: MedReview
+kind: benchmark
+year: 2024
+summary: 8,161 pairs of Cochrane systematic review abstracts and author-written conclusions on 37 topics (1996 to 2023), for evaluating LLM summarization of medical evidence, with a post-cutoff test set.
+readme_section: open_ended
+links:
+  paper: https://doi.org/10.1038/s41746-024-01239-w
+  doi: 10.1038/s41746-024-01239-w
+  code: https://github.com/ebmlab/MedReview
+license: MIT
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Cochrane Library systematic reviews, which have no single country of origin.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric, expert_human_rating]
+  modality: [text]
+  size: 8,161 abstract-conclusion pairs (train, validation, and two test files)
+provenance:
+  records: [r_28fc5d2836]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: medium
+  notes: "From the GitHub README only (the npj Digital Medicine paper, PMC11383939, was not opened). The README's MIT license covers the repository; it does not say whether it covers the Cochrane text. The paper is mainly about fine-tuning open models for evidence summarization, and MedReview serves as both training and test data, so it is borderline for scope (evidence summarization for researchers rather than health Q&A). A human should confirm it stays in. Authors are at Columbia University, NIH, and other US institutions per the README citation; first and last affiliations not checked."

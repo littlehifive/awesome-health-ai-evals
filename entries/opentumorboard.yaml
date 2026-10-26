@@ -1,0 +1,34 @@
+id: opentumorboard
+name: OpenTumorBoard
+kind: benchmark
+year: 2026
+summary: 611 patient cases and 19,157 discussion turns across ten specialist roles, transcribed from public YouTube recordings of multidisciplinary tumor boards, scoring LLM specialist responses and simulated board consensus with an LLM judge.
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2609.32810
+  arxiv: "2609.32810"
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Cases come from publicly posted tumor board recordings on YouTube; the paper text read does not state the recordings' countries or languages (English is assumed from the English prompts).
+  rater_countries: [UNKNOWN]
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [real_user_queries]
+  venue: preprint
+facets:
+  health_areas: [oncology]
+  intended_users: [clinician]
+  eval_methods: [rubric_llm_judge, simulated_multi_turn, automatic_metric]
+  modality: [text]
+  size: 611 cases, 19,157 discussion turns
+provenance:
+  records: [r_936fc62029]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Two settings, Specialist Turn and Board Simulation, judged by Qwen3.8-27B against reference responses with clinical-equivalence and conclusion-alignment rubrics (plus ROUGE-L and BERTScore); three M.D. experts audited the ground truth (447 QA pairs). Inputs include presentation slides with radiology and pathology images, so the benchmark is partly multimodal. Data release: the paper says the released data holds author annotations plus source URLs and timestamps, but no download link was seen, so open_data is unknown. Author affiliation countries were not visible in the HTML read. item_provenance uses real_user_queries as the closest value for real recorded clinician discussions."

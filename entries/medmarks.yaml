@@ -1,0 +1,36 @@
+id: medmarks
+name: Medmarks
+kind: benchmark
+year: 2025
+summary: An open-source suite of 30 existing medical benchmarks (multiple-choice QA, calculations, information extraction, open-ended clinical reasoning, patient questions) run as verifiers environments, with 61 models ranked by win rate using exact-match graders and LLM judges.
+readme_section: knowledge_exam
+links:
+  paper: https://arxiv.org/abs/2605.01417
+  arxiv: "2605.01417"
+  doi: 10.48550/arxiv.2605.01417
+  code: https://github.com/MedARC-AI/medmarks
+  website: https://medmarks.ai
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Items come from 30 pre-existing public benchmarks (for example MedQA, MedMCQA, HealthBench, MedCalc-Bench, AgentClinic) with mixed origins; not tabulated per country here.
+  localization: mixed
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic, industry_lab]
+  item_provenance: [adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician, patient_public]
+  eval_methods: [mcq_exact_match, automatic_metric, rubric_llm_judge, simulated_multi_turn]
+  modality: [text]
+  size: 30 benchmarks (Medmarks-V verifiable, Medmarks-OE open-ended, Medmarks-T trainable subset of 8)
+provenance:
+  records: [r_79ad45c2bc, r_f6c2ec85f8]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "A compilation and harness over existing benchmarks, so it is a suite entry; component benchmarks may also have their own entries. Year 2025 is the GitHub record date; the arXiv paper is May 2026. The repository code is MIT (seen on GitHub), but each component dataset has its own license, so license is null. Affiliations are Sophont, MedARC, and Prime Intellect (companies and a research community; builder types are a judgment) and countries were not checked. Non-English components, if any (the paper lists HeadQA-v2), were not checked, and the paper states the suite is text-only and single-turn heavy with limited safety and fairness coverage."

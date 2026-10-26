@@ -1,0 +1,36 @@
+id: medaesqa
+name: MedAESQA
+kind: benchmark
+year: 2025
+summary: 40 consumer health questions from MedlinePlus users, each with an expert reference answer citing PubMed articles, plus 1,200 LLM-generated answers with human judgments of accuracy and of whether cited references support each statement.
+readme_section: safety
+links:
+  paper: https://doi.org/10.1038/s41597-025-05233-z
+  doi: 10.1038/s41597-025-05233-z
+  pmcid: PMC12179289
+  dataset: https://doi.org/10.17605/OSF.IO/ydbzq
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Questions are the most popular information requests to MedlinePlus (US National Library of Medicine) from self-identified non-clinicians; user countries are not stated.
+  rater_countries: [USA]
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [government]
+  item_provenance: [real_user_queries, literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: 40 questions, 40 expert answers, 1,200 machine-generated answers, 8,111 machine citations
+provenance:
+  records: [r_05af643d92]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Scientific Data data descriptor from the US National Library of Medicine (intramural program). Machine answers came from TREC 2024 BioGen participants. Annotators are NLM-affiliated medical information experts; rater country inferred from the funding statement, not an explicit location. Data is archived on OSF; no license was stated in the sections read. Very small question set (40)."

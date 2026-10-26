@@ -1,0 +1,39 @@
+id: swedish-medical-llm-benchmark
+name: Swedish Medical LLM Benchmark (SMLB)
+kind: benchmark
+year: 2025
+summary: 2,665 Swedish medical questions in four sub-benchmarks (translated PubMedQA, a Swedish doctors' knowledge test, emergency medicine cases, and general medicine cases), scored by accuracy, with results for 18 LLMs.
+readme_section: multilingual_regional
+links:
+  paper: https://doi.org/10.3389/frai.2025.1557920
+  doi: 10.3389/frai.2025.1557920
+  pmcid: PMC12290221
+  code: https://github.com/BirgerMoell/swedish-medical-benchmark
+license: null
+open_data: open
+geography:
+  item_languages: [Swedish]
+  item_origin_countries: [SWE]
+  localization: mixed
+  lead_institution_countries: [SWE, CHE]
+  subsets:
+    - {name: "PubMedQA-Swedish (PQ-S; 1,000 questions)", languages: [Swedish], countries: [USA], localization: translated}
+    - {name: "Swedish Medical Doctors Knowledge Test (SMDT; 535 questions)", languages: [Swedish], countries: [SWE], localization: native}
+    - {name: "Emergency Medicine (SE-EM; 464 questions)", languages: [Swedish], countries: [SWE], localization: native}
+    - {name: "General Medicine (SE-GM; 666 questions)", languages: [Swedish], countries: [SWE], localization: native}
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions, adapted_dataset]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine, emergency_triage, primary_care]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 2,665 questions (1,000 PubMedQA-Swedish, 535 SMDT, 464 emergency medicine, 666 general medicine)
+provenance:
+  records: [r_edb1670fdc, r_37cb0ccbee]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "PubMedQA-Swedish was translated from English PubMedQA with GPT-4 plus human review, so its original items come from PubMed abstracts rather than Sweden. SMDT is adapted from Swedish clinical exams for doctors (image questions omitted); SE-EM and SE-GM come from Swedish specialist exam material (the paper text read here gives no further source detail). Scoring is exact-match accuracy with a question-weighted overall SMLB score. r_37cb0ccbee is the KTH doctoral thesis (Moell) that also reports the benchmark; it was matched only by its abstract. The data availability statement points to the GitHub repo; no license file was found (the license API returned 404), so license is null. Authors are at KTH (Sweden) and ETH Zurich (Switzerland). The Swedish exam MCQ uploads on Hugging Face (see swedish-medical-exams-mcq) may overlap with SMDT; this was not checked."

@@ -1,0 +1,34 @@
+id: rwe-llm
+name: RWE-LLM
+kind: eval_framework
+year: 2025
+summary: A four-stage safety-validation framework for patient-facing healthcare AI (scenario development, tiered clinician review, resolution, monitoring), applied by 6,234 US clinicians to over 307,000 calls with a non-diagnostic voice AI care agent.
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.1101/2025.03.17.25324157
+  doi: 10.1101/2025.03.17.25324157
+license: null
+open_data: described_only
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Simulated calls by US licensed clinicians (nurses and physicians) testing the agent.
+  rater_countries: [USA]
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [industry_lab]
+  item_provenance: [clinician_written]
+  venue: preprint
+facets:
+  health_areas: [general_medicine, nursing]
+  intended_users: [patient_public]
+  eval_methods: [expert_human_rating]
+  modality: [voice]
+  size: "307,000+ evaluated calls; 6,234 clinician testers (5,969 nurses, 265 physicians)"
+provenance:
+  records: [r_bddbdaefc3]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Hippocratic AI (Palo Alto) lead, with UBC, UC Davis Health and VALID.AI. Evaluates the company's own agent (Polaris iterations); no dataset or rubric download seen, so described_only. First-tier review is by audio playback; later tiers use transcripts. Modality set to voice from the audio-call design; the authors note the clinician pool mainly represents US practice."

@@ -1,0 +1,34 @@
+id: pretexeval
+name: PretexEval
+kind: eval_framework
+year: 2024
+summary: A framework that generates reliable and structurally diverse true/false test samples from any medical knowledge base using predicate equivalence transformations, applied to MedLAMA and DiseK to test 12 LLMs' medical factual knowledge.
+readme_section: frameworks
+links:
+  paper: https://arxiv.org/abs/2409.14302
+  arxiv: "2409.14302"
+  code: https://github.com/THUMLP/PretexEval
+license: MIT
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Samples are generated from the MedLAMA and DiseK knowledge bases, which have no country origin.
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated, literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: samples generated dynamically from knowledge-base subsets
+provenance:
+  records: [r_3ca7d2eab2, r_f01c1bcccf]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "The license is the repository's MIT license. The repo ships generated MedLAMA test files (medlamatf_*.json) and generation code; results-parsing and scoring code is marked as to be released. The README calls it an ICLR 2025 paper; venue is set to peer_reviewed on that basis only. Scoring is accuracy on true/false samples, shown relative to 50 percent random guessing. Two doctors checked 50 knowledge triplets."

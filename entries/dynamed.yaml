@@ -1,0 +1,32 @@
+id: dynamed
+name: DYNAMED
+kind: benchmark
+year: 2024
+summary: A framework that simulates medical consultations between a Patient System and an Expert System to test whether LLMs ask information-seeking questions before answering, with a synthetic conversation dataset (MEDQACHAT) for improving it.
+readme_section: open_ended
+links:
+  paper: http://dx.doi.org/10.1109/ichi61247.2024.00090
+  doi: 10.1109/ichi61247.2024.00090
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [unknown]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [simulated_multi_turn]
+  modality: [text]
+  size: unknown
+provenance:
+  records: [r_695b16ab26]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "Only the abstract was available; the IEEE full text is paywalled and no preprint was found (Semantic Scholar lists the title as 'Beyond the Stethoscope: Operationalizing Interactive Clinical Reasoning in Large Language Models via Proactive Information Seeking'). The dataset name MEDQACHAT suggests the items derive from MedQA, but the abstract does not say so. Release status, size, license, builder type, and author countries are unconfirmed; builder_types is a guess from the IEEE healthcare-informatics venue. Needs a human look."

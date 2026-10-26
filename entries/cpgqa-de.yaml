@@ -1,0 +1,35 @@
+id: cpgqa-de
+name: cpgQA-DE
+kind: benchmark
+year: 2026
+summary: 200 expert-validated German multiple-choice questions written by a physician from 10 German clinical practice guidelines across five specialties, scored by accuracy with and without retrieval.
+readme_section: multilingual_regional
+links:
+  paper: https://doi.org/10.1136/bmjhci-2026-102207
+  doi: 10.1136/bmjhci-2026-102207
+  huggingface: [MedInf-AI/cpgQA-DE]
+license: CC-BY-SA-4.0
+open_data: gated
+geography:
+  item_languages: [German]
+  item_origin_countries: [DEU]
+  item_origin_note: Questions derive from guidelines in the AWMF German national guideline registry.
+  rater_countries: [DEU]
+  localization: native
+  lead_institution_countries: [DEU]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written, literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 200 multiple-choice questions
+provenance:
+  records: [r_55e745c66f, r_e7f4de2226]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Questions were authored by one physician and validated by physicians with at least 3 years of experience in the relevant specialty (164 questions underwent full validation). Hugging Face dataset is gated (manual approval) with a CC-BY-SA-4.0 license tag; the card text itself could not be read without login. Rater country is not stated explicitly; Germany assumed from the authors' institutions and the German-guideline setting."

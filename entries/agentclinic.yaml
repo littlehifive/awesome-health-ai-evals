@@ -1,0 +1,39 @@
+id: agentclinic
+name: AgentClinic
+kind: benchmark
+year: 2024
+summary: Simulated clinical environment in which an LLM doctor agent diagnoses LLM-played patients through dialogue and tool use, built from USMLE (MedQA), MIMIC-IV, NEJM case challenges, MedMCQA specialty cases, and six translated languages, scored by diagnostic accuracy against the ground-truth diagnosis.
+readme_section: open_ended
+links:
+  paper: https://doi.org/10.1038/s41746-026-02674-7
+  arxiv: "2405.07960"
+  doi: 10.1038/s41746-026-02674-7
+  huggingface: [katielink/agentclinic_medqa]
+  code: https://github.com/SamuelSchmidgall/AgentClinic
+  website: https://agentclinic.github.io/
+license: MIT
+open_data: open
+geography:
+  item_languages: [English, Chinese, Hindi, Korean, Spanish, French, Persian]
+  item_origin_countries: [USA]
+  item_origin_note: Cases come from USMLE-style MedQA, MIMIC-IV (deidentified US hospital records), NEJM case challenges, and MedMCQA case reports. Multilingual cases are GPT-4 translations of AgentClinic-MedQA corrected by native speakers.
+  localization: mixed
+  lead_institution_countries: [USA, CHE]
+  subsets:
+    - {name: AgentClinic-Lang, languages: [English, Chinese, Hindi, Korean, Spanish, French, Persian], countries: [USA], localization: translated}
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, exam_questions, literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine, other_specialty]
+  intended_users: [clinician]
+  eval_methods: [simulated_multi_turn]
+  modality: [text]
+  size: Subsets include AgentClinic-MedQA, -MIMIC-IV, -NEJM (120 curated cases), -Spec (nine specialties), and -Lang (seven languages); total case count not read.
+provenance:
+  records: [r_104bc4bf2c, r_ff2131c319, r_135cd58cea, r_912f6f2716]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: The arXiv preprint (2024) and the npj Digital Medicine version (2026) are the same benchmark. katielink/agentclinic_medqa is a Hugging Face copy of the GitHub repo and README, not a separate benchmark. The license is the GitHub repo license (MIT); no separate dataset license found. Multimodal (image) cases exist in the paper but the entry records text modality only. Case counts per subset not extracted. cs552-the-expendables/nejm-patient-benchmark (r_912f6f2716) is a 15-case copy of the AgentClinic NEJM file plus model results from a course project, not a separate benchmark.

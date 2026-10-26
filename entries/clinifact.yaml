@@ -1,0 +1,34 @@
+id: clinifact
+name: CliniFact
+kind: benchmark
+year: 2024
+summary: "1,970 clinical research claims derived from ClinicalTrials.gov hypothesis-testing results across 992 interventions and 22 disease categories, each linked to PubMed abstract evidence and labelled evidence, inconclusive, or not enough information, scored by accuracy and F1."
+readme_section: safety
+links:
+  paper: https://doi.org/10.1038/s41597-025-04417-x
+  doi: 10.1038/s41597-025-04417-x
+  dataset: https://doi.org/10.6084/m9.figshare.27188109
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: "Claims come from trials registered in ClinicalTrials.gov (a US registry) and linked PubMed abstracts; trial countries are not restricted or reported."
+  localization: native
+  lead_institution_countries: [CHE]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature, adapted_dataset]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine, oncology, cardiology]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: "1,970 claims from 992 trials and 1,540 publications"
+provenance:
+  records: [r_ee32ca6e85]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Borderline scope: scientific claim verification for clinical research rather than health Q&A, kept because it tests LLM factuality on clinical evidence. The paper says the data (train, validation, test CSVs) are on Figshare; the license was not seen. Test labels were revised manually by two reviewer groups (kappa 0.85 in the published version). Authors at University of Geneva and Risklick AG (Switzerland). The health areas listed are a guess from the 22 disease categories, which were not read in full."

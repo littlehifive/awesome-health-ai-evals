@@ -1,0 +1,35 @@
+id: medic-bias-error-pipeline
+name: MEDIC (statistically significant biases and errors demo)
+kind: eval_framework
+year: 2025
+summary: Open pipeline that generates patient-style mental-health prompts (3.2M prompts, 29K answers, 684K evaluations) and scores answers for hallucination, omission, and treatment category with several LLM judges, to test demographic bias and judge agreement.
+readme_section: frameworks
+links:
+  paper: https://arxiv.org/abs/2511.02246
+  arxiv: "2511.02246"
+  code: https://github.com/BBN-E/medic-neurips-2025-demo
+  website: https://zenodo.org/records/17663093
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Prompts are LLM-generated from 37 disorders, 68 symptoms, and 79 desires seeded by focus groups and interviews with 20 mental-health patients and clinicians; the paper does not state their country.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic, industry_lab]
+  item_provenance: [llm_generated]
+  venue: preprint
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: 3.2M generated prompts, 29,256 answers from 3 LLMs, 684K evaluations by 4 LLMs
+provenance:
+  records: [r_04b420d0cb]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "NeurIPS 2025 demo paper by RTX BBN Technologies and Johns Hopkins / Princeton authors. The license is Apache-2.0 from the GitHub repository; the Zenodo dataset license was not checked. The repo calls the system MEDIC. Funded by ARPA-H. The paper's main finding is low agreement between LLM judges (mean Cohen's kappa 0.118)."

@@ -1,0 +1,35 @@
+id: medpriv-bench
+name: MedPriv-Bench
+kind: benchmark
+year: 2026
+summary: 2,938 open-ended medical questions over synthetic patient contexts with injected sensitive facts, scoring both clinical utility and privacy leakage (738-item held-out test set) with an NLI-based judge.
+readme_section: safety
+links:
+  paper: https://arxiv.org/abs/2603.14265
+  arxiv: "2603.14265"
+  huggingface: [Spiderman01/MedPriv-Bench_dataset]
+  code: https://github.com/SpidermanGUAN/MedPriv-Bench
+license: CC-BY-NC-SA-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Contexts are derived from PMC-Patients case reports; the source country is not stated. Sensitive details are synthetic.
+  localization: adapted
+  lead_institution_countries: [HKG]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature, llm_generated]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric, rubric_llm_judge]
+  modality: [text]
+  size: 2,938 instances (2,200 train, 738 test)
+provenance:
+  records: [r_b2586c42ac, r_94892bc020]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Built with a multi-agent, human-in-the-loop pipeline; 20% of samples were reviewed by registered nurses (country not stated). The fine-tuned RoBERTa-NLI judge reached F1 75.3% against human annotations. The HF train split mixes 1,315 construction examples with 885 SFT examples, and train and test share 555 source patient IDs, so only the 738 test rows are a clean evaluation set. License is from the HF card."

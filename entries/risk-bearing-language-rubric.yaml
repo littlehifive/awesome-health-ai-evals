@@ -1,0 +1,33 @@
+id: risk-bearing-language-rubric
+name: Risk-Bearing Language Rubric (fine-tuning study)
+kind: eval_framework
+year: 2026
+summary: A rubric scored by a three-judge LLM ensemble that rates patient-facing answers for six categories of risk-bearing language (treatment directives, contraindications, dosages, urgency cues, high-alert medications, overconfident assertions), applied to six 7-9B models on K-QA patient questions.
+readme_section: frameworks
+links:
+  paper: https://arxiv.org/abs/2610.24807
+  arxiv: "2610.24807"
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Uses real patient questions from the K-QA benchmark (200 prompts; 50 used in the correlation analysis); the paper does not state their country.
+  localization: adapted
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [general_medicine, pharmacy_medication]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: 6 risk categories with 0-5 severity anchors; 200 K-QA prompts
+provenance:
+  records: [r_912115933c]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Single author; the email domain is asu.edu, so USA is inferred for the lead institution. The paper says it releases the rubric, judge prompts and evaluation code, but I did not find a URL, so open_data is unknown. Related to but different from rshs-hallucination-risk (a 2026 paper on a similar risk-sensitive score)."

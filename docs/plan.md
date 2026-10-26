@@ -20,7 +20,7 @@ Out: radiology and pathology image question answering, EHR documentation and cod
 
 ### Inclusion bar
 
-Everything in scope is included. Each card shows signals instead of a cutoff: OpenAlex citations, Hugging Face downloads, open data, and uptake in model reports. A hand-picked "featured" tier leads the README.
+Everything in scope is included, except dataset-only uploads with no paper and fewer than 50 items (added during the build, after one uploader's stream of 10-20-row sets). Each card shows signals instead of a cutoff: OpenAlex citations, Hugging Face downloads, open data, and uptake in model reports. A hand-picked "featured" tier leads the README.
 
 ### Granularity
 

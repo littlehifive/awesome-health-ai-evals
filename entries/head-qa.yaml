@@ -1,0 +1,41 @@
+id: head-qa
+name: HEAD-QA
+kind: benchmark
+year: 2019
+summary: Multiple-choice questions from Spanish public-healthcare specialist-access exams (medicine, nursing, pharmacology, psychology, biology, chemistry), 6,765 in v1 and 12,751 in v2, in Spanish with English translations.
+readme_section: multilingual_regional
+links:
+  paper: https://arxiv.org/abs/1906.04701
+  arxiv: "1906.04701"
+  doi: 10.18653/v1/p19-1092
+  huggingface: [dvilares/head_qa, alesi12/head_qa_v2]
+  website: https://aghie.github.io/head-qa/
+license: MIT
+open_data: open
+geography:
+  item_languages: [Spanish, English, Italian, Galician, Russian]
+  item_origin_countries: [ESP]
+  item_origin_note: Questions come from the Spanish Ministry of Health's annual exams for specialist positions in the public healthcare system (v1 from 2013 on; v2 covers ten years of exams).
+  rater_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [ESP]
+  subsets:
+    - {name: Spanish (original), languages: [Spanish], countries: [ESP], localization: native}
+    - {name: English, languages: [English], countries: [ESP], localization: translated}
+    - {name: "Italian, Galician, Russian (v2 only)", languages: [Italian, Galician, Russian], countries: [ESP], localization: translated}
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine, nursing, pharmacy_medication]
+  intended_users: [clinician, medical_student]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 6,765 questions (v1, 2019); 12,751 questions (v2, 2025)
+provenance:
+  records: [r_abdfde31ef, r_92662c02f6]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "v1 (ACL 2019, Vilares and Gomez-Rodriguez) and v2 (arXiv 2511.15355, Correa-Guillen, Gomez-Rodriguez, Vilares) are merged because the same group extends the same exam-based dataset. v1 English is human-checked machine translation (adequacy and fluency rated); v2 English, Italian, Galician and Russian are LLM translations selected by a back-translation pipeline. About 14% of medicine questions refer to images; images are included in the data but not used in the papers' experiments. v1 split: 2,657 train, 1,366 dev, 2,742 test (supervised setting). License MIT is from the dvilares/head_qa and alesi12/head_qa_v2 Hugging Face cards; EleutherAI/headqa mirror says license: other and is not listed. v2 dataset ID taken from the paper; a v1 project page link (aghie.github.io) no longer resolves."

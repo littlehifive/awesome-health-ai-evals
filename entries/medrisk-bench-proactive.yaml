@@ -1,0 +1,32 @@
+id: medrisk-bench-proactive
+name: MedRisk-Bench (proactive medication risk)
+kind: benchmark
+year: 2026
+summary: 1,061 clinician-validated user-style queries built from 100 medication risks across 5 risk types and 9 non-medical scenarios, testing whether LLMs proactively flag medication risks, with a no-risk control set for over-warning.
+readme_section: safety
+links:
+  huggingface: [Medriskbench/Medrisk-Bench]
+license: CC-BY-NC-ND-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: The card does not state where the medication risks or reviewing clinicians come from.
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated, clinician_written]
+  venue: grey_literature
+facets:
+  health_areas: [pharmacy_medication]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: 1,061 questions (Level-1 852, Level-2 209); extended set of 54,601; 356-question no-risk control set
+provenance:
+  records: [r_6c6f569476]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "Only the Hugging Face card was read; no paper is linked. The card tags the data synthetic and clinician-validated, and says over-warning is judged by GPT-5.4 and Claude Sonnet 4.6 counting unsupported warnings; the main Query Score metric is not described on the card. Builder type, country, and lead institution are not stated (card is anonymous). Distinct from jinge13288/MedRisk-Bench (the MedRisk entry)."

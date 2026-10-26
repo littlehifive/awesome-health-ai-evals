@@ -1,0 +1,50 @@
+id: diagbench
+name: DiagBench
+kind: benchmark
+year: 2025
+summary: 750 physician-validated MIMIC-IV patient cases with reference multi-turn diagnostic trajectories (examination recommendations then final diagnosis), 99 of them with 973 weighted physician-written process rubrics, for evaluating interactive diagnostic agents.
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2510.24654
+  arxiv: '2510.24654'
+  code: https://github.com/MAGIC-AI4Med/DiagGym
+license: null
+open_data: closed
+geography:
+  item_languages:
+  - English
+  item_origin_countries:
+  - USA
+  item_origin_note: Cases come from MIMIC-IV (a US hospital database).
+  rater_countries:
+  - UNKNOWN
+  localization: native
+  lead_institution_countries:
+  - CHN
+origin:
+  builder_types:
+  - academic
+  - industry_lab
+  item_provenance:
+  - adapted_dataset
+  - clinician_written
+  venue: preprint
+facets:
+  health_areas:
+  - general_medicine
+  intended_users:
+  - clinician
+  eval_methods:
+  - automatic_metric
+  - rubric_llm_judge
+  - simulated_multi_turn
+  modality:
+  - text
+  size: 750 cases; 99 with 973 rubrics
+provenance:
+  records:
+  - r_aae6454996
+  read_full_text: true
+  confidence: medium
+  notes: DiagBench is one contribution of the DiagGym/DiagAgent RL paper (Section 5.3). Data Availability says MIMIC-IV licensing prevents open-sourcing the dataset (they are discussing a PhysioNet release); code is at the GitHub link. Cases are LLM-restructured from EHR records and physician-reviewed; rubric authors and countries are not stated. Scored by diagnosis accuracy, examination-recommendation hit ratio and F1, and a weighted rubric score judged by an LLM (judge model not checked). Lead institution countries come from the first-author affiliations (Shanghai Jiao Tong University, Shanghai AI Laboratory, Ant Group).
+  extracted: '2026-10-26'

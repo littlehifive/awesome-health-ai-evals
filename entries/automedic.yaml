@@ -1,0 +1,35 @@
+id: automedic
+name: AutoMedic
+kind: eval_framework
+year: 2025
+summary: A multi-agent framework that turns static medical QA items into simulated clinician-patient conversations and scores the doctor-agent LLM with the CARE metric (accuracy, conversational efficiency and strategy, empathy, robustness).
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.1109/jbhi.2026.3703097
+  arxiv: "2512.10195"
+  doi: 10.1109/jbhi.2026.3703097
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Built on existing QA sets (MedQA, MedBullets, MedXpertQA, MedMCQA, HEAD-QA, MMLU-Pro); the paper's text does not give a country for the converted items.
+  rater_countries: [UNKNOWN]
+  localization: adapted
+  lead_institution_countries: [KOR]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, llm_generated]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [simulated_multi_turn, rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: Framework applied to six medical QA benchmarks; 30 simulations rated by four licensed medical professionals for validation
+provenance:
+  records: [r_a8ce3a64b4]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: Yonsei University (Korea). No code or data link found in the paper text or the arXiv abstract page. The paper checks which source QA sets can yield usable virtual patient profiles (MedBullets, MedQA, MedXpertQA suit best).

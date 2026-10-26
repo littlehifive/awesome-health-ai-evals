@@ -1,0 +1,35 @@
+id: nephsap
+name: nephSAP
+kind: benchmark
+year: 2023
+summary: 858 multiple-choice nephrology questions from the American Society of Nephrology's Nephrology Self-Assessment Program (nephSAP), with answer keys and ground-truth explanations, used to compare open-source LLMs, GPT-4, and Claude 2.
+readme_section: knowledge_exam
+links:
+  paper: https://doi.org/10.1056/aidbp2300092
+  arxiv: "2308.04709"
+  doi: 10.1056/aidbp2300092
+  huggingface: [SeanWu25/NEJM-AI_Benchmarking_Medical_Language_Models]
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Questions come from nephSAP, a self-assessment program run by the American Society of Nephrology.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions]
+  venue: peer_reviewed
+facets:
+  health_areas: [other_specialty]
+  intended_users: [clinician, medical_student]
+  eval_methods: [mcq_exact_match, automatic_metric]
+  modality: [text]
+  size: 858 questions
+provenance:
+  records: [r_cb52faf113, r_db241814e6]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "The arXiv preprint (r_cb52faf113, with the Hugging Face dataset) and the NEJM AI paper (r_db241814e6) are the same study. Answers are scored by accuracy against the key; open-source models' explanations are also scored with word error rate, BLEU, and cosine similarity against ground-truth explanations. The Apache-2.0 license is from the Hugging Face card; the paper has no data-availability or license statement, and the questions originate from ASN's nephSAP, so the card license may not cover the underlying question text. The NEJM AI version was not read; its text was taken from the abstract only."

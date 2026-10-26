@@ -1,0 +1,33 @@
+id: cci-iwri
+name: Clinical Chatbot Index (CCI) and Informative Warm Refusal Index (IWRI)
+kind: eval_framework
+year: 2026
+summary: Two weighted scoring indices for chatbot answers to physical and mental health questions (clinical integrity and factuality, empathy and warmth, an adversarial safety gate, and a warm-refusal check), applied to five LLMs on a 500-query set built from Reddit AskDocs and PatientsLikeMe.
+readme_section: frameworks
+links:
+  paper: https://hdl.handle.net/20.500.14472/69
+  doi: 10.71765/14
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Queries come from the AskDocs subreddit and the PatientsLikeMe forum; the thesis does not give the posters' countries.
+  localization: native
+  lead_institution_countries: [CAN]
+origin:
+  builder_types: [academic]
+  item_provenance: [web_forum]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine, mental_health]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge, automatic_metric]
+  modality: [text]
+  size: 500 queries (366 forum questions plus 134 perturbed variants)
+provenance:
+  records: [r_ab0dd0dd19]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Master's thesis at Algoma University (Canada) by J. Thapa; only the evaluation chapter was read, not the rest of the thesis (knowledge graphs and intake chatbot). The indices combine an adversarial gate, a clinical-integrity score (fact recall plus referral quality) and empathy terms, with LLM auditing. The thesis does not release the 500-query set or code as far as read, so open_data is unknown."

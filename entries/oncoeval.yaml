@@ -1,0 +1,35 @@
+id: oncoeval
+name: OncoEval
+kind: benchmark
+year: 2026
+summary: "Benchmark distilled from OncoCoT: oncologic decision-making questions from recent Chinese case reports across eight cancer types, covering examination recommendation, diagnosis, and treatment planning, scored by an LLM-based item-level precision, recall, and accuracy."
+readme_section: multilingual_regional
+links:
+  paper: https://doi.org/10.1609/aaai.v40i40.40724
+  doi: 10.1609/aaai.v40i40.40724
+  code: https://github.com/ydli-ai/OncoCoT
+license: Apache-2.0
+open_data: unknown
+geography:
+  item_languages: [Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: Built from 734 Chinese case reports from an open-access public medical case platform, from which 2023 to 2024 cases were selected for the benchmark.
+  rater_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature, llm_generated]
+  venue: peer_reviewed
+facets:
+  health_areas: [oncology]
+  intended_users: [clinician]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: "subset of 2023 to 2024 cases from 734 case reports (exact count not found)"
+provenance:
+  records: [r_6f40fb4995, r_7392c3a900]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "AAAI-26 paper (r_7392c3a900) and its Underline record (r_6f40fb4995). OncoCoT, the larger training-oriented CoT dataset, is the paper's main contribution; OncoEval is the evaluation subset and is the part catalogued here. Language is inferred from the Chinese source reports and the Chinese medical reasoning baselines; the paper does not state it outright. The paper says datasets are at the GitHub repo, but the repo seen holds only a README and LICENSE (Apache-2.0), so open_data is unknown and the benchmark size was not found. Questions and reference answers are LLM-generated from case timelines; evaluator LLMs extract and compare items."

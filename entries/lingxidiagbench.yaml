@@ -1,0 +1,36 @@
+id: lingxidiagbench
+name: LingxiDiagBench
+kind: benchmark
+year: 2026
+summary: 16,000 synthetic Chinese psychiatric consultation dialogues with EMRs (plus 1,709 real clinical cases) for static diagnosis tasks and dynamic doctor-agent consultations against simulated patients, scored by accuracy, F1, and LLM-judge consultation quality.
+readme_section: mental_health
+links:
+  paper: https://arxiv.org/abs/2602.09379
+  arxiv: "2602.09379"
+  huggingface: [XuShihao6715/LingxiDiag-16K]
+  code: https://github.com/Lingxi-mental-health/LingxiDiagBench
+license: CC-BY-NC-4.0
+open_data: gated
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: Synthetic dialogues are generated from statistics of real outpatient EMRs at Shanghai Mental Health Center (about 4,500 outpatients, 2023-2024); the 1,709-case LingxiDiag-Clinical set comes from the same center.
+  rater_countries: [CHN]
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [industry_lab, academic]
+  item_provenance: [llm_generated]
+  venue: peer_reviewed
+facets:
+  health_areas: [mental_health]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric, rubric_llm_judge, simulated_multi_turn]
+  modality: [text]
+  size: 16,000 synthetic dialogues (LingxiDiag-16K); 1,709 real clinical cases (LingxiDiag-Clinical)
+provenance:
+  records: [r_3acf9bd93f]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Dataset license (CC-BY-NC-4.0) is from the Hugging Face card, which also carries an extra_gated_prompt license-agreement block, so open_data is set to gated even though the API reported the dataset as not gated; verify. The repository license field is not detected by GitHub, though the README badge says Apache 2.0. Whether the real LingxiDiag-Clinical data is released was not confirmed. The README says the paper was accepted to KDD 2026; the arXiv copy still carries placeholder ACM text. Two licensed psychiatrists reviewed samples of the synthetic data. Authors from EverMind AI and Shanghai Mental Health Center."

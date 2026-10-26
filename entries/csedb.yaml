@@ -1,0 +1,35 @@
+id: csedb
+name: "CSEDB (Clinical Safety-Effectiveness Dual-Track Benchmark)"
+kind: benchmark
+year: 2025
+summary: 2,069 open-ended Chinese clinical scenario questions across 26 departments, written and reviewed by specialist physicians and scored with an LLM judge against 30 weighted safety and effectiveness criteria.
+readme_section: safety
+links:
+  paper: https://doi.org/10.1038/s41746-025-02277-8
+  arxiv: "2507.23486"
+  doi: 10.1038/s41746-025-02277-8
+  code: https://github.com/Medlinker-MG/CSEDB
+license: Apache-2.0
+open_data: unknown
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: The paper says the assessment covers Chinese clinical question-answering scenarios; it does not name the hospitals or sites that supplied cases.
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [industry_lab, academic]
+  item_provenance: [clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine, pharmacy_medication, emergency_triage]
+  intended_users: [clinician]
+  eval_methods: [rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 2,069 questions; 30 criteria (17 safety, 13 effectiveness); questions weighted 1 to 5 by clinical severity
+provenance:
+  records: [r_a42c675d5c]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Full text read via paperclip (arXiv version). Apache-2.0 is the GitHub repository license; the paper's data-availability statement points to the repo for supplementary tables and code, and the repo has an eval_data folder (e1_wp.json to e10_wp.json and a worst_at_k folder), but whether the 2,069 items are released in it was not checked, so open_data is unknown. Authors include employees of Medlinker (Beijing); the paper does not state the physicians' countries, so rater_countries is omitted. The GitHub README says 40 physicians, the paper says 32. Scoring uses DeepSeek-R1 as the judge, checked against oncology physicians (macro-F1 on 411 criteria). Items are single-turn text."

@@ -1,0 +1,35 @@
+id: psycrisisbench
+name: PsyCrisisBench
+kind: benchmark
+year: 2025
+summary: 540 annotated Mandarin transcripts of real calls to the Hangzhou Psychological Assistance Hotline, scored by F1 on four binary crisis-assessment tasks (mood status, suicidal ideation, suicide plan, risk level).
+readme_section: mental_health
+links:
+  paper: https://arxiv.org/abs/2506.01329
+  arxiv: "2506.01329"
+  doi: 10.1109/jbhi.2026.3688375
+license: null
+open_data: unknown
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: Calls from the Hangzhou Psychological Assistance Hotline (Hangzhou Seventh People's Hospital), collected in 2023; a separate 520-call set from 2022 is for few-shot prompting and fine-tuning.
+  rater_countries: [CHN]
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [real_user_queries]
+  venue: peer_reviewed
+facets:
+  health_areas: [mental_health, emergency_triage]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric, real_user_data]
+  modality: [text]
+  size: 540 call transcripts (plus 520 calls for few-shot and fine-tuning)
+provenance:
+  records: [r_aa00f27f57]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "No data or code release link, data-availability statement, or license was found in the preprint text; given the privacy sensitivity of hotline calls, access may be restricted, so open_data is unknown. Annotations are the hotline operators' structured post-call assessments (rater_countries assumes they are in China, per the Hangzhou hotline). Transcripts, not audio, are evaluated. The record r_7071635598 has a similar name but is a different benchmark, entered as psycrisis-bench-safety."

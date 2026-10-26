@@ -1,0 +1,33 @@
+id: german-guideline-mcq
+name: German Clinical Guidelines Benchmark
+kind: benchmark
+year: 2025
+summary: 200 multiple-choice questions, case-based and knowledge-based, generated from ten German S3 clinical guidelines across five specialties and expert-reviewed, for testing LLMs on German guideline-based question answering.
+readme_section: multilingual_regional
+links:
+  paper: https://doi.org/10.3205/25gmds059
+  doi: 10.3205/25gmds059
+license: null
+open_data: closed
+geography:
+  item_languages: [German]
+  item_origin_countries: [DEU]
+  item_origin_note: Questions are built from guidelines in the AWMF registry (Association of the Scientific Medical Societies in Germany).
+  localization: native
+  lead_institution_countries: [DEU]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine, child_health, other_specialty]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 200 questions, each with one correct answer and three distractors
+provenance:
+  records: [r_7ce5768e93]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: medium
+  notes: Based on the GMDS 2025 conference abstract only. The abstract does not say how questions were generated (by people or LLM) or where the data is hosted, so open_data is set to closed pending a check. Specialties are intensive care, anesthesiology, pediatrics, gastroenterology, and general medicine. Lead country DEU is assumed from the German venue and authors' names; affiliations were not shown.

@@ -1,0 +1,33 @@
+id: shpdrg-medical-model-evaluation
+name: SHPDRG Medical Model Evaluation Benchmark
+kind: benchmark
+year: 2026
+summary: 1,000 Chinese medical task samples (100 each across triage, rehabilitation and medication guidance, mental health counseling, diagnosis, treatment planning, differential diagnosis, and record structuring), published as a sample of a vendor's evaluation data.
+readme_section: multilingual_regional
+links:
+  huggingface: [SHPDRG/medical-model-evaluation-benchmark]
+  code: https://github.com/lengfeng650-star/medical-model-evaluation-benchmark
+license: custom
+open_data: open
+geography:
+  item_languages: [Chinese]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: The card says items keep a source note per row but does not state their origin; the vendor contact is in China.
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [unknown]
+  item_provenance: [unknown]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine, mental_health, pharmacy_medication]
+  intended_users: [unspecified]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 1,000 samples in 10 task subsets of 100
+provenance:
+  records: [r_9df618c01f]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: low
+  notes: "Dataset card only (Chinese). The license tag is 'other' with no text seen, so license is recorded as custom. Only subset 5 (advanced diagnosis) is multiple choice; the rest are open-ended with 'answer requirements', and the card gives no scoring method or reference-answer description, so eval_methods is a weak guess. The card mixes evaluation, training and instruction-tuning use, and subset 10 (record structuring) is information extraction. It is a promotional sample of a data vendor's full data service. Items are in a train split on HF; original Excel files are also in the repo."

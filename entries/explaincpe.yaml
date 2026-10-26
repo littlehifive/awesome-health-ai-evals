@@ -1,0 +1,36 @@
+id: explaincpe
+name: ExplainCPE
+kind: benchmark
+year: 2023
+summary: 7,556 five-option multiple-choice questions from the Chinese National Licensed Pharmacist Examination and exercise books, each with a gold free-text explanation, for testing answer accuracy and explanation quality of LLMs in Chinese.
+readme_section: multilingual_regional
+links:
+  paper: https://aclanthology.org/2023.findings-emnlp.129/
+  arxiv: "2305.12945"
+  doi: 10.18653/v1/2023.findings-emnlp.129
+  code: https://github.com/HITSz-TMG/ExplainCPE
+license: null
+open_data: open
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: Questions come from China's National Licensed Pharmacist Examination (2020-2021 official papers form the test set) and from internet and exercise-book sources about that exam.
+  rater_countries: [CHN]
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions]
+  venue: peer_reviewed
+facets:
+  health_areas: [pharmacy_medication]
+  intended_users: [pharmacist, medical_student]
+  eval_methods: [mcq_exact_match, automatic_metric, expert_human_rating, rubric_llm_judge]
+  modality: [text]
+  size: 7,556 questions (6,867 train, 500 dev, 189 test)
+provenance:
+  records: [r_7df5f35707]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Explanations come from the official exam solutions. Three Peking Union Medical College doctoral students checked 320 samples (99.4% label and 99.0% explanation accuracy). Scoring is accuracy plus ROUGE on explanations, with human and GPT-4 ratings on five criteria (well-formedness, support, correctness, validity, novelty) for a few models. No license found in the paper or the repository metadata. The Hugging Face field in the screening record was empty."

@@ -1,0 +1,36 @@
+id: treeprobe
+name: TreeProbe
+kind: benchmark
+year: 2026
+summary: 4,719 expert-adjudicated Tibetan-language items (multiple-choice and open-ended QA) covering 467 diseases in Tibetan medicine, built to measure whether LLMs drift toward TCM or biomedical reasoning.
+readme_section: safety
+links:
+  paper: https://arxiv.org/abs/2608.00640
+  arxiv: "2608.00640"
+  doi: 10.48550/arxiv.2608.00640
+  code: https://anonymous.4open.science/r/TreeProbe/
+license: null
+open_data: unknown
+geography:
+  item_languages: [Tibetan]
+  item_origin_countries: [CHN]
+  item_origin_note: Items are derived from the Four Tantras and the Chinese national standard GB/T 46946-2025 on Tibetan medicine disease codes, annotated by native Tibetan speakers; the paper does not name a country for the items.
+  rater_countries: [CHN]
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature, llm_generated]
+  venue: preprint
+facets:
+  health_areas: [traditional_medicine]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match, rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 4,719 items, 467 diseases, 10 subtasks
+provenance:
+  records: [r_6659ed2173]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Items are organized under three roots of the Tree of Medicine (physiopathology, diagnosis, therapy). Stems were drafted by GPT-5.4 from annotator-extracted evidence spans, then adjudicated by a panel of five (three Tibetan medicine physicians, one TCM physician, one biomedical physician). MCQ distractors are labeled as intra-Tibetan, TCM-drift, or biomedical-drift, which gives log-odds drift metrics; open-ended QA is scored 1-100 by a GPT-5.4 judge on a five-dimension rubric. Code and data are linked only through an anonymous review repository, which was not opened, so open_data is unknown and no license is recorded. Countries (CHN) are inferred from the authors' institutions (UESTC, Tibet University) and the Chinese national standard used, not from an explicit statement; please check."

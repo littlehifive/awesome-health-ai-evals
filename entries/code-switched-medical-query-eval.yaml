@@ -1,0 +1,33 @@
+id: code-switched-medical-query-eval
+name: Code-Switched Medical Query Evaluation
+kind: benchmark
+year: 2026
+summary: 15 medical scenarios (urgent to low-urgency symptoms) each written in code-switched Roman Urdu/English or Sindhi and in plain English, with responses from one small model hand-scored 0 to 2.
+readme_section: multilingual_regional
+links:
+  dataset: https://huggingface.co/datasets/AsadChanna/code-switched-medical-blindspot-eval
+  huggingface: [AsadChanna/code-switched-medical-blindspot-eval]
+license: null
+open_data: open
+geography:
+  item_languages: [Urdu, English, Sindhi]
+  item_origin_countries: [PAK]
+  item_origin_note: The card says the prompts mimic how people in Pakistan type health complaints (Roman-script Urdu mixed with English, and Sindhi); the author wrote them, and the author's country is not stated. The Sindhi prompts were not checked by a native speaker.
+  localization: native
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [unknown]
+  item_provenance: [unknown]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine, emergency_triage]
+  intended_users: [patient_public]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: 15 scenarios, 30 prompts (15 code-switched, 15 English control)
+provenance:
+  records: [r_218ef044e0]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Single dataset card, no paper. Scoring is one rater's 0 to 2 scale (0 missed or dangerous, 1 vague or under-triaged, 2 appropriate) with no inter-rater check; severity labels are the author's judgment, not a clinician's. The card has no license field. Very small and exploratory; the card is titled for one model (Qwen2.5-1.5B-Instruct), so it is closer to a worked example than a reusable benchmark."

@@ -1,0 +1,34 @@
+id: medpi
+name: MedPI
+kind: benchmark
+year: 2025
+summary: Simulated doctor-patient conversations between LLMs and 366 synthetic AI patients across 34 clinical scenarios, scored on 105 ACGME-aligned dimensions (1-4 scale) by committee LLM judges; 7,097 conversations from nine models are released.
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2601.04195
+  arxiv: "2601.04195"
+  huggingface: [TheLumos/MedPI-Dataset, yangyanglan/MedPI-Dataset]
+license: CC-BY-SA-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Patient packets are synthetic (generated with Synthea); the paper says the population attributes do not match any real-world population.
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [industry_lab]
+  item_provenance: [llm_generated]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public, clinician]
+  eval_methods: [simulated_multi_turn, rubric_llm_judge]
+  modality: [text]
+  size: 366 AI patients, 7,097 conversations, 105 evaluation dimensions
+provenance:
+  records: [r_43e2c2b689, r_a869e64c02, r_c2334e078b]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Authors are at Lumos (thelumos.ai); the paper gives no country. The paper links TheLumos/MedPI-Dataset; yangyanglan/MedPI-Dataset has an identical card and is treated as a copy. The released data holds transcripts and judge scores, with the 105-dimension rubric catalog in an appendix and in dimensions.csv. Both HF cards say CC-BY-SA-4.0. Judge calibration against humans was not checked."

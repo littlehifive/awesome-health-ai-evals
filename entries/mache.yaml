@@ -1,0 +1,33 @@
+id: mache
+name: MACHE
+kind: eval_framework
+year: 2026
+summary: A multi-agent framework in which three scoring agents and a referee agent rate the quality of generative-AI physician responses against the GAI-HIQ health information quality indicator system, validated on the PedRespDial dialogue set.
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.2139/ssrn.7454624
+  doi: 10.2139/ssrn.7454624
+license: null
+open_data: described_only
+geography:
+  item_languages: [UNKNOWN]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Only the abstract was available. It names the PedRespDial dataset but does not state its language or country.
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [unknown]
+  item_provenance: [unknown]
+  venue: preprint
+facets:
+  health_areas: [child_health]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 3 scoring agents plus a referee agent; compared ChatGPT, DeepSeek, and ZOE
+provenance:
+  records: [r_ed1399c568]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "SSRN preprint (2026); the SSRN page and PDF were blocked, so this entry rests on the abstract and Crossref. Reported reliability: Cronbach alpha 0.859, ICC 0.751 to 0.786, 96.2% score-reason consistency in human review. The pediatric respiratory focus is inferred from the dataset name PedRespDial. A human should open the full text to fill languages, countries, and authors."

@@ -1,0 +1,33 @@
+id: jmle2026-bench
+name: JMLE2026-Bench
+kind: benchmark
+year: 2026
+summary: "All 400 questions (302 text-only, 98 with clinical images) of the 120th Japanese Medical Licensing Examination (February 2026), with ground-truth answers, solver code and a public leaderboard scored by the official 500-point scheme."
+readme_section: multilingual_regional
+links:
+  code: https://github.com/naoto-iwase/jmle2026-bench
+  website: https://jmle2026-bench.streamlit.app
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [Japanese]
+  item_origin_countries: [JPN]
+  item_origin_note: 120th Japanese Medical Licensing Examination (Ministry of Health, Labour and Welfare, published under PDL 1.0).
+  localization: native
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine]
+  intended_users: [medical_student, clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: "400 questions (302 text-only, 98 with images)"
+provenance:
+  records: [r_020bdff020]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "README only. Dataset is CC BY 4.0 and code MIT per the README license section; builder affiliation is not stated, so builder_types is a guess and lead country is UNKNOWN. Same maintainer as IgakuQA119 (previous exam year), which is a separate entry. Scoring follows the official required/general/prohibited-choice pass criteria."

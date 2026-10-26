@@ -1,0 +1,34 @@
+id: clindiag
+name: ClinDiag
+kind: benchmark
+year: 2025
+summary: 4,421 clinical cases (case reports, MIMIC-IV emergency cases, and rare diseases) across 32 specialties for evaluating LLM doctor agents through full diagnostic encounters of history, examination, tests, and diagnosis.
+readme_section: open_ended
+links:
+  paper: https://doi.org/10.21203/rs.3.rs-6286021/v1
+  doi: 10.21203/rs.3.rs-6286021/v1
+  code: https://github.com/geteff1/ClinDiag
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA, UNKNOWN]
+  item_origin_note: 2,400 emergency cases come from MIMIC-IV-Ext Clinical Decision Making (USA); 1,716 case reports come from peer-reviewed journals and 302 rare-disease cases from the authors' earlier study, with no countries given. English is assumed from the sources and is not stated.
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature, adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [general_medicine, emergency_triage]
+  intended_users: [clinician]
+  eval_methods: [simulated_multi_turn, rubric_llm_judge, automatic_metric]
+  modality: [text]
+  size: 4,421 cases
+provenance:
+  records: [r_b3042ef352]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Research Square preprint (CC BY 4.0 for the paper). The GitHub repo (Apache-2.0) contains Clindiag_Benchmark.zip, so open_data is set to open; MIMIC-derived cases may carry PhysioNet terms that were not checked. A doctor agent and a provider agent simulate the encounter; scoring uses five 1-5 metrics plus BLEU, ROUGE-L, and BERTScore. Who gave the 1-5 ratings was not confirmed (GPT-4o was used for case quality screening). The paper also presents ClinDiag-GPT (not an entry)."

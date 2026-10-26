@@ -1,0 +1,35 @@
+id: mindeval
+name: MindEval
+kind: benchmark
+year: 2025
+summary: Multi-turn mental-health therapy benchmark in which a model under test counsels an LLM-simulated patient (50 20-turn interactions with distinct generated profiles) and an LLM judge scores five clinician-designed criteria on a 1 to 6 scale.
+readme_section: mental_health
+links:
+  paper: https://arxiv.org/abs/2511.18491
+  arxiv: "2511.18491"
+  doi: 10.48550/arxiv.2511.18491
+  code: https://github.com/SWORDHealth/mind-eval
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Patient profiles are LLM-generated from sampled demographic, personality and goal attributes; no country of origin is stated in the paper.
+  localization: native
+  lead_institution_countries: [PRT]
+origin:
+  builder_types: [industry_lab, academic]
+  item_provenance: [llm_generated]
+  venue: preprint
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge, simulated_multi_turn, expert_human_rating]
+  modality: [text]
+  size: 50 simulated patient interactions of 20 turns; 12 LLMs evaluated
+provenance:
+  records: [r_9a2a1011ba]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Built by Sword Health with PhD-level licensed clinical psychologists (countries not stated); first author also lists Instituto Superior Tecnico (Portugal), which is the basis for lead_institution_countries. Judge scores correlate with four psychologists' ratings; a cohort of 10 psychologists wrote patient text to validate simulation realism; human data are released. The Apache-2.0 license is from the GitHub repo, whose master branch is now MindEval 2 (see the mindeval2 entry); the original MindEval is kept on the legacy branch. Release of the 50 original profiles was not separately confirmed."

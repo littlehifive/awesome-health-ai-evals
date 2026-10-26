@@ -1,0 +1,32 @@
+id: nursing-spanish-exams
+name: Nursing Spanish Exams (Aya multimodal exams)
+kind: benchmark
+year: 2025
+summary: 977 multiple-choice questions from Spain's national nursing specialty (EIR) exam booklets, in Spanish with answer keys, 52 of them with images, contributed to the Multimodal Aya Exams project.
+readme_section: multilingual_regional
+links:
+  huggingface: [amayuelas/aya-mm-exams-spanish-nursing]
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [Spanish]
+  item_origin_countries: [ESP]
+  item_origin_note: Questions come from exam booklets (cuadernos de examen) on the Spanish Ministry of Health's FSE site, as recorded in each row.
+  localization: native
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [unknown]
+  item_provenance: [exam_questions]
+  venue: grey_literature
+facets:
+  health_areas: [nursing]
+  intended_users: [nurse_midwife]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 977 questions (52 with images)
+provenance:
+  records: [r_a2f2f0a88e]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "No paper; the card is two lines and the facts come from data.json (language, country, level, license, source URL, options, answer index, image fields). All 977 rows are marked Spain, Advanced level, CC BY 4.0. The text-only part is scoreable by exact match; image questions need a multimodal model. Uploader and lead institution not stated; the card points to the Multimodal Aya Exams project, whose other subsets were not checked."

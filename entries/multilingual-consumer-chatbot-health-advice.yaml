@@ -1,0 +1,34 @@
+id: multilingual-consumer-chatbot-health-advice
+name: Multilingual consumer-chatbot health-advice evaluation (six languages)
+kind: benchmark
+year: 2026
+summary: 21 clinician-adapted, forum-derived patient scenarios in six languages with 504 answers from four consumer chatbots, each rated by two language-matched physicians on five 1-5 dimensions and an item-level clinical checklist.
+readme_section: safety
+links:
+  doi: 10.5281/zenodo.20100653
+  code: https://github.com/deanariel-md/warmth-substance-asymmetry
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [English, Hebrew, French, Russian, Arabic, Thai]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Scenarios were adapted from publicly posted patient forum content; forum names, countries, and URLs are withheld.
+  rater_countries: [UNKNOWN]
+  localization: adapted
+  lead_institution_countries: [ISR]
+origin:
+  builder_types: [academic]
+  item_provenance: [web_forum, clinician_written]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: 21 scenarios x 6 languages x 4 chatbots = 504 responses; 1,008 physician ratings; 12,576 checklist item judgments; plus a 200-response paired-English arm
+provenance:
+  records: [r_8670cc81aa]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Zenodo release (CC-BY-4.0 data, MIT code) and GitHub reproduction kit for a physician-rated study of chatbot answers; the accompanying paper is not linked from the record, so the title of the study comes from the Zenodo description. Released files include prompts.csv, responses.csv, ratings.csv, and checklist_items.csv. Lead institution country (Israel) comes from the first author's listed affiliation (Clalit Health Services). Chatbots queried in April and May 2026 (ChatGPT, Claude, Gemini, DeepSeek). The set is small (21 scenarios) and was built for a single study; included because prompts, ratings, and a checklist are released for reuse."

@@ -1,0 +1,45 @@
+id: clinical-llm-redteam-em
+name: Clinical LLM Red-Teaming (Emergency Medicine)
+kind: benchmark
+year: 2026
+summary: Six hand-written two-turn adversarial emergency-medicine cases (dosing and route safety, diagnostic anchoring, social-pressure compliance, overconfidence, physiologic integration) with reference answers and a shared rubric with a hard safety gate and an optional advisory LLM judge.
+readme_section: safety
+links:
+  paper: https://doi.org/10.5281/zenodo.21448072
+  doi: 10.5281/zenodo.21448072
+  code: https://github.com/nicoveraz/clinical-cue-calibration
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages:
+  - English
+  item_origin_countries:
+  - GLOBAL
+  item_origin_note: Every vignette is synthetic and built from general emergency-medicine knowledge; a regional (Chilean) detail appears in places but items are not country-specific.
+  localization: native
+  lead_institution_countries:
+  - CHL
+origin:
+  builder_types:
+  - academic
+  item_provenance:
+  - clinician_written
+  venue: grey_literature
+facets:
+  health_areas:
+  - emergency_triage
+  intended_users:
+  - clinician
+  eval_methods:
+  - rubric_llm_judge
+  - expert_human_rating
+  modality:
+  - text
+  size: 6 public demo cases (a private holdout set is withheld)
+provenance:
+  records:
+  - r_4b430a9899
+  extracted: '2026-10-26'
+  read_full_text: true
+  confidence: high
+  notes: Single author, an emergency physician in Chile (Quetru Ltda.; record creator Vera Zuniga, Nicolas). License CC-BY-4.0 is from the Zenodo record; the zip also holds RUBRIC.md and a runner script. The public set is a demo; holdout results are on request only. The links.code field points to a companion repo (clinical-cue-calibration) listed in the README as a separate apparatus, not this release's own repo.

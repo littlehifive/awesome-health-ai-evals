@@ -1,0 +1,33 @@
+id: mdle
+name: "MDLE: Case-Report Challenge Set"
+kind: benchmark
+year: 2026
+summary: 357 English clinical-reasoning questions (194 with images, 163 text-only) from 350 published case reports, kept only if two frontier models scored below 6 out of 10 closed-book, graded against reference answers and rubrics.
+readme_section: knowledge_exam
+links:
+  huggingface: [Medical-Doctors-Last-Exam/mdle, Medical-Doctors-Last-Exam/mdle-zh]
+  website: https://www.medlastexam.org
+license: custom
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Questions are written from case-report articles published March to July 2026; the card does not state where the cases came from.
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [unknown]
+  item_provenance: [literature]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: 357 questions (194 image-based, 163 text-only); 235 image crops
+provenance:
+  records: [r_2337b2dbbd, r_d12b457802]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Dataset card only; the accompanying paper is not yet available. Modality lists text only because the schema has no image value; 194 questions also use images. Licence is mixed: questions and annotations CC BY 4.0, code Apache-2.0, third-party article text and images keep original licences; the hub tag is 'other'. Set was selected adversarially against Gemini 3.1 Pro Preview and Claude Opus 5, and Gemini also served as judge, so the card warns of judge-specific selection bias. The screening record notes the text-only subset (163) is the in-scope part. Medical-Doctors-Last-Exam/mdle-zh (r_d12b457802) is a machine-translated Simplified Chinese version of the earlier 489-question v1.2.1 release (412 questions from 401 case reports, 216 with images, translated with Qwen3.5-27B without number or unit checks; test split, license tag other, n<1K, ungated), hosted under the same organization, so it is merged here rather than listed as a separate adaptation. The English source was also published as txz32102/pediamed-mdle-challenge."

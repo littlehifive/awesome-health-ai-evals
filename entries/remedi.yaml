@@ -1,0 +1,34 @@
+id: remedi
+name: ReMeDi
+kind: benchmark
+year: 2021
+summary: 96,965 Chinese doctor-patient conversations from an online medical community, 1,557 with fine-grained intent, action, and slot labels, with benchmarks for medical dialogue understanding, policy learning, and response generation.
+readme_section: multilingual_regional
+links:
+  paper: https://arxiv.org/abs/2109.00430
+  arxiv: "2109.00430"
+  code: https://github.com/yanguojun123/Medical-Dialogue
+license: null
+open_data: open
+geography:
+  item_languages: [Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: Conversations come from ChunYuYiSheng, a Chinese online medical community.
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [real_user_queries]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public, clinician]
+  eval_methods: [automatic_metric, expert_human_rating]
+  modality: [text]
+  size: 96,965 conversations (1,557 fine-grained labelled; 843 diseases, 40 domains)
+provenance:
+  records: [r_d57fe85f48]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Pre-LLM resource (BERT, GPT-2, mT5 baselines); scored with F1, BLEU, and 0-2 human ratings on 300 sampled responses. 15 annotators with medical backgrounds labelled the dialogues. The GitHub repo shows an MIT license, but it was not stated for the data, so license is null. Data is on GitHub (base) and Google Drive (large). The arXiv preprint was read; a peer-reviewed version was not checked."

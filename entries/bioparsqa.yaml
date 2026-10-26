@@ -1,0 +1,34 @@
+id: bioparsqa
+name: BioParsQA
+kind: benchmark
+year: 2025
+summary: 5,231 Persian medical questions and answers approved by at least two specialist doctors, collected from Iranian medical websites and used to evaluate generative models.
+readme_section: multilingual_regional
+links:
+  paper: https://arxiv.org/abs/2506.21567
+  arxiv: "2506.21567"
+  doi: 10.1038/s41598-026-55970-3
+license: null
+open_data: unknown
+geography:
+  item_languages: [Persian]
+  item_origin_countries: [IRN]
+  item_origin_note: Collected from Iranian sources (tumj.tums.ac.ir, paziresh24.com, seebmagazine.com); country is inferred from those sites.
+  localization: native
+  lead_institution_countries: [IRQ]
+origin:
+  builder_types: [academic]
+  item_provenance: [web_forum, clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 5,231 question-answer pairs
+provenance:
+  records: [r_123d662fbd, r_de92b53492]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: low
+  notes: The main contribution is the BioPars model and BIOPARS-BENCH pretraining corpus (not part of this entry); the QA set is the evaluation part. The paper says the QA dataset is "publicly available for research purposes", but gives no link, and the listed repository (github.com/amirap80/BioPars) returned 404, so open_data is unknown. The scoring metrics were not confirmed in the text read (automatic metrics assumed from the screening record). Question source sites and the doctor-approval step are from one paragraph. The lead country is Iraq (first author, University of Kufa); the last author is in Iran. Second record is the Scientific Reports version.

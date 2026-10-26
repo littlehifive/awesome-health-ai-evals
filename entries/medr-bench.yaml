@@ -1,0 +1,36 @@
+id: medr-bench
+name: MedR-Bench
+kind: benchmark
+year: 2025
+summary: 1,453 structured patient cases from PMC case reports (13 body systems, 656 rare-disease cases) with reference reasoning, scored on examination recommendation, diagnosis, and treatment planning by accuracy and a Reasoning Evaluator for efficiency, factuality, and completeness.
+readme_section: open_ended
+links:
+  paper: https://doi.org/10.1038/s41467-025-64769-1
+  arxiv: "2503.04691"
+  doi: 10.1038/s41467-025-64769-1
+  dataset: https://doi.org/10.5281/zenodo.17046070
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Cases come from case reports in the PMC Open Access Subset; the paper does not give countries.
+  rater_countries: [CHN]
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature, llm_generated]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine, other_specialty]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric, rubric_llm_judge]
+  modality: [text]
+  size: 1,453 cases
+provenance:
+  records: [r_cb5d4741c3, r_1644ef1853]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Cases were restructured from PMC case reports with GPT-4o. Six licensed physicians from Xin Hua Hospital (Shanghai) checked a sample of 100 generated cases and set a human reference for oracle diagnosis. The paper says data, code, and model responses are released and cites a Zenodo DOI (10.5281/zenodo.17046070); the license was not read. Author affiliations are Shanghai Jiao Tong University, Shanghai AI Laboratory, and China Mobile Shanghai; China Mobile is not an academic builder but is listed with them."

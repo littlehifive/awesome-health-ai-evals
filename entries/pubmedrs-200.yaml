@@ -1,0 +1,35 @@
+id: pubmedrs-200
+name: PubMedRS-200
+kind: benchmark
+year: 2023
+summary: 200 clinical questions taken from systematic review titles across medical specialties, each with a reference answer from the review's conclusions and the cited references, for evaluating retrieval and abstractive synthesis of literature-based answers.
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2310.16146
+  arxiv: "2310.16146"
+  doi: 10.1142/9789811286421_0002
+  code: https://github.com/som-shahlab/Clinfo.AI
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Questions come from systematic reviews indexed in PubMed; no country of origin applies.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 200 questions (146 used in the reported experiments)
+provenance:
+  records: [r_d4faa311bb]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Introduced in the Clinfo.ai paper (an open-source retrieval-augmented system); the paper says the dataset is publicly available, but I did not find a separate download link or dataset license (the Clinfo.AI repo is MIT, which is the code license). Scoring uses source-augmented metrics (UniEval, COMET, CTC) and reference-based ones (BERTScore, ROUGE-L, and others), so the benchmark is for literature-grounded answers by systems and not for patients. Two reviewers extracted the answers by hand from review abstracts."

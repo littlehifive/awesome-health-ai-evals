@@ -1,0 +1,36 @@
+id: healthbench-professional
+name: HealthBench Professional
+kind: benchmark
+year: 2026
+summary: 525 physician-authored conversations with ChatGPT for Clinicians covering care consults, writing and documentation, and medical research, each with physician-adjudicated rubric criteria scored by a model grader and a physician-written reference response.
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2604.27470
+  arxiv: "2604.27470"
+  doi: 10.48550/arxiv.2604.27470
+  huggingface: [openai/healthbench-professional]
+  website: https://openai.com/index/making-chatgpt-better-for-clinicians/
+license: MIT
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Written by 190 physicians with practice experience in 50 countries; the countries of the conversations themselves are not stated.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [industry_lab]
+  item_provenance: [clinician_written]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: 525 conversations selected from 15,079 candidates
+provenance:
+  records: [r_92b2dc9a19, r_52640cbeb9]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Companion to HealthBench; not an official subset. About one third of examples come from deliberate red teaming; difficult examples were up-weighted about 3.5x. The paper and card do not state the item language; English is assumed from the examples shown, so check. Download is via the Hugging Face card (MIT) and an assets.zip link in the paper. The writing-and-documentation use case sits partly outside the catalog scope, but care consults and research questions are in scope. A small private held-out set is retained by the authors."

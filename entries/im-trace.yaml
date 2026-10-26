@@ -1,0 +1,32 @@
+id: im-trace
+name: IM-TRACE
+kind: eval_framework
+year: 2026
+summary: Four-rubric framework for auditing the clinical reasoning trace of LLM answers in internal medicine (factuality, relevance, safety-effectiveness, and a novel five-subscale reasoning-trace rubric), with non-compensatory safety scoring and four demo cases.
+readme_section: frameworks
+links:
+  paper: https://github.com/charleszhao-crypto/im-reasoning-trace-benchmark/blob/main/paper/im_trace_preprint.md
+  code: https://github.com/charleszhao-crypto/im-reasoning-trace-benchmark
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [unknown]
+  item_provenance: [unknown]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 4 rubrics (R1-R4); 4 sample cases in the repository
+provenance:
+  records: [r_de613f5c84]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "A single-author GitHub repository with a preprint written as a Markdown file, not posted to a preprint server. The repo ships only 4 demo cases and mock models; the paper describes the rubric design and a validation module but I did not check for human validation results. License is the repo LICENSE file (CC BY 4.0); GitHub's detector reports NOASSERTION. R1 and R2 are adapted from CLEVER and R3 from CSEDB. Author is an independent physician (Charles Zhao, MD); country and institution are not stated."

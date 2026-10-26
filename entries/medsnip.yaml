@@ -1,0 +1,35 @@
+id: medsnip
+name: MedSNIP
+kind: benchmark
+year: 2026
+summary: 276 consumer-health and clinical-vignette model responses split into 2,524 snippets, each labeled true or false in general and in the patient's context, for evaluating medical fact verification.
+readme_section: safety
+links:
+  paper: https://openreview.net/forum?id=1vYUGLZnvr
+  huggingface: [MBZUAI/MedSNIP]
+  code: https://github.com/mbzuai-nlp/MedSNIP
+  website: https://mbzuai-nlp.github.io/MedSNIP/
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: The card does not say where the questions and vignettes came from.
+  localization: unknown
+  lead_institution_countries: [ARE, BGR]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated, clinician_written]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public, clinician]
+  eval_methods: [automatic_metric, expert_human_rating]
+  modality: [text]
+  size: 276 responses; 2,524 snippets (train 1,599, validation 494, test 431)
+provenance:
+  records: [r_3631f6abf3]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Dataset card only; the paper is an anonymous OpenReview submission (EMNLP 2026) that was not read. Primary metric is F1 on the false class. The card says atom labels come from physician annotation and snippet labels from trained annotators, but not who generated the responses or where annotators were based. Lead countries are from the card's affiliations (MBZUAI, INSAIT)."

@@ -1,0 +1,32 @@
+id: medguard-bench
+name: MedGuard-Bench
+kind: benchmark
+year: 2026
+summary: 1,000 expert-verified questions covering ten safety aspects under five principles (truthfulness, resilience, fairness, robustness, privacy) for medical LLMs, used to evaluate sixteen LLMs against physicians.
+readme_section: safety
+links:
+  paper: https://doi.org/10.1038/s43856-026-01881-3
+  doi: 10.1038/s43856-026-01881-3
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  localization: unknown
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [unknown]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: 1,000 questions
+provenance:
+  records: [r_e46b9be786]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "Only the abstract and Nature landing page were reachable (full text was behind a redirect). The page lists supplementary data 'MedGuard examples' but no data-availability statement was seen, so open_data is unknown; the article is CC-BY-4.0 but that is not the dataset license. Item languages, item origin, scoring method, and builder types are not confirmed. Lead institution USA is taken from corresponding author Zhiyong Lu (NLM/NIH), not verified from the full text. A human should check the full text."

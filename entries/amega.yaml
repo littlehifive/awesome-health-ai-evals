@@ -1,0 +1,35 @@
+id: amega
+name: AMEGA
+kind: benchmark
+year: 2024
+summary: 20 physician-written clinical cases across 13 specialties with 135 open-ended questions and 1,337 weighted scoring elements for guideline adherence, scored by an LLM examiner acting on rubric elements.
+readme_section: open_ended
+links:
+  paper: https://doi.org/10.1038/s41746-024-01356-6
+  doi: 10.1038/s41746-024-01356-6
+  code: https://github.com/DATEXIS/AMEGA-benchmark
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Cases were written by physicians from published clinical guidelines; the paper excerpt read does not state which countries' guidelines were used.
+  rater_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [DEU]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written, literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine, oncology, cardiology]
+  intended_users: [clinician]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: 20 cases, 135 questions, 1,337 scoring elements
+provenance:
+  records: [r_cf2d81d817, r_fa0fbd1acf]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: Benchmark and evaluation code are on GitHub; no license was stated in the paper. Evaluator LLM checks each answer against rubric elements and may ask the candidate to revise. Countries of the guidelines used were not checked. The GitHub repo (record r_fa0fbd1acf) lists a later version with 24 cases, 163 questions, and 1,497 criteria; the repo is Apache-2.0 (dataset license not separately stated). Repo asks users not to share examples publicly and includes a canary string.

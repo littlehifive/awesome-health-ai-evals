@@ -1,0 +1,36 @@
+id: medfailbench
+name: MedFailBench
+kind: benchmark
+year: 2026
+summary: Clinician-written synthetic prompts in Turkish and English that probe medical AI safety boundaries (urgent escalation, remote dosing, discharge reassurance, evidence fabrication), with a 5-level severity rubric and 44 clinician-reviewed failure cases.
+readme_section: safety
+links:
+  paper: https://arxiv.org/abs/2607.15166
+  arxiv: "2607.15166"
+  doi: 10.5281/zenodo.21205535
+  huggingface: [goktugozkanmd/medfailbench-v02-prompts]
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [Turkish, English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Synthetic cases written by one clinician from general internal medicine reasoning patterns; the paper does not state a country of clinical setting.
+  rater_countries: [TUR]
+  localization: native
+  lead_institution_countries: [TUR]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written]
+  venue: preprint
+facets:
+  health_areas: [general_medicine, emergency_triage, pharmacy_medication]
+  intended_users: [patient_public, clinician]
+  eval_methods: [expert_human_rating, rubric_llm_judge]
+  modality: [text]
+  size: 222 prompts on Hugging Face; 44 clinician-reviewed cases in the preprint
+provenance:
+  records: [r_20ec8c2038]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Single-author preprint (Maltepe State Hospital, Istanbul). The Hugging Face prompts card says the 222 rows must not be treated as the 44-case analysis set; only 40 cases have a populated safety-gate label. Scripts give provisional automated scores that need clinician review. The HF dataset goktugozkanmd/medfailbench-v02-results holds model response artifacts and is not listed as a link. Code is Apache-2.0, data CC-BY-4.0 per the paper. Rater country is the single reviewing clinician's hospital."

@@ -1,0 +1,38 @@
+id: healthbench-africa-extension
+name: HealthBench-Africa Extension
+kind: benchmark
+adapted_from: [healthbench]
+year: 2026
+summary: 500 HealthBench prompts translated by LLM into Igbo, Yoruba, Nigerian Pidgin, and Kikuyu, keeping HealthBench's physician rubrics, with LLM-judge and human-rater evaluation planned.
+readme_section: multilingual_regional
+links:
+  huggingface: [tonative/healthbench-africa-extension]
+license: null
+open_data: open
+geography:
+  item_languages: [English, Igbo, Yoruba, Nigerian Pidgin, Kikuyu]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Translated from HealthBench, whose conversations have no single country origin.
+  localization: translated
+  lead_institution_countries: [UNKNOWN]
+  subsets:
+    - {name: Igbo, languages: [Igbo], localization: translated}
+    - {name: Yoruba, languages: [Yoruba], localization: translated}
+    - {name: Nigerian Pidgin, languages: [Nigerian Pidgin], localization: translated}
+    - {name: Kikuyu, languages: [Kikuyu], localization: translated}
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public, clinician]
+  eval_methods: [rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 500 prompts sampled from HealthBench, per target language
+provenance:
+  records: [r_2784ea5677]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Dataset card only; no paper and no license stated on the card or in the metadata, so license is null. Translation used gpt-4o-mini per the card, with human validation described as optional and not yet covering all samples. The card lists 500 train examples; whether that is 500 per language or 500 in total was not verified. Builder type and lead institution are unverified (publisher tonative). Countries for the languages (Nigeria, Kenya) are not named in the card and are not coded."

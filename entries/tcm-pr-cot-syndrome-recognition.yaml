@@ -1,0 +1,31 @@
+id: tcm-pr-cot-syndrome-recognition
+name: TCM Syndrome Manifestation Recognition under PR-CoT
+kind: benchmark
+year: 2026
+summary: 700 structured traditional Chinese medicine clinical cases (spleen-stomach, with zero-shot gynecology and heart-system sets) with gold syndrome labels, scored by parsed-label F1 and Jaccard, LLM semantic similarity, and expert review.
+readme_section: multilingual_regional
+links:
+  doi: 10.57760/sciencedb.35044
+license: null
+open_data: unknown
+geography:
+  item_languages: [UNKNOWN]
+  item_origin_countries: [UNKNOWN]
+  localization: unknown
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [unknown]
+  venue: grey_literature
+facets:
+  health_areas: [traditional_medicine]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric, rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 700 cases; 5,400 sample-model evaluation records
+provenance:
+  records: [r_0cc102e13a]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "Only the DataCite/ScienceDB description was read; the data files, license, and the associated paper were not reached (the ScienceDB page needs JavaScript). Case language is probably Chinese but is not stated. The dataset bundles model predictions with the cases, so it is partly model output; it is kept because the description presents it as a resource for evaluating LLM syndrome recognition. Authors are at Zhejiang Chinese Medical University, China Jiliang University, and Xiyuan Hospital. Human check advised."

@@ -1,0 +1,35 @@
+id: audiologybench
+name: AUDIOLOGYBENCH
+kind: benchmark
+year: 2026
+summary: Three-tier clinical audiology benchmark with 3,139 educational questions, 3,175 questions derived from research articles, and 67 multimodal clinical cases graded on an A-F rubric with critical-error caps, scored with an LLM adjudicator audited by audiologists.
+readme_section: knowledge_exam
+links:
+  paper: https://doi.org/10.2196/94755
+  doi: 10.2196/94755
+  code: https://github.com/pc9413/AudiologyQA
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA, AUS]
+  item_origin_note: The paper says the English-language training materials were published primarily in the United States and Australia.
+  rater_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [USA, USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions, literature, clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [other_specialty]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match, rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 6,314 public questions (3,139 educational, 3,175 research-derived) plus 67 clinical cases (not released)
+provenance:
+  records: [r_e050d0b5c3]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: The GitHub release holds all question pools, rubrics, prompts, and aggregate results, but not the 67 clinical case histories, images, or reference answers. The GitHub license is reported as NOASSERTION, so the license is left null. Includes multimodal (image) case inputs, which are outside text-only scope, but the question tiers are text. Orka Labs (Shanghai) is among the affiliations. Rater countries not stated.

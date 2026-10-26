@@ -1,0 +1,31 @@
+id: brazil-dietary-guidelines-chatbot-eval
+name: Brazilian Dietary Guidelines Chatbot Evaluation Instruments
+kind: eval_framework
+year: 2026
+summary: Portuguese instruments for judging whether AI chatbots' nutrition advice matches the Dietary Guidelines for the Brazilian Population, including a 21-statement knowledge questionnaire (GAB-1, 16 validated items), a citizen interaction guide, and two scoring instruments with answer keys (9 binary indicators of food-industry narratives; 14 alignment indicators).
+readme_section: frameworks
+links:
+  doi: 10.5281/zenodo.23199455
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [Portuguese]
+  item_origin_countries: [BRA]
+  localization: native
+  lead_institution_countries: [BRA]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature]
+  venue: grey_literature
+facets:
+  health_areas: [nutrition, public_health]
+  intended_users: [patient_public]
+  eval_methods: [expert_human_rating, mcq_exact_match]
+  modality: [text]
+  size: 21-statement questionnaire (16 validated), interaction guide, 2 scoring instruments; 4 chatbots tested
+provenance:
+  records: [r_3dc2eb817c]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: medium
+  notes: "Read the Zenodo record description and file list (docx files of instruments and chatbot responses); the journal article was not found or read. Instruments were piloted with two external nutritionists and inter-rater kappa was assessed; who scored the chatbot responses (human raters or a model) is not stated on the record, so expert_human_rating is an assumption to check. Items follow the Brazilian dietary guidelines, so origin is BRA; the DOI is for the supplementary data, not the paper."

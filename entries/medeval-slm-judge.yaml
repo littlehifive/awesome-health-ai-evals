@@ -1,0 +1,32 @@
+id: medeval-slm-judge
+name: MedEval (human-aligned LLM-as-a-Judge platform)
+kind: eval_framework
+year: 2026
+summary: A course-project platform that evaluates small language models on K-QA open-ended questions and USMLE multiple-choice questions with an LLM judge, human reviewers, and Spearman agreement analysis, storing the full evaluation lifecycle in PostgreSQL.
+readme_section: frameworks
+links:
+  code: https://github.com/moaathalshaikh/MedEval-LLM-as-a-Judge-Framework-Atividade-2
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Reuses K-QA (201 open-ended questions) and a USMLE set (54 MCQs); the README does not state their origin.
+  localization: unknown
+  lead_institution_countries: [BRA]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine]
+  intended_users: [unspecified]
+  eval_methods: [mcq_exact_match, rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 255 questions (201 K-QA, 54 USMLE); 6 SLMs; 92 paired judge-human evaluations
+provenance:
+  records: [r_c165c0d843]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "From the GitHub README only. Federal University of Sergipe class project (May 2026). The repo lists judge prompts, a SQL dump and JSONL/CSV exports, so open_data is marked open, but no license was seen on the README and none is recorded. The README also mentions legal-domain evaluation. Borderline: a student platform with prompts and results rather than a new benchmark."

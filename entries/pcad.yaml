@@ -1,0 +1,35 @@
+id: pcad
+name: Palliative Care Adversarial Dataset (PCAD)
+kind: benchmark
+year: 2026
+summary: 100 adversarial palliative-care questions (PCAD-Direct) and 84 paired counterfactual scenarios (PCAD-Counterfactual) probing bias by ethnicity, age, and diagnosis, scored by palliative care experts with bias rubrics.
+readme_section: safety
+links:
+  paper: https://doi.org/10.1371/journal.pdig.0001451
+  doi: 10.1371/journal.pdig.0001451
+  dataset: https://figshare.com/articles/dataset/Palliative_Care_Adversarial_Dataset_PCAD_/28396016
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Written by the study authors; the paper text read does not state a country context for the scenarios.
+  rater_countries: [CAN, GBR]
+  localization: unknown
+  lead_institution_countries: [GBR, CAN]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [other_specialty]
+  intended_users: [patient_public, clinician]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: 184 items (100 questions, 84 paired scenarios)
+provenance:
+  records: [r_902036cb99]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "PLOS Digital Health 2026. Four care dimensions (access to care, pain management, advance care planning, place of death) and three identity axes; GPT-4o responses rated by three palliative care experts in Canada and the UK. The paper (CC BY) states the complete PCAD datasets are on Figshare; the Figshare license was not seen, so license is null. Item origin and language were not explicitly stated; English is inferred from the English-language rubrics and study."

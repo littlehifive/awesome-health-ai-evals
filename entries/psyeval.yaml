@@ -1,0 +1,39 @@
+id: psyeval
+name: PsyEval
+kind: benchmark
+year: 2023
+summary: Suite of five mental-health tasks for LLMs (mental-health QA on 727 USMLE-derived and 153 crisis-response questions, diagnosis from social media text and from Chinese dialogue, and counseling-style emotional support), mostly scored by accuracy.
+readme_section: mental_health
+links:
+  paper: https://arxiv.org/abs/2311.09189
+  arxiv: "2311.09189"
+  doi: 10.1038/s44184-026-00227-0
+  code: https://github.com/KaguraRuri/Psy-Eval
+license: MIT
+open_data: open
+geography:
+  item_languages: [English, Mandarin Chinese]
+  item_origin_countries: [USA, CHN]
+  item_origin_note: USMLE-mental comes from MedQA US board-exam questions; crisis-response items come from US police and NAMI manuals; SMHD is English Reddit; D4 and PsyQA are Chinese.
+  localization: adapted
+  lead_institution_countries: [CHN]
+  subsets:
+    - {name: USMLE-mental, languages: [English], countries: [USA], localization: adapted}
+    - {name: Crisis Response QA, languages: [English], countries: [USA], localization: native}
+    - {name: D4 diagnosis via dialogue, languages: [Mandarin Chinese], countries: [CHN], localization: adapted}
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, exam_questions, llm_generated]
+  venue: peer_reviewed
+facets:
+  health_areas: [mental_health]
+  intended_users: [clinician, patient_public]
+  eval_methods: [mcq_exact_match, automatic_metric, expert_human_rating]
+  modality: [text]
+  size: 727 + 153 QA questions; 500 SMHD, 130 D4, and 100 PsyQA instances
+provenance:
+  records: [r_9c3587ee8d, r_cd66b090de]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "r_cd66b090de is the npj Mental Health Research version (same authors, eleven models instead of twelve); I confirmed it only from the abstract and author list. The repo's MIT license is the code license and its README asks users to read a data-usage policy, plus the upstream datasets keep their own terms. Record r_5a17e055c0 (MCTSr-Zero) names a different, unreleased 16-dimension counseling-dialogue benchmark also called PsyEval; it is not merged and no release link was found. Emotional-support quality is rated with a designed metric; the paper text I read did not make clear whether humans or an LLM rated it. psycheval is a separate benchmark."

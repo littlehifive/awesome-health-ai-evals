@@ -1,0 +1,35 @@
+id: persona-grounded-ai-companion-safety
+name: Persona-Grounded AI Companion Safety Evaluation
+kind: eval_framework
+year: 2026
+summary: An end-to-end framework that simulates multi-turn conversations between clinically validated personas (depression, anxiety, PTSD, eating disorder, incel identity) and AI companion apps across 25 high-risk scenarios, then labels harm with an LLM; applied to Replika to yield 1,674 annotated persona-Replika utterance pairs.
+readme_section: frameworks
+links:
+  paper: https://arxiv.org/abs/2605.00227
+  arxiv: "2605.00227"
+  doi: 10.18653/v1/2026.acl-long.828
+  code: https://github.com/prernajuneja/ai-companion-eval-framework
+license: MIT
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Personas and scenarios are LLM-generated and expert-reviewed; no country of origin is stated.
+  localization: unknown
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated]
+  venue: peer_reviewed
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [simulated_multi_turn, rubric_llm_judge]
+  modality: [text]
+  size: 9 personas, 25 scenarios, 1,674 persona-Replika utterance pairs
+provenance:
+  records: [r_1bf914c424]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Read the paper text in part (introduction, method, appendix prompts) and the GitHub README. The repo says it releases the captured dialogues, persona cards and the 25 scenario prompts; the MIT license is the repository license and the README does not say separately that it covers the data. Only author affiliation seen is Seattle University (USA). The evaluation target is a companion app rather than a clinical chatbot, so a human may want to confirm scope. Harm and emotion labelling is LLM-assisted; rater countries not stated."

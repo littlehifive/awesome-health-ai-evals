@@ -1,0 +1,35 @@
+id: q4dx
+name: Q4Dx
+kind: benchmark
+year: 2026
+summary: 100 synthetic patient cases, each at 100%, 80%, and 50% symptom disclosure, with simulated doctor-patient dialogues to score how efficiently an LLM asks questions to reach the right diagnosis.
+readme_section: open_ended
+links:
+  paper: https://doi.org/10.1038/s41598-026-37022-y
+  doi: 10.1038/s41598-026-37022-y
+  pmcid: PMC12901287
+  code: https://github.com/MaiWert/MedQDx
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Cases are LLM-written from a symptom-disease pairing dataset (SDPD); no country origin is stated.
+  localization: unknown
+  lead_institution_countries: [ISR]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [simulated_multi_turn, mcq_exact_match, automatic_metric]
+  modality: [text]
+  size: 100 disease-symptom anchors, 300 case descriptions (three disclosure levels), with simulated dialogues
+provenance:
+  records: [r_346ffc4009, r_c4504729db]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "The paper says the dataset and benchmark are public at the MedQDx GitHub repository; the repo has no license field visible through the API, so license is null. Metrics are zero-shot diagnostic accuracy, mean questions to correct diagnosis (cap of five), and BERTScore-based sequence efficiency against GPT-4.1-generated reference questions. Reference question sequences are LLM-generated, not clinician-written. r_c4504729db is a Crossref record titled 'Asking the Right Questions: Evaluating Diagnostic Dialogue with Q4Dx' (no URL), merged here as a duplicate of the same work."

@@ -1,0 +1,32 @@
+id: medical-calculator-eval
+name: Medical Calculator Evaluation Dataset
+kind: benchmark
+year: 2025
+summary: 1,066 Hinglish and medical-shorthand clinical vignettes covering 358 medical calculators in 24 domains, scored by numeric match within a per-item tolerance.
+readme_section: multilingual_regional
+links:
+  huggingface: [ekacare/medical_calculator_eval]
+license: MIT
+open_data: open
+geography:
+  item_languages: [English, Hindi]
+  item_origin_countries: [IND]
+  item_origin_note: The card describes the questions as written in authentic Indian clinical language (Hinglish, medical shorthand, regional English); the calculators themselves come from Omni Calculator.
+  localization: native
+  lead_institution_countries: [IND]
+origin:
+  builder_types: [implementer_ngo]
+  item_provenance: [llm_generated]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 1,066 questions
+provenance:
+  records: [r_e62de3c58b]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Dataset card only, no paper. Builder is Eka Care (Indian health-tech company); builder type is a guess and the card does not say how the vignettes were written, so item_provenance is a guess too. Card labels the 'Hinglish clinical' style as 810 items, 'Medical shorthand' 254, and 'Regional English' 2. The evaluated task is formula recall plus inline arithmetic, with JSON output scored as exact within tolerance. Distinct from cmedcalc-bench."

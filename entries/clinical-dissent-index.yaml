@@ -1,0 +1,33 @@
+id: clinical-dissent-index
+name: Clinical Dissent Index (CDI)
+kind: eval_framework
+year: 2026
+summary: A pre-registered measure of how much a panel of LLMs disagree when each formulates the same psychotherapy case, computed as the normalized von Neumann entropy of the ensemble similarity matrix, to be characterized on 17 models and a bank of stratified psychotherapeutic vignettes.
+readme_section: frameworks
+links:
+  paper: https://osf.io/c5qk7
+  doi: 10.17605/osf.io/c5qk7
+license: null
+open_data: described_only
+geography:
+  item_languages: [UNKNOWN]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: The vignette bank is described as fixed and clinically validated but its origin and language are not stated in the registration.
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [unknown]
+  venue: grey_literature
+facets:
+  health_areas: [mental_health]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 17 models; stratified vignette bank (size not stated)
+provenance:
+  records: [r_92e5b8e1e5]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "Read from the OSF registration description (OSF API) only; no results, vignettes, or code were seen. Part of the ConfAI program, framed around human oversight under the EU AI Act. It measures inter-model disagreement as a reliability signal rather than judging output quality directly, so it is a borderline eval_framework."

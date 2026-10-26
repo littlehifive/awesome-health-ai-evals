@@ -1,0 +1,36 @@
+id: medperturb
+name: MedPerturb
+kind: benchmark
+year: 2025
+summary: 800 clinical contexts (vignettes, patient queries, and cancer-patient summaries) each perturbed by gender, writing style, or format, with outputs from four LLMs and three clinician reads per context on three treatment-decision questions (manage at home, visit, use resources).
+readme_section: safety
+links:
+  paper: https://arxiv.org/abs/2506.17163
+  arxiv: "2506.17163"
+  huggingface: [abinitha/MedPerturb]
+  code: https://github.com/abinithago/MedPerturb
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA, UNKNOWN]
+  item_origin_note: Baseline contexts come from OncQA (GPT-4-generated cancer summaries), r/AskDocs Reddit posts (country not stated), MedQA-USMLE vignettes (US exam), and public and private dermatology cases (country not stated).
+  rater_countries: [USA]
+  localization: adapted
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, web_forum, llm_generated]
+  venue: preprint
+facets:
+  health_areas: [general_medicine, oncology]
+  intended_users: [clinician, patient_public]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: 800 clinical contexts, 7,200 clinician reads, 28,800 LLM reads
+provenance:
+  records: [r_823fb9d613, r_4fa5e1e814, r_abe3f34edd, r_f4a4eecff6]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Perturbations (gender swap or removal, uncertain or colloquial tone, multi-turn or summary format) were produced with Llama-3-8B. Clinician reads came from 36 U.S.-based medical students via Centaur Labs. License: human-written text is CC-BY-4.0 and model responses are CC-BY-NC-4.0 (HF card and paper). The scoring compares LLM and clinician yes/no answers rather than a fixed gold label; there is no single reference answer."

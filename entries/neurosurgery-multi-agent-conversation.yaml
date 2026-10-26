@@ -1,0 +1,34 @@
+id: neurosurgery-multi-agent-conversation
+name: Multi-AI agent neurosurgical conversation framework
+kind: eval_framework
+year: 2025
+summary: A framework that turns 608 Self-Assessment in Neurological Surgery diagnosis questions into simulated patient conversations using patient, system (objective data) and clinical AI agents, comparing diagnostic accuracy across vignette and conversation formats.
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.1227/neuprac.0000000000000217
+  pmcid: PMC13075903
+  doi: 10.1227/neuprac.0000000000000217
+license: null
+open_data: described_only
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Questions are from the Congress of Neurological Surgeons Self-Assessment in Neurological Surgery (SANS) question bank.
+  localization: adapted
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions, adapted_dataset]
+  venue: peer_reviewed
+facets:
+  health_areas: [other_specialty]
+  intended_users: [clinician]
+  eval_methods: [simulated_multi_turn]
+  modality: [text]
+  size: 608 first-order diagnosis questions (218 text, 390 image-based)
+provenance:
+  records: [r_860ee438dd]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "SANS questions are used with CNS permission and will not be made public. Agent prompts are in the paper's supplemental material. Adapted from CRAFT-MD. A human comparison used only 8 questions and 10 residents. Borderline for inclusion: a reusable method but no released items."

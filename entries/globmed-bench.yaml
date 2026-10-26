@@ -1,0 +1,35 @@
+id: globmed-bench
+name: GlobMed-Bench
+kind: benchmark
+year: 2026
+summary: A 12-language (four low-resource) translation of ten existing medical NLI, long-form QA, and multiple-choice datasets, totalling over 500,000 entries, used to benchmark 56 LLMs on NLI and multiple-choice tasks.
+readme_section: multilingual_regional
+links:
+  paper: https://arxiv.org/abs/2601.02186
+  arxiv: "2601.02186"
+  huggingface: [ruiyang-medinfo/GlobMed_MedQA, ruiyang-medinfo/GlobMed_MedMCQA, ruiyang-medinfo/GlobMed_PubMedQA, ruiyang-medinfo/GlobMed_HeadQA, ruiyang-medinfo/GlobMed_MedExpQA, ruiyang-medinfo/GlobMed_MMLU-Pro, ruiyang-medinfo/GlobMed_BioNLI, ruiyang-medinfo/GlobMed_ExpertQA-Bio, ruiyang-medinfo/GlobMed_ExpertQA-Med, ruiyang-medinfo/GlobMed_LiveQA]
+  code: https://github.com/ruiyang-medinfo/GlobMed
+license: MIT
+open_data: open
+geography:
+  item_languages: [English, Mandarin Chinese, French, German, Japanese, Korean, Portuguese, Spanish, Swahili, Wolof, Yoruba, Zulu]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Items come from existing English-language source datasets (BioNLI, MedNLI, ExpertQA, LiveQA, HeadQA, MedExpQA, MedQA, MMLU-Pro and others) and were machine-translated by an LLM pipeline; the paper gives no origin country for them.
+  localization: translated
+  lead_institution_countries: [SGP]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [unspecified]
+  eval_methods: [mcq_exact_match, automatic_metric]
+  modality: [text]
+  size: over 500,000 entries in 12 languages (NLI, long-form QA, MCQA); 56 LLMs evaluated
+provenance:
+  records: [r_cf89917ae4]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Translation used an agentic pipeline (medical NER, a 350,000-pair dictionary, two LLM reviewer agents, Claude as translator) with expert rating of samples (at least two bilingual experts per entry sampled, 1-5 scale). Benchmark evaluation covers NLI and MCQA only; long-form QA is in the dataset but not scored in the evaluation section. The paper also trains GlobMed-LLMs (not an entry). MIT license is from the Hugging Face card and the GitHub repo; MedNLI is excluded from public release (PhysioNet access). Hugging Face list was found by searching the ruiyang-medinfo account; the paper links a collection. Rater countries not stated."

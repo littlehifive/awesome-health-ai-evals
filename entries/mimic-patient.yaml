@@ -1,0 +1,33 @@
+id: mimic-patient
+name: MIMIC-Patient
+kind: benchmark
+year: 2025
+summary: Simulated patients built from MIMIC-III intensive-care admissions (a few thousand, at most 2,597 valid admissions) for multi-round, open-ended diagnosis, where LLM doctor agents query a patient agent and are scored on top-k diagnosis hit rate and recall against ICD-9 codes.
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2507.02616
+  arxiv: "2507.02616"
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Admissions at Beth Israel Deaconess Medical Center (Boston), per the MIMIC-III description in the paper.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric, simulated_multi_turn]
+  modality: [text]
+  size: up to 2,597 patient simulations (valid admissions after filtering; final count after keeping one admission per patient not confirmed)
+provenance:
+  records: [r_63e6e721e4]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Introduced inside the DynamiCare paper, which is mainly a multi-agent method; the benchmark is the dataset plus the evaluation protocol. No code or dataset link was found in the text I read. Source data is MIMIC-III, which needs credentialed PhysioNet access. Predicted diagnoses are mapped to ICD-9 via the BioPortal API and counted correct on a 3-digit match. 100 patient Q&A logs were rated by three medical students for truthfulness and relevance."

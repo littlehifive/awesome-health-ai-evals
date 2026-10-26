@@ -1,0 +1,35 @@
+id: paired-english-arabic-clinical-records
+name: Paired English-Arabic benchmark on clinical records
+kind: benchmark
+year: 2026
+summary: 576 items (192 item sets) presenting the same synthetic patient record in English, code-switched Arabic, and Modern Standard Arabic for medication reconciliation and discharge planning, scored deterministically against rule-derived gold standards.
+readme_section: multilingual_regional
+links:
+  doi: 10.5281/zenodo.22967209
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [English, Arabic]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Eight synthetic patient records generated with Synthea; no country is stated on the deposit page.
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+  subsets:
+    - {name: Code-switched Arabic, languages: [Arabic], countries: [UNKNOWN], localization: translated}
+    - {name: Modern Standard Arabic, languages: [Arabic], countries: [UNKNOWN], localization: translated}
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated]
+  venue: grey_literature
+facets:
+  health_areas: [pharmacy_medication, general_medicine]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 576 items in 192 item sets; 8 synthetic records
+provenance:
+  records: [r_dacbf9d9a1]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "Read the Zenodo deposit page only (via WebFetch); the companion article 'Where the Arabic penalty actually falls' is not linked there. Deposit holds records, a 211-term English-Arabic lexicon with back-translation audit, 576 raw model responses from six unnamed LLMs, scoring and harm-grading code (data CC BY 4.0, code MIT). Item provenance uses llm_generated as the nearest value for Synthea-generated synthetic records. Affiliations and countries not listed; the Arabic variants are translations of the English record."

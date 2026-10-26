@@ -1,0 +1,37 @@
+id: bimedix-arabic-benchmark
+name: BiMediX Arabic medical benchmark
+kind: benchmark
+year: 2024
+summary: Arabic translations of nine English medical multiple-choice sets (six MMLU medical subjects, MedMCQA, MedQA, PubMedQA), made with a semi-automated ChatGPT translation pipeline with medical-professional checking and scored by accuracy.
+readme_section: multilingual_regional
+adapted_from: [medqa, medmcqa, pubmedqa]
+links:
+  paper: https://aclanthology.org/2024.findings-emnlp.989/
+  arxiv: "2402.13253"
+  doi: 10.18653/v1/2024.findings-emnlp.989
+  huggingface: [BiMediX/mmlu-clinical_knowledge-arabic, BiMediX/mmlu-college_medicine-arabic, BiMediX/mmlu-professional_medicine-arabic, BiMediX/mmlu-anatomy-arabic, BiMediX/mmlu-medical_genetics-arabic, BiMediX/mmlu-college_biology-arabic, BiMediX/medmcqa-arabic, BiMediX/medqa-test_arabic, BiMediX/pubmedqa-test_arabic]
+  code: https://github.com/mbzuai-oryx/BiMediX
+license: CC-BY-NC-SA-4.0
+open_data: open
+geography:
+  item_languages: [Arabic, English]
+  item_origin_countries: [USA, IND, GLOBAL]
+  item_origin_note: Source sets are MedQA (USMLE, USA), MedMCQA (Indian AIIMS and NEET PG exams), PubMedQA (research abstracts) and MMLU medical subjects; the Arabic items are translations, with no Arabic-country item origin.
+  localization: translated
+  lead_institution_countries: [ARE]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, exam_questions]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician, medical_student]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: nine translated multiple-choice sets (for example 135 anatomy and 1,273 MedQA test questions in English counterparts); total not summed
+provenance:
+  records: [r_bcfc98514c]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: The benchmark is one part of a paper whose main contribution is the BiMediX model and the BiMed1.3M instruction set (training data, not part of this entry). Dataset license is not on the Hugging Face cards; CC-BY-NC-SA-4.0 is the GitHub repo license. The paper text read gives no dataset URL, so Hugging Face IDs come from the BiMediX org listing. Lead country is MBZUAI (UAE) from the affiliation, not checked in the full text. Counts per set were not summed.

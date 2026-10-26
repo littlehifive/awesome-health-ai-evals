@@ -1,0 +1,34 @@
+id: earlydx
+name: EarlyDx
+kind: benchmark
+year: 2026
+summary: 154,834 emergency department encounters from MIMIC-IV, each limited to the records available at admission, where a model generates free-text diagnoses that are scored against ED-encounter diagnoses (checked for evidence support) by an LLM semantic judge.
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2607.28788
+  arxiv: "2607.28788"
+  code: https://github.com/jimmylihui/EarlyDx
+license: custom
+open_data: gated
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: MIMIC-IV emergency department and hospital records (US hospital).
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [emergency_triage, general_medicine]
+  intended_users: [clinician]
+  eval_methods: [rubric_llm_judge, automatic_metric]
+  modality: [text]
+  size: 154,834 ED encounters (6,975 test predictions in the judge-agreement check)
+provenance:
+  records: [r_9d2ae5aefd]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Read the arXiv HTML text and the GitHub README. The dataset is released only through PhysioNet to credentialed MIMIC-IV users (license set to custom for the PhysioNet Credentialed Health Data License); the repo holds code only. This is built from EHR records and may sit at the edge of scope (EHR-based diagnosis prediction); a human should confirm it belongs. Accepted at KDD 2026 per the paper header but marked preprint here. A clinician independently diagnosed 1,000 encounters as a reference."

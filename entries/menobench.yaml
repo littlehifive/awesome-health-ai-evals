@@ -1,0 +1,32 @@
+id: menobench
+name: MenoBench
+kind: benchmark
+year: 2026
+summary: 124 open-ended clinical questions on the menopausal transition (patient, clinician, and evidence-policy queries, all eight STRAW+10 phases) with an 8-dimension, 12-point rubric for LLM-as-judge scoring; gold answers withheld.
+readme_section: open_ended
+links:
+  doi: 10.5281/zenodo.20973599
+  website: https://doi.org/10.5281/zenodo.20973599
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature]
+  venue: grey_literature
+facets:
+  health_areas: [other_specialty]
+  intended_users: [patient_public, clinician]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: 124 questions (72 hard, 52 very hard)
+provenance:
+  records: [r_76446367bb]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Zenodo deposit by a single author at HARMONI Lab LLC (country not stated); no paper. Question stems and metadata are public; gold answers are withheld pending clinical validation and available to collaborators, so the rubric can be applied but reference answers cannot be downloaded. The README recommends LLM-as-judge scoring. Every item cites named studies or guidelines as required knowledge anchors; who wrote the items is not stated (README calls the set clinician-anchored), and the README marks some specifics as unverified. builder_types academic is a guess for a small lab; please check."

@@ -1,0 +1,35 @@
+id: bioace
+name: BioACE
+kind: eval_framework
+year: 2026
+summary: An automated framework that scores LLM-generated answers to biomedical questions for nugget-based completeness, correctness, precision, and recall, and scores their supporting citations, checked against human judgments on the TREC BioGen collection.
+readme_section: frameworks
+links:
+  paper: https://arxiv.org/abs/2602.04982
+  arxiv: "2602.04982"
+  doi: 10.48550/arxiv.2602.04982
+  code: https://github.com/deepaknlp/BioACE
+license: null
+open_data: described_only
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Experiments use the 65-question TREC BioGen collection; the paper does not state where the questions came from.
+  localization: unknown
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [government]
+  item_provenance: [not_applicable]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [unspecified]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: Evaluation package; experiments on 65 BioGen questions (45 validation, 20 training)
+provenance:
+  records: [r_af31c7285a]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Authors are at the US National Library of Medicine. Scoring models (precision/recall against ground-truth nuggets, fine-tuned completeness and correctness classifiers, citation checks against an indexed PubMed baseline) are released as a GitHub package; the repo shows no license file. Evaluation targets biomedical literature QA, so it is a borderline fit for patient-facing health chatbots."

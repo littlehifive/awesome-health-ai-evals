@@ -1,0 +1,36 @@
+id: cn-pharmacist-licensure-2023
+name: 2023 Chinese National Pharmacist Licensure Examination (Pharmacy and TCM tracks)
+kind: benchmark
+year: 2023
+summary: Questions from the 2023 Chinese National Pharmacist Licensure Examination, released as two Hugging Face datasets (Pharmacy track and Traditional Chinese Medicine Pharmacy track), each under 1,000 items.
+readme_section: multilingual_regional
+links:
+  huggingface: [FreedomIntelligence/2023_Pharmacist_Licensure_Examination-Pharmacy_track, FreedomIntelligence/2023_Pharmacist_Licensure_Examination-TCM_track]
+  code: https://github.com/FreedomIntelligence/HuatuoGPT-II
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: Items come from China's national pharmacist licensure exam; the cards say the data was collected from online sources and may differ from the actual exam.
+  localization: native
+  lead_institution_countries: [CHN]
+  subsets:
+    - {name: Pharmacy track, languages: [Mandarin Chinese], countries: [CHN], localization: native}
+    - {name: TCM Pharmacy track, languages: [Mandarin Chinese], countries: [CHN], localization: native}
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions]
+  venue: grey_literature
+facets:
+  health_areas: [pharmacy_medication, traditional_medicine]
+  intended_users: [pharmacist]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: two datasets, each under 1,000 questions
+provenance:
+  records: [r_b56296c553, r_a737e6b160]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: Dataset cards are two sentences with no scoring description, item counts, or question format; the exam is multiple choice but the cards do not say so, so mcq_exact_match is inferred. Lead country CHN is assumed from the releasing group (FreedomIntelligence, repo HuatuoGPT-II) and the exam's country; the cards do not state it.

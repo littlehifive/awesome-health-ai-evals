@@ -1,0 +1,36 @@
+id: healthbenchx
+name: HealthBenchX
+kind: benchmark
+adapted_from: [healthbench]
+year: 2025
+summary: Japanese and Korean machine translations (GPT-5, no human post-editing) of the 5,000 HealthBench conversations, for evaluating health chatbots in those languages.
+readme_section: multilingual_regional
+links:
+  huggingface: [li-lab/HealthBenchX]
+license: MIT
+open_data: open
+geography:
+  item_languages: [Japanese, Korean, English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Inherited from HealthBench, whose conversations were written to span many languages, countries, and resource settings. The translation adds no new local content.
+  localization: translated
+  lead_institution_countries: [UNKNOWN]
+  subsets:
+    - {name: Japanese, languages: [Japanese], countries: [GLOBAL], localization: translated}
+    - {name: Korean, languages: [Korean], countries: [GLOBAL], localization: translated}
+origin:
+  builder_types: [unknown]
+  item_provenance: [adapted_dataset]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine, emergency_triage, public_health]
+  intended_users: [patient_public, clinician]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: 5,000 conversations per language (2,085 multi-turn and 2,915 single-turn files for each of Japanese and Korean)
+provenance:
+  records: [r_2fdce50c26]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: Source is the Hugging Face dataset card only; no paper. The card says the dataset follows HealthBench's terms and the card metadata lists MIT. Japanese was added in 2025-08 and Korean in 2025-09. The card describes translating conversations; the files seen contain the prompts, and the card does not say whether the physician rubrics are also translated (the record screening text says they are). Uploader li-lab is not identified further, so lead institution country and builder type are unknown. The card names the set both HealthBenchX and HealthBenchXP.

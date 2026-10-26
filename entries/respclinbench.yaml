@@ -1,0 +1,34 @@
+id: respclinbench
+name: RESPClinBench
+kind: benchmark
+year: 2026
+summary: 623 respiratory specialty cases adapted from de-identified clinical data, 427 open-ended longitudinal COPD management cases (AECOPD-PIM) and 196 chest-CT pulmonary nodule cases (PNBIM), scored by atomic clinical-action recall plus an LLM judge with safety flags.
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2608.04514
+  arxiv: "2608.04514"
+  website: https://medbench.opencompass.org.cn/track-detail/11
+license: null
+open_data: open
+geography:
+  item_languages: [UNKNOWN]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Cases were adapted from de-identified real respiratory clinical data; the text read does not state the country or language of the data, though authors are at Guangzhou and Shanghai institutions.
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written]
+  venue: preprint
+facets:
+  health_areas: [other_specialty, ncd]
+  intended_users: [clinician]
+  eval_methods: [rubric_llm_judge, automatic_metric]
+  modality: [text]
+  size: 623 cases (427 COPD text cases, 196 multimodal nodule cases)
+provenance:
+  records: [r_0c006d09d2]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Three attending respiratory physicians revised cases, reference answers, and atomic action points; one senior specialist adjudicated. Final score is the mean of atomic-action recall and rubric LLM-judge score; 7 LLMs, 4,361 responses. Only the AECOPD-PIM part is clearly in scope; PNBIM pairs chest CT images with structured data (imaging component is out of scope for this catalogue). The paper says the dataset is publicly available on the MedBench platform; whether registration is needed was not checked."

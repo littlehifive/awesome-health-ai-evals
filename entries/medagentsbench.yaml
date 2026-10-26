@@ -1,0 +1,35 @@
+id: medagentsbench
+name: MedAgentsBench
+kind: benchmark
+year: 2025
+summary: About 860 hard medical multiple-choice questions (models answered under 50 percent correctly) sampled from nine existing QA sets such as MedQA, MedMCQA, PubMedQA, and MedXpertQA, scored by accuracy for thinking models and agent frameworks.
+readme_section: knowledge_exam
+links:
+  paper: https://arxiv.org/abs/2503.07459
+  arxiv: "2503.07459"
+  huggingface: [super-dainiu/MedicalAgentsBench, xk-huang/medagents-benchmark, Annie713/medagents-benchmark]
+  code: https://github.com/gersteinlab/MedicalAgentsBench
+license: MIT
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA, IND]
+  item_origin_note: Inherited from source sets (USMLE-style MedQA, Indian entrance exams in MedMCQA, others). The Hugging Face configs also include AfrimedQA, which the paper's dataset list does not mention.
+  localization: adapted
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, exam_questions]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician, medical_student]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: "HARD subset of about 862 questions (100 each from MedQA, PubMedQA, MedMCQA, MMLU-Pro, MedExQA, MedXpertQA-R, MedXpertQA-U; 89 MedBullets; 73 MMLU)"
+provenance:
+  records: [r_060c3ec754, r_0a22bfe3ed, r_d089a55cfd, r_62a8574de6]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "r_62a8574de6 is the later Patterns journal version (doi 10.1016/j.patter.2026.101610; Gerstein lab authors, same 862-question benchmark under the name MedicalAgentsBench), merged here; Crossref metadata and the abstract were checked, not the full text. Count of 862 is my sum of the per-source numbers in the paper's sampling description. The license comes from the super-dainiu HF card and the GitHub API. Annie713/medagents-benchmark and xk-huang/medagents-benchmark are Hugging Face copies of the same data (same configs, card has no prose; xk-huang also has a test_hard_leftout split) and are merged here. The paper also describes human annotation of reasoning depth and a contamination analysis; it studies prompting methods and agent frameworks alongside the dataset."

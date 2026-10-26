@@ -1,0 +1,39 @@
+id: rxqa
+name: RxQA
+kind: benchmark
+year: 2025
+summary: 600 multiple-choice medication-reasoning questions derived from OpenFDA and British National Formulary drug labels, refined by pharmacists, for comparing physicians and AI systems.
+readme_section: knowledge_exam
+links:
+  paper: https://doi.org/10.1038/s41586-026-10764-5
+  arxiv: "2503.06074"
+  doi: 10.1038/s41586-026-10764-5
+  pmcid: PMC13421318
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA, GBR]
+  item_origin_note: Questions are built from OpenFDA (US) and British National Formulary (UK) medication labels.
+  rater_countries: [USA, GBR]
+  localization: native
+  lead_institution_countries: [USA]
+  subsets:
+    - {name: OpenFDA, languages: [English], countries: [USA], localization: native}
+    - {name: BNF, languages: [English], countries: [GBR], localization: native}
+origin:
+  builder_types: [industry_lab]
+  item_provenance: [llm_generated, literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [pharmacy_medication, primary_care]
+  intended_users: [clinician, pharmacist]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 600 questions (282 lower-difficulty, 318 higher-difficulty)
+provenance:
+  records: [r_082145b3f0, r_2cdaf69b59]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "RxQA is a secondary contribution of the AMIE disease-management paper (preprint 2025, Nature 2026). Gemini 1.5 Flash drafted and filtered questions from sampled drug labels; one board-certified pharmacist per jurisdiction revised each question; three PCPs per jurisdiction gave human baselines. Data availability statement only mentions MedQA, MultiMedQA and MIMIC-III as open sets and says AMIE code and weights are not released; no RxQA download found, so open_data is unknown. Nature supplementary data availability statement not read. Rater countries follow the paper's wording that pharmacists and PCPs were drawn from each jurisdiction."

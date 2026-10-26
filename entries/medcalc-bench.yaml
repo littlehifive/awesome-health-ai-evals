@@ -1,0 +1,36 @@
+id: medcalc-bench
+name: MedCalc-Bench
+kind: benchmark
+year: 2024
+summary: "Patient notes paired with questions that require a clinical calculator (55 equation-based and rule-based calculators); the v1.2 test set has 1,100 instances with ground-truth answers and step-by-step explanations, scored by answer match within a tolerance."
+readme_section: knowledge_exam
+links:
+  paper: https://arxiv.org/abs/2406.12036
+  arxiv: "2406.12036"
+  doi: 10.52202/079017-2690
+  huggingface: [ncbi/MedCalc-Bench-v1.2, ncbi/MedCalc-Bench, ncbi/MedCalc-Bench-v1.1, ncbi/MedCalc-Bench-v1.0, nsk7153/MedCalc-Bench-Verified]
+  code: https://github.com/ncbi-nlp/MedCalc-Bench
+license: CC-BY-SA-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: "Most notes come from Open-Patients (TREC clinical decision support, MedQA, PMC-Patients); the rest are clinician-written or template-generated. The paper does not give countries of origin."
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic, government]
+  item_provenance: [adapted_dataset, clinician_written, llm_generated]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: "1,100 test and 10,543 training instances in v1.2 (1,047 test in the paper); 55 calculators"
+provenance:
+  records: [r_f4fab5312f, r_2af2474ae8, r_cbab8ab43c, r_5e485873ca, r_2569b7af07, r_7b344cda2c, r_1f1097f9d2, r_c985c7d10c]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Borderline scope: inputs are patient notes but the task is clinician-facing medical calculation, so kept. Versions: v1.0, v1.1 and v1.2 on Hugging Face (ncbi); the cards say to use v1.2 and keep earlier ones for reproducibility. MedCalc-Bench Verified (nsk7153, GitHub nikhilk7153/MedCalc-Bench-Verified) is a re-audited update of v1.2 that the ncbi card points to as the latest version; treated as the same benchmark (10,538 train, 1,100 test, 55 one-shot). Licenses per cards: v1.2 and Verified CC-BY-SA-4.0; v1.0 tagged CC-BY-4.0. lingyi0101/MedCalc-Bench-Verified and PTPReasoning/MedCalc-Bench-v1.0 are third-party copies (records only, not linked). Rater countries not stated; physicians verified extractions."

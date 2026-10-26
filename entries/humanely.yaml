@@ -1,0 +1,35 @@
+id: humanely
+name: HumanELY
+kind: eval_framework
+year: 2023
+summary: A human-evaluation framework and web app for rating LLM outputs in healthcare on five metrics (Relevance, Coverage, Coherence, Comparison, Harm) with 17 Likert-scale submetrics, accompanied by a systematic review of 186 studies.
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.1038/s44401-025-00043-2
+  pmcid: PMC13354174
+  doi: 10.1038/s44401-025-00043-2
+  website: https://www.brainxai.com/humanely
+license: null
+open_data: described_only
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: A framework with no items; derived from a systematic review of English-language studies in PubMed and Scopus.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic, industry_lab]
+  item_provenance: [not_applicable]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician, patient_public]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: 5 metrics, 17 submetrics; systematic review of 186 studies
+provenance:
+  records: [r_863071e29e, r_600c313dfb]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Two records: the 2023 medRxiv preprint (tool and guidance) and the 2025 npj Health Systems review that adds the systematic review. BrainX LLC and Cleveland Clinic authors. Web app link is from the preprint; license not stated in the sources read."

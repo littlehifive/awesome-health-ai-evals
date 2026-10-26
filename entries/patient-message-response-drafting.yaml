@@ -1,0 +1,35 @@
+id: patient-message-response-drafting
+name: Patient Message Response Drafting (SyPPM and EditJudge)
+kind: benchmark
+year: 2026
+summary: 100 semi-synthetic patient portal messages, each paired with a de-identified EHR summary and a primary-care physician's reference reply, scored by how much a clinician would have to edit an LLM's drafted reply (content-level and theme-level edit-F1).
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2601.11344
+  arxiv: "2601.11344"
+  huggingface: [PortalPal-AI/Patient-Message-Response-Drafting]
+license: CC-BY-NC-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Messages are semi-synthetic, generated from real portal messages at an unnamed collaborating hospital; EHR summaries are real and de-identified. The sources do not name the country.
+  rater_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated, clinician_written]
+  venue: preprint
+facets:
+  health_areas: [primary_care]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 100 message-response pairs in the public SyPPM file
+provenance:
+  records: [r_665860752a]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Read the dataset card, the CSV (100 rows: patient message, EHR summary, clinician response), and parts of the arXiv HTML. The paper's other sets (IPPM, SoCPPM, TADPOLE comparisons) come from a real EHR portal and were not seen to be released. Each reply is by a single MD with 15+ years in primary care. Authors are at Dartmouth College and Dartmouth Health. Whether EditJudge uses an LLM to extract themes was not checked; eval_methods lists only the edit-F1 metric."

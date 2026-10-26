@@ -1,0 +1,33 @@
+id: mental-health-probes-conversational-agents
+name: PHQ-9/GAD-7 Conversational Probes for Mental Health
+kind: eval_framework
+year: 2022
+summary: "A method for evaluating conversational agents' mental health advice using multi-utterance probes derived from the PHQ-9 and GAD-7, with responses rated by clinicians and trained raters across two chatbots and four voice assistants."
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.1145/3488057
+  doi: 10.1145/3488057
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Language and origin inferred from the US-based authors and the English-language PHQ-9 and GAD-7 instruments; not confirmed in the full text.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [expert_human_rating]
+  modality: [text, voice]
+  size: Multi-utterance probes from PHQ-9 and GAD-7 (count not checked), including crisis probes; 6 agents
+provenance:
+  records: [r_f96d119351]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "Full text not reachable (ACM returned 403); built from the abstract via Crossref. Evaluated agents are pre-LLM chatbots and voice assistants. Whether the probes are released is unknown."

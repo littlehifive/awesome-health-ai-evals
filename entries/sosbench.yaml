@@ -1,0 +1,36 @@
+id: sosbench
+name: SoSBench
+kind: benchmark
+year: 2025
+summary: 3,000 regulation-grounded hazardous prompts across six scientific domains, including medicine, pharmacology, and psychology, scored by an LLM judge on whether the model produces harmful responses.
+readme_section: safety
+links:
+  paper: https://arxiv.org/abs/2505.21605
+  arxiv: "2505.21605"
+  doi: 10.48550/arxiv.2505.21605
+  huggingface: [SOSBench/SOSBench]
+  code: https://github.com/SOSBench/SOSBenchEval
+license: custom
+open_data: gated
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Prompts are generated from seed terms taken from US and international regulations and classifications (ICD-11, DSM-5, DEA schedules, NFPA 704), not from a country-specific setting.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated, literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine, pharmacy_medication, mental_health]
+  intended_users: [unspecified]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: 3,000 prompts across six domains (chemistry, biology, medicine, pharmacology, physics, psychology)
+provenance:
+  records: [r_cb5cffdb36]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Only three of six domains (medicine, pharmacology, psychology) are health related; per-domain counts were not checked, so the health share of the 3,000 prompts is unknown. The benchmark targets misuse and refusal of hazardous scientific requests, not patient-facing health advice. HF card is gated (manual approval, non-commercial research use, license tag 'other'). The repo README now describes SOSBench as a safety overrefusal benchmark and notes a v2 harness; the paper (ICLR 2026) frames it as harmful-response rate. Judge is an LLM; model rubric details not read. Accepted at ICLR 2026 per the README; venue marked peer_reviewed on that basis."

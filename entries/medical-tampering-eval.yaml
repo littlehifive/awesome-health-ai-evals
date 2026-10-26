@@ -1,0 +1,32 @@
+id: medical-tampering-eval
+name: Medical Tampering Eval
+kind: benchmark
+year: 2026
+summary: 535 multi-turn (15 to 20 turn) medical conversations built from StatPearls facts, of which 105 are tampered (86 with a critical safety sentence omitted, 19 with patient context that makes the advice harmful), for testing AI and human detection of subtle errors.
+readme_section: safety
+links:
+  huggingface: [MInAlA/medical-tampering-eval]
+license: CC-BY-NC-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Conversations are synthetic and grounded in StatPearls articles; no country origin stated.
+  localization: native
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated, literature]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine]
+  intended_users: [unspecified]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 535 conversations (430 clean, 86 omission, 19 context-dependent harm)
+provenance:
+  records: [r_4ae598e690]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "Dataset card only; no paper. The card says the work is part of human-AI complementarity research at MInAlA and does not name an institution or country. The card does not say that an LLM generated the conversations, but describes programmatic tampering and LLM verification of ground truth, so llm_generated is a reading of the card. No scoring metric is stated; detection is a classification task, so automatic_metric is an assumption. Only 19 context-dependent harm examples."

@@ -1,0 +1,33 @@
+id: kensagishi-qa
+name: Kensagishi QA
+kind: benchmark
+year: 2025
+summary: "800 questions (2020-2023) from the Japanese National Examination for Clinical Laboratory Technicians, as JSON with text-only and image-attached items, scored by strict exact match (all correct options required)."
+readme_section: multilingual_regional
+links:
+  doi: 10.2196/preprints.84266
+  code: https://github.com/bioinfo-tsukuba/KensagishiQA
+license: null
+open_data: open
+geography:
+  item_languages: [Japanese]
+  item_origin_countries: [JPN]
+  item_origin_note: National Examination for Clinical Laboratory Technicians (exams 66 to 69, morning and afternoon sessions).
+  localization: native
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions]
+  venue: preprint
+facets:
+  health_areas: [other_specialty]
+  intended_users: [unspecified]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: "800 questions (2020-2023); 200 more from the 71st exam (2025) used for a post-cutoff check"
+provenance:
+  records: [r_6eeddb5764]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: medium
+  notes: "Read the JMIR preprint abstract (via Crossref) and the GitHub repository (JSONL files for exams 66-69, one-line README, no license file). The full text was not reachable. The 2025 test set is not confirmed to be in the repo. Primarily a vision-language model evaluation; text-only items are included. Author affiliations were not available (repo org is bioinfo-tsukuba), so lead country is UNKNOWN. The preprint title is the evaluation study; Kensagishi QA is the named benchmark in its methods."

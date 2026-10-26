@@ -1,0 +1,35 @@
+id: healthq
+name: HealthQ
+kind: eval_framework
+year: 2024
+summary: A framework and code base for scoring how well LLM healthcare chains (hardcoded, RAG, ReAct, chain-of-thought, reflective) ask questions of a simulated patient, using an LLM judge for specificity, relevance, and usefulness plus ROUGE and NER-based information-elicitation metrics on ChatDoctor and MTS-Dialog cases.
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.1016/j.smhl.2025.100570
+  arxiv: "2409.19487"
+  doi: 10.1016/j.smhl.2025.100570
+  code: https://github.com/wangziyu99/HealthQ-LLM-Healthcare-Benchmark
+license: MIT
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: "Cases come from two public datasets, ChatDoctor (about 110,000 online medical conversations) and MTS-Dialog (doctor-patient dialogues with clinical notes); the paper does not state countries."
+  localization: unknown
+  lead_institution_countries: [USA, KOR]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, llm_generated]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge, automatic_metric, simulated_multi_turn]
+  modality: [text]
+  size: Cases from ChatDoctor and MTS-Dialog turned into ground-truth pairs and simulated patient conversations; exact test size not confirmed
+provenance:
+  records: [r_b844098cf6, r_65c60e32aa]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Read the method sections in paperclip and the GitHub README (MIT license per the GitHub API). The paper states the code, dataset generation pipeline, and evaluation framework are public; the generated ground-truth data itself was not inspected, so open_data is based on the public repository only. Authors at UC Irvine, Columbia, Washington University in St. Louis, and Kookmin University. The repository README calls the project a benchmark; the paper calls it a framework."

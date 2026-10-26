@@ -1,0 +1,33 @@
+id: mpact-s
+name: mPACT-S
+kind: benchmark
+year: 2026
+summary: 300 clinician-authored multi-turn suicide-risk roleplays across four C-SSRS-informed risk levels, with clinicians labelling LLM replies as helpful, less harmful, or more harmful and a severity-weighted score.
+readme_section: mental_health
+links:
+  paper: https://doi.org/10.31234/osf.io/3ep4v_v1
+  doi: 10.31234/osf.io/3ep4v_v1
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  rater_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [industry_lab]
+  item_provenance: [clinician_written]
+  venue: preprint
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [expert_human_rating, simulated_multi_turn]
+  modality: [text]
+  size: 300 multi-turn roleplays
+provenance:
+  records: [r_bea747aeaa]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "Read only the OSF preprint record and abstract (full text not reachable by the tools used); no data link or license was seen, so open_data is unknown. English and the US lead country are assumptions (mpathic is a US company), not stated in the abstract. Six LLMs were evaluated; Claude Sonnet 4.5 and GPT-5.2 scored highest. Sibling of mPACT-ED. The paper's search record shows a second paperclip ID 195246157 that could not be opened."

@@ -1,0 +1,35 @@
+id: hospital-leaflet-rag-qa
+name: Hospital Leaflet RAG QA
+kind: benchmark
+year: 2024
+summary: A framework that auto-generates answerable, unanswerable, and factoid question-answer pairs from documents to evaluate RAG chatbots, applied to more than 1,000 Dutch patient leaflets from a Dutch hospital group (500 pairs sampled for hospital-specialist annotation).
+readme_section: multilingual_regional
+links:
+  paper: https://doi.org/10.63317/3e22ykrrugx8
+  doi: 10.63317/3e22ykrrugx8
+  code: https://github.com/Bindila-Bogdan/Auto-QA-Generation
+license: GPL-3.0
+open_data: open
+geography:
+  item_languages: [Dutch]
+  item_origin_countries: [NLD]
+  item_origin_note: Leaflets provided by Ziekenhuis Groep Twente (ZGT), Hengelo, the Netherlands.
+  rater_countries: [NLD]
+  localization: native
+  lead_institution_countries: [NLD]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated, literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine, public_health]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: "5,000 generated QA pairs filtered to 500 for annotation; 278 of the annotated pairs labelled correct by five hospital specialists"
+provenance:
+  records: [r_40be0ba385]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Read the ACL Anthology PDF (CL4Health workshop at LREC-COLING 2024) and the GitHub README. The repo is GPL-3.0 and holds the extracted leaflet sections, the QA pairs with sources, and annotation responses; the full leaflets are not included. Questions are LLM-generated (GPT-3.5-turbo-instruct) and the covered content includes administrative as well as medical procedures. Evaluation uses ROUGE and similar metrics plus pass/fail for unanswerable questions; exact metrics were not itemised. Counts reported in the paper are inconsistent across sections (annotation set sizes), so size is approximate."

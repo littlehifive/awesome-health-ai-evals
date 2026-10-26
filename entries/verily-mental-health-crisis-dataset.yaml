@@ -1,0 +1,36 @@
+id: verily-mental-health-crisis-dataset
+name: Verily Mental Health Crisis Dataset
+kind: benchmark
+year: 2025
+summary: 1,800 LLM-synthesized user messages (900 crisis across eight clinical categories, 900 non-crisis health messages) labeled by two licensed clinicians, used to score mental-health crisis guardrails on sensitivity, specificity, and F1.
+readme_section: mental_health
+links:
+  paper: https://doi.org/10.1038/s41746-026-02579-5
+  doi: 10.1038/s41746-026-02579-5
+  arxiv: "2510.12083"
+  pmcid: PMC13219520
+license: null
+open_data: gated
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Messages are synthesized by language models, so they have no country of origin.
+  rater_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [industry_lab]
+  item_provenance: [llm_generated]
+  venue: peer_reviewed
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 1,800 messages (900 crisis, 900 non-crisis)
+provenance:
+  records: [r_a17fef58ce, r_fc4dc0776d]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "The paper's main contribution is the Verily Mental Health Guardrail, evaluated on this dataset and on a 794-message mental-health subset of NVIDIA Aegis 2.0 (CC-BY-4.0, not part of this entry). The arXiv preprint (2510.12083) uses the earlier name Verily behavioral health safety filter. Eight crisis categories: abuse, neglect, eating-disorder behaviors, psychosis, self-harm, suicide, substance misuse, violence toward others, plus mixed presentations. Data statement in the preprint: available upon researcher request, so open_data is gated; no license stated. Scored as a classification task against clinician labels rather than model reply quality."

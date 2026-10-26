@@ -1,0 +1,34 @@
+id: pediabench
+name: PediaBench
+kind: benchmark
+year: 2024
+summary: 5,749 Chinese pediatric questions (4,117 objective and 1,632 subjective across true/false, multiple choice, pairing, essay, and case analysis) from licensing exams, university finals, and guidelines, scored with a difficulty-weighted composite.
+readme_section: multilingual_regional
+links:
+  paper: https://doi.org/10.1007/s11704-025-41345-w
+  arxiv: "2412.06287"
+  doi: 10.1007/s11704-025-41345-w
+license: null
+open_data: unknown
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: Questions come from the Chinese National Medical Licensing Examination question banks, Chinese medical university final exams, and pediatric diagnosis and treatment standards and clinical guidelines.
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions, literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [child_health]
+  intended_users: [clinician, medical_student]
+  eval_methods: [mcq_exact_match, rubric_llm_judge]
+  modality: [text]
+  size: 5,749 questions (4,117 objective, 1,632 subjective)
+provenance:
+  records: [r_659e599e3f]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "The paper says all sources are public and gives no repository, dataset link, or license, so release status is unknown. Subjective questions are graded with GPT-4o as referee. 3,576 multiple-choice items come from CNMLE banks (3,383 from the Pediatric Doctor In-Charge qualification exam); 258 true/false, 167 essay, and 67 case-analysis items come from university final exams; 283 pairing questions were built by hand. 20 LLMs were evaluated. Published in Frontiers of Computer Science."

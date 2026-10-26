@@ -1,0 +1,32 @@
+id: aipsy-bench
+name: aipsy-bench
+kind: benchmark
+year: 2026
+summary: 20 frozen synthetic clinical scenarios, a six-metric rubric (including empathy, crisis handling, and advice safety), and an LLM-judge panel for scoring the psychological safety of conversational AI, run as a CI pass/fail gate.
+readme_section: mental_health
+links:
+  code: https://github.com/keidolabs/aipsy-bench
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Scenarios are synthetic scripted user turns; the README does not state a country setting. English-only.
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [industry_lab]
+  item_provenance: [clinician_written]
+  venue: grey_literature
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge, simulated_multi_turn]
+  modality: [text]
+  size: 20 scenarios; 6 metrics
+provenance:
+  records: [r_973a165e76]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: README only; the methodology preprint is not yet out and the judge panel's agreement with human experts is still being studied, per the README. Data license CC BY 4.0, code Apache-2.0. Built by Keido Labs; location not stated. item_provenance set to clinician_written because the README calls the scenarios clinical, but who wrote them is not stated. The scenarios are scripted user turns, so multi-turn is scripted rather than a simulated patient.

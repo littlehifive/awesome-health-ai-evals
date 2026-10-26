@@ -1,0 +1,35 @@
+id: medlocomo
+name: MedLoCoMo
+kind: benchmark
+year: 2026
+summary: 100 patient timelines (about 30 sessions and 75,000 tokens each) of synthetic doctor-patient dialogue generated from MIMIC-IV admissions, with evidence-linked questions on single-admission, cross-admission, and unanswerable settings, scored by F1 and an LLM judge.
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2607.22566
+  arxiv: "2607.22566"
+  doi: 10.48550/arxiv.2607.22566
+  code: https://github.com/leozzy13/MedLoCoMo
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Dialogues are LLM-generated from MIMIC-IV and MIMIC-IV-Note records (a US hospital database).
+  localization: native
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated, adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric, rubric_llm_judge]
+  modality: [text]
+  size: 100 patient timelines, average 1,669.8 turns and 29.7 sessions per conversation
+provenance:
+  records: [r_3c4f9008f3, r_e40dfb95f3]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: Released data is in the GitHub repo (synthetic conversations, summaries, QA); raw MIMIC tables are not redistributed and rerunning the pipeline needs credentialed PhysioNet access. No license file was found (GitHub reports none). Author affiliations were not read. Dialogues were not audited by clinicians (the paper lists this as future work). Tests long-context memory of a model over a patient history rather than a patient-facing chatbot.

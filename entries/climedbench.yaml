@@ -1,0 +1,35 @@
+id: climedbench
+name: CliMedBench
+kind: benchmark
+year: 2024
+summary: "33,735 Chinese questions in 14 clinical scenarios (in-hospital diagnosis stages, knowledge tests, hallucination and wrong-treatment detection, summarization, pathway ordering) built mainly from real hospital EHRs and the national physician exam, for evaluating medical LLMs."
+readme_section: multilingual_regional
+links:
+  paper: https://aclanthology.org/2024.emnlp-main.480/
+  arxiv: "2410.03502"
+  doi: 10.18653/v1/2024.emnlp-main.480
+  code: https://github.com/Optifine-TAT/CliMedBench
+license: null
+open_data: unknown
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: EHRs from collaborating top-tier tertiary hospitals in China (Jan-Mar 2023 radiology-linked records) plus NMLEC 2023 exam questions.
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [real_user_queries, exam_questions, literature, llm_generated]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician, medical_student, patient_public, pharmacist]
+  eval_methods: [mcq_exact_match, automatic_metric, expert_human_rating]
+  modality: [text]
+  size: "33,735 questions across 14 scenarios"
+provenance:
+  records: [r_6b25661039]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "QA pairs were generated from EHR segments by an LLM with expert audit. The GitHub repo (MIT) holds scenario descriptions and examples in an example/ folder; whether the full 33.7k set is downloadable was not confirmed, so open_data is unknown and the dataset license was not seen. Mix of multiple-choice, sequencing, and open-ended generation tasks; the exact metrics per scenario were not read in detail."

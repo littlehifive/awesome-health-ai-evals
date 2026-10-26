@@ -1,0 +1,37 @@
+id: polish-medical-exams
+name: Polish Medical Exams (LEK, LDEK, PES)
+kind: benchmark
+year: 2024
+summary: Over 24,000 Polish and English multiple-choice questions from Polish medical final (LEK), dental final (LDEK) and specialization (PES) licensing exams, for cross-lingual evaluation of LLMs against human examinees.
+readme_section: multilingual_regional
+links:
+  paper: https://doi.org/10.18653/v1/2025.findings-emnlp.480
+  arxiv: "2412.00559"
+  doi: 10.18653/v1/2025.findings-emnlp.480
+  huggingface: [amu-cai/medical-exams-LDEK-EN-2013-2024, amu-cai/medical-exams-LDEK-PL-2008-2024, amu-cai/medical-exams-LEK-EN-2013-2024, amu-cai/medical-exams-LEK-PL-2008-2024, amu-cai/medical-exams-PES-PL-2007-2024]
+  website: https://huggingface.co/spaces/amu-cai/Polish_Medical_Exams
+license: null
+open_data: open
+geography:
+  item_languages: [Polish, English]
+  item_origin_countries: [POL]
+  localization: native
+  lead_institution_countries: [POL]
+  subsets:
+    - {name: English versions, languages: [English], countries: [POL], localization: translated}
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine, dentistry, other_specialty]
+  intended_users: [clinician, medical_student]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: over 24,000 questions
+provenance:
+  records: [r_02a24ae409]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Questions were scraped from the Medical Examination Center (cem.edu.pl) pages; the Hugging Face cards say the authors do not own the rights and give no license (the card tags only language and task), so license is null. English LEK and LDEK versions were translated by medical experts at the exam center, not machine-translated. Questions with images and outdated questions were excluded. Compares LLMs with human examinee scores."

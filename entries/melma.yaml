@@ -1,0 +1,35 @@
+id: melma
+name: MELMA (MELMA-Q and MELMA-W)
+kind: eval_framework
+year: 2026
+summary: A 30-item clinician-rated questionnaire (MELMA-Q) across seven domains with a two-tier safety-gated acceptability framework (MELMA-CAF), plus a web tool (MELMA-W) that applies the rubric to LLM answers; piloted on five otolaryngology scenarios.
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.1007/s00405-026-10245-5
+  doi: 10.1007/s00405-026-10245-5
+  dataset: https://doi.org/10.5281/zenodo.18436423
+  code: https://github.com/draynuraliyeva86-a11y/MELMA-W-Web-Based-Auditing-of-LLM-Generated-Medical-Answers
+license: MIT
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: The pilot used five standardized otolaryngology scenarios; the landing page and repository do not say where they came from.
+  localization: unknown
+  lead_institution_countries: [AZE, TUR, USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [other_specialty]
+  intended_users: [clinician]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: 30-item questionnaire in 7 domains; pilot of 5 scenarios x 3 LLMs (15 responses) rated by 5 ENT specialists
+provenance:
+  records: [r_1e83eca6ae, r_c2b0ec81c4]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: medium
+  notes: "Read the Springer abstract page (full text is paywalled; not in paperclip) and the MELMA-W README. The seven domains are Medical Accuracy/Groundedness, Clinical Reasoning/Management, Safety/Ethics/Trustworthiness, Linguistic Quality/Semantic Fidelity, Understandability/Literacy Adaptation, Usefulness/Decision Support, and Performance/Answer Behavior. Inter-rater ICC was 0.89. Anonymized evaluation data are on Zenodo, while the fuller datasets are available on reasonable request. The article lists a second code repository (drNatigAhmadov/MELMA-W-Evaluation) that was not opened. The MIT license is from the MELMA-W repository. Whether MELMA-W scores with an LLM is not stated in the sources read, so rubric_llm_judge is not listed. Authors: Azerbaijan Medical University (first), Yeditepe University (Turkey) and Denver Health (USA) for the last author. Rater countries are not stated."

@@ -1,0 +1,33 @@
+id: three-bot-evaluation-system
+name: 3-bot evaluation system
+kind: eval_framework
+year: 2025
+summary: A method for testing early-stage health chatbots with simulated patient bots (depressed, anxious, or frustrated personas) and an LLM evaluator bot scoring transcripts against criteria, checked against human expert scores.
+readme_section: frameworks
+links:
+  paper: https://pmc.ncbi.nlm.nih.gov/articles/PMC11884306/
+  doi: 10.2196/63058
+  pmcid: PMC11884306
+open_data: described_only
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Patients are GPT-4 simulated bots (30 bots modelled as 40-year-old men with lung cancer); no real-world items.
+  lead_institution_countries: [KOR, USA]
+  localization: native
+origin:
+  builder_types: [academic, industry_lab]
+  item_provenance: [not_applicable]
+  venue: peer_reviewed
+facets:
+  health_areas: [oncology, mental_health]
+  intended_users: [patient_public]
+  eval_methods: [simulated_multi_turn, rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 30 simulated patient bots; 60 provider-patient transcripts (two provider bots, 30 interactions each)
+provenance:
+  records: [r_c5cd3b7465]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Two demonstration provider bots: a patient-education nurse bot scored on 5 criteria (max 15) and a pre-therapy screening bot scored on 14 criteria adapted from the ENACT tool (max 42). Authors are at Samsung Medical Center (Korea) and Med2Lab (San Francisco); the first author's affiliation is Korea, the last was not checked. No code or prompts link found; the localization value is a placeholder for a framework with no real items."

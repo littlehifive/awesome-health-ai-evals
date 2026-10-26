@@ -1,0 +1,34 @@
+id: llm-evaluation-for-dentistry
+name: LLM Evaluation for Dentistry
+kind: benchmark
+year: 2026
+summary: 30 periodontist-written clinical dental questions across six domains (periodontics, implants, oral-systemic medicine, pharmacology, diagnosis, patient communication), each with a must-include and must-avoid rubric checked against guidelines and scored by an LLM judge.
+readme_section: knowledge_exam
+links:
+  paper: https://github.com/Tuminha/llm-evaluation-for-dentistry/blob/main/paper/main.pdf
+  doi: 10.5281/zenodo.20647357
+  code: https://github.com/Tuminha/llm-evaluation-for-dentistry
+license: MIT
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Rubrics cite the 2017 World Workshop classification, EFP S3, AAOMS, AHA, NICE, and SDCEP guidance; the question author's country is not stated.
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [unknown]
+  item_provenance: [clinician_written, literature]
+  venue: grey_literature
+facets:
+  health_areas: [dentistry]
+  intended_users: [clinician]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: 30 questions
+provenance:
+  records: [r_d337b1e063]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Read the repo README and VALIDATION.md; the manuscript PDF (paper/main.pdf, not peer reviewed as far as seen) and Zenodo record were not opened. Only 30 items, kept because the repo ships a manuscript and a guideline-checked rubric set; a human may want to apply the 50-item bar. The README says the project is part of Periospot; the owner's country and institution are not stated, so lead country and builder type are unknown. Scoring: an LLM judge counts must_include criteria and flags must_avoid violations, with a second-vendor judge for agreement, N repeats for consistency, and latency. The README calls the rubrics clinician-reviewed and guideline-verified (v0.1.2), with final clinician sign-off noted in VALIDATION.md. Section choice is borderline (open-ended answers scored by rubric); open_ended may fit better."

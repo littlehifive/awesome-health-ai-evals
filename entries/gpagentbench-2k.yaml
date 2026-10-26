@@ -1,0 +1,35 @@
+id: gpagentbench-2k
+name: GPAgentBench-2K
+kind: benchmark
+year: 2026
+summary: 2,428 expert-validated real primary-care encounters turned into a constrained-MDP environment where LLM agents choose among six clinical actions (ask, examine, test, diagnose, treat, refer or abstain) under safety constraints.
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2608.30188
+  arxiv: "2608.30188"
+  doi: 10.48550/arxiv.2608.30188
+  code: https://github.com/jianing-lab/GPAgentBench
+license: MIT
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Cases come from a primary-care network (9 primary and 62 secondary departments) whose country is not named; all cases are English.
+  localization: native
+  lead_institution_countries: [CHE, ARE]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written]
+  venue: preprint
+facets:
+  health_areas: [primary_care]
+  intended_users: [clinician]
+  eval_methods: [simulated_multi_turn, automatic_metric]
+  modality: [text]
+  size: 2,428 cases; 16 LLMs evaluated
+provenance:
+  records: [r_f940035700]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Read the arXiv PDF. Cases are de-identified real GP visit records filtered by expert validation. Metrics include diagnosis accuracy and safety-constraint violations. The linked GitHub repo (MIT) holds only a LICENSE and a title-only README, so no data release was seen and open_data is unknown. Lead countries: first author at ETH Zurich (Switzerland), corresponding author at MBZUAI (UAE); University of Toronto also listed."

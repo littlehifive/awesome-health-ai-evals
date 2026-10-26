@@ -1,0 +1,35 @@
+id: tcm-qa
+name: TCM-QA
+kind: benchmark
+year: 2024
+summary: About 800 Chinese traditional Chinese medicine questions (single choice, multiple choice, true or false) drawn from TCM qualification-exam and textbook exercise sets, used to test ChatGPT zero-shot and few-shot.
+readme_section: multilingual_regional
+links:
+  paper: http://arxiv.org/abs/2403.09164
+  arxiv: "2403.09164"
+  doi: 10.48550/arxiv.2403.09164
+  code: https://github.com/yizhen-buaa/TCM-QA-datasets
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: Questions were extracted from about 100 documents on the Chinese document-sharing site BaiduWenKu, which follow TCM practitioner qualification exams and TCM textbook exercise sets.
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions, literature]
+  venue: preprint
+facets:
+  health_areas: [traditional_medicine]
+  intended_users: [medical_student, clinician]
+  eval_methods: [mcq_exact_match, expert_human_rating]
+  modality: [text]
+  size: "about 800 questions (paper: 574 single-choice, 131 multiple-choice, 97 true or false; GitHub README: 578/131/96)"
+provenance:
+  records: [r_9e42c05dec]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Three TCM experts annotated and verified the pairs. Scored by precision (partial credit of 0.5 on multiple-choice) plus a responsiveness-adjusted precision. Three annotators rated ChatGPT explanations for readability, reliability and integrity on a 1-3 scale. Counts differ slightly between the paper and the GitHub README. Only ChatGPT (gpt-3.5-turbo) was evaluated."

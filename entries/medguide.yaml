@@ -1,0 +1,36 @@
+id: medguide
+name: MedGUIDE
+kind: benchmark
+year: 2025
+summary: 7,747 LLM-generated multiple-choice clinical scenarios built from 55 NCCN cancer decision trees (17 cancer types), filtered by expert-trained reward models and LLM judges, testing whether LLMs follow clinical guidelines.
+readme_section: knowledge_exam
+links:
+  paper: http://arxiv.org/abs/2505.11613
+  arxiv: "2505.11613"
+  doi: 10.48550/arxiv.2505.11613
+  huggingface: [MedGUIDE/MedGUIDE-MCQA-8K]
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Derived from NCCN (US) guideline decision trees; vignettes are LLM-generated.
+  rater_countries: [USA]
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated, literature]
+  venue: preprint
+facets:
+  health_areas: [oncology]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 7,747 multiple-choice questions (5 options each); 25 LLMs evaluated
+provenance:
+  records: [r_a4a558c7e3, r_63968ef7cf]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "The Hugging Face card (MedGUIDE/MedGUIDE-MCQA-8K) says License: TBD, intended for academic and research use, so license is null. Six medical experts (Harvard Medical School, MIT, Harvard Stem Cell Institute) labeled 500 MCQs to train reward models. The HF card is the paper's own release."

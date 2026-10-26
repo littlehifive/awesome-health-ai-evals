@@ -1,0 +1,34 @@
+id: clibench
+name: CliBench
+kind: benchmark
+year: 2024
+summary: "About 1,000 real MIMIC-IV hospital admissions per task (diagnoses, procedures, lab test orders, prescriptions), where an LLM predicts the clinicians' coded decisions from the admission record, scored by multi-granular precision, recall, and F1 against ICD-10, LOINC, and ATC codes."
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2406.09923
+  arxiv: "2406.09923"
+  code: https://github.com/clibench/clibench
+license: null
+open_data: gated
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Cases come from MIMIC-IV (Beth Israel Deaconess Medical Center, Boston, 2008-2019).
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [real_user_queries]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: "about 1,000 evaluation admissions per task (4 tasks), plus a training split"
+provenance:
+  records: [r_fa0b727e15]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Items are de-identified hospital EHR records, not chatbot conversations, so item_provenance real_user_queries is the closest enum value. The repo builds the benchmark from MIMIC-IV, which needs credentialed PhysioNet access (gated); the GitHub code is Apache-2.0 but no data license was seen, so license is null. Free-text answers are mapped to codes by embedding similarity. Evaluation sets: 1,081 diagnosis, 1,100 procedure, 1,064 lab, and prescription visits per Table 2."

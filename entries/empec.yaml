@@ -1,0 +1,35 @@
+id: empec
+name: EMPEC
+kind: benchmark
+year: 2024
+summary: 157,803 multiple-choice questions from Taiwan's national professional exams for 20 healthcare professions (124 subjects), in traditional Chinese, scored by accuracy.
+readme_section: multilingual_regional
+links:
+  paper: https://doi.org/10.18653/v1/2025.findings-acl.518
+  arxiv: "2406.11328"
+  doi: 10.18653/v1/2025.findings-acl.518
+  huggingface: [KenLuo/EMPEC]
+license: CC-BY-NC-ND-4.0
+open_data: open
+geography:
+  item_languages: [Traditional Chinese]
+  item_origin_countries: [TWN]
+  item_origin_note: Past questions published by the Ministry of Education of Taiwan (Republic of China), per the paper; the Hugging Face dataset also carries simplified Chinese and English versions of questions.
+  localization: native
+  lead_institution_countries: [GBR]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine, nursing, pharmacy_medication, dentistry]
+  intended_users: [clinician, nurse_midwife, pharmacist, medical_student]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 157,803 questions (149,603 train, 200 validation, test split on Hugging Face); 3,497-question 2024 subset
+provenance:
+  records: [r_4b1ac3f4e9, r_1c592bcf18]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "r_4b1ac3f4e9 is the arXiv preprint (titled 'Are Large Language Models True Healthcare Jacks-of-All-Trades?') and r_1c592bcf18 the ACL Findings 2025 version. The paper says the Taiwanese authorities impose no specific license; the Hugging Face card states CC-BY-NC-ND-4.0, which is what is recorded. Lead institution is the University of Manchester (first and last authors). Health areas cover 20 professions including physician, nurse, pharmacist, dentist, TCM practitioner, optometrist, and audiologist. Hugging Face dataset KenLuo/EMPEC found by search; the paper itself did not give a link in the portions read."

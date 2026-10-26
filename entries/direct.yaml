@@ -1,0 +1,51 @@
+id: direct
+name: DiReCT
+kind: benchmark
+year: 2024
+summary: 511 MIMIC-IV clinical notes annotated by physicians with the observations, reasoning, and final diagnosis, plus a guideline-based diagnostic knowledge graph, for evaluating LLM diagnostic reasoning and interpretability.
+readme_section: knowledge_exam
+links:
+  paper: https://doi.org/10.52202/079017-2386
+  doi: 10.52202/079017-2386
+  arxiv: '2408.01933'
+  dataset: https://doi.org/10.13026/yf96-kc87
+  code: https://github.com/wbw520/DiReCT
+license: custom
+open_data: gated
+geography:
+  item_languages:
+  - English
+  item_origin_countries:
+  - USA
+  item_origin_note: Notes come from MIMIC-IV (US ICU hospital database).
+  rater_countries:
+  - UNKNOWN
+  localization: native
+  lead_institution_countries:
+  - JPN
+origin:
+  builder_types:
+  - academic
+  item_provenance:
+  - adapted_dataset
+  - clinician_written
+  venue: peer_reviewed
+facets:
+  health_areas:
+  - general_medicine
+  - cardiology
+  intended_users:
+  - clinician
+  eval_methods:
+  - automatic_metric
+  - rubric_llm_judge
+  modality:
+  - text
+  size: 511 clinical notes
+provenance:
+  records:
+  - r_6323f397f0
+  read_full_text: true
+  confidence: high
+  notes: Dataset is on PhysioNet (credentialed access; the paper cites the PhysioNet Credentialed Health Data License 1.5.0 for MIMIC-IV, and I did not open the PhysioNet page, so license custom is inferred from that). The GitHub repo holds baseline and evaluation code and synthetic samples. Metrics are diagnosis accuracy and observation and explanation completeness and faithfulness, matched with an LLM (Llama3-8B). Lead country JPN is from the Osaka University affiliations in the paper header; annotator countries are not stated.
+  extracted: '2026-10-26'

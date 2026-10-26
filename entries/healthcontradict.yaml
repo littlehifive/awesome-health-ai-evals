@@ -1,0 +1,34 @@
+id: healthcontradict
+name: HealthContradict
+kind: benchmark
+year: 2025
+summary: 920 health questions, each with a factual answer backed by scientific evidence and two web documents taking contradictory stances, for testing how language models use conflicting context.
+readme_section: safety
+links:
+  paper: https://arxiv.org/abs/2512.02299
+  arxiv: "2512.02299"
+  doi: 10.1038/s41746-025-02336-0
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Built from the TREC Health Misinformation Tracks (2019, 2021, 2022); the paper does not state where the questions or documents originate.
+  localization: adapted
+  lead_institution_countries: [CHE]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine, public_health]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 920 instances (question, factual answer, two contradictory documents), each tested under five prompt templates
+provenance:
+  records: [r_c8d3a1a306]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Published in npj Digital Medicine (2026) with an arXiv preprint from December 2025. Questions, expert answers, and document verdicts come from the TREC Health Misinformation Tracks; documents come from ClueWeb12-B13 (2019) and C4 no-clean (2021, 2022). Scored by accuracy and macro F1 on yes/no answers. The text I read has no data-availability statement, release link, or license, so open_data is unknown and license is null."

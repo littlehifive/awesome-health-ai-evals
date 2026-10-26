@@ -1,0 +1,35 @@
+id: ngqa
+name: NGQA
+kind: benchmark
+year: 2024
+summary: "13,802 personalized nutrition questions built from US NHANES health profiles and FNDDS foods, asking whether a food suits a user with a given condition (obesity, hypertension, diabetes, opioid misuse), scored on binary, multi-label, and explanation-generation tasks."
+readme_section: knowledge_exam
+links:
+  paper: https://arxiv.org/abs/2412.15547
+  arxiv: "2412.15547"
+  code: https://github.com/Yiyang-Ian-Li/NGQA
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: User profiles come from NHANES (US survey, 2003 to 2020) and foods from the US FNDDS database. Questions are generated from these through a tagging scheme, not written by people.
+  rater_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic, industry_lab]
+  item_provenance: [adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [nutrition, ncd]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: "13,802 records (8,490 sparse, 3,622 standard, 1,690 complex)"
+provenance:
+  records: [r_143fc11b17]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Framed as knowledge-graph question answering (Graph-RAG baselines such as ToG and KAPING plus LLM backbones). Match or contradict labels come from a rule-based tagging scheme (WHO, FSA, EU claims thresholds), sanity-checked by an LLM and reviewed by three human annotators. The README gives a Google Drive download for the benchmark file and no license; the paper covers four conditions only. Rater countries are not stated. Co-authors include IBM Research."

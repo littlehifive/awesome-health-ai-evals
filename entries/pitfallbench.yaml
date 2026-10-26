@@ -1,0 +1,35 @@
+id: pitfallbench
+name: PitfallBench and DialogueBench
+kind: benchmark
+year: 2026
+summary: Two benchmarks for LLM parent simulators in pediatric serious-illness communication training, with 1,000 turn-level items (clinician pitfall versus skilled move) and 152 expert-reviewed gold dialogues, scored by LLM judges.
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2608.29481
+  arxiv: "2608.29481"
+  code: https://github.com/Beikewzh/sic-benchmarks
+license: CC-BY-NC-SA-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Cases are synthetic and anchored in the Serious Illness Conversation Guide for Pediatrics curriculum; the source says nothing about a country of origin.
+  rater_countries: [CAN]
+  localization: unknown
+  lead_institution_countries: [CAN]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated, clinician_written]
+  venue: preprint
+facets:
+  health_areas: [child_health]
+  intended_users: [clinician]
+  eval_methods: [rubric_llm_judge, simulated_multi_turn, expert_human_rating]
+  modality: [text]
+  size: 1,000 turn-level items; 152 gold dialogues; 8,391 silver dialogues
+provenance:
+  records: [r_642ee60840]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "The repository README lists the data and scripts under CC BY-NC-SA 4.0. It evaluates simulators of parents for clinician training, not a health chatbot for end users, so scope is borderline. Clinician raters are at McGill (Montreal); the paper does not state raters' countries explicitly. The 8,391-dialogue SIC-SimCorpus is training substrate released alongside the gold set."

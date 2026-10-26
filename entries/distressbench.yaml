@@ -1,0 +1,51 @@
+id: distressbench
+name: DistressBench
+kind: benchmark
+year: 2026
+summary: 718 English suicide and self-harm crisis conversations with clinician-authored user turns across 23 subcategories, each with a weighted rubric (about 6,900 criteria) and a clinician reference response, scored as the weighted fraction of crisis-support criteria a reply satisfies.
+readme_section: mental_health
+links:
+  paper: https://arxiv.org/abs/2610.12758
+  doi: 10.48550/arxiv.2610.12758
+  arxiv: '2610.12758'
+  huggingface:
+  - ScaleAI/DistressBench
+  website: https://labs.scale.com/papers/distressbench
+license: null
+open_data: gated
+geography:
+  item_languages:
+  - English
+  item_origin_countries:
+  - UNKNOWN
+  item_origin_note: Prompts were written by licensed clinicians and crisis counselors on a contributor platform; countries are not stated. The paper says resource criteria assume United States crisis services.
+  rater_countries:
+  - UNKNOWN
+  localization: native
+  lead_institution_countries:
+  - USA
+origin:
+  builder_types:
+  - industry_lab
+  item_provenance:
+  - clinician_written
+  - llm_generated
+  venue: preprint
+facets:
+  health_areas:
+  - mental_health
+  intended_users:
+  - patient_public
+  eval_methods:
+  - rubric_llm_judge
+  - expert_human_rating
+  modality:
+  - text
+  size: 718 conversations; 6,901 criteria; plus 20 long-horizon red-team transcripts
+provenance:
+  records:
+  - r_2d89174e00
+  read_full_text: true
+  confidence: high
+  notes: Hugging Face ScaleAI/DistressBench is access-restricted (auto-approved gate; the card text is not visible without login), described in the paper as a public/private split, so I could not check the license. Rubrics and reference responses were LLM-drafted (Gemini) and then revised by clinicians (88.5% of draft criteria reworded). Judge panel calibrated against three clinicians on 75 tasks. Lead country USA is from the Scale AI affiliation.
+  extracted: '2026-10-26'

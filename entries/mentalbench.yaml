@@ -1,0 +1,36 @@
+id: mentalbench
+name: MentalBench
+kind: benchmark
+year: 2026
+summary: 24,750 synthetic psychiatric cases (medical-chart and patient self-report styles, single and multi-diagnosis) built from a psychiatrist-validated DSM-5 knowledge graph for 23 disorders, scored by exact-match diagnosis accuracy.
+readme_section: mental_health
+links:
+  paper: https://arxiv.org/abs/2602.12871
+  arxiv: "2602.12871"
+  doi: 10.48550/arxiv.2602.12871
+  huggingface: [hysong/MentalBench, kth8/MentalBench-formatted]
+  code: https://github.com/HoyunS/MentalBench
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Synthetic cases generated with an LLM from DSM-5 criteria; no country origin.
+  localization: native
+  lead_institution_countries: [KOR]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated, clinician_written]
+  venue: preprint
+facets:
+  health_areas: [mental_health]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 24,750 cases (1,725 medical chart, 3,450 self-report, 6,525 ambiguous, 13,050 unambiguous)
+provenance:
+  records: [r_6ba76bfb06, r_aa2ca2a90f]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "License is CC-BY-4.0 on the hysong/MentalBench card and the GitHub README badge. kth8/MentalBench-formatted is a reformatted copy of hysong/MentalBench (merged here). Three other Hugging Face uploads of the same CSV (ZZHHJ/MentalBench, AdversaLLC/MentalBench, invincible-jha/MentalBench) were linked to this record by dedup; they are copies by other uploaders and are not listed. Two experts (a psychiatrist and a clinical psychologist) reviewed seed profiles and rated 220 sampled cases; the paper does not state their countries."

@@ -1,0 +1,34 @@
+id: k-bench
+name: K-Bench
+kind: benchmark
+year: 2026
+summary: "200 synthetic multi-turn mental health vignettes (suicide, self-harm, domestic violence, substance misuse, no-risk) scored on 47 rubric components in seven dimensions by a clinician-calibrated GPT-4o judge, with a public leaderboard of 125 model configurations and a protected test set."
+readme_section: mental_health
+links:
+  paper: https://arxiv.org/abs/2609.15855
+  arxiv: "2609.15855"
+  doi: 10.48550/arxiv.2609.15855
+license: null
+open_data: closed
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Patient conversations are simulated by an LLM from vignettes; the paper does not state a country of origin.
+  localization: unknown
+  lead_institution_countries: [GBR]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated]
+  venue: preprint
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge, simulated_multi_turn, expert_human_rating]
+  modality: [text]
+  size: "200 multi-turn vignettes (up to 20 talk turns each); 151 clinician-rated transcripts (16,157 consensus item-level cells)"
+provenance:
+  records: [r_7022926732]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Test conversations, patient prompts, scoring examples and transcripts are withheld on purpose (protected benchmark following the AEF-1 standard); only the method, tested configurations and scores are public, so open_data is closed. A GPT-4o judge reached 94.2% exact agreement with clinician consensus. Synthetic patient turns were compared with a 50-conversation real-user corpus. Authors are mostly at UK institutions (Roehampton, Kivira Health, Hertfordshire, Surrey, Bedfordshire, Tavistock Relationships); rater countries are not stated. No public leaderboard URL was found in the text read."

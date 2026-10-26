@@ -1,0 +1,35 @@
+id: ai-psychotherapy-eval
+name: AI-Psychotherapy-Eval
+kind: eval_framework
+year: 2026
+summary: A red-teaming framework that pairs AI psychotherapists with simulated patients (15 personas with Alcohol Use Disorder) and scores multi-session dialogues against a quality-of-care and risk ontology, released with simulation logs from 369 sessions.
+readme_section: frameworks
+links:
+  paper: https://arxiv.org/abs/2602.19948
+  arxiv: "2602.19948"
+  doi: 10.48550/arxiv.2602.19948
+  huggingface: [IanSteenstra/AI-Psychotherapy-Eval]
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Patient personas are LLM-simulated and validated by clinicians; no country origin is stated.
+  localization: unknown
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated]
+  venue: preprint
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [simulated_multi_turn, rubric_llm_judge]
+  modality: [text]
+  size: 15 simulated patient personas, 6 AI therapist agents, 369 simulated sessions
+provenance:
+  records: [r_5334291bc4]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "The Hugging Face dataset holds simulation logs, transcripts, and automated evaluation outputs (plus the persona table), not a held-out test set; it is listed as the framework's companion data. Test case is Alcohol Use Disorder only. Item language assumed English from the dataset card tag."

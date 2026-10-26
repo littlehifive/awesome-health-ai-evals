@@ -1,0 +1,32 @@
+id: stcc-adult-after-hours-triage-2026
+name: STCC Adult After-Hours Telehealth Triage 2026
+kind: benchmark
+year: 2026
+summary: 50 synthetic adult telephone-triage vignettes, each labelled by nurse editors with a care disposition (10 classes) plus coarser acuity and urgency labels, for scoring LLM triage recommendations.
+readme_section: knowledge_exam
+links:
+  huggingface: [schmitt-thompson-clinical-content/adult-after-hours-telehealth-triage-2026]
+license: CC-BY-NC-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: The card says dispositions follow US care settings (PCP, ED/UCC, 911) and temperatures are in degrees F; it does not name a country outright.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [industry_lab]
+  item_provenance: [llm_generated, clinician_written]
+  venue: grey_literature
+facets:
+  health_areas: [emergency_triage, primary_care]
+  intended_users: [patient_public, nurse_midwife]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 50 vignettes
+provenance:
+  records: [r_75a91492ce]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Dataset card only; the ALLMTS (Automated LLM-based Medical Triage System) paper it was used in was not read or linked. Vignettes were drafted with an LLM, then reviewed and labelled by Nurse Editors of Schmitt-Thompson Clinical Content (a commercial triage-protocol publisher, so builder type is a judgment), confirmed by a second editor, and validated by five triage nurses (94.4% agreement). The card says over- and under-triage should be scored with the ordinal urgency_group. Commercial use requires permission. Builder country USA is inferred from the US conventions, not stated."

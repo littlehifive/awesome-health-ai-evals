@@ -1,0 +1,32 @@
+id: medical-bench-tw
+name: medical-bench-tw
+kind: benchmark
+year: 2026
+summary: About 170,000 Traditional Chinese single-answer multiple-choice questions from Taiwan's national health-professional licensing exams, specialist nurse exams, and school entrance tests, plus an advanced multi-select track and Taiwanese health policy document corpora.
+readme_section: multilingual_regional
+links:
+  huggingface: [Erichuang777777/medical-bench-tw]
+license: custom
+open_data: gated
+geography:
+  item_languages: [Traditional Chinese]
+  item_origin_countries: [TWN]
+  item_origin_note: Curated from public official Taiwanese sources (Ministry of Examination exams, national insurance, food and drug, and disease control documents).
+  localization: native
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions, literature]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine, nursing]
+  intended_users: [clinician, nurse_midwife, medical_student]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: about 170,000 single-answer MCQs with train, validation, and test splits
+provenance:
+  records: [r_a27e2dc947]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "The dataset is gated (auto-approval), so only the first part of the card was visible through the Hub API and the search record. The license tag is 'other' with a non-commercial tag, recorded here as custom. Builder type, institution, and exact subset sizes were not visible, so builder_types academic is a guess for an individual uploader. The first-seen tag set includes entrance exams (junior high and senior high), which may make part of the set non-clinical. Verify after gaining access."

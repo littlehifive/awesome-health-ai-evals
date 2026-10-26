@@ -1,0 +1,35 @@
+id: fast-health-coach
+name: FAST
+kind: eval_framework
+year: 2025
+summary: A rubric for trained reviewers to rate AI health coach messages and dialogues as acceptable or unacceptable on fidelity (to behavior-change coaching), accuracy, safety, and tone, with dialogue and turn tags and a clinical-risk escalation process.
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.3389/fdgth.2025.1460236
+  doi: 10.3389/fdgth.2025.1460236
+  pmcid: PMC12216977
+license: null
+open_data: described_only
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: The framework was applied to conversations between patients in weight-loss programs and the Coach Iris agent; the paper does not state the patients' countries.
+  rater_countries: [UNKNOWN]
+  localization: unknown
+  lead_institution_countries: [GBR, USA]
+origin:
+  builder_types: [implementer_ngo]
+  item_provenance: [not_applicable]
+  venue: peer_reviewed
+facets:
+  health_areas: [nutrition, ncd]
+  intended_users: [patient_public]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: Framework with four quality domains, scored per dialogue and per turn; no released item set
+provenance:
+  records: [r_b62ae4154e]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Authors are at Vir Health (London) and Allurion Technologies (USA), the company that deployed Coach Iris. Language is not stated in the text read; English is assumed from the paper's examples, so check. Scores are dichotomous (1 unacceptable, 2 acceptable) per domain."

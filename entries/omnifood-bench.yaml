@@ -1,0 +1,35 @@
+id: omnifood-bench
+name: OmniFood-Bench
+kind: benchmark
+year: 2026
+summary: "1,208 food images from MM-Food-100K with tasks on ingredient and cooking-method recognition, portion and macronutrient estimation, and disease-specific intake advice (diabetes, obesity, kidney, lipids) for vision-language models."
+readme_section: safety
+links:
+  paper: https://arxiv.org/abs/2607.08423
+  arxiv: "2607.08423"
+  code: https://github.com/PbRQianJiang/OmniFood-Bench
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Images come from MM-Food-100K; the paper does not state where the photos were taken.
+  rater_countries: [UNKNOWN]
+  localization: unknown
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [nutrition, ncd]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric, mcq_exact_match]
+  modality: [text]
+  size: "1,208 samples (open models); 496-sample subset for closed models"
+provenance:
+  records: [r_b0160f8d89]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Inputs are food photos plus text prompts (image input, not medical imaging); the schema has no image modality value, so modality lists text. Advisory labels (Normal, Controlled, Avoid intake) are derived from macronutrient weights in MM-Food-100K using numeric thresholds, not clinician-rated. Scoring: classification accuracy, ingredient match rate, and MAPE. The GitHub repo has no recognized license and its images were removed (a script downloads them from MM-Food-100K), so open_data is unknown. Authors are at Northeastern University at Qinhuangdao, HKUST (Guangzhou), and MBZUAI."

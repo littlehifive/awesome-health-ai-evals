@@ -1,0 +1,35 @@
+id: medicationqa
+name: MedicationQA (MedInfo 2019)
+kind: benchmark
+year: 2019
+summary: 674 real consumer questions about medications with reference answers, annotated for question focus and type and for answer source, built to evaluate consumer medication question answering.
+readme_section: open_ended
+links:
+  paper: https://doi.org/10.3233/shti190176
+  doi: 10.3233/shti190176
+  code: https://github.com/abachaa/Medication_QA_MedInfo2019
+  dataset: https://github.com/abachaa/Medication_QA_MedInfo2019
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Questions are described as real consumer questions; the sources I read do not say where the consumers were.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [government]
+  item_provenance: [real_user_queries]
+  venue: peer_reviewed
+facets:
+  health_areas: [pharmacy_medication]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 674 question-answer pairs
+provenance:
+  records: [r_e2f15f88d3]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: medium
+  notes: "Read the GitHub README (license, citation, abstract) and the PubMed and Europe PMC record (authors at the Lister Hill National Center, National Library of Medicine, Bethesda); the full text is not in paperclip, so the annotation and answering process was not read. Language is presumed English (the xlsx was not opened). The paper's own experiments are question-type and focus classification; I saw no answer-scoring protocol, so eval_methods is a best guess for how the reference answers would be used. The sources do not state whether the items are a test split."

@@ -1,0 +1,35 @@
+id: cdc-misinformation-robustness-scoring
+name: CDC Misinformation Robustness Scoring Framework (Trusted or Tricked?)
+kind: benchmark
+year: 2026
+summary: "6,273 prompts (neutral, misinformation-seeking, provocative) built from 2,091 human-validated CDC-grounded question-answer records, scored by a two-layer robustness score combining behavioral metrics and an LLM judge."
+readme_section: safety
+links:
+  paper: https://doi.org/10.15439/2026f3733
+  doi: 10.15439/2026f3733
+  code: https://anonymous.4open.science/r/LLM-misinfoCDC-030C/
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: QA pairs were generated from CDC website articles, then rewritten into three prompt types with DeepSeek-Chat.
+  rater_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [LBN]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature, llm_generated]
+  venue: peer_reviewed
+facets:
+  health_areas: [public_health, general_medicine]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric, rubric_llm_judge]
+  modality: [text]
+  size: "6,273 prompts from 2,091 QA records"
+provenance:
+  records: [r_c752e6b259]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "FedCSIS 2026 position paper (American University of Beirut). Dataset link is an anonymous.4open.science mirror, which may be replaced by a permanent link later. Three annotators (one biology domain expert) validated QA pairs; about 100 were rejected; no inter-annotator agreement reported. Four LLMs evaluated (LLaMA, Gemini 2.5 Flash, DeepSeek, GPT-4.1 Nano). The paper PDF is CC BY 4.0 but the dataset license was not stated."

@@ -1,0 +1,34 @@
+id: jmedethicbench
+name: JMedEthicBench
+kind: benchmark
+year: 2026
+summary: "Over 50,000 (54,180 generated) multi-turn adversarial Japanese conversations built from 67 Japan Medical Association ethics guidelines using seven jailbreak strategies, with a 2,345-instance test set scored by a dual-LLM judge on medical safety."
+readme_section: safety
+links:
+  paper: https://arxiv.org/abs/2601.01627
+  arxiv: "2601.01627"
+  doi: 10.48550/arxiv.2601.01627
+license: null
+open_data: unknown
+geography:
+  item_languages: [Japanese]
+  item_origin_countries: [JPN]
+  item_origin_note: Harmful requests were LLM-generated from Japan Medical Association ethics guidelines.
+  localization: native
+  lead_institution_countries: [JPN]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated, literature]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [unspecified]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: "54,180 multi-turn conversations generated (about 50,000 after filtering); 2,345-instance test set from 1,935 validated harmful questions"
+provenance:
+  records: [r_6a0c546a8d]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Safety is scored on a 1-10 rubric by DeepSeek and GPT-4o-mini (averaged); three annotators scored 327 responses to validate the judges (Spearman 0.796 with the LLM average). Helpfulness is checked separately on 287 text-only questions from the 2025 Japanese national medical licensing exam. The paper gives no data or code link and no license, so open_data is unknown. Lead institutions: Kyoto University (first author) and the University of Tokyo (last author)."

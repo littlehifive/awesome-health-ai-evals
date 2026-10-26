@@ -1,0 +1,35 @@
+id: clad
+name: CLAD (Clinical Legal Accountability Dataset)
+kind: benchmark
+year: 2026
+summary: 268 US medical malpractice cases from public court opinions, used as multi-turn simulated patient consultations in which an LLM plays the physician and three LLM judges decide whether its recommendation would have avoided the court's liability finding.
+readme_section: safety
+links:
+  paper: https://doi.org/10.5281/zenodo.21097484
+  doi: 10.5281/zenodo.21097484
+  dataset: https://doi.org/10.5281/zenodo.21097484
+  code: https://github.com/dviraran/CLAD
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: US court opinions; the repo also holds additional non-US cases not used in the paper.
+  localization: native
+  lead_institution_countries: [ISR]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [rubric_llm_judge, simulated_multi_turn]
+  modality: [text]
+  size: 268 cases (198 used for evaluation); 16 LLMs, 3,072 runs
+provenance:
+  records: [r_98e3cb20f6]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: medium
+  notes: From the Zenodo record and GitHub README. Accompanies a Communications Medicine article (title on the Zenodo page; not read). Judges are Claude Sonnet 4, Grok 4.1, and GPT-5.2 with majority vote. Lead institution is Technion per Zenodo; only one creator listed.

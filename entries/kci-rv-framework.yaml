@@ -1,0 +1,32 @@
+id: kci-rv-framework
+name: RV Framework for medical LLM trustworthiness
+kind: eval_framework
+year: 2025
+summary: A multi-agent evaluation framework that scores medical LLM diagnostic responses on four rubric dimensions (accuracy, explainability, consistency, safety), comparing external evaluator agents with LLM self-critique, with pilot code run on MedQA cases.
+readme_section: frameworks
+links:
+  code: https://github.com/belovelace/KCI_RV_Framework
+license: Apache-2.0
+open_data: described_only
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: "The pilot uses MedQA cases as stand-ins for clinical diagnostic cases; the framework itself has no items."
+  localization: native
+  lead_institution_countries: [KOR]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: 4 rubric dimensions; pilot notebooks with LLM responses and evaluation reports (case count not stated in the README)
+provenance:
+  records: [r_3ef69c7cb1]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "Read the GitHub README and repo layout only; the paper (Smart Media Journal 14(12), 74-84, 2025) was not reachable and no paper link is recorded. The Korean-language README also exists. Lead-institution country (Korea) and MedQA origin are inferred from the journal and dataset, not stated. The pilot shows the rubric on a handful of MedQA cases; the repo holds llm_response.jsonl and an evaluation report."

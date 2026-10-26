@@ -1,0 +1,33 @@
+id: medqa-swe
+name: MedQA-SWE
+kind: benchmark
+year: 2024
+summary: 3,180 Swedish multiple-choice clinical questions parsed from exams used to assess foreign-trained doctors, manually checked and curated, scored by accuracy.
+readme_section: multilingual_regional
+links:
+  paper: https://aclanthology.org/2024.lrec-main.975/
+  huggingface: [nicher92/medqa-swe]
+license: Apache-2.0
+open_data: gated
+geography:
+  item_languages: [Swedish]
+  item_origin_countries: [SWE]
+  item_origin_note: Questions come from Swedish exams for doctors; a later paper (SMLB) describes the source as exam questions for foreign doctors.
+  localization: native
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 3,180 questions
+provenance:
+  records: [r_a8ff2b3d52]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: medium
+  notes: "Read the ACL Anthology abstract, the Hub API metadata (gated: auto, license apache-2.0 in card metadata), and the description of MedQA-SWE in the Swedish Medical LLM Benchmark paper (PMC12290221, which includes it with the authors' permission). The Hub card itself is behind a gate and the LREC-COLING full text was not read. The record is the Hub dataset; the paper (Hertzberg and Lokrantz, LREC-COLING 2024) was found from the card's text matching the abstract. Authors' institutions not checked. The Swedish Medical LLM Benchmark (SMLB) is a separate framework that is not part of this entry."

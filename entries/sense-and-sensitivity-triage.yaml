@@ -1,0 +1,36 @@
+id: sense-and-sensitivity-triage
+name: Sense and Sensitivity (clinical triage perturbation benchmark)
+kind: benchmark
+year: 2026
+summary: About 6,200 clinical triage scenarios from four sources, each with up to five text perturbations (gender swap, gender removal, colorful tone, uncertain tone), with physician-annotated manage, visit and resource labels and LLM responses.
+readme_section: safety
+links:
+  paper: https://arxiv.org/abs/2609.38600
+  arxiv: "2609.38600"
+  doi: 10.48550/arxiv.2609.38600
+  code: https://github.com/abinithago/Sen2Med
+license: MIT
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Source sets are r/AskDocs Reddit posts, OncQA, script concordance tests, and USMLE-style dermatology vignettes; the paper does not state countries for the forum or EHR-style items.
+  rater_countries: [USA]
+  localization: adapted
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, web_forum]
+  venue: preprint
+facets:
+  health_areas: [emergency_triage, primary_care]
+  intended_users: [patient_public, clinician]
+  eval_methods: [automatic_metric, expert_human_rating]
+  modality: [text]
+  size: 6,233 scenarios (dataset.csv); over 7,000 physician annotations; 225,000 model responses
+provenance:
+  records: [r_05a0debc0d, r_02d677dccf]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Companion repo abinithago/Sen2Med (MIT license, dataset.csv with 6,233 rows x 71 columns) merged in from candidate r1-c1243. Ten physicians (7 from the US, 3 not) annotated via Centaur Labs; gold labels are majority of three. Task is three binary decisions: self-manage, visit, resource. Perturbations are applied to existing datasets so localization is adapted. The repo README did not confirm whether source-dataset licenses limit the MIT grant."

@@ -1,0 +1,33 @@
+id: auto-multiturn-consultation-eval
+name: Automatic evaluation framework for multi-turn medical consultations
+kind: eval_framework
+year: 2023
+summary: A pipeline in which an LLM doctor consults a ChatGPT-simulated patient over several turns and then answers a USMLE-style question, scored by information coverage (ROUGE) and final-task accuracy, on three reformulated USMLE test sets.
+readme_section: frameworks
+links:
+  paper: https://arxiv.org/abs/2309.02077
+  arxiv: "2309.02077"
+license: null
+open_data: described_only
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Test sets are reformulated from USMLE questions (MedQA test set, USMLE-Rx QMax, and USMLE sample exam).
+  localization: adapted
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, exam_questions]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public]
+  eval_methods: [simulated_multi_turn, automatic_metric]
+  modality: [text]
+  size: 3 test sets (MedQA 1,127; QMax 1,483; Sample Exam 299 instances)
+provenance:
+  records: [r_a27d86db07]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: No release of the reformulated sets or code was found in the paper text. Metrics include ROUGE-based medical information coverage, final-task accuracy, and LLM-based metrics. Instance counts are from Table 1 as parsed. Lead institution not checked.

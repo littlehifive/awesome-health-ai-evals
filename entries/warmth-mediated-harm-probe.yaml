@@ -1,0 +1,33 @@
+id: warmth-mediated-harm-probe
+name: Warmth-Mediated Harm Probe for Speech-Enabled LLMs
+kind: benchmark
+year: 2026
+summary: A 7-turn scripted mental-health disclosure probe grounded in WHO guidelines across nine presenting conditions (38 scripts), run in audio and text to score warmth, parasocial commitment and role claims in speech-enabled models, plus acoustic prosody analysis.
+readme_section: voice
+links:
+  paper: https://arxiv.org/abs/2609.04256
+  arxiv: "2609.04256"
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Scripts were written from WHO clinical guidance, not from a country; the paper does not name the language, English is assumed.
+  localization: unknown
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [industry_lab]
+  item_provenance: [literature]
+  venue: preprint
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge, expert_human_rating, simulated_multi_turn]
+  modality: [voice, text]
+  size: 38 scripts, 532 responses from one model
+provenance:
+  records: [r_563b62be6d]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Workshop paper (ICML 2026 Machine Learning for Audio), Microsoft authors; only one model (Azure OpenAI gpt-realtime) was tested. Ethics section says the protocol, scoring pipeline and scripts are released, but no link was found, so open_data is unknown. Scoring uses a GPT-4o judge on warmth (0-3), parasocial commitment and role claim (binary) with a two-rater pilot on 30 clips. Under 50 scripts, kept because of the paper and the voice focus; a human may want to review."

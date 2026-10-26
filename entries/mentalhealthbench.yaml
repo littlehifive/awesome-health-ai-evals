@@ -1,0 +1,34 @@
+id: mentalhealthbench
+name: MentalHealthBench
+kind: benchmark
+year: 2026
+summary: 1,215 synthetic mental-health conversations in 11 languages, each with expert-written weighted rubric criteria (5,262 in all), scored by an LLM grader across acuity levels and four user profiles (adult, teen, caregiver, clinician).
+readme_section: mental_health
+links:
+  paper: https://cdn.openai.com/ctf-cdn/MentalHealthBench_A_Comprehensive_Benchmark_of_AI_Capabilities_in_Realistic_Mental_Health_Conversations.pdf
+  huggingface: [MercuriusDream/MentalHealthBench]
+  website: https://openai.com/index/introducing-mentalhealthbench/
+license: MIT
+open_data: open
+geography:
+  item_languages: [English, Spanish, Hindi, Arabic, Portuguese, German, Indonesian, Italian, Persian, Turkish, Mandarin Chinese]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Conversations are LLM-simulated from privacy-preserving summaries of ChatGPT mental-health usage; no country origin is stated. Per the Hugging Face card, 903 of 1,215 are English, and the Chinese set is one conversation.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [industry_lab]
+  item_provenance: [llm_generated]
+  venue: grey_literature
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 1,215 conversations; 5,262 rubric criteria
+provenance:
+  records: [r_de2a700f18]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Built by OpenAI. Rubrics were written by more than 80 licensed psychiatrists and psychologists from more than 20 countries (two clinicians author each rubric, a third adjudicates); their countries are not listed, so rater_countries is omitted. The paper grades with an OpenAI model. The listed Hugging Face dataset (MercuriusDream/MentalHealthBench) is a third-party upload of OpenAI's release, with the MIT license taken from that card; the official download is the zip at cdn.openai.com/ctf-cdn/OAI_MentalHealthBench.zip. The paper's own release statement was not located in the PDF text."

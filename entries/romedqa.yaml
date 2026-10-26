@@ -1,0 +1,33 @@
+id: romedqa
+name: RoMedQA
+kind: benchmark
+year: 2024
+summary: 4,127 single-answer, five-option advanced biology questions from medical school entrance exams in Romania, written in Romanian.
+readme_section: multilingual_regional
+links:
+  paper: https://aclanthology.org/2024.findings-emnlp.261/
+  doi: 10.18653/v1/2024.findings-emnlp.261
+  huggingface: [craciuncg/RoMedQA_v1]
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [Romanian]
+  item_origin_countries: [ROU]
+  localization: native
+  lead_institution_countries: [ROU]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [medical_student]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 4,127 questions
+provenance:
+  records: [r_d081261280]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Introduced in the RoQLlama paper (a Romanian adapted Llama-2 model), where it is one of seven downstream tasks; the benchmark is a side contribution. Content is advanced biology from medical-school entrance exams, so it tests science knowledge more than clinical knowledge. License from the Hugging Face card."

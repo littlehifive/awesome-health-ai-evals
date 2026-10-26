@@ -1,0 +1,33 @@
+id: wehmit-bench
+name: WeHMiT-Bench
+kind: benchmark
+year: 2026
+summary: Expert-annotated Chinese WeChat article titles about traditional Chinese medicine and related health claims, used to test whether LLMs can classify misleading titles and explain why, scored by classification accuracy and an explanation-quality framework.
+readme_section: safety
+links:
+  paper: https://doi.org/10.3390/info17100943
+  doi: 10.3390/info17100943
+license: null
+open_data: unknown
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: Titles come from WeChat public accounts; the abstract does not state the country directly.
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [web_forum]
+  venue: peer_reviewed
+facets:
+  health_areas: [traditional_medicine, public_health]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric, rubric_llm_judge]
+  modality: [text]
+  size: unknown (a "Core Health Set" built by purposive sampling; counts not seen)
+provenance:
+  records: [r_6c6f9ebc12]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "MDPI full text returned 403 to WebFetch and curl; only the abstract and Crossref metadata (authors at Xianyang Normal University and Sun Yat-sen University, China; paper is CC-BY-4.0) were read. Dataset size, annotator details, data availability, and whether explanation scoring uses an LLM judge were not verified. Needs a human look."

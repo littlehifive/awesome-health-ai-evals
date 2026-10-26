@@ -1,0 +1,37 @@
+id: triage-benchmark
+name: TRIAGE Benchmark
+kind: benchmark
+year: 2024
+summary: 87 mass-casualty patient descriptions from START and jumpSTART triage training materials, each with a gold triage category, used to test the ethical decision-making of LLMs under ethics and jailbreak prompts.
+readme_section: safety
+links:
+  paper: https://arxiv.org/abs/2410.18991
+  arxiv: "2410.18991"
+  doi: 10.48550/arxiv.2410.18991
+  pmcid: PMC12373810
+  huggingface: [NLie2/TRIAGE]
+  code: https://github.com/NLie2/Triage
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Scenarios come from the Illinois EMSC JumpSTART training scenarios and a JETem simulated mass casualty exercise; the paper does not state a country beyond the source publishers.
+  localization: native
+  lead_institution_countries: [GBR, AUT]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written, literature]
+  venue: preprint
+facets:
+  health_areas: [emergency_triage]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 87 patient descriptions (each answered under 9 prompt and syntax conditions)
+provenance:
+  records: [r_403ad6fe48, r_f097e17401]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Also published as a peer-reviewed article in Scientific Reports 2025 (r_f097e17401, CC BY 4.0, data availability statement links the GitHub repo and HF dataset); the journal version has the same 87 items and the entry venue is left as preprint from the first record. Scored as correct or incorrect triage category, with errors split into overcaring, undercaring, and instruction-following. The HF dataset NLie2/TRIAGE exists (CSV, n<1K) but has no card, so no license was seen. Lead institutions are King's College London (UK) and the Medical University of Vienna (Austria). The paper reports that the triage questions were public or shared with the original authors' consent. A second arXiv paper (2410.19753) that claims to introduce Triage and MedLaw benchmarks was withdrawn by arXiv for text reuse and is not used here."

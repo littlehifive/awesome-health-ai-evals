@@ -1,0 +1,35 @@
+id: nlat-ai-ref-ai
+name: NLAT-AI and REF-AI
+kind: eval_framework
+year: 2024
+summary: Two rubrics from a prostate-cancer patient-education study, NLAT-AI (expert Likert rating of accuracy, safety, appropriateness, actionability, effectiveness) and REF-AI (check of chatbot references for hallucination, relevance and quality), used with adapted PEMAT, DISCERN and readability measures on 8 ChatGPT-4 answers.
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.2196/55939
+  doi: 10.2196/55939
+  pmcid: PMC11358656
+license: null
+open_data: described_only
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Eight questions chosen from the literature and worldwide Google Trends data.
+  rater_countries: [AUS]
+  localization: native
+  lead_institution_countries: [AUS]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [oncology]
+  intended_users: [patient_public]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: "8 questions; 7 urologists rated with NLAT-AI, 4 reviewers used the adapted PEMAT-AI, DISCERN-AI and Global Quality Score"
+provenance:
+  records: [r_3b8d488e62, r_e8d2542702]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: Merged the JMIR paper and its preprint. Mostly a one-off evaluation of ChatGPT-4; included only because the paper names and publishes its own rubrics (NLAT-AI, REF-AI) in multimedia appendices. Human check whether this clears the bar.

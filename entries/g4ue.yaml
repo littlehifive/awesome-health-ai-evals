@@ -1,0 +1,36 @@
+id: g4ue
+name: GPT-4 USMLE Error (G4UE)
+kind: benchmark
+year: 2024
+summary: 5,072 GPT-4 responses (4,153 correct, 919 incorrect) to USMLE-style MedQA questions, with a medical-student-derived error taxonomy and span-level error annotations by 44 medical annotators.
+readme_section: knowledge_exam
+links:
+  paper: https://arxiv.org/abs/2404.13307
+  arxiv: "2404.13307"
+  doi: 10.1145/3626772.3657882
+  code: https://github.com/roysoumya/usmle-gpt4-error-taxonomy
+license: MIT
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Questions are USMLE-style items from MedQA; annotators were recruited through Prolific and their countries are not given.
+  rater_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [IND, DEU]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions, adapted_dataset]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [medical_student]
+  eval_methods: [expert_human_rating, automatic_metric]
+  modality: [text]
+  size: 5,072 annotated GPT-4 responses (919 incorrect)
+provenance:
+  records: [r_2e139bd1a2]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "A SIGIR 2024 resource-track paper. The released material is GPT-4 explanations with error-type annotations, plus SemRep concepts, aimed at studying LLM errors and an error-type classification task; it is closer to an error-analysis resource than a standard benchmark, so a human may want to confirm it belongs. MedQA itself is not a contribution. License is the GitHub repo's. Lead countries are from the first author (IIT Kharagpur, India) and second author (L3S, Germany); last author's affiliation was not checked."

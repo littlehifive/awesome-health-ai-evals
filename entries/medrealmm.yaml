@@ -1,0 +1,34 @@
+id: medrealmm
+name: MedRealMM
+kind: benchmark
+year: 2026
+summary: 5,620 real Chinese online-consultation cases from JD Health, each cut at a clinically demanding turn with patient-uploaded images, scored by an LLM judge against physician-refined case-specific rubrics.
+readme_section: multilingual_regional
+links:
+  paper: https://arxiv.org/abs/2607.09142
+  arxiv: "2607.09142"
+  doi: 10.48550/arxiv.2607.09142
+license: custom
+open_data: gated
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: De-identified consultations from the JD Health internet hospital platform (2025 to 2026), 64 clinical departments.
+  localization: native
+  lead_institution_countries: [CHN, USA]
+origin:
+  builder_types: [industry_lab, academic]
+  item_provenance: [real_user_queries]
+  venue: preprint
+facets:
+  health_areas: [general_medicine, other_specialty]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 5,620 consultation cases
+provenance:
+  records: [r_0663f1e1d5]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Released under a Data Use Agreement via a research-only access portal (no redistribution to non-signatories, no use for training generative models); license is recorded as custom. Inputs include patient-uploaded medical images alongside text, so the task is multimodal even though modality is limited to text and voice in this schema. Rubrics are initialized by an LLM and refined by physicians (countries not stated). First author is at Shanghai Jiao Tong University and most authors at JD Health; other authors are in Singapore and the US."

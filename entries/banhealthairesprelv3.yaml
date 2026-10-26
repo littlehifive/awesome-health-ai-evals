@@ -1,0 +1,34 @@
+id: banhealthairesprelv3
+name: BanHealthAIRespRelv3
+kind: benchmark
+year: 2026
+summary: About 15,400 Bengali health prompts paired with ChatGPT and Gemini responses, labeled highly, partially, or not relevant by three native speakers, for evaluating relevance of AI health answers.
+readme_section: multilingual_regional
+links:
+  doi: 10.17632/735b74kwbx
+  paper: https://doi.org/10.17632/735b74kwbx
+license: null
+open_data: open
+geography:
+  item_languages: [Bengali]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Prompts were user-simulated; the description frames the work around Bangladesh but does not state where the prompts came from.
+  rater_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: 15,384 instances (5,004 highly, 5,300 partially, 5,084 not relevant)
+provenance:
+  records: [r_aa8d545ee6]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: Only the Mendeley Data description was read; license, authors' countries, and builder type were not confirmed (academic is assumed). The set holds model outputs with relevance labels, so it fits relevance-classifier or judge evaluation rather than direct model testing. A human should decide whether it is in scope. Count in the abstract (15,384) differs from the landing page (15,388).

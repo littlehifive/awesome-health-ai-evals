@@ -1,0 +1,34 @@
+id: gpbench
+name: GPBench
+kind: benchmark
+year: 2025
+summary: A general-practice benchmark with a Delphi-built competency model and three test sets (3,661 multiple-choice questions, 70 real outpatient cases, and AI-patient history-taking scenarios) scored by accuracy and GP panel ratings.
+readme_section: multilingual_regional
+links:
+  paper: https://doi.org/10.1038/s41467-026-71622-6
+  arxiv: "2503.17599"
+  doi: 10.1038/s41467-026-71622-6
+open_data: unknown
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: MCQs come from the Chinese CMB and MedBench sets plus expert additions; cases are outpatient records from two medical centers (Tertiary A-grade hospitals), which the paper's affiliations and datasets place in China. The paper does not state the language explicitly.
+  rater_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions, adapted_dataset, clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [primary_care, ncd]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match, expert_human_rating, simulated_multi_turn]
+  modality: [text]
+  size: 3,661 MCQs; 70 clinical cases; AI-patient test set (count not recorded)
+provenance:
+  records: [r_99b72ba22e]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Read the Nature Communications text in paperclip. No dataset or code link or license was found in the article body (source data and supplementary files are listed; contents not checked), so open_data is unknown. Clinical cases were scored by a panel of three GPs using Delphi-developed criteria. Human GP comparison on 200 MCQs. Language (Chinese) is inferred from the sources and affiliations, not stated. Eight chronic diseases and ten symptoms are covered."

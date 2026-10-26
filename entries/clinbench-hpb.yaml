@@ -1,0 +1,33 @@
+id: clinbench-hpb
+name: ClinBench-HPB
+kind: benchmark
+year: 2025
+summary: "3,535 Chinese and English multiple-choice questions plus 337 open-ended diagnostic cases (from journals, case websites, and a Chinese hospital) on hepato-pancreato-biliary diseases, scored by accuracy and an LLM-judged recall of diagnoses."
+readme_section: multilingual_regional
+links:
+  paper: https://arxiv.org/abs/2506.00095
+  arxiv: "2506.00095"
+license: null
+open_data: unknown
+geography:
+  item_languages: [Mandarin Chinese, English]
+  item_origin_countries: [CHN, USA]
+  item_origin_note: "Exam questions in Chinese (CN-QA) and English (EN-QA) from existing medical datasets; cases from JAMA Clinical Challenge, NEJM case reports, Chinese case-sharing websites, and 50 records from a collaborating Chinese hospital. USA is inferred from the journals' publication country; item countries are not stated."
+  localization: mixed
+  lead_institution_countries: [HKG, CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions, literature, clinician_written, llm_generated]
+  venue: preprint
+facets:
+  health_areas: [other_specialty]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match, rubric_llm_judge]
+  modality: [text]
+  size: "3,535 multiple-choice questions and 337 open-ended cases"
+provenance:
+  records: [r_183fa84f9b]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "No dataset or code link found in the paper text, so open_data is unknown and no license seen. Open-ended cases were validated by four licensed physicians; DeepSeek-V3 is the evaluation model with Claude-3.7-Sonnet as checker (reported 97.5% and 97.7% agreement with physicians). Some MCQs are synthetic items for rare ICD-10 diseases. The USA origin for journal cases is an inference; a human may prefer UNKNOWN."

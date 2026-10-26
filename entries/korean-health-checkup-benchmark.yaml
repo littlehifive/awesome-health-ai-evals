@@ -1,0 +1,32 @@
+id: korean-health-checkup-benchmark
+name: Korean National Health-Checkup Determination Benchmark
+kind: benchmark
+year: 2026
+summary: Rule-engine-verified benchmark of 144 tier-classification cases and 528 value-ladder cases (6,321 ordered pairs) for LLM determination of Korean National Health Screening Program tiers from lab and anthropometric results.
+readme_section: multilingual_regional
+links:
+  doi: 10.2196/preprints.110836
+license: null
+open_data: unknown
+geography:
+  item_languages: [UNKNOWN]
+  item_origin_countries: [KOR]
+  item_origin_note: Cases are generated from the published Korean National Health Screening Program criteria.
+  localization: native
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature]
+  venue: preprint
+facets:
+  health_areas: [public_health]
+  intended_users: [patient_public]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 144 tier cases, 528 ladder cases, 6,321 ordered pairs
+provenance:
+  records: [r_0d509a2ca1]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "Only the JMIR Preprints abstract was available (landing page returned empty). The abstract says the benchmark is constructed and released but gives no link or license. Item language, authors' country, and intended users are guesses or unknown. Health area set to public health."

@@ -1,0 +1,33 @@
+id: persafe
+name: PerSafe
+kind: benchmark
+year: 2026
+summary: "Gold-light contingency benchmark of 986 de-identified clinical case kernels plus guideline- and label-derived scenarios, testing whether a medical LLM's answer changes with patient details only when it should (preferences, safety traps, must-say lists, communication style)."
+readme_section: safety
+links:
+  paper: https://github.com/guxungang/PerSafe-benchmark
+  code: https://github.com/guxungang/PerSafe-benchmark
+license: MIT
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Case kernels come from clinical charts held under a data-use agreement; the README does not name the institution or country.
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature, unknown]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine]
+  intended_users: [unspecified]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: "986 case kernels; 3 preference-equipoise scenarios, 9 safety traps, 4 must-say lists; 14 models scored"
+provenance:
+  records: [r_1b8323f9cb]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "Only the GitHub README was read; the paper (PRICAI 2026) was not located and the README says the citation is to be added. The links.paper field points at the repo for that reason. License per README: code MIT, scenario specifications, oracles, and scores CC BY 4.0 (LICENSE-DATA); the GitHub license field shows MIT, so the data license may be CC-BY-4.0. Language assumed English from the file descriptions. Scoring is automated self-consistency checks across input changes. Source charts are not redistributed."

@@ -1,0 +1,32 @@
+id: moca-dialog
+name: MoCA-Dialog
+kind: benchmark
+year: 2025
+summary: 5,000 simulated multimodal dialogues of the Montreal Cognitive Assessment for testing LLMs on scoring the assessment, generating a cognitive profile across seven domains, and attributing clinical errors.
+readme_section: open_ended
+links:
+  paper: https://doi.org/10.1109/bibm66473.2025.11356537
+  doi: 10.1109/bibm66473.2025.11356537
+license: null
+open_data: unknown
+geography:
+  item_languages: [UNKNOWN]
+  item_origin_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated]
+  venue: peer_reviewed
+facets:
+  health_areas: [other_specialty, mental_health]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric, expert_human_rating]
+  modality: [text]
+  size: 5,000 simulated dialogues
+provenance:
+  records: [r_a62d0ccb51]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "Only the IEEE BIBM 2025 abstract and Crossref metadata were reachable; no full text, repository, or dataset link was found (the abstract says a demo and prompt examples are released at a truncated link). Language, item generation method (listed as llm_generated from the phrase simulated dialogues), eval methods, and open_data are unconfirmed. Authors are in Shanghai and Beijing, China. Modality is listed as text although the benchmark is described as multimodal (the cognitive tasks include visual items)."

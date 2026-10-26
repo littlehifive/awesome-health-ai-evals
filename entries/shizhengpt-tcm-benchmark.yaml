@@ -1,0 +1,40 @@
+id: shizhengpt-tcm-benchmark
+name: ShizhenGPT TCM benchmarks (TCM-Text-Exams and TCM-Vision-Benchmark)
+kind: benchmark
+year: 2025
+summary: 1,088 Chinese multiple-choice questions from five 2024-2025 national Traditional Chinese Medicine exams, plus 7,204 image-based multiple-choice questions from TCM atlases, released with the ShizhenGPT model.
+readme_section: multilingual_regional
+links:
+  paper: https://arxiv.org/abs/2508.14706
+  arxiv: "2508.14706"
+  doi: 10.48550/arxiv.2508.14706
+  huggingface: [FreedomIntelligence/TCM-Text-Exams, FreedomIntelligence/TCM-Vision-Benchmark]
+  code: https://github.com/FreedomIntelligence/ShizhenGPT
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: Text questions come from Chinese national TCM licensing and postgraduate entrance exams; vision questions come from Chinese TCM atlases.
+  rater_countries: [CHN]
+  localization: native
+  lead_institution_countries: [CHN]
+  subsets:
+    - {name: TCM-Text-Exams, languages: [Chinese], countries: [CHN], localization: native}
+    - {name: TCM-Vision-Benchmark, languages: [Chinese], countries: [CHN], localization: native}
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions, literature]
+  venue: preprint
+facets:
+  health_areas: [traditional_medicine]
+  intended_users: [clinician, medical_student]
+  eval_methods: [mcq_exact_match, expert_human_rating]
+  modality: [text]
+  size: "1,088 text exam questions; 7,204 image questions (vision); 90 cases for human evaluation"
+provenance:
+  records: [r_84e8778c72]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "The paper is mainly a model paper (ShizhenGPT, a multimodal TCM LLM); only its evaluation sets are catalogued here. Text exams: 2024 TCM Pharmacist 480, 2024 TCM Physician 184, 2024 Assistant Physician 138, 2024 graduate entrance 147, 2025 graduate entrance 139 (counts from the HF card). The vision set needs image input and is outside the text-only chatbot scope; it is listed because it ships in the same release. A 90-case human preference evaluation by three licensed TCM practitioners is described but its cases were not seen as released. Paper also evaluates on public sets (MedQA, CMB, CMExam, CMMLU TCM subsets), not part of this entry. The HF Vision card is labeled 'text benchmark' by mistake. Lead institution country is the Chinese University of Hong Kong, Shenzhen."

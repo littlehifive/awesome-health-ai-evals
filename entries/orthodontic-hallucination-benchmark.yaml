@@ -1,0 +1,33 @@
+id: orthodontic-hallucination-benchmark
+name: Orthodontic Hallucination Benchmark
+kind: benchmark
+year: 2026
+summary: 100 orthodontic queries (20 per category, including fabricated-concept trap items) in English and Turkish, with a seven-category hallucination taxonomy and automated citation verification, pre-registered to compare five LLMs.
+readme_section: safety
+links:
+  paper: https://osf.io/dk2pm
+license: null
+open_data: unknown
+geography:
+  item_languages: [English, Turkish]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Prompts are drawn from orthodontic textbooks (Proffit, Graber, McNamara), AAO, British Orthodontic Society, and EFO guidelines, landmark papers, and constructed adversarial traps.
+  rater_countries: [UNKNOWN]
+  localization: unknown
+  lead_institution_countries: [TUR]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature]
+  venue: grey_literature
+facets:
+  health_areas: [dentistry]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric, expert_human_rating]
+  modality: [text]
+  size: 100 queries (500 responses planned in English)
+provenance:
+  records: [r_a651a8eeae]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Source is an OSF pre-registration (dk2pm) with a deposited protocol, query benchmark spreadsheet, and coded outputs; the OSF page says raw responses and pipeline code are released on publication, and no OSF license was stated, so open_data is unknown despite public OSF files. Scoring is a rule-based seven-category hallucination coder, PubMed and CrossRef citation checks, and a 10% manual audit by two blinded raters. Authors at Istanbul Health and Technology University (Turkey). Rater countries not stated. A severity-tier reanalysis was added August 2026."

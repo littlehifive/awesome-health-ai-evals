@@ -1,0 +1,36 @@
+id: mamabench
+name: mamabench and mamaretrieval
+kind: benchmark
+year: 2026
+summary: Two maternal, neonatal, child, and reproductive health benchmarks for nurse-midwife RAG assistants, a 25,949-item scope-filtered QA set from seven sources (multiple-choice, short-answer, rubric-graded) and 3,185 queries with graded relevance labels over a 63,650-chunk guideline corpus.
+readme_section: multilingual_regional
+links:
+  paper: https://arxiv.org/abs/2606.29467
+  arxiv: "2606.29467"
+  doi: 10.48550/arxiv.2606.29467
+  huggingface: [nmrenyi/mamabench, nmrenyi/mamaretrieval]
+  code: https://github.com/nmrenyi/mamabench
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [IND, USA, KEN, GLOBAL]
+  item_origin_note: Items are filtered from existing sources, including MedMCQA (India), MedQA-USMLE (USA), Kenya Clinical Vignettes (Kenya), AfriMed-QA (pan-African), and HealthBench (global). Built for a Zanzibar nurse-midwife deployment.
+  localization: adapted
+  lead_institution_countries: [CHE]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, exam_questions, clinician_written]
+  venue: preprint
+facets:
+  health_areas: [maternal_newborn, child_health, srh]
+  intended_users: [nurse_midwife]
+  eval_methods: [mcq_exact_match, rubric_llm_judge, automatic_metric]
+  modality: [text]
+  size: 25,949 QA items (23,241 multiple-choice, 369 short-answer, 2,339 rubric-graded) plus 6,853 judge-calibration triples; 3,185 retrieval queries over 63,650 chunks
+provenance:
+  records: [r_517b962952]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Single author at EPFL (Switzerland). The paper states both benchmarks are released openly for research; the Hugging Face dataset pages returned 401 when I checked, so the links are taken from the paper and access was not verified. Per-item licenses vary by source (AfriMed-QA is CC BY-NC-SA 4.0) and sit in per-source manifests, so license is null. The judge-calibration file re-scopes HealthBench's physician meta-evaluation labels. The GitHub repo holds construction code only (the README says artifacts are not tracked in Git); a second repo, nmrenyi/mamaretrieval, is cited for retrieval. Retrieval track is IR-style (hit rate, MRR), so the automatic_metric label covers it."

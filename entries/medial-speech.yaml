@@ -1,0 +1,35 @@
+id: medial-speech
+name: MeDial-Speech
+kind: benchmark
+year: 2026
+summary: 581 spoken robot-patient and doctor-patient consultation dialogues (111 hours, four conditions) with transcripts, plus a 20-option sentence-selection benchmark for LLM doctors.
+readme_section: voice
+links:
+  paper: https://arxiv.org/abs/2605.26747
+  arxiv: "2605.26747"
+  doi: 10.1109/icassp55912.2026.11461707
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [GBR]
+  item_origin_note: Recorded at the University of Lincoln with 325 unpaid student actor-patients and medical-student doctors.
+  rater_countries: [GBR]
+  localization: native
+  lead_institution_countries: [GBR]
+origin:
+  builder_types: [academic]
+  item_provenance: [unknown]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine, cardiology, ncd]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric]
+  modality: [voice]
+  size: 581 dialogues, 11,197 turns, 111.4 hours; three LLMs evaluated
+provenance:
+  records: [r_763ccdeeac]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Conditions are Lewy body dementia, heart failure, shoulder pain, and angina. Dialogues are simulated (actor-patients), not real patients. The screening label said the dataset is public, but the paper text gives no download link or license, so open_data is unknown. Metrics include balanced accuracy, F1, AUC, Brier score, and calibration error."

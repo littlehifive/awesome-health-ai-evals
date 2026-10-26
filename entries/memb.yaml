@@ -1,0 +1,34 @@
+id: memb
+name: MEMB
+kind: benchmark
+year: 2026
+summary: 130 maternal emergency diagnostic cases scored on accuracy plus confidence calibration, and 30 adversarial cases testing whether models resist confident but wrong human assertions.
+readme_section: safety
+links:
+  paper: https://doi.org/10.5281/zenodo.20067055
+  doi: 10.5281/zenodo.20067055
+  code: https://www.kaggle.com/benchmarks/nabeerakhan/maternal-emergency-metacognition-benchmark-memb
+license: CC-BY-ND-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: The Zenodo record does not say where the cases came from.
+  localization: unknown
+  lead_institution_countries: [PAK]
+origin:
+  builder_types: [academic]
+  item_provenance: [unknown]
+  venue: grey_literature
+facets:
+  health_areas: [maternal_newborn, emergency_triage]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 130 diagnostic cases and 30 adversarial cases
+provenance:
+  records: [r_d13547328d]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "Read only the Zenodo record (abstract, license, file list); the paper docx and the case files were not opened, so case sources and item language are unknown. The files are mostly per-model result sets, plus the paper and a charts document. Task 1 composite weights Brier score 70% and expected calibration error 30%; Task 2 uses eight metrics including sycophancy rate and false defiance rate. Single author affiliated with Panaversity; PAK is my reading of that affiliation, not stated in the record. Item language assumed English."

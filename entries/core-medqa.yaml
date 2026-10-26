@@ -1,0 +1,33 @@
+id: core-medqa
+name: CORE-MedQA
+kind: benchmark
+year: 2026
+summary: 3,723 medical multiple-choice questions (MedQA-USMLE and MedXpertQA-Text test items) with co-occurrence-mined, answer-neutral context sentences inserted, to test LLM robustness to related but non-decisive context.
+readme_section: knowledge_exam
+adapted_from: [medqa]
+links:
+  huggingface: [SiyuanChen/CORE-MedQA]
+license: CC-BY-NC-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Base questions come from MedQA-USMLE (US licensing exam) and MedXpertQA-Text; the MedXpertQA source exams were not checked.
+  localization: adapted
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, llm_generated]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician, medical_student]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 3,723 records (1,273 from MedQA, 2,450 from MedXpertQA)
+provenance:
+  records: [r_dd308538d8]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Dataset card only; the paper is described as under review and is not linked. Context sentences come from top-2 entity triplets in a PPMI matrix (11,493 ICHI/ICD-11 entities, 12,820 PubMed papers) rewritten by an LLM; the card reports an average 3.1 percent accuracy drop across six LLMs. Card says users should follow the licenses of MedQA and MedXpertQA. Builder type 'academic' is a guess from the card; authors and institutions are not listed. MedXpertQA has no entry yet."

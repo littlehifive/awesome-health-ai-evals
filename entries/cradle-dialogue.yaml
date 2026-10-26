@@ -1,0 +1,36 @@
+id: cradle-dialogue
+name: CRADLE-Dialogue
+kind: benchmark
+adapted_from: [cradle-bench]
+year: 2026
+summary: 600 simulated multi-turn mental health dialogues (8,975 turns) built from real Reddit crisis posts, with clinician turn-level labels for seven crisis types and an Alert-Confirm protocol that scores early warning versus explicit identification.
+readme_section: mental_health
+links:
+  paper: https://arxiv.org/abs/2606.10380
+  arxiv: "2606.10380"
+  huggingface: [SungJoo/Cradle-Dialogue]
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Dialogues are GPT-5 generated from Reddit posts in CRADLE Bench; countries are not stated.
+  rater_countries: [USA]
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [web_forum, llm_generated]
+  venue: preprint
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric, expert_human_rating]
+  modality: [text]
+  size: "600 test dialogues (8,975 turns); synthetic train (3,058) and validation (420) dialogues"
+provenance:
+  records: [r_85173ef976]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Companion to CRADLE Bench by the same Emory team (a separate release, adapted from it). Four clinicians annotated the test set (Cohen's kappa 0.51 to 0.75 before adjudication). Hugging Face dataset card has no license. Rater countries assumed USA from the authors' affiliations; the text read does not state it."

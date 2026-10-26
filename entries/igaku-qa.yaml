@@ -1,0 +1,35 @@
+id: igaku-qa
+name: IgakuQA
+kind: benchmark
+year: 2023
+summary: "Japanese national medical licensing examination questions from 2018 to 2022 (about 400 multiple-choice questions per year, some with images), scored with the official exam criteria including prohibited choices."
+readme_section: multilingual_regional
+links:
+  paper: https://arxiv.org/abs/2303.18027
+  arxiv: "2303.18027"
+  doi: 10.48550/arxiv.2303.18027
+  code: https://github.com/jungokasai/IgakuQA
+license: null
+open_data: open
+geography:
+  item_languages: [Japanese]
+  item_origin_countries: [JPN]
+  item_origin_note: "Exam questions from the Ministry of Health, Labour and Welfare of Japan; not translated from other languages."
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [medical_student, clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: "five years of exams (2018-2022), 400 questions per year in Parts A-F"
+provenance:
+  records: [r_e6c75e0934]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Repo is on GitHub (the repo's MIT tag covers code; the exam data license is not stated). Lead institution country from first author affiliations assumed (Yale/UW); not verified in the text read. Passing rule: 80% on required section, 70% on general section, at most three prohibited choices."

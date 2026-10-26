@@ -1,0 +1,33 @@
+id: gynmedeval
+name: GynMedEval
+kind: benchmark
+year: 2025
+summary: 515 physician-reviewed gynecologic cases, each with over 50 patient characteristics and lab values, converted to multiple-choice diagnosis questions and scored by accuracy in zero-shot and few-shot settings.
+readme_section: knowledge_exam
+links:
+  paper: https://doi.org/10.1002/ijgo.70437
+  doi: 10.1002/ijgo.70437
+license: null
+open_data: unknown
+geography:
+  item_languages: [UNKNOWN]
+  item_origin_countries: [CHN]
+  item_origin_note: Cases come from real-world cases and the Chinese Clinical Case Outcomes Database; China is inferred from the database name, and the abstract does not state the item language.
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [unknown]
+  venue: peer_reviewed
+facets:
+  health_areas: [other_specialty]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 515 cases (multiple-choice)
+provenance:
+  records: [r_d477f42fbd]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "Abstract and Crossref metadata only; the Wiley full text and paperclip full text were not reachable. Reviewers were physicians of associate chief physician rank or above. Access, license, item language and any code link are not known; check the full text. Gynecology is recorded as other_specialty."

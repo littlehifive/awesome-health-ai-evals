@@ -1,0 +1,34 @@
+id: medharm
+name: MedHarm
+kind: benchmark
+year: 2026
+summary: 1,100 medically grounded high-risk queries across 10 safety-critical categories (e.g., covert poisoning, drug interactions, euthanasia) that should trigger refusal or safe redirection, judged by GPT-5 on unsafe-response and refusal metrics.
+readme_section: safety
+links:
+  paper: https://arxiv.org/abs/2606.28332
+  arxiv: "2606.28332"
+  doi: 10.48550/arxiv.2606.28332
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Model-generated queries refined by experts; no country origin stated.
+  localization: unknown
+  lead_institution_countries: [SGP]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated, clinician_written]
+  venue: preprint
+facets:
+  health_areas: [pharmacy_medication, public_health]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: 1,100 queries (110 per category); 15 LLMs and 4 guardrail models evaluated
+provenance:
+  records: [r_f00cfde9da]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Footnote says code and data will be released upon acceptance, with access for qualified researchers on request; no release was seen, so open_data is unknown. Query pipeline is model-generated and expert-corrected; item_provenance and expert country are not fully stated. Distinct from mirobody/MedHarm-Bench."

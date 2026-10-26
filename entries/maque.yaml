@@ -1,0 +1,34 @@
+id: maque
+name: MAQuE (Medical Agent Questioning Evaluation)
+kind: benchmark
+year: 2025
+summary: 3,000 simulated patient agents (21 specialties) with disclosure control, linguistic variation, and noise, used to score doctor agents' multi-turn inquiry on task success, inquiry proficiency, dialogue competence, efficiency, and patient experience.
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2509.24958
+  arxiv: "2509.24958"
+  doi: 10.48550/arxiv.2509.24958
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA, UNKNOWN]
+  item_origin_note: Patient profiles are drawn from MedQA (US licensing exam), Craft-MD, NEJM case challenges, DiagnosisArena, plus synthetic cases; only MedQA's US origin is stated in the paper.
+  localization: adapted
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, llm_generated]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [simulated_multi_turn, rubric_llm_judge]
+  modality: [text]
+  size: about 3,000 patient profiles
+provenance:
+  records: [r_5d26d6afdf]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Tsinghua University (AIR). The paper describes data sources and prompts for reproducibility but I found no code or dataset link, so open_data is unknown. Item language is English by inference from source datasets; the paper does not say so explicitly. Profiles are converted to structured atomic information units with GPT-4o; patients are simulated by an LLM and evaluation uses an LLM judge."

@@ -1,0 +1,33 @@
+id: refomed-en
+name: RefoMed-EN
+kind: benchmark
+year: 2025
+summary: 6,170 human-annotated medical terms with gold definitions, denominations, exemplifications, explanations, or paraphrases (machine-translated from the French RefoMed), used to test how open LLMs answer five question types about head and tail medical concepts, scored by BERTScore and embedding similarity.
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2511.21006
+  arxiv: "2511.21006"
+license: CC-BY-NC-4.0
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Machine-translated with the DeepL API from the French RefoMed2 dataset; the paper does not state where the original terms or definitions came from.
+  localization: translated
+  lead_institution_countries: [FRA]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 6,170 annotated medical terms
+provenance:
+  records: [r_103f91e560, r_3aa2a71898]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "The paper (TrackList) is an analysis of how pretraining term frequency affects small open LLMs (OLMo, Pythia); RefoMed-EN is the dataset it introduces. The ethics section says the dataset has an open license (CC BY-NC 4.0) and says it will be shared on GitHub, but no link was found, so open_data is unknown. r_103f91e560 is an Underline conference-video record of the same paper; the venue was not identified, so venue is preprint. The original RefoMed2 (Buhnila et al., 2024) has no entry, so adapted_from is omitted."

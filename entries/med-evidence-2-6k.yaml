@@ -1,0 +1,32 @@
+id: med-evidence-2-6k
+name: Med-Evidence-2.6k
+kind: benchmark
+year: 2026
+summary: About 2,600 clinical diagnostic questions from DiagnosisArena, JAMA, and MedXpertQA-Text, each with a ground-truth diagnosis and annotated evidence spans, for scoring diagnostic accuracy and evidence-grounded reasoning.
+readme_section: knowledge_exam
+links:
+  huggingface: [danieez/Med-Evidence-2.6k]
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Subsets are re-annotated from existing datasets (DiagnosisArena, JAMA, MedXpertQA-Text); the card does not state their origin countries.
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, literature]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: about 2,600 questions in three subsets (234 MedXpertQA-Text diagnosis cases; other subset sizes not stated)
+provenance:
+  records: [r_102870b3d2]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: medium
+  notes: Based on the Hugging Face dataset card only. The card says it was developed for EviDx (Findings of EMNLP 2026); that paper was not read. Scoring is described only as separate or joint evaluation of answer correctness and evidence selection. Item count of about 2,600 is taken from the dataset name. Builder institutions not stated.

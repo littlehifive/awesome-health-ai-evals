@@ -1,0 +1,36 @@
+id: adrd-bench
+name: ADRD-Bench
+kind: benchmark
+year: 2026
+summary: Alzheimer's and related-dementias QA benchmark with 1,438 questions pooled from seven existing medical benchmarks plus 149 new caregiving questions (29 multiple choice, 120 true/false), scored by accuracy.
+readme_section: knowledge_exam
+links:
+  paper: https://arxiv.org/abs/2602.11460
+  arxiv: "2602.11460"
+  doi: 10.48550/arxiv.2602.11460
+  huggingface: [IIRL-NotreDame/ADRD-Bench]
+  code: https://github.com/IIRL-ND/ADRD-Bench
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Caregiving questions come from a nationally adopted collaborative-care program's caregiver education materials; the country is not named in the sources read.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, literature, clinician_written]
+  venue: preprint
+facets:
+  health_areas: [ncd]
+  intended_users: [clinician, patient_public]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 1,438 unified questions (indices only) plus 149 caregiving questions
+provenance:
+  records: [r_5aa1ff6b18]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: medium
+  notes: Read arXiv abstract page and GitHub README. The Unified QA part is released only as source-dataset names and original indices, not question text. The repo LICENSE is not detected as a standard SPDX license, so license is null. Lead institution country (Notre Dame, per repo/HF org name) inferred from the org name, not an affiliation list; check.

@@ -1,0 +1,34 @@
+id: q-pain
+name: Q-Pain
+kind: benchmark
+year: 2021
+summary: 55 pain-management clinical vignettes (five pain contexts) asking whether to prescribe opioid pain medication, used with swapped patient race and gender to measure bias in treatment decisions of QA models.
+readme_section: safety
+links:
+  paper: http://arxiv.org/abs/2108.01764
+  arxiv: "2108.01764"
+  doi: 10.13026/61xq-mj56
+license: CC-BY-SA-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Vignettes were written by one clinical expert; the paper does not state a country.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written]
+  venue: preprint
+facets:
+  health_areas: [oncology, emergency_triage, other_specialty]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 55 vignettes (50 "Yes" and 5 "No" prompts) across five pain contexts, each tested with 8 race-gender profiles
+provenance:
+  records: [r_6608a2a89e]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "The paper says the dataset is on PhysioNet under CC BY-SA 4.0 (the DOI is the PhysioNet record). Contexts are acute non-cancer, acute cancer, chronic non-cancer, chronic cancer, and post-operative pain. Scoring compares the probability of a yes/no treatment answer across race-gender subgroups for GPT-2 and GPT-3. Two physicians checked a random sample of vignettes. Lead authors are at Stanford, last author at Harvard."

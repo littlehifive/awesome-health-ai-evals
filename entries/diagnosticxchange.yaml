@@ -1,0 +1,34 @@
+id: diagnosticxchange
+name: DiagnosticXchange
+kind: eval_framework
+year: 2025
+summary: Open-source simulation platform where an AI or physician diagnostician orders tests from a simulated 'nurse' agent, scored on accuracy, cost, time, invasiveness, physician effort, and safety behaviors over 216 published cases across 19 specialties.
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.1093/jamia/ocag143
+  doi: 10.1093/jamia/ocag143
+  website: http://diagnostixange.aran-lab.com/
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Cases are taken from peer-reviewed case reports (for example NEJM and neurology journals); no country is stated.
+  localization: native
+  lead_institution_countries: [ISR]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine, other_specialty]
+  intended_users: [clinician]
+  eval_methods: [simulated_multi_turn, automatic_metric]
+  modality: [text]
+  size: 216 cases across 19 specialties (1,728 sessions with 8 LLMs); the preprint used 16 neurology cases and 14 neurologists
+provenance:
+  records: [r_072ee78ca5, r_b7373d0be2]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Full text read for the medRxiv preprint (16 neurology cases, 14 neurologists, Technion and Rambam authors, with a Siriraj co-author). The JAMIA version (published 2026-09-17, article license CC BY-NC-ND) was read as an abstract only; it calls the framework open-source but no repository link was seen, so open_data and license stay unknown. The preprint title is 'AI vs Human Performance in Conversational Hospital-Based Neurological Diagnosis'. Costs and times use CPT codes (US-based)."

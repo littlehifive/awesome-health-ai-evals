@@ -1,0 +1,36 @@
+id: medxpertqa
+name: MedXpertQA
+kind: benchmark
+year: 2025
+summary: 4,460 expert-level medical multiple-choice questions across 17 specialties and 11 body systems, in a text subset and a multimodal subset with images and patient records, filtered for difficulty and reviewed by licensed physicians.
+readme_section: knowledge_exam
+links:
+  paper: https://arxiv.org/abs/2501.18362
+  arxiv: "2501.18362"
+  huggingface: [TsinghuaC3I/MedXpertQA]
+  code: https://github.com/TsinghuaC3I/MedXpertQA
+  website: https://medxpertqa.github.io
+license: MIT
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Questions come from US licensing exams (USMLE, COMLEX) and specialty board exams; the paper states the COMLEX and USMLE sources.
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions, llm_generated]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician, medical_student]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 4,460 questions (Text and MM subsets, each with a 5-question dev set)
+provenance:
+  records: [r_b375ba23c8, r_d19ac59dc3, r_c9626ebde9]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "The MM subset needs images and is outside the text-chatbot scope; the Text subset is in scope. Questions were rewritten and options augmented to reduce leakage, then reviewed by physicians. Record r_c9626ebde9 is the GitHub repo. Merged as records only: yiyanhuang/MedXpertQA (copy), Shaow/medxpertqa-text-bioharness (format conversion for another harness). ChuGyouk/MedXpertQA (r_d19ac59dc3) holds Gemini 2.5 Pro outputs, not the benchmark, and its second arXiv ID (2504.10481) is the xVerify paper; neither is linked."

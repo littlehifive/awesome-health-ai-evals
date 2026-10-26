@@ -1,0 +1,32 @@
+id: medical-ai-evaluation-diabetes-dialogue
+name: Medical AI Dynamic Evaluation System (diabetes assistant)
+kind: eval_framework
+year: 2026
+summary: An open-source system in which an LLM patient agent plays five predefined diabetes patient roles in multi-turn conversations with a target medical AI, and an isolated LLM evaluator scores the logs on eight dimensions including correctness, safety, multi-turn fluency, and empathy.
+readme_section: frameworks
+links:
+  code: https://github.com/Castiel4517/medical-ai-evaluation
+license: Apache-2.0
+open_data: described_only
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: The patient role definitions in the source code are written in Chinese with Chinese names; the README does not state a country.
+  localization: native
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [unknown]
+  item_provenance: [llm_generated]
+  venue: grey_literature
+facets:
+  health_areas: [ncd, general_medicine]
+  intended_users: [patient_public]
+  eval_methods: [simulated_multi_turn, rubric_llm_judge]
+  modality: [text]
+  size: 5 patient roles (type 2 diabetes, gestational diabetes, type 1 diabetes parent, prediabetes); 8 scoring dimensions
+provenance:
+  records: [r_982862c483]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "From the GitHub README and a role source file; no paper. License Apache-2.0 per the repo. Role language was read from one file (gestational diabetes), so the language of the others is assumed Chinese. Roles are hand-defined templates for a simulated patient, not released test conversations."

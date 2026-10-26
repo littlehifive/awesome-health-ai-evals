@@ -1,0 +1,34 @@
+id: clexeval
+name: CLExEval
+kind: benchmark
+year: 2026
+summary: A human-in-the-loop framework that tests LLM clinical reasoning on rare diagnostic cases under four levels of progressive information masking, with 200 reasoning traces from 40 cases scored by 5,600 expert annotations (RARECASE-2000 holds all 500 cases at 4 levels).
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2606.31608
+  arxiv: "2606.31608"
+  doi: 10.48550/arxiv.2606.31608
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Case narratives come from the MultiCaRe case-report dataset (CC0); the paper does not give countries for the underlying reports.
+  localization: adapted
+  lead_institution_countries: [ARE, IND]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, literature]
+  venue: preprint
+facets:
+  health_areas: [general_medicine, other_specialty]
+  intended_users: [clinician]
+  eval_methods: [expert_human_rating, rubric_llm_judge]
+  modality: [text]
+  size: RARECASE-2000 (500 narratives x 4 masking levels); 40-case audit set with 200 traces and 5,600 expert annotations
+provenance:
+  records: [r_72dc02dbd4]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Authors are at MBZUAI (UAE), IIT Madras, and Calicut Medical College (India). The paper says RARECASE-2000, the CLEsEval rubric, model outputs, and annotations will be released via GitHub, but no link was found, so open_data is unknown; the source cases are CC0 but the license of the released artifacts is not stated. The annotation panel was two licensed physicians and two senior clinical interns; their countries are not stated. The paper names the framework CLExEval in the title and CLEsEval in some places."

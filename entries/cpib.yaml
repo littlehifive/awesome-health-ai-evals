@@ -1,0 +1,43 @@
+id: cpib
+name: Clinical Prompt Injection Benchmark (CPIB)
+kind: benchmark
+year: 2026
+summary: Pilot of two synthetic clinical scenarios (ESI triage classification and multi-turn summarization with a cross-patient PHI leakage vector) in seven attack, control, and mitigation conditions, scored by regex on four open-weight models (560 runs).
+readme_section: safety
+links:
+  code: https://github.com/aethr-dev/clinical-prompt-injection-benchmark
+license: MIT
+open_data: open
+geography:
+  item_languages:
+  - English
+  item_origin_countries:
+  - UNKNOWN
+  item_origin_note: Scenarios are synthetic; no country stated.
+  localization: unknown
+  lead_institution_countries:
+  - UNKNOWN
+origin:
+  builder_types:
+  - unknown
+  item_provenance:
+  - unknown
+  venue: grey_literature
+facets:
+  health_areas:
+  - emergency_triage
+  - general_medicine
+  intended_users:
+  - clinician
+  eval_methods:
+  - automatic_metric
+  modality:
+  - text
+  size: 2 scenarios x 7 conditions; 560 pilot runs on 4 models
+provenance:
+  records:
+  - r_6f5dd2947d
+  extracted: '2026-10-26'
+  read_full_text: true
+  confidence: medium
+  notes: README says MIT license and that the pre-registered analysis plan, deviations, and a public Substack writeup are in the repo. Author identity and country not stated. Targets deployed clinical LLM tools (triage, summarization), so intended users is a best fit. Scenario files were not opened.

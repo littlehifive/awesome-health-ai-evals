@@ -1,0 +1,34 @@
+id: fhirbench
+name: FHIRBench
+kind: benchmark
+year: 2026
+summary: A benchmark of six FHIR serialization strategies for LLMs, using 100 stratified synthetic Synthea patient bundles (from a 1,000-patient pool) on question answering, reasoning, and summarization, scored by token F1 and an LLM-judged rubric.
+readme_section: open_ended
+links:
+  paper: https://doi.org/10.64898/2026.07.14.26358020
+  doi: 10.64898/2026.07.14.26358020
+  code: https://github.com/JacquelineChong/fhirbench
+license: MIT
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Synthetic patients generated with Synthea, which the paper says is seeded with US Census demographics.
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric, rubric_llm_judge]
+  modality: [text]
+  size: 100 synthetic patients evaluated (1,000-patient pool); 9,000 evaluations in total
+provenance:
+  records: [r_381530ad39]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Scope is borderline: it compares how structured EHR data is formatted for LLM input rather than testing health answers, and the tasks are generated from synthetic records. A human should decide whether to keep it. MIT license is stated in the paper for code, benchmark data and results (Zenodo 10.5281/zenodo.21223883). Single author at The Hong Kong Polytechnic University. item_provenance llm_generated is an approximation: tasks are produced by generators over Synthea records. The preprint itself is CC BY 4.0."

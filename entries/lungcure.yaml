@@ -1,0 +1,36 @@
+id: lungcure
+name: LungCURE
+kind: benchmark
+year: 2026
+summary: 1,000 real de-identified lung cancer cases from more than ten Chinese hospitals, with clinician-labeled TNM staging and treatment recommendations, for three tasks (staging, treatment recommendation, end-to-end decision support).
+readme_section: multilingual_regional
+links:
+  paper: https://arxiv.org/abs/2604.06925
+  arxiv: "2604.06925"
+  doi: 10.48550/arxiv.2604.06925
+  huggingface: [Fine2378/LungCURE]
+license: MIT
+open_data: gated
+geography:
+  item_languages: [Chinese, English]
+  item_origin_countries: [CHN]
+  item_origin_note: Cases collected across more than ten hospitals in China, 2019 to 2025.
+  rater_countries: [CHN]
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written, real_user_queries]
+  venue: preprint
+facets:
+  health_areas: [oncology]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric, rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 1,000 cases
+provenance:
+  records: [r_993604781b]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Cases are real patient records (imaging reports, pathology, clinical notes, genomic results), not user queries; real_user_queries is the closest provenance value. Labels come from a two-stage senior-clinician annotation. License MIT and the language tags (zh, en) come from the Hugging Face dataset tags; the card itself is gated (automatic approval), so item languages and the exact data format were not seen. TNM accuracy is exact match on T, N, and M; treatment recommendation uses precision and BERT-F1; reasoning quality uses an LLM judge. Rater and lead countries inferred from the author list (BUPT, Peking Union Medical College Hospital). The paper also proposes LCAgent, a method, which is not part of the benchmark. Called multimodal by the authors, but inputs appear to be text reports."

@@ -1,0 +1,35 @@
+id: trustmh-bench
+name: TrustMH-Bench
+kind: benchmark
+year: 2026
+summary: A trustworthiness benchmark for mental health LLMs covering eight pillars (reliability, crisis identification and escalation, safety, fairness, privacy, robustness, anti-sycophancy, ethics), assembled from existing datasets plus new sets such as JailbreakMH, PsyLeak, and ESConv-Fair.
+readme_section: mental_health
+links:
+  paper: https://arxiv.org/abs/2603.03047
+  arxiv: "2603.03047"
+  doi: 10.48550/arxiv.2603.03047
+  code: https://github.com/Qiyuan0130/TrustMH_Bench
+license: null
+open_data: open
+geography:
+  item_languages: [English, Mandarin Chinese]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Built from many external datasets (USMLE-Mental, D4, SWMH, ESConv, CPsyCounE, C-SSRS, PsyQA, EthicMH and others); no single origin country is stated.
+  localization: adapted
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, llm_generated]
+  venue: preprint
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [mcq_exact_match, automatic_metric, rubric_llm_judge]
+  modality: [text]
+  size: Not stated as a single total; composed of about 15 external and 5 new datasets
+provenance:
+  records: [r_b8ace4c6d4, r_4d01d0d3d2]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Read the GitHub README and searched the paper text. The repo's GitHub license field reads MIT, but the README says the code is for academic research and that subsets from external datasets keep their original licenses and are not fully redistributed (some subsets are only illustrative examples), so license is null and open_data is open for the public repo only in part. Item counts per subset were not tallied. Languages are inferred from the included Chinese datasets (CPsyCounE, PsyQA) and English ones. Evaluated models: six general and six mental-health models."

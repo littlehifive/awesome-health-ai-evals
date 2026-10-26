@@ -1,0 +1,35 @@
+id: msdiagnosis
+name: MSDiagnosis
+kind: benchmark
+year: 2024
+summary: 2,225 de-identified Chinese electronic medical records from 12 departments, turned into a three-round dialogue task (primary diagnosis, differential diagnosis, final diagnosis, each with diagnostic criteria), scored with F1 and key-point matching.
+readme_section: multilingual_regional
+links:
+  paper: https://arxiv.org/abs/2408.10039
+  arxiv: "2408.10039"
+  doi: 10.1016/j.knosys.2025.114524
+license: null
+open_data: unknown
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: Records come from a Chinese medical website (iiyi.com).
+  rater_countries: [CHN]
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [web_forum, clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric, rubric_llm_judge]
+  modality: [text]
+  size: 2,225 EMRs (7:1:2 train, validation, test split)
+provenance:
+  records: [r_f696e607bc, r_6d98fc6c76]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Records: the arXiv preprint (r_f696e607bc) and the Knowledge-Based Systems article (r_6d98fc6c76), treated as the same benchmark. Raw EMRs (11,900 collected) were filtered and annotated by three student inspectors and one medical expert (20 percent sample review until 95 percent batch accuracy); 1,989 cases lacked diagnostic results and answers were annotated. Key points for criteria were extracted with GPT-4, so key-point scoring probably involves an LLM; exact metric details were not checked. No data link or license was found in the text read, so open_data is unknown. Country of raters is inferred from the Chinese team; the paper does not state it."

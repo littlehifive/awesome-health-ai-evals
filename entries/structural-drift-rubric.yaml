@@ -1,0 +1,33 @@
+id: structural-drift-rubric
+name: Structural drift (Anomalous Experience Rubric)
+kind: eval_framework
+year: 2026
+summary: An LLM-scored seven-domain rubric of psychosis-spectrum experience, adapted from the EASE and EAWE instruments, used to detect when chatbot replies amplify or expand a user's anomalous interpretations across a dialogue.
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.64898/2026.03.19.26346371
+  doi: 10.64898/2026.03.19.26346371
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: 484 excerpts adapted from published clinical qualitative instruments (EASE, EAWE); no country origin stated.
+  localization: adapted
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: 484 gold-standard excerpts; 7 dialogues, 1,290 exchanges, 3 LLMs
+provenance:
+  records: [r_ea11dd9c29]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Boston Children's Hospital and Harvard Medical School. The preprint is CC-BY-NC 4.0. The paper says model outputs, annotations, and code are public at a repository named structural-drift, but the URL was not captured, and the EASE/EAWE excerpt text is not redistributed. Rubric is in the supplement (S1, S2)."

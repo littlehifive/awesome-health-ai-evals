@@ -1,0 +1,34 @@
+id: spbench
+name: SPBench
+kind: benchmark
+year: 2025
+summary: 58 real standardized-patient cases (3,208 doctor question and patient answer pairs) from 14 specialties, used to compare LLM-simulated standardized patients with human ones on eight expert-defined criteria.
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2511.14783
+  arxiv: "2511.14783"
+  doi: 10.18653/v1/2026.acl-long.1243
+license: null
+open_data: unknown
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: Dialogues were digitized by OCR from two Chinese-language standardized-patient textbooks; the paper does not name the language or country outright, so both are inferred from those sources.
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [medical_student]
+  eval_methods: [rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 58 cases; 3,208 question-answer pairs; 14 specialties
+provenance:
+  records: [r_05f6775371]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "SPBench tests whether an LLM playing a standardized patient answers a physician's questions consistently with a case script. Eight criteria (query comprehension, case consistency, controlled disclosure, response completeness, logical coherence, language naturalness, conversational consistency, patient demeanor) are rated 1-5; GPT-4o scores all outputs and agreed with two clinicians on 30 samples (r = 0.79). The paper contains no data link or license, so open_data is unknown. The abstract and a table say 14 and 12 specialties; the body text says 14. The paper's main contribution is the EasyMED framework and a four-week crossover study; the benchmark is a secondary contribution."

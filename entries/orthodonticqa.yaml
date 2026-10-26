@@ -1,0 +1,33 @@
+id: orthodonticqa
+name: OrthodonticQA (OQA)
+kind: benchmark
+year: 2024
+summary: 587 extractive question-answering samples on orthodontic literature (381 train, 92 validation, 114 test), with questions from study-quiz platforms and passages from open-access journal articles, scored by token-level F1, exact match, and human evaluation.
+readme_section: knowledge_exam
+links:
+  paper: https://doi.org/10.1101/2024.07.05.24309412
+  doi: 10.1101/2024.07.05.24309412
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Questions come from online quiz platforms (Anki, cram, StudyStack) and passages from The Angle Orthodontist; no country is stated.
+  localization: native
+  lead_institution_countries: [CAN]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature, web_forum]
+  venue: preprint
+facets:
+  health_areas: [dentistry]
+  intended_users: [clinician, medical_student]
+  eval_methods: [automatic_metric, expert_human_rating]
+  modality: [text]
+  size: 587 samples
+provenance:
+  records: [r_33f50c94a8]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Reading-comprehension style (SQuAD-like) task; answer is a span of the passage, not necessarily current best evidence. Built from 2,166 candidate quiz questions and 6,204 Angle Orthodontist articles (BM25 retrieval, curated by one domain expert). Paper states dataset and code are released under Apache-2.0; the dataset URL was not extracted. Evaluated models are fine-tuned transformers."

@@ -1,0 +1,32 @@
+id: medical-sycophancy-eval
+name: Medical Sycophancy Eval
+kind: benchmark
+year: 2026
+summary: 202 clinician-framed scenarios across 16 medical domains in which a doctor asserts a wrong medical claim under six pressure triggers, scored by an LLM judge on whether the model caves, holds ground, or hedges.
+readme_section: safety
+links:
+  code: https://github.com/elio-longevai/medical-sycophancy-eval
+  website: https://elio-longevai.github.io/medical-sycophancy-eval/
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [unknown]
+  item_provenance: [literature, unknown]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [rubric_llm_judge, simulated_multi_turn]
+  modality: [text]
+  size: 202 scenarios (102 single-turn, 100 multi-turn) built from 90 premises
+provenance:
+  records: [r_e0e7857844]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Read the repository README, a sample premise file, the design summary, and parts of the LaTeX paper source. Data license is CC-BY-4.0 and code MIT per the README (the GitHub API shows no license); the repo is a BlueDot Impact AI Safety project sprint by one author. Each premise holds a false claim, ground truth, and literature citation; the paper source does not clearly say whether premises were written by hand or drafted by an LLM. Scenario text language is presumed English. Judge is Opus 4.7, Cohen's kappa 0.82 against hand labels on 30 turns. It tests nine frontier models; the author's affiliation and country are not stated in the README."

@@ -1,0 +1,34 @@
+id: mh-indic
+name: MH-INDIC
+kind: eval_framework
+year: 2026
+summary: A 26-item survey of 102 pregnant and postpartum women in urban and semi-urban North India, mapped to ten dimensions of maternal-health reasoning, used to measure how closely LLMs match the human population and its profile-level variation.
+readme_section: frameworks
+links:
+  paper: https://arxiv.org/abs/2610.11586
+  arxiv: "2610.11586"
+  doi: 10.48550/arxiv.2610.11586
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [IND]
+  item_origin_note: Survey responses were collected from women in urban and semi-urban North India; the survey was administered in English.
+  localization: native
+  lead_institution_countries: [IND]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature, clinician_written]
+  venue: preprint
+facets:
+  health_areas: [maternal_newborn]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric, expert_human_rating]
+  modality: [text]
+  size: 26-item survey, 10 dimensions, 102 human respondents; 10 LLMs evaluated
+provenance:
+  records: [r_c313e9df81]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Read the arXiv HTML version. The instrument was built from maternal- and public-health literature and reviewed by an MBBS/MPH maternal-health expert and a counsellor with an MSc in psychology. Models answer the survey conditioned on demographic profiles, and alignment is measured as distance to the human response distribution. A downstream part generates culturally conditioned dialogues, rated for quality by experts. The paper says code for scoring, LLM survey responses and dialogue generation is on GitHub, but the link text carried no recoverable URL, so no code link is listed. Whether the human survey responses are released was not found. Authors are at IIIT-Delhi."

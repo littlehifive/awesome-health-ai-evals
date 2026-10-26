@@ -1,0 +1,32 @@
+id: spamcqa
+name: SpAMCQA
+kind: benchmark
+year: 2023
+summary: 122 expert-written bilingual multiple-choice questions on spondyloarthritis for evaluating LLM knowledge, scored by accuracy, from the Chinese PLA General Hospital.
+readme_section: knowledge_exam
+links:
+  paper: https://doi.org/10.21203/rs.3.rs-3625354/v1
+  doi: 10.21203/rs.3.rs-3625354/v1
+open_data: unknown
+geography:
+  item_languages: [Chinese, English]
+  item_origin_countries: [CHN]
+  item_origin_note: Questions were written with clinical experts at Chinese PLA General Hospital; the bilingual title implies Chinese and English versions.
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic, industry_lab]
+  item_provenance: [clinician_written]
+  venue: preprint
+facets:
+  health_areas: [other_specialty]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 122 multiple-choice questions
+provenance:
+  records: [r_3b82af8c01, r_4a92d058ed]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "Merged two records: the EULAR 2024 conference abstract (POS0495, Annals of the Rheumatic Diseases) and the Research Square study protocol (2023). Only abstracts and the preprint landing page were read; no dataset link, license, or access statement was seen. The protocol also plans fine-tuning a model (SpARobotGPT) on 80,000+ hospital cases and a Safety, Usability, and Smoothness (SUS) metric for generated answers, which are not part of the MCQ benchmark. Builder types include Dataa Robotics Co., Ltd. alongside the hospital and a university. The year is from the preprint; venue is preprint because the protocol is unreviewed and the conference abstract is an abstract only."

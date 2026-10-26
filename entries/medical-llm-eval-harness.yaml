@@ -1,0 +1,32 @@
+id: medical-llm-eval-harness
+name: Medical LLM Eval Harness
+kind: benchmark
+year: 2026
+summary: "A regression-testing harness for grounded medical RAG assistants with a 24-case golden set (factual, out-of-scope, hallucination-bait with made-up drugs, safety) scored for correctness, hallucination, groundedness, refusal accuracy, retrieval hit rate and latency."
+readme_section: safety
+links:
+  code: https://github.com/sonupatel24/medical-llm-eval-harness
+license: MIT
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Golden set written by the repo owner against a small markdown knowledge base of seven drug monographs; country not stated.
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [unknown]
+  item_provenance: [unknown]
+  venue: grey_literature
+facets:
+  health_areas: [pharmacy_medication]
+  intended_users: [unspecified]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 24 golden-set cases
+provenance:
+  records: [r_68bbce40fd]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: Personal GitHub project (no paper). Scoring is rule-based (required and forbidden phrases, token-overlap groundedness, refuse/answer decision) with a CI regression gate. Borderline entry because it is mainly a tool and the golden set is tiny.

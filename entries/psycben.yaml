@@ -1,0 +1,32 @@
+id: psycben
+name: PsyCBEN (PsyChild)
+kind: benchmark
+year: 2026
+summary: 583 Chinese multi-turn dialogues for judging LLMs on fine-grained abilities in children's psychological companionship, scored by GPT-4.1 as judge; released with the PsyCINS 25.4k-dialogue training set and the PsyCGPT model.
+readme_section: mental_health
+links:
+  doi: 10.1007/978-981-95-7078-2_13
+license: null
+open_data: unknown
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: The abstract does not describe where the benchmark dialogues come from or their language explicitly; Chinese is inferred from the Chinese counseling platform and the authors' venue, and is unconfirmed.
+  localization: unknown
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated]
+  venue: peer_reviewed
+facets:
+  health_areas: [mental_health, child_health]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: 583 dialogues (PsyCBEN); 19 LLMs evaluated
+provenance:
+  records: [r_d2a6784618]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "Only the Springer landing page and abstract were reachable (paywalled PRICAI 2025 chapter). No dataset or code link seen. Item language, provenance, and the judging rubric are not confirmed; item_languages Mandarin Chinese is an assumption a human should verify."

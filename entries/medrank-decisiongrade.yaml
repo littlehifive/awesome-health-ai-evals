@@ -1,0 +1,31 @@
+id: medrank-decisiongrade
+name: MedRank-DecisionGrade
+kind: benchmark
+year: 2026
+summary: 400 medical questions with 2,000 generations from five open-weight LLMs, 2,000 pairwise comparisons, and 1,950 human preference and harm annotations, for studying harm-aware and annotator-aware ranking of medical LLM answers.
+readme_section: safety
+links:
+  huggingface: [medrank-benchmark/medrank-decisiongrade]
+license: CC-BY-NC-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [unknown]
+  item_provenance: [unknown]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine]
+  intended_users: [unspecified]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: 400 questions, 2,000 generations, 2,000 pairs, 1,950 annotation records
+provenance:
+  records: [r_a2d9200c50]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "Dataset card only, no paper linked. The card calls the questions public medical QA questions but does not name the source. Annotators were two trained annotators and one physician (countries not stated); the annotation summary reports 1,950 records over 1,500 unique pairs, with preference labels A, B, tie, and both_bad. The card says it is not for clinical or patient-facing use. This is a dataset for evaluating ranking methods and annotator agreement as much as model answers."

@@ -1,0 +1,35 @@
+id: ragcare-qa
+name: RAGCare-QA
+kind: benchmark
+year: 2025
+summary: "420 expert-written single-choice questions on theoretical medical knowledge in six specialties, each labeled with the RAG pipeline (basic, multi-vector, graph-enhanced) judged best suited to answer it."
+readme_section: knowledge_exam
+links:
+  paper: https://doi.org/10.1016/j.dib.2025.112146
+  doi: 10.1016/j.dib.2025.112146
+  pmcid: PMC12553001
+  huggingface: [ChatMED-Project/RAGCare-QA]
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: "Questions were written from European medical textbooks (including Slovenian-language sources), StatPearls and guidelines; the paper does not name a country of origin for the items."
+  localization: native
+  lead_institution_countries: [MKD, SVN]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written, literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine, cardiology, oncology]
+  intended_users: [medical_student]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 420 questions
+provenance:
+  records: [r_ccb1acce60]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Data in Brief paper. Specialties are cardiology, endocrinology, gastroenterology, family medicine, oncology, neurology; three complexity levels. Data availability statement points to the Hugging Face dataset; no dataset license was seen on the card (source materials carry CC BY-NC-ND 4.0 in part). Lead institutions: Ss. Cyril and Methodius University (North Macedonia) and Jozef Stefan Institute (Slovenia). The benchmark targets RAG pipeline selection; scoring is answer accuracy on the MCQs."

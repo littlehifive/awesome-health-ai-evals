@@ -1,0 +1,33 @@
+id: freemedqa
+name: FreeMedQA
+kind: benchmark
+year: 2025
+summary: 10,278 MultiMedQA questions filtered as answerable without options and paired as free-response and multiple-choice versions, used to show LLM accuracy drops by about 39% on free response.
+readme_section: knowledge_exam
+links:
+  paper: https://doi.org/10.1038/s41598-025-26036-7
+  doi: 10.1038/s41598-025-26036-7
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Questions come from the MultiMedQA collection (acquired from the Hugging Face Hub); the paper does not give their countries of origin.
+  localization: adapted
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [medical_student, clinician]
+  eval_methods: [mcq_exact_match, rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 10,278 paired MC and free-response questions
+provenance:
+  records: [r_f8f69c81c8]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Read the Methods and Discussion in the PMC full text (Scientific Reports, NYU authors). The paper says the FreeMedQA datasets are under Supplementary Materials, so open_data is set to open from that statement; the supplement files were not opened and no license was seen. No GitHub or Hugging Face release found. GPT-4o filtered MultiMedQA questions (31.32% removed) and regular expressions rewrote MC stems to free response; free-response answers are judged by GPT-4o. A 350-question subset was also answered by medical students. Which MultiMedQA subsets were included was not checked."

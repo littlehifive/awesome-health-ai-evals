@@ -1,0 +1,33 @@
+id: medic-m42
+name: MEDIC (M42)
+kind: eval_framework
+year: 2024
+summary: A framework that evaluates LLMs on five dimensions of clinical competence (medical reasoning, ethics and bias, data and language understanding, in-context learning, clinical safety) using existing QA, safety, summarization and note-generation datasets and a reference-free cross-examination method for hallucination and coverage.
+readme_section: frameworks
+links:
+  paper: https://arxiv.org/abs/2409.07314
+  arxiv: "2409.07314"
+license: null
+open_data: described_only
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA, GLOBAL]
+  item_origin_note: Reuses public datasets (MedQA, MMLU medical subsets, MedMCQA, PubMedQA, MedicationQA, HealthSearchQA, ExpertQA, Med-safety, ClinicalTrials.gov, ACI-Bench); the paper does not state origin countries.
+  localization: adapted
+  lead_institution_countries: [ARE]
+origin:
+  builder_types: [industry_lab]
+  item_provenance: [adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [general_medicine, pharmacy_medication]
+  intended_users: [clinician, patient_public, medical_student]
+  eval_methods: [mcq_exact_match, automatic_metric, rubric_llm_judge]
+  modality: [text]
+  size: 5 dimensions; closed-ended QA, open-ended QA (absolute scoring and pairwise Elo), summarization, and note generation tasks
+provenance:
+  records: [r_cab4fca776]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "From M42 Health, Abu Dhabi. Different from the entry medic-bias-error-pipeline (a separate 2025 mental-health bias demo also called MEDIC). Includes EHR-style summarization and note generation tasks that are outside this catalog's core scope. No code or leaderboard link was seen in the sections read."

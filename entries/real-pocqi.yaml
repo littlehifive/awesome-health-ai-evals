@@ -1,0 +1,34 @@
+id: real-pocqi
+name: Real-POCQi
+kind: benchmark
+year: 2026
+summary: "620 real point-of-care questions that US physicians sent to the OpenEvidence platform across 30 specialties, with answers from four AI systems and pairwise ratings by 149 specialty-matched physicians on five dimensions."
+readme_section: open_ended
+links:
+  arxiv: "2606.28960"
+  huggingface: [jjfenglab/Real-POCQi]
+  code: https://github.com/jjfenglab/Real-POCQi-statistics
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  rater_countries: [USA]
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [real_user_queries]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [expert_human_rating, real_user_data]
+  modality: [text]
+  size: "620 questions; 2,480 answers; 5,780 rating rows from 149 physicians"
+provenance:
+  records: [r_1cfa9b78d5]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Questions sampled from one week (7-14 June 2026) of OpenEvidence queries. OpenEvidence co-developed the data collection plan and paid raters; the authors state no affiliation with it. Ratings cover accuracy, clinical utility, source quality, verifiability and completeness. The paper also uses 187 HealthBench questions. Lead-institution country assumed from US rater and IRB details; author affiliations were not read."

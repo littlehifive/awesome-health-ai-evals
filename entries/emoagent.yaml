@@ -1,0 +1,34 @@
+id: emoagent
+name: EmoAgent
+kind: eval_framework
+year: 2025
+summary: A multi-agent framework (EmoEval) that simulates users with depression, delusion, or psychosis chatting with character-based AI chatbots and measures changes in PHQ-9, PDI, and PANSS scores, paired with a mitigation module (EmoGuard).
+readme_section: frameworks
+links:
+  paper: https://arxiv.org/abs/2504.09689
+  arxiv: "2504.09689"
+  code: https://github.com/1akaman/EmoAgent
+license: null
+open_data: described_only
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Simulated users are cognitive models written by two licensed clinical psychologists from published psychotherapy transcript summaries (Alexander Street database) and the Patient-Psi-CM dataset; no country is stated.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written, adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [simulated_multi_turn]
+  modality: [text]
+  size: "Simulated users for three conditions (depression, delusion, psychosis); testing on popular character-based chatbots"
+provenance:
+  records: [r_5ad0ba3ce5]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Read the abstract, method, and ethics appendix plus the GitHub README. The repo has no license file, and the simulated-user profiles do not appear to be shipped as a standalone dataset, so open_data is described_only. The paper reports mental-state deterioration in more than 34.4% of simulations. The repo URL in the paper abstract (lakaman) differs from the live repo owner (1akaman); the live one is listed."

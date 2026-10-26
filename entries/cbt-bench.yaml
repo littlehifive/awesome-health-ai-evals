@@ -1,0 +1,36 @@
+id: cbt-bench
+name: CBT-Bench
+kind: benchmark
+year: 2024
+summary: 'Three levels of cognitive behavioral therapy tasks for LLMs: 220 CBT knowledge multiple-choice questions, 442 cognitive-distortion and core-belief classification examples, and 156 deliberate-practice therapist-response exercises.'
+readme_section: mental_health
+links:
+  paper: https://arxiv.org/abs/2410.13218
+  arxiv: "2410.13218"
+  doi: 10.48550/arxiv.2410.13218
+  huggingface: [Psychotherapy-LLM/CBT-Bench]
+license: CC-BY-NC-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Knowledge questions come from graduate CBT course exams and expert-written items; level II uses patient posts from the TherapistQA dataset (online forums); level III uses published deliberate-practice exercises. Countries are not stated.
+  rater_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions, clinician_written, web_forum, literature]
+  venue: preprint
+facets:
+  health_areas: [mental_health]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match, automatic_metric]
+  modality: [text]
+  size: 220 MCQs; 146 + 184 + 112 classification examples; 156 exercises
+provenance:
+  records: [r_578b0a1e2a]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: Level I and II are scored by accuracy and F1 against expert labels (annotated by six CBT experts recruited on UpWork plus co-author clinicians). Level III responses are judged on four criteria per category written with social-work professors; the judging method was not checked. Expert recruitment platform suggests raters in multiple countries but none are stated. Venue marked preprint from the arXiv record; later publication not checked.

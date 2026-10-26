@@ -1,0 +1,36 @@
+id: redis-qa
+name: ReDis-QA
+kind: benchmark
+year: 2024
+summary: 1,360 multiple-choice rare-disease questions covering 205 rare diseases, filtered from MedMCQA, MedQA, and MMLU and tagged by disease property (symptoms, causes, effects, related disorders, diagnosis), scored by accuracy.
+readme_section: knowledge_exam
+adapted_from: [medmcqa, medqa]
+links:
+  paper: https://arxiv.org/abs/2408.08422
+  arxiv: "2408.08422"
+  huggingface: [guan-wang/ReDis-QA]
+  code: https://github.com/guanchuwang/redis-bench
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [IND, UNKNOWN]
+  item_origin_note: Questions were selected from MedMCQA (AIIMS and NEET PG entrance exams, India), MedQA, and MMLU; the paper does not say which source or country each retained question came from.
+  localization: adapted
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, exam_questions]
+  venue: preprint
+facets:
+  health_areas: [general_medicine, other_specialty]
+  intended_users: [clinician, medical_student]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 1,360 questions
+provenance:
+  records: [r_b4708b2515]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Rice University and Baylor College of Medicine authors. Questions come from manual cleaning of over 200,000 raw QA pairs. The paper also releases ReCOP, a rare-disease retrieval corpus built from NORD reports (guan-wang/ReCOP); it is a corpus and not part of this entry. License is from the Hugging Face card."

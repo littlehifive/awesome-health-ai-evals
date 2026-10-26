@@ -1,0 +1,36 @@
+id: escalate-clinical-escalation
+name: ESCALATE
+kind: benchmark
+year: 2026
+summary: 400 synthetic nurse-to-registrar escalation conversations (200 paired cases across 10 ward-deterioration archetypes, unstructured vs ISBAR handover) with ground-truth case cards and rubric-based labels for safety-critical omissions, hallucinations, and actionability.
+readme_section: safety
+links:
+  paper: https://doi.org/10.21203/rs.3.rs-10989591/v1
+  doi: 10.21203/rs.3.rs-10989591/v1
+  huggingface: [2O24dpower2024/ESCALATE]
+  code: https://github.com/DavePower-cloud/ESCALATE-dataset
+  dataset: https://doi.org/10.5281/zenodo.19224182
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Fully synthetic case cards and LLM-generated dialogues; no country stated.
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated]
+  venue: preprint
+facets:
+  health_areas: [emergency_triage, nursing]
+  intended_users: [clinician, nurse_midwife]
+  eval_methods: [rubric_llm_judge, simulated_multi_turn, expert_human_rating]
+  modality: [text]
+  size: 200 paired cases (400 transcripts)
+provenance:
+  records: [r_7b9ff90600]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Authors David Power and Theresa Power; affiliation and country not stated in the text I read. A GPT-5.5 judge scores transcripts against a rubric; a subset was reviewed by experienced ICU nurses, and agreement between judge and humans was limited. Dataset, rubric, and metadata are on Zenodo (DOI 10.5281/zenodo.19224182), Hugging Face, and GitHub; license CC-BY-4.0 from the Zenodo record and HF card. The generated transcripts are the released set, so test items are model-generated dialogues rather than prompts for a new model."

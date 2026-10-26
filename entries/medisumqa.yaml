@@ -1,0 +1,32 @@
+id: medisumqa
+name: MeDiSumQA
+kind: benchmark
+year: 2025
+summary: "416 patient-oriented question-answer pairs built from MIMIC-IV discharge summaries and their patient-friendly discharge letters, curated by a physician, scored by ROUGE, BERTScore, UMLS F1, and physician ratings."
+readme_section: open_ended
+links:
+  arxiv: "2502.03298"
+  paper: https://arxiv.org/abs/2502.03298
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Items derive from MIMIC-IV discharge summaries (a US hospital database).
+  localization: native
+  lead_institution_countries: [DEU, USA]
+origin:
+  builder_types: [academic, industry_lab]
+  item_provenance: [llm_generated, clinician_written]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric, expert_human_rating]
+  modality: [text]
+  size: 416 question-answer pairs
+provenance:
+  records: [r_06ff2194f4]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Questions were LLM-generated from sentences of clinician-written discharge letters, then one physician filtered them; models answer from the discharge summary without the letter. A physician rated 100 answers for patient-friendliness, relevance, and safety. The paper says it is released on PhysioNet; I saw no access terms or link (MIMIC-derived data is typically credentialed), so open_data is unknown. Borderline scope: discharge summaries are EHR text, but the task is patient-facing question answering."

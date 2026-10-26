@@ -1,0 +1,33 @@
+id: stella-safety-testing
+name: STELLA
+kind: eval_framework
+year: 2025
+summary: A simulation harness that runs persona-driven simulated patients through multi-turn crisis scenarios with voice or text AI assistants and scores transcripts for safety, efficacy and engagement with an ensemble of judge LLMs.
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.64898/2025.12.11.25342078
+  doi: 10.64898/2025.12.11.25342078
+license: null
+open_data: closed
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Simulated personas and scenarios (for example suicidal ideation, addiction, partner violence) defined by the authors; no country origin stated.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic, industry_lab]
+  item_provenance: [llm_generated]
+  venue: preprint
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [simulated_multi_turn, rubric_llm_judge, expert_human_rating]
+  modality: [text, voice]
+  size: 10 scenarios by 5 personas (then 5 more personas) over 10 rounds, run on 5 then 11 chatbot models
+provenance:
+  records: [r_d6bb3c9cea]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Massachusetts General Hospital and Harvard with Atella.ai (a company, listed as an author affiliation). Data statement says summary data are available on reasonable request; no code or dataset link found, so open_data is closed (not released publicly). Rubrics use red/yellow/green status; expert annotation agreed substantially with the judge ensemble on 100 exchanges."

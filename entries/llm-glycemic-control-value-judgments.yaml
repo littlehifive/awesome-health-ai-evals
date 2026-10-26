@@ -1,0 +1,34 @@
+id: llm-glycemic-control-value-judgments
+name: LLM glycemic control value-judgment framework
+kind: eval_framework
+year: 2025
+summary: "A framework that has LLMs make pairwise comparisons of continuous-glucose-monitoring summaries for simulated type 1 diabetes profiles, then measures alignment with time in range and the clinician-derived Glycemia Risk Index, plus perturbation tests of hypo- versus hyperglycemia weighting."
+readme_section: frameworks
+links:
+  paper: https://pubmed.ncbi.nlm.nih.gov/42389650
+  pmcid: PMC13322355
+  code: https://github.com/lizhealey/LLMGRI
+license: null
+open_data: closed
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: "Profiles are synthetic, from the UVA/Padova type 1 diabetes simulator (100 adult virtual subjects, three insulin therapy modalities); no country of origin."
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [not_applicable]
+  venue: peer_reviewed
+facets:
+  health_areas: [ncd]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 100 simulated adult profiles x 3 insulin modalities; five commercial LLMs; perturbation experiments against 100 CSII profiles
+provenance:
+  records: [r_ed6b3f5f2d]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Machine Learning for Health Symposium paper, PMLR 297 (2025). Code repo is MIT-licensed but its README says the raw CGM data is not included (data come from the UVA/Padova simulator), so license is left null and open_data is closed. It is a method for probing LLM clinical preferences, not an item set with correct answers. Most authors at Harvard, Boston Children's, UVA and Diabetes Technology Society."

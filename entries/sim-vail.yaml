@@ -1,0 +1,36 @@
+id: sim-vail
+name: SIM-VAIL
+kind: eval_framework
+year: 2026
+summary: A framework that pairs LLM-simulated users (30 profiles, each a psychiatric vulnerability crossed with a conversational intent) with consumer chatbots and scores each turn on 13 clinically grounded risk dimensions, run over 810 conversations.
+readme_section: frameworks
+links:
+  paper: https://arxiv.org/abs/2602.01347
+  arxiv: "2602.01347"
+  doi: 10.1038/s41591-026-04577-2
+  code: https://github.com/veithweilnhammer/sim-vail
+license: MIT
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Simulated user profiles written by three clinical psychiatrists and played by an LLM; not tied to a country.
+  rater_countries: [GBR, USA]
+  localization: native
+  lead_institution_countries: [GBR]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated, clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [simulated_multi_turn, rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 30 user profiles; 810 simulated conversations (6,329 turns) against 9 chatbots; 375 turn pairs rated by 27 clinicians
+provenance:
+  records: [r_4c4e67c601]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Built on the open-source Petri auditing harness; an LLM alignment judge scores 39 dimensions, of which 13 mental-health dimensions were chosen by three psychiatrists. Data (synthetic transcripts and scores) and code are in the GitHub repo, MIT license per the paper's data and code statements. The 27 clinician annotators were 24 UK-based and 3 US-based. Published in Nature Medicine per the DOI (not checked at the journal site)."

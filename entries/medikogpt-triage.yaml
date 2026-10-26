@@ -1,0 +1,33 @@
+id: medikogpt-triage
+name: MediKoGPT-Triage
+kind: benchmark
+year: 2026
+summary: 6,912 Korean symptom-triage cases, each with a chief complaint, ICD-10 differential diagnoses, a red, yellow, or green triage flag, clinical assessment, and recommendations, released for training and evaluating medical LLMs.
+readme_section: multilingual_regional
+links:
+  dataset: https://doi.org/10.5281/zenodo.21062721
+  doi: 10.5281/zenodo.21062721
+license: CC-BY-NC-4.0
+open_data: open
+geography:
+  item_languages: [Korean]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: The record says the data is Korean-language and the funder is a Korean ministry, but does not say where or how the cases originated.
+  localization: native
+  lead_institution_countries: [KOR]
+origin:
+  builder_types: [industry_lab]
+  item_provenance: [unknown]
+  venue: grey_literature
+facets:
+  health_areas: [emergency_triage, general_medicine]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 6,912 cases
+provenance:
+  records: [r_742a07fd0b]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: low
+  notes: "Zenodo record only (publisher Meninblox, Inc.); no paper. Its stated uses are training and evaluating Korean medical LLMs and triage agents and benchmarking structured clinical output quality, so it may be mostly a training set; no scoring protocol is given, and eval_methods is a guess. How the cases were produced (clinician-written, LLM-generated, or other) is not stated. License shown as CC BY-NC 4.0 in the description and the record's license list also shows CC-BY 4.0; I took the description's NC license. Funded by a Korean Ministry of SMEs and Startups programme. A human should decide whether it stays in as a benchmark."

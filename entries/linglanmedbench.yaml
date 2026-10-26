@@ -1,0 +1,36 @@
+id: linglanmedbench
+name: LingLanMedBench
+kind: benchmark
+year: 2026
+summary: 25,620 expert-verified Traditional Chinese Medicine items (licensing exam, fundamental and patent-medicine knowledge, information extraction, diagnostic and treatment decision tasks) with a 5,200-item Hard subset, scored by accuracy, F1, and related metrics.
+readme_section: multilingual_regional
+links:
+  paper: https://arxiv.org/abs/2602.01779
+  arxiv: "2602.01779"
+  huggingface: [TCMLLM/LingLan]
+  code: https://github.com/TCMAI-BJTU/LingLan
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: Items come from the national TCM qualification exam, TCM textbooks and reference works, classical texts, and de-identified clinical records; classical Chinese passages appear in the extraction tasks.
+  rater_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions, literature]
+  venue: preprint
+facets:
+  health_areas: [traditional_medicine]
+  intended_users: [clinician, medical_student]
+  eval_methods: [mcq_exact_match, automatic_metric]
+  modality: [text]
+  size: 25,620 items in Full (13 tasks), 5,200 in Hard
+provenance:
+  records: [r_1b25f54a09]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "The arXiv text calls the benchmark LingLanMiDian and counts 25,624 items; the GitHub README and Hugging Face release use LingLanMedBench and 25,620 items (29,620 JSONL rows in Full because joint reasoning cases are split into three label records). Hard is a subset of Full. Licensed TCM practitioners reviewed items, but no rater country is stated. Authors span Beijing Jiaotong University, Tasly, and several Chinese TCM hospitals and universities. The README links a leaderboard at linglan.top."

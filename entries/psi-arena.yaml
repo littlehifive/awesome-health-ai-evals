@@ -1,0 +1,33 @@
+id: psi-arena
+name: Psi-Arena
+kind: eval_framework
+year: 2025
+summary: "An interactive framework that tests LLM psychological counselors in 25-round dialogues with simulated NPC clients (100 per model) and scores them with client, supervisor, and counselor scales, with a closed-loop feedback step."
+readme_section: frameworks
+links:
+  paper: https://arxiv.org/abs/2505.03293
+  arxiv: "2505.03293"
+license: null
+open_data: unknown
+geography:
+  item_languages: [UNKNOWN]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Client profiles are built from de-identified real-world data per the paper; source and country not stated. Scales cited from Chinese-edition and Chinese conference sources.
+  localization: unknown
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic, industry_lab]
+  item_provenance: [llm_generated]
+  venue: preprint
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [simulated_multi_turn, rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 100 virtual clients per model; 3 scales (16, 8, and 9 scored dimensions); 8 LLMs evaluated
+provenance:
+  records: [r_2751522a0e]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "No code or data link found in the paper text. 10,000 client profiles were generated and one chosen per topic (nine themes). GPT-4o plays client, supervisor, and counselor raters; agreement checked against two psychology graduate students on 30 sessions. Language of dialogues not stated."

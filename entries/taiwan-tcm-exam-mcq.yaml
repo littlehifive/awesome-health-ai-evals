@@ -1,0 +1,31 @@
+id: taiwan-tcm-exam-mcq
+name: Taiwan TCM Licensing Exam MCQ (Liavan)
+kind: benchmark
+year: 2024
+summary: 4,609 multiple-choice questions from past Taiwan national Traditional Chinese Medicine licensing exams (2007-2022 except 2021), covering TCM history, basic theory, Neijing, Nanjing, formulas, and materia medica, with answer keys.
+readme_section: multilingual_regional
+links:
+  huggingface: [Liavan/Traditional-Chinese-Medicine-Multiple_choice_question]
+license: null
+open_data: open
+geography:
+  item_languages: [Traditional Chinese]
+  item_origin_countries: [TWN]
+  localization: native
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions]
+  venue: grey_literature
+facets:
+  health_areas: [traditional_medicine]
+  intended_users: [medical_student, clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 4,609 questions
+provenance:
+  records: [r_f7a7989bae]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "Dataset card only, no paper. The card says the questions come from Taiwan's Ministry of Examination website, years 96 to 111 of the ROC calendar (2007-2022) excluding 110, two exam subject groups; the card text is internally inconsistent on which subjects are included. 4,609 rows (columns question, options A-D, answer) counted from the Hugging Face dataset viewer. No license on the card; builder type and lead country are unknown, academic is a placeholder guess. Exam questions are government publications, so reuse terms may be restricted."

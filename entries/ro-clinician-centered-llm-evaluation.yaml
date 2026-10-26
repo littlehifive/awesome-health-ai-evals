@@ -1,0 +1,33 @@
+id: ro-clinician-centered-llm-evaluation
+name: Radiation oncology clinician-centered LLM evaluation
+kind: eval_framework
+year: 2026
+summary: "Use-case-specific Likert measures of safety and usability (comprehensiveness, accuracy and hallucination, readability, citation accuracy and others) for LLM outputs on four radiation oncology tasks (letters of medical necessity, radiology report and consult note summaries, medical decision-making), applied to ChatGPT, Gemini and Copilot with physician raters."
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.21037/jmai-2025-1-251
+  doi: 10.21037/jmai-2025-1-251
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: "Tasks use de-identified clinical data from radiation oncology practice; the paper's author affiliations are all US institutions, and the specific data source country is not stated in the text read."
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [oncology]
+  intended_users: [clinician]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: 4 use cases with per-use-case Likert tables (Tables 1-4); 3 commercial LLMs; evaluation repeated after 6 months
+provenance:
+  records: [r_ba5e621afa]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Borderline scope: three of the four use cases are clinical documentation tasks (letter of medical necessity, report summary, consult note summary), which the plan puts out of scope, while the medical decision-making task and the safety and hallucination measures are in scope. Measures were built with a needs assessment of 8 radiation oncologists; rated by radiation oncology physicians (the paper says independent raters are future work). A data sharing statement exists on the journal site but was not opened; the cases are de-identified clinical data, so the item set is probably not public. Paper is CC BY-NC-ND 4.0."

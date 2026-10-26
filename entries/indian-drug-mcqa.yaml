@@ -1,0 +1,32 @@
+id: indian-drug-mcqa
+name: Indian Drug MCQA
+kind: benchmark
+year: 2026
+summary: 1,512 multiple-choice questions asking a model to identify the generic name or salt composition of an Indian branded medication, across 20+ therapeutic classes, scored by exact match on the answer letter.
+readme_section: multilingual_regional
+links:
+  huggingface: [ekacare/indian_drug_mcqa]
+license: MIT
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [IND]
+  item_origin_note: Questions are built from Indian pharmaceutical brand names; the card does not say which database they came from.
+  localization: native
+  lead_institution_countries: [IND]
+origin:
+  builder_types: [implementer_ngo]
+  item_provenance: [unknown]
+  venue: grey_literature
+facets:
+  health_areas: [pharmacy_medication]
+  intended_users: [clinician, pharmacist]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 1,512 questions (3-5 options each)
+provenance:
+  records: [r_0bb835624d]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Dataset card only, no paper. Eka.Care is an Indian digital-health company, coded implementer_ngo as the closest builder type; the card does not name an author team or say how questions were written (the metadata fields suggest templated stems and distractor strategies). Lead country is inferred from the Eka.Care name and the Indian focus. Card lists a KARMA evaluation framework run command."

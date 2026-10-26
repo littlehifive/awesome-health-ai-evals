@@ -1,0 +1,34 @@
+id: mhealth-eval
+name: MHealth-EVAL
+kind: eval_framework
+year: 2024
+summary: A role-play-based interactive human-evaluation framework with an annotation guideline for judging mental-wellness chatbots on appropriateness, trustworthiness and safety, demonstrated on the authors' CBT chatbot Psyfy against ChatGPT baselines.
+readme_section: frameworks
+links:
+  paper: https://arxiv.org/abs/2407.11387
+  arxiv: "2407.11387"
+license: null
+open_data: described_only
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Role-play scenarios were written by the study's evaluators; no country is stated. The static safety test used 700 questions from BeaverTails.
+  rater_countries: [AUS]
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic, industry_lab]
+  item_provenance: [clinician_written, adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [expert_human_rating, simulated_multi_turn]
+  modality: [text]
+  size: 3 criteria; 58 role-play conversations (983 responses) plus 1,600 static responses annotated in the V1 evaluation
+provenance:
+  records: [r_00cbe4aa2f]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Human evaluators (9 researchers: 5 postgraduate clinical psychology students in Australia, others with psychology degrees) role-played conditions such as depression, OCD, bereavement and PTSD, each including at least one of over 20 high-risk situations, in a double-blind setup with Chain-of-Utterances red-teaming. The paper refers to a Guideline but no download link or license was found. The first author's lead institution is Psyfy Inc. (USA, a company building the evaluated chatbot) with Stanford and Australian co-authors. The AutoGRAMS repo linked in the paper is the chatbot's framework, not an evaluation release."

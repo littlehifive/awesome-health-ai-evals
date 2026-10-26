@@ -1,0 +1,34 @@
+id: dyreme
+name: DyReMe
+kind: benchmark
+year: 2026
+summary: A dynamic diagnostic benchmark that generates fresh consultation-style cases (with differential-diagnosis and misdiagnosis confounders and varied patient expression styles) from seed cases, scored by the EvalMed protocol for accuracy, veracity, helpfulness, and consistency; 3,200 questions were used to test 12 LLMs.
+readme_section: open_ended
+links:
+  paper: https://aclanthology.org/2026.acl-long.1218/
+  doi: 10.18653/v1/2026.acl-long.1218
+  code: https://github.com/xansar/DyReMe
+license: null
+open_data: open
+geography:
+  item_languages: [Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: Main experiments are in Chinese and seeded from DxBench and Dxy (Chinese diagnostic sets); DDXPlus (synthetic) was translated into Chinese. The paper also runs an English DDXPlus version. Origin of DDXPlus is not stated in the paper text I read.
+  localization: adapted
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic, industry_lab]
+  item_provenance: [llm_generated, adapted_dataset]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public, clinician]
+  eval_methods: [rubric_llm_judge, automatic_metric]
+  modality: [text]
+  size: "3,200 generated questions from 800 DxBench cases in the paper's main run; the benchmark is regenerated, with versioned snapshots planned every six months"
+provenance:
+  records: [r_dd5134d4e6]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Read the ACL Anthology PDF and the GitHub README. The repo holds code and example seed datasets (ddxplus, dxbench, dxy, persona); no generated question set or license was confirmed, and the repo's license was not detected, so license is null. Questions are generated with GPT-4.1. Authors are at Renmin University of China and Tencent Jarvis Lab. The repo README calls the evaluation module ReliMed while the paper calls it EvalMed. Seed datasets are licensed CC BY (RJUA, DDXPlus) or Apache-2.0 (DxBench, Dxy) per the paper."

@@ -1,0 +1,39 @@
+id: mlec-qa
+name: MLEC-QA
+kind: benchmark
+year: 2021
+summary: 136,236 Chinese multiple-choice questions from the National Medical Licensing Examination in China, in five subsets (Clinic, Stomatology, Public Health, Traditional Chinese Medicine, and TCM combined with Western medicine), scored by accuracy.
+readme_section: multilingual_regional
+links:
+  paper: https://aclanthology.org/2021.emnlp-main.698/
+  doi: 10.18653/v1/2021.emnlp-main.698
+  code: https://github.com/Judenpech/MLEC-QA
+license: null
+open_data: open
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [CHN]
+  localization: native
+  lead_institution_countries: [CHN]
+  subsets:
+    - {name: Clinic, languages: [Mandarin Chinese], countries: [CHN], localization: native}
+    - {name: Stomatology, languages: [Mandarin Chinese], countries: [CHN], localization: native}
+    - {name: Public Health, languages: [Mandarin Chinese], countries: [CHN], localization: native}
+    - {name: Traditional Chinese Medicine, languages: [Mandarin Chinese], countries: [CHN], localization: native}
+    - {name: TCM Combined with Western Medicine, languages: [Mandarin Chinese], countries: [CHN], localization: native}
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine, dentistry, public_health, traditional_medicine]
+  intended_users: [medical_student, clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 136,236 questions
+provenance:
+  records: [r_74cd44b1e0]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: medium
+  notes: "Read the abstract and the GitHub README (data is on Google Drive; train/dev/test JSON per subset). The repository carries an MIT license for code; no separate dataset license was seen, so license is null. Lead institution country (China) is assumed from the exam source and not confirmed from the paper's affiliations. Some questions have image or table material. Baselines reach only 40-55% accuracy per the abstract."

@@ -1,0 +1,33 @@
+id: normedqa
+name: NorMedQA
+kind: benchmark
+year: 2025
+summary: About 1,300 to 1,400 Norwegian (Bokmal and Nynorsk) medical exam question-and-answer pairs, with wrong options where the source was multiple choice, scored by exact match and ROUGE in lm-evaluation-harness.
+readme_section: multilingual_regional
+links:
+  code: https://github.com/kelkalot/normedqa
+  website: https://zenodo.org/records/15346637
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [Norwegian Bokmal, Norwegian Nynorsk]
+  item_origin_countries: [NOR]
+  item_origin_note: Collected from publicly available Norwegian medical examination question sources.
+  localization: native
+  lead_institution_countries: [NOR]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine]
+  intended_users: [medical_student, clinician]
+  eval_methods: [mcq_exact_match, automatic_metric]
+  modality: [text]
+  size: "1,313 question-answer pairs in the GitHub README (1,401 in the Zenodo record, which includes questions that need an image or ECG)"
+provenance:
+  records: [r_3143b000d7]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "No paper; sources are the GitHub README and the Zenodo record 15346637 (CC-BY-4.0, files read via the Zenodo API). The README's example harness config scores a single correct answer with exact match and ROUGE; wrong answers are included so multiple-choice scoring is possible but not implemented. Lead institution is Simula Research Laboratory (Zenodo creator affiliation for the first author only). Counts differ between README (1,313) and Zenodo (1,401, v2 file name)."

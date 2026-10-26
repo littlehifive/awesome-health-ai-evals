@@ -1,0 +1,38 @@
+id: healthbench-psych
+name: HealthBench-Psych
+kind: benchmark
+year: 2026
+summary: 610 mental-health conversations (119 in a Hard subset) selected from HealthBench's 5,000 by an LLM screening rubric and two rounds of blinded clinician review, scored with HealthBench's physician rubrics and grader.
+readme_section: mental_health
+adapted_from: [healthbench]
+links:
+  paper: https://arxiv.org/abs/2608.25071
+  arxiv: "2608.25071"
+  huggingface: [mindbench-ai/healthbench-psych]
+  code: https://github.com/mindbench-ai/healthbench-psych
+license: MIT
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Inherited from HealthBench, whose conversations are mostly synthetic and written to be general; no per-country origin is stated.
+  localization: adapted
+  lead_institution_countries: [USA]
+  subsets:
+    - {name: HealthBench-Psych-Hard, languages: [English]}
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: 610 conversations (Hard subset 119)
+provenance:
+  records: [r_98b45fca37]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Lead institution is Beth Israel Deaconess Medical Center (USA) per the author affiliations. MIT is the license on the Hugging Face card. The card also ships screening, clinician-review, model-response, and grade configs. Rubrics and grader are reused verbatim from HealthBench, so no new rubric authors; rater_countries omitted. Intended users are inferred from the paper's framing around people seeking psychological support from LLMs. The earlier record mindbench-ai/healthbench-psych listed under healthbench's notes is this dataset."

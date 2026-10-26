@@ -1,0 +1,33 @@
+id: medmt-bench
+name: MedMT-Bench
+kind: benchmark
+year: 2026
+summary: 400 long multi-turn medical conversations (average 22 turns, up to 52) spanning pre-, in-, and post-diagnosis stages that test memory, interference resistance, safety defense, clarification, and multi-instruction following, scored by an LLM judge with per-case atomic test points.
+readme_section: safety
+links:
+  paper: https://arxiv.org/abs/2603.23519
+  arxiv: "2603.23519"
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Scenes were synthesized by a multi-agent pipeline seeded from existing text and image medical datasets, then edited by a team of medical Master's and PhD graduates; no country is stated. English is inferred from the paper's example conversations, not from a stated language.
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [industry_lab]
+  item_provenance: [llm_generated, adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 400 test cases; 17 models evaluated
+provenance:
+  records: [r_80a230bcb9]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Authors are at ByteDance. The abstract says the benchmark is available as supplementary material on OpenReview (link not tested; no license seen). Human-LLM judge agreement 91.94%. Some subsets are image-based. Dataset language and country unverified; check."

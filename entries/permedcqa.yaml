@@ -1,0 +1,36 @@
+id: permedcqa
+name: PerMedCQA
+kind: benchmark
+year: 2025
+summary: "68,138 Persian consumer medical questions with physician answers from four Persian health forums (3,513-item test split), scored by an LLM judge (Med-Judge) on correctness, coverage, and critical impact."
+readme_section: multilingual_regional
+links:
+  paper: https://arxiv.org/abs/2505.18331
+  arxiv: "2505.18331"
+  doi: 10.48550/arxiv.2505.18331
+  huggingface: [NaghmehAI/PerMedCQA]
+license: null
+open_data: open
+geography:
+  item_languages: [Persian]
+  item_origin_countries: [IRN]
+  item_origin_note: Collected Nov 2022 to Apr 2024 from DrYab, HiSalamat, GetZoop, and Mavara-e-Teb. The paper does not name the country; Iran is assumed from the Persian-language platforms and the authors' setting.
+  rater_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [IRN]
+origin:
+  builder_types: [academic]
+  item_provenance: [real_user_queries, web_forum]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: "68,138 QA pairs (64,280 train, 345 eval, 3,513 test)"
+provenance:
+  records: [r_4cbe9fb569]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Hugging Face card is inconsistent on license: the YAML tag says mit while the card text says CC BY-NC-SA 4.0, so license is left null. Answers come from verified physicians on the forums. ICD-11 category and question type tags were assigned by GPT-4o-mini. Med-Judge uses Gemini-Flash-2.5 and was validated against expert physicians. Forum answers were not written for the benchmark."

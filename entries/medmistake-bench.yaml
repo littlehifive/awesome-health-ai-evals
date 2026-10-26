@@ -1,0 +1,36 @@
+id: medmistake-bench
+name: MedMistake-Bench
+kind: benchmark
+year: 2025
+summary: Single-shot clinical QA items distilled from mistakes LLMs made in simulated patient-doctor conversations, with 211 expert-validated items in the benchmark (3,390 in the unvalidated MedMistake-All), judged against per-item dimensions.
+readme_section: safety
+links:
+  paper: https://arxiv.org/abs/2512.20983
+  arxiv: "2512.20983"
+  huggingface: [TheLumos/MedicalMistakeBenchmark]
+  code: https://github.com/TheLumos/MMB
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Items are generated from LLM-simulated patient-doctor conversations (cardiology and neurology), with no country origin stated.
+  rater_countries: [UNKNOWN]
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [industry_lab]
+  item_provenance: [llm_generated]
+  venue: preprint
+facets:
+  health_areas: [cardiology, other_specialty]
+  intended_users: [patient_public, clinician]
+  eval_methods: [rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 211 expert-validated items (299 reviewed); 3,390 reproduced mistakes in MedMistake-All
+provenance:
+  records: [r_dff244e6db]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Authors are at Lumos AI (country not stated in the text). Pipeline: LLM patient and LLM doctor converse, 2 LLM judges score 40 dimensions, mistakes reproduced by Gemini 2.5 Pro and GPT-5 become single-shot questions (3,390 of 7,010). Experts validated 299, of which 211 were confirmed. The HF card is short; it states the CC-BY-4.0 license and links the code. Specialties covered: cardiology and neurology."

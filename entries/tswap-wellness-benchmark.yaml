@@ -1,0 +1,35 @@
+id: tswap-wellness-benchmark
+name: TSWAP Wellness Benchmark
+kind: benchmark
+year: 2026
+summary: A released bundle from the TSWAP Thai wellness chatbot with 50 Thai retrieval questions with gold document IDs (Recall@K), 259 to 429 production QA regression cases, and a 71-question safety and scope probe.
+readme_section: multilingual_regional
+links:
+  paper: https://arxiv.org/abs/2608.22917
+  arxiv: "2608.22917"
+  doi: 10.48550/arxiv.2608.22917
+  huggingface: [iapp/tswap-wellness-benchmark]
+  code: https://github.com/kobkrit/tswap-wellness-benchmark
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [Thai, English]
+  item_origin_countries: [THA]
+  localization: native
+  lead_institution_countries: [THA]
+origin:
+  builder_types: [implementer_ngo]
+  item_provenance: [real_user_queries, clinician_written]
+  venue: preprint
+facets:
+  health_areas: [traditional_medicine, public_health]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric, expert_human_rating]
+  modality: [text]
+  size: 50 retrieval questions; 429-case regression list (259 re-tested); 71-question probe
+provenance:
+  records: [r_010143c684]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Read the paper PDF. Data is CC BY 4.0 and code Apache-2.0 per the paper's footnote; the HF card tag also reads cc-by-4.0 and is not gated. The authors call the 71-question probe a probe, not a benchmark, and the retrieval set is only 50 questions, so this is a small release attached to a system paper. Builder type implementer_ngo is a judgment (a company that deploys the chatbot). Who wrote the 50 questions is not stated; item_provenance is a best reading of the paper (real questions from the QA campaign, plus golden set). The 8 languages are served zero-shot; the released golden set is Thai. Wellness tourism and traditional medicine are the domain, not clinical care."

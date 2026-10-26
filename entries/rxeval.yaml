@@ -1,0 +1,34 @@
+id: rxeval
+name: RxEval
+kind: benchmark
+year: 2026
+summary: 1,547 multiple-choice inpatient prescribing questions from 584 MIMIC-IV patients, each asking for the correct medication-dose-route triples at a timepoint among patient-specific distractors, scored by F1 and exact match.
+readme_section: knowledge_exam
+links:
+  paper: https://arxiv.org/abs/2605.14543
+  arxiv: "2605.14543"
+  doi: 10.48550/arxiv.2605.14543
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Patient trajectories come from MIMIC-IV, a critical-care EHR database (Beth Israel Deaconess Medical Center).
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, llm_generated]
+  venue: preprint
+facets:
+  health_areas: [pharmacy_medication, emergency_triage]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 1,547 questions, 584 patients, 969 unique medications
+provenance:
+  records: [r_83eca46962]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Questions are built from real MIMIC-IV prescriptions; distractors and reasoning chains are LLM-generated and then validated. A reasoning-chain annotation step exists; a sampled audit rated distractors. No code or data link found in the text read, so open_data is unknown; MIMIC-IV itself requires PhysioNet credentialing, so any release is likely gated. Lead institution country (China) is from the Chinese University of Hong Kong affiliations on the first page; author-level mapping not checked. Borderline scope because it is built from EHR data, but the task is clinical prescribing decisions by LLMs, not documentation."

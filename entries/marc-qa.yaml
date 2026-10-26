@@ -1,0 +1,34 @@
+id: marc-qa
+name: mARC-QA
+kind: benchmark
+year: 2025
+summary: 100 USMLE-style multiple-choice clinical questions, written by the authors to exploit the Einstellung effect (fixation on familiar patterns), used to compare LLMs with five physicians.
+readme_section: knowledge_exam
+links:
+  paper: https://www.nature.com/articles/s41598-025-22940-0
+  doi: 10.1038/s41598-025-22940-0
+  code: https://github.com/bernardolab/mARC-QA
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Questions were written by the authors in USMLE format; the paper does not state an origin country.
+  localization: unknown
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine, emergency_triage]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 100 questions
+provenance:
+  records: [r_8aa3def1ff]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "The paper states the dataset and code are public at the GitHub repo (the repo calls it MedARC-QA, data in data_medARC_v1); the paper itself is CC-BY-4.0 but no separate dataset license was seen. Five physicians answered the questions as a baseline (average accuracy 0.66); their countries are not stated. Lead institution taken from the first author's Stanford affiliation; later authors are at several US and UK institutions. Also analyses uncertainty and overconfidence."

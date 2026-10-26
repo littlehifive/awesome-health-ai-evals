@@ -1,0 +1,34 @@
+id: cpgbench
+name: CPGBench
+kind: benchmark
+year: 2026
+summary: 32,155 clinical recommendations extracted from 3,418 guidelines from 9 countries or regions and 2 international organizations, each turned into a multi-turn conversation to test whether LLMs detect and adhere to the guideline.
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2603.25196
+  arxiv: "2603.25196"
+  doi: 10.48550/arxiv.2603.25196
+license: null
+open_data: closed
+geography:
+  item_languages: [English, German, Mandarin Chinese]
+  item_origin_countries: [USA, CAN, GBR, DEU, AUS, JPN, CHN, HKG, TWN, GLOBAL]
+  item_origin_note: Guidelines come from the USA, Canada, UK, Germany, Australia, Japan, Chinese Mainland, Hong Kong, Taiwan, plus the WHO and one other international organization (GLOBAL).
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [industry_lab, academic]
+  item_provenance: [literature, llm_generated]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [rubric_llm_judge, expert_human_rating, simulated_multi_turn]
+  modality: [text]
+  size: "32,155 recommendations and conversations from 3,418 guidelines; human check by 56 clinicians"
+provenance:
+  records: [r_fada784add]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Data availability statement says the data is not released because of redistribution limits; the paper lists guideline source websites and promises download and processing code (code 'under preparation'). Conversations are LLM-generated from each recommendation and scored by a judge LLM. Languages inferred from the paper's comparison table (English, German, Chinese). The second international organization is not named in the text read."

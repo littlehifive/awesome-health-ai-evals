@@ -1,0 +1,34 @@
+id: escalating-prompts-mental-health
+name: Escalating Prompts (mental health chatbot risk progression)
+kind: benchmark
+year: 2023
+summary: Two short prompt sequences of increasing depression and suicidality (5 free-text prompts and the 9 PHQ-9 items at maximum severity) used to find the point at which a mental health chatbot refers the user to a human.
+readme_section: mental_health
+links:
+  paper: https://doi.org/10.1101/2023.09.10.23295321
+  doi: 10.5281/zenodo.8332777
+  dataset: https://zenodo.org/record/8332778
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Prompts are written by the author and PHQ-9 item wording; no country of origin is stated.
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature, unknown]
+  venue: preprint
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: 2 prompt sequences (5 and 9 prompts); about 1,000 rows of results across chatbot agents
+provenance:
+  records: [r_8705cb6a19]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "Read the Zenodo record (CC-BY-4.0, one xlsx, LLMDATA.xlsx) and the Crossref abstract of the manuscript; the full manuscript was not opened (medRxiv, DOI 10.1101/2023.09.10.23295321). The workbook has the prompt sets, a variables sheet, and per-agent outcomes for chatbots from FlowGPT.com: the prompt number at which a human referral first occurs and where conversational shutdown happens. Affiliation of the author (Thomas F. Heston) not checked. Small, one-off study set; included as a reusable prompt set."

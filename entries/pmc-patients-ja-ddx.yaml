@@ -1,0 +1,32 @@
+id: pmc-patients-ja-ddx
+name: PMC-Patients-JA-DDx
+kind: benchmark
+year: 2026
+summary: About 19,800 dev and 19,800 test Japanese differential-diagnosis questions, machine-translated from PMC-Patients case reports, asking models to list diseases to consider, scored against the case report's final diagnosis.
+readme_section: multilingual_regional
+links:
+  huggingface: [SIP-med-LLM/PMC-Patients-JA-DDx]
+license: CC-BY-NC-SA-4.0
+open_data: open
+geography:
+  item_languages: [Japanese]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Case reports come from the PubMed Central Open Access Subset, with no single origin country; the translation project is Japanese.
+  localization: translated
+  lead_institution_countries: [JPN]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, llm_generated, literature]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 19,783 dev and 19,767 test questions (16,845 and 16,768 in the default evaluation subset)
+provenance:
+  records: [r_6a7d7452dc]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Dataset card only, no paper. Adapted from zhengyun21/PMC-Patients (no separate entry exists). Translation, question generation and quality judging were all done by LLMs; the card states gold answers and distractors are not physician-verified. Scoring method is not spelled out in the part of the card read, so eval_methods is a guess (automatic_metric). Built by the SIP Phase 3 Theme B-6 project (NII); the card does not name the institution country, so JPN is inferred from the project."

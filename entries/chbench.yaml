@@ -1,0 +1,34 @@
+id: chbench
+name: CHBench
+kind: benchmark
+year: 2024
+summary: 9,492 Chinese physical-health (2,999) and mental-health (6,493) questions with gold-standard reference responses, for evaluating LLM safety and accuracy on health queries.
+readme_section: safety
+links:
+  paper: http://arxiv.org/abs/2409.15766
+  arxiv: "2409.15766"
+  code: https://github.com/TracyGuo2001/CHBench
+license: null
+open_data: open
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Questions come from Zhihu, Baidu Tieba (Ruozhiba) posts, Chinese exam questions on safety, health and nutrition, and existing datasets; the paper does not name a country.
+  localization: native
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [web_forum, exam_questions, adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [mental_health, general_medicine]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 9,492 entries (6,493 mental health, 2,999 physical health)
+provenance:
+  records: [r_2cbf7cd60e]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: Gold-standard responses are ERNIE Bot outputs selected as best among five Chinese LLMs; model responses are scored by cosine and Jaccard similarity to them. Repo has data in Training, Validation, Testing folders; no license is stated, and the README's dataset link is empty. Source platforms are Chinese but the paper does not state this as a country, so origin is UNKNOWN. Author institutions were not captured.

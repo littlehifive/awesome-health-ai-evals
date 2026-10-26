@@ -1,0 +1,35 @@
+id: llm-jury-lmic-diagnosis
+name: LLM Jury
+kind: eval_framework
+year: 2026
+summary: "A calibrated panel of three frontier LLMs that scores diagnoses on four 1-5 dimensions (diagnosis, differential, clinical reasoning, negative treatment risk) against expert-panel ground truth, validated on 3,334 diagnoses for 300 South African public-hospital cases."
+readme_section: frameworks
+links:
+  paper: https://arxiv.org/abs/2604.14892
+  arxiv: "2604.14892"
+  doi: 10.1007/978-3-032-30710-1_44
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [ZAF]
+  item_origin_note: "Cases come from the VALID study, a South African public hospital cohort (539 cases; 300 specialty-relevant cases used here). The language of the records is not stated; English is assumed from the authors' setting and flagged for review."
+  rater_countries: [ZAF]
+  localization: native
+  lead_institution_countries: [ZAF]
+origin:
+  builder_types: [academic]
+  item_provenance: [real_user_queries]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: "3,334 diagnoses on 300 cases; judged by 3 LLMs and compared with primary and re-score expert panels"
+provenance:
+  records: [r_e835d7c005]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "The paper validates an LLM-as-judge method rather than releasing a case set; no code, dataset, or license was seen, so open_data is unknown. Cases are multimodal real hospital records (not user queries); item_provenance is the closest available value and should be reviewed. The DOI is a Springer proceedings chapter, so the venue may be peer-reviewed; recorded as preprint from the arXiv version. Language of the cases was not stated."

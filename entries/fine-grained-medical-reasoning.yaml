@@ -1,0 +1,35 @@
+id: fine-grained-medical-reasoning
+name: Fine-grained medical reasoning annotations (abduction, deduction, induction)
+kind: benchmark
+year: 2026
+summary: A manually annotated subset of medical QA questions labeled for the abduction, deduction, and induction reasoning they require, released with preprocessed MedAgentsBench, MedARC-QA, and MetaMedQA and evaluation code for 77 LLMs.
+readme_section: knowledge_exam
+links:
+  paper: https://aclanthology.org/2026.findings-eacl.127/
+  doi: 10.48448/dasy-1a46
+  huggingface: [expertailab/fine-grained-medical-reasoning]
+  code: https://github.com/expertailab/Can-LLMs-Reason-Like-Doctors
+license: MIT
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Questions come from existing benchmarks (MedAgentsBench, MedARC-QA, MetaMedQA); the annotation layer is new.
+  localization: adapted
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: annotated subset of questions (size not read); 77 LLMs evaluated
+provenance:
+  records: [r_90ef656c8f, r_8b57a8e4d6]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "Read the abstract and the GitHub README only. The Hugging Face card (r_8b57a8e4d6, 2026) was read in pass 1 of batch b031: its metadata header says cc-by-4.0 while its body text says MIT, so the license conflict is unresolved (MIT kept). The card says the questions are manually annotated from the MedAgentsBench test_hard set and gives fields id, dataset_name, reasoning_strategy, question, options, answer; size_categories n<1K. Mostly an evaluation study of existing benchmarks plus an annotation layer; a human should decide whether it is a separate entry. Annotation size, annotators, and author institutions were not read."

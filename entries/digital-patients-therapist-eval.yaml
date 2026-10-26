@@ -1,0 +1,35 @@
+id: digital-patients-therapist-eval
+name: Digital-patient evaluation of LLM therapists
+kind: eval_framework
+year: 2025
+summary: "An evaluation platform in which LLM-driven digital patients (96 profiles varying in age, gender, problem, and cooperation) hold text therapy sessions with an LLM therapist and then fill in session-satisfaction and working-alliance questionnaires, used to score motivational-interviewing therapist LLMs."
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.1038/s44184-025-00159-1
+  doi: 10.1038/s44184-025-00159-1
+  pmcid: PMC12433451
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Synthetic patient profiles written by the authors; reference sessions come from the MI-TAGS motivational-interviewing transcript set. Countries of origin are not stated.
+  rater_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [ISR]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated]
+  venue: peer_reviewed
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [simulated_multi_turn, rubric_llm_judge, automatic_metric]
+  modality: [text]
+  size: "96 digital patient profiles; 242 MI-TAGS reference sessions (6,652 fragments) for the text-similarity baseline"
+provenance:
+  records: [r_f1ae4160d8]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Published in npj Mental Health Research (Reichman University). The paper says the digital-patient platform is made available but gives no link, and the data-availability statement only cites MI-TAGS and Alexander Street transcripts, so open_data is unknown. Validated against one MI clinician and two raters using poor, average, and expert therapist agents. Also compares BLEU, ROUGE, METEOR, BERTScore, and MAUVE and finds them insufficient."

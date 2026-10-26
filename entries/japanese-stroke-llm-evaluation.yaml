@@ -1,0 +1,35 @@
+id: japanese-stroke-llm-evaluation
+name: Japanese Stroke LLM Evaluation
+kind: benchmark
+year: 2026
+summary: 10 fictional stroke and related-condition cases run as multi-turn Japanese conversations in which the model acts as physician and a neurosurgeon plays the patient, scored on history taking and actions with a pass threshold of 80 percent and zero critical mistakes.
+readme_section: safety
+links:
+  paper: https://arxiv.org/abs/2609.16739
+  arxiv: "2609.16739"
+  doi: 10.48550/arxiv.2609.16739
+  code: https://github.com/imy2929/JapaneseStrokeLLMEvaluation
+license: null
+open_data: open
+geography:
+  item_languages: [Japanese, English]
+  item_origin_countries: [JPN]
+  rater_countries: [JPN]
+  localization: native
+  lead_institution_countries: [JPN]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written]
+  venue: preprint
+facets:
+  health_areas: [other_specialty, emergency_triage]
+  intended_users: [clinician]
+  eval_methods: [simulated_multi_turn, expert_human_rating]
+  modality: [text]
+  size: 10 cases (1,000 points total)
+provenance:
+  records: [r_f18005d5d8]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "The repo holds bilingual case descriptions, simulated-patient rules, and scoring criteria. Its README says no reuse license is specified, so license is null. Scoring is by one board-certified neurosurgeon who also plays the patient, so there is a single rater. Eighteen models were evaluated in October 2025 and June 2026. Placed under safety because of the critical-mistake threshold, though it is also a clinical conversation benchmark. Lead country is from the author affiliations (Kagoshima, Japan)."

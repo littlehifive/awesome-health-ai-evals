@@ -1,0 +1,35 @@
+id: safe-psych
+name: Safe-Psych
+kind: benchmark
+year: 2026
+summary: 1,048 de-identified Romanian psychiatric admission notes (English translations), segmented to reveal evidence step by step, with psychiatrist labels for whether a model should diagnose, clarify, or abstain.
+readme_section: mental_health
+links:
+  paper: https://arxiv.org/abs/2607.13036
+  arxiv: "2607.13036"
+  doi: 10.48550/arxiv.2607.13036
+  huggingface: [safepsych/Safe-Psych]
+license: CC-BY-NC-4.0
+open_data: gated
+geography:
+  item_languages: [English]
+  item_origin_countries: [ROU]
+  item_origin_note: Notes come from one psychiatric hospital in Romania; originals are in Romanian and only the English translations are released.
+  localization: native
+  lead_institution_countries: [ROU, NOR]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written]
+  venue: preprint
+facets:
+  health_areas: [mental_health]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric, rubric_llm_judge]
+  modality: [text]
+  size: 1,048 clinical notes
+provenance:
+  records: [r_41d969489c]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Gated access on Hugging Face with CC BY-NC 4.0 and extra terms, per the paper's appendix (card itself is gated and was not readable). Two psychiatrists re-annotated every note from the anonymized text only; their country is not stated. An LLM judge labels model responses as diagnose, clarify or abstain (macro-F1 0.84 against humans). The task is clinician decision support, not a patient-facing chatbot. Lead institutions: Politehnica Bucharest (Romania) first; SimulaMet (Norway) last."

@@ -1,0 +1,35 @@
+id: healthbranches
+name: HealthBranches
+kind: benchmark
+year: 2025
+summary: 4,063 synthetic patient cases across 17 clinical topics, generated from decision-tree algorithms in medical textbooks, each with an open-ended and a multiple-choice question, a reference answer, and the full reasoning path.
+readme_section: knowledge_exam
+links:
+  paper: https://arxiv.org/abs/2508.07308
+  arxiv: "2508.07308"
+  doi: 10.48550/arXiv.2508.07308
+  code: https://anonymous.4open.science/r/HealthBranches-480E
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Cases are generated from three English-language clinical algorithm textbooks; the paper does not say which country's practice they reflect.
+  localization: unknown
+  lead_institution_countries: [ITA, GBR]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated, literature]
+  venue: preprint
+facets:
+  health_areas: [general_medicine, emergency_triage]
+  intended_users: [clinician, medical_student]
+  eval_methods: [mcq_exact_match, rubric_llm_judge, automatic_metric]
+  modality: [text]
+  size: 4,063 cases, each in open-ended and multiple-choice form
+provenance:
+  records: [r_667e333881]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Gemini-flash 2.0 generated the questions from decision paths extracted from three textbooks (Mushlin and Greene, Harrison and Mohammed, Goldfarb-Rumyantzev); a second LLM pass refined flawed items and a human-in-the-loop checked a subset. Multiple-choice is scored by exact match on the letter; open answers by a Gemini-flash 2.0 judge (0 to 10) and BGE-M3 semantic similarity. Physicians and senior students rated a sample on a 0-15 scale (Table 3). The paper says the dataset is available on Kaggle but gives no link or license, so license is null. The code link is an anonymized repository. First-author countries are from the affiliations (Italy; the Cambridge author is last)."

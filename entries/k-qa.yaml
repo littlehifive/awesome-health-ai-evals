@@ -1,0 +1,37 @@
+id: k-qa
+name: K-QA
+kind: benchmark
+year: 2024
+summary: "1,212 de-identified patient questions from the K Health clinical platform, with a 201-question subset answered by physicians and decomposed into 1,589 atomic statements, scored for comprehensiveness and hallucination with NLI-based metrics."
+readme_section: open_ended
+links:
+  paper: https://doi.org/10.18653/v1/2024.bionlp-1.22
+  arxiv: "2401.14493"
+  doi: 10.18653/v1/2024.bionlp-1.22
+  code: https://github.com/Itaymanes/K-QA
+  website: https://huggingface.co/spaces/Itaykhealth/K-QA
+license: MIT
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Questions come from users of K Health (New York based); the paper does not state users' countries.
+  rater_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [USA, ISR]
+origin:
+  builder_types: [implementer_ngo, academic]
+  item_provenance: [real_user_queries, clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: "1,212 patient questions; 201 with physician answers (1,589 statements)"
+provenance:
+  records: [r_50246fdd69]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Seven physicians (six answering, one reviewing) wrote and decomposed the answers; three physicians labeled NLI relations to validate the metrics. MIT is the GitHub repository license tag; the paper footnote says data and evaluation script are in that repo. K Health is a company running an AI clinical platform, coded implementer_ngo as the nearest builder type. Published at the BioNLP workshop 2024."

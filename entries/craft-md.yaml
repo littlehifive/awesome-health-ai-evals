@@ -1,0 +1,35 @@
+id: craft-md
+name: CRAFT-MD
+kind: benchmark
+year: 2023
+summary: A framework that tests clinical LLMs on simulated doctor-patient conversations (patient-AI, grader-AI, expert checks) instead of static vignettes, using case vignettes across 12 specialties from MedQA-USMLE and public and private dermatology sets, with a live leaderboard.
+readme_section: open_ended
+links:
+  paper: https://doi.org/10.1038/s41591-024-03328-5
+  doi: 10.1038/s41591-024-03328-5
+  code: https://github.com/rajpurkarlab/craft-md
+  website: https://rajpurkarlab.github.io/craft-md-pages/
+license: MIT
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Vignettes come from MedQA-USMLE, a public dermatology case source (clinicaladvisor.com), NEJM Image Challenge, and a private set written by the authors.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine, other_specialty]
+  intended_users: [clinician]
+  eval_methods: [simulated_multi_turn, rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: case vignettes across 12 specialties (exact count not checked); live leaderboard with newer models
+provenance:
+  records: [r_b47492ed1b, r_4584a17e18]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "The screening record is the Nature Medicine paper (record title is the paper's title; the approach is named CRAFT-MD). The license is the MIT license on the GitHub repository and may not cover the third-party vignettes. Item origin is US (MedQA-USMLE, US sources); no rater countries stated. r_4584a17e18 is the medRxiv preprint (doi 10.1101/2023.09.12.23295399, Sept 2023); its Methods describe a 140-question dermatology set (100 public vignettes from the DermNet NZ quiz bank plus 40 written by three dermatology residents), simulated with doctor-AI, patient-AI and grader-AI agents, with data and code at the GitHub repo. Vignette count of the final Nature Medicine version not verified; the Nature page and repository README were read, not the full Methods. Year is from the repository's August 2023 preprint note."

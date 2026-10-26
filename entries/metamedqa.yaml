@@ -1,0 +1,36 @@
+id: metamedqa
+name: MetaMedQA
+kind: benchmark
+year: 2024
+summary: 1,373 six-option USMLE-style questions adapted from MedQA, with fictional-organ questions, malformed questions, and a "none of the above" and "I don't know" option, scored on accuracy, confidence-weighted accuracy, missing-answer recall, and unknown recall.
+readme_section: knowledge_exam
+links:
+  paper: https://doi.org/10.1038/s41467-024-55628-6
+  doi: 10.1038/s41467-024-55628-6
+  pmcid: PMC11733150
+  huggingface: [maximegmd/MetaMedQA]
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA, GLOBAL]
+  item_origin_note: Questions derive from MedQA-USMLE (US licensing exam); 100 questions come from the Glianorex benchmark about a fictional organ and have no country origin.
+  localization: adapted
+  lead_institution_countries: [BEL]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions, adapted_dataset]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician, medical_student]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 1,373 questions
+adapted_from: [medqa, glianorex]
+provenance:
+  records: [r_134e5124d4]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Tests metacognition: models give an answer and a 1 to 5 confidence, and must recognize missing correct options and unanswerable questions. License and the HF dataset ID are from the Hugging Face card (the card describes the same 1,373-question set); the paper text read did not contain a data-availability statement with the link, and the HF dataset creation date (June 2024) gives the year. Twelve models were evaluated."

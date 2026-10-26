@@ -1,0 +1,36 @@
+id: physassistbench
+name: PhysAssistBench
+kind: benchmark
+year: 2026
+summary: 324 bilingual (English and Mandarin Chinese) multi-turn sessions (1,296 turns per language) built from MIMIC-IV cases, testing LLMs as physician assistants that query a FHIR-style EHR and talk to simulated patients, scored with LLM-judged rubrics.
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2606.18613
+  arxiv: "2606.18613"
+  code: https://github.com/qgpmzmf/PhysAssistBench
+license: custom
+open_data: gated
+geography:
+  item_languages: [English, Mandarin Chinese]
+  item_origin_countries: [USA]
+  item_origin_note: Cases derive from MIMIC-IV records of Beth Israel Deaconess Medical Center, Boston. Chinese sessions are round-trip translations.
+  localization: mixed
+  lead_institution_countries: [FIN, DEU]
+  subsets:
+    - {name: Chinese, languages: [Mandarin Chinese], countries: [USA], localization: translated}
+origin:
+  builder_types: [academic, industry_lab]
+  item_provenance: [adapted_dataset, llm_generated]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [rubric_llm_judge, simulated_multi_turn, expert_human_rating]
+  modality: [text]
+  size: 324 sessions, 1,296 turns per language
+provenance:
+  records: [r_b81fc59aed]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Session files inherit the PhysioNet Credentialed Health Data Licence and are to be distributed via a PhysioNet-linked repository (paper says will be released); code is MIT per Appendix A and Apache-2.0 per Appendix B (the paper is inconsistent). Four scenarios: diagnostic workup, medication safety, treatment, and one more. One physician and 8 trained annotators reviewed sessions; their countries are not stated. Heavily EHR-oriented, kept because of the doctor-patient dialogue component."

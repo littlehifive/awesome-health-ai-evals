@@ -1,0 +1,33 @@
+id: asthma-consumer-llm-safety-vignettes
+name: Asthma Self-Management Safety Vignettes
+kind: benchmark
+year: 2026
+summary: 50 first-person patient vignettes on asthma self-management (stable control to life-threatening, plus child, pregnancy, older adult, and misinformation cases) with GINA 2026 reference answers and a rater manual, for scoring consumer LLM advice on safety and guideline concordance.
+readme_section: safety
+links:
+  paper: https://osf.io/uqhfs
+  dataset: https://osf.io/uqhfs
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Vignettes are written against the Global Initiative for Asthma (GINA) 2026 strategy report and have no stated country origin.
+  localization: native
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written, literature]
+  venue: grey_literature
+facets:
+  health_areas: [other_specialty, public_health]
+  intended_users: [patient_public]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: 50 vignettes, 2 administrations x 3 models = 300 outputs planned
+provenance:
+  records: [r_30397a2ba9]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "OSF registration (pre-registered protocol plus companion files S1 vignette bank with reference keys, S2 benchmark-to-vignette mapping, S3 rater manual); the files are downloadable. No data had been collected at registration, so there is no peer-reviewed paper. Authors, institutions, and license are not stated in what was read (lead country UNKNOWN; builder_types academic is a guess). Who wrote the vignettes is not stated; clinician_written is assumed from the reference-key design. Scoring uses a safety axis (safe, potentially harmful, dangerous) and a guideline-concordance axis by two raters, with eight binary flags. The health_areas label other_specialty stands for respiratory."

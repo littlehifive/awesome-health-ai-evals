@@ -1,0 +1,35 @@
+id: challengeclinicalqa
+name: ChallengeClinicalQA (JAMA Clinical Challenge and Medbullets)
+kind: benchmark
+year: 2024
+summary: Two English multiple-choice clinical QA sets with expert-written explanations, JAMA Clinical Challenge (1,524 questions from challenging clinical cases) and Medbullets (308 USMLE Step 2 and 3 style questions), scored by answer accuracy and by automatic and human evaluation of the explanations.
+readme_section: knowledge_exam
+links:
+  paper: https://aclanthology.org/2025.naacl-long.182/
+  arxiv: "2402.18060"
+  doi: 10.18653/v1/2025.naacl-long.182
+  code: https://github.com/HanjieChen/ChallengeClinicalQA
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: JAMA Clinical Challenge cases come from the JAMA Network and Medbullets questions from a US USMLE-prep platform; the paper does not state countries.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature, exam_questions]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician, medical_student]
+  eval_methods: [mcq_exact_match, automatic_metric, expert_human_rating]
+  modality: [text]
+  size: 1,524 JAMA Clinical Challenge questions and 308 Medbullets questions
+provenance:
+  records: [r_597ff44bcb, r_9d76554df9]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: Medbullets data is in the repo. JAMA data is not redistributed for license reasons; the repo gives article URLs and a scraper, so access needs a JAMA full-text license. No dataset license is stated in the repo. Lead institution country (USA) is not stated in the text read; check the author affiliations. Both datasets exclude images. Record r_9d76554df9 is the arXiv/ACL version. Hugging Face sets JesseLiu/medbulltes4op and medbulltes5op are third-party reformats of the Medbullets split (Apache-2.0 on their cards), and SII-SPIRAL-MED/o1-journey-Ophiuchus is a training set; none are listed in links. The repo's medbullets folder holds the 4-option and 5-option CSV/JSON files.

@@ -1,0 +1,52 @@
+id: diyhealthbench
+name: DIYHealthBench
+kind: benchmark
+year: 2026
+summary: 12,167 test items over 11 home-care tasks (symptom-to-diagnosis, drug recommendation, medical advice, plus diet, sleep, skin, oral, heart and kidney tasks with images or signals) in open-ended and closed QA, drawn from the DIYHealth-900K dataset.
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2606.07542
+  doi: 10.48550/arxiv.2606.07542
+  arxiv: '2606.07542'
+license: null
+open_data: unknown
+geography:
+  item_languages:
+  - English
+  item_origin_countries:
+  - UNKNOWN
+  item_origin_note: Built from 20 public datasets (such as MIMIC, DDXPlus, MedQuAD, MedQA) plus private data from three partner organizations; countries not stated.
+  rater_countries:
+  - UNKNOWN
+  localization: adapted
+  lead_institution_countries:
+  - SGP
+  - CHN
+origin:
+  builder_types:
+  - academic
+  item_provenance:
+  - adapted_dataset
+  - llm_generated
+  venue: preprint
+facets:
+  health_areas:
+  - general_medicine
+  - ncd
+  - nutrition
+  intended_users:
+  - patient_public
+  eval_methods:
+  - mcq_exact_match
+  - automatic_metric
+  - expert_human_rating
+  modality:
+  - text
+  size: 12,167 test examples (about 1% of 900K)
+provenance:
+  records:
+  - r_71236ad2c3
+  read_full_text: true
+  confidence: medium
+  notes: Part of the DIYHealth Suite (dataset, DIYHealthGPT model, benchmark). Multimodal (images and physiological signals) as well as text; partly out of the text-chatbot scope, so a human may want to check. QA pairs were rewritten by Claude 3 Haiku with expert review. No release link, license, or data-availability statement found in the paper text. 500 open-QA answers were rated by clinical experts. Lead countries are from the author affiliations (National University of Singapore, Zhejiang University).
+  extracted: '2026-10-26'

@@ -1,0 +1,36 @@
+id: medsp1000
+name: MedSP1000
+kind: benchmark
+year: 2026
+summary: 1,638 interactive standardized-patient encounters across 17 specialties, built from MedEdPORTAL teaching cases and scored with 24,602 rubric items mapped to the six ACGME competencies.
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2606.05112
+  arxiv: "2606.05112"
+  doi: 10.48550/arxiv.2606.05112
+  huggingface: [byrLLCC/MedSP1000]
+  code: https://github.com/MAGIC-AI4Med/MedSP1000
+license: MIT
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Cases come from MedEdPORTAL, which the paper describes as an open-access repository of materials authored by AAMC-affiliated medical educators; the paper does not state authors' countries case by case.
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written, adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [general_medicine, child_health, emergency_triage, primary_care]
+  intended_users: [clinician, medical_student]
+  eval_methods: [simulated_multi_turn, rubric_llm_judge]
+  modality: [text]
+  size: 1,638 cases; 24,602 rubric items
+provenance:
+  records: [r_9b9d3276e0]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "A clinician agent talks to LLM patient and environment-controller agents and an LLM evaluator scores the trajectory against the rubric. Twelve clinicians reviewed 100 constructed cases. MIT is the license on the Hugging Face card; the paper says the code is CC BY-SA and the source MedEdPORTAL articles are CC BY, CC BY-NC, or CC0, so redistribution terms are mixed. The data is a file tree, not a tabular dataset."

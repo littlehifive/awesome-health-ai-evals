@@ -1,0 +1,35 @@
+id: cspt
+name: CSPT (Chinese Standardized Patient Testing)
+kind: benchmark
+year: 2024
+summary: 72 Chinese standardized-patient cases across five departments, each with patient information, a dialogue script that drives an LLM patient simulator, and a checklist of key symptoms, tests, and diagnoses used to score a doctor model over simulated multi-turn consultations.
+readme_section: open_ended
+links:
+  paper: https://doi.org/10.18653/v1/2024.findings-acl.144
+  arxiv: "2401.05695"
+  doi: 10.18653/v1/2024.findings-acl.144
+  code: https://github.com/Chengfeng-Dou/SpTesting
+license: CC-BY-NC-ND-3.0
+open_data: open
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: Cases come from a Chinese textbook on OSCE and standardized patients (Dong, 2012); the paper notes a possible geographical bias because most cases came from one country.
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature, clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine, child_health, mental_health]
+  intended_users: [clinician]
+  eval_methods: [simulated_multi_turn, expert_human_rating]
+  modality: [text]
+  size: 72 cases (23 internal medicine, 23 surgery, 8 gynecology, 10 pediatrics, 8 psychiatry)
+provenance:
+  records: [r_10c210d1e7]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "CSPT is the evaluation set of a paper whose main contribution is a training method (PLPF); the paper's other datasets (MedDG, IMCS, WebMedQA) are existing public sets. Scoring: two physicians check each simulated dialogue against the checklist (five dialogue rounds max) and the score is the share of key symptoms, tests, and diagnosis hit. The license is the CC BY-NC-ND 3.0 notice in the GitHub README; the data sits in zip files (script.zip, check_list.zip), which I did not unpack. Rater countries are not stated and were omitted."

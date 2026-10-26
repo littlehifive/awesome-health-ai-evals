@@ -1,0 +1,35 @@
+id: esc-judge
+name: ESC-Judge
+kind: eval_framework
+year: 2025
+summary: An automated pipeline that compares emotional-support chatbots head-to-head by simulating help-seeker roles and having a judge LLM give pairwise preferences on Exploration, Insight, and Action skills from Hill's counselling model.
+readme_section: frameworks
+links:
+  paper: https://aclanthology.org/2025.emnlp-main.811/
+  doi: 10.18653/v1/2025.emnlp-main.811
+  code: https://github.com/navidmdn/ESC-Judge
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Help-seeker roles are LLM-generated from sampled stressors, personality, and life history; no country is stated. The authors note the experiments are English-only with largely Western cultural assumptions.
+  rater_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated]
+  venue: peer_reviewed
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [simulated_multi_turn, rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: "25 synthetic help-seeker roles in the paper's study; framework can generate more"
+provenance:
+  records: [r_94c50d104a]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "License is the repository's (Apache-2.0). The paper says it releases code, prompts, synthetic roles, transcripts, and judgment scripts; the README points to data/roles-v1.json. The judge agreed with two PhD-level annotators on 85% (Exploration), 83% (Insight), and 86% (Action) of decisions. Annotator countries are not stated."

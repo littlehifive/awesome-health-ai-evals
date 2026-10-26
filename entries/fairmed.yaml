@@ -1,0 +1,34 @@
+id: fairmed
+name: FairMed
+kind: benchmark
+year: 2026
+summary: An attribute-annotated benchmark for fairness of medical LLMs, with 992 multiple-choice medical questions (from MedXpertQA, MedQA, Medbullets and others) labelled with patient gender and age, plus a clinical prediction part, scored by subgroup and worst-group accuracy.
+readme_section: safety
+links:
+  paper: https://dl.acm.org/doi/10.1145/3770855.3818853
+  doi: 10.1145/3770855.3818853
+  code: https://github.com/xiye7lai/FairMed
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Items are drawn from existing English exam-style sets (MedXpertQA, MedQA, Medbullets, MMLU, MMLU-Pro, MedMCQA); origin countries were not checked.
+  localization: adapted
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 992 questions in the released QA subset
+provenance:
+  records: [r_f96658c6cc]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "Full text was not reachable (ACM page returned 403); based on the abstract (via Semantic Scholar and Crossref) and the GitHub repository. The repo ships only the processed QA subset (data/fairmed/qa.jsonl, 992 rows: medxpertqa-r 658, medxpertqa-u 129, medqa 93, medbullets 84, mmlu-pro 12, mmlu 11, medmcqa 5) with gender and age fields; the clinical-prediction part described in the abstract was not found in the repo. The repository has no license file. The paper's main contribution is the MAPPE prompt-optimization method; FairMed is the evaluation set. Lead country from first author's Zhejiang University affiliation in Crossref."

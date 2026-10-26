@@ -1,0 +1,38 @@
+id: scmpe
+name: SCMPE (Standardized Clinical Management & Performance Evaluation)
+kind: benchmark
+year: 2026
+summary: Bilingual (English and Chinese) dental benchmark with 4,258 exam multiple-choice questions, 60 guideline-based open questions, and 118 case reports run as multi-turn simulated-patient consultations, scored against Delphi-derived clinical-alignment rubrics.
+readme_section: multilingual_regional
+links:
+  paper: https://arxiv.org/abs/2601.12974
+  arxiv: "2601.12974"
+  doi: 10.2139/ssrn.6201887
+  code: https://github.com/Medlinker-MG/SCMPE
+license: MIT
+open_data: open
+geography:
+  item_languages: [English, Mandarin Chinese]
+  item_origin_countries: [CHN, IND]
+  item_origin_note: "Chinese items come from the Chinese National Dental Licensing Examination database, Chinese guidelines, and Chinese case reports. English multiple-choice items come from the dental subset of MedMCQA (Indian exams, as recorded for MedMCQA); the countries of the 41 English guidelines and 50 English case reports are not stated."
+  localization: native
+  lead_institution_countries: [CHN]
+  subsets:
+    - {name: Chinese, languages: [Mandarin Chinese], countries: [CHN], localization: native}
+    - {name: English, languages: [English], countries: [UNKNOWN], localization: native}
+origin:
+  builder_types: [academic, industry_lab]
+  item_provenance: [exam_questions, literature, adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [dentistry]
+  intended_users: [patient_public, clinician]
+  eval_methods: [mcq_exact_match, rubric_llm_judge, simulated_multi_turn]
+  modality: [text]
+  size: 4,258 MCQs (2,192 English, 2,066 Chinese); 60 guidelines (443 checkpoint instances); 118 case vignettes (498 checkpoint instances)
+provenance:
+  records: [r_1da915ff0e]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Three tasks: exam MCQs scored by accuracy, guideline-based open QA, and multi-turn dialogues where a Qwen-driven simulated patient (given the case vignette) talks to the target model. Rubric checkpoints and weights come from a three-round Delphi consensus (39 initial indicators). I did not confirm what model judges the open-ended and dialogue scores. The repo (MIT) holds test_data and raw_data; the SSRN DOI is the record's DOI and the arXiv paper is the same work. Authors include employees of Medlinker, a company whose MedGPT model tops the results, so builder_types lists industry_lab as a judgment. Rater (Delphi panel) countries are not stated."

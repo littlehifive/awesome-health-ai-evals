@@ -1,0 +1,36 @@
+id: rxbench
+name: RxBench
+kind: benchmark
+year: 2025
+summary: 2,259 pharmacist-reviewed prescription-review items (1,150 single-choice, 230 multiple-choice, 879 short-answer) covering 14 prescription error types, with 18 LLMs compared against 27 clinical pharmacists.
+readme_section: knowledge_exam
+links:
+  paper: https://arxiv.org/abs/2512.02024
+  arxiv: "2512.02024"
+  doi: 10.48550/arxiv.2512.02024
+  dataset: https://medbench.opencompass.org.cn/home
+license: null
+open_data: open
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: Items come from eight clinical pharmacist training textbooks, with a multi-center collection from 29 clinical centers; reviewed by pharmacists at Chinese hospitals. The item language is inferred from the Chinese hospital setting and the note that pharmacist responses had mixed Chinese and English punctuation corrected; the paper does not state it outright.
+  rater_countries: [CHN]
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic, industry_lab]
+  item_provenance: [literature, clinician_written]
+  venue: preprint
+facets:
+  health_areas: [pharmacy_medication]
+  intended_users: [pharmacist]
+  eval_methods: [mcq_exact_match, rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 2,259 items (1,150 single-choice, 230 multiple-choice, 879 short-answer)
+provenance:
+  records: [r_02c81e51f4]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "The data availability statement says the dataset is public on the MedBench repository (medbench.opencompass.org.cn); no direct download page or license was checked. Authors are at Sun Yat-sen Memorial Hospital and Shanghai Artificial Intelligence Laboratory. Short-answer items have pharmacist-extracted key-point rubrics; the grading method for short answers was not confirmed to be an LLM judge, so rubric_llm_judge is tentative."

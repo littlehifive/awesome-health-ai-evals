@@ -1,0 +1,35 @@
+id: cp-env
+name: CP-Env
+kind: benchmark
+year: 2025
+summary: A simulated hospital environment where an LLM plays triage nurse and specialist for patient agents built from published clinical cases, scored on clinical efficacy, process competency, and professional ethics.
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2512.10206
+  arxiv: "2512.10206"
+  doi: 10.48550/arxiv.2512.10206
+  code: https://github.com/SPIRAL-MED/CP_ENV
+license: MIT
+open_data: unknown
+geography:
+  item_languages: [UNKNOWN]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Patient cases are drawn from records in top-tier medical journals (via an earlier paper by the same group); the paper does not state countries or language.
+  localization: unknown
+  lead_institution_countries: [CHN, HKG]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature]
+  venue: preprint
+facets:
+  health_areas: [general_medicine, emergency_triage]
+  intended_users: [clinician]
+  eval_methods: [simulated_multi_turn, rubric_llm_judge, automatic_metric]
+  modality: [text]
+  size: number of cases not found in the text read
+provenance:
+  records: [r_f6405ff5a7]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: low
+  notes: "Metrics include Work Completion, Diagnosis Recall@k, Triage Precision, Inquiry Sufficiency, and ethics dimensions, scored by an LLM evaluator (evaluation.py). The repo (MIT) holds inference and evaluation code and the patient simulation uses GPT-OSS-120B; no case files were visible in the repo listing, so data release is unknown. Number of cases and item language not found."

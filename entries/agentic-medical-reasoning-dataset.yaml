@@ -1,0 +1,32 @@
+id: agentic-medical-reasoning-dataset
+name: Agentic Medical Reasoning Dataset
+kind: benchmark
+year: 2026
+summary: 488 deduplicated disease, symptom, and treatment rows merged from four public medical datasets, offered as ground truth for evaluating the trustworthiness and safety of LLM medical consultations.
+readme_section: knowledge_exam
+links:
+  paper: https://doi.org/10.21227/4kh8-9f45
+  doi: 10.21227/4kh8-9f45
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 488 rows, 4 columns
+provenance:
+  records: [r_e3d2c5ee17]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: Abstract from the IEEE DataPort record only; the page was not opened. Access terms, license, authors, and the exact scoring method are unknown (open_data set to open as a guess from a public DataPort record; DataPort sometimes requires login). Built by combining four existing symptom-treatment datasets. Marginal as a benchmark and a candidate for exclusion on human review.

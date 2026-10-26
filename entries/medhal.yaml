@@ -1,0 +1,34 @@
+id: medhal
+name: MedHal
+kind: benchmark
+year: 2025
+summary: Over 800,000 statements with factual or non-factual labels and explanations, derived from QA, NLI, summarization, and information-extraction datasets (clinical notes, trials, medical questions), for evaluating medical hallucination detection.
+readme_section: safety
+links:
+  paper: https://arxiv.org/abs/2504.08596
+  arxiv: "2504.08596"
+  huggingface: [GM07/medhal, GM07/medhal-lf, GM07/medhal-lf-bal, LAMA-WeST/medhal-lf_qafil_bal, LAMA-WeST/medhal-raw]
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Statements are generated from existing English datasets (MedQA, MedMCQA, MedNLI, SumPubMed, Augmented-Clinical-Notes); countries of origin are not stated.
+  localization: adapted
+  lead_institution_countries: [CAN]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, llm_generated]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [unspecified]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: about 820,000 statements (raw); balanced and length-filtered variants with train/val/test splits
+provenance:
+  records: [r_ecb1e92cf7]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Task is detecting whether a statement is factual, so it evaluates detectors and judges more than chatbot answers; the paper also positions it as training data for a detector. GM07/medhal is marked deprecated in favor of LAMA-WeST/medhal-raw; the newer version drops MedNLI-derived rows because MedNLI is semi-private. License Apache-2.0 from the dataset cards."

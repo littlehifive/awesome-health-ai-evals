@@ -1,0 +1,34 @@
+id: t2d-bench
+name: T2D-Bench
+kind: benchmark
+year: 2026
+summary: 100 structured type 2 diabetes vignettes (diagnosis thresholds, renal medication safety, single- and multi-factor lifestyle effects) paired with gold guideline-rule and mechanism identifiers, scored by a deterministic knowledge-graph evidence gate.
+readme_section: safety
+links:
+  paper: https://arxiv.org/abs/2606.24145
+  arxiv: "2606.24145"
+  code: https://github.com/Saba-Farahani/t2d-bench-
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Vignettes are structured synthetic cases; rules come from the ADA Standards of Care (2026), but the paper does not state an origin country for the cases.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [unknown]
+  venue: preprint
+facets:
+  health_areas: [ncd]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 100 vignettes; knowledge graph of 2.1M nodes and 495K edges
+provenance:
+  records: [r_180cf986a8]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Read the paper's abstract, method and results sections and the GitHub README. The vignettes and scripts are in the GitHub repo (no license file found on the repo). The repo does not redistribute UMLS, DrugBank or SIDER, so rebuilding the full graph needs separate licenses. How the vignettes were written (hand-made, templated or LLM-generated) was not found. Scoring checks that the answer contains required rule IDs and bridge tokens, so it measures evidence compliance rather than clinical correctness. Models tested: GPT-4o-mini and GPT-4o."

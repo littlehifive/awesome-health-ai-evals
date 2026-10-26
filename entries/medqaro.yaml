@@ -1,0 +1,36 @@
+id: medqaro
+name: MedQARo
+kind: benchmark
+year: 2025
+summary: 105,880 Romanian question-answer pairs about the clinical summaries (epicrises) of 1,242 breast and lung cancer patients from two Bucharest medical centers, with patient-level splits and in-domain and cross-domain test sets.
+readme_section: multilingual_regional
+links:
+  paper: https://doi.org/10.1038/s41746-026-02465-0
+  arxiv: "2508.16390"
+  doi: 10.1038/s41746-026-02465-0
+  code: https://github.com/ana-rogoz/MedQARo
+license: CC-BY-NC-SA-4.0
+open_data: open
+geography:
+  item_languages: [Romanian]
+  item_origin_countries: [ROU]
+  item_origin_note: Patient records from Coltea Clinical Hospital and a second Bucharest center (Hospice Hope).
+  rater_countries: [ROU]
+  localization: native
+  lead_institution_countries: [ROU]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written, real_user_queries]
+  venue: peer_reviewed
+facets:
+  health_areas: [oncology]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 105,880 QA pairs (102,646 unique) over 1,242 patients
+provenance:
+  records: [r_ae5b58cda2, r_8c3e240c1c]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Questions are physician-written and paraphrased, answered against real patient epicrises (binary, extractive, and reasoning questions). Scored with F1, exact match, BLEU, and METEOR; four 7B-8B LLMs were tested zero-shot and fine-tuned. The dataset is hosted on a Proton Drive link given in the GitHub README (no approval step seen). The model is read as clinician-facing: it answers questions about a patient record, not open consumer questions. Rater country is taken from the physician co-authors' Bucharest affiliations."

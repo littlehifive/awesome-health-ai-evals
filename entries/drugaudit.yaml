@@ -1,0 +1,34 @@
+id: drugaudit
+name: DrugAudit
+kind: benchmark
+year: 2026
+summary: 3,772 drug-information questions built from nine drug and pharmacovigilance databases (ChEMBL, DrugCentral, FAERS, Orange Book, openFDA Label, LiverTox, PharmGKB, SIDER, multi-source), scored by answer correctness, source authority match, snippet overlap, and citation faithfulness with two LLM judges.
+readme_section: knowledge_exam
+links:
+  paper: https://arxiv.org/abs/2606.01434
+  arxiv: "2606.01434"
+  code: https://anonymous.4open.science/r/DrugClaw-01A3/README.md
+license: Apache-2.0
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Questions were written by an LLM from records in international drug databases; no country origin.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated, literature]
+  venue: preprint
+facets:
+  health_areas: [pharmacy_medication]
+  intended_users: [clinician, pharmacist]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: 3,772 questions
+provenance:
+  records: [r_1a2eae921d]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Read the arXiv HTML text (paperclip not used). The paper says the benchmark harness is released under Apache-2.0 at an anonymized 4open.science link; the Apache-2.0 license is stated for the skill registry and benchmark harness, and I did not see a data download or a license for the question set itself, so open_data is unknown. Gold answers are machine-extracted from database records and question text was written by Claude Opus 4.7; there was no pharmacist re-annotation. The paper also evaluates on drug-related subsets of MedQA and PubMedQA, which are not part of DrugAudit. Intended users are inferred from the paper's clinician framing. Lead institution is University of Florida (first author); second affiliation is University of Macau."

@@ -1,0 +1,33 @@
+id: ruab
+name: Roman Urdu Adversarial Benchmark (RUAB)
+kind: benchmark
+year: 2026
+summary: 400 safety-relevant intents (passive suicidal ideation, psychological distress, threats, emotional coercion), each in English, mixed Roman Urdu, and purely transliterated Roman Urdu (1,200 inputs), scored by safety-detection recall across seven LLMs.
+readme_section: mental_health
+links:
+  paper: https://doi.org/10.18653/v1/2026.abjadnlp-1.37
+  doi: 10.18653/v1/2026.abjadnlp-1.37
+license: null
+open_data: unknown
+geography:
+  item_languages: [English, Roman Urdu]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Synthetic, machine-assisted and human-verified sentences; the paper says Roman Urdu is common across South Asia and diaspora communities but does not state a country of origin for the items.
+  localization: native
+  lead_institution_countries: [GBR]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated]
+  venue: peer_reviewed
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 1,200 inputs (400 intents x 3 language variants)
+provenance:
+  records: [r_f81bc9bc85]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "AbjadNLP 2026 workshop paper from Edinburgh Napier University. Items were reviewed by three bilingual Urdu-English speakers. The paper says the authors plan to release the code and dataset publicly upon publication; no link was found, so open_data is unknown. The task is detecting safety-relevant content (a classification of whether input should trigger a safety response), not answering health questions; scope is borderline."

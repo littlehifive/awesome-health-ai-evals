@@ -1,0 +1,32 @@
+id: medical-ai-red-teaming-ekram
+name: Medical AI Red-Teaming Taxonomy
+kind: benchmark
+year: 2026
+summary: A taxonomy of 8 adversarial attack categories (24 sub-strategies) and 160 LLM-generated adversarial prompts, including multi-turn escalation, scored for harm (0-5) by an LLM evaluator against patient-facing medical assistants.
+readme_section: safety
+links:
+  paper: https://doi.org/10.64898/2026.02.26.26347212
+  doi: 10.64898/2026.02.26.26347212
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [industry_lab]
+  item_provenance: [llm_generated]
+  venue: preprint
+facets:
+  health_areas: [pharmacy_medication, emergency_triage, general_medicine]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge, expert_human_rating, simulated_multi_turn]
+  modality: [text]
+  size: 160 adversarial prompts in 8 categories and 24 sub-strategies
+provenance:
+  records: [r_d30ecd5ced]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Single author at Luma Health (a US health-technology company, country not stated in the text). The paper gives two GitHub URLs (tekram/medical-ai-red-teaming and tekram/red-team-medical-ai); both returned 404 when checked, and raw results are promised only after acceptance, so open_data stays unknown. Physician review was planned for high-harm cases only; main results are for Claude Sonnet 4.5. Preprint license is CC BY (medRxiv)."

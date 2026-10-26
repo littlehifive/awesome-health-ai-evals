@@ -1,0 +1,32 @@
+id: medeval-framework
+name: medeval-framework
+kind: eval_framework
+year: 2026
+summary: An open-source Python package (PyPI) that evaluates medical LLMs and LoRA adapters on MedQA, PubMedQA, MedMCQA, MMLU-Medical or custom JSONL data for accuracy, NLI-based hallucination, calibration (ECE, Brier), and rule-based safety checks for sickle cell disease and cardiology.
+readme_section: frameworks
+links:
+  code: https://github.com/TeslaInch/medeval-framework
+license: Apache-2.0
+open_data: described_only
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: A software harness that loads existing public datasets; it ships no items of its own.
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [unknown]
+  item_provenance: [adapted_dataset]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine, cardiology, ncd]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match, automatic_metric]
+  modality: [text]
+  size: Software harness; the README demo uses 60 filtered MedQA and PubMedQA queries
+provenance:
+  records: [r_fb14aea386]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "Based on the GitHub README only (no paper). Repo license Apache-2.0 per GitHub metadata. Author affiliation and country are not stated. Borderline entry: a reusable harness over existing datasets rather than a new item set or rubric."

@@ -1,0 +1,35 @@
+id: patientsim
+name: PatientSim
+kind: eval_framework
+year: 2025
+summary: An open-source persona-driven patient simulator for testing doctor LLMs in emergency-department consultations, with clinical profiles from MIMIC-IV and MIMIC-IV-ED and 37 persona combinations over personality, language proficiency, recall level and confusion level, checked for factual accuracy and persona consistency.
+readme_section: frameworks
+links:
+  paper: https://arxiv.org/abs/2505.17818
+  arxiv: "2505.17818"
+  doi: 10.52202/085713-0861
+  code: https://github.com/dek924/PatientSim
+license: null
+open_data: gated
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Patient profiles derive from MIMIC-IV, MIMIC-IV-ED and MIMIC-IV-Note, which are US hospital data (five conditions in the ED setting).
+  localization: native
+  lead_institution_countries: [KOR]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: peer_reviewed
+facets:
+  health_areas: [emergency_triage]
+  intended_users: [clinician, medical_student]
+  eval_methods: [simulated_multi_turn, rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 5 ED conditions; 37 persona combinations; 8 LLM backbones evaluated
+provenance:
+  records: [r_21613f1b3e]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "NeurIPS 2025 paper. The underlying MIMIC data need PhysioNet credentialing, hence gated; the repo's license was not stated on the repo metadata. The paper is mainly a simulator whose realism is evaluated; it is positioned as a testbed for doctor LLMs, so it is borderline between tool and benchmark."

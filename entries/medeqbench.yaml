@@ -1,0 +1,32 @@
+id: medeqbench
+name: MedEQBench
+kind: benchmark
+year: 2025
+summary: "400 Chinese medical dialogue scenarios across 51 departments with about 8,000 expert-written rubric items on 22 dimensions, scoring LLMs on emotional perception and empathic expression in clinician-patient exchanges."
+readme_section: multilingual_regional
+links:
+  code: https://github.com/AQ-MedAI/MedEQBench
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: "README says the dialogues derive from real-world medical interactions (semi- and fully realistic, anonymized) but does not state a country."
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [industry_lab]
+  item_provenance: [real_user_queries, clinician_written]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public, clinician]
+  eval_methods: [rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: "400 scenarios; about 8,000 rubric items; 22 dimensions"
+provenance:
+  records: [r_d915b22a4d]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Repo README only; no paper linked. Item language inferred from the Chinese text in data/med_eq.csv. README states both Apache-2.0 and CC BY 4.0; the GitHub license is recorded. Lead country CHN is taken from the AQ-MedAI organization (Ant Group, per MedDialogRubrics) and is not stated in the README. Scoring is by a rubric run through the Health_EQBench code; whether an LLM judge is used is not stated in the README text I read, so rubric_llm_judge is likely but unverified. README also mentions 51 scenarios in the intro, which conflicts with 400 scenarios across 51 departments."

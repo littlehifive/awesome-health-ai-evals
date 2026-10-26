@@ -1,0 +1,35 @@
+id: tcm-3ceval
+name: TCM-3CEval
+kind: benchmark
+year: 2025
+summary: 450 Chinese-language traditional Chinese medicine questions (150 each on core knowledge, classical text understanding, and clinical case decision-making) from textbook exercises and licensing exam papers, scored by accuracy with an option-shuffle consistency check.
+readme_section: multilingual_regional
+links:
+  paper: https://doi.org/10.1038/s43856-026-01631-5
+  arxiv: "2503.07041"
+  doi: 10.1038/s43856-026-01631-5
+  pmcid: PMC13392112
+license: null
+open_data: unknown
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: Questions come from the national planning textbooks for higher TCM institutions and past National Licensed TCM Practitioner Examination papers (China).
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions, literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [traditional_medicine]
+  intended_users: [clinician, medical_student]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 450 questions
+provenance:
+  records: [r_952ac42a92, r_b5103d969a]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "r_952ac42a92 is the arXiv version (2503.07041) and r_b5103d969a the Communications Medicine (2026) version of the same paper. No data link, repository or license was found in either text, so open_data is unknown. Authors are at Shanghai University of Traditional Chinese Medicine, Shanghai AI Laboratory and the China Academy of Chinese Medical Sciences. Questions were reviewed by TCM experts. Extended by the same team as TCM-5CEval."

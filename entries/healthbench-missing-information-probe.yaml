@@ -1,0 +1,36 @@
+id: healthbench-missing-information-probe
+name: HealthBench Missing-Information Probe
+kind: benchmark
+year: 2026
+summary: 50 HealthBench conversations with the latter half of the final user turn deleted, scoring whether models qualify, clarify, or avoid over-committing, with a four-provider LLM-judge panel and clinician-anchored human ratings; also runs MedQA and MedMCQA perturbations.
+readme_section: safety
+adapted_from: [healthbench]
+links:
+  paper: https://arxiv.org/abs/2607.18828
+  arxiv: "2607.18828"
+  code: https://github.com/KAVentures/health-ai-readiness-robustness
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Derived from HealthBench conversations, MedQA-USMLE and MedMCQA; not re-sourced by this paper.
+  rater_countries: [UNKNOWN]
+  localization: adapted
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [industry_lab]
+  item_provenance: [adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public, clinician]
+  eval_methods: [rubric_llm_judge, expert_human_rating, mcq_exact_match]
+  modality: [text]
+  size: "50 HealthBench conversations; MedQA n=100 (300 supplementary) and MedMCQA n=200 perturbation sets"
+provenance:
+  records: [r_8b23ba2bce]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Read the arXiv abstract page and the GitHub README, not the full paper. The repo releases the harness, prompts, per-item outputs, judge-panel votes, a perturbation-validity audit, and human-annotation data; the GitHub license is not recognized by GitHub (NOASSERTION) and the paper is CC BY 4.0, so license left null. Single author at Kinvectum AB (country not stated). Extends the perturbation method of Gu et al. (Nature Medicine 2026). Small and mostly an evaluator-dependence study; included because it releases a reusable probe."

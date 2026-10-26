@@ -1,0 +1,33 @@
+id: mental-health-assessment-chatbots
+name: Mental Health Assessment for the Chatbots
+kind: eval_framework
+year: 2022
+summary: A questionnaire-based framework that rewrites four psychology questionnaires (PHQ-9 depression, GAD-7 anxiety, CAGE alcohol addiction, TEQ empathy) into conversational prompts to measure the mental-health tendencies of open-domain chatbots.
+readme_section: frameworks
+links:
+  paper: https://arxiv.org/abs/2201.05382
+  arxiv: "2201.05382"
+license: null
+open_data: described_only
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Questionnaires were taken from the Psychology Tools website; their country of origin is not stated.
+  localization: adapted
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic, industry_lab]
+  item_provenance: [literature]
+  venue: preprint
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: 4 questionnaires (PHQ-9, GAD-7, CAGE, TEQ); 4 chatbots assessed, 50 repeated runs each
+provenance:
+  records: [r_5c89db2226]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Four stages: rewrite questionnaire items as utterances, query the chatbot (single-turn and multi-turn), align free-text replies to answer options, then score with the questionnaire's rating scale. Alignment was done by six annotators hired from a commercial data-annotation company (country not stated), so expert_human_rating is the closest eval method. The paper says the framework will be released publicly, but no link or license was found. Authors are from Tencent and the Institute of Computing Technology, Chinese Academy of Sciences. Chatbots tested were Blender, DialoGPT, Plato, and DialoFlow, which are pre-LLM systems."

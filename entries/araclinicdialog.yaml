@@ -1,0 +1,40 @@
+id: araclinicdialog
+name: AraClinicDialog
+kind: benchmark
+year: 2026
+summary: 100 clinician-authored Arabic clinical cases across nine organ systems, expanded into 3-8 turn patient-assistant dialogues in Modern Standard Arabic plus four dialect versions, where a model writes the final turn and an LLM judge compares it with clinician-written references.
+readme_section: multilingual_regional
+links:
+  paper: https://arxiv.org/abs/2608.00207
+  arxiv: "2608.00207"
+license: null
+open_data: closed
+geography:
+  item_languages: [Arabic]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Cases written by three native Arabic-speaking physicians at a multi-specialty hospital; the country is not stated in the text I read. Dialect versions are Emirati, Jordanian, Moroccan, and Egyptian.
+  rater_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [ARE, ARE]
+  subsets:
+    - {name: MSA, languages: [Arabic], countries: [UNKNOWN], localization: native}
+    - {name: Emirati, languages: [Arabic], countries: [ARE], localization: translated}
+    - {name: Jordanian, languages: [Arabic], countries: [JOR], localization: translated}
+    - {name: Moroccan, languages: [Arabic], countries: [MAR], localization: translated}
+    - {name: Egyptian, languages: [Arabic], countries: [EGY], localization: translated}
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written, llm_generated]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 100 cases, each as an MSA dialogue and 4 dialect versions
+provenance:
+  records: [r_63edcb6d73]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: Secondary contribution of a paper mainly about targeted LoRA for Arabic medical QA. The paper presents the benchmark but I found no release statement or link, so open_data is a guess (closed). Dialogues were expanded from clinician case templates by an LLM and verified by clinicians; dialect versions were machine-translated and reviewed by two native speakers each. Physician inter-annotator agreement 87%. Judge is correct/incorrect against the reference, not a multi-criterion rubric.

@@ -1,0 +1,35 @@
+id: ranking-over-scoring
+name: Ranking Over Scoring
+kind: eval_framework
+year: 2024
+summary: An automated evaluation method for LLM-generated medical explanatory arguments that ranks arguments by how much they help a trained evaluator solve proxy tasks (medical MCQA, misinformation detection, NLI), validated against rankings by two clinicians.
+readme_section: frameworks
+links:
+  paper: https://arxiv.org/abs/2409.20565
+  arxiv: "2409.20565"
+  code: https://github.com/hitz-zentroa/ranking-over-scoring-coling-2025
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [ESP]
+  item_origin_note: The MCQA proxy task uses Casimedicos (Spanish residency-exam questions, English version); other proxy tasks not checked for origin.
+  rater_countries: [ESP]
+  localization: adapted
+  lead_institution_countries: [ESP]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions, llm_generated, adapted_dataset]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric, expert_human_rating]
+  modality: [text]
+  size: Three proxy tasks; clinicians ranked 61 MMCQA, 39 misinformation and a smaller NLI set of instances
+provenance:
+  records: [r_36135267f1, r_f32c463cec]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Merged the COLING 2025 paper and its GitHub repo. open_data is open because the repo ships the Casimedicos argument data, test files and a models download; the repo shows no license. The repo currently covers only the MMCQA proxy task. Evaluates explanations, not chatbot answers directly; borderline scope (clinician-facing evaluation methodology). Origin country of Casimedicos from its name and the Cruces University Hospital (Spain) co-authors, not read from the dataset card."

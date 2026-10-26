@@ -1,0 +1,34 @@
+id: hamrazeval
+name: HamRazEval
+kind: eval_framework
+year: 2025
+summary: A two-part LLM-judge framework for Persian person-centered-therapy dialogues, scoring six general conversation metrics (1 to 10) and a 12-item mini Barrett-Lennard Relationship Inventory for therapist empathy, positive regard, and congruence, introduced with the HamRaz dataset.
+readme_section: frameworks
+links:
+  paper: https://arxiv.org/abs/2502.05982
+  arxiv: "2502.05982"
+  doi: 10.26615/978-954-452-106-6-001
+license: null
+open_data: unknown
+geography:
+  item_languages: [Persian]
+  item_origin_countries: [IRN]
+  item_origin_note: "Client concerns come from about 4,000 questions crawled from Iranian psychology websites and forums where users post and psychologists answer; the therapy dialogues themselves are LLM-simulated."
+  localization: native
+  lead_institution_countries: [IRN]
+origin:
+  builder_types: [academic]
+  item_provenance: [web_forum, llm_generated]
+  venue: peer_reviewed
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: Evaluation applied to simulated sessions from the HamRaz dataset (dataset size not confirmed)
+provenance:
+  records: [r_943b6e90ab]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Read the main text in paperclip. The paper is mainly a dataset and generation-method paper (HamRaz, mostly aimed at fine-tuning a counselor model); HamRazEval is the evaluation part and is kept as a framework entry. Judging used GPT-4o in pairwise comparisons; the paper says human or clinician evaluation was not done. No dataset or code link, and no license, was seen in the text, so open_data is unknown."

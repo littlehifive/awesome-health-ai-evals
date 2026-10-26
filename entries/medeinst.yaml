@@ -1,0 +1,36 @@
+id: medeinst
+name: MedEinst
+kind: benchmark
+year: 2026
+summary: "5,383 paired counterfactual differential-diagnosis cases (control and trap) over 49 diseases, built from DDXPlus, to measure how often LLMs favor familiar diagnoses over patient-specific evidence, with a 10,689-pair reference set."
+readme_section: safety
+links:
+  paper: https://doi.org/10.48550/arxiv.2601.06636
+  arxiv: "2601.06636"
+  doi: 10.48550/arxiv.2601.06636
+  huggingface: [zhui711/MedEinst]
+  code: https://github.com/zhui711/MedEinst
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: "Synthetic narratives derived from the DDXPlus knowledge base; no country is stated."
+  localization: adapted
+  lead_institution_countries: [USA, CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, llm_generated]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: "5,383 test pairs (10,766 rows); 10,689 reference pairs"
+provenance:
+  records: [r_930dc9f544, r_837d3a11f3]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Metrics are Baseline Accuracy, Robust Accuracy, and Bias Trap Rate across 17 LLMs. The paper also proposes ECR-Agent; the GitHub repo holds the agent code (Apache-2.0) while the dataset card gives CC-BY-4.0. Additional Hugging Face sets (MedEinst-Illness-Graphs, MedEinst-Exemplar-Base) support the agent and are not benchmark items."

@@ -1,0 +1,36 @@
+id: vivabench
+name: VivaBench
+kind: benchmark
+year: 2025
+summary: Multi-turn benchmark of physician-curated clinical vignettes (mostly PubMed case reports, plus MedQA cases) that simulates a viva voce exam, where an LLM agent gathers history, exam findings, and investigations before giving a diagnosis scored against ICD-10 codes.
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2510.10278
+  arxiv: "2510.10278"
+  huggingface: [chychiu/VivaBench]
+  code: https://github.com/chy-chiu/vivabench
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Vignettes come from PubMed case reports (260 journals), MedQA, and Australian and UK physician-college training materials; the paper gives no per-case countries.
+  rater_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [USA, GBR]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature, adapted_dataset, clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician, medical_student]
+  eval_methods: [simulated_multi_turn, automatic_metric]
+  modality: [text]
+  size: 1,762 vignettes per the abstract (the Hugging Face card says 1,152)
+provenance:
+  records: [r_1336433066, r_92f19820e5]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "The paper is inconsistent on size: the abstract says 1,762 vignettes, the text says 990 human-reviewed PubMed cases from 1,952 generated, the appendix mentions 1,152 PubMed cases plus 800 MedQA cases, and the Hugging Face card and repo README say 1,152; a human should confirm the final count. The reviewed set is the benchmark_pubmed config; the generated_raw config is unreviewed. Six volunteer clinicians reviewed cases. Metrics are top-k exact and approximate ICD-10 accuracy plus information-gathering precision and recall. r_92f19820e5 is the older repo chy-chiu/VivaBench_old (MIT). The code repo is CC-BY-SA-4.0 per GitHub metadata. The HF datasets yiihan/VivaBench, vivamed/Vivabench, and zhehuderek/VIVA_Benchmark_EMNLP24 were seen in search and not checked; the last is a different, vision benchmark."

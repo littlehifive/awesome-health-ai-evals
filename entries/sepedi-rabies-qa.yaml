@@ -1,0 +1,33 @@
+id: sepedi-rabies-qa
+name: Sepedi Rabies QA
+kind: benchmark
+year: 2025
+summary: 60 rabies question-answer pairs in Sepedi, built from South African public health sources and checked by a native speaker, with a five-point human rubric for judging model answers.
+readme_section: multilingual_regional
+links:
+  paper: https://upjournals.up.ac.za/index.php/dhasa/article/view/6740
+  doi: 10.55492/dhasa.v6i01.6740
+license: null
+open_data: unknown
+geography:
+  item_languages: [Sepedi]
+  item_origin_countries: [ZAF]
+  item_origin_note: "Questions were generated from South African public health sources (for example the National Institute for Communicable Diseases), written in English, then translated into Sepedi with GPT-4o and manually reviewed."
+  localization: native
+  lead_institution_countries: [ZAF]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated, literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [infectious_other, public_health]
+  intended_users: [patient_public]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: 60 question-answer pairs
+provenance:
+  records: [r_63487e60a5]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Pilot study. The paper says the dataset will be or is intended to be released under an open licence and points to a GitHub link, but the link text was not visible in the PDF and no licence is named, so open_data is unknown. The paper itself is CC BY-SA 4.0. A single native-speaking reviewer verified translations and scored model answers (no second rater). Models compared: GPT-4o and Gemini-1.5 Flash, base and fine-tuned. Used partly as fine-tuning data, so the benchmark role is secondary."

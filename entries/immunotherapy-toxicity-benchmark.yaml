@@ -1,0 +1,33 @@
+id: immunotherapy-toxicity-benchmark
+name: Staged immunotherapy toxicity management benchmark
+kind: benchmark
+year: 2026
+summary: 87 staged, role-specific open-ended management questions from 25 immune checkpoint inhibitor adverse-event case reports across ten organ systems, scored for clinical acceptability, safety failure, required-action coverage, and guideline concordance.
+readme_section: open_ended
+links:
+  paper: https://doi.org/10.2139/ssrn.6861476
+  doi: 10.2139/ssrn.6861476
+license: null
+open_data: closed
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Built from published case reports; countries not stated in the abstract.
+  localization: native
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature]
+  venue: preprint
+facets:
+  health_areas: [oncology]
+  intended_users: [patient_public, clinician]
+  eval_methods: [rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 87 questions, 25 cases (1,044 responses from 12 LLMs)
+provenance:
+  records: [r_6aac869ee8]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: Abstract only (SSRN, Crossref). No data or code link seen, so open_data is closed; check. Whether scoring used LLM judges or physicians is not stated in the abstract. Prompts are assigned to patient, specialist, oncologist, or MDT roles.

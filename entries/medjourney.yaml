@@ -1,0 +1,33 @@
+id: medjourney
+name: MedJourney
+kind: benchmark
+year: 2024
+summary: "Chinese benchmark of 12 datasets (5 new, 7 rebuilt from public sources) covering a patient's hospital journey in four stages, from department recommendation and hospital reception QA to drug, insurance, and mental health QA, scored by accuracy and NLG metrics."
+readme_section: multilingual_regional
+links:
+  paper: https://proceedings.neurips.cc/paper_files/paper/2024/hash/9f80af32390984cb709cdeb014d0df41-Abstract-Datasets_and_Benchmarks_Track.html
+  doi: 10.52202/079017-2782
+  code: https://github.com/Medical-AI-Learning/MedJourney
+open_data: open
+geography:
+  item_languages: [Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: "Chinese-language benchmark built around Chinese hospital and health-service settings; I did not check the origin of each constituent dataset."
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [industry_lab, academic]
+  item_provenance: [adapted_dataset, clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine, mental_health, pharmacy_medication]
+  intended_users: [patient_public, clinician]
+  eval_methods: [mcq_exact_match, automatic_metric]
+  modality: [text]
+  size: 12 datasets across 12 tasks (for example 500 department-recommendation complaints)
+provenance:
+  records: [r_0bfdc234b8]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "NeurIPS 2024 Datasets and Benchmarks paper from Tencent Youtu Lab with Zhejiang and Westlake universities. Classification and multiple-choice tasks use accuracy; summarization and generation tasks use BLEU and ROUGE-style NLG metrics, plus entity-level evaluation. New datasets were processed by professional doctors. Some tasks (dialogue summarization, doctor response generation) are clinician-support rather than patient-facing. The GitHub repo has a data directory (no license file); per-task sizes beyond a few examples were not collected."

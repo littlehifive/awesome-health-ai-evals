@@ -1,0 +1,34 @@
+id: pediasbench
+name: PEDIASBench
+kind: benchmark
+year: 2025
+summary: Pediatric evaluation across 19 subspecialties and 211 diseases covering exam-level knowledge questions, dynamic two-stage diagnosis cases from over 200 anonymized real cases, and ethics and safety questions, scored by accuracy and key-point recall.
+readme_section: knowledge_exam
+links:
+  paper: https://arxiv.org/abs/2511.13381
+  arxiv: "2511.13381"
+  doi: 10.48550/arxiv.2511.13381
+license: null
+open_data: unknown
+geography:
+  item_languages: [UNKNOWN]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Question banks come from four pediatrician exam levels (resident, junior, intermediate, senior) and cases from anonymized real pediatric cases; the paper excerpts read do not name the exam country or language.
+  localization: unknown
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions, clinician_written, llm_generated, literature]
+  venue: preprint
+facets:
+  health_areas: [child_health]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match, automatic_metric]
+  modality: [text]
+  size: not stated in the text read; over 200 real cases, 19 departments, 211 diseases
+provenance:
+  records: [r_6c73067064]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "No code, dataset link, or license found in the text, so release status is unknown. Dynamic cases were split into two stages by GPT-4o; the ethics and safety single-choice items across 10 themes were generated with GPT-4o from textbooks, regulations, and guidelines, then every item was reviewed by at least two pediatricians (5+ years) with senior adjudication. Open-ended answers are scored by Macro Recall of key points with BERTScore as an aid. Authors are at Shanghai Children's Hospital and Shanghai AI Laboratory; 12 LLMs evaluated. Item count and language were not found; check the full paper."

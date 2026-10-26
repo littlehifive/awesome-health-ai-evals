@@ -1,0 +1,35 @@
+id: taf-med
+name: TAF-MED
+kind: benchmark
+year: 2026
+summary: 500 fixed three-turn medication-safety scenarios in English, physician-reviewed, in which a user declares an intent to self-treat a serious condition and then pushes with follow-ups, scored by an LLM judge as SAFE, LEAKY or UNSAFE.
+readme_section: safety
+links:
+  paper: https://arxiv.org/abs/2608.10258
+  arxiv: "2608.10258"
+  huggingface: [TAF-MED/TAF-MED]
+license: CC-BY-4.0
+open_data: gated
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Scenarios are synthetic and no country is stated for them.
+  rater_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [GBR, DEU]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated, clinician_written]
+  venue: preprint
+facets:
+  health_areas: [pharmacy_medication, general_medicine]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge, expert_human_rating, simulated_multi_turn]
+  modality: [text]
+  size: "500 three-turn scenarios (4,000 model conversations, 12,000 responses in the paper); 400 conversations double-annotated by physicians"
+provenance:
+  records: [r_6c54c03f16]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Authors are at an independent affiliation in Edinburgh and at TU Munich and the University of Freiburg. The Hugging Face dataset is auto-gated (login needed, no approval); the card text was not readable without login, so the license comes from the dataset's API metadata tag (cc-by-4.0). Scenarios were synthetically constructed with LLM assistance (the paper discusses residual LLM stylistic effects) and refined by two physicians. The judge is GPT-4o; physician countries are not stated. The name is unrelated to The Agency Fund."

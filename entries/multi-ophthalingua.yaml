@@ -1,0 +1,35 @@
+id: multi-ophthalingua
+name: Multi-OphthaLingua
+kind: benchmark
+year: 2024
+summary: 1,184 four-option ophthalmology multiple-choice questions written by board-certified ophthalmologists and paired across seven languages, for comparing LLM accuracy across languages including LMIC languages.
+readme_section: multilingual_regional
+links:
+  paper: https://doi.org/10.1609/aaai.v39i27.35053
+  arxiv: "2412.14304"
+  doi: 10.1609/aaai.v39i27.35053
+  huggingface: [AAAILBenchmark/Multi-Ophthalingua]
+license: null
+open_data: unknown
+geography:
+  item_languages: [English, Spanish, Filipino, Portuguese, Mandarin Chinese, French, Hindi]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Seven ophthalmologists with different language backgrounds wrote the questions, inspired by the Brazilian Ophthalmological Board exams and checked for neutrality across regions. The paper does not give a country per language.
+  localization: unknown
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [ophthalmology]
+  intended_users: [clinician, medical_student]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 1,184 questions in 7 languages
+provenance:
+  records: [r_336d5085bb]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "AAAI 2025 paper (MIT, Michigan, Harvard, Federal University of Sao Paulo, University of the Philippines and others). The paper says a sample is on Hugging Face and the full version will be released on PhysioNet; the dataset card was not readable (login error), so access and license are unrecorded. The paper also proposes CLARA, a debiasing method, which is not part of the benchmark. Benchmark is framed around LMIC languages (for example Filipino, Hindi)."

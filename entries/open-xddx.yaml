@@ -1,0 +1,35 @@
+id: open-xddx
+name: Open-XDDx
+kind: benchmark
+year: 2025
+summary: 570 English clinical notes across nine specialties, each annotated by physicians with differential diagnoses and explanations, for evaluating LLM differential diagnosis explanations with text-similarity metrics and manual review.
+readme_section: open_ended
+links:
+  paper: https://www.nature.com/articles/s44401-025-00015-6
+  doi: 10.1038/s44401-025-00015-6
+  code: https://github.com/betterzhou/Dual-Inf
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Notes were taken from publicly available medical diagnosis exercises; the paper does not name the source exams or country.
+  rater_countries: [UNKNOWN]
+  localization: unknown
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric, expert_human_rating]
+  modality: [text]
+  size: 570 clinical notes
+provenance:
+  records: [r_5d67e281e9]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Dataset (Open-XDDx.xlsx) is in the Dual-Inf GitHub repository; the paper says data are in the supplementary files. No dataset license stated (the article itself is CC BY 4.0). Notes come from diagnosis exercises with multiple-choice options removed; three physicians annotated (two per note, a third resolved disagreements), at the University of Minnesota. Explanations are scored with BERTScore and METEOR, plus manual review of 100 cases. The same paper proposes the Dual-Inf prompting method, which is not part of the benchmark."

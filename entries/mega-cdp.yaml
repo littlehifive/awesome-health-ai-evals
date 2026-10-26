@@ -1,0 +1,37 @@
+id: mega-cdp
+name: MEGA-CDP
+kind: benchmark
+year: 2026
+summary: 42,353 English and Chinese clinical cases synthesized from 2,274 clinical practice guidelines, each with a reference decision pathway, for scoring whether models produce guideline-adherent decisions in single-turn and multi-turn settings.
+readme_section: multilingual_regional
+links:
+  paper: https://arxiv.org/abs/2608.26592
+  arxiv: "2608.26592"
+  doi: 10.48550/arxiv.2608.26592
+license: null
+open_data: unknown
+geography:
+  item_languages: [English, Mandarin Chinese]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Guidelines were collected from publicly available English and Chinese sources published 2020 to 2025; countries of publication are not stated. Cases were synthesized from the guidelines.
+  localization: mixed
+  lead_institution_countries: [CHN]
+  subsets:
+    - {name: English guidelines, languages: [English]}
+    - {name: Chinese guidelines, languages: [Mandarin Chinese]}
+origin:
+  builder_types: [academic]
+  item_provenance: [literature, llm_generated]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [simulated_multi_turn, automatic_metric]
+  modality: [text]
+  size: 42,353 cases from 2,274 guidelines; test set 7,458 cases from 440 guidelines
+provenance:
+  records: [r_29979994d3]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Cases come from an automated pipeline (reasoning tree to pathway to vignette) that the paper calls LLM-generated and human-verified. Metrics are outcome accuracy, success rate, and a pathway consistency cost computed with dynamic time warping. No release link, license, or data statement found in the text I read."

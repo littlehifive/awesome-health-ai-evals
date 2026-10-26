@@ -1,0 +1,32 @@
+id: syn-starts
+name: Syn-STARTS
+kind: benchmark
+year: 2026
+summary: A 2,000-case corpus of synthetic mass-casualty triage scenarios generated and validated with Llama-3.1-70B, with sampled evaluation sets where an LLM predicts the START triage tag, compared against the 54-case expert-written TRIAGE-adult set.
+readme_section: safety
+links:
+  code: https://github.com/seitalab/Syn-STARTS
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Scenarios are LLM-generated against the START protocol and have no stated country; the TRIAGE-adult gold set comes from an external repo whose country was not checked.
+  localization: native
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated]
+  venue: grey_literature
+facets:
+  health_areas: [emergency_triage]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 2,000 validated synthetic scenarios; evaluation sets of 12 to 200 cases; 54-case TRIAGE-adult comparison set
+provenance:
+  records: [r_61b64aed1c]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Read the GitHub README only; it cites a paper titled 'Syn-STARTS: Synthesized START Triage Scenario Generation Framework for Scalable LLM Evaluation' but the BibTeX block is empty and the paper was not looked up. The repo contains the 2,000-case corpus (datasets/Syn-STARTS_datasets/all_scenarios), replicate evaluation sets, and scripts; the GitHub API reports no license, so license is null. Cases pass a three-step validator (START consistency, medical plausibility, narrative consistency). Scoring is triage-tag prediction accuracy (tag-level metric details not read). Owner is the seitalab GitHub organization; institution and country were not stated, so lead country is UNKNOWN. Venue is grey_literature until the paper is confirmed."

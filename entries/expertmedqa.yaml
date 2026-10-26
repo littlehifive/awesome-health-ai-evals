@@ -1,0 +1,35 @@
+id: expertmedqa
+name: ExpertMedQA
+kind: benchmark
+year: 2023
+summary: 80 open-ended expert-level clinical questions (20 each in pediatrics, internal medicine, psychiatry, and neurology), validated on ten axes by clinicians and scored by clinician Likert ratings of factual accuracy, adequacy, and other criteria.
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2310.11266
+  arxiv: "2310.11266"
+  doi: 10.48550/arxiv.2310.11266
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: The paper does not say who wrote the questions or from which country.
+  rater_countries: [USA, IND, GBR, DEU, MEX, PAK, ARE]
+  localization: unknown
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [industry_lab, academic]
+  item_provenance: [unknown]
+  venue: preprint
+facets:
+  health_areas: [general_medicine, child_health, mental_health, other_specialty]
+  intended_users: [clinician]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: 80 questions
+provenance:
+  records: [r_43df0b3e94]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Introduced in the BooksMed paper (a GRADE-based LLM framework, 'Emulating Human Cognitive Processes for Expert-Level Medical Question-Answering'). The data availability statement says the benchmark is released as extended data with the manuscript; no standalone link or license was seen. The question authorship is not stated. Lead author at NeuroReef Labs (Texas) and others at US institutions. other_specialty covers neurology."

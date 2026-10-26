@@ -1,0 +1,46 @@
+id: small-open-llm-medical-qa-framework
+name: Small Open LLM Medical QA Evaluation Framework
+kind: eval_framework
+year: 2026
+summary: An open-source pipeline with eight quality metrics (BERTScore, ROUGE-L, LLM-as-judge rubric) and two reproducibility metrics from ten repeated runs, demonstrated on 50 MedQuAD questions and three small open-weight models.
+readme_section: frameworks
+links:
+  paper: https://arxiv.org/abs/2604.10535
+  arxiv: '2604.10535'
+  doi: 10.48550/arxiv.2604.10535
+  code: https://github.com/aviad-buskila/llm_medical_reproducibility
+license: null
+open_data: unknown
+geography:
+  item_languages:
+  - English
+  item_origin_countries:
+  - USA
+  item_origin_note: Demonstration questions are sampled from MedQuAD (NIH-curated consumer health Q&A); the paper motivates the work with Reddit but does not use Reddit data.
+  localization: adapted
+  lead_institution_countries:
+  - ISR
+origin:
+  builder_types:
+  - academic
+  item_provenance:
+  - adapted_dataset
+  venue: preprint
+facets:
+  health_areas:
+  - general_medicine
+  intended_users:
+  - patient_public
+  eval_methods:
+  - automatic_metric
+  - rubric_llm_judge
+  modality:
+  - text
+  size: 50 MedQuAD questions x 10 runs x 3 models = 1,500 responses
+provenance:
+  records:
+  - r_36c59732c1
+  extracted: '2026-10-26'
+  read_full_text: true
+  confidence: medium
+  notes: Read the arXiv HTML. The paper states code and data pipelines are available at the GitHub URL given, but that URL returned 404 when checked with the GitHub API (may be private or mistyped); open_data left unknown. CC BY 4.0 is the paper license, not a data license. USA origin of MedQuAD assumed from NIH sources, not checked. Single author at Bar-Ilan University.

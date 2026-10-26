@@ -1,0 +1,34 @@
+id: mindvoyager
+name: MindVoyager
+kind: eval_framework
+year: 2025
+summary: An evaluation framework with a client simulator whose openness and metacognition can be set, plus two metrics (Cognitive Diagram Exposure Rate, Induced Diagram Similarity Score) that measure how well an LLM therapist uncovers a client's unexpressed beliefs.
+readme_section: frameworks
+links:
+  paper: https://aclanthology.org/2025.findings-acl.1332/
+  arxiv: "2507.19643"
+  doi: 10.18653/v1/2025.findings-acl.1332
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Client cognitive diagrams come from the Patient-Psi-CM dataset of expert-written cognitive conceptualization diagrams; the dataset's country is not stated in the parts read.
+  localization: adapted
+  lead_institution_countries: [KOR]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: peer_reviewed
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [simulated_multi_turn, automatic_metric]
+  modality: [text]
+  size: 2 metrics; simulated client built on Patient-Psi-CM cognitive diagrams
+provenance:
+  records: [r_438f44e5db]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Findings of ACL 2025; authors at Yonsei University and Eulji University (Korea). Evaluation compares LLM therapists via simulated sessions and checks the metrics against the Cognitive Therapy Rating Scale (CTRS); three counselling experts gave qualitative feedback on simulator realism (countries not stated). No code, data link or license was found in the paper text or ACL Anthology page, so open_data is unknown. The paper states it does not advocate using LLMs for counselling."

@@ -1,0 +1,34 @@
+id: ahabench
+name: AHaBench
+kind: benchmark
+year: 2025
+summary: 500 mental-health prompts adapted from Reddit posts with emotional-dependency cues and reference responses, used to score LLM responses for affective hallucination (emotional enmeshment, illusion of presence, fostering overdependence).
+readme_section: mental_health
+links:
+  paper: https://arxiv.org/abs/2508.16921
+  arxiv: "2508.16921"
+  doi: 10.18653/v1/2026.findings-eacl.4
+license: CC-BY-NC-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Posts come from five mental-health subreddits (ADHD, PTSD, OCD, Aspergers, Depression) via a Hugging Face Reddit dataset; the posters' countries are not stated.
+  localization: native
+  lead_institution_countries: [KOR]
+origin:
+  builder_types: [academic]
+  item_provenance: [web_forum]
+  venue: peer_reviewed
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 500 prompts (plus AHaPairs, a 5,000-pair preference set for training, not part of the benchmark)
+provenance:
+  records: [r_c6379dc7f9]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: The paper says AHaBench is on Hugging Face but gives no dataset ID; Hugging Face search returns several unverified uploads, so no link is listed. Reference responses were written by the authors with guidance from a psychiatrist. A GPT-4o judge scores responses; human-GPT-4o agreement was checked on a subset. Released under CC BY-NC 4.0 per the paper.

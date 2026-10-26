@@ -1,0 +1,32 @@
+id: multi-tier-suicide-risk-rubric
+name: Multi-Tier Rubric for Suicide-Risk State Transitions in Conversational AI
+kind: eval_framework
+year: 2026
+summary: A methodology for scoring whether conversational AI recognizes clinically meaningful state transitions in multi-turn suicide-risk dialogue, using stage-aware scripted scenarios with per-turn reference annotations, a three-tier rubric, a deterministic Mechanical Severity Score, and blinded expert review.
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.5281/zenodo.20146999
+  doi: 10.5281/zenodo.20146999
+license: CC-BY-NC-4.0
+open_data: described_only
+geography:
+  item_languages: [UNKNOWN]
+  item_origin_countries: [UNKNOWN]
+  localization: unknown
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [implementer_ngo]
+  item_provenance: [clinician_written]
+  venue: preprint
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [simulated_multi_turn, rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: "53 scenarios; 1,759 evaluation runs across 31+ models; 2,644 annotated marker turns (author's corpus, not released)"
+provenance:
+  records: [r_778bd62251]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Single-author Zenodo preprint (CC-BY-NC 4.0, from the preprint text) by a clinical psychologist at a private company (Metonym LLC, Colorado, USA); a patent application is pending. The preprint withholds the scenario scripts, the full rubric anchor language, and the MSS weights, so the framework cannot be reproduced from it. Scenario language is not stated (not stated). Builder type is a small company, labelled implementer_ngo as the closest option. Recommend a human decision on whether a patent-pending, partly undisclosed methodology belongs in the catalog."

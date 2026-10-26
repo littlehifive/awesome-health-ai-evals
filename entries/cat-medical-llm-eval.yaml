@@ -1,0 +1,35 @@
+id: cat-medical-llm-eval
+name: CAT for medical LLM evaluation
+kind: eval_framework
+year: 2026
+summary: An item-response-theory computerized adaptive testing framework that scores LLM medical knowledge with far fewer items, validated on 38 LLMs using a non-public bank of 2,815 calibrated Chinese medical MCQs.
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.1038/s41746-026-02671-w
+  doi: 10.1038/s41746-026-02671-w
+  arxiv: "2603.23506"
+  code: https://github.com/zjiang4/LLM-CAT
+license: null
+open_data: described_only
+geography:
+  item_languages: [Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: Item bank from China's National Center for Health Professions Education Development (Competency Test for Clinical Medicine Undergraduates), calibrated on 40,000+ medical students. The language is not stated outright; the paper refers to the Chinese medical context.
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [medical_student]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 2,815 MCQs in a non-public item bank; 38 LLMs evaluated
+provenance:
+  records: [r_25b910f982, r_dd76e93cd4]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "The item bank is deliberately not public to avoid contamination. The arXiv text says code will be released at github.com/zjiang4/LLM-CAT on publication; the GitHub README (record r_dd76e93cd4) repeats the paper results and says the item bank is secure and non-public. Venue is npj Digital Medicine per the screening record; the arXiv version was read."

@@ -1,0 +1,31 @@
+id: yesil-health-benchmarks
+name: LLM Health Benchmarks Dataset (Yesil Science)
+kind: benchmark
+year: 2024
+summary: About 7,500 multiple-choice health and medical questions with single-letter answers, split into more than 50 specialty and health-topic subsets, for scoring LLMs by exact match.
+readme_section: knowledge_exam
+links:
+  huggingface: [yesilhealth/Health_Benchmarks]
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [industry_lab]
+  item_provenance: [unknown]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine, public_health, nutrition, mental_health]
+  intended_users: [clinician, medical_student]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: "About 7,500 questions in 50+ subsets (roughly 80 to 180 questions each)"
+provenance:
+  records: [r_dd55b1c183]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "Dataset card only, no paper. Splits cover specialties (dermatology, oncology, and others) and non-clinical topics (wearables, sleep, supplements, health economics). Rows sampled from the Dermatology split are four-option questions with a letter answer; the card suggests exact match, F1, or semantic similarity. The card does not say how questions were made, and the uploader (Yesil Science) country is not stated. Card citation year is 2025, first release 2024 per the screening record. Builder type is an assumption from a company contact address."

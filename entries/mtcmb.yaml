@@ -1,0 +1,36 @@
+id: mtcmb
+name: MTCMB
+kind: benchmark
+year: 2026
+summary: Multi-Task TCM Assessment Benchmark of 12 sub-datasets in five categories (knowledge QA, language understanding, diagnostic reasoning, prescription recommendation, safety) for evaluating LLMs in traditional Chinese medicine.
+readme_section: multilingual_regional
+links:
+  paper: https://doi.org/10.1038/s41597-026-07967-w
+  doi: 10.1038/s41597-026-07967-w
+  arxiv: "2506.01252"
+  dataset: https://doi.org/10.5281/zenodo.20362742
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: Built from real-world case records, national licensing exams, and textbooks; the country is inferred from the TCM exams and the Chinese funding and hospital named in the paper.
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions, literature, clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [traditional_medicine]
+  intended_users: [unspecified]
+  eval_methods: [mcq_exact_match, automatic_metric]
+  modality: [text]
+  size: 12 sub-datasets (for example TCM-ED-A 1,200 and TCM-ED-B 4,800 exam questions; several 100 to 200 item generative sets)
+provenance:
+  records: [r_a12aec33d2, r_2c6f4fcb46, r_a9fa3d434a]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Updated from the arXiv preprint (2506.01252) and the Zenodo record (CC-BY-4.0, 12 JSONL files, 2026-05-31). Scoring per the preprint: accuracy for exam MCQ sets; BLEU, ROUGE, and BERTScore for generative sets (entity extraction, record generation, diagnosis, prescription). Items come from exam banks, real clinical cases from online databases and practitioner submissions, and classical texts. The first-pass guess that the Scientific Data article was the source of the data is superseded; the country is still inferred, not stated as an item origin."
+

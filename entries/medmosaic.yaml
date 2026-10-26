@@ -1,0 +1,35 @@
+id: medmosaic
+name: MedMosaic
+kind: benchmark
+year: 2026
+summary: Medical audio question-answering benchmark with 46,701 QA pairs (multiple choice, multi-turn, open-ended) over physiological sounds, synthetic speech with artifacts, and real clinical conversations; the public Hugging Face release has 4,661 records.
+readme_section: voice
+links:
+  paper: https://arxiv.org/abs/2605.00969
+  arxiv: "2605.00969"
+  huggingface: [CentificAIResearch/MedMosaic, icml-anon-submission/medmosaic-dataset]
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Built from open datasets (Ekacare, MultiMed, Primock57, Primock-med and others) plus ElevenLabs-synthesized audio; countries of the source recordings are not stated in the text read.
+  rater_countries: [UNKNOWN]
+  localization: adapted
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [industry_lab, academic]
+  item_provenance: [adapted_dataset, llm_generated]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match, rubric_llm_judge]
+  modality: [voice]
+  size: 46,701 QA pairs in the paper; 4,661 records on Hugging Face
+provenance:
+  records: [r_def4422a14, r_ac9f425f41]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Authors at Centific Global Solutions and University of Maryland. QA pairs are LLM-generated; two healthcare professionals validated 145 sampled pairs (72.4% acceptance). The paper says its release covers a sample (shorturl link); the HF card lists 4,661 records, so the full 46,701 may not be public. icml-anon-submission/medmosaic-dataset has an identical card and is treated as a mirror. How open-ended answers are scored was not checked."

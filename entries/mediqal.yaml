@@ -1,0 +1,35 @@
+id: mediqal
+name: MediQAl
+kind: benchmark
+year: 2025
+summary: "32,603 French medical questions from national medical licensing exam preparation sources across 41 subjects: single-answer MCQ, multiple-answer MCQ, and short-answer open questions, labelled Understanding or Reasoning."
+readme_section: multilingual_regional
+links:
+  paper: https://doi.org/10.1038/s41597-026-06680-y
+  doi: 10.1038/s41597-026-06680-y
+  arxiv: "2507.20917"
+  pmcid: PMC12982583
+  huggingface: [ANR-MALADES/MediQAl]
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [French]
+  item_origin_countries: [FRA]
+  localization: native
+  lead_institution_countries: [FRA]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions, web_forum]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [medical_student, clinician]
+  eval_methods: [mcq_exact_match, automatic_metric, rubric_llm_judge]
+  modality: [text]
+  size: "32,603 questions (17,017 MCQU, 10,617 MCQM, 4,969 OEQ)"
+provenance:
+  records: [r_4b3027e98b, r_9f5e7996d3]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Questions were collected from public websites and forums where faculty and students share preparation questions for the French national medical exam. MCQU is scored by accuracy, MCQM by exact match ratio and Hamming score, OEQ by ROUGE-1, BLEU-4, BERTScore, and an LLM judge (1 to 10). Train, validation, and test splits exist for MCQ subsets; OEQ is test only. Data is also on Zenodo (10.5281/zenodo.18220039)."

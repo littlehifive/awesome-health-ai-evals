@@ -1,0 +1,34 @@
+id: rheumbench
+name: RheumBench
+kind: benchmark
+year: 2026
+summary: 100 rheumatology clinical cases (70 diagnostic, 30 management) with 1,020 case-specific rubric criteria weighted by two rheumatologists for appropriateness and harm, scored by a three-LLM judge panel.
+readme_section: open_ended
+links:
+  paper: https://doi.org/10.21203/rs.3.rs-10825548/v1
+  doi: 10.21203/rs.3.rs-10825548/v1
+license: null
+open_data: gated
+geography:
+  item_languages: [UNKNOWN]
+  item_origin_countries: [DEU]
+  item_origin_note: Cases were contributed by a panel of rheumatologists including members of a German rheumatology society committee, plus 10 de-identified cases from University Hospital Hamburg. The language of the cases is not stated in the sections read.
+  rater_countries: [DEU]
+  localization: native
+  lead_institution_countries: [DEU]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written]
+  venue: preprint
+facets:
+  health_areas: [other_specialty]
+  intended_users: [clinician]
+  eval_methods: [rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 100 cases, 1,020 rubric criteria
+provenance:
+  records: [r_08b020d08b]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Research Square preprint, under review; read via the landing page text, not the PDF. Data availability statement says raw data are available from the authors on reasonable request, and the paper says the benchmark will be continuously expanded; no public download link seen, so open_data is gated by that statement. Paper text is CC BY 4.0; dataset license unstated. Item language not confirmed. Rater countries inferred from the affiliations of the rheumatologist panel."

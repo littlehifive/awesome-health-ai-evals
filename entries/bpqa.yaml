@@ -1,0 +1,34 @@
+id: bpqa
+name: BPQA
+kind: benchmark
+year: 2025
+summary: 100 medical question-answer pairs whose answers depend on a stated blood pressure reading, verified by medical students, for testing whether language models can use clinical measurements.
+readme_section: knowledge_exam
+links:
+  paper: http://arxiv.org/abs/2503.04155
+  arxiv: "2503.04155"
+  doi: 10.48550/arxiv.2503.04155
+  huggingface: [Kekelilii/BPQA100]
+license: null
+open_data: gated
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [unknown]
+  venue: preprint
+facets:
+  health_areas: [cardiology]
+  intended_users: [unspecified]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 100 question-answer pairs in four question types
+provenance:
+  records: [r_acfa3baa0c]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: Only the opening of the paper was read. The Hugging Face dataset page reports restricted access. Item sources, metric, countries, and lead institutions are not confirmed. Models tested were BERT, BioBERT, MedAlpaca, and GPT-3.5.

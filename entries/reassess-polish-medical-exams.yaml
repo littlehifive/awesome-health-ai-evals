@@ -1,0 +1,34 @@
+id: reassess-polish-medical-exams
+name: Reassess-Polish-Medical-Exams
+kind: benchmark
+year: 2026
+summary: "Polish medical, dental, pharmacy and laboratory-diagnostics exam questions (seven sets, with English editions of two), expanded by over 15,000 questions and paired with bias-reducing question formats and an open-ended setup."
+readme_section: multilingual_regional
+links:
+  paper: https://arxiv.org/abs/2606.12250
+  arxiv: "2606.12250"
+  huggingface: [NASK-PIB/Reassess-Polish-Medical-Exams]
+  code: https://github.com/NASK-NLP/Reassess-Polish-Medical-Exams
+license: CC-BY-NC-SA-4.0
+open_data: open
+geography:
+  item_languages: [Polish, English]
+  item_origin_countries: [POL]
+  localization: native
+  lead_institution_countries: [POL]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions, adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [general_medicine, dentistry, pharmacy_medication]
+  intended_users: [medical_student, clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: "seven exam sets (LEK, LDEK, PES, PESDL, PESF, LEK-EN, LDEK-EN); over 15,000 questions added to the earlier benchmark"
+provenance:
+  records: [r_016650477a]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Extends the Polish Medical Exams benchmark of Grzybowski et al. 2025 (no separate entry found in entries/) with permission from its authors. Total item count not read. Exams are from the Polish Centre of Medical Examination and the Supreme Medical Chamber. The English LEK/LDEK editions come from the exam bodies' own English versions. The paper also evaluates an open-ended setup. Lead institution assumed Poland from NASK; the first author's affiliation was not read. Card lists EMNLP 2026 Findings."

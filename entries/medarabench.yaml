@@ -1,0 +1,37 @@
+id: medarabench
+name: MedAraBench
+kind: benchmark
+year: 2026
+summary: 24,883 Arabic medical multiple-choice questions across 19 specialties and five difficulty levels (study years 1 to 5), digitized from medical school exams, with an 80/20 train/test split, scored by accuracy.
+readme_section: multilingual_regional
+links:
+  paper: https://arxiv.org/abs/2602.01714
+  arxiv: "2602.01714"
+  doi: 10.48550/arxiv.2602.01714
+  huggingface: [IFM/MedAraBench_verified]
+  code: https://github.com/nyuad-cai/MedAraBench
+license: null
+open_data: open
+geography:
+  item_languages: [Arabic]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Scanned exams from regional medical schools in the Arabic-speaking region, shared on student-run platforms; the paper does not name countries.
+  rater_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [ARE]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [medical_student, clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 24,883 questions (about 80 percent train, 20 percent test)
+provenance:
+  records: [r_d29fab9e6e]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Dataset is on GitHub as CSV splits (README and paper link); the GitHub repo shows no license, and the IFM Hugging Face card says the source states no license. IFM/MedAraBench_verified is a third party's filter list (4,031 kept test rows, applied to the QIMMA copy), not the questions themselves; it is listed as a related link only. The HF card says ICLR 2026; the arXiv paper does not say, so venue is recorded as preprint. Quality was checked by expert clinicians and LLM judges. Authors at NYU Abu Dhabi."

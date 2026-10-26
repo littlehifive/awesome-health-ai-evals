@@ -1,0 +1,32 @@
+id: mii-llm-test-medicina-eval
+name: mii-llm/test_medicina_eval
+kind: benchmark
+year: 2024
+summary: 1,468 Italian five-option multiple-choice questions (1,438 test, 30 validation) in the style of a medical-school admission test, covering chemistry, logic, and other topics, scored by exact match.
+readme_section: multilingual_regional
+links:
+  huggingface: [mii-llm/test_medicina_eval]
+license: null
+open_data: open
+geography:
+  item_languages: [Italian]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: The card is empty. The items are Italian and look like questions from the Italian medical-school admission test (the category field is "test_medicina"), but the card does not say so.
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [unknown]
+  item_provenance: [exam_questions]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine]
+  intended_users: [medical_student]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 1,468 questions (1,438 test, 30 validation)
+provenance:
+  records: [r_903dee8bc3]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "Dataset card has only a schema (question, options A-E, answer, category, macro) and split sizes; no description, license, paper, or builder statement. Sampled rows include chemistry and number-pattern logic questions, so not all items test health knowledge. Item provenance is inferred from the category name and item content. Publisher mii-llm is the only attribution."

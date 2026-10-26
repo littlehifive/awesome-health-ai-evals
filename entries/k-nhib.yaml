@@ -1,0 +1,34 @@
+id: k-nhib
+name: K-NHIB
+kind: benchmark
+year: 2026
+summary: "222 synthetic cases (74 anticancer regimens, 3 gynecologic cancers) for judging reimbursement eligibility under South Korea's National Health Insurance as eligible, ineligible or undeterminable against Korean HIRA guidelines, scored by accuracy and per-class F1."
+readme_section: multilingual_regional
+links:
+  paper: https://doi.org/10.2196/95877
+  doi: 10.5281/zenodo.20563359
+  dataset: https://zenodo.org/records/20563359
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [Korean]
+  item_origin_countries: [KOR]
+  item_origin_note: Cases are built from public Korean HIRA reimbursement guideline documents; the case attributes and regimen names are in Korean.
+  localization: native
+  lead_institution_countries: [KOR]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [oncology]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: "222 cases (74 regimens x 3 outcome classes)"
+provenance:
+  records: [r_34b1fc460f]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Read the Zenodo record and the downloaded archive (README, data dictionary, prompts, one sheet of the XLSX). Dataset and docs are CC BY 4.0, code MIT. Cases are synthetic or processed, with no patient identifiers. Borderline scope: it tests coverage-rule adjudication for clinical cases rather than health question answering. The paper link is the companion JMIR article named in the README (J Med Internet Res 2026;28:e95877), which was not read. Authors at ETOILE Inc., Samsung Medical Center and Asan Medical Center."

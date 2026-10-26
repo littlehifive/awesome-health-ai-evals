@@ -1,0 +1,36 @@
+id: medmisbench
+name: MedMisBench
+kind: benchmark
+year: 2026
+summary: "10,932 multiple-choice medical questions (from MedQA, MedMCQA, MedXpertQA, MedJourney, and HLE) paired with option-level misleading context along 5 corruption types and 3 provenance framings, measuring whether LLMs keep the correct answer."
+readme_section: safety
+links:
+  paper: https://doi.org/10.64898/2026.05.25.727671
+  doi: 10.64898/2026.05.25.727671
+  arxiv: "2606.12291"
+  huggingface: [HongjianZhou/MedMisBench]
+license: custom
+open_data: open
+geography:
+  item_languages: [English, Chinese]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Source questions come from existing benchmarks and their original countries are not listed. A small subset (mainly MedJourney) is in Chinese.
+  rater_countries: [UNKNOWN]
+  localization: adapted
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, llm_generated]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public, clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 10,932 items; 48,889 misleading context-option pairs
+provenance:
+  records: [r_d92e1325a0, r_70a52ee8ae, r_279334d8c3]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Injections were written by Gemini-3-flash; a 14-member clinical panel from 7 countries reviewed 89 items (rater countries not listed). License is 'other' on the card: research use, subject to the licenses of the source datasets. Johndfm/MedMisBench-MentalHealth (449 rows, CC-BY-4.0) is a third-party keyword-selected mental-health subset and is recorded here, not as its own entry. The GitHub study of two small LLMs on that subset (r_d65d39932d) is not part of this entry. bioRxiv paper read via paperclip; arXiv ID 2606.12291 comes from the screening record for the HF dataset and was not opened."

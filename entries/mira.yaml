@@ -1,0 +1,35 @@
+id: mira
+name: MIRA (Medical Information Response Audit)
+kind: benchmark
+year: 2026
+summary: 4,320 English and Chinese prompts built from 60 medically reviewed low-risk health questions, varied by register and health-literacy signal, scored by an LLM judge for how much key medical information responses preserve.
+readme_section: safety
+links:
+  paper: https://arxiv.org/abs/2605.28025
+  arxiv: "2605.28025"
+  doi: 10.48550/arxiv.2605.28025
+  code: https://github.com/Rainxu09/MIRA
+license: null
+open_data: open
+geography:
+  item_languages: [English, Mandarin Chinese]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Seeds were written by the authors and reviewed by a medically trained co-author, citing guideline sources such as ACOG and the Chinese Medical Association; no country of origin is stated. A 300-post validation set came from Reddit and Xiaohongshu/RedNote.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written, llm_generated]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine, mental_health, maternal_newborn]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 4,320 prompts from 60 seeds; 60 seed checklists; 300 real posts for validation
+provenance:
+  records: [r_51d37aa550]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Read the paper's method sections and the repo README (prompts_all.jsonl, seed_checklists.jsonl, seedfinal.csv, judge rubric PDF). No licence file seen in the repo. The README says EMNLP 2026 main conference. How the prompt variants were expanded from seeds (human or LLM) is not confirmed, so item_provenance includes llm_generated as a likely value. The first author's institution (University of Chicago) is used for the lead country; the last author is at Northwestern."

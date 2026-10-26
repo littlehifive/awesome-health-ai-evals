@@ -1,0 +1,32 @@
+id: pia-medical-chatbot-benchmark
+name: Benchmarking Information Extraction and Communication Quality in Medical Chatbots (PIA)
+kind: eval_framework
+year: 2026
+summary: A master-thesis benchmarking pipeline for a prenatal-care consultation chatbot, scoring information extraction, topic coverage, citation faithfulness, and mandatory-question compliance on six German obstetrics consent documents and synthetic patient dialogues.
+readme_section: frameworks
+links:
+  code: https://github.com/maybe-im-a-mess/benchmarking-medical-chatbots
+license: MIT
+open_data: open
+geography:
+  item_languages: [German]
+  item_origin_countries: [DEU]
+  item_origin_note: Six German obstetrics consent and information documents; the README does not name the clinic or country explicitly, so Germany is inferred from the document language and titles.
+  localization: native
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature, llm_generated]
+  venue: grey_literature
+facets:
+  health_areas: [maternal_newborn]
+  intended_users: [patient_public]
+  eval_methods: [simulated_multi_turn, rubric_llm_judge, automatic_metric]
+  modality: [text]
+  size: 6 source documents with human-annotated ground truth; synthetic multi-persona patient conversations
+provenance:
+  records: [r_247b18f915]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: GitHub README of a thesis by Olha Solodovnyk, built for the Patient Information Assistant (PIA) project. Open status is from the public repo containing ground_truth.json and data. University not stated in the README.

@@ -1,0 +1,34 @@
+id: ophthbench
+name: OphthBench
+kind: benchmark
+year: 2025
+summary: 591 Chinese-language ophthalmology questions (single-choice, multiple-choice, open-ended) covering education, triage, diagnosis, treatment, and prognosis tasks, scored by accuracy, F1, and an LLM judge.
+readme_section: multilingual_regional
+links:
+  paper: https://arxiv.org/abs/2502.01243
+  arxiv: "2502.01243"
+license: null
+open_data: unknown
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: Built from the Chinese Medical Licensing Exam, Resident Standardization Training Exam, Doctor in-charge Qualification Exam, Chinese ophthalmology textbooks, and real clinical cases.
+  rater_countries: [CHN]
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions, literature, clinician_written]
+  venue: preprint
+facets:
+  health_areas: [ophthalmology]
+  intended_users: [clinician, medical_student]
+  eval_methods: [mcq_exact_match, rubric_llm_judge]
+  modality: [text]
+  size: 591 questions, 9 tasks
+provenance:
+  records: [r_d90dd22986]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Three ophthalmologists built the questions; open-ended reference answers were drafted by GPT-4o and refined by ophthalmologists. Open-ended answers are scored by CompassJudger-1-7B across seven dimensions; 39 LLMs were evaluated. The paper has no data-availability statement or repo link in the text read, so license is null and open_data is unknown. Authors are at Changsha Aier Eye Hospital (a hospital group), listed as academic."

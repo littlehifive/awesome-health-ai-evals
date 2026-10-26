@@ -1,0 +1,34 @@
+id: webmedqa
+name: webMedQA
+kind: benchmark
+year: 2019
+summary: 63,284 Chinese medical questions with doctor- or user-adopted answers from Baidu Doctor and 120Ask, framed as answer selection (one positive and four negative answers per question) with train, dev and test splits.
+readme_section: multilingual_regional
+links:
+  paper: https://doi.org/10.1186/s12911-019-0761-8
+  pmcid: PMC6454599
+  doi: 10.1186/s12911-019-0761-8
+  code: https://github.com/hejunqing/webMedQA
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [CHN]
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [web_forum]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 63,284 questions (50,610 train, 6,337 dev, 6,337 test)
+provenance:
+  records: [r_451a717edf]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Scored with Precision at 1 and MAP for answer ranking, not for generative LLM output. The Apache-2.0 license is the GitHub repository's license; the paper describes data collected from consultancy websites. The Hugging Face zirui3/webMedQA-instructions set is a third-party instruction-tuning derivative and is not listed. Released in 2018-2019 and still cited for Chinese medical QA."

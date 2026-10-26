@@ -1,0 +1,33 @@
+id: health-score
+name: Health-SCORE
+kind: eval_framework
+year: 2026
+summary: A set of generalized healthcare rubrics distilled by clustering HealthBench's instance-level physician-written criteria, with an adaptive rubric-selection step, used both to score open-ended medical LLM responses and as an RL reward or in-context guidance.
+readme_section: frameworks
+links:
+  paper: https://arxiv.org/abs/2601.18706
+  arxiv: "2601.18706"
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Rubrics are derived from HealthBench, whose conversations and physician criteria are not tied to one country.
+  localization: adapted
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [industry_lab]
+  item_provenance: [adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician, patient_public]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: Rubric set built from HealthBench's physician-authored criteria; evaluated on HealthBench, HealthBench-Hard, and CSEDB
+provenance:
+  records: [r_3458c19dfb]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Read the introduction, method, and experiments in paperclip; authors write from Optum (correspondence addresses at optum.com), so the lead institution country is inferred as USA. No code, rubric-file, or dataset link was seen in the text, so open_data is unknown. The paper's main claims concern training with rubric rewards and in-context use; the rubric set is the evaluation artifact. Intended users are a best guess from HealthBench's scope."

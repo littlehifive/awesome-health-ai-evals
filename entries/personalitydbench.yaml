@@ -1,0 +1,32 @@
+id: personalitydbench
+name: PersonalityDBench
+kind: benchmark
+year: 2026
+summary: "Dataset on personality disorders with two parts: PRISMA, clinically annotated social media posts, and PersonaDSteering, a benchmark that tests whether LLMs can be steered toward clinically grounded personality-disorder behaviors for simulated-patient personas."
+readme_section: mental_health
+links:
+  paper: https://doi.org/10.48448/wtee-sd18
+  doi: 10.48448/wtee-sd18
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [web_forum]
+  venue: peer_reviewed
+facets:
+  health_areas: [mental_health]
+  intended_users: [unspecified]
+  eval_methods: [simulated_multi_turn]
+  modality: [text]
+  size: unknown
+provenance:
+  records: [r_89e88aedd2]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "Only the abstract was reachable (Underline record, no arXiv, Hugging Face, or code link). Item language, platform and country, size, scoring method, license, and release status are all unknown; English and web_forum are guesses from the social-media description. Borderline scope: the steering benchmark tests persona generation for simulated patients rather than health advice. A human should check the full text or drop it."

@@ -1,0 +1,34 @@
+id: companionbench
+name: CompanionBench
+kind: benchmark
+year: 2026
+summary: Interactive bilingual (Chinese and English) benchmark for AI emotional companionship, with 500 parallel persona pairs grounded in de-identified real conversations, a trained user simulator, and a ten-capability rubric scored by an LLM judge panel.
+readme_section: mental_health
+links:
+  paper: https://arxiv.org/abs/2608.02046
+  arxiv: "2608.02046"
+  doi: 10.48550/arxiv.2608.02046
+license: null
+open_data: unknown
+geography:
+  item_languages: [Mandarin Chinese, English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Personas are drawn from tens of thousands of de-identified real conversations (rewritten by an LLM and human-reviewed), with culturally specific concepts synthesized separately in each language. The paper excerpts read do not name the platform or country of the source corpus.
+  localization: native
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [unknown]
+  item_provenance: [real_user_queries, llm_generated]
+  venue: preprint
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge, simulated_multi_turn]
+  modality: [text]
+  size: 500 Chinese-English parallel persona pairs (1,000 examples); 28 agents evaluated
+provenance:
+  records: [r_dcdc590104]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Read the arXiv HTML version in part (introduction, method, datasheet appendix). The paper says it WILL release the 500 pairs and evaluation code; no download link was seen, so open_data is unknown. The raw corpus is not released and carries training-use terms from the data provider. Crisis scenarios and minors are excluded. Scope is emotional companionship rather than clinical care; a human may want to confirm it belongs in the catalog. Ten capabilities (C1 to C10) from 25 psychology theories are rated 1 to 10, plus a deterministic disclosure-depth measure; capability definitions are left to pass 2. Affiliations of authors were not checked."

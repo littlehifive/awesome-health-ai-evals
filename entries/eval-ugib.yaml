@@ -1,0 +1,35 @@
+id: eval-ugib
+name: EVAL (Expert-of-Experts Verification and Alignment) for UGIB
+kind: eval_framework
+year: 2025
+summary: A framework that ranks LLM configurations and screens individual answers on upper gastrointestinal bleeding management, using expert golden-label answers, embedding similarity (fine-tuned ColBERT), and a trained reward model, with three small UGIB question sets (13 expert questions, 40 ACG MCQs, 117 simulation questions).
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.1038/s41746-025-01589-z
+  doi: 10.1038/s41746-025-01589-z
+  pmcid: PMC12049514
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Expert questions were written by guideline authors from North America, Europe, and Asia-Pacific; 117 questions came from physician trainees in medical simulation sessions (Yale IRB); 40 MCQs are from American College of Gastroenterology self-assessments.
+  rater_countries: [USA]
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written, exam_questions, real_user_queries]
+  venue: peer_reviewed
+facets:
+  health_areas: [other_specialty]
+  intended_users: [clinician]
+  eval_methods: [expert_human_rating, automatic_metric]
+  modality: [text]
+  size: "170 questions (13 expert, 40 ACG MCQ, 117 simulation); 3,510 graded responses plus earlier graded sets"
+provenance:
+  records: [r_c3739ca26e]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "The paper lists supplementary files (docx and two CSVs) with the question sets and expert answers; license not stated, so null. open_data is open on the basis of those supplementary files, but I did not open them. Rater countries are inferred from Yale authorship of the graders and are not stated. Narrow single-topic framework (UGIB only); the paper says scaling to other domains is future work."

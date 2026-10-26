@@ -1,0 +1,32 @@
+id: cibb-clinical-oracle-engine
+name: CIBB Clinical Oracle Engine
+kind: benchmark
+year: 2026
+summary: A research-only deterministic oracle of 12 primary and 2 backup clinical-calculator rules plus a fully synthetic record generator and metamorphic tests, for auditing whether LLM clinical-calculation pipelines compute correctly.
+readme_section: knowledge_exam
+links:
+  code: https://github.com/mdfaisals2025/cibb-clinical-oracle-engine
+license: MIT
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Fully synthetic records.
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 14 calculator rules with a synthetic record generator
+provenance:
+  records: [r_22ea569b85]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: Only the GitHub README was read. It mentions an accompanying manuscript that is not linked. Item provenance (synthetic generator, listed as llm_generated for lack of a better value, though generation is programmatic) and scoring details are thin. Borderline scope.

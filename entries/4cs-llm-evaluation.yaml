@@ -1,0 +1,33 @@
+id: 4cs-llm-evaluation
+name: 4Cs of language model evaluation
+kind: eval_framework
+year: 2023
+summary: A four-criterion rubric (correct, concise, comprehensive, comprehensible; 1-5 scale) for rating LLM health advice, applied to 123 patient prompts on four cardiovascular topics in English and Danish.
+readme_section: frameworks
+links:
+  paper: https://pmc.ncbi.nlm.nih.gov/articles/PMC10649823/
+  doi: 10.1136/openhrt-2023-002455
+  pmcid: PMC10649823
+open_data: unknown
+geography:
+  item_languages: [English, Danish]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: The authors wrote the prompts (varied by topic, language, description depth, and health literacy). The article does not state a country of origin for them.
+  lead_institution_countries: [DNK]
+  localization: native
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [cardiology]
+  intended_users: [patient_public]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: 123 prompts across 4 cardiovascular topics
+provenance:
+  records: [r_e1ee52f3de]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "The 123 prompts and ChatGPT responses are in online supplemental materials, which were not opened, so open_data is unknown. Prompt authors' clinical background is not confirmed (medical and communication experts scored responses); item_provenance is a best fit. The paper also contains a literature review of 258 ChatGPT papers."

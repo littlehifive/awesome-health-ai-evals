@@ -1,0 +1,36 @@
+id: tcmeval-sdt
+name: TCMEval-SDT
+kind: benchmark
+year: 2025
+summary: 300 TCM syndrome-differentiation cases (200 train, 50 validation, 50 test) with four subtasks (data extraction, pathogenesis reasoning, syndrome reasoning, explanatory summary), scored by accuracy and ROUGE-L.
+readme_section: multilingual_regional
+links:
+  paper: https://doi.org/10.1038/s41597-025-04772-9
+  doi: 10.1038/s41597-025-04772-9
+  pmcid: PMC11906624
+  dataset: https://doi.org/10.6084/m9.figshare.27184596.v4
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: Cases sourced from the internet, classical Chinese medical texts and hospital medical records. The language is not stated in the parts read; the source material is Chinese.
+  rater_countries: [CHN]
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature, clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [traditional_medicine]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match, automatic_metric]
+  modality: [text]
+  size: 300 cases
+provenance:
+  records: [r_8cdbbc21f6]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Cases annotated and curated by TCM experts; metadata follows FAIR principles and TCM ICD-11 (TM1) categories. Pathogenesis and syndrome reasoning are 10-option multiple choice; the explanatory summary is scored with ROUGE-L. The test and validation files omit the pathogenesis and syndrome reasoning answers. Rater country inferred from author affiliations in China."

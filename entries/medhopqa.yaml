@@ -1,0 +1,36 @@
+id: medhopqa
+name: MedHopQA
+kind: benchmark
+year: 2025
+summary: 1,000 expert-curated open-ended disease-centered multi-hop questions, each needing information from two Wikipedia articles, hidden in a 10,000-question package and scored by lexicon-aware string match (BioCreative IX shared task).
+readme_section: knowledge_exam
+links:
+  paper: https://arxiv.org/abs/2605.12361
+  arxiv: "2605.12361"
+  doi: 10.48550/arxiv.2605.12361
+  pmcid: PMC13317653
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Questions are built from English Wikipedia disease articles by a single US institution's annotators; no country origin.
+  rater_countries: [USA]
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic, government]
+  item_provenance: [clinician_written, llm_generated, literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [unspecified]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 1,000 evaluation questions inside a 10,000-question download package
+provenance:
+  records: [r_56a578a5ce, r_d236452361, r_d71b005c35]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Led by NLM/NIH. Downloadable on CodaBench (answers to the 1,000 test questions are hidden; no license stated, so license null). r_d236452361 is a Database journal version (doi 10.1093/database/baag057) and r_d71b005c35 (arXiv 2605.12313) is the BioCreative IX track overview with participant results. Questions were written by 16 annotators plus o1-generated questions, blind-reviewed. Biomedical rather than patient-facing; borderline scope."

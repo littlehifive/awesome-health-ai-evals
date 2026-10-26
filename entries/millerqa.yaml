@@ -1,0 +1,32 @@
+id: millerqa
+name: MillerQA
+kind: benchmark
+year: 2026
+summary: A suite of 24 multiple-choice benchmarks (9,406 curated items shipped) assembled from 15 existing sources, grouped into clinical judgment, robustness and fairness, ethical reasoning, medical knowledge, and legal and regulatory dimensions, with a zero-shot harness.
+readme_section: knowledge_exam
+links:
+  code: https://github.com/KatherLab/MillerQA
+license: custom
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Items come from 15 upstream datasets with mixed origins; the Global MMLU subset covers 15 languages. Country of origin is not given in the README.
+  localization: adapted
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine, other_specialty]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 9,406 curated items across 23 shipped benchmarks (24 in the paper, 9,594 curated; MedBullets not redistributed)
+provenance:
+  records: [r_fe9395d5fe]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: medium
+  notes: "Read the GitHub README only; the accompanying paper is not linked from it. Mixed-licence collection: each source keeps its own licence (e.g., CC-BY-4.0, MIT, Apache-2.0, CC-BY-NC) and the authors' harness and QC layer are CC-BY-4.0, so license is recorded as custom. Two subsets are non-commercial only. The suite includes non-health items (nine LegalBench sets, TruthfulQA, MMLU-Pro philosophy). Original (pre-QC) and curated releases are both provided. Lead institution is not stated in the README (owner is KatherLab on GitHub); check the paper."

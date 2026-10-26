@@ -1,0 +1,34 @@
+id: clini-eval
+name: Clini-Eval
+kind: eval_framework
+year: 2025
+summary: An LLM-based evaluation method for simulated clinical interview dialogues, with a metric system (history mastery with 16 sub-metrics, interviewing technique with 8 more, customized inquiry) and a two-phase Demo2Eval procedure, part of the CliniChat framework.
+readme_section: frameworks
+links:
+  paper: https://arxiv.org/abs/2504.10418
+  arxiv: "2504.10418"
+  doi: 10.48550/arxiv.2504.10418
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Evaluation dialogues were reconstructed from MedQA-USMLE case-study questions (US licensing exam). The language of the dialogues is taken from the appendix examples.
+  localization: adapted
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, llm_generated]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician, medical_student]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: Metric system for interview dialogues; MedQA-Dialog has 10,263 dialogues across 3,154 diseases (a training set)
+provenance:
+  records: [r_43ca54ddd5]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Tongji University and Wuhan University hospitals. The entry covers the Clini-Eval evaluation module only. The paper's MedQA-Dialog dataset and ClinChatGLM model are training resources and are not part of this entry. The paper says the dataset, model, and code will be public upon acceptance; no link was found. Metrics draw on Peking Union Medical College interview scoring criteria and the Tulane Master Interview Rating Scale."

@@ -1,0 +1,33 @@
+id: healthbench-multilingual
+name: HealthBench Multilingual
+kind: benchmark
+adapted_from: [healthbench]
+year: 2026
+summary: Machine translation of HealthBench conversations and physician rubrics into 32 languages, including Amharic, Hausa, Swahili, and Urdu, released as part of the AEGIS-1 collection.
+readme_section: multilingual_regional
+links:
+  huggingface: [projetogabi/healthbench-multilingual]
+license: MIT
+open_data: open
+geography:
+  item_languages: [English, Amharic, Arabic, Bengali, Chinese, Dutch, Estonian, Finnish, French, German, Hausa, Hindi, Indonesian, Italian, Japanese, Korean, Latvian, Lithuanian, Malay, Norwegian, Persian, Polish, Portuguese, Russian, Somali, Spanish, Swahili, Swedish, Thai, Turkish, Ukrainian, Urdu, Vietnamese]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Translated from HealthBench, whose conversations have no single country origin.
+  localization: translated
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public, clinician]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: HealthBench's 5,000 conversations in 32 translated languages plus the English original
+provenance:
+  records: [r_8a4968ecfb]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Dataset card only. The card says 33 languages (1 original + 32 translated); the language list was taken from the card tags and table, so check it. The card does not say how translation was done or whether anyone reviewed it, and it warns of machine-translation artifacts. Builder type and lead institution are unverified; the card cites an AEGIS-1 paper. License MIT is on the card; it is inherited from HealthBench."

@@ -1,0 +1,36 @@
+id: medmcqa-ita
+name: MedMCQA-ITA
+kind: benchmark
+year: 2024
+summary: A machine-translated Italian version of MedMCQA (Indian medical entrance exam multiple-choice questions), created to evaluate the Igea Italian biomedical language models; the card lists 182,822 train, 4,183 validation, and 6,150 test questions.
+readme_section: multilingual_regional
+adapted_from: [medmcqa]
+links:
+  paper: https://arxiv.org/abs/2407.06011
+  arxiv: "2407.06011"
+  doi: 10.48550/arxiv.2407.06011
+  huggingface: [Detsutut/medmcqa-ita]
+license: null
+open_data: open
+geography:
+  item_languages: [Italian]
+  item_origin_countries: [IND]
+  item_origin_note: Translated from MedMCQA, whose items come from Indian AIIMS PG and NEET PG exams.
+  localization: translated
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, exam_questions]
+  venue: preprint
+facets:
+  health_areas: [general_medicine, pharmacy_medication]
+  intended_users: [medical_student, clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: "192,155 questions on the card (182,822 train, 4,183 validation, 6,150 test)"
+provenance:
+  records: [r_f0f571fd8e]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "The source paper is a model paper (Igea); MedMCQA-ITA is described there as an additional contribution. The paper says 12.5% of train and 47% of the evaluation set were discarded for translation errors, leaving about 169 thousand pairs, but the card shows the full split sizes, so the released size is unclear. The card states no license (the MedMCQA source is MIT). Author affiliations were not read."

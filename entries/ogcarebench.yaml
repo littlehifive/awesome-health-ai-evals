@@ -1,0 +1,34 @@
+id: ogcarebench
+name: OGCaReBench
+kind: benchmark
+year: 2026
+summary: "639 free-form clinical questions across 10 specialties, derived from open-access case reports and physician-validated, testing whether LLMs can answer off-guideline, rare-case questions with and without retrieval, scored by an LLM judge for equivalence to the reference answer."
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2605.21807
+  arxiv: "2605.21807"
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Case reports come from open-access journals indexed in PubMed Central; the paper does not give countries of the reported cases.
+  rater_countries: [USA]
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature, llm_generated]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: "639 questions; retrieval corpus of 53,617 case reports across 12 specialties"
+provenance:
+  records: [r_c7c8fb149a]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Questions were extracted from case reports with an LLM, modified with distractors, and validated by eight physicians in internal medicine or pediatrics at US institutions (rater country inferred from the authors' institutions, since the paper does not state it). The paper says the dataset and code will be released upon publication; no link was seen, so open_data is unknown. Judge is GPT-5.2 per the paper's appendix. The preprint is marked under review."

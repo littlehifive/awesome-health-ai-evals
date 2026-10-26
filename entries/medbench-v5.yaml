@@ -1,0 +1,32 @@
+id: medbench-v5
+name: MedBench v5
+kind: benchmark
+year: 2026
+summary: Benchmark of 63 tasks for clinical language, vision-language, and agent models, adding information-flow stressors (omission, contradiction, evidence delay), a process audit with five reasoning nodes, and hallucination propagation metrics.
+readme_section: safety
+links:
+  paper: https://arxiv.org/abs/2606.24155
+  arxiv: "2606.24155"
+license: null
+open_data: unknown
+geography:
+  item_languages: [UNKNOWN]
+  item_origin_countries: [UNKNOWN]
+  localization: unknown
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [unknown]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [rubric_llm_judge, simulated_multi_turn]
+  modality: [text]
+  size: 63 tasks (text LLM track plus multimodal and agent tracks)
+provenance:
+  records: [r_12be7afcf1]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: low
+  notes: "Only abstract-level and scanned passages of the arXiv preprint were read (no dataset card or release link found). Same lab as MedBench and MedBench v4 (Shanghai AI Laboratory) but the paper excerpts did not state item language, item sources, or data release; languages and provenance left unknown. Process audit samples five instances per selected open-ended dataset. Includes image tasks that are out of scope; the text track is in scope. A human should check availability, language, and whether the inclusion bar is met."

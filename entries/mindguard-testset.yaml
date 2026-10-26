@@ -1,0 +1,35 @@
+id: mindguard-testset
+name: MindGuard-testset
+kind: benchmark
+year: 2026
+summary: 67 multi-turn mental-health support conversations (1,134 user turns) written by licensed clinical psychologists role-playing patients with a clinician language model, with turn-level safe, self-harm, or harm-to-others labels from three psychologists, for evaluating safety classifiers.
+readme_section: mental_health
+links:
+  paper: https://arxiv.org/abs/2602.00950
+  arxiv: "2602.00950"
+  huggingface: [swordhealth/MindGuard-testset]
+license: CC-BY-NC-SA-4.0
+open_data: gated
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Conversations were produced by 10 licensed clinical psychologists; their country is not stated. Language is not stated explicitly (examples are English).
+  rater_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [PRT]
+origin:
+  builder_types: [industry_lab]
+  item_provenance: [clinician_written]
+  venue: preprint
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric, expert_human_rating]
+  modality: [text]
+  size: 67 conversations, 1,134 annotated user turns (3.7% unsafe)
+provenance:
+  records: [r_34488f0653]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "The abstract calls the conversations real-world, but the paper says licensed psychologists simulated patient archetypes with a clinician language model, so items are not from real users. Labels are by majority vote of three psychologists (94.4% unanimous, Krippendorff alpha 0.57). Scored as a classification task (e.g., AUROC, false positive rate at high recall), not by judging chatbot replies; the paper also reports a red-teaming evaluation of guarded chatbots. The Hugging Face dataset is gated (auto approval) and its card could not be read without login; license is from the dataset tags. Lead institution is Sword Health (Portugal) with Instituto de Telecomunicações."

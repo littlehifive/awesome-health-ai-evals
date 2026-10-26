@@ -1,0 +1,32 @@
+id: drugbankddi
+name: DrugBankDDI
+kind: benchmark
+year: 2026
+summary: 327 open-ended drug-drug interaction questions (109 interacting pairs at three question tiers, plus 109 negative pairs) that each need two linked PubMed abstracts, with templated reference answers that can be scored as a yes/no decision plus justification.
+readme_section: knowledge_exam
+links:
+  huggingface: [jinyangli/DrugBankDDI]
+license: CC-BY-NC-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Drug pairs come from MedHop (QAngaroo) and DrugBank interaction sentences; questions are templated, with no country origin.
+  localization: native
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [unknown]
+  item_provenance: [adapted_dataset, literature]
+  venue: grey_literature
+facets:
+  health_areas: [pharmacy_medication]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric, rubric_llm_judge]
+  modality: [text]
+  size: "327 questions from 109 pairs (plus 327 negative-pair questions); 49 extra unverified pairs in separate configs"
+provenance:
+  records: [r_9c92e90082]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: low
+  notes: "Dataset card only; no paper is linked and the card does not name the authors or institution. The card suggests a yes/no decision plus justification but does not give a scoring script, so eval_methods is inferred. Gold abstracts were checked by an LLM (Claude) against a rubric; the card says the unverified_* configs should not be used for evaluation as they stand. Builder type, lead institution, and venue are unknown or default."

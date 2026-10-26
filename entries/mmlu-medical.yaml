@@ -1,0 +1,36 @@
+id: mmlu-medical
+name: MMLU (medical subsets)
+kind: benchmark
+year: 2020
+summary: The medical subjects of MMLU, a 57-subject multiple-choice test (anatomy, clinical knowledge, college medicine, medical genetics, professional medicine, plus college biology), drawn from freely available practice questions such as USMLE prep; scored by accuracy.
+readme_section: knowledge_exam
+links:
+  paper: https://arxiv.org/abs/2009.03300
+  arxiv: "2009.03300"
+  doi: 10.48550/arXiv.2009.03300
+  huggingface: [cais/mmlu]
+  code: https://github.com/hendrycks/test
+license: MIT
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA, UNKNOWN]
+  item_origin_note: Questions were collected by students from freely available online sources, including USMLE practice questions, undergraduate course questions, and Oxford University Press reader questions; the medical subsets' sources are not broken down by country.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions, literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician, medical_student]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 15,908 questions across 57 subjects (at least 100 test items per subject); the medical subsets are a few hundred items each
+provenance:
+  records: [r_05a0ae7f43]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "A general-knowledge benchmark (UC Berkeley, ICLR 2021) listed here because its medical subsets are widely reported in health LLM papers; MultiMedQA uses six of them. Many Hugging Face and translated copies exist (for example the shuyuej and partex-nv subsets); extraction agents excluded those as mirrors. MIT is the GitHub repository license."

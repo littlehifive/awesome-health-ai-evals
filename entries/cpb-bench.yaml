@@ -1,0 +1,38 @@
+id: cpb-bench
+name: CPB-Bench
+kind: benchmark
+year: 2026
+summary: 692 English and Chinese multi-turn doctor-patient dialogues containing challenging patient behaviors (information contradiction, factual inaccuracy, self-diagnosis, care resistance), where a model's next doctor reply is checked against behavior-specific failure criteria.
+readme_section: safety
+links:
+  paper: https://arxiv.org/abs/2603.29373
+  arxiv: "2603.29373"
+  doi: 10.48550/arxiv.2603.29373
+  code: https://github.com/yli-z/cpb-bench-challenging-patient-behaviors
+license: null
+open_data: open
+geography:
+  item_languages: [English, Mandarin Chinese]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Built from four existing dialogue datasets, SIMORD and MediTOD (English, role-played) and MedDG and IMCS (Chinese, real online consultations). The paper does not state countries for the English sets.
+  localization: adapted
+  lead_institution_countries: [USA]
+  subsets:
+    - {name: "English (SIMORD, MediTOD)", languages: [English], countries: [UNKNOWN], localization: adapted}
+    - {name: "Chinese (MedDG, IMCS)", languages: [Mandarin Chinese], countries: [UNKNOWN], localization: adapted}
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 692 dialogues (plus 352 negative cases)
+provenance:
+  records: [r_e5fc6bd2ca]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Behaviors were first labeled by GPT-4o and then reviewed by two annotators with a third adjudicating; all annotation was done by the paper's authors. Model failures are flagged by a GPT-4o judge and human-verified. Data is in the GitHub repo (cpb-bench_data, data_loader/output_benchmark); the repo shows no license. Chinese data origin is probably China but the paper text read does not say so explicitly."

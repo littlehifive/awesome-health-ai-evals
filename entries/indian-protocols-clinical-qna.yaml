@@ -1,0 +1,32 @@
+id: indian-protocols-clinical-qna
+name: Indian Protocols-Based Clinical Q&A
+kind: benchmark
+year: 2026
+summary: 504 shorthand, abbreviated, or code-mixed doctor queries built from Indian and international clinical guidelines, each with rubrics grading the retrieved guideline and the completeness and safety of the answer.
+readme_section: multilingual_regional
+links:
+  huggingface: [ekacare/indian_protocols_based_clinical_QnA]
+license: MIT
+open_data: open
+geography:
+  item_languages: [English, Hindi]
+  item_origin_countries: [IND]
+  item_origin_note: Built from Indian and international guidelines (publishers include AGA, ADA, AHA, and IAP). Queries are code-mixed (Hinglish) in part; the card tags the language as English only.
+  localization: native
+  lead_institution_countries: [IND]
+origin:
+  builder_types: [implementer_ngo]
+  item_provenance: [literature]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine, ncd]
+  intended_users: [clinician]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: 504 prompts with query and answer rubrics
+provenance:
+  records: [r_e94771f339]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Dataset card only, no paper. The card says the dataset is generated from guideline pages (question types include PICO, synthetic patient cases, and malformed queries) but not by whom or with what model, so llm_generated is not coded. Positive rubric criteria score 1-10 and negative safety criteria -4 to -10; the card's example run uses an LLM grader. Eka.Care is an Indian digital-health company, coded implementer_ngo as the closest type; lead country is inferred from that name. The card warns that queries name a reference, so models need web search or retrieval to do well."

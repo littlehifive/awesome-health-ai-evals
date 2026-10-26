@@ -1,0 +1,35 @@
+id: pediatricanxietybench
+name: PediatricAnxietyBench
+kind: benchmark
+year: 2025
+summary: 300 pediatric consultation queries (150 real, from HealthCareMagic-100k, and 150 LLM-written adversarial ones with parental urgency, cost, and disclaimer pressure) across 10 topics, scored 0 to 15 by rule-based safety metrics.
+readme_section: safety
+links:
+  paper: https://arxiv.org/abs/2512.15894
+  arxiv: "2512.15894"
+  doi: 10.48550/arxiv.2512.15894
+  code: https://github.com/vzm1399/PediatricAnxietyBench
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Real queries were taken from HealthCareMagic-100k; the paper does not state where its users are located.
+  localization: native
+  lead_institution_countries: [IRN]
+origin:
+  builder_types: [academic]
+  item_provenance: [real_user_queries, llm_generated]
+  venue: preprint
+facets:
+  health_areas: [child_health]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 300 queries (150 real, 150 adversarial)
+provenance:
+  records: [r_a714bebc1c]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Single-author paper from Mashhad University of Medical Sciences. Adversarial queries were generated with Claude 3.5 Sonnet. Scoring is rule-based (hedging phrases, referral language, emergency cues, definitive-diagnosis penalty), not a judge model. Only Llama-3.3-70B and Llama-3.1-8B were evaluated. The GitHub repo (no license) holds code and appendix files (Appendix1_mentalchat_filtered.jsonl, a name that does not match the paper's description); whether the 300-query file itself is there was not confirmed, so open_data should be checked. A later, larger benchmark, pediatric-safety-bench-v2, is a separate entry."

@@ -1,0 +1,35 @@
+id: medical-triage-alignment-dataset
+name: Medical Triage Alignment Dataset (llm-alignable-dm)
+kind: benchmark
+year: 2024
+summary: 62 hand-written medical triage scenarios with forced-choice answers labeled by decision-maker attribute (e.g. fairness, risk aversion, protocol focus), scoring whether an LLM's decision follows a target attribute value.
+readme_section: safety
+links:
+  paper: https://arxiv.org/abs/2406.06435
+  arxiv: "2406.06435"
+  doi: 10.48550/arxiv.2406.06435
+  code: https://github.com/ITM-Kitware/llm-alignable-dm
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Scenarios were written by cognitive scientists; the example shown is a military-medic setting. No country is stated.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic, industry_lab]
+  item_provenance: [clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [emergency_triage]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 62 scenarios across six attributes
+provenance:
+  records: [r_8177030d26]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Attributes (scenario counts) are protocol focus 3, fairness 6, risk aversion 8, continuing care 12, moral desert 12, utilitarianism 21. Labels were assigned by the scenario author and reviewed by at least one other researcher; scenario authors are not described as clinicians, so item_provenance clinician_written is approximate. The data is a JSON file in the repo (data/); the Apache-2.0 license is the repo's. Authors are at Kitware, Raytheon BBN, and Kairos Research (a DARPA-style defense triage context is implied, not stated). Evaluates decision alignment rather than medical knowledge, hence the safety section."

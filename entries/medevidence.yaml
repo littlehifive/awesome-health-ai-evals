@@ -1,0 +1,35 @@
+id: medevidence
+name: MedEvidence
+kind: benchmark
+year: 2025
+summary: "284 closed-form questions drawn from the conclusions of 100 Cochrane systematic reviews across 10 specialties, answered from the reviews' own source studies and scored by accuracy against the review's conclusion."
+readme_section: knowledge_exam
+links:
+  paper: http://arxiv.org/abs/2505.22787
+  arxiv: "2505.22787"
+  huggingface: [clcp/med-evidence]
+  code: https://github.com/zy-f/med-evidence
+license: MIT
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Built from Cochrane systematic reviews (an international organization), no single country origin stated.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature]
+  venue: preprint
+facets:
+  health_areas: [general_medicine, other_specialty]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 284 questions from 100 systematic reviews
+provenance:
+  records: [r_c49150cdb6]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Task is evidence synthesis from multiple studies (up to long contexts), not chatbot Q&A; kept as in scope because it tests clinician-facing LLM reasoning. License MIT is from the Hugging Face card tag only. Annotators' countries are not stated. Authors are at Stanford (affiliation line seen)."

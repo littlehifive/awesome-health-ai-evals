@@ -1,0 +1,34 @@
+id: llm-kg-bias
+name: LLM-KG-Bias
+kind: eval_framework
+year: 2025
+summary: "A knowledge-graph and agentic-LLM framework that generates demographically perturbed clinical questions (age, gender, location) from seed medical QA sets and scores a medical LLM's answers for implicit bias using multi-hop reasoning and LLM judges."
+readme_section: frameworks
+links:
+  paper: https://arxiv.org/abs/2507.21176
+  arxiv: "2507.21176"
+  code: https://github.com/healthylaife/LLM-KG-Bias
+license: MIT
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Seed questions come from existing sets (the TRINDS tropical-disease subset of EquityMedQA, DiversityMedQA, and the Nurse Bias vignettes), then perturbed by an LLM.
+  localization: adapted
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, llm_generated]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [rubric_llm_judge, automatic_metric]
+  modality: [text]
+  size: Framework and code; perturbed questions generated per seed set (84 perturbed questions used for the ground-truth comparison)
+provenance:
+  records: [r_1b94d1c9a1]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "University of Delaware. The MIT license is the code repository's; the repo holds code, prompts, and results, and no standalone benchmark file was checked. Also uses a small survey of graduate students to compare answers."

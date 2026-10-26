@@ -1,0 +1,35 @@
+id: astrid
+name: ASTRID
+kind: eval_framework
+year: 2025
+summary: Three automated metrics (Context Relevance, Refusal Accuracy, Conversational Faithfulness) for evaluating RAG-based clinical question answering, validated on about 240 patient questions from a cataract-surgery follow-up voice agent plus out-of-scope questions, with clinician labels.
+readme_section: frameworks
+links:
+  paper: https://arxiv.org/abs/2501.08208
+  arxiv: "2501.08208"
+  doi: 10.48550/arxiv.2501.08208
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [GBR]
+  item_origin_note: Real questions from routine deployment of a CE-marked clinical conversation agent (Ufonia Dora) in the UK in 2021-2022, augmented with 45 out-of-scope questions chosen by clinicians from HealthSearchQA.
+  rater_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [GBR]
+origin:
+  builder_types: [industry_lab, academic]
+  item_provenance: [real_user_queries, clinician_written]
+  venue: preprint
+facets:
+  health_areas: [ophthalmology]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 238 question-answer-context triplets; subsets of 87 and 132 for individual claims
+provenance:
+  records: [r_5160e1b25c]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Questions come from a voice agent (transcribed), so the data reflect mistranscriptions. The paper also mentions a clinician-generated hip-surgery follow-up dataset used only for generalizability checks. No data or code release link or access statement was found in the text, so open_data is unknown. Authors' country set to GBR from Ufonia Limited; the other authors' affiliations were not checked."

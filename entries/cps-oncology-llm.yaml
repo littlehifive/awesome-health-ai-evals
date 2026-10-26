@@ -1,0 +1,35 @@
+id: cps-oncology-llm
+name: Composite Performance Score (oncology LLM evaluation)
+kind: eval_framework
+year: 2026
+summary: An expert-weighted composite score combining clinical accuracy, explainability, cost, response time, and generative efficiency, demonstrated on 30 questions from five stepwise non-small cell lung cancer scenarios.
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.1038/s41598-026-61195-1
+  doi: 10.1038/s41598-026-61195-1
+  code: https://github.com/burakertann/Sequential-Waterfall-Prompting
+license: null
+open_data: described_only
+geography:
+  item_languages: [English]
+  item_origin_countries: [TUR]
+  item_origin_note: Fictional scenarios and questions written by oncology specialists at Turkish hospitals; the question language is not stated and English is assumed from the model prompts.
+  rater_countries: [TUR]
+  localization: native
+  lead_institution_countries: [TUR]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [oncology]
+  intended_users: [clinician]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: 30 open-ended questions across 5 scenarios; 3 LLMs
+provenance:
+  records: [r_0863c0fe6f]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Borderline between a one-off study and a framework; kept because the CPS formula and weights (0.33 accuracy, 0.26 explainability, 0.16 cost, 0.2 generative efficiency, 0.05 time) are reusable and code is public. The questions themselves are available only on request, so no dataset is released. Item language and rater countries are inferred from affiliations and context."

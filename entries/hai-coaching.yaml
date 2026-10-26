@@ -1,0 +1,36 @@
+id: hai-coaching
+name: HAI-coaching
+kind: benchmark
+year: 2024
+summary: About 2,400 crowdsourced dietary struggles with about 97,000 ChatGPT-generated supportive texts (reflections, comfort, reframings, suggestions), each safety-labelled by 13 nutrition experts, used to test open LLMs on safety classification and supportive-text generation.
+readme_section: safety
+links:
+  paper: https://aclanthology.org/2024.findings-emnlp.674/
+  arxiv: "2401.08420"
+  doi: 10.48550/arxiv.2401.08420
+  code: https://github.com/uccollab/hai-coaching
+license: LGPL-2.1
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Struggles were written by crowdworkers recruited on Amazon Mechanical Turk and Prolific; the sources I read do not state their countries.
+  rater_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [CZE]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated]
+  venue: peer_reviewed
+facets:
+  health_areas: [nutrition]
+  intended_users: [patient_public]
+  eval_methods: [expert_human_rating, automatic_metric]
+  modality: [text]
+  size: "2,448 struggles; 97,920 ChatGPT candidates (about 85% judged safe)"
+provenance:
+  records: [r_a898d45711]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Primarily a dataset-construction case study; the evaluation use (safety classification and generation tests of open LLMs, appendix tables) is secondary, so check whether it belongs in the catalog. The license is the repository's (LGPL-2.1); the dataset is dataset.xlsx in the GitHub repo. Safety was left to each expert's judgment, then aligned by discussion; inter-annotator agreement was checked on 400 candidates. Lead institution: first and last authors are at Charles University, Prague (second affiliation Aberdeen, UK; Cagliari, Italy for others); expert raters appear to be nutrition professionals but their countries are not stated in the text I read."

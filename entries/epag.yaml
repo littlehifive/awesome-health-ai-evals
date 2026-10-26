@@ -1,0 +1,35 @@
+id: epag
+name: EPAG
+kind: benchmark
+year: 2026
+summary: 520 synthetic patient profiles across 26 diseases, with clinician-curated diagnostic guidelines, for scoring how well an LLM doctor-agent elicits history of present illness in a simulated pre-consultation dialogue (Korean, with English comparison).
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2601.03627
+  arxiv: "2601.03627"
+  doi: 10.18653/v1/2026.eacl-industry.6
+  code: https://github.com/seemdog/EPAG
+license: null
+open_data: unknown
+geography:
+  item_languages: [Korean, English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Patient profiles were generated with OpenAI o3-mini and reviewed by clinicians; the paper does not state the country of the guideline sources.
+  localization: unknown
+  lead_institution_countries: [KOR]
+origin:
+  builder_types: [academic, industry_lab]
+  item_provenance: [llm_generated, literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [simulated_multi_turn, rubric_llm_judge]
+  modality: [text]
+  size: 520 patient profiles, 26 diseases, 10 ICD-11 chapters
+provenance:
+  records: [r_f29fe6691f]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Two scores: HPI-versus-guideline match (weighted and unweighted, LLM organizer and comparer) and disease-diagnosis accuracy by a separate diagnostician agent. Experiments were mainly in Korean; the paper states this and compares Korean and English dialogues for Qwen 2.5 only. The GitHub repo has a data folder but no license file was found, and the paper does not state a license or the rater countries. Authors are at AITRICS, KAIST, Yonsei and Catholic University of Korea (from the author block)."

@@ -1,0 +1,35 @@
+id: huatuo-26m
+name: Huatuo-26M
+kind: benchmark
+year: 2023
+summary: "26 million Chinese medical question-answer pairs from online consultations, encyclopedias, and knowledge bases, with a 1% held-out test split used to benchmark retrieval and answer generation."
+readme_section: multilingual_regional
+links:
+  paper: https://arxiv.org/abs/2305.01526
+  arxiv: "2305.01526"
+  doi: 10.18653/v1/2025.findings-naacl.211
+  code: https://github.com/FreedomIntelligence/Huatuo-26M
+license: null
+open_data: gated
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: "Crawled from Chinese online consultation sites, encyclopedias, and knowledge bases."
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [web_forum, literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public, clinician]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: "26 million QA pairs; 1% (about 260,000) test split"
+provenance:
+  records: [r_531486562a]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Mainly a large training corpus; the benchmark use is retrieval (top-1000 ranking) and generation scored with BLEU, ROUGE and similar. Paper says the URL-only version is open and the full-text version is released only to research institutions, so access is recorded as gated. License not stated in the sources seen. Answers come from doctors in online consultations and automatic extraction and may contain errors (per the paper's ethics statement). Tests of the Huatuo26M-Testdatasets Hugging Face set were not examined."

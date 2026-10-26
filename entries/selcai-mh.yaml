@@ -1,0 +1,44 @@
+id: selcai-mh
+name: SELCAI-MH
+kind: eval_framework
+year: 2026
+summary: A multicriteria framework (TOPSIS, VIKOR, COPRAS, CODAS with a SOLAG consensus aggregation) that ranks conversational AI assistants on mental-health information using psychiatric expert scoring, AI scoring, and anxiety-related questions across seven criteria.
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.3390/fi18040191
+  doi: 10.3390/fi18040191
+license: null
+open_data: unknown
+geography:
+  item_languages:
+  - English
+  item_origin_countries:
+  - UNKNOWN
+  item_origin_note: Source of the anxiety-related question set not read.
+  localization: unknown
+  lead_institution_countries:
+  - ROU
+origin:
+  builder_types:
+  - academic
+  item_provenance:
+  - unknown
+  venue: peer_reviewed
+facets:
+  health_areas:
+  - mental_health
+  intended_users:
+  - patient_public
+  eval_methods:
+  - expert_human_rating
+  - rubric_llm_judge
+  modality:
+  - text
+  size: 7 criteria; 9 conversational AI assistants evaluated on a set of anxiety-related questions
+provenance:
+  records:
+  - r_1cb6988ae4
+  extracted: '2026-10-26'
+  read_full_text: false
+  confidence: low
+  notes: MDPI full text returned 403, so only the abstract and Crossref author metadata (three authors, all in Bucharest, Romania) were read. Question count, language, criteria names, expert numbers and data availability are unknown; English is assumed. The contribution is mostly a ranking method rather than a question set.

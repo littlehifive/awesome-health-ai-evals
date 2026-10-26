@@ -1,0 +1,35 @@
+id: medquad
+name: MedQuAD
+kind: benchmark
+year: 2019
+summary: 47,457 English consumer-health question-answer pairs built from 12 US NIH websites across 37 question types, with a TREC-2017 LiveQA-Med test set of 2,479 manually judged answers.
+readme_section: open_ended
+links:
+  paper: https://doi.org/10.1186/s12859-019-3119-4
+  arxiv: "1901.08079"
+  doi: 10.1186/s12859-019-3119-4
+  code: https://github.com/abachaa/MedQuAD
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Answers come from US NIH websites (cancer.gov, NIDDK, NINDS, GARD, MedlinePlus and others); the LiveQA test questions are consumer questions sent to the US National Library of Medicine from around the world.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [government]
+  item_provenance: [literature, real_user_queries]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public]
+  eval_methods: [expert_human_rating, automatic_metric]
+  modality: [text]
+  size: 47,457 QA pairs; 2,479 judged answers for the LiveQA-Med test questions
+provenance:
+  records: [r_00582a9756]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Released with a question-entailment QA system; the test collection judges retrieved answers on the LiveQA scale (1 Incorrect to 4 Excellent). The GitHub README states no license (GitHub reports none) and says answers were removed from three MedlinePlus subsets for copyright, keeping URLs. Widely reused, including in LLM work (see gl-medquad, a Galician translation, and a stray Hugging Face rewrite set excluded as training data). Pre-LLM benchmark kept because of active reuse."

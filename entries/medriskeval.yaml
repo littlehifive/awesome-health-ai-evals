@@ -1,0 +1,35 @@
+id: medriskeval
+name: MedRiskEval / PatientSafetyBench
+kind: benchmark
+year: 2025
+summary: Medical safety red-teaming protocol covering clinician, patient, and general-user perspectives, with the new PatientSafetyBench of 466 synthetic patient-oriented prompts across 5 policy categories, plus existing safety sets.
+readme_section: safety
+links:
+  paper: https://arxiv.org/abs/2507.07248
+  arxiv: "2507.07248"
+  doi: 10.48448/a2eq-ye50
+  huggingface: [microsoft/PatientSafetyBench]
+license: CDLA-Permissive-2.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Prompts were synthesized with GPT-4o and filtered by an LLM judge; no country origin.
+  localization: native
+  lead_institution_countries: [CAN]
+origin:
+  builder_types: [industry_lab]
+  item_provenance: [llm_generated]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public, clinician]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: 466 PatientSafetyBench prompts (5 categories); evaluated alongside MedSafetyBench, XSTest, JBB, and WildJailbreak
+provenance:
+  records: [r_c411bdcc2d]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "The DOI record (Underline) is a conference page for the arXiv paper, originally titled Medical Red Teaming Protocol of Language Models. Only PatientSafetyBench is new; the clinician view reuses MedSafetyBench. The five categories are harmful medical advice, misdiagnosis and overconfidence, unlicensed practice, health misinformation, and bias and stigmatization (from the HF card). Authors are at Microsoft Healthcare & Life Sciences and Microsoft Research Montreal (Mila); the first affiliation's location is not stated, so Canada is recorded from the Montreal affiliation only. Judge protocol details were not read in full."

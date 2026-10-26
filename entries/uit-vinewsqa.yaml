@@ -1,0 +1,33 @@
+id: uit-vinewsqa
+name: UIT-ViNewsQA
+kind: benchmark
+year: 2022
+summary: 22,057 crowd-written question-answer pairs over 4,416 Vietnamese online health news articles, an extractive reading-comprehension corpus scored by exact match and F1.
+readme_section: multilingual_regional
+links:
+  paper: https://doi.org/10.1145/3527631
+  doi: 10.1145/3527631
+license: null
+open_data: unknown
+geography:
+  item_languages: [Vietnamese]
+  item_origin_countries: [VNM]
+  item_origin_note: Articles are Vietnamese online healthcare news; the abstract does not name the sites.
+  localization: native
+  lead_institution_countries: [VNM]
+origin:
+  builder_types: [academic]
+  item_provenance: [web_forum]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine, public_health]
+  intended_users: [unspecified]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 22,057 question-answer pairs on 4,416 articles
+provenance:
+  records: [r_40ff5f8e45]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "Only the abstract (Crossref and the screening record) was reachable; the ACM page and the dataset website did not load. The abstract says the corpus is publicly available at nlp.uit.edu.vn/datasets for research use, but no direct link or license was seen, so open_data is unknown. Task is extractive span-answer machine reading comprehension on news text rather than chatbot answering, so scope is borderline. item_provenance web_forum is the closest value for online news articles. Best model ALBERT: EM 65.26, F1 84.89."

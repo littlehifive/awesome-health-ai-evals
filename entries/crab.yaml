@@ -1,0 +1,34 @@
+id: crab
+name: CRAB
+kind: benchmark
+year: 2025
+summary: 400 expert-collected biomedical queries (100 each in English, French, German and Chinese) paired with 2,467 relevant and 1,854 irrelevant references, scoring whether retrieval-augmented LLMs cite the relevant references and ignore the irrelevant ones.
+readme_section: multilingual_regional
+links:
+  paper: https://aclanthology.org/2025.emnlp-industry.3/
+  doi: 10.18653/v1/2025.emnlp-industry.3
+  huggingface: [zhm0/CRAB, PatSnap/Hiro-Pharma-RAG-Benchmark]
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [English, French, German, Mandarin Chinese]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Queries were collected from biomedical experts and the paper does not state their countries; some references are country-specific drug records (for example drugs approved in China). French, German and Chinese versions are presumably translations, but the paper text read does not describe the method.
+  localization: unknown
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [industry_lab]
+  item_provenance: [literature, unknown]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine, pharmacy_medication, public_health]
+  intended_users: [unspecified]
+  eval_methods: [automatic_metric, expert_human_rating]
+  modality: [text]
+  size: 400 queries; 2,467 relevant and 1,854 irrelevant references
+provenance:
+  records: [r_ec071d3ba9]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Entry is the CRAB paper (PatSnap, EMNLP 2025 Industry Track). The screened record is PatSnap/Hiro-Pharma-RAG-Benchmark, whose card cites the paper and holds the same four 100-query files; its card calls the repo private but the hub API showed it public and ungated when checked. zhm0/CRAB is the dataset linked in the paper. Scoring is citation-based (relevance precision, irrelevance suppression, curation efficiency F1), not answer correctness; human evaluation of citations was done only on the English portion to validate the metric. Query categories: basic biology, drug development and design, clinical translation and application, ethics and regulation, public health and infectious disease. Scope is borderline (biomedical RAG curation rather than health chat); a human may want to decide."

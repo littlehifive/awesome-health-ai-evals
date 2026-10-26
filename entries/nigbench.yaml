@@ -1,0 +1,36 @@
+id: nigbench
+name: NigBench
+kind: benchmark
+year: 2026
+summary: About 7,300 point-of-care clinical questions (9,303 GP answers) written by 284 community health extension workers in Nigeria, in English, Hausa, Yoruba, Igbo, and Pidgin, as text or voice, with general-practitioner answers, scored by expert raters on a 10-dimension Likert rubric.
+readme_section: voice
+links:
+  paper: https://doi.org/10.64898/2026.07.05.26356776
+  doi: 10.64898/2026.07.05.26356776
+license: null
+open_data: unknown
+geography:
+  item_languages: [English, Hausa, Yoruba, Igbo, Nigerian Pidgin]
+  item_origin_countries: [NGA]
+  item_origin_note: Questions were collected from community health extension workers in three Nigerian zones (Jos, Ibadan, Bayelsa) through the Intron Data Vault crowdsourcing platform; CHEWs wrote scenarios from lived experience and used pseudonyms.
+  rater_countries: [NGA]
+  localization: native
+  lead_institution_countries: [UNKNOWN]
+  subsets:
+    - {name: "Local-language questions", languages: [Yoruba, Hausa, Igbo, Nigerian Pidgin], countries: [NGA], localization: native}
+origin:
+  builder_types: [unknown]
+  item_provenance: [real_user_queries]
+  venue: preprint
+facets:
+  health_areas: [primary_care]
+  intended_users: [chw]
+  eval_methods: [expert_human_rating]
+  modality: [text, voice]
+  size: 7,289 questions from 284 CHEWs; 9,303 GP answers; 2,054 questions in local languages; 1,142 scenarios recorded as audio
+provenance:
+  records: [r_e2cf4caa93]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "No data-availability, license, or repository statement was found in the medRxiv text (the code link is a placeholder), so open_data is unknown. Rater countries (NGA) are inferred from the text saying GPs were recruited in each Nigerian region; expert evaluator characteristics are in a supplementary table that was not read. Lead institution and builder type are not stated in the text read (funded by the Gates Foundation; data platform from Intron). Model evaluations used subsets (266 English audio, 469 local-language audio questions, and others)."

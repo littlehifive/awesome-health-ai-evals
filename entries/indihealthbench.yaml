@@ -1,0 +1,33 @@
+id: indihealthbench
+name: IndiHealthBench
+kind: benchmark
+year: 2026
+summary: 11,000 parallel English-to-Indian-language sentence pairs across 13 Indian languages for evaluating LLM medical translation in both directions, scored with machine-translation metrics.
+readme_section: multilingual_regional
+links:
+  paper: https://doi.org/10.1007/978-3-032-18480-1_59
+  doi: 10.1007/978-3-032-18480-1_59
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  rater_countries: [UNKNOWN]
+  localization: unknown
+  lead_institution_countries: [IND]
+origin:
+  builder_types: [academic]
+  item_provenance: [unknown]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [unspecified]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 11,000 parallel sentence pairs, 13 Indian languages
+provenance:
+  records: [r_abb41457ab]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "Only the abstract and metadata could be reached; the chapter (Springer LNCS) is behind a paywall and no repository, dataset link, or arXiv version was found. Item languages list only English because the abstract does not name the 13 Indian languages; the full list, item sources, metrics, license, and data access need a human check. Authors are all at Indian institutions per OpenAlex. Clinical translation is borderline for scope. It is kept as a health language benchmark."

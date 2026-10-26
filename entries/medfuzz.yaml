@@ -1,0 +1,33 @@
+id: medfuzz
+name: MedFuzz
+kind: eval_framework
+year: 2024
+summary: An adversarial method in which an attacker LLM rewrites MedQA-USMLE vignettes to violate benchmark assumptions (such as patient characteristics) while keeping the correct answer for a clinician, to measure how far benchmark accuracy generalizes, with a permutation test for individual attacks.
+readme_section: frameworks
+links:
+  paper: https://arxiv.org/abs/2406.06573
+  arxiv: "2406.06573"
+license: null
+open_data: described_only
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Applied to the 1,181-item United States subset of MedQA (USMLE); the method itself has no items.
+  localization: adapted
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic, industry_lab]
+  item_provenance: [adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: Applied to 1,181 MedQA-USMLE items, 5 attack iterations, 5 replicates; 4 case studies with 30 control fuzzes each
+provenance:
+  records: [r_05b2f1316e]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Microsoft Research with MIT, Helivan Research, and Johns Hopkins. No released dataset or code link was found in the paper, so open_data is described_only. It is a method rather than a fixed item set; listed as a framework for robustness testing of medical QA benchmarks."

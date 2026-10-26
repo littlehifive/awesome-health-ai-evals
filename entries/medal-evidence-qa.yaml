@@ -1,0 +1,37 @@
+id: medal-evidence-qa
+name: MEDAL
+kind: benchmark
+year: 2025
+summary: About 21,000 evidence-based clinical question-answer pairs generated with GPT-4o from Cochrane systematic reviews, AHA guideline recommendations, and insurer narrative guidelines, scored by accuracy against yes/no/no-evidence labels.
+readme_section: knowledge_exam
+links:
+  paper: https://doi.org/10.1016/j.patter.2026.101519
+  doi: 10.1016/j.patter.2026.101519
+  arxiv: "2509.10843"
+  dataset: https://doi.org/10.5281/zenodo.18363151
+  huggingface: [cwang271/MEDAL]
+  code: https://github.com/yiqunchen/MEDAL
+license: custom
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL, USA]
+  item_origin_note: Cochrane reviews are international; AHA guidelines and insurer guidelines are US sources.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated, literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine, cardiology]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: "about 21,000 QA pairs (8,530 Cochrane, 2,580 AHA, 10,500 narrative guideline)"
+provenance:
+  records: [r_4a5bfae15a, r_115fcc13cf, r_84c75ec996]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Published in Patterns; also arXiv 2509.10843. The Hugging Face card lists license 'other', recorded here as custom. Questions and labels were mostly LLM-generated with manual spot checks, which the authors list as a limitation. Scoring is label match (yes/no/no evidence, plus evidence-quality and discrepancy labels), not multiple choice proper. Benchmark also stresses retrieval-augmented conditions. Zenodo record 10.5281/zenodo.18363150 and the HF dataset are merged here (Zenodo lists CC-BY-4.0 and open access; the HF card says other). Authors at Johns Hopkins (email domain and funding statement); the full affiliation list was not read."

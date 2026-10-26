@@ -1,0 +1,35 @@
+id: vihealthqa
+name: ViHealthQA
+kind: benchmark
+year: 2022
+summary: 10,015 Vietnamese health questions from Vinmec and VnExpress forums paired with doctor-written answer passages, split into train, dev and test, for answer-passage retrieval scored by P@K and mAP.
+readme_section: multilingual_regional
+links:
+  paper: https://arxiv.org/abs/2206.09600
+  arxiv: "2206.09600"
+  doi: 10.1007/978-3-031-10986-7_30
+  huggingface: [tarudesu/ViHealthQA]
+license: null
+open_data: open
+geography:
+  item_languages: [Vietnamese]
+  item_origin_countries: [VNM]
+  item_origin_note: Questions were crawled from the Vinmec and VnExpress health Q&A pages; the sources do not state the users' country explicitly, so Vietnam is taken from the Vietnamese-language sites.
+  localization: native
+  lead_institution_countries: [VNM]
+origin:
+  builder_types: [academic]
+  item_provenance: [web_forum]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: "10,015 question-answer passage pairs (7,009 train, 993 dev, 2,013 test)"
+provenance:
+  records: [r_2cc88313c0]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "The paper states the dataset is released; the Hugging Face card (official repository, research use only) has no license field. The card's split sizes disagree with the paper (card lists 993 test and 2.01K valid; paper lists 993 dev and 2,013 test). The task is retrieval of the exact answer passage (P@K, mAP), not generation; the paper's contribution is the SPBERTQA retrieval system."

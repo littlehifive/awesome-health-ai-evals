@@ -1,0 +1,36 @@
+id: psycheval
+name: PsychEval
+kind: benchmark
+year: 2026
+summary: Multi-session (6-10 sessions per case) Chinese psychological counseling dialogues across five therapy modalities plus integrative therapy, rebuilt with LLMs from 369 published clinical case reports and over 2,000 client profiles, with 18 LLM-judged metrics for AI counselors using a client simulator and supervisor agent.
+readme_section: mental_health
+links:
+  paper: https://arxiv.org/abs/2601.01802
+  arxiv: "2601.01802"
+  doi: 10.18653/v1/2026.findings-acl.1115
+  huggingface: [ecnu-icalk/PsychEval, XuShihao6715/counseling-psycheval]
+  code: https://github.com/ECNU-ICALK/PsychEval
+license: null
+open_data: open
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: Case reports come from Chinese psychology journals (Theory and Practice of Psychological Counseling, Psychological Monthly); the paper states the dataset is grounded in the Chinese linguistic and socio-cultural context.
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature, llm_generated]
+  venue: peer_reviewed
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge, simulated_multi_turn]
+  modality: [text]
+  size: 369 case reports expanded into multi-session dialogues; over 2,000 client profiles; 677 meta-skills and 4,577 atomic skills; 18 metrics
+provenance:
+  records: [r_ad7cb1e111, r_67c498afee]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "XuShihao6715/counseling-psycheval is a third-party processed copy (2,798 dialogues, 137,506 turns, license tag other) of the same data and is merged here. The official HF card and GitHub list no license (GitHub reports NOASSERTION). The judge model is DeepSeek-V3.1. The abstract says the data also serve training an AI counselor, so it doubles as a training resource. Venue taken from the ACL Findings 2026 DOI on the screening record."

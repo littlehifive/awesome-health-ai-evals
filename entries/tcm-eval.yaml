@@ -1,0 +1,34 @@
+id: tcm-eval
+name: TCM-Eval
+kind: benchmark
+year: 2025
+summary: 6,099 Chinese traditional Chinese medicine questions from ten years of the national TCM practitioner qualification exam, plus a dynamic set of 600 newly written items refreshed over time, covering fundamentals, clinical practice, integrated Western medicine and medical humanities, scored by accuracy.
+readme_section: multilingual_regional
+links:
+  paper: http://arxiv.org/abs/2511.07148
+  arxiv: "2511.07148"
+  website: https://tcmeval.bamaidical.com
+license: null
+open_data: unknown
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: Questions come from the National Qualification Examination for TCM Practitioners in China.
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic, industry_lab]
+  item_provenance: [exam_questions, clinician_written]
+  venue: preprint
+facets:
+  health_areas: [traditional_medicine]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: "6,099 questions (10 years of exam items plus 600 human-crafted dynamic items)"
+provenance:
+  records: [r_f8f6424d69]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "From Beihang University with Beijing Zhimingtang Technology and Beijing Zhiyan AI; the paper also trains a model (ZMT-M1) and releases a 384,807-pair training corpus, which is not part of this entry. A project site is given (tcmeval.bamaidical.com) but no download link or license was found in the text, so open_data is unknown. Two other records share the name TCM-Eval and are different works: r_57e3db27d3 (Tianyi) is entered as tianyi-tcmeval, and r_df118910a6 (Springer WISE 2025 chapter 'TCM-Eval: A Multi-dimensional Benchmark Framework', Tianjin authors) was paywalled with no abstract reachable, so it was not entered; a human may want to look at it."

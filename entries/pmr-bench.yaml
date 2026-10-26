@@ -1,0 +1,37 @@
+id: pmr-bench
+name: PMR-Bench
+kind: benchmark
+year: 2026
+summary: 1,569 patient portal messages with clinician urgency annotations and over 2,000 test pairs for judging which of two messages is more medically urgent, drawn from Reddit r/AskDocs, synthetic messages with EHR data, and a proprietary hospital set.
+readme_section: safety
+links:
+  paper: https://arxiv.org/abs/2601.13178
+  arxiv: "2601.13178"
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: PMR-Real is from a regional US hospital; PMR-Reddit is from r/AskDocs and PMR-Synth is synthetic, so their countries are not stated.
+  localization: native
+  lead_institution_countries: [USA]
+  subsets:
+    - {name: PMR-Reddit, languages: [English], countries: [UNKNOWN], localization: native}
+    - {name: PMR-Synth, languages: [English], countries: [UNKNOWN], localization: native}
+    - {name: PMR-Real, languages: [English], countries: [USA], localization: native}
+origin:
+  builder_types: [academic]
+  item_provenance: [web_forum, llm_generated, real_user_queries]
+  venue: preprint
+facets:
+  health_areas: [emergency_triage, primary_care]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 1,569 unique messages; 2,000+ test pairs
+provenance:
+  records: [r_fb36cba256]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "The paper says PMR-Reddit and PMR-Synth are publicly available and that the data will be put on Hugging Face, but no link or license was found, so open_data is unknown. PMR-Real is proprietary (Dartmouth Health). Some labels are extracted from expert responses with LLMs. Pairwise accuracy and inbox-sorting NDCG-style metrics are used. The task is a message-ranking classification, which is borderline for scope."

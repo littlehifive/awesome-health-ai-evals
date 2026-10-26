@@ -1,0 +1,53 @@
+id: diagnosisarena
+name: DiagnosisArena
+kind: benchmark
+year: 2025
+summary: 1,113 structured patient cases from case reports in 10 high-impact medical journals across 28 specialties, with the single correct diagnosis, scored by an LLM judge (open-ended) or as multiple choice; 915 items released publicly.
+readme_section: knowledge_exam
+links:
+  paper: https://aclanthology.org/2026.findings-acl.151/
+  doi: 10.18653/v1/2026.findings-acl.151
+  arxiv: '2505.14107'
+  huggingface:
+  - SII-SPIRAL-MED/DiagnosisArena
+  - shzyk/DiagnosisArena
+  code: https://github.com/SPIRAL-MED/DiagnosisArena
+license: MIT
+open_data: open
+geography:
+  item_languages:
+  - English
+  item_origin_countries:
+  - GLOBAL
+  item_origin_note: Cases are from international journals (JAMA, NEJM, Lancet, and others); no country origin is stated.
+  rater_countries:
+  - UNKNOWN
+  localization: native
+  lead_institution_countries:
+  - CHN
+origin:
+  builder_types:
+  - academic
+  item_provenance:
+  - literature
+  venue: peer_reviewed
+facets:
+  health_areas:
+  - general_medicine
+  intended_users:
+  - clinician
+  eval_methods:
+  - rubric_llm_judge
+  - mcq_exact_match
+  modality:
+  - text
+  size: 1,113 cases in the paper; 915 test items released
+provenance:
+  records:
+  - r_5f1c38822d
+  - r_569d0c896f
+  - r_ac59923125
+  read_full_text: true
+  confidence: high
+  notes: MIT license is from the shzyk/DiagnosisArena card; the SII-SPIRAL-MED card has no license tag and shzyk/ looks like a mirror by an author. The released test split has 915 instances (the paper reports 1,113), per the GitHub README. Open-ended answers are judged by GPT-4o as identical, relevant, or irrelevant, with top-k accuracy; DiagnosisArena-MCQ is a converted multiple-choice version. Two other Hugging Face IDs on the record (jackwong123/DiagnosisArena, zhipeng7446/DiagnosisArena) were not checked and are probably mirrors. Journal case-report authors and expert-verifier countries are not stated.
+  extracted: '2026-10-26'

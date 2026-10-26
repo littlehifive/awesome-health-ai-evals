@@ -62,11 +62,11 @@ provenance:
 6. `knowledge_exam`: exam-style or knowledge questions scored by exact match.
 7. `open_ended`: open-ended, conversational, or multi-turn evaluation.
 
-**links**: whatever exists. `huggingface` is a list of dataset IDs (`org/name`). `arxiv` is the bare ID as a quoted string.
+**links**: whatever exists. `huggingface` is a list of dataset IDs (`org/name`). `arxiv` is the bare ID as a quoted string; `pmcid` is a PMC ID like `PMC1234567`.
 
 **license**: the dataset license as an SPDX-style string (`CC-BY-4.0`, `MIT`, `Apache-2.0`, `CC-BY-NC-SA-4.0`), `custom` for a bespoke license, or null if none is stated.
 
-**open_data**: `open` (downloadable without approval), `gated` (needs sign-up, approval, or credentialing), `closed` (not released), `described_only` (a framework or rubric described in a paper with no dataset).
+**open_data**: `open` (downloadable without approval), `gated` (needs sign-up, approval, or credentialing), `closed` (not released), `described_only` (a framework or rubric described in a paper with no dataset), `unknown` (no release link or access statement found). Set `open` or `gated` only from a download link or access statement you have seen.
 
 **geography**
 - `item_languages`: English names of the languages the items are written or spoken in (`English`, `Mandarin Chinese`, `Swahili`). Translations count.

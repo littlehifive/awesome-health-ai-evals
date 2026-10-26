@@ -1,0 +1,35 @@
+id: hcai-quality-index
+name: HCAI quality evaluation index system
+kind: eval_framework
+year: 2026
+summary: A weighted indicator system for LLM-based health conversational AI (3 primary, 7 secondary, and 28 tertiary indicators spanning medical effectiveness, user experience, and ethics) built through two Delphi rounds with 15 experts and analytic-hierarchy-process weighting.
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.2196/83188
+  doi: 10.2196/83188
+  pmcid: PMC12865354
+license: null
+open_data: described_only
+geography:
+  item_languages: [UNKNOWN]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Framework with no test items; indicators come from a literature review, industry standards, and expert discussions.
+  rater_countries: [CHN]
+  localization: unknown
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic, industry_lab]
+  item_provenance: [not_applicable]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: 28 tertiary indicators (34 in the preliminary version)
+provenance:
+  records: [r_4788d687cb]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Read the methods and results in paperclip. Authors are at Capital Medical University (Beijing) and Bytedance Xiaohe Health; Delphi consultations ran November 2024 to February 2025 (15 of 16 experts completed both rounds). Delphi questionnaires with indicator definitions and scoring rules are in multimedia appendices. The final weighted system is not a test set; the exact scoring procedure for a given chatbot (human or automatic) was not confirmed, so eval_methods is a best guess."

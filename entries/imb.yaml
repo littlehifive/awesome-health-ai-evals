@@ -1,0 +1,39 @@
+id: imb
+name: IMB (Italian Medical Benchmark)
+kind: benchmark
+year: 2025
+summary: Two Italian medical QA sets, IMB-QA with 782,644 patient-doctor forum conversations and IMB-MCQA with 25,862 multiple-choice specialty-exam questions, scored by BERTScore and accuracy.
+readme_section: multilingual_regional
+links:
+  paper: https://arxiv.org/abs/2510.18468
+  arxiv: "2510.18468"
+  doi: 10.48550/arxiv.2510.18468
+  huggingface: [praiselab-picuslab/IMB]
+  code: https://github.com/PRAISELab-PicusLab/IMB
+license: CC-BY-NC-ND-4.0
+open_data: gated
+geography:
+  item_languages: [Italian]
+  item_origin_countries: [ITA]
+  item_origin_note: Forum threads from the Italian sites MedicItalia and Dica33; exam questions from the Italian specialization-exam simulator CompitoInClasse.org.
+  localization: native
+  lead_institution_countries: [ITA]
+  subsets:
+    - {name: IMB-QA, languages: [Italian], countries: [ITA], localization: native}
+    - {name: IMB-MCQA, languages: [Italian], countries: [ITA], localization: native}
+origin:
+  builder_types: [academic]
+  item_provenance: [web_forum, exam_questions]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine, mental_health]
+  intended_users: [patient_public, clinician]
+  eval_methods: [mcq_exact_match, automatic_metric]
+  modality: [text]
+  size: 782,644 forum Q&A pairs (77 categories); 25,862 MCQs (60 categories)
+provenance:
+  records: [r_01841a4c70]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Paper appeared at CLiC-it 2025. Doctor answers in IMB-QA were reformulated and anonymized with Llama3-Med42-8B; patient questions are kept as written. Open-ended answers are scored with BERTScore (also ROUGE, BLEU, METEOR in the fine-tuning table); MCQ with accuracy. License conflict: the Hugging Face tag says CC-BY-NC-ND-4.0, the GitHub README badge and LICENSE file say CC BY-NC 4.0; the HF tag is used. The HF dataset is gated with manual approval. Experiments used a sampled subset of IMB-QA."

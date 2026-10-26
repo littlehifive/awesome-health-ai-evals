@@ -1,0 +1,36 @@
+id: liveclin
+name: LiveClin
+kind: benchmark
+year: 2026
+summary: 1,407 clinical cases (6,605 multiple-choice questions) built from recent PubMed Central case reports as multi-stage clinical pathways with images and tables, refreshed twice a year to avoid contamination.
+readme_section: knowledge_exam
+links:
+  paper: https://arxiv.org/abs/2602.16747
+  arxiv: "2602.16747"
+  huggingface: [AQ-MedAI/LiveClin]
+  code: https://github.com/AQ-MedAI/LiveClin
+license: CC-BY-NC-SA-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Cases come from PubMed Central Open Access case reports; the source countries are not stated.
+  rater_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic, industry_lab]
+  item_provenance: [literature, llm_generated]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: "1,407 cases, 6,605 MCQs (2025_H1 release; 3-6 MCQs per case)"
+provenance:
+  records: [r_ccf2cd8005]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Questions are made with an AI-human workflow and screened by 239 physicians; the paper compares models with Chief and Attending Physicians. Many items include medical images, so some models are evaluated as vision-language models; modality is listed as text because the schema has no image value. Venue is ICLR 2026 per the dataset card. Authors from CUHK-Shenzhen and Ant Group, with Zhejiang University and Ohio State. Further half-year releases are planned (2025_H2 folder is a placeholder)."

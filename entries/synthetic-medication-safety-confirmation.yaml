@@ -1,0 +1,32 @@
+id: synthetic-medication-safety-confirmation
+name: Synthetic Medication Safety Confirmation Benchmark
+kind: benchmark
+year: 2026
+summary: 80 constructed medication-safety vignettes with answer key, each paired with a flawed plan proposed by a senior clinician, to measure whether LLMs wrongly confirm hazardous plans under an authority cue.
+readme_section: safety
+links:
+  website: https://osf.io/shwtn
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Vignettes are constructed and not tied to a country.
+  localization: native
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [unknown]
+  item_provenance: [clinician_written]
+  venue: grey_literature
+facets:
+  health_areas: [pharmacy_medication]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric, expert_human_rating]
+  modality: [text]
+  size: 80 vignettes; 5 models evaluated
+provenance:
+  records: [r_59ad662fc7]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Downloaded and inspected the OSF release zip (README, case bank, answer key, prompts, parsed outputs, adjudication). Cases are constructed vignettes in domains such as renal dosing, each with hazard, expected action, severity, and control type in the answer key; outcome is adjudicated serious hazardous confirmation. The README names a manuscript ('Authority-Cue Confirmation Failures in Medication Safety Review by Large Language Models') that was not found or linked. OSF license is CC-By Attribution 4.0 with copyright holder Goktug Ozkan; the author's institution and country are not stated. Who wrote the vignettes (clinician versus LLM-assisted) is not stated, so item_provenance clinician_written is a guess; adjudication by the author is described but the rater background is unknown."

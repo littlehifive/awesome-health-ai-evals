@@ -1,0 +1,34 @@
+id: eval-iraqi-arabic-breast-cancer
+name: EVAL (Iraqi Arabic breast cancer scenarios)
+kind: benchmark
+year: 2026
+summary: 50 simulated single-turn Iraqi Arabic breast cancer scenarios (emergencies, chemotherapy adverse effects, drug-herb interactions, lifestyle) with structured reference standards, scored on four 1-5 domains and three safety flags by GPT-5.1 evaluator prompts validated against two adjudicated oncology experts.
+readme_section: safety
+links:
+  doi: 10.5281/zenodo.22714283
+  dataset: https://doi.org/10.5281/zenodo.22714283
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [Arabic]
+  item_origin_countries: [IRQ]
+  item_origin_note: Scenarios are described as Iraqi Arabic; the authors are at the University of Baghdad and Medical City, Baghdad.
+  rater_countries: [IRQ]
+  localization: native
+  lead_institution_countries: [IRQ]
+origin:
+  builder_types: [academic]
+  item_provenance: [unknown]
+  venue: grey_literature
+facets:
+  health_areas: [oncology]
+  intended_users: [unspecified]
+  eval_methods: [rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 50 scenarios; 700 model responses; 80 human-rated responses
+provenance:
+  records: [r_fc4da940ad]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Read the Zenodo record and its README (a reproducibility repository for a multi-phase evaluation study, files: workbook, evaluator prompts, scoring framework, human instructions, data dictionary). Analysis code is not included. Who wrote the scenarios, and the intended user, are not stated in what I read. Human raters were two blinded clinical experts plus a third adjudicator; their country is taken from the authors' affiliations (Baghdad) and not stated for the raters. The accompanying journal article was not found."

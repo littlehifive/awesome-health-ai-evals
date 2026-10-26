@@ -1,0 +1,32 @@
+id: medqa-eval-pediatrics
+name: medqa-eval (pediatric parent-consultation)
+kind: benchmark
+year: 2026
+summary: "25 Chinese-language parent-style pediatric consultation cases, adapted from de-identified outpatient records, scored by an LLM judge on a 100-point rubric (safety, triage level, red flags, point coverage) with a pass gate."
+readme_section: multilingual_regional
+links:
+  code: https://github.com/Fristiano/medqa-eval
+license: null
+open_data: open
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: 21 cases rewritten from 20 real pediatric outpatient records seen during clinical clerkship plus 4 hand-built cases; the country is not stated.
+  localization: native
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [unknown]
+  item_provenance: [unknown]
+  venue: grey_literature
+facets:
+  health_areas: [child_health]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: 25 cases (17 common illness, 2 red-flag emergency, 2 medication, 2 out-of-scope, 2 emotional)
+provenance:
+  records: [r_ba764a1469]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Personal GitHub project, no paper and no license file seen. Each case has severity 1-5, expected points, forbidden content, red-flag signal and reference answer; data is in data/evalset_v1.jsonl. Pass requires total >= 80 and no forbidden-item violation; judge answers yes/no questions and code computes the score. Demonstrated on one model (Doubao Seed 2.1 lite) with prompt iterations."

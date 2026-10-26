@@ -1,0 +1,36 @@
+id: taimh-eval
+name: TAIMH-Eval
+kind: benchmark
+year: 2024
+summary: 16 clinician-designed mental health questions (psychosis, mania, depression, suicidal and homicidal thoughts) with per-question rubrics defining safe, borderline, and unsafe responses, used to test 14 language models.
+readme_section: mental_health
+links:
+  paper: https://doi.org/10.1609/aies.v7i1.31654
+  arxiv: "2406.11852"
+  doi: 10.1609/aies.v7i1.31654
+  code: https://github.com/maxlampe/taimh_eval
+license: MIT
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Questions were written by mental health clinicians (M.D.s); the paper abstract does not state their country.
+  rater_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: 16 questions
+provenance:
+  records: [r_6907bff88a]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Extended abstract at AIES 2024 (record); the arXiv version 2406.11852 was read. TAIMH in the paper means task-autonomous AI for mental health, the framework; TAIMH-Eval is the repository name (taimh_eval) and is used here as the benchmark name. Lead institutions are Stanford and Northwestern per the arXiv version. Clinicians are M.D.s but their country is not stated. Redacted data and code are on GitHub (MIT); the full unredacted set is available on request because of harmful content."

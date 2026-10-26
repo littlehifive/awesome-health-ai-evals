@@ -1,0 +1,35 @@
+id: etrajeval
+name: ETrajEval
+kind: benchmark
+year: 2025
+summary: 328 emotional-distress contexts and 1,152 disturbance events in English and Chinese for simulated multi-turn emotional-support dialogues, scored by trajectory-level metrics of a simulated user's emotional state (BEL, ETV, ECP).
+readme_section: mental_health
+links:
+  paper: https://doi.org/10.1609/aaai.v40i3.37189
+  arxiv: "2511.09003"
+  doi: 10.1609/aaai.v40i3.37189
+  code: https://github.com/RuoChoXio/ETrajEval
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [English, Chinese]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Scenarios were written from psychological theory (14 scenarios in four distress domains) and generated and human-inspected; no country origin is stated.
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated, literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [simulated_multi_turn, automatic_metric]
+  modality: [text]
+  size: 328 emotional contexts, 1,152 disturbance events
+provenance:
+  records: [r_eabe19a4b1]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "The paper appendix says only 60 test samples were provided at submission and the full set would follow; the GitHub repo holds ETrajEval/dataset/test_data_prompts.json, and I did not check its size. The repo README states Apache 2.0, but its license link points to SECURITY.md and no LICENSE file was seen. Project page https://ruochoxio.github.io/ETrajEval/. Lead institution is Peking University with Guangzhou Quwan Network Technology. Generated data was inspected by human reviewers; a separate human-annotated sentiment set (about 2,000 dialogues from Daily Dialog and CPED) was used to validate the emotion estimator."

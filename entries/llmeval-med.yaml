@@ -1,0 +1,37 @@
+id: llmeval-med
+name: LLMEval-Med
+kind: benchmark
+year: 2025
+summary: 2,996 mostly Chinese medical questions across five areas (knowledge, language understanding, reasoning, text generation, safety and ethics), built from real electronic health records and expert-designed scenarios, each with an expert reference answer and checklist for an LLM judge validated against physicians.
+readme_section: multilingual_regional
+links:
+  paper: https://aclanthology.org/2025.findings-emnlp.260/
+  arxiv: "2506.04078"
+  doi: 10.48448/vzhq-5f55
+  huggingface: [llmeval-fdu/LLMEval-Med]
+  code: https://github.com/llmeval/LLMEval-Med
+license: custom
+open_data: open
+geography:
+  item_languages: [Mandarin Chinese, English]
+  item_origin_countries: [CHN]
+  item_origin_note: The paper says the dataset primarily focuses on Chinese medical contexts; it does not list the hospitals or countries of the source records. The Hugging Face card lists zh and en.
+  rater_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 2,996 questions in the paper (667 on the Hugging Face card)
+provenance:
+  records: [r_29cdf90c41, r_eee083876f]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Authors are at Fudan University, Shanghai AI Laboratory, and Northwestern University. The paper reports 2,996 questions but evaluates 677 randomly selected ones; the Hugging Face card says 667 questions (a likely typo or different release), so the released size needs a check. Dataset license is a custom evaluation-only license (no training, fine-tuning, or distillation); code is Apache-2.0. Medical text generation is scored by humans; the other tasks by GPT-4o against checklists, with human-machine agreement analysis. Ten licensed physicians checked factual correctness of a sample (86% correct). Item sources are in Appendix B, which was not read; the clinician_written label is a partial fit. Two records: the paper and a conference talk or proceedings copy."

@@ -10,15 +10,24 @@ import csv
 import json
 import sys
 
+import yaml
 from jsonschema import Draft202012Validator
 
 from common import ROOT, load_yaml
 
 
-def load_entries() -> dict[str, dict]:
+def load_entries(errors: list[str] | None = None) -> dict[str, dict]:
+    """Parse entries/*.yaml. Files that aren't valid YAML are reported in `errors` (or raise)."""
     entries = {}
     for path in sorted((ROOT / "entries").glob("*.yaml")):
-        entries[path.stem] = load_yaml(path.read_text())
+        try:
+            entries[path.stem] = load_yaml(path.read_text())
+        except yaml.YAMLError as err:
+            if errors is None:
+                raise
+            mark = getattr(err, "problem_mark", None)
+            where = f" at line {mark.line + 1}" if mark else ""
+            errors.append(f"{path.stem}: invalid YAML{where}; quote strings that contain ': ' or ' #'")
     return entries
 
 
@@ -28,8 +37,8 @@ def main() -> int:
     with (ROOT / "data" / "countries.csv").open() as f:
         countries = {row["iso3"] for row in csv.DictReader(f)} | {"GLOBAL", "UNKNOWN"}
 
-    entries = load_entries()
     errors = []
+    entries = load_entries(errors)
     names, owners = {}, {}
     for stem, e in entries.items():
         for err in validator.iter_errors(e):
@@ -63,9 +72,9 @@ def main() -> int:
         for hf in links.get("huggingface") or []:
             owners.setdefault(f"huggingface:{hf.lower()}", []).append(stem)
 
-    for link, stems in sorted(owners.items()):
-        if len(stems) > 1:
-            errors.append(f"{', '.join(stems)}: share {link}")
+    # A warning, not an error: one paper can release two benchmarks.
+    warnings = [f"warning: {', '.join(stems)} share {link}; merge them if they are one benchmark"
+                for link, stems in sorted(owners.items()) if len(stems) > 1]
 
     # Pass-2 term files.
     terms_validator = Draft202012Validator(json.loads((ROOT / "schema" / "terms.schema.json").read_text()))
@@ -80,7 +89,7 @@ def main() -> int:
         if path.stem not in entries:
             errors.append(f"terms/{path.stem}: no entry with this id")
 
-    for line in errors:
+    for line in errors + warnings:
         print(line)
     print(f"{len(entries)} entries, {len(term_files)} term files, {len(errors)} problems", file=sys.stderr)
     return 1 if errors else 0

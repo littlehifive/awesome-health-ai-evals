@@ -1,0 +1,34 @@
+id: morphological-shortcuts-pharmacology
+name: Morphological Shortcuts in Pharmacology
+kind: benchmark
+year: 2026
+summary: "Stimulus sets built from the 655 AMA drug-name affixes (653 drugs) with real drugs, fictitious affix-bearing drugs, and nonce controls, used to test whether LLMs treat made-up drug names as real medications, scored by multiple-choice definition choice and an LLM judge."
+readme_section: safety
+links:
+  paper: https://arxiv.org/abs/2606.05616
+  arxiv: "2606.05616"
+  code: https://github.com/KaijieMo-kj/Morphological-Shortcuts
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Affixes and example drugs come from the American Medical Association affix list; fictitious names and queries are synthetic.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature, llm_generated]
+  venue: preprint
+facets:
+  health_areas: [pharmacy_medication]
+  intended_users: [unspecified]
+  eval_methods: [mcq_exact_match, rubric_llm_judge]
+  modality: [text]
+  size: 653 drugs, each with real, fake-drug, and nonce variants; behavioral file plus a diagnostic RR/RN/NR/NN file
+provenance:
+  records: [r_d7e96d931e]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "GitHub repo holds two JSONL files (behavioral and diagnostic) with field READMEs; no license file or statement seen. Two tasks: 4-option multiple choice (including a non-existent drug option) and open-ended user queries judged by Claude-Sonnet-4.5 (92.3 percent agreement on 300 hand-labeled cases). Paper also reports activation patching on open 7B models. Item counts per file not checked. Authors say fictitious items must not be used for training or clinical support."

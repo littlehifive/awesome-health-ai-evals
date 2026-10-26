@@ -1,0 +1,36 @@
+id: hivmedqa
+name: HIVMedQA
+kind: benchmark
+year: 2025
+summary: "Open-ended HIV questions in four tiers (basic knowledge, USMLE-derived knowledge and vignette questions, and bias-modified vignettes) with expert-validated gold answers, scored by lexical similarity, an extended LLM-as-a-judge, and physician review."
+readme_section: open_ended
+links:
+  paper: https://doi.org/10.1038/s43856-026-01875-1
+  arxiv: "2507.18143"
+  doi: 10.1038/s43856-026-01875-1
+  code: https://github.com/GonzaloCardenalAl/medical_LLM_evaluation
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA, UNKNOWN]
+  item_origin_note: "Categories 2 to 4 are adapted from USMLE questions; Category 1 questions were written by the team and the source does not state their country."
+  rater_countries: [CHE]
+  localization: adapted
+  lead_institution_countries: [CHE]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written, adapted_dataset]
+  venue: peer_reviewed
+facets:
+  health_areas: [infectious_other]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric, rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: "about 42 base questions across categories 1 to 3 (11, 10, 21) plus bias-modified variants; five runs per model and question"
+provenance:
+  records: [r_5064b48c9e, r_0e76a99973]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Read the arXiv full text. Dataset (questions, gold answers, model responses, scores) is at https://zenodo.org/records/15868085 per the paper; license not checked. Exact size of Category 4 not confirmed. Authors are all in Switzerland (ETH Zurich, EPFL, Zurich, Lausanne). Journal version (Communications Medicine) is record r_5064b48c9e and was not read separately."

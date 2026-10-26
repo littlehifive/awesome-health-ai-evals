@@ -1,0 +1,36 @@
+id: biomarker-intervention-benchmark
+name: Biomarker-based intervention recommendation benchmark (BioChatter extension)
+kind: benchmark
+year: 2025
+summary: "1,000 test cases built from 25 biomarker profiles across three age groups, asking LLMs for personalized longevity interventions, scored by LLM-as-a-judge against expert-validated ground truths."
+readme_section: open_ended
+links:
+  paper: https://doi.org/10.1038/s41746-025-01996-2
+  doi: 10.1038/s41746-025-01996-2
+  pmcid: PMC12559286
+  code: https://github.com/biocypher/biochatter
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Synthetic, fictional patient profiles drafted by one physician author; no real patient data.
+  rater_countries: [DEU]
+  localization: unknown
+  lead_institution_countries: [DEU]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: "25 profiles, 1,000 test cases, 56,000 model responses evaluated"
+provenance:
+  records: [r_df1943f5e9, r_607d44659c]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Merged the Preprints.org version (r_df1943f5e9) with the npj Digital Medicine paper (r_607d44659c, PMC12559286). Data availability statement says the benchmarking data are on GitHub (biocypher/biochatter, Apache-2.0 for the repo; the paper does not give a separate data license) and the repo is archived on Zenodo (14775193). Judge is GPT-4o mini scoring five requirements (comprehensiveness, correctness, usefulness, interpretability/explainability, safety) with physician-written ground truths; one author rated 1,000 responses to check judge alignment, so human rating is only a validation step. Author affiliations are Rostock, Stendal, and Munich in Germany."

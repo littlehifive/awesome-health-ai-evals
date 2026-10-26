@@ -1,0 +1,35 @@
+id: biasmedqa
+name: BiasMedQA
+kind: benchmark
+year: 2024
+summary: 1,273 USMLE-style clinical vignettes from the MedQA test fold, each modified with a prompt inducing one of seven cognitive biases, scored by multiple-choice accuracy with and without bias.
+readme_section: safety
+links:
+  paper: https://doi.org/10.1038/s41746-024-01283-6
+  arxiv: "2402.08113"
+  doi: 10.1038/s41746-024-01283-6
+license: null
+adapted_from: [medqa]
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Questions are from the US medical licensing exam (USMLE) via MedQA.
+  localization: adapted
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, exam_questions]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician, medical_student]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 1,273 questions (each with bias-inducing variants across seven bias types)
+provenance:
+  records: [r_6c1fc8cbe8, r_b3a8e8b941]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: The paper says BiasMedQA is released as an open-source dataset, but the text read gives no URL; the only repository found by search (ai-idt/reasoning_bias) belongs to a later paper, so no code or dataset link is listed and the license is not stated. Record r_b3a8e8b941 is the arXiv version. Seven biases are self-diagnosis, recency, confirmation, frequency, cultural, status quo, and false consensus. Also evaluates three mitigation prompts. Lead country USA is an assumption from the author list and was not checked.

@@ -1,0 +1,34 @@
+id: cape-psychotherapy-chatbots
+name: CAPE (Conversational Agent for Psychotherapy Evaluation)
+kind: eval_framework
+year: 2025
+summary: An eight-section yes/no checklist framework for scoring psychotherapy chatbot quality (background, therapeutic orientation, alliance, conversational capabilities, outcome tracking and crisis handling, privacy and safety, accessibility, training data transparency), applied to four GPT-store chatbots with two depression personas.
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.2196/65605
+  doi: 10.2196/65605
+  pmcid: PMC12239686
+license: null
+open_data: described_only
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: No test set; two fictional depression personas and a checklist.
+  localization: unknown
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [not_applicable]
+  venue: peer_reviewed
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public, clinician]
+  eval_methods: [expert_human_rating, simulated_multi_turn]
+  modality: [text]
+  size: 8 sections of binary items, each with a 0 to 1 subscore; 4 chatbots, 16 conversations
+provenance:
+  records: [r_f0f13a3d6b]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "JMIR Formative Research; UCLA Psychiatry and University of San Francisco authors. The codebook and persona scripts are in Multimedia Appendix 1. The framework was built from a nonsystematic literature review, and two reviewers scored conversations with inter-rater checks. Article license not seen in the paperclip copy."

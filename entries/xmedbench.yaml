@@ -1,0 +1,42 @@
+id: xmedbench
+name: XMedBench
+kind: benchmark
+year: 2024
+summary: Multiple-choice medical knowledge test sets in six languages (English, Chinese, French, Spanish, Arabic, Hindi), built from national exam and QA sets and translated MMLU medical subsets, released with the Apollo multilingual medical LLMs.
+readme_section: multilingual_regional
+links:
+  paper: https://arxiv.org/abs/2403.03640
+  arxiv: "2403.03640"
+  huggingface: [FreedomIntelligence/XMedbench]
+  code: https://github.com/FreedomIntelligence/Apollo
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [English, Chinese, French, Spanish, Arabic, Hindi]
+  item_origin_countries: [USA, CHN, FRA, ESP]
+  item_origin_note: English from USMLE (MedQA, MedMCQA also used), Chinese from MedQA-MCMLE and CMMLU, French from FrenchMedMCQA, Spanish from HEAD-QA. Arabic and Hindi are Google-translated MMLU medical subsets proofread by practicing physicians, so they have no local origin.
+  localization: mixed
+  lead_institution_countries: [CHN]
+  subsets:
+    - {name: English, languages: [English], countries: [USA], localization: native}
+    - {name: Chinese, languages: [Chinese], countries: [CHN], localization: native}
+    - {name: French, languages: [French], countries: [FRA], localization: native}
+    - {name: Spanish, languages: [Spanish], countries: [ESP], localization: native}
+    - {name: Arabic, languages: [Arabic], countries: [UNKNOWN], localization: translated}
+    - {name: Hindi, languages: [Hindi], countries: [UNKNOWN], localization: translated}
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions, adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician, medical_student]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: six per-language test files (item counts not stated in the text read)
+provenance:
+  records: [r_11587219ee]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: Candidate record was the Apollo GitHub repo, which also holds ApolloCorpus (training data) and models; only XMedBench is the benchmark. Evaluation is 3-shot with answer extraction by regex matching. Item counts per language were not found in the paper sections read. Source datasets differ in item origin, so the summary names the main ones only.

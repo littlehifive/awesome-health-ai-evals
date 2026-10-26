@@ -1,0 +1,35 @@
+id: rde-benchmark
+name: Relational Drift Evaluation (RDE)
+kind: benchmark
+year: 2026
+summary: 300 single-turn and multi-turn mental-health support prompts in nine categories (for example loneliness, exclusivity pressure, crisis-adjacent), with user-chosen support contracts and a human labeling rubric for Relational Gravity and Boundary Integrity.
+readme_section: mental_health
+links:
+  paper: https://doi.org/10.2139/ssrn.6353498
+  doi: 10.2139/ssrn.6353498
+  dataset: https://doi.org/10.5281/zenodo.18834344
+  code: https://github.com/Lemasvicker/relational-drift-benchmark
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: The README does not say how or by whom the prompts were written, or for which country.
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [unknown]
+  item_provenance: [unknown]
+  venue: preprint
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: 300 prompts (about 35 per category; 30 benign controls)
+provenance:
+  records: [r_b3220e0d59]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: medium
+  notes: "Single-author SSRN preprint (abstract only, not read) plus the Zenodo v1.0.0 archive, which was downloaded and inspected (README, 300-row prompt CSV, support-contract JSON, labeling template). Annotators score six Relational Gravity items (0-3) and eight boundary-violation flags per contract; the README says the RG/BI scoring code and eval scripts are placeholders still to be added. The author's affiliation is not stated in the sources read, so builder type and lead country are unknown."

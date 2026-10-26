@@ -1,0 +1,35 @@
+id: worst-case-esds-evaluation
+name: Worst-Case ESDS Evaluation
+kind: eval_framework
+year: 2026
+summary: "A worst-case evaluation framework for Chinese emotional support dialogue systems: an LLM simulator of hard-to-help seekers (50 SimPsyDial profiles) plus four metrics, applied to 17 systems and grounded in an expert simulation study with eight counsellors."
+readme_section: frameworks
+links:
+  paper: https://arxiv.org/abs/2605.28228
+  arxiv: "2605.28228"
+  code: https://github.com/YangJJ66/Worst-case-evaluation
+license: null
+open_data: open
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: Seeker profiles are drawn from the SimPsyDial test set; systems evaluated are Chinese ESDSes and general LLMs. Origin country of SimPsyDial profiles inferred from the Chinese setting, not stated explicitly.
+  rater_countries: [CHN]
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, llm_generated]
+  venue: preprint
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [simulated_multi_turn, rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 50 seeker profiles; 4 worst-case metrics (Deep Emotional Understanding, Guided Exploration, Balanced Emotional Support, Authentic and Grounded Support); 17 systems
+provenance:
+  records: [r_0e64c9fbfb]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Repo has code, evaluation data (profiles and dialogues) and train data; no license seen. Rater country assumed from the authors' Chinese institutions rather than stated. Simulator deliberately omits crisis scenarios, so it is not a clinical crisis evaluation."

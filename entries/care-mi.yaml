@@ -1,0 +1,36 @@
+id: care-mi
+name: CARE-MI
+kind: benchmark
+year: 2023
+summary: 1,612 expert-checked Chinese true/false and open-ended questions on maternity and infant care with retrieved evidence, built from knowledge-graph and multiple-choice QA datasets to measure misinformation in long-form LLM answers, with fine-tuned judgment models.
+readme_section: safety
+links:
+  paper: https://doi.org/10.52202/075280-1836
+  arxiv: "2307.01458"
+  doi: 10.52202/075280-1836
+  code: https://github.com/Meetyou-AI-Lab/CARE-MI
+license: null
+open_data: closed
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: Questions are built from Chinese medical knowledge-graph and multiple-choice QA datasets; China is inferred from the Chinese-language source datasets.
+  rater_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [JPN, CHN]
+origin:
+  builder_types: [academic, industry_lab]
+  item_provenance: [adapted_dataset, literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [maternal_newborn, child_health]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 1,612 questions
+provenance:
+  records: [r_ae6ae6651d]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: medium
+  notes: Based on the abstract and the GitHub README. The README says the benchmark will be made public at a later stage; the repo holds code, a corpus folder, and examples.tsv only, so open_data is closed as of 2026-10-26 (recheck). Fine-tuned LLaMA-13B judgment models for correctness and interpretability are on Hugging Face (tx39/); they are models, not datasets. Authors are at Osaka University and Xiaoyouzi (Meetyou), from the README emails. arXiv ID 2307.01458 is from the README, not the screening record.

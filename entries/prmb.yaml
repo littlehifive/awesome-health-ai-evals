@@ -1,0 +1,34 @@
+id: prmb
+name: PRMB
+kind: benchmark
+year: 2026
+summary: A benchmark of over 13,800 prompts from 118 six-session CBT counseling cases for testing reward models and LLM judges on pairwise and best-of-N preference choices across 21 negative counseling scenarios.
+readme_section: mental_health
+links:
+  paper: https://arxiv.org/abs/2603.11494
+  arxiv: "2603.11494"
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Cases come from the American Psychological Association website, CBT textbooks, and the synthetic DiaCBT dataset; the paper does not give a language or country explicitly.
+  rater_countries: [UNKNOWN]
+  localization: unknown
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature, llm_generated, adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric, expert_human_rating]
+  modality: [text]
+  size: 13,893 prompts (6,948 pairwise pairs, 6,945 best-of-N queries) from 118 cases
+provenance:
+  records: [r_fa7f0b2f58]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "No GitHub, Hugging Face or license statement was found in the full text, despite the screening note that it is publicly released, so open_data is unknown. Three licensed CBT practitioners checked 200 sampled pairs. The thing evaluated is reward models, not a chatbot directly. Language is assumed English from the sources, not stated."

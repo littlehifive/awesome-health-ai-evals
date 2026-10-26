@@ -1,0 +1,37 @@
+id: hindi-mmlu-medical-shuyuej
+name: Hindi-MMLU medical subsets (shuyuej)
+kind: benchmark
+year: 2024
+summary: Hindi translations of four MMLU medical test subsets (clinical knowledge 265, college medicine 144, medical genetics 100, professional medicine 272 questions), 781 multiple-choice questions in total.
+readme_section: multilingual_regional
+links:
+  huggingface: [shuyuej/Hindi-MMLU-Clinical-Knowledge-Benchmark, shuyuej/Hindi-MMLU-College-Medicine-Benchmark, shuyuej/Hindi-MMLU-Medical-Genetics-Benchmark, shuyuej/Hindi-MMLU-Professional-Medicine-Benchmark]
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [Hindi]
+  item_origin_countries: [USA]
+  item_origin_note: Translations of MMLU test questions; MMLU's country of origin is taken as USA.
+  localization: translated
+  lead_institution_countries: [UNKNOWN]
+  subsets:
+    - {name: Clinical Knowledge, languages: [Hindi], countries: [USA], localization: translated}
+    - {name: College Medicine, languages: [Hindi], countries: [USA], localization: translated}
+    - {name: Medical Genetics, languages: [Hindi], countries: [USA], localization: translated}
+    - {name: Professional Medicine, languages: [Hindi], countries: [USA], localization: translated}
+origin:
+  builder_types: [unknown]
+  item_provenance: [adapted_dataset, exam_questions]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine]
+  intended_users: [medical_student, clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 781 questions across four test files
+provenance:
+  records: [r_a8b384101e, r_6a54015512, r_2ce914732b, r_b12ce6b2ab]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: low
+  notes: "The four dataset cards are one-line usage snippets with a license tag; no paper, no translation method, no author statement. I confirmed the Clinical Knowledge file is a JSON list of Hindi questions with options A-D and a label. The uploader also hosts parallel French, Spanish, Chinese (CMMLU) and English sets (same naming pattern), probably from one multilingual medical LLM project; those are separate candidates in other batches. Hindi Anatomy and College Biology sets exist on the hub but are not in this batch. Translation method unknown (likely machine translation)."

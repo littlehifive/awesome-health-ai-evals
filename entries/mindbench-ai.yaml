@@ -1,0 +1,35 @@
+id: mindbench-ai
+name: MindBench.ai
+kind: eval_framework
+year: 2025
+summary: An online platform, built with the National Alliance on Mental Illness (NAMI), that profiles mental-health LLM tools (technical features, privacy, conversational style) and benchmarks their clinical reasoning on expert-rated cases in a SIRI-2-style numeric format.
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.1038/s44277-025-00049-6
+  arxiv: "2510.13812"
+  doi: 10.1038/s44277-025-00049-6
+  pmcid: PMC12624894
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: The paper builds on SIRI-2-style expert-rated cases; item countries are not stated, and the authors call for contributions from underrepresented perspectives.
+  localization: unknown
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public, clinician]
+  eval_methods: [expert_human_rating, automatic_metric]
+  modality: [text]
+  size: Over 100 benchmark cases supported at publication
+provenance:
+  records: [r_eb6c52b26e]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Beth Israel Deaconess Medical Center / Harvard group (builds on MINDapps.org), published in NPP Digital Psychiatry and Neuroscience; the article is CC BY 4.0. Cases pair a scenario with several candidate responses and expert mean and SD ratings, scored against model ratings. The paper mentions an open-source codebase and preference-pair data but the sources read give no code or data URL, so open_data is unknown and the platform URL is not listed. Scoring details beyond the numeric expert-rating format were not read in full."

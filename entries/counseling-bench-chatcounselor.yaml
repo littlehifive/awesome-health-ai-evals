@@ -1,0 +1,34 @@
+id: counseling-bench-chatcounselor
+name: Counseling Bench (ChatCounselor)
+kind: benchmark
+year: 2023
+summary: 229 single-turn open-ended counseling questions scored by GPT-4 on seven counseling-skill metrics, introduced to evaluate the ChatCounselor model; a sanitised subset is in the repository.
+readme_section: mental_health
+links:
+  paper: https://arxiv.org/abs/2309.15461
+  arxiv: "2309.15461"
+  doi: 10.48550/arxiv.2309.15461
+  code: https://github.com/EmoCareAI/ChatPsychiatrist
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  localization: unknown
+  lead_institution_countries: [HKG]
+origin:
+  builder_types: [academic]
+  item_provenance: [unknown]
+  venue: preprint
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: 229 questions (sanitised subset public)
+provenance:
+  records: [r_50684a40a7]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "The paper's main contribution is the ChatCounselor model and its Psych8k training set (training data, not coded here); Counseling Bench is its evaluation part. The paper says the 229 questions are 'real-world' but does not say where they come from, so provenance is unknown. Only a sanitised subset (Sanitised_CounsQs_subset.jsonl) is in the repository, so the full set may not be public; Apache-2.0 is the repository license. Seven metrics: information, direct guidance, approval and reassurance, restatement/reflection/listening, interpretation, self-disclosure, obtaining relevant information. Authors are at HKU and HKUST (Hong Kong SAR) with one at Ohio State."

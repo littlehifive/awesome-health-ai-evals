@@ -1,0 +1,35 @@
+id: medagentsim
+name: MedAgentSim
+kind: benchmark
+year: 2025
+summary: Open-source simulated clinic where a doctor agent interviews a simulated patient over several turns and requests exams and images, evaluated on 107 to 214 OSCE-style MedQA cases, 15 to 120 NEJM cases, and 288 MIMIC-IV cases for diagnostic accuracy.
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2503.22678
+  arxiv: "2503.22678"
+  huggingface: [ItsMaxNorm/MedAgentSim-datasets]
+  code: https://github.com/MAXNORM8650/MedAgentSim
+license: MIT
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Cases derive from NEJM, MedQA (USMLE-style OSCE scenarios), and MIMIC-IV (a US hospital); the paper does not discuss origin countries.
+  localization: adapted
+  lead_institution_countries: [ARE]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [simulated_multi_turn]
+  modality: [text]
+  size: "Dataset files: 107 + 214 MedQA, 15 + 120 NEJM, 288 MIMIC-IV cases"
+provenance:
+  records: [r_23acfb1d4f]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Primarily a simulation framework with self-improving agents; the benchmark component is the converted case sets. The license is from the Hugging Face card; the card lists 107 MedQA rows while the paper says 106. Code link is from the HF card; the paper text I scanned has no URL. The paper includes a bias analysis of patient cognitive biases. MIMIC-IV based cases may carry PhysioNet terms that the MIT label on the card does not address."

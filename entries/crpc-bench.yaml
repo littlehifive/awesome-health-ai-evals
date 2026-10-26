@@ -1,0 +1,32 @@
+id: crpc-bench
+name: CRPC-Bench
+kind: benchmark
+year: 2026
+summary: Client Role-Playing Consistency benchmark built on 38 motivational-interviewing client profiles, scoring whether LLM-simulated counseling clients stay consistent in profile and Big-Five personality (session level) and in psychological state, communicative action, and emotion (turn level).
+readme_section: mental_health
+links:
+  paper: https://arxiv.org/abs/2610.08250
+  arxiv: "2610.08250"
+license: null
+open_data: unknown
+geography:
+  item_languages: [UNKNOWN]
+  item_origin_countries: [UNKNOWN]
+  localization: adapted
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [mental_health]
+  intended_users: [unspecified]
+  eval_methods: [rubric_llm_judge, simulated_multi_turn]
+  modality: [text]
+  size: 38 client profiles with session-level and turn-level annotations
+provenance:
+  records: [r_fbb9737ada]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: low
+  notes: "Introduced in the MASC paper (a multi-agent method for consistent client role-playing); read the arXiv HTML version. It extends the motivational-interviewing dialogue dataset of Yang et al. 2025 with Big-Five and utterance-level emotion labels annotated by ChatGPT. No code or dataset link, and no data license, was seen (the CC BY 4.0 shown is the paper's license), so open_data is unknown. Language and item country were not stated. It evaluates LLMs playing the client for counselor training, not a health-advice chatbot, so scope is borderline. Lead country CHN is from the first-listed affiliations (Central China Normal University); the last author's was not checked."

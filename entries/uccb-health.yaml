@@ -1,0 +1,32 @@
+id: uccb-health
+name: UCCB-Health
+kind: benchmark
+year: 2026
+summary: 1,008 English items (free-form, multiple choice, true/false) grounded in the Uganda Clinical Guidelines 2023, split into a decision-support and triage track and a separate protocol-recall track.
+readme_section: safety
+links:
+  huggingface: [CraneAILabs/uccb-health]
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UGA]
+  item_origin_note: Items are built from the Uganda Clinical Guidelines (UCG) 2023.
+  localization: native
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [industry_lab]
+  item_provenance: [literature, llm_generated]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine, emergency_triage, primary_care]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match, expert_human_rating]
+  modality: [text]
+  size: "1,008 items: 210 free-form, 300 MCQ and 300 true/false (decision support); 66 MCQ and 132 true/false (protocol recall)"
+provenance:
+  records: [r_dff1c40f67]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Read the full dataset card; no paper. Track A (decision support: danger signs, referral, differential reasoning, boundary safety on dosing requests) and Track B (exact UCG protocol recall) are to be reported separately. MCQ and true/false items are exact-match; the card does not say how free-form items are scored. The card says distractors and negative statements were built algorithmically or with LLM assistance and that clinician review is still recommended, so items are not clinician-written. Publisher is Crane AI Labs; the card does not state its country, so lead institution is UNKNOWN. The 32 held-out conditions are listed in heldout_conditions.txt."

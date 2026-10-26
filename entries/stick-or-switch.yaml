@@ -1,0 +1,33 @@
+id: stick-or-switch
+name: stick-or-switch (SoS)
+kind: eval_framework
+year: 2026
+summary: A multi-turn evaluation framework that splits a clinical multiple-choice answer space into sequential suggestions to measure whether an LLM keeps a correct answer (conviction) or moves to a correct suggestion (flexibility), applied to MedQA, MedMCQA and JAMA Clinical Challenges with 17 LLMs.
+readme_section: frameworks
+links:
+  paper: https://arxiv.org/abs/2603.11394
+  arxiv: "2603.11394"
+license: null
+open_data: described_only
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA, IND]
+  item_origin_note: Built on existing benchmarks, MedQA (US medical licensing exam), MedMCQA (Indian entrance exams) and JAMA Clinical Challenges.
+  localization: adapted
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician, patient_public]
+  eval_methods: [mcq_exact_match, simulated_multi_turn]
+  modality: [text]
+  size: Applied to 3 clinical benchmarks; 17 LLMs evaluated
+provenance:
+  records: [r_6c03351e27]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Vanderbilt University and Vanderbilt University Medical Center with Intuit AI Research. The paper says code will be open-sourced upon publication; no repo link found, so open_data is described_only. A transformation applied to existing benchmarks rather than a new item set, so it may overlap with the base benchmarks' entries."

@@ -1,0 +1,39 @@
+id: clinicalmc
+name: ClinicalMC
+kind: benchmark
+year: 2026
+summary: "1,275 Chinese and 5,804 English hospital-course cases for multi-course clinical decision-making, from triage through first-course decisions and later assessments to final diagnosis, run through a patient, examiner, and doctor agent framework and scored with a GPT-4 judge."
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2606.03157
+  arxiv: "2606.03157"
+  doi: 10.48448/9hks-x828
+  huggingface: [hzyue/ClinicalMC]
+  code: https://github.com/hzyuezh/ClinicalMPD
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [Mandarin Chinese, English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Chinese cases come from MedEureka and English cases from PMC-Patients (published case reports); the paper does not state a country for either.
+  localization: unknown
+  lead_institution_countries: [CHN]
+  subsets:
+    - {name: Chinese, languages: [Mandarin Chinese], countries: [UNKNOWN], localization: unknown}
+    - {name: English, languages: [English], countries: [UNKNOWN], localization: unknown}
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, literature]
+  venue: preprint
+facets:
+  health_areas: [general_medicine, emergency_triage]
+  intended_users: [clinician]
+  eval_methods: [rubric_llm_judge, simulated_multi_turn]
+  modality: [text]
+  size: 1,275 Chinese and 5,804 English samples
+provenance:
+  records: [r_7d76f85f58, r_2804f794b6]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Paper read in paperclip (intro, ethics statement, appendix); GPT-4 scores comprehensiveness, professionalism, authenticity, and safety (3 runs). A three-round annotation workflow is described. The DOI is an Underline conference-talk DOI, so the venue is recorded as preprint because the proceedings were not identified. License is the paper's ethics statement (CC-BY-4.0, inherited from PMC-Patients and MedEureka); the HF card tag says MIT. The Hugging Face dataset is merged here as the paper's own release."

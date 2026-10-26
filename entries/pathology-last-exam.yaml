@@ -1,0 +1,33 @@
+id: pathology-last-exam
+name: "Pathology's Last Exam (PLE)"
+kind: benchmark
+year: 2025
+summary: 100 text-only diagnostic pathology cases revealed in stages (organ and histology, then stains, molecular, and clinical summary), plus 20 contradictory safety cases and 5 easy controls, scored by expert consensus ratings of the final diagnosis.
+readme_section: open_ended
+links:
+  paper: https://doi.org/10.64898/2025.12.11.25342081
+  doi: 10.64898/2025.12.11.25342081
+license: null
+open_data: closed
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Cases come from practice and from journals such as Am J Surg Pathol and Mod Pathol; the sources do not state the countries.
+  localization: unknown
+  lead_institution_countries: [DEU]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature, clinician_written]
+  venue: preprint
+facets:
+  health_areas: [oncology, other_specialty]
+  intended_users: [clinician]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: 100 complex cases plus 20 adversarial safety cases and 5 control cases
+provenance:
+  records: [r_5331e9f07b, r_d2729e9783]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "The paper states the full dataset is not released, to keep it usable as an external benchmark; a larger second version is planned. r_d2729e9783 is the earlier ESMO Real World Data and Digital Oncology conference abstract (indexed under an unrelated PET/CT title) for the same 100-case benchmark; r_5331e9f07b is the medRxiv preprint. Case-level text is pathology only, with no whole-slide images. Models were rated Correct, Partly correct, No diagnosis, or Wrong by consensus; the paper names LLM-as-judge as future work."

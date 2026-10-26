@@ -1,0 +1,35 @@
+id: breast-oncology-vignettes
+name: Breast oncology vignettes (AMIE oncology study)
+kind: benchmark
+year: 2024
+summary: 50 synthetic breast cancer cases (30 treatment-naive, 20 treatment-refractory) written by oncologists, with ground-truth management plans and a 19-question rubric rated by breast oncologists.
+readme_section: open_ended
+links:
+  paper: https://ai.nejm.org/doi/10.1056/AIcs2500025
+  arxiv: "2411.03395"
+  doi: 10.1056/aics2500025
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Cases were written by three breast oncologists at Houston Methodist Hospital, Texas, to reflect presentations at their center and its community satellite clinics.
+  rater_countries: [USA]
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [industry_lab, academic]
+  item_provenance: [clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [oncology]
+  intended_users: [clinician]
+  eval_methods: [expert_human_rating, rubric_llm_judge]
+  modality: [text]
+  size: 50 cases; 19 rubric questions
+provenance:
+  records: [r_43f0e0e8df]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Read the arXiv version (2411.03395); the NEJM AI page was not reachable. The paper says the cases are open-sourced and lists full case descriptions and ground truths in its appendix, but no license is stated and no separate repository was found. Five breast cancer specialists rated responses against NCCN guidelines; rater countries are inferred from the Houston Methodist panel and are not stated for the raters. A Gemini 1.5 Pro auto-rater was used for method selection and checked against specialists. Authors are at Google Research, Google DeepMind and Houston Methodist."

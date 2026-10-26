@@ -1,0 +1,41 @@
+id: medexpqa
+name: MedExpQA
+kind: benchmark
+year: 2024
+summary: 622 Spanish residency-exam clinical-case multiple-choice questions (434 train, 63 dev, 125 test) in parallel English, French, Italian, and Spanish versions, with doctor-written gold explanations and RAG context.
+readme_section: multilingual_regional
+links:
+  paper: https://doi.org/10.1016/j.artmed.2024.102938
+  arxiv: "2404.05590"
+  doi: 10.1016/j.artmed.2024.102938
+  huggingface: [HiTZ/MedExpQA, shuyuej/Spanish-MedExpQA-Benchmark]
+  code: https://github.com/hitz-zentroa/MedExpQA
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [Spanish, English, French, Italian]
+  item_origin_countries: [ESP]
+  item_origin_note: Questions are the Spanish Ministry of Health MIR (Medico Interno Residente) exams, commented by CasiMedicos Proyecto MIR 2.0 doctors; English, French, and Italian are translations.
+  localization: native
+  lead_institution_countries: [ESP]
+  subsets:
+    - {name: Spanish, languages: [Spanish], countries: [ESP], localization: native}
+    - {name: English, languages: [English], countries: [ESP], localization: translated}
+    - {name: French, languages: [French], countries: [ESP], localization: translated}
+    - {name: Italian, languages: [Italian], countries: [ESP], localization: translated}
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions, clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician, medical_student]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 622 questions per language (125 test)
+provenance:
+  records: [r_7826d4f3f7, r_99d5d1b7da, r_7be250817c, r_77809dfa18]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Built on the Antidote CasiMedicos dataset (HiTZ/casimedicos-exp). Gold explanations written by volunteer CasiMedicos doctors. r_7be250817c (partex-nv/MedExpQA_MedExpQA_train_eval) is an empty-card Hugging Face copy and is merged as a mirror. Lead institution country (Spain) is inferred from the HiTZ Center and Basque Government funding named in the paper; the translation method was not checked. r_77809dfa18 (shuyuej/Spanish-MedExpQA-Benchmark, Apache-2.0 tag, one-line card) is merged as a mirror: its file test.es.casimedicos.rag.json holds 125 Spanish items, matching the MedExpQA Spanish test split."

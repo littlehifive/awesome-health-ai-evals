@@ -1,0 +1,34 @@
+id: medfact-zh-expert
+name: MedFact (Chinese medical text fact-checking)
+kind: benchmark
+year: 2026
+summary: 2,116 expert-annotated Chinese medical texts across 13 specialties, 8 error types, 4 writing styles, and 5 difficulty levels, scored on veracity classification and error-span localization.
+readme_section: safety
+links:
+  paper: https://doi.org/10.18653/v1/2026.gem-main.59
+  doi: 10.18653/v1/2026.gem-main.59
+license: custom
+open_data: unknown
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: Texts were collected from Chinese encyclopedias, textbooks, consultation websites, and similar sources; the paper's text is Chinese-only. Country is inferred from that.
+  rater_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [industry_lab]
+  item_provenance: [literature, web_forum]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public, clinician]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 2,116 annotated texts
+provenance:
+  records: [r_be2badaa79]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Paper read in full text from the ACL Anthology PDF (GEM 2026). Built by Xunfei (iFlytek) Healthcare Technology. A filter cut 27,116 candidate texts to 6,405, then three licensed medical professionals annotated veracity, error span, and correction. The paper says the dataset is distributed under a restrictive license that bars clinical or patient-facing use and gives a project page (iflytek-medical-southchina.github.io/MedFact), but no download link was seen, so open_data is unknown and license is custom. The arXiv paper of the same name (medfact-llm-claims-zh) is a different benchmark."

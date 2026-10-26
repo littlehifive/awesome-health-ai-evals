@@ -1,0 +1,36 @@
+id: clinconsensus
+name: ClinConsensus
+kind: benchmark
+year: 2026
+summary: "2,500 expert-written Chinese clinical cases across 36 specialties and 12 task themes, each with 30 binary physician-written rubric criteria, scored by an LLM judge (CACS); 900 low-difficulty cases are public."
+readme_section: multilingual_regional
+links:
+  paper: https://arxiv.org/abs/2603.02097
+  arxiv: "2603.02097"
+  huggingface: [skylenage/ClinConsensus]
+  code: https://github.com/crzzx1/ClinConsensus
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: Cases built in the context of Chinese clinical practice and checked against Chinese guidelines; physicians from Class A tertiary hospitals wrote responses.
+  rater_countries: [CHN]
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [industry_lab]
+  item_provenance: [clinician_written]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public, clinician]
+  eval_methods: [rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: "2,500 cases (900 public low-difficulty cases, 27,000 rubric criteria)"
+provenance:
+  records: [r_8307d9a5af, r_d4323474c6]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Dataset card (CC-BY-4.0) says only the 900-case low tier is public and excludes reference answers; the full 2,500 set is available from the authors under a data use agreement. Authors are at Alibaba Group. The paper carries an ACM copyright line, so venue may be peer-reviewed; marked preprint from the arXiv record. A trained 8B judge (ClinConsensus-Judge-8B) is released; the GitHub repo license is NOASSERTION. Rubric judge training data derives from HealthBench."

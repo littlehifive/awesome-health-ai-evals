@@ -1,0 +1,34 @@
+id: psi-bench-patient-simulators
+name: PSI-Bench (depression patient simulators)
+kind: eval_framework
+year: 2026
+summary: An automatic framework scoring how closely LLM-simulated depression patients match real patients at turn, dialogue, and population level on five clinically grounded dimensions, tested on 1,398 real conversations and validated against 20 mental health experts.
+readme_section: frameworks
+links:
+  paper: https://arxiv.org/abs/2604.25840
+  arxiv: "2604.25840"
+  code: https://github.com/nguyenkhoihoang/PSI-Bench
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Reference conversations come from the Eeyore profile dataset, built from AnnoMI, HOPE, and ESC (1,398 conversations after merging); the countries of origin are not stated.
+  localization: unknown
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [mental_health]
+  intended_users: [unspecified]
+  eval_methods: [automatic_metric, rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 1,398 real reference conversations; 7 LLMs and 2 simulation frameworks benchmarked; 20 expert annotators
+provenance:
+  records: [r_4cdaac1da0]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Evaluates patient simulators, not clinical answer quality, so it is borderline for scope; kept as a mental health evaluation framework. Authors at the University of Illinois Urbana-Champaign and the VinUni-Illinois Smart Health Center (Vietnam); only the first author's affiliations were read, so lead_institution_countries may need VNM. The screening candidate named PsiBench also grouped the unrelated medication-safety PsiBench, which has its own entry (psibench-medication-safety). License of released code and simulated data not seen."

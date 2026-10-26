@@ -1,0 +1,32 @@
+id: medllm-qa-benchmark
+name: medLLM_QA_benchmark
+kind: benchmark
+year: 2024
+summary: A trilingual (English, Japanese, Chinese) collection of 11 medical QA test sets, mostly existing exam sets plus a new Japanese dental licensing set (DenQA), with a shared vLLM evaluation harness for multiple-choice accuracy.
+readme_section: multilingual_regional
+links:
+  code: https://github.com/aistairc/medLLM_QA_benchmark
+license: null
+open_data: open
+geography:
+  item_languages: [English, Japanese, Mandarin Chinese]
+  item_origin_countries: [USA, IND, JPN, CHN]
+  item_origin_note: "Test splits of MedQA (USA and China), MMLU medical subsets, MedMCQA (India), PubMedQA, IgakuQA, JJSIMQA and DenQA (Japan), and CMExam (China). DenQA is new: Japan National Dentistry Examination problems from 2023 and 2024."
+  localization: mixed
+  lead_institution_countries: [JPN]
+origin:
+  builder_types: [government]
+  item_provenance: [exam_questions, adapted_dataset]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine, dentistry]
+  intended_users: [medical_student, clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: "11 test sets (5 English, 3 Japanese, 3 Chinese); item counts not stated in the README"
+provenance:
+  records: [r_9df8edd1a0]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Only the GitHub README was read; there is no paper. It is a compilation built to evaluate the Llama3-ELAINE-medLLM models, reusing the test splits of existing benchmarks under their own licenses (MIT, Apache-2.0, CC-BY-NC-SA-4.0), so the repository's MIT license (seen on GitHub) does not cover all data and license is left null. Lead country is from the releasing organization (aistairc, an AIST research group in Japan), which is inferred from the repository owner name. Included rather than excluded as a mirror because it adds DenQA and a multilingual harness."

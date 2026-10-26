@@ -1,0 +1,36 @@
+id: medthink-bench
+name: MedThink-Bench
+kind: benchmark
+year: 2025
+summary: 500 hard medical questions across ten domains drawn from public datasets, each with expert-written step-by-step reasoning, plus the LLM-w-Ref method that scores a model's rationale against those steps.
+readme_section: open_ended
+links:
+  paper: https://doi.org/10.1038/s41746-025-02208-7
+  arxiv: "2507.07988"
+  doi: 10.1038/s41746-025-02208-7
+  pmcid: PMC12796170
+  code: https://github.com/plusnli/MedThink-Bench
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Questions were selected from ten public datasets (Medbullets, MMLU-Pro, MedExQA, MedXpertQA, HLE, MedQA and others); the paper does not state their countries.
+  localization: unknown
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [rubric_llm_judge, expert_human_rating, automatic_metric]
+  modality: [text]
+  size: 500 questions
+provenance:
+  records: [r_8a7d397405]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "The paper's data statement says the expert-curated data would be released on acceptance; the GitHub repo has data/QA_data.json, so open_data is set to open. No license seen on the repo (license endpoint returned 404). Ten medical professionals did the human evaluation. The paper also compares text-similarity metrics and a reference-free judge against LLM-w-Ref."

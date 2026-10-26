@@ -1,0 +1,35 @@
+id: quorum
+name: QUORUM
+kind: eval_framework
+year: 2026
+summary: "A short stakeholder-survey framework that scores LLM-generated lifestyle counselling from three perspectives (users, medical experts, developers) with five-point Likert statements, demonstrated on a Dutch cancer-survivor diary app (19 user ratings, 50 expert-rated responses)."
+readme_section: frameworks
+links:
+  paper: https://arxiv.org/abs/2603.08392
+  arxiv: "2603.08392"
+  doi: 10.63317/4x7koa8w32ny
+license: null
+open_data: described_only
+geography:
+  item_languages: [Dutch]
+  item_origin_countries: [NLD]
+  item_origin_note: Queries come from users of the Dutch Healthy Chronos app; the framework statements were translated from Dutch for the paper.
+  rater_countries: [NLD]
+  localization: native
+  lead_institution_countries: [NLD]
+origin:
+  builder_types: [academic, implementer_ngo]
+  item_provenance: [not_applicable]
+  venue: peer_reviewed
+facets:
+  health_areas: [oncology, ncd]
+  intended_users: [patient_public]
+  eval_methods: [expert_human_rating, real_user_data]
+  modality: [text]
+  size: "Framework with 4 user, 3 expert and developer claim-level statements; case study of 19 user ratings, 50 expert-rated query-response pairs, 66 claims and 31 contextualisation statements rated by 2 developers"
+provenance:
+  records: [r_61e16db2c5]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Presented with the COACH RAG counselling pipeline (kanker.nl knowledge base). Source code of the pipeline is said to be shared in supplementary materials; user data and the Healthy Chronos code are not shareable. Venue taken from the record (LREC); authors' institutions inferred from the Leiden ethics approval and Dutch use case, not read from the affiliation block."

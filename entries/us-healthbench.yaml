@@ -1,0 +1,34 @@
+id: us-healthbench
+name: US-HealthBench
+kind: benchmark
+year: 2026
+summary: "An evaluation framework and 2,020-item English and Spanish item set on official US public-health guidance (CDC, NIH, FDA, CMS), with a five-dimension rubric, error taxonomy, and scoring code; the authors' own audit finds the item set defective and unfit for scoring systems."
+readme_section: safety
+links:
+  paper: https://doi.org/10.5281/zenodo.22086136
+  doi: 10.5281/zenodo.22086136
+  code: https://github.com/williamDalston/us-healthbench
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [English, Spanish]
+  item_origin_countries: [USA]
+  item_origin_note: Items are generated from US federal public-health guidance (CDC, NIH, FDA, CMS) documents.
+  localization: native
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature, llm_generated]
+  venue: grey_literature
+facets:
+  health_areas: [public_health, general_medicine]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge, automatic_metric]
+  modality: [text]
+  size: "2,020 items (v0.9-provisional); not fit for scoring"
+provenance:
+  records: [r_6cbb34d2bd]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Single author (William Alston, Alston Analytics LLC; country not listed), released on Zenodo and GitHub (Apache-2.0 per Zenodo). The README lists dimensions accuracy, grounding, safety, uncertainty, clarity, multilingual consistency; the Zenodo abstract says five. The README warns that 28.0% of items have contradictory duplicates and 17.1% (74.9% of Spanish) are text-corrupted, so the item set should not be used for scoring. item_provenance llm_generated is an inference from the 'template-generated' wording in the paper title and README. builder_types academic is a guess for an independent author; a human should check the paper's declared affiliation."

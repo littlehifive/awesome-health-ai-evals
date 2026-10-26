@@ -1,0 +1,37 @@
+id: itamed
+name: ITAMed
+kind: benchmark
+year: 2026
+summary: 1,260 five-option multiple-choice clinical questions from nine years (2017 to 2025) of the Italian medical specialization entrance exam, in Italian and expert-reviewed English, with specialty labels and 76 image-based items.
+readme_section: multilingual_regional
+links:
+  doi: 10.5281/zenodo.21771231
+  huggingface: [Filo-White/ITAMed]
+  code: https://github.com/LM-Healthcare/ITAMed
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [Italian, English]
+  item_origin_countries: [ITA]
+  item_origin_note: Questions are from the official Italian national entrance exams for medical specialization schools (Concorso SSM). The English version is a translation drafted by an LLM and reviewed by a bilingual physician.
+  localization: native
+  lead_institution_countries: [ITA]
+  subsets:
+    - {name: Italian original, languages: [Italian], countries: [ITA], localization: native}
+    - {name: English translation, languages: [English], countries: [ITA], localization: translated}
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician, medical_student]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 1,260 questions (928 case-based, 332 knowledge-based; 76 with images)
+provenance:
+  records: [r_dc9cf4db8b]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Sources are the Zenodo record, the GitHub README, and the Hugging Face tags. The Hugging Face dataset is manually gated, but the GitHub repository holds the data files, so open_data is set to open. The keyed answer is always option A in the canonical files, and the repo includes an answer-shuffling script for evaluation. The accompanying paper is under review at Scientific Data and was not available. Lead country is taken from the Sapienza email domain (diag.uniroma1.it); the last author's affiliation was not seen. License is CC BY 4.0 per the repo README and Hugging Face tags."

@@ -1,0 +1,31 @@
+id: hisle
+name: HISLE
+kind: benchmark
+year: 2026
+summary: Matched Chinese-English mental-health information-seeking scenarios (47 pairs, 3,290 query variants) plus 24 coverage queries (840 variants), for evaluating LLM agents on incomplete health-information needs along four rubric dimensions.
+readme_section: mental_health
+links:
+  huggingface: [PsychiatryAgentBench25/Health_Information_Seeking_under_Limited_Evidence]
+license: MIT
+open_data: open
+geography:
+  item_languages: [Mandarin Chinese, English]
+  item_origin_countries: [UNKNOWN]
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [unknown]
+  venue: grey_literature
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: 47 matched scenario pairs (3,290 variants) and 24 coverage queries (840 variants)
+provenance:
+  records: [r_1d0dae6909]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "Dataset card only. The card says the benchmark is 'clinically informed', names four rubric dimensions (Safety, Helpfulness, Clarification, Epistemic calibration), and links a GitHub repo (PAI-CUHK/PsychAgentBench) that returned 404, so the grader, item sources, authors and countries are unknown. eval_methods rubric_llm_judge and the intended user are assumptions from the card wording; verify against the paper or repo if one appears. The card states the files are evaluation inputs, not a training split."

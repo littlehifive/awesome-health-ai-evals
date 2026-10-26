@@ -1,0 +1,35 @@
+id: livemedbench
+name: LiveMedBench
+kind: benchmark
+year: 2026
+summary: 2,756 real clinical cases harvested weekly from physician-answered online medical communities (English and Chinese, 38 specialties), with 16,702 case-specific rubric criteria for an automated rubric-based grader, built to resist data contamination.
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2602.10367
+  arxiv: "2602.10367"
+  doi: 10.1145/3770855.3817579
+license: null
+open_data: unknown
+geography:
+  item_languages: [English, Mandarin Chinese]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: "Threads come from four online communities: iCliniq, SDN (Student Doctor Network), DXY, and Medlive; the paper counts 1,568 English and 1,188 Chinese cases but does not give per-country origins."
+  rater_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [real_user_queries, web_forum]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public, clinician]
+  eval_methods: [rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: "2,756 cases, 16,702 rubric criteria (about 6 per case), 38 specialties"
+provenance:
+  records: [r_aeaa9bd0d9, r_38d0bda9c7, r_596c11a612]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Paper and the ACM KDD 2026 proceedings record (Crossref 10.1145/3770855.3817579, retitled Contamination-Limited) are the same work. The paper says code and data are available but gives no resolvable link in the text read here, so open_data and license are unknown. The GitHub repo liuqingqing031122/LiveMedBench (record r_596c11a612) is NOT this benchmark: its README describes a web platform for judging outdated medical information in Claude, GPT-5, Gemini, and DeepSeek; it is kept in records for traceability only and not linked. A human check on 50 cases used two bilingual physicians. Items are real physician-answered forum threads, rewritten into structured cases by a multi-agent pipeline."

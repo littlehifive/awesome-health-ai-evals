@@ -1,0 +1,34 @@
+id: lcp-rjua-sps
+name: LCP and RJUA-SPs
+kind: benchmark
+year: 2024
+summary: An automatic evaluation paradigm for LLM clinical capability built on an LLM-specific clinical pathway (LCP), standardized patients, and retrieval-augmented evaluation, instantiated as RJUA-SPs, 45 standardized urology patients supporting single-turn QA, diagnostic reasoning, and multi-turn diagnostic dialogue.
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2403.16446
+  arxiv: "2403.16446"
+  doi: 10.1145/3637528.3671575
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Standardized patients were transcribed by urology clinicians from real patient records; the paper does not name the country or hospital of the records. Language of the original records is not stated; the examples in the paper are in English.
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic, industry_lab]
+  item_provenance: [clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [other_specialty]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric, simulated_multi_turn]
+  modality: [text]
+  size: 45 standardized patients for 45 common urological diseases
+provenance:
+  records: [r_5aa6eda3dc]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "KDD 2024 paper by Ant Group and Renji Hospital (Shanghai Jiao Tong University) authors. Scoring uses a retrieval-augmented evaluator that checks the doctor agent's questions and recommendations against the standardized patient record (diagnosis and treatment accuracy, information completeness, order of clinical behaviors). The paper says SP records are in the released benchmark but gives no link, so open_data and license are unknown. Language and origin country of the SP records are not stated."

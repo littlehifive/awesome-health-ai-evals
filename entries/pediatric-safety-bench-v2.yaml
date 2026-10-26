@@ -1,0 +1,33 @@
+id: pediatric-safety-bench-v2
+name: PediatricSafetyBench-v2
+kind: benchmark
+year: 2026
+summary: "600 pediatric health queries (300 real caregiver questions from HealthCareMagic-100k plus 300 matched adversarial variants with six caregiver pressure patterns), scored with a five-component Safety Composite Score for consumer chatbots."
+readme_section: safety
+links:
+  paper: https://doi.org/10.1038/s41746-026-02985-9
+  doi: 10.1038/s41746-026-02985-9
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Queries are drawn from the HealthCareMagic-100k-en physician consultation corpus; the paper text available to me does not state the platform's country.
+  localization: unknown
+  lead_institution_countries: [IRN]
+origin:
+  builder_types: [academic]
+  item_provenance: [real_user_queries, adapted_dataset, llm_generated]
+  venue: peer_reviewed
+facets:
+  health_areas: [child_health]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 600 queries (300 authentic, 300 adversarial)
+provenance:
+  records: [r_06e9056419]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "Only the abstract and front matter of the early-access npj Digital Medicine page were reachable; methods, rater details, and the data-availability statement were not seen. The abstract says the benchmark is publicly released but gives no link, so open_data is unknown. Adversarial variants are presumably LLM-written; the abstract does not say how they were made. The Safety Composite Score was checked against independent human raters (mean weighted kappa 0.76). Scoring method (automated vs human) is inferred from the abstract. A human should check the full text."

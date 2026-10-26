@@ -1,0 +1,34 @@
+id: rwanda-chw-vignettes
+name: Rwandan CHW vignette benchmark
+kind: benchmark
+year: 2026
+summary: 524 clinical vignette questions written by Rwandan community health workers (from 5,609 collected), with clinician and LLM answers rated on an 11-metric expert rubric.
+readme_section: multilingual_regional
+links:
+  paper: https://doi.org/10.6084/m9.figshare.29213147
+  doi: 10.6084/m9.figshare.29213147
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [UNKNOWN]
+  item_origin_countries: [RWA]
+  item_origin_note: Vignettes contributed by 101 CHWs across four Rwandan districts.
+  rater_countries: [RWA]
+  localization: native
+  lead_institution_countries: [RWA]
+origin:
+  builder_types: [government, academic]
+  item_provenance: [real_user_queries]
+  venue: grey_literature
+facets:
+  health_areas: [primary_care, general_medicine]
+  intended_users: [chw]
+  eval_methods: [rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 524 questions released (5,609 vignettes available on request)
+provenance:
+  records: [r_cdd46cf0c0]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: Source is the Figshare dataset record only. The companion paper ("How Good Are Large Language Models at Supporting Frontline Healthcare Workers in Low-Resource Settings") was not read, so the question language (English vs Kinyarwanda), rater countries, and whether ratings were by LLM judge or humans are not confirmed; rubric of 11 metrics on a 5-point Likert scale. Full set held by the Centre for the Fourth Industrial Revolution Rwanda (government innovation lab), available on request.

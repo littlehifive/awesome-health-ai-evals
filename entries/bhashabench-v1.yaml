@@ -1,0 +1,35 @@
+id: bhashabench-v1
+name: BhashaBench V1
+kind: benchmark
+year: 2025
+summary: 74,166 English and Hindi exam questions in four Indian domains (agriculture, legal, finance, Ayurveda), scored by accuracy; only the Ayurveda domain (traditional Indian medicine) is health.
+readme_section: multilingual_regional
+links:
+  paper: https://arxiv.org/abs/2510.25409
+  arxiv: "2510.25409"
+  huggingface: [bharatgenai/BhashaBench-Ayur]
+  website: https://bharatgen-iitb-tih.github.io/bhashabenchv1/
+license: CC-BY-4.0
+open_data: gated
+geography:
+  item_languages: [English, Hindi]
+  item_origin_countries: [IND]
+  item_origin_note: Questions come from over 40 national and state-level Indian examinations (competitive, degree, professional certification, civil services).
+  localization: native
+  lead_institution_countries: [IND]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions]
+  venue: preprint
+facets:
+  health_areas: [traditional_medicine]
+  intended_users: [medical_student, clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 74,166 questions across four domains (52,494 English, 21,672 Hindi); the Ayurveda (BBA) share has 16 subdomains, with its question count not read
+provenance:
+  records: [r_58fae24f89]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: Only the Ayurveda domain is in scope; the other three domains (agriculture, legal, finance) are not health. The Ayurveda dataset license (CC-BY-4.0) and gated access come from the Hugging Face dataset API; the card itself needs sign-in. Authors are from the BharatGen team (IIT Bombay and partners); builder type and lead country are inferred from that. The Ayurveda-only question count was not read.

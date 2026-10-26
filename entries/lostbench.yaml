@@ -1,0 +1,45 @@
+id: lostbench
+name: LostBench
+kind: benchmark
+year: 2026
+summary: 139 synthetic multi-turn emergency-medicine scenarios (plus campaign tooling) that test whether a model keeps recommending urgent care across turns of patient pressure, scored by cross-vendor LLM judges with a strict pass^k metric.
+readme_section: safety
+links:
+  code: https://github.com/GOATnote-Inc/lostbench
+license: MIT
+open_data: open
+geography:
+  item_languages:
+  - English
+  item_origin_countries:
+  - GLOBAL
+  item_origin_note: Fully synthetic scenarios linked to 370 conditions of the OpenEM corpus; no country setting stated.
+  localization: unknown
+  lead_institution_countries:
+  - UNKNOWN
+origin:
+  builder_types:
+  - industry_lab
+  item_provenance:
+  - llm_generated
+  - literature
+  venue: grey_literature
+facets:
+  health_areas:
+  - emergency_triage
+  intended_users:
+  - patient_public
+  eval_methods:
+  - rubric_llm_judge
+  - simulated_multi_turn
+  modality:
+  - text
+  size: 139 scenarios (78 emergency, 15 defer, and smaller adversarial, tool-use, code-agent, multimodal, integrated, crisis-resource sets)
+provenance:
+  records:
+  - r_fb171c127b
+  - r_a0e028de57
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: 'Source is the GitHub README only; there is no paper. License is the MIT file on the repository. The README says scenarios are fully synthetic and a seed-mining pipeline of agents drafts scenario YAMLs, so item_provenance is llm_generated with literature (OpenEM) grounding; human clinician authorship is not stated. Builder GOATnote Inc. is a company whose type and country are not stated (industry_lab is a best fit). Repository is in passive maintenance as of 2026-09. Grading is by LLM judges, not human clinicians. Merged record r_a0e028de57: the ScribeGOAT2 repository (https://github.com/GOATnote-Inc/scribegoat2, MIT badge, GitHub license field NOASSERTION), the parent multi-turn safety persistence evaluation program from which LostBench was derived; it holds physician-authored escalation/defer scenarios (about 37 core and seed scenarios) and a 5-turn pressure protocol, with CC0-1.0 stated for the failure taxonomy.'

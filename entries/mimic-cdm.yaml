@@ -1,0 +1,36 @@
+id: mimic-cdm
+name: MIMIC-CDM
+kind: benchmark
+year: 2024
+summary: 2,400 real emergency-department patient cases from MIMIC-IV with four abdominal pathologies, used in a simulated environment where an LLM gathers information (exam, labs, imaging) and then gives a diagnosis and treatment plan, scored on diagnostic accuracy, guideline adherence, and instruction following.
+readme_section: open_ended
+links:
+  paper: https://doi.org/10.1038/s41591-024-03097-1
+  doi: 10.1038/s41591-024-03097-1
+  dataset: https://physionet.org/content/mimic-iv-ext-cdm/
+  code: https://github.com/paulhager/MIMIC-Clinical-Decision-Making-Framework
+license: null
+open_data: gated
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Patients presented to Beth Israel Deaconess Medical Center, Boston (MIMIC-IV, 2008 to 2019).
+  rater_countries: [DEU, USA]
+  localization: native
+  lead_institution_countries: [DEU, GBR]
+origin:
+  builder_types: [academic]
+  item_provenance: [real_user_queries, adapted_dataset]
+  venue: peer_reviewed
+facets:
+  health_areas: [other_specialty, emergency_triage]
+  intended_users: [clinician]
+  eval_methods: [simulated_multi_turn, automatic_metric, expert_human_rating]
+  modality: [text]
+  size: 2,400 cases (957 appendicitis, 648 cholecystitis, 257 diverticulitis, 538 pancreatitis); full-information variant MIMIC-CDM-FI
+provenance:
+  records: [r_2d62acdd7c, r_b2433e5e42]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "r_2d62acdd7c is the medRxiv preprint and r_b2433e5e42 the Nature Medicine version of the same work. Built on MIMIC-IV, so the cases are EHR records rather than live queries (real_user_queries is the closest provenance label). Access: the README says MIMIC-IV access must be requested, and the derived dataset on PhysioNet is listed as Credentialed Access; no license name was seen. Reader study: four hospitalists (Germany and USA) diagnosed 100 patients. The repository also hosts a leaderboard (Hugging Face space)."

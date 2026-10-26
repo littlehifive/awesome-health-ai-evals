@@ -1,0 +1,36 @@
+id: mrag-bench
+name: MRAG-Bench
+kind: benchmark
+year: 2026
+summary: 14,816 English and Chinese test samples over 13 datasets (multiple-choice exam and research QA, long-form QA, information extraction, link prediction) for evaluating retrieval-augmented generation in biomedicine, with an accompanying RAG toolkit.
+readme_section: multilingual_regional
+links:
+  paper: https://arxiv.org/abs/2601.16503
+  arxiv: "2601.16503"
+license: null
+open_data: unknown
+geography:
+  item_languages: [English, Mandarin Chinese]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Mostly reuses public English datasets (MMLU-Med, MedQA-US, MedMCQA, PubMedQA, BioASQ, MultiMedQA, DDI, ChemProt, ADInt, DRKG). New Chinese sets are MRAG-TCM (1,200 traditional Chinese medicine multiple-choice questions) and MRAG-CLFQA (1,253 user queries from an online medical consultation platform that the paper leaves unnamed). Countries are not stated.
+  localization: mixed
+  lead_institution_countries: [CHN]
+  subsets:
+    - {name: English tasks, languages: [English], localization: adapted}
+    - {name: Chinese tasks, languages: [Mandarin Chinese], localization: native}
+origin:
+  builder_types: [academic, industry_lab]
+  item_provenance: [adapted_dataset, exam_questions, real_user_queries]
+  venue: preprint
+facets:
+  health_areas: [general_medicine, traditional_medicine]
+  intended_users: [clinician, patient_public]
+  eval_methods: [mcq_exact_match, automatic_metric, rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 14,816 test samples across 13 datasets
+provenance:
+  records: [r_8cba63e4c8]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "The paper says the dataset and MRAG-Toolkit will be released under CC BY-4.0 upon acceptance, but no download link was found, so license is null and open_data unknown. Closed-form tasks use accuracy or F1; long-form QA uses a GPT-4 judge in a pairwise Elo arena along four axes (usefulness, readability, knowledge, reasoning), with medical experts annotating part of the matches. Information extraction and link prediction tasks are partly biomedical NLP and sit at the edge of scope. First author affiliation is DataSelect AI (Shanghai); last author is at the University of Hong Kong, so lead country CHN covers both."

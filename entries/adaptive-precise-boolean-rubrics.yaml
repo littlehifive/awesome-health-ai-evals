@@ -1,0 +1,35 @@
+id: adaptive-precise-boolean-rubrics
+name: Adaptive Precise Boolean rubrics
+kind: eval_framework
+year: 2025
+summary: A rubric method that replaces Likert scales with granular yes/no questions, filtered per query and response, for scoring LLM answers to personalized metabolic-health queries from wearable and blood-biomarker data.
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.1038/s41746-026-02492-x
+  arxiv: "2503.23339"
+  doi: 10.1038/s41746-026-02492-x
+  pmcid: PMC13249957
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Queries are paired with personas built from the WEAR-ME study (Fitbit/Pixel Watch and blood biomarker data from Google Health Studies participants); the paper does not state participants' countries.
+  localization: unknown
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [industry_lab]
+  item_provenance: [unknown]
+  venue: peer_reviewed
+facets:
+  health_areas: [ncd, cardiology]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 20 user queries with personalized health data, rated by 5 expert and 10 non-expert annotators; plus two board-style MCQ sets (cardiology, endocrinology) used only to choose the base model
+provenance:
+  records: [r_b07049c8a4]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Data availability statement says all study data are in the supplementary tables (queries, user data, prompts); no separate repository or license was seen. Rater countries are not stated; authors are Google Research employees."

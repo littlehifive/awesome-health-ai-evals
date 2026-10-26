@@ -1,0 +1,35 @@
+id: almanac-clinicalqa
+name: ClinicalQA (Almanac)
+kind: benchmark
+year: 2023
+summary: Open-ended clinical questions written by board-certified physicians about their day-to-day practice (treatment guidelines, clinical calculations) across several specialties, rated by physicians for factuality, completeness, safety and preference.
+readme_section: open_ended
+links:
+  paper: https://doi.org/10.21203/rs.3.rs-2883198/v1
+  arxiv: "2303.01229"
+  pmcid: PMC10187428
+  doi: 10.21203/rs.3.rs-2883198/v1
+license: null
+open_data: gated
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Questions were written by Stanford-affiliated physicians; the paper does not state a country of origin for the items.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: "130 questions in the arXiv version (5 specialties); 314 questions across nine specialties in the later Research Square version"
+provenance:
+  records: [r_d3fb9955cb]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Read the arXiv version (130 questions); the 314-question count comes from the Research Square abstract. Data availability: a 25-question subset is published in the paper appendix and the rest is available on request from the authors. Almanac is the RAG system under test; ClinicalQA is the dataset. Rubric has three axes (factuality, completeness, safety) plus preference; adversarial-prompt and omission safety tests used subsets. Not the same as the Korean snuh/ClinicalQA dataset or the existing challengeclinicalqa entry."

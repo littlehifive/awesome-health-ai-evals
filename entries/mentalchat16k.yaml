@@ -1,0 +1,36 @@
+id: mentalchat16k
+name: MentalChat16K
+kind: benchmark
+year: 2025
+summary: About 16,000 English counseling question-answer pairs (9,775 GPT-generated, 6,338 from transcripts of behavioral health coaches with caregivers of palliative or hospice patients), plus a 200-question evaluation set scored on 7 metrics by LLM judges.
+readme_section: mental_health
+links:
+  paper: https://arxiv.org/abs/2503.13509
+  arxiv: "2503.13509"
+  doi: 10.1145/3711896.3737393
+  huggingface: [ShenLab/MentalChat16K]
+  code: https://github.com/PennShenLab/MentalChat16K
+license: MIT
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Synthetic half has no country origin; the interview half comes from an ongoing clinical trial whose country is not stated in the paper.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated]
+  venue: peer_reviewed
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: about 16,000 QA pairs; 200 evaluation questions
+provenance:
+  records: [r_846fd1a978, r_9e00900015]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Mostly a fine-tuning dataset; the evaluation part is a 200-question counseling set scored with 7 metrics by GPT-4 Turbo and Gemini Pro judges, which the paper says it curated (the HF card describes only the training data). The interview half was paraphrased and summarized with Mistral-7B and the synthetic half generated with GPT-3.5 Turbo, so both halves are model-written text. The paper links its code to ChiaPatricia/MentalChat16K; the screening record points to PennShenLab/MentalChat16K, which is listed. License is from the HF card. Kept as a benchmark because the paper presents it as one and includes an evaluation set."

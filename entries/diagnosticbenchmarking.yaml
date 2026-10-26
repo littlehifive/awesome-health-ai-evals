@@ -1,0 +1,44 @@
+id: diagnosticbenchmarking
+name: DiagnosticBenchmarking (neurology and psychiatry case challenges)
+kind: benchmark
+year: 2026
+summary: 349 validated CC-BY case challenges from open-access neurology and psychiatry case reports, each a redacted vignette with a gold diagnosis, scored by pass@1 to pass@5 on a top-5 differential with an LLM judge.
+readme_section: knowledge_exam
+links:
+  code: https://github.com/Santosh-Gupta/DiagnosticBenchmarking
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages:
+  - English
+  item_origin_countries:
+  - UNKNOWN
+  item_origin_note: Items come from open-access case reports; their countries are not stated in the README.
+  localization: native
+  lead_institution_countries:
+  - UNKNOWN
+origin:
+  builder_types:
+  - academic
+  item_provenance:
+  - literature
+  - llm_generated
+  venue: grey_literature
+facets:
+  health_areas:
+  - other_specialty
+  - mental_health
+  intended_users:
+  - clinician
+  eval_methods:
+  - rubric_llm_judge
+  modality:
+  - text
+  size: 349 case challenges
+provenance:
+  records:
+  - r_a5878f5e3e
+  read_full_text: true
+  confidence: medium
+  notes: Source is the GitHub README only (no paper). Data is CC-BY 4.0 and code MIT per the README; the data file is data/public_benchmark/neuro_psych_cases.jsonl. Cases are refined and checked with LLM pipelines (a determinacy audit); the README suggests scoring with an LLM judge, not a fixed protocol. The repo is a single person project, with no institution or country stated.
+  extracted: '2026-10-26'

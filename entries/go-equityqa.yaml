@@ -1,0 +1,33 @@
+id: go-equityqa
+name: GO-EquityQA
+kind: benchmark
+year: 2026
+summary: 308 gynecologic-oncology equity questions testing frontier LLMs for citation fabrication, answer invariance to patient nationality or ancestry, accuracy, and overconfidence, with a preregistered analysis plan.
+readme_section: safety
+links:
+  paper: https://osf.io/a39qk
+  doi: 10.17605/osf.io/a39qk
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Items are built from topic by region combinations of equity facts; no single country of origin.
+  rater_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [ISR]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature]
+  venue: grey_literature
+facets:
+  health_areas: [oncology]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric, rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 308 items (252 confirmatory)
+provenance:
+  records: [r_0347c29e20]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Source is the OSF preregistration PDF only (the only file on the OSF project). It says the benchmark and harness are to be released with the license undecided, but no repository link or data file was found, so open_data is unknown. Language and item-provenance fields are inferred from the described design (PMID-verified facts, English prompts); not explicitly stated. Citation verification is automated (PMID checks), with an LLM answer judge and at least two gynecologic oncologists rating about 20% of items. Intended user is inferred from the topic."

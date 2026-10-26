@@ -1,0 +1,36 @@
+id: psychethicsbench
+name: PsychEthicsBench
+kind: benchmark
+year: 2026
+summary: 1,377 multiple-choice and 2,612 open-ended mental health ethics questions built from 392 principles in Australian psychology and psychiatry codes, scoring LLM ethical knowledge by accuracy and behavior with LLM-judged fine-grained ethicality annotations.
+readme_section: mental_health
+links:
+  paper: https://arxiv.org/abs/2601.03578
+  arxiv: "2601.03578"
+  doi: 10.18653/v1/2026.findings-acl.1971
+  huggingface: [ElsieYaling/PsychEthicsBench]
+  code: https://github.com/ElsieSHEN/PsychEthicsBench
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [AUS]
+  item_origin_note: Principles come from the Australian Psychological Society code, Ahpra code of conduct, and RANZCP documents; MCQs combine verbatim official sample questions with controlled LLM generation.
+  localization: native
+  lead_institution_countries: [AUS]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions, llm_generated, literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [mental_health]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match, rubric_llm_judge]
+  modality: [text]
+  size: 1,377 MCQs; 2,612 open-ended questions; 392 principles; small human-annotated response set
+provenance:
+  records: [r_71d8d04f0e, r_d2f681d442]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "License is from the Hugging Face card (Apache-2.0); the GitHub repository shows MIT, so the two differ. Judge model is GPT-5-mini. Question quality filtered by an expert-centered process (expert scoring on 20 sampled questions); rater countries not stated. Published at Findings of ACL 2026."

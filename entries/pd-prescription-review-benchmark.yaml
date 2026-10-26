@@ -1,0 +1,34 @@
+id: pd-prescription-review-benchmark
+name: Trap-Embedded Peritoneal Dialysis Prescription Review Benchmark
+kind: benchmark
+year: 2026
+summary: 125 synthetic peritoneal dialysis prescription cases embedding 13 guideline-aligned trap types, scored with must-identify recall and other constructs and compared with blinded nephrologist ratings of LLM output.
+readme_section: knowledge_exam
+links:
+  paper: https://doi.org/10.64898/2026.05.28.26354383
+  doi: 10.64898/2026.05.28.26354383
+license: null
+open_data: closed
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Cases are synthetic and aligned to ISPD guidelines; authors are in Taiwan.
+  rater_countries: [TWN]
+  localization: native
+  lead_institution_countries: [TWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written, literature]
+  venue: preprint
+facets:
+  health_areas: [other_specialty]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric, expert_human_rating]
+  modality: [text]
+  size: 125 cases; 1,875 model calls
+provenance:
+  records: [r_9e41d548f0]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: medRxiv preprint. Cases, prompts, rubrics, and code are promised in a project repository on publication; raw outputs are available on request, so open_data is closed for now and should be rechecked. How the synthetic cases were written (by clinicians or an LLM) is not confirmed; item_provenance is a guess. Other specialty used for nephrology.

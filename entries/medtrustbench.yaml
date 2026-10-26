@@ -1,0 +1,32 @@
+id: medtrustbench
+name: MedTrustBench
+kind: benchmark
+year: 2026
+summary: 200 evidence-based clinical decision questions across 10 specialties, each with PICO annotations, source literature, and Yes/No rubrics (1,187 in all) covering seven dimensions such as evidence grounding and citation validity.
+readme_section: open_ended
+links:
+  doi: 10.64898/2026.06.15.26355735
+license: null
+open_data: unknown
+geography:
+  item_languages: [UNKNOWN]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Questions are said to be collected from real medical scenarios; the paper does not state the country or language. The agent's retrieval corpus includes Chinese guidelines.
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [unknown]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: 200 questions; 1,187 rubric criteria
+provenance:
+  records: [r_66a68f8abe]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: low
+  notes: "Introduced inside the MedAgent paper (medRxiv preprint) as an evaluation set separate from training. I found no release link, license, authors' affiliations, or item language in the text I read, so those are unknown. Rubrics carry positive and negative weights and are scored by an LLM judge; the paper lists limitations including reliance on an LLM judge."

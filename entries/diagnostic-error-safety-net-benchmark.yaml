@@ -1,0 +1,33 @@
+id: diagnostic-error-safety-net-benchmark
+name: Diagnostic Error Safety-Net Benchmark
+kind: benchmark
+year: 2026
+summary: 200 clinical vignettes (10 for each of 20 frequently misdiagnosed conditions), each with a documented incorrect physician diagnosis, testing whether an LLM disagrees and supplies the correct diagnosis; scored by classifying each response, with 2,200 de novo and demographic or context variants.
+readme_section: safety
+links:
+  paper: https://doi.org/10.64898/2026.02.22.26346832
+  doi: 10.64898/2026.02.22.26346832
+license: null
+open_data: gated
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Vignettes came from published literature (110), the team's prior misdiagnosis research including clinical or malpractice cases (50), and expert-constructed cases (40); the paper does not state countries of origin.
+  localization: unknown
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature, clinician_written]
+  venue: preprint
+facets:
+  health_areas: [general_medicine, emergency_triage]
+  intended_users: [clinician]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: 200 vignettes plus 2,200 variants
+provenance:
+  records: [r_fc12bf6e12]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Johns Hopkins lead (also NEJM Group, Penn). 16 LLMs tested; the main outcome is the diagnostic correction rate (disagree and give the correct diagnosis) and the ratio of correction to error detection. Responses were classified into three categories; the paper does not say who or what did the classification, so eval_methods is a guess. Access: the paper says a sample dataset and code are public on GitHub (no URL found in the text) and the full data are available on reasonable request with institutional approval, so open_data is recorded as gated. The demographic and context variants are explicitly not part of the public release."

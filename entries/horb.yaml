@@ -1,0 +1,31 @@
+id: horb
+name: HORB
+kind: benchmark
+year: 2026
+summary: "12 fictional healthcare operations scenarios (336 source documents) with system prompts and strict grading rubrics testing whether an AI separates apparent from executable operational readiness."
+readme_section: open_ended
+links:
+  code: https://github.com/reesemeres-jpg/HORB-Healthcare-AI-Benchmark-Suite
+license: custom
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: "12 benchmark scenarios, 336 documents"
+provenance:
+  records: [r_f7732c9640]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: low
+  notes: "Single-author portfolio project (a registered nurse). Tests hospital and clinic operations (staffing, routing, readiness) rather than health question answering, so scope is borderline; a human should decide whether to keep it. The LICENSE is all rights reserved, no reuse without permission, though the zip is downloadable. Grading method (human or LLM) is not stated in what I read, so eval_methods is a guess. builder_types is a guess."

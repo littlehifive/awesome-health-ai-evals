@@ -1,0 +1,35 @@
+id: das-medical-red-teaming
+name: DAS Medical Red-Teaming
+kind: benchmark
+year: 2025
+summary: An agent-based red-teaming audit that mutates seed test cases to stress-test medical LLMs on robustness, privacy, bias/fairness, and hallucination, with a released seed set of 81 privacy scenarios, 415 bias items, and 131 hallucination prompts.
+readme_section: safety
+links:
+  paper: https://doi.org/10.1038/s44360-026-00152-8
+  doi: 10.1038/s44360-026-00152-8
+  arxiv: "2508.00923"
+  huggingface: [JZPeterPan/DAS-Mediacal-Red-Teaming-Data]
+license: MIT
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Privacy scenarios are self-authored around HIPAA and GDPR violation types; bias items are 111 clinician-authored plus 304 adapted from Omar et al. (Nature Medicine 2025); hallucination prompts are cleaned from Chang et al. (npj Digital Medicine 2025); the robustness suite reuses MedQA. No country of origin is stated for the items.
+  localization: native
+  lead_institution_countries: [DEU, GBR]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written, adapted_dataset, literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician, patient_public]
+  eval_methods: [rubric_llm_judge, automatic_metric]
+  modality: [text]
+  size: "Seed suites of 81 privacy, 415 bias/fairness, and 131 hallucination items plus MedQA for robustness; 15 LLMs audited"
+provenance:
+  records: [r_ea5223babe, r_8cbe6ce957]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "r_ea5223babe is the Nature Health version and r_8cbe6ce957 the Research Square preprint of the same work; the arXiv version (2508.00923) was read in paperclip. The Hugging Face card says the released data are initial seeds that the agents mutate on request; the dynamic mutation agents are the core of the method, and no code repository was found. The card's licensing section is mixed (privacy suite CC-BY-4.0 or CC-BY-NC-4.0; bias and hallucination suites adapted from other sources), and the card header says MIT. Evaluation of responses is done by LLM agents; the exact judge setup was not checked."

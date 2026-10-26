@@ -1,0 +1,35 @@
+id: bioasq
+name: BioASQ
+kind: benchmark
+year: 2013
+summary: Annual challenge and expert-written English biomedical question set (yes/no, factoid, list, summary questions) with exact and ideal reference answers plus supporting PubMed documents and snippets, scored with automatic metrics and expert assessment.
+readme_section: knowledge_exam
+links:
+  paper: https://doi.org/10.1038/s41597-023-02068-4
+  doi: 10.1038/s41597-023-02068-4
+  dataset: https://doi.org/10.5281/zenodo.7655130
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Questions are written by an international team of biomedical experts about real information needs, with answers drawn from PubMed; no country origin stated.
+  rater_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [GRC]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written, literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric, expert_human_rating]
+  modality: [text]
+  size: expert-written questions released yearly since 2013 (total count not read)
+provenance:
+  records: [r_912fe3293b, r_b51664fec8]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: Merges the BioASQ 2021 challenge overview (r_912fe3293b, abstract empty, not read) and the 2023 Scientific Data paper on the BioASQ-QA corpus (r_b51664fec8, read in full). BioASQ also has a semantic-indexing task (Task A) that is out of scope. Challenges started in 2012-2013; year is the first challenge year. The Zenodo license and the total question count were not read, and the data may be provided under BioASQ registration terms. Gets heavy use in LLM evaluation (for example as a source in other medical benchmarks).

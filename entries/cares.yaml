@@ -1,0 +1,35 @@
+id: cares
+name: CARES
+kind: benchmark
+year: 2025
+summary: Over 18,000 English medical safety prompts across eight safety principles, four harm levels, and four prompting styles (direct, indirect, obfuscated, role-play), scored by a three-way Accept/Caution/Refuse protocol and a Safety Score.
+readme_section: safety
+links:
+  paper: https://doi.org/10.52202/085713-0671
+  arxiv: "2505.11413"
+  doi: 10.52202/085713-0671
+  huggingface: [HFXM/CARES-18K]
+license: MIT
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Prompts are LLM-generated from eight principles drawn from sources such as AMA medical ethics, HIPAA, and prior safety rulebases, then human-validated; they have no country origin.
+  localization: native
+  lead_institution_countries: [GBR, USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public, clinician]
+  eval_methods: [rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 18,478 prompts (9,239 train and 9,239 test)
+provenance:
+  records: [r_c08f1749e8]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: Full text scanned for construction and links; the response-judging model and the human-validation counts were not checked. Hugging Face card says synthetic prompts from GPT, Claude, Gemini, and DeepSeek. Principles are US-centric (AMA, HIPAA). Size is from the dataset card split counts.

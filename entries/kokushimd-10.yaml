@@ -1,0 +1,39 @@
+id: kokushimd-10
+name: KokushiMD-10
+kind: benchmark
+year: 2025
+summary: 11,588 questions from five years (2020-2024) of ten Japanese national healthcare licensing exams, in Japanese with an English translation, with text-only and image-based items, scored by exam-rule exact match and pass/fail against official thresholds.
+readme_section: multilingual_regional
+links:
+  paper: https://arxiv.org/abs/2506.11114
+  arxiv: "2506.11114"
+  doi: 10.1007/978-3-032-06004-4_30
+  huggingface: [humanalysis-square/KokushiMD-10]
+  code: https://github.com/juniorliu95/KokushiMD-10
+license: MIT
+open_data: open
+geography:
+  item_languages: [Japanese, English]
+  item_origin_countries: [JPN]
+  item_origin_note: Official exams issued by Japan's Ministry of Health, Labour and Welfare; the English split is a translation.
+  localization: native
+  lead_institution_countries: [JPN, CHN]
+  subsets:
+    - {name: JA, languages: [Japanese], countries: [JPN], localization: native}
+    - {name: EN, languages: [English], countries: [JPN], localization: translated}
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine, nursing, dentistry, pharmacy_medication]
+  intended_users: [medical_student, clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 11,588 questions across 10 professions; some are image-based
+provenance:
+  records: [r_9fb0a29220]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Professions are medicine, dentistry, nursing, pharmacy, physical therapy, occupational therapy, public health nursing, midwifery, radiological technology, and optometry. Question types are single answer, multiple choice, numerical calculation, and blank. A multimodal split exists; the modality field lists text because that is the in-scope part. The 11,588 count comes from the screening record and was not re-checked in the paper text. The paper was read via its paperclip copy; the Hugging Face card gives the MIT license and the JA, EN, and mixed splits. First-author affiliation was not checked, so lead_institution_countries is taken from the author list (Kyoto, HKUST, XJTLU, Tokyo)."

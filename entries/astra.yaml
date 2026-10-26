@@ -1,0 +1,35 @@
+id: astra
+name: ASTRA (Automated Safety Testing and Reporting Application)
+kind: eval_framework
+year: 2026
+summary: An LLM-based external monitor that flags eight clinician-defined risk behaviors (self-harm, harm to others, flirting, misuse, and inappropriate AI therapist responses) across whole AI mental health conversations, validated on 100 clinician-written synthetic transcripts.
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.2196/91367
+  doi: 10.2196/91367
+  pmcid: PMC13231103
+license: null
+open_data: described_only
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Synthetic transcripts written by three licensed clinicians for the study; no country of origin is stated.
+  rater_countries: [USA]
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 100 synthetic conversations, 8 risk categories
+provenance:
+  records: [r_df1dabb612, r_9b156b6d02]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Authors at Rush University Medical Center (Chicago). The curated ASTRA prompt is available by contacting the corresponding author; no dataset or code link seen. r_9b156b6d02 is the JMIR preprint. Language of the transcripts is not stated explicitly (assumed English from context)."

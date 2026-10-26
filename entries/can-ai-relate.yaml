@@ -1,0 +1,35 @@
+id: can-ai-relate
+name: Can AI Relate (mh-eval)
+kind: benchmark
+year: 2024
+summary: 12,513 Reddit mental health posts with 70,429 peer responses from 26 subreddits, plus GPT-4 responses, used to measure equity in empathy across inferred patient demographics and adherence to motivational interviewing, with a 50-post clinician evaluation by two psychologists.
+readme_section: mental_health
+links:
+  paper: https://aclanthology.org/2024.findings-emnlp.120/
+  arxiv: "2405.12021"
+  doi: 10.18653/v1/2024.findings-emnlp.120
+  code: https://github.com/skgabriel/mh-eval
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Posts come from English-language Reddit mental health subreddits; the paper does not state posters' countries.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [web_forum]
+  venue: peer_reviewed
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [expert_human_rating, automatic_metric]
+  modality: [text]
+  size: 12,513 posts with 70,429 peer responses; 50 posts rated by 2 clinicians; 11 counterfactual seed posts
+provenance:
+  records: [r_d1c6b35f2b]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Findings of EMNLP 2024. The authors say all data and code are at github.com/skgabriel/mh-eval; the Apache-2.0 license is the repo's, and the data are Reddit posts, so redistribution terms may differ. Automatic scoring uses fine-tuned empathy classifiers plus an LLM inferring demographics; the clinician ratings use empathy and MITI global score items. Authors at NYU, MIT, and UCLA."

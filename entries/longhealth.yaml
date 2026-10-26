@@ -1,0 +1,35 @@
+id: longhealth
+name: LongHealth
+kind: benchmark
+year: 2024
+summary: 400 multiple-choice questions over 20 fictional patient cases (each 5,090 to 6,754 words of discharge notes) testing information extraction, negation, and sorting in long clinical documents.
+readme_section: knowledge_exam
+links:
+  paper: https://doi.org/10.1007/s41666-025-00204-w
+  arxiv: "2401.14490"
+  doi: 10.1007/s41666-025-00204-w
+  code: https://github.com/kbressem/LongHealth
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Cases are fictional, written by physicians; the paper does not state a country setting for them.
+  localization: native
+  lead_institution_countries: [DEU]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [oncology, general_medicine]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 400 questions over 20 patient cases
+provenance:
+  records: [r_afbd0a4e2c]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "License is the Apache-2.0 on the GitHub repository that hosts the benchmark. The authors ask readers not to share examples publicly (canary string) to limit training-set contamination. First author is at TUM University Hospital (Munich, Germany); the last author's affiliation was not checked."

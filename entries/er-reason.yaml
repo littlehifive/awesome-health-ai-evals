@@ -1,0 +1,37 @@
+id: er-reason
+name: ER-Reason
+kind: benchmark
+year: 2025
+summary: 25,174 de-identified emergency-department notes from 3,984 encounters (3,437 patients) for LLM clinical-reasoning tasks (acuity, differential, treatment, disposition, final diagnosis), plus 194 physician-annotated script-concordance cases with 72 physician-written rationales.
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2505.22919
+  arxiv: "2505.22919"
+  doi: 10.48550/arxiv.2505.22919
+  dataset: https://physionet.org/content/er-reason/1.0.0/
+  code: https://github.com/AlaaLab/ER-Reason
+license: custom
+open_data: gated
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Notes come from the emergency department of one large academic medical center (March 2022 to March 2024); the authors are at UC Berkeley and UCSF.
+  rater_countries: [USA]
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [real_user_queries, clinician_written]
+  venue: preprint
+facets:
+  health_areas: [emergency_triage, general_medicine]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric, expert_human_rating]
+  modality: [text]
+  size: 25,174 notes, 3,984 encounters; 194 script-concordance cases (2,555 annotations)
+provenance:
+  records: [r_b9dfce51e3, r_4cec2792eb]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Dataset is on PhysioNet under the PhysioNet Contributor Review Health Data License 1.5.0 with credentialed access (CITI training, data use agreement), per the GitHub README and PhysioNet page. Inputs are real EHR notes, so this is borderline against the EHR-documentation exclusion; kept because the tasks are clinical decision reasoning, not documentation or coding. Rater countries assumed USA from the single US health system; the paper does not list them separately. Rationale authors are residents and attendings. Lead institution country from the author block (UC Berkeley, UCSF)."

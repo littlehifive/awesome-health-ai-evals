@@ -1,0 +1,34 @@
+id: open-manual-surgery-qa
+name: OpenManualOfSurgeryQA
+kind: benchmark
+year: 2025
+summary: About 14,500 LLM-generated, filtered question-answer pairs grounded in the Open Manual of Surgery in Resource-Limited Settings, used to compare an agentic RAG surgical assistant with plain LLMs under LLM-judged accuracy.
+readme_section: open_ended
+links:
+  paper: https://doi.org/10.1101/2025.05.20.25328046
+  doi: 10.1101/2025.05.20.25328046
+  code: https://github.com/MiningMyBusiness/surgical-information-assistant
+license: CC0-1.0
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Questions were generated from the Vanderbilt University Open Manual of Surgery in Resource-Limited Settings; the manual is written for low-resource settings but its authorship country is taken from Vanderbilt (USA).
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [industry_lab]
+  item_provenance: [llm_generated, literature]
+  venue: preprint
+facets:
+  health_areas: [other_specialty]
+  intended_users: [clinician, medical_student]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: about 14,500 QA pairs after filtering (over 16,000 generated)
+provenance:
+  records: [r_548dd1c467]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "The paper is mainly a system paper (the DeRetSyn agentic RAG assistant); the benchmark is a contribution listed in the paper. QA pairs were generated with Mistral Small 3.1 24B from the manual, filtered by substring rules and an LLM, and spot-checked by two reviewers (one a practicing clinician; 1,000 pairs, then 1,000 more with no ambiguous items found). The paper says data will be released on publication; the GitHub repo (CC0-1.0 per the repository license) holds code and eval results but no QA file was found in its tree, so open_data is unknown. Sole author is at Intuitive Surgical (USA), so builder type industry_lab is a judgment. Also reports results on PubMedQA and medical exam sets that are not part of this benchmark."

@@ -1,0 +1,32 @@
+id: llm-patient-simulation-ca-eval
+name: LLM-based evaluation of medical conversational agents with simulated patients
+kind: eval_framework
+year: 2024
+summary: A fully automated and semi-automated framework that uses LLMs to simulate patient questions at different health-literacy levels and checks a conversational agent's answers against predefined medical content, shown in a mammography case study.
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.3233/shti240006
+  doi: 10.3233/shti240006
+open_data: described_only
+geography:
+  item_languages: [UNKNOWN]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: "Questions are LLM-simulated for a mammography case study; no country or language is stated in the abstract."
+  localization: unknown
+  lead_institution_countries: [CHE]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated]
+  venue: peer_reviewed
+facets:
+  health_areas: [oncology]
+  intended_users: [patient_public]
+  eval_methods: [simulated_multi_turn, rubric_llm_judge]
+  modality: [text]
+  size: framework with a mammography case study; number of questions not stated
+provenance:
+  records: [r_cea321b621]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "Only the abstract and OpenAlex metadata were reachable (Stud Health Technol Inform; the full-text PDF could not be fetched). Authors are at Bern University of Applied Sciences (Switzerland). Eval methods and item language are not stated in the abstract and are best guesses. No released question set or code found."

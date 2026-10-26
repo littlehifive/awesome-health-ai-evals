@@ -1,0 +1,34 @@
+id: safe-care
+name: SAFE-CARE
+kind: eval_framework
+year: 2026
+summary: "A design-and-evaluation framework for patient-facing healthcare AI agents with eight operating principles, a ten-mode risk taxonomy, an A0-A4 ablation method, AI-judge and scenario-simulation evaluation, and severity-based release gates."
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.5281/zenodo.21330158
+  doi: 10.5281/zenodo.21330158
+  code: https://github.com/Conefia/SAFE-CARE
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: A framework with no item set; the worked case is an anonymized menopause-support companion.
+  localization: native
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [implementer_ngo]
+  item_provenance: [not_applicable]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge, simulated_multi_turn, expert_human_rating]
+  modality: [text]
+  size: "8 principles; 10 failure modes; severity classes S0-S4; maturity levels M0-M4"
+provenance:
+  records: [r_b13564b3d6]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: medium
+  notes: "Single-author whitepaper on Zenodo (Yassen Eltayeb, Conefia; no country stated). I read the Zenodo record page and the GitHub README (docs CC-BY-4.0, code Apache-2.0; includes scenario schema, AI-judge rubric, release-gate checklist), not the PDF. A companion SAFE-CARE Bench is at DOI 10.5281/zenodo.21444597 (not opened). Commercial company framework; no empirical validation seen."

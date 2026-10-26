@@ -1,0 +1,36 @@
+id: mentalbench-100k
+name: MentalBench-100k and MentalAlign-70k
+kind: benchmark
+year: 2025
+summary: 10,000 counseling contexts from three public datasets, each paired with the original human reply and nine LLM replies (100,000 responses), plus 70,000 human and LLM-judge ratings on seven attributes for 1,000 conversations to test when LLM judges can be trusted.
+readme_section: mental_health
+links:
+  paper: https://arxiv.org/abs/2510.19032
+  arxiv: "2510.19032"
+  doi: 10.48550/arxiv.2510.19032
+  huggingface: [abadawi/MentalBench-Align]
+  code: https://github.com/abeerbadawi/MentalBench-Align
+license: CC-BY-NC-SA-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Contexts come from MentalChat16K (a clinical trial interview set), EmoCare (260 counseling sessions), and CounselChat (a counseling Q&A platform). The paper does not state the countries of these sources.
+  localization: adapted
+  lead_institution_countries: [CAN]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, llm_generated]
+  venue: preprint
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 10,000 contexts, 100,000 responses; 70,000 ratings on 1,000 conversations
+provenance:
+  records: [r_f862efd33e]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Two releases in one paper (MentalBench-100k for response generation, MentalAlign-70k for judge reliability) plus an agreement framework (ICC-based). Seven attributes are rated on a 5-point scale and grouped into Cognitive Support Score and Affective Resonance Score. Human raters are three experts per rating according to the Hugging Face card; their countries are not stated. The EmoCare text was reprocessed with ChatGPT-4, so some contexts are AI-rephrased. License taken from the Hugging Face card."

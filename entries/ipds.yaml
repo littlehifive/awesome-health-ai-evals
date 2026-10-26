@@ -1,0 +1,35 @@
+id: ipds
+name: IPDS (In-Patient Diagnostic Support)
+kind: benchmark
+year: 2025
+summary: 51,274 inpatient cases from MIMIC-IV across nine departments, with three classification tasks (department triage, 17-way disease assessment, 16-way treatment pathway) for evaluating LLM diagnostic support.
+readme_section: knowledge_exam
+links:
+  paper: https://doi.org/10.21203/rs.3.rs-5599195/v1
+  doi: 10.21203/rs.3.rs-5599195/v1
+  arxiv: "2503.13205"
+  code: https://github.com/franciszchen/MAIDS
+license: null
+open_data: gated
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Cases derived from MIMIC-IV (MIMIC-IV-Hosp, -ICU, and -Note) from Beth Israel Deaconess Medical Center.
+  localization: native
+  lead_institution_countries: [HKG]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 51,274 cases; 9 departments, 17 disease categories, 16 treatment pathways
+provenance:
+  records: [r_44174ebda4, r_c033f3987a]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Research Square preprint. The paper gives the data as a PhysioNet credentialed-access release (account, CITI training, data use agreement); I did not find a PhysioNet page for it (the URL I tried returned 404), so access is from the paper's statement. The paper's CC BY 4.0 is the preprint license, not a dataset license, so license is null. MIMIC rules barred sending the data to external APIs, so GPT-4 and similar were not evaluated. Three clinicians from tertiary hospitals gave reference diagnoses on 100 cases. The paper also proposes the MAIDS multi-agent framework, which is a method and not part of the benchmark. Lead country is Hong Kong (Chinese University of Hong Kong). Record r_c033f3987a is the later arXiv version and npj Health Systems article (doi 10.1038/s44401-026-00085-0, titled MAP: Evaluation and Multi-Agent Enhancement of Large Language Models for Inpatient Pathways); its evaluation code is at github.com/franciszchen/MAP. In that version, 1,000 IPDS cases are held out for evaluation and the rest are for training."

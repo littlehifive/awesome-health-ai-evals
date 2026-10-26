@@ -1,0 +1,32 @@
+id: medverify
+name: MedVerify
+kind: benchmark
+year: 2026
+summary: 1,003 medical multiple-choice questions on historical medical facts and current safety or regulatory status, with validation responses from MBBS and PharmD reviewers, for testing post-hoc verification of unsafe or outdated LLM answers.
+readme_section: safety
+links:
+  huggingface: [muhammadocama/medverify-dataset]
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: The card says regulatory status differs by jurisdiction but names none.
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [unknown]
+  venue: grey_literature
+facets:
+  health_areas: [pharmacy_medication, general_medicine]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match, expert_human_rating]
+  modality: [text]
+  size: 1,003 questions plus MBBS and PharmD validator response files
+provenance:
+  records: [r_6d5ad0315f]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Dataset card only. It names a companion manuscript (Post-Hoc Adversarial Regulatory Verification of Large Language Model Responses to Medical Questions) with no link, so venue is grey_literature. How the questions were written, the reviewers' countries, and the builder's institution are not stated. The card warns the data is not a current regulatory reference."

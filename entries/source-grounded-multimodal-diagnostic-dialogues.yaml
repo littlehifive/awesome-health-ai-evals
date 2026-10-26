@@ -1,0 +1,34 @@
+id: source-grounded-multimodal-diagnostic-dialogues
+name: Source-Grounded Progressive Multimodal Diagnostic Dialogues
+kind: eval_framework
+year: 2026
+summary: A framework that converts PubMed Central case reports into staged multimodal diagnostic dialogues with evidence disclosure, scored by an LLM judge on final diagnosis, reasoning, and image-finding F1 plus factuality, validity, coherence, and utility; tested on 24 internal medicine cases.
+readme_section: frameworks
+links:
+  paper: https://arxiv.org/abs/2608.22713
+  arxiv: "2608.22713"
+  doi: 10.48550/arxiv.2608.22713
+license: null
+open_data: described_only
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Open-access PMC case reports; countries of the reports are not stated.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: 24 case reports, 86 evaluable image turns
+provenance:
+  records: [r_20b4c4f6dc]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Weill Cornell Medicine; accepted to IEEE HealthCom 2026. Multimodal (images are inputs) but the main output is text diagnosis and reasoning, so kept in scope; images are case-report figures such as radiology and pathology. No dataset or code release statement found. Evaluated o4-mini and Claude Haiku 4.5."

@@ -1,0 +1,35 @@
+id: healmed
+name: HealMed
+kind: benchmark
+year: 2026
+summary: 1,000 medical examples per language (paper) in nine languages, drawn from nine English datasets (MCQA, NLI, open-ended QA) and machine-translated, with every translation reviewed and revised by two bilingual physicians or medical experts.
+readme_section: multilingual_regional
+links:
+  paper: https://arxiv.org/abs/2608.19981
+  arxiv: "2608.19981"
+  doi: 10.48550/arxiv.2608.19981
+  huggingface: [li-lab/HealMed]
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [English, German, Spanish, Portuguese, Japanese, Mandarin Chinese, Thai, Swahili, Zulu, French, Malay, Igbo, Wolof, Yoruba]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Items are selected from existing English datasets (HeadQA, MedQA, MedExpQA, MMLU-Pro, BioNLI, MedNLI, ExpertQA, LiveQA) and translated; the paper does not give item-origin countries.
+  localization: translated
+  lead_institution_countries: [JPN]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [unspecified]
+  eval_methods: [mcq_exact_match, rubric_llm_judge]
+  modality: [text]
+  size: "1,000 examples per language x 9 languages in the paper (300 MCQA, 300 NLI, 400 open QA); HF release has 850 per language x 14 languages (11,900 total)"
+provenance:
+  records: [r_11591ee535]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Paper and Hugging Face card disagree: the paper reports nine languages with 1,000 examples each (including MedNLI); the card lists 14 languages with 850 each and says MedNLI was excluded for distribution-policy reasons. Languages beyond the paper's nine (French, Malay, Igbo, Wolof, Yoruba) are in the card only. Seven languages reuse machine translations from GlobMed; Thai was translated with GPT-5.5. Open-ended QA is scored by an LLM evaluator checked against expert ratings on small samples. 23 physicians and medical experts from nine countries and regions reviewed translations; their countries are not named. The Hugging Face dataset is cited in the paper, not in the screening record."

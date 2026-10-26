@@ -1,0 +1,31 @@
+id: medicine-evaluation-pt
+name: medicine-evaluation-pt (Doctor Llama)
+kind: benchmark
+year: 2024
+summary: 3,568 Portuguese medical question and answer pairs uploaded as the evaluation set for the Doctor Llama models, with short to paragraph-length reference answers.
+readme_section: multilingual_regional
+links:
+  huggingface: [mmoreirast/medicine-evaluation-pt]
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [Portuguese]
+  item_origin_countries: [UNKNOWN]
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [unknown]
+  item_provenance: [unknown]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine]
+  intended_users: [unspecified]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 3,568 question-answer pairs (single train split)
+provenance:
+  records: [r_f0c96d0f5a]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: low
+  notes: "Dataset card is two sentences and an author name (Mariana Moreira dos Santos); no paper, no source of the questions, no translation or generation method, no scoring protocol. Sample rows look like generic medical-instruction Q&A (possibly translated or LLM-generated) in Portuguese, but this is not stated. eval_methods is a placeholder (reference answers exist, but no scoring method is stated). Country of origin unknown; Portuguese may be European or Brazilian."

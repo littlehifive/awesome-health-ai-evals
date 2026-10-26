@@ -1,0 +1,35 @@
+id: mediqa-answer-summarization
+name: MEDIQA-AnS
+kind: benchmark
+year: 2020
+summary: "156 consumer health questions with the web-page answers returned by NLM's CHiQA system and expert-written extractive and abstractive, single- and multi-document question-driven summaries, scored with ROUGE and BLEU."
+readme_section: open_ended
+links:
+  arxiv: "2005.09067"
+  paper: https://arxiv.org/abs/2005.09067
+  dataset: https://doi.org/10.17605/OSF.IO/FYG464
+  code: https://www.github.com/saverymax/qdriven-chiqa-summarization
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Consumer questions and answers come from NLM's CHiQA system and US sources such as MedlinePlus, Mayo Clinic, and NIH sites.
+  rater_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [government]
+  item_provenance: [literature, clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 156 questions with passages and four summary types
+provenance:
+  records: [r_6994e71ee9]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Built on the MEDIQA-QA answer-ranking data from the MEDIQA 2019 shared task, by NLM authors. Summaries were written by two subject matter experts. Data is archived on OSF (nine records); no license seen in the paper text, so license is null. The paper looks like a Scientific Data article but I did not confirm the venue. In scope as consumer health information summarization; borderline compared with chatbot QA."

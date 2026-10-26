@@ -1,0 +1,33 @@
+id: ckd-diet-llm-benchmark
+name: CKD Dietary Recommendation LLM Benchmark
+kind: benchmark
+year: 2025
+summary: Five mock chronic kidney disease patient profiles with a standardized prompt for culturally appropriate, stage-specific dietary plans, released with expert scores of ChatGPT-4, Gemini, and Copilot responses.
+readme_section: open_ended
+links:
+  paper: https://doi.org/10.3390/jcm14228033
+  doi: 10.3390/jcm14228033
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [KAZ]
+  item_origin_note: Authors are at Nazarbayev University, Kazakhstan; the abstract says the plans should be culturally appropriate. The patient country is not confirmed.
+  localization: native
+  lead_institution_countries: [KAZ]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [nutrition, ncd]
+  intended_users: [patient_public]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: 5 patient cases
+provenance:
+  records: [r_f128cd76c6]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: From the repository abstract and Crossref metadata (paper is CC-BY-4.0; the dataset license was not seen). Item country and language are inferred from author affiliation and the abstract and need checking. Very small set.

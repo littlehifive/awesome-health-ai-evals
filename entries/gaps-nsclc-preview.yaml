@@ -1,0 +1,36 @@
+id: gaps-nsclc-preview
+name: GAPS-NSCLC-preview
+kind: benchmark
+year: 2025
+summary: 92 automatically generated non-small cell lung cancer questions anchored to the NCCN guideline, with 1,691 rubric elements, scored by an LLM-judge ensemble along grounding, adequacy, perturbation, and safety axes.
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2510.13734
+  arxiv: "2510.13734"
+  huggingface: [AQ-MedAI/GAPS-NSCLC-preview]
+  code: https://github.com/AQ-MedAI/MedicalAiBenchEval
+license: MIT
+open_data: open
+geography:
+  item_languages: [Chinese, English]
+  item_origin_countries: [USA]
+  item_origin_note: Items are generated from the evidence neighborhood of the NCCN Non-Small Cell Lung Cancer guideline (US). The Hugging Face card lists zh and en; the paper does not say which language each item is in.
+  rater_countries: [CHN]
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic, industry_lab]
+  item_provenance: [llm_generated, literature]
+  venue: preprint
+facets:
+  health_areas: [oncology]
+  intended_users: [clinician]
+  eval_methods: [rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 92 questions; 1,691 rubric elements
+provenance:
+  records: [r_709f274ed6]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "The GAPS framework (Grounding, Adequacy, Perturbation, Safety) is the contribution; only this NSCLC preview is released, and the construction pipeline and rubric agent are not yet released per the paper. Five senior clinicians audited the LLM judge (90% agreement, kappa 0.77), hence rater_countries CHN is inferred from their Peking University affiliations. The Hugging Face card also contains model answers (GPT-5, Gemini 2.5 Pro, Claude Opus 4) as columns."

@@ -1,0 +1,36 @@
+id: vmhqa
+name: VMHQA
+kind: benchmark
+year: 2025
+summary: 10,000 Vietnamese multiple-choice mental-health questions in USMLE format across 1,166 subjects (249 DSM-5 topics), with supporting paragraphs, written by psychology students from academic books, medical websites, and hospital records and checked by a national mental hospital.
+readme_section: mental_health
+links:
+  paper: https://doi.org/10.4108/eetsis.7678
+  doi: 10.4108/eetsis.7678
+  huggingface: [JosephNguyen/VMHQA]
+  code: https://github.com/nghganhtu/VMHQA
+license: custom
+open_data: gated
+geography:
+  item_languages: [Vietnamese]
+  item_origin_countries: [VNM]
+  item_origin_note: Sources are academic books, medical websites, and local hospital records; validated by National Mental Hospital 2 in Vietnam.
+  rater_countries: [VNM]
+  localization: native
+  lead_institution_countries: [VNM]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written, literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 10,000 records (the README also lists 2,200 GPT-4o-generated and 5,000 GPT-4o-mini-generated sub-datasets)
+provenance:
+  records: [r_31eedd7809]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: medium
+  notes: "Full text was not reachable (EAI landing page and abstract plus the GitHub README and Hugging Face card were read). The full dataset requires a signed end-user license agreement emailed to the owner, so open_data is gated; only 10-example samples are public. The Hugging Face card carries an MIT tag but access is under the EULA, so license is custom. The README counts 10,066 manually collected records alongside the GPT-4o and GPT-4o-mini generated sets, which does not match the paper's 10,000. Paper also evaluates BERT models, 7-9B LLMs, and RAG with agentic chunking. Questions were written by psychology students; the paper says validation was by mental hospitals in Vietnam."

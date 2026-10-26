@@ -1,0 +1,49 @@
+id: doctalkbn
+name: DocTalkBN
+kind: benchmark
+year: 2026
+summary: 557.6 hours of Bengali telemedicine broadcasts with 1,515 multi-turn doctor-patient calls and 10,274 host-doctor Q&A exchanges, with three downstream tasks (triage classification, advice safety classification, medical entity recognition) scored by macro F1.
+readme_section: multilingual_regional
+links:
+  paper: https://arxiv.org/abs/2608.27110
+  doi: 10.48550/arxiv.2608.27110
+  arxiv: '2608.27110'
+license: null
+open_data: unknown
+geography:
+  item_languages:
+  - Bengali
+  item_origin_countries:
+  - BGD
+  item_origin_note: From nationally broadcast Bangladeshi telemedicine TV programs uploaded to YouTube.
+  rater_countries:
+  - UNKNOWN
+  localization: native
+  lead_institution_countries:
+  - BGD
+origin:
+  builder_types:
+  - academic
+  item_provenance:
+  - real_user_queries
+  - llm_generated
+  venue: preprint
+facets:
+  health_areas:
+  - general_medicine
+  - emergency_triage
+  intended_users:
+  - patient_public
+  eval_methods:
+  - automatic_metric
+  modality:
+  - text
+  - voice
+  size: 1,515 patient calls; 10,274 host-doctor exchanges; 557.63 hours
+provenance:
+  records:
+  - r_d499c61913
+  read_full_text: true
+  confidence: medium
+  notes: Primarily a dialogue dataset; the evaluation part is the three derived classification tasks (BanglaBERT/mBERT fine-tuning and LLM prompting). Medical NER is out of scope on its own. The paper mentions a public code repository but gives no link, license, or release terms in the text I read, so open_data is unknown. Labels were produced with LLM-assisted annotation plus verification. Transcripts are YouTube auto-generated Bangla subtitles; audio is paired.
+  extracted: '2026-10-26'

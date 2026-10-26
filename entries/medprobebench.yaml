@@ -1,0 +1,35 @@
+id: medprobebench
+name: MedProbeBench
+kind: benchmark
+year: 2026
+summary: 50 physician-validated WHO oncology tumour-classification guideline documents (5,133 atomic claims, 2,203 with verifiable references) used to test long-form guideline generation by LLMs and deep research agents, scored with 1,200+ rubric criteria and claim-level evidence verification.
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2604.18418
+  arxiv: "2604.18418"
+  huggingface: [HanToser/MedprobeBench]
+  code: https://github.com/uni-medical/MedProbeBench
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Gold documents come from the WHO Classification of Tumours, 5th edition, across five oncology domains.
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature]
+  venue: preprint
+facets:
+  health_areas: [oncology]
+  intended_users: [clinician]
+  eval_methods: [rubric_llm_judge, automatic_metric]
+  modality: [text]
+  size: 50 guidelines, 5,133 atomic claims, 1,200+ rubric criteria
+provenance:
+  records: [r_c00102d00e, r_70d5395c74]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "The task is deep-research report generation for clinicians, not patient chat, so it sits at the edge of scope. Authors are at Fudan University and Shanghai AI Laboratory. License is from the HF card. The paper text was only skimmed (abstract, intro, source data section); the physician-validation process was not checked in detail."

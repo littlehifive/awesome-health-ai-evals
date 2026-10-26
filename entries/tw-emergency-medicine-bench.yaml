@@ -1,0 +1,32 @@
+id: tw-emergency-medicine-bench
+name: tw-emergency-medicine-bench
+kind: benchmark
+year: 2024
+summary: 1,719 Traditional Chinese multiple-choice questions from Taiwan's emergency medicine specialist board written exam, with answer keys, in Formosa-bench format.
+readme_section: multilingual_regional
+links:
+  huggingface: [lianghsun/tw-emergency-medicine-bench]
+license: CC-BY-SA-4.0
+open_data: open
+geography:
+  item_languages: [Traditional Chinese]
+  item_origin_countries: [TWN]
+  item_origin_note: Questions come from the public question bank of the exam run by Taiwan's Ministry of Health and Welfare.
+  localization: native
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [government]
+  item_provenance: [exam_questions]
+  venue: grey_literature
+facets:
+  health_areas: [emergency_triage, general_medicine]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 1,719 questions (999 with 5 options, 720 with 4)
+provenance:
+  records: [r_f827ae9dd9]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Dataset card only, no paper. This is a cleaned and reformatted extension of the upstream yuhsintw/TW_ED_exam (BOM removal, option splitting, one label fix); the upstream has no catalog entry, so this card is used as the entry and the upstream ID is not listed in links. builder_types reflects the exam authority (Taiwan Ministry of Health and Welfare); the dataset curator is an individual (Liang Hsun Huang), so lead_institution_countries is UNKNOWN."

@@ -1,0 +1,35 @@
+id: clindet-bench
+name: ClinDet-Bench
+kind: benchmark
+year: 2026
+summary: "94 synthetic physician-written clinical vignettes built from 16 published scoring systems, where an LLM must answer Met, Not met, or Unable to determine as information is removed, testing whether it can tell if a judgment is determinable under incomplete information."
+readme_section: knowledge_exam
+links:
+  paper: https://arxiv.org/abs/2602.22771
+  arxiv: "2602.22771"
+  code: https://github.com/yusukewatanabe1208/ClinDet_Benchmark
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Synthetic cases from published scoring criteria; language assumed English from the paper text.
+  rater_countries: [JPN]
+  localization: native
+  lead_institution_countries: [JPN]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written, literature]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: "94 clinical decision cases plus 16 scoring-system explanation tasks"
+provenance:
+  records: [r_a9b4c20949]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Repo README lists the benchmark data, raw outputs of 8 LLMs, and runner scripts; the repo carries an MIT license but the data license was not separately seen, so license is null. The paper reports 94 cases in one place and 333 scenarios across the evaluation in another; the counts were not reconciled. Cases were created and verified by one board-certified physician (Japan-based authors). Language is assumed English. Evaluated under Base, CoT, and Safe prompts."

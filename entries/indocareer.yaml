@@ -1,0 +1,37 @@
+id: indocareer
+name: IndoCareer
+kind: benchmark
+year: 2024
+summary: 8,834 Indonesian multiple-choice questions from professional and vocational certification exams in six sectors, of which 2,675 are healthcare (medical doctor, pharmacist, midwifery, nurse, clinical psychology), scored by accuracy.
+readme_section: multilingual_regional
+links:
+  paper: https://aclanthology.org/2025.naacl-industry.69/
+  arxiv: "2409.08564"
+  doi: 10.18653/v1/2025.naacl-industry.69
+  huggingface: [indolem/IndoCareer]
+license: CC-BY-NC-SA-4.0
+open_data: open
+geography:
+  item_languages: [Indonesian]
+  item_origin_countries: [IDN]
+  item_origin_note: Questions come from Indonesian professional competency and certification exams, collected from publicly available sources.
+  localization: native
+  lead_institution_countries: [ARE]
+  subsets:
+    - {name: Healthcare sector, languages: [Indonesian], countries: [IDN], localization: native}
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine, nursing, pharmacy_medication, maternal_newborn]
+  intended_users: [clinician, nurse_midwife, pharmacist, medical_student]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 8,834 questions in total (2,675 healthcare)
+provenance:
+  records: [r_4edc2596b4]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Only the healthcare sector is in scope; the other five sectors (insurance and finance, creative and design, tourism, education, law) are not health. The paper is by a single author at MBZUAI (Abu Dhabi), whose institution is taken as lead country. License is per the Hugging Face card and the paper's ethics statement. The paper also lists Clinical Psychology as a healthcare profession with 95 questions. Healthcare questions are the hardest sector for models in the paper."

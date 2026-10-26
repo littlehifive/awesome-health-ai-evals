@@ -1,0 +1,31 @@
+id: real-med
+name: Real-Med
+kind: benchmark
+year: 2026
+summary: "405 clinical-workflow tasks in 10 types (SOAP notes, complex case review, surgery planning, dosage calculation, chronic disease management, medical slides and others) with 5,813 scoring rubric criteria and attached case files."
+readme_section: open_ended
+links:
+  huggingface: [nips2026123user/Real-Med, wzhwzhwzh0921/Real_Med_]
+license: CC-BY-NC-4.0
+open_data: open
+geography:
+  item_languages: [English, Mandarin Chinese]
+  item_origin_countries: [UNKNOWN]
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [unknown]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine, pharmacy_medication]
+  intended_users: [clinician, pharmacist]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: "405 cases, 10 task types, 5,813 rubric criteria"
+provenance:
+  records: [r_0f51e3cd1d, r_3e6a826b89]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "No paper; dataset cards only. nips2026123user/Real-Med (CC-BY-NC-4.0, revised 2026-10-24: 210 cases have revised Chinese clinical prompts and criteria) and wzhwzhwzh0921/Real_Med_ (earlier English version, no license on card, some rubric counts differ) are merged as versions of one release. The card does not state how rubrics are applied (LLM judge assumed from rubric format). Some tasks are documentation and slide-making, which sit near the out-of-scope EHR documentation line; included because the set spans clinical decision tasks. Builders, item sources and countries not stated."

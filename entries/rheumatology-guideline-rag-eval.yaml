@@ -1,0 +1,34 @@
+id: rheumatology-guideline-rag-eval
+name: EULAR-ACR Rheumatology Guideline RAG Evaluation Set
+kind: benchmark
+year: 2025
+summary: 740 LLM-generated, rheumatologist-reviewed clinician questions (10 per recommendation across 74 EULAR and ACR guideline recommendations), scored by an LLM judge on relevance, factual accuracy, safety, completeness, and conciseness, built to test a guideline RAG system.
+readme_section: knowledge_exam
+links:
+  paper: https://doi.org/10.1016/j.ero.2025.08.001
+  doi: 10.1016/j.ero.2025.08.001
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Generated from EULAR (European) and ACR (US) guidelines; no single country of origin.
+  rater_countries: [ESP]
+  localization: native
+  lead_institution_countries: [ESP]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated, literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [other_specialty]
+  intended_users: [clinician]
+  eval_methods: [rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 740 questions over 74 guideline recommendations
+provenance:
+  records: [r_0b608812dc, r_5092994095]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Primarily a RAG-system paper; the question set is a by-product, released as a supplementary Excel file (per the medRxiv data-availability statement; code only on request). open_data is set to open on that basis but the supplement itself was not opened. Questions were generated with ChatGPT-4.5 and 14 were replaced by rheumatologists; the authors note they did not verify that each question is answerable from the guideline. Judge was Gemini 2.0 Flash; two rheumatologists rated a 15 percent sample. Records are the journal version (EULAR Rheumatology Open) and the medRxiv preprint. Not related to RheumBench or RheumaMIR."

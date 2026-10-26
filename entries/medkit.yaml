@@ -1,0 +1,36 @@
+id: medkit
+name: MedKIT
+kind: benchmark
+year: 2026
+summary: "6,196 oncology treatment-comparison updates from HemOnc.org (publications 1960 to 2026), each paired with seven probes (update, two lexical paraphrases, relational reversal, compositional, operational, locality) that test whether newly integrated clinical knowledge is usable, scored by label match and an LLM judge."
+readme_section: knowledge_exam
+links:
+  paper: https://arxiv.org/abs/2609.38543
+  arxiv: "2609.38543"
+  doi: 10.48550/arxiv.2609.38543
+  huggingface: [bethgelab/MedKIT]
+  code: https://github.com/bethgelab/MedKIT
+license: CC-BY-NC-SA-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Derived from HemOnc.org treatment comparisons and linked PubMed abstracts; no country of origin is stated.
+  localization: native
+  lead_institution_countries: [DEU, USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature]
+  venue: preprint
+facets:
+  health_areas: [oncology]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match, rubric_llm_judge]
+  modality: [text]
+  size: 6,196 factual updates, each with 7 probes
+provenance:
+  records: [r_a7a68671db, r_2d1f65a84c]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "r_2d1f65a84c (medkit-anon/MedKIT) is the anonymous double-blind-review copy of the same dataset and is merged here; the authors' own card is bethgelab/MedKIT. A knowledge-integration benchmark (editing, continual training, RAG) rather than a chatbot-conversation test; closed-form probes use label matching (superior, inferior, no difference), open-form probes an LLM judge validated against clinician annotations. Task templates were designed with an MD clinician. Dataset license is the Hugging Face card tag; HemOnc.org source is CC BY-NC-SA 4.0."

@@ -1,0 +1,34 @@
+id: reproductive-ethics-llm-assessment
+name: Reproductive Ethics LLM Assessment
+kind: benchmark
+year: 2026
+summary: 986 LLM-generated, expert-reviewed questions (906 open-ended, 80 multiple-choice) derived from 168 articles of Chinese assisted-reproduction regulations, with a six-dimension rubric covering safety (normative compliance, guidance safety) and answer quality.
+readme_section: safety
+links:
+  paper: http://arxiv.org/abs/2601.22621
+  arxiv: "2601.22621"
+  doi: 10.48550/arxiv.2601.22621
+license: null
+open_data: gated
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: Questions are generated from Chinese Ministry of Health regulations on assisted reproductive technology and human sperm banks. The question language is inferred from the Chinese regulatory source and the use of Chinese-language models, not stated outright.
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated, literature]
+  venue: preprint
+facets:
+  health_areas: [srh]
+  intended_users: [patient_public, clinician]
+  eval_methods: [mcq_exact_match, rubric_llm_judge]
+  modality: [text]
+  size: 986 questions (906 subjective, 80 objective)
+provenance:
+  records: [r_5d5911bf69]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Questions generated with QwQ-32B, then 1,122 reduced to 986 after review by two medical-ethics scholars. Subjective answers are scored by a fine-tuned QwQ scorer (88.5% reported agreement). The Data Availability Statement says the dataset is available from the corresponding author on reasonable request, so open_data is gated; no public link or license was found. Eight LLMs evaluated, including Chinese models. Intended users are inferred from the consultation framing."

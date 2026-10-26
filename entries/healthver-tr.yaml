@@ -1,0 +1,32 @@
+id: healthver-tr
+name: HealthVer-TR
+kind: benchmark
+year: 2024
+summary: Automatic Turkish translation of the HealthVer health-claim verification test set, with each test instance paired with 10 instructions for multi-prompt evaluation (2,000 rows).
+readme_section: multilingual_regional
+links:
+  huggingface: [Holmeister/HealthVer-TR]
+license: null
+open_data: open
+geography:
+  item_languages: [Turkish]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Translated from the English HealthVer dataset (Sarrouti et al., 2021); the card does not say where its claims originate.
+  localization: translated
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [unknown]
+  item_provenance: [adapted_dataset]
+  venue: grey_literature
+facets:
+  health_areas: [public_health, infectious_other]
+  intended_users: [unspecified]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 2,000 test rows (test instances each paired with 10 instructions; number of unique claims not stated)
+provenance:
+  records: [r_9f44e43e1a]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: low
+  notes: "Dataset card only: two sentences plus the HealthVer citation. The card says the translation is automatic and may be inaccurate, and states no license. Health areas are a guess from the original HealthVer, which is about COVID-19 claims and is not described on this card. Scoring method is not stated; automatic_metric is assumed from the label-classification format. Uploader Holmeister appears to publish many Turkish translations of English datasets; no institution is given. Adapted from HealthVer (Sarrouti et al., 2021), which has no entry in this catalog, so adapted_from is omitted."

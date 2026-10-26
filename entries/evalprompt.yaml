@@ -1,0 +1,37 @@
+id: evalprompt
+name: EvalPrompt
+kind: benchmark
+year: 2023
+summary: 94 USMLE Step 1 sample questions rewritten as open-ended self-diagnosis prompts, with a sentence-dropout robustness test (152 variants), where expert and nonexpert assessors grade ChatGPT answers as correct, partially correct, incorrect, or ambiguous.
+readme_section: knowledge_exam
+links:
+  paper: https://doi.org/10.2196/66207
+  arxiv: "2307.04910"
+  doi: 10.2196/66207
+  pmcid: PMC11913316
+  code: https://github.com/criticalml-uw/EvalPrompt
+license: GPL-3.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Questions are from the public USMLE Step 1 sample test questions.
+  rater_countries: [UNKNOWN]
+  localization: adapted
+  lead_institution_countries: [CAN]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions, adapted_dataset]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: "94 questions plus 152 sentence-dropout variants"
+provenance:
+  records: [r_50ff2819a4]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "License is the GitHub repository's (GPL-3.0, seen via the repository metadata). The repository holds the questions and GPT-4.0 outputs; the assessor categorizations are not public (available on request per the paper). Rater countries not stated. A methodology paper from a small study: the item set is small and the main product is the assessment protocol (clarity, correctness, robustness)."

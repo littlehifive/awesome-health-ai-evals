@@ -1,0 +1,34 @@
+id: precision-evidence-bench
+name: Precision Evidence Bench
+kind: benchmark
+year: 2026
+summary: 209 synthetic clinical questions with specified patient, intervention, comparator and outcome elements, with a five-item rubric scored by an LLM jury for how well an AI answer's cited evidence fits the patient and is reported faithfully.
+readme_section: open_ended
+links:
+  paper: https://doi.org/10.64898/2026.10.07.26364976
+  doi: 10.64898/2026.10.07.26364976
+  huggingface: [atroposhealth/precision-evidence-bench]
+license: CC-BY-SA-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Synthetic questions written to be general; no country origin.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [industry_lab]
+  item_provenance: [llm_generated, clinician_written]
+  venue: preprint
+facets:
+  health_areas: [general_medicine, cardiology]
+  intended_users: [clinician]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: 209 questions
+provenance:
+  records: [r_1ffe32aa09]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Released by Atropos Health, a real-world-evidence company (classed here as industry_lab; not an AI lab). Reference labels, the paper's model results and the proprietary evidence corpus are not released, only questions.csv and rubric.json. Two physicians refined the questions over several rounds. Examples span cardiovascular medicine, diabetes and kidney injury; no formal health-area breakdown is given."

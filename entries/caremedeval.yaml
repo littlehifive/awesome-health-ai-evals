@@ -1,0 +1,36 @@
+id: caremedeval
+name: CareMedEval
+kind: benchmark
+year: 2025
+summary: 534 French multiple-choice questions from medical-student critical-appraisal exams (Lecture Critique d'Articles), each grounded in one of 37 scientific articles, scored by exact match rate.
+readme_section: multilingual_regional
+links:
+  paper: https://doi.org/10.63317/2erqq5fuxpge
+  arxiv: "2511.03441"
+  doi: 10.63317/2erqq5fuxpge
+  huggingface: [doriab/CareMedEval]
+  code: https://github.com/bonzid/CareMedEval
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [French]
+  item_origin_countries: [FRA]
+  item_origin_note: Questions come from French national LCA exams (ECN) and mock exams reviewed by the Collège National des Enseignants de Thérapeutique.
+  localization: native
+  lead_institution_countries: [FRA]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine, public_health]
+  intended_users: [medical_student, clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 534 questions on 37 articles
+provenance:
+  records: [r_2e1cd4cf32]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: Dataset card is tagged French and English; the questions are French (the card's English use was not checked). The paper footnote gives the GitHub path as bonzyd, which returns 404; bonzid is the working path. LREC 2026 venue taken from the screening record.

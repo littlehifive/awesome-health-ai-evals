@@ -1,0 +1,35 @@
+id: psycollm-benchmark
+name: PsycoLLM psychological counseling benchmark
+kind: benchmark
+year: 2024
+summary: 3,863 Chinese multiple-choice questions plus 20 case-analysis scenarios with 100 open questions, drawn from public Chinese psychological counselor examinations and covering professional ethics, theory, and case analysis, scored by accuracy (and elastic accuracy for multi-answer items) and ROUGE, BLEU, and BERTScore.
+readme_section: mental_health
+links:
+  paper: https://arxiv.org/abs/2407.05721
+  arxiv: "2407.05721"
+  doi: 10.1109/tcss.2024.3497725
+  code: https://github.com/MACLAB-HFUT/PsycoLLM
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: Questions come from publicly available examination questions modeled on China's national psychological counselor examination (Level 2, Level 3, and other).
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions]
+  venue: peer_reviewed
+facets:
+  health_areas: [mental_health]
+  intended_users: [clinician, medical_student]
+  eval_methods: [mcq_exact_match, automatic_metric]
+  modality: [text]
+  size: 3,863 MCQs; 20 cases with 100 QAs
+provenance:
+  records: [r_fd4afb37a4]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "The benchmark is one part of the PsycoLLM paper (the rest is a model and training data). The GitHub repo has a benchmark/ folder (cases, moral, theory) and an Apache-2.0 license, which is the repo license rather than a dataset-specific one; I did not open the files. Intended users are inferred as counselors in training since the exams certify psychological counselors."

@@ -1,0 +1,36 @@
+id: afrimmlu-clinical-translations
+name: Winogrande-MMLU-clinical African language translations
+kind: benchmark
+year: 2024
+summary: Human translations of three MMLU clinical sections (college medicine, clinical knowledge, virology) and Winogrande into eight African languages, for multiple-choice evaluation of LLMs.
+readme_section: multilingual_regional
+links:
+  paper: https://doi.org/10.1609/aaai.v39i27.34996
+  arxiv: "2412.12417"
+  doi: 10.1609/aaai.v39i27.34996
+  huggingface: [Institute-Disease-Modeling/mmmlu-winogrande-afr]
+  code: https://github.com/InstituteforDiseaseModeling/Bridging-the-Gap-Low-Resource-African-Languages
+license: MIT
+open_data: open
+geography:
+  item_languages: [English, Amharic, Bambara, Igbo, Sepedi, Shona, Sesotho, Setswana, Tsonga]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Translations of existing MMLU and Winogrande items; the medical content is not Africa-specific.
+  localization: translated
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic, multilateral]
+  item_provenance: [adapted_dataset]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine, infectious_other]
+  intended_users: [unspecified]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: about 1 million translated words across 8 languages (3 MMLU clinical sections plus Winogrande)
+provenance:
+  records: [r_166324ca27]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: Adapted from MMLU (no entry exists, so adapted_from is omitted). The Hugging Face dataset was not reachable for a card check (returned an auth error), so its link comes from the paper. Winogrande is not a health set; only the three MMLU sections are health. Authors include the Institute for Disease Modeling and the Gates Foundation (a funder and co-author), so builder types are a judgment; the lead country is USA from those affiliations, and translator countries were not checked.

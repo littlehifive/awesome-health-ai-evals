@@ -1,0 +1,32 @@
+id: llm-safety-mental-health-benchmark
+name: LLM Safety Mental Health Benchmark
+kind: benchmark
+year: 2026
+summary: 190 synthetic prompts in seven mental-health risk scenarios (suicidal ideation, rumination, psychosis-like and disorganized speech, anxiety, health misinformation, sycophancy bait), with 570 stored responses from three chatbots labeled A to E for safety-boundary behavior.
+readme_section: mental_health
+links:
+  code: https://github.com/feiwang856-cmyk/llm-safety-mental-health-benchmark
+license: null
+open_data: open
+geography:
+  item_languages: [Mandarin Chinese, English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: The prompts appear to be written in Chinese with English translations (the data file has a Chinese prompt and an English prompt column); the source does not say who wrote them or for which country.
+  localization: unknown
+  lead_institution_countries: [SWE]
+origin:
+  builder_types: [academic]
+  item_provenance: [unknown]
+  venue: grey_literature
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: 190 prompts; 570 stored responses
+provenance:
+  records: [r_f24315c03e]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: medium
+  notes: "Read the repo README, data README, annotation guidelines, and the head of the data CSV; the manuscript ('Evaluating Safety Boundaries of Large Language Models in Mental Health Risk Scenarios: A Benchmark Study', Wang and Moell, Uppsala University) was not found, so venue is grey_literature. Responses come from consumer web interfaces of ChatGPT-5.4, Claude Sonnet 4.6, and Gemini-3 (March to April 2026). Labels are by the study author, and the A4a re-evaluation was by the same author, so this is not independent inter-rater validation. No license file was seen. How the prompts were generated is not stated beyond 'synthetic'."

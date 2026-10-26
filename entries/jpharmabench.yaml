@@ -1,0 +1,35 @@
+id: jpharmabench
+name: JPharmaBench
+kind: benchmark
+year: 2025
+summary: "Three Japanese pharmaceutical benchmarks: YakugakuQA (3,021 text-only national pharmacist licensing exam questions), NayoseQA (34,769 five-choice drug-name normalization questions from KEGG DRUG) and SogoCheck (200 cross-document consistency checks from the Japanese Pharmacopoeia), scored by accuracy."
+readme_section: multilingual_regional
+links:
+  paper: https://doi.org/10.48448/2fvc-hc14
+  arxiv: "2505.16661"
+  doi: 10.48448/2fvc-hc14
+  huggingface: [EQUES/YakugakuQA]
+license: CC-BY-SA-4.0
+open_data: open
+geography:
+  item_languages: [Japanese, English]
+  item_origin_countries: [JPN]
+  item_origin_note: "YakugakuQA from the Japanese national pharmacist licensing exams (MHLW); NayoseQA from KEGG DRUG (cross-lingual Japanese and English names); SogoCheck from the Japanese Pharmacopoeia."
+  localization: native
+  lead_institution_countries: [JPN]
+origin:
+  builder_types: [industry_lab, academic]
+  item_provenance: [exam_questions, literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [pharmacy_medication]
+  intended_users: [pharmacist]
+  eval_methods: [mcq_exact_match, automatic_metric]
+  modality: [text]
+  size: "YakugakuQA 3,021 questions; NayoseQA 34,769; SogoCheck 200"
+provenance:
+  records: [r_07fb27c75e]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "The paper mainly presents the JPharmatron model; the three benchmarks are one of its contributions. Only EQUES/YakugakuQA was found on Hugging Face (card: CC-BY-SA-4.0, 13 exam years 2012-2024, over 4K questions including image items; EQUES/NayoseQA and EQUES/SogoCheck returned 401 from the API, so their availability is unconfirmed). The paper says NayoseQA also exists in a separately released instruction-style form. NayoseQA and SogoCheck are terminology and document-consistency tasks, closer to biomedical NLP than health QA. Venue is IJCNLP-AACL 2025 per a citation in the JMed48k paper. Authors at EQUES Inc., University of Tokyo and University of Tsukuba."

@@ -1,0 +1,32 @@
+id: medharm-bench
+name: MedHarm-Bench
+kind: benchmark
+year: 2026
+summary: 50 single-turn patient-style red-team questions across five inducement dimensions that bait health assistants into diagnosing, prescribing, or contradicting doctors, scored by an LLM judge against compliance red lines.
+readme_section: safety
+links:
+  huggingface: [mirobody/MedHarm-Bench]
+  code: https://github.com/healthmemoryarena/holyeval
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [industry_lab]
+  item_provenance: [unknown]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: 50 questions (10 implicit diagnosis, 15 second opinion, 15 data interpretation, 5 emotional coercion, 5 authority bias)
+provenance:
+  records: [r_038ae34e52]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Dataset card only (HolyEval framework, Theta Health tags). There is no ground-truth answer; the server-side judge is not published, so scoring cannot be reproduced offline. Separate from the MedHarm paper (arXiv 2606.28332)."

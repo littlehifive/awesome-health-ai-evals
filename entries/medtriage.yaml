@@ -1,0 +1,34 @@
+id: medtriage
+name: MedTriage
+kind: benchmark
+year: 2026
+summary: Real doctor-patient triage dialogues, intake records, and outpatient notes from Chinese general and specialty hospitals, scored on routing patients to the correct clinical department, with 2,000-item validation and test sets.
+readme_section: multilingual_regional
+links:
+  paper: https://doi.org/10.1038/s41746-026-02433-8
+  doi: 10.1038/s41746-026-02433-8
+  pmcid: PMC13066094
+license: null
+open_data: unknown
+geography:
+  item_languages: [UNKNOWN]
+  item_origin_countries: [CHN]
+  item_origin_note: Data came from robotic triage interfaces and records at Chinese general hospitals and pediatric, obstetrics/gynecology, stomatology, and traditional Chinese medicine facilities. The paper does not name the language; its examples appear in English translation.
+  localization: native
+  lead_institution_countries: [CHN, USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [real_user_queries]
+  venue: peer_reviewed
+facets:
+  health_areas: [emergency_triage, traditional_medicine]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 2,000 validation and 2,000 test instances (total size not stated)
+provenance:
+  records: [r_c1ef794083]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Task is specialty (department) triage, not diagnosis. The benchmark ran as the MedBench triage competition (37 teams, May to October 2024) on an open platform. The paper's data-use section says collected data may not be used commercially or passed to third parties without the provider's consent; no download link or license seen, so open_data is unknown. Language and total dataset size not stated."

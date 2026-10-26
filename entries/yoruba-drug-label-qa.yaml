@@ -1,0 +1,32 @@
+id: yoruba-drug-label-qa
+name: Yoruba Drug-Label QA
+kind: benchmark
+year: 2026
+summary: 460 English and Yoruba question-answer pairs (5 per drug for 92 drugs) built from Nigerian drug labels, pharmacist-validated, for testing retrieval-augmented medication question answering.
+readme_section: multilingual_regional
+links:
+  paper: https://doi.org/10.18653/v1/2026.loreslm-1.8
+  doi: 10.18653/v1/2026.loreslm-1.8
+license: null
+open_data: unknown
+geography:
+  item_languages: [English, Yoruba]
+  item_origin_countries: [NGA]
+  localization: native
+  lead_institution_countries: [NGA]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [pharmacy_medication]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric, rubric_llm_judge]
+  modality: [text]
+  size: 460 QA pairs
+provenance:
+  records: [r_676aa97b73]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Obafemi Awolowo University (Nigeria). Answers come from the EMDEX drug monographs and the Nigerian Essential Medicines list; English answers were validated by certified pharmacists and the Yoruba translations were made by native speakers with the Spitch translation model and checked by Yoruba language experts. Scored with BERTScore and an LLM judge, and retrieval with hit rate at K against gold evidence. The pharmacists' and language experts' countries are not stated. The paper gives no release link or license. Published at LoResLM 2026."

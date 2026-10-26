@@ -1,0 +1,35 @@
+id: leaf-nepali-srh
+name: LEAF (LLM Evaluation Framework)
+kind: eval_framework
+year: 2026
+summary: "A multi-criteria expert-labelling framework (accuracy, response language, usability gaps, safety gaps) for LLM answers to health queries, applied to 8,272 valid chatbot conversations on sexual and reproductive health in Nepali from about 9,000 users across Nepal."
+readme_section: frameworks
+links:
+  paper: https://arxiv.org/abs/2603.22291
+  arxiv: "2603.22291"
+  doi: 10.48550/arxiv.2603.22291
+license: null
+open_data: closed
+geography:
+  item_languages: [Nepali]
+  item_origin_countries: [NPL]
+  item_origin_note: Queries typed by community participants and female community health volunteers in 45 municipalities across all seven provinces of Nepal, October 2023 to February 2024, in Devanagari and Romanized scripts.
+  rater_countries: [NPL]
+  localization: native
+  lead_institution_countries: [NPL]
+origin:
+  builder_types: [academic, implementer_ngo]
+  item_provenance: [real_user_queries]
+  venue: preprint
+facets:
+  health_areas: [srh]
+  intended_users: [patient_public, chw]
+  eval_methods: [expert_human_rating, real_user_data]
+  modality: [text]
+  size: "8,272 valid conversations from 9,035 users; criteria: accuracy, language, 5 usability sub-criteria, 3 safety sub-criteria"
+provenance:
+  records: [r_349632665e]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Data availability statement: all data are available from the corresponding author upon request, so open_data is closed (no public release). Framework developed by four hired SRH experts through iterative testing; accuracy kappa 0.873 on a 500-response binary check. Funded by the Gates Foundation. Chatbots were GPT-3.5 and open 7B models, with RAG over 22 Nepali SRHR materials. Venue is a preprint at extraction time."

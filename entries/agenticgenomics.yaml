@@ -1,0 +1,33 @@
+id: agenticgenomics
+name: AgenticGenomics
+kind: benchmark
+year: 2026
+summary: 110 CPIC Level A pharmacogenomic cases across European, admixed Latin American, and East African population contexts, scoring LLM phenotype and drug-recommendation concordance against authored reference answers.
+readme_section: knowledge_exam
+links:
+  paper: https://doi.org/10.5281/zenodo.20567742
+  doi: 10.5281/zenodo.20567742
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Cases follow CPIC guidelines and span three population contexts (European, admixed Latin American, East African); the case origin country is not stated.
+  localization: native
+  lead_institution_countries: [GBR]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature]
+  venue: grey_literature
+facets:
+  health_areas: [pharmacy_medication, other_specialty]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 110 cases; 26,730 model evaluations in the archive
+provenance:
+  records: [r_c96c7b389b]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: Source is the Zenodo record (v1.9.0), a reproducibility archive for a paper on executable skills in agent-mediated pharmacogenomics; the paper itself was not read. Reference answers and scoring rules share one authored source and the authors state they do not establish clinical validity. Scope is borderline (pharmacogenomic interpretation by agents, clinician-facing); a human should confirm it belongs. Lead institution LSHTM (UK) from the record's venue field; senior author Segun Fatumo not placed.

@@ -1,0 +1,32 @@
+id: llms-medical-evaluation-female-malignancies
+name: LLMs_Medical_Evaluation (female malignancies)
+kind: benchmark
+year: 2025
+summary: 205 Chinese multiple-choice questions on female malignancies (for example breast cancer staging and treatment) with answer keys, plus scripts that score LLMs on accuracy, consistency, and token use.
+readme_section: multilingual_regional
+links:
+  code: https://github.com/roubaokai/LLMs_Medical_Evaluation
+license: null
+open_data: open
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: The questions are in Chinese with sections such as "第八部分 其他疾病" suggesting a textbook or exam bank, but the README does not name the source or country.
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [unknown]
+  item_provenance: [unknown]
+  venue: grey_literature
+facets:
+  health_areas: [oncology]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 205 multiple-choice questions
+provenance:
+  records: [r_4152fc1561]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "Single-repo project with a short README and test.jsonl (read the first lines: question, options A to E, answer, meta_info). The repo description says 'Evaluation of Large Language Models in Female Malignancies Specialty Q&A', which may correspond to a paper that was not found or searched for. No license file, author affiliations, or question source are stated. Created 2025-02-19."

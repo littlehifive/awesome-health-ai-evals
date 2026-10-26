@@ -1,0 +1,35 @@
+id: 3mdbench
+name: 3MDBench
+kind: benchmark
+year: 2025
+summary: 2,996 simulated telemedicine consultations across 34 diagnoses, where a vision-language model questions a temperament-based patient agent that sees a symptom image, scored on diagnostic accuracy and dialogue quality by an assessor agent.
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2504.13861
+  arxiv: "2504.13861"
+  doi: 10.18653/v1/2025.emnlp-main.1353
+  code: https://github.com/univanxx/3mdbench
+license: MIT
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Diagnoses were chosen from visits at an unnamed large Eastern European telemedicine provider; images come from open datasets (Kaggle, ISIC, Google SCIN, Fitzpatrick17k) and Bing image search; patient dialogue text is LLM-generated.
+  localization: unknown
+  lead_institution_countries: [RUS]
+origin:
+  builder_types: [industry_lab]
+  item_provenance: [llm_generated, adapted_dataset]
+  venue: peer_reviewed
+facets:
+  health_areas: [primary_care, other_specialty]
+  intended_users: [patient_public]
+  eval_methods: [simulated_multi_turn, rubric_llm_judge, automatic_metric]
+  modality: [text]
+  size: 2,996 cases, 3,013 images, 34 diagnoses
+provenance:
+  records: [r_17b0024a7b]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: Multimodal (symptom images plus text dialogue); modality field only allows text or voice. MIT license is from the code repo; the dataset license was not checked. Dialogue language assumed English; not verified. Authors at Sber AI Lab, Moscow; the provider's country is not named.

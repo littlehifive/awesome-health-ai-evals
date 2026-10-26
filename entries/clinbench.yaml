@@ -1,0 +1,33 @@
+id: clinbench
+name: ClinBench
+kind: benchmark
+year: 2026
+summary: "2,014 multiple-choice diagnosis questions (6-10 options) built from English case reports in PubMed Central journals across 11 specialties, with a multimodal version, a rare-disease track, and human-expert comparison."
+readme_section: knowledge_exam
+links:
+  paper: https://aclanthology.org/2026.findings-acl.767/
+  doi: 10.18653/v1/2026.findings-acl.767
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Case reports from PMC medical case journals; countries of the reported patients are not stated.
+  localization: unknown
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine, other_specialty]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: "2,014 text questions (ClinBench-Text) plus a multimodal subset"
+provenance:
+  records: [r_d7a67c85dc]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Read the ACL Findings PDF text; no code or dataset link was found in it, so open_data is unknown and no license seen. Lead authors at UESTC and CUHK-Shenzhen (China), with Halmstad University (Sweden). Candidate options built in a pipeline with medical expert review. Fit with chatbot-evaluation scope is marginal (exam-style MCQ on clinical cases)."

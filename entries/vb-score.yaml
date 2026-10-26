@@ -1,0 +1,34 @@
+id: vb-score
+name: VB-Score
+kind: eval_framework
+year: 2026
+summary: "A component-wise metric for medical question answering that weights entity F1 (30%), semantic similarity (30%), factual consistency (25%) and structured overlap (15%) against authoritative references, demonstrated on 59 public-health QA pairs from CDC, WHO, NHS and Mayo Clinic pages."
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.1145/3805689.3812342
+  doi: 10.1145/3805689.3812342
+  arxiv: "2604.19281"
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: "Reference answers come from the CDC (USA), WHO, NHS (UK) and Mayo Clinic patient-facing pages; 48 topics, 59 QA pairs."
+  localization: native
+  lead_institution_countries: [USA, BGD]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [public_health, general_medicine]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 59 QA pairs over 48 health topics; four-component weighted score
+provenance:
+  records: [r_e20474d4b5]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "ACM FAccT 2026 paper (arXiv comments say accepted). No code or dataset release link found in the text. The paper evaluates GPT-4, Claude Sonnet 4.5 and Gemini 2.5, and reports a 13.8% lower score for chronic-condition topics. English-only language is implied by the English sources and spaCy NER rather than stated. First author at UT San Antonio, second at Khulna University of Engineering and Technology (Bangladesh)."

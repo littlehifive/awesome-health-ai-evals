@@ -1,0 +1,34 @@
+id: sct-benchmark
+name: Script Concordance Test benchmark
+kind: benchmark
+year: 2025
+summary: 750 script concordance test questions from 10 medical datasets, scoring how new information shifts a model's diagnostic or management judgment against expert-panel responses and human trainees.
+readme_section: knowledge_exam
+links:
+  paper: https://doi.org/10.1101/2025.02.11.25321822
+  doi: 10.1101/2025.02.11.25321822
+  website: https://www.concor.dance/
+license: null
+open_data: gated
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA, CAN, AUS, SGP]
+  item_origin_note: Ten tests from North America, Asia and Australia per the paper (Indiana University, University of Florida, McGill neurology, Adelaide, Singapore tests). Table 1 mapping tests to countries was not visible in the text read, so this list is partly inferred from named institutions.
+  localization: mixed
+  lead_institution_countries: [CAN, USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written]
+  venue: preprint
+facets:
+  health_areas: [general_medicine, other_specialty]
+  intended_users: [clinician, medical_student]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 750 questions
+provenance:
+  records: [r_2379d5e72a]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "medRxiv preprint (Do Language Models Think Like Doctors?). Nine of ten tests were previously unreleased. Access: two tests (Open Medical SCT, Adelaide SCT) are public; the rest are held out behind a data use agreement on a private evaluation server with a leaderboard, so open_data is gated. Scoring is a 5-point Likert response matched to the expert panel's aggregate (not strict exact match); mcq_exact_match is the nearest facet. No license stated. Panel and trainee data come from the contributing institutions."

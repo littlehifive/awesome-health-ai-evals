@@ -1,0 +1,38 @@
+id: italian-medical-education-pathway-tests
+name: Italian National Medical Education Pathway Tests (ITMSA, ITMLE)
+kind: benchmark
+year: 2024
+summary: Italian five-choice questions from national medical school admission tests (3,301, ITMSA) and the medical licensing exam (6,696, ITMLE, clinical and preclinical), scored by accuracy.
+readme_section: multilingual_regional
+links:
+  paper: https://doi.org/10.1371/journal.pdig.0001363
+  doi: 10.1371/journal.pdig.0001363
+  huggingface: [Detsutut/miur-medicina-clinica, Detsutut/miur-medicina-preclinica, Detsutut/domande_SSM, Detsutut/test-medicina]
+  code: https://github.com/detsutut/llm-evaluation
+license: Apache-2.0
+open_data: gated
+geography:
+  item_languages: [Italian]
+  item_origin_countries: [ITA]
+  item_origin_note: Questions come from Italian national placement tests and the national medical licensing exam.
+  localization: native
+  lead_institution_countries: [ITA]
+  subsets:
+    - {name: ITMSA (admission test), languages: [Italian], countries: [ITA], localization: native}
+    - {name: ITMLE (licensing exam), languages: [Italian], countries: [ITA], localization: native}
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [medical_student, clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 3,301 admission-test questions; 6,696 licensing-exam questions
+provenance:
+  records: [r_16ac03b183, r_b136be05e3, r_ad499f8bef]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "The data-availability statement points to a Hugging Face collection (Detsutut/italian-national-medical-education-pathway-tests); access is granted after users accept an agreement not to train on the data. Apache-2.0 is on the two miur-medicina cards; licenses on the other two cards were not visible. Which Hugging Face dataset maps to ITMSA versus the ITMLE sub-areas is inferred from names and creation dates. Year is the Hugging Face creation date (2024); the paper is 2026. The study also evaluates 37 models."

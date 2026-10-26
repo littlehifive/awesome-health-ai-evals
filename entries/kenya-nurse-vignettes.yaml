@@ -1,0 +1,35 @@
+id: kenya-nurse-vignettes
+name: Kenya Nurse Vignettes
+kind: benchmark
+year: 2025
+summary: "Primary-care clinical scenarios co-designed and written by 145 Kenyan nurses (7,606 in the source pool; 507 stratified across 12 nursing competency categories used for benchmarking), with clinician answers and physician-panel ratings on an 11-domain rubric."
+readme_section: multilingual_regional
+links:
+  paper: https://doi.org/10.1136/bmjdh-2026-000081
+  doi: 10.1136/bmjdh-2026-000081
+  code: https://github.com/pmwaniki/vignette
+license: MIT
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [KEN]
+  item_origin_note: Scenarios written by nurses in Kiambu, Kakamega, and Uasin Gishu counties during participatory workshops.
+  rater_countries: [KEN]
+  localization: native
+  lead_institution_countries: [KEN]
+origin:
+  builder_types: [academic, implementer_ngo]
+  item_provenance: [clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [primary_care, nursing, maternal_newborn, emergency_triage]
+  intended_users: [nurse_midwife, clinician]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: "507 vignettes benchmarked (stratified from a 7,606-scenario source pool), rated by 6 physicians on 11 domains"
+provenance:
+  records: [r_4600095bf2]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Read via paperclip (medRxiv preprint 10.1101/2025.10.25.25338798, same work). The paper reports two pool sizes (7,606 source scenarios in Methods; 5,107 in the abstract); not reconciled. The GitHub repo (MIT, Zenodo 10.5281/zenodo.17340120) holds expert ratings for the 507 vignettes and a prompt-responses file; whether it includes all 7,606 source scenarios was not checked. The license is the repository license. Rubric adapted from existing medical-AI evaluation frameworks. Scored by six Kenyan family physicians, blinded to response source. Authors from KEMRI-Wellcome (Kenya), PATH, University of Birmingham, LSHTM."

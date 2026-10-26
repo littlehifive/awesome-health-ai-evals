@@ -1,0 +1,37 @@
+id: empath
+name: EMPATH
+kind: benchmark
+year: 2026
+summary: Safety benchmark for emotional-support chatbots in which an auditor model role-plays help-seeking users (140 seed instructions, 34 personas) and a judge model scores each transcript on 19 metrics in five dimensions, in Mexican Spanish and US English.
+readme_section: mental_health
+links:
+  paper: https://arxiv.org/abs/2606.30256
+  arxiv: "2606.30256"
+  doi: 10.5281/zenodo.20844846
+  dataset: https://doi.org/10.5281/zenodo.20844846
+  code: https://github.com/camilochs/empath-benchmark
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [Spanish, English]
+  item_origin_countries: [MEX, USA]
+  item_origin_note: Seeds and metrics are locale-grounded for Mexican Spanish (Linea de la Vida, SAPTEL) and US English (988); the reported studies run in Mexican Spanish.
+  rater_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [industry_lab]
+  item_provenance: [llm_generated]
+  venue: preprint
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [simulated_multi_turn, rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 140 seed instructions, 34 personas, 19 metrics
+provenance:
+  records: [r_c13864e909, r_202f09f40f]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "r_202f09f40f is the Zenodo artifact record (CC-BY-4.0, 321 kB zip, listed author Anonymous); code repo is Apache-2.0. Single author affiliated with MindSurf (company); country not stated, so lead country is UNKNOWN. Two licensed psychologists blind-rated 50 synthetic transcripts for judge validation; their country is not stated. Metrics were defined with practicing psychologists."

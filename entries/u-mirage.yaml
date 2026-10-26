@@ -1,0 +1,38 @@
+id: u-mirage
+name: U-MIRAGE
+kind: benchmark
+year: 2026
+summary: 7,663 multiple-choice medical questions from the English MIRAGE benchmark translated into Urdu (Perso-Arabic script) and Roman Urdu, used to compare LLM accuracy and chain-of-thought prompting.
+readme_section: multilingual_regional
+links:
+  paper: https://aclanthology.org/2026.abjadnlp-1.55/
+  doi: 10.18653/v1/2026.abjadnlp-1.55
+  code: https://github.com/AliFaheem/U-Mirage
+license: MIT
+open_data: open
+adapted_from: [mirage]
+geography:
+  item_languages: [Urdu, English]
+  item_origin_countries: [USA, IND, GLOBAL]
+  item_origin_note: Inherited from MIRAGE (MedQA-US, MedMCQA, PubMedQA, BioASQ, MMLU medical subset); the paper does not discuss item origin countries. Translated by the authors in Pakistan.
+  localization: translated
+  lead_institution_countries: [PAK]
+  subsets:
+    - {name: Urdu (Perso-Arabic script), languages: [Urdu], countries: [PAK], localization: translated}
+    - {name: Roman Urdu (Latin script), languages: [Urdu], countries: [PAK], localization: translated}
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, exam_questions, literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician, medical_student]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 7,663 questions in three parallel versions (English, Urdu, Roman Urdu)
+provenance:
+  records: [r_6b7d38ec9b]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Read the paper PDF and the GitHub README. Source mix per the paper: MedQA 1,273, MedMCQA 4,183, PubMedQA 500, BioASQ 618, MMLU medical 1,089. Translation validated by back-translation on 500 questions (ROUGE-L F1 0.75); the paper does not say who translated (apparently machine translation with checks). The MIT license shown is the GitHub repository license; the data card is not separate and each source set keeps its own terms. The repo ships benchmark_ru_translated.csv (Roman Urdu); whether the Perso-Arabic Urdu version is in the repo was not checked."

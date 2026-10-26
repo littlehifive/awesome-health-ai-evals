@@ -1,0 +1,34 @@
+id: sdak
+name: Self-diagnostic Atomic Knowledge (SDAK)
+kind: benchmark
+year: 2023
+summary: 14,048 pairs of factual and counterfactual Chinese medical claims across 17 knowledge types drawn from self-diagnosis search queries, for testing what Chinese medical LLMs have memorized.
+readme_section: multilingual_regional
+links:
+  paper: http://arxiv.org/abs/2310.11722
+  arxiv: "2310.11722"
+  doi: 10.48550/arxiv.2310.11722
+license: null
+open_data: unknown
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: Atomic knowledge types come from KUAKE-QIC search-engine queries; claims were built from Chinese medical websites (xiaohe.cn, 120ask.com).
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature, web_forum]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 14,048 atomic knowledge items (factual and counterfactual claim pairs)
+provenance:
+  records: [r_60e33578b7]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "No download link, repository or license found in the paper text read; open_data unknown. Metrics are instruction following rate and factual accuracy (automatic) plus an optional manual accuracy-reliability check. Claims were built by heuristic rules from public medical sites; a doctor verified 170 factual claims and 87% were supported. Venue not confirmed (arXiv only seen). item_provenance web_forum is the nearest label for search queries and health websites."

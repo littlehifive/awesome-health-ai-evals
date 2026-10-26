@@ -1,0 +1,46 @@
+id: tobacco-rag-evaluation-framework
+name: Tobacco research RAG evaluation framework
+kind: eval_framework
+year: 2025
+summary: A Goal-Question-Metric framework for judging LLM-based RAG answers on tobacco-industry documents, with 20 expert-validated gold question-answer pairs and nine GPT-4o-scored metrics calibrated against expert review.
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.1038/s41598-025-05726-2
+  doi: 10.1038/s41598-025-05726-2
+  pmcid: PMC12219056
+license: null
+open_data: unknown
+geography:
+  item_languages:
+  - English
+  item_origin_countries:
+  - GLOBAL
+  item_origin_note: Questions derived from the Philip Morris International Integrated Report 2023.
+  localization: native
+  lead_institution_countries:
+  - GBR
+origin:
+  builder_types:
+  - academic
+  item_provenance:
+  - clinician_written
+  - literature
+  venue: peer_reviewed
+facets:
+  health_areas:
+  - public_health
+  intended_users:
+  - unspecified
+  eval_methods:
+  - rubric_llm_judge
+  - expert_human_rating
+  modality:
+  - text
+  size: 20 gold query-response pairs; 9 metrics
+provenance:
+  records:
+  - r_47677a9ae7
+  extracted: '2026-10-26'
+  read_full_text: true
+  confidence: medium
+  notes: 'University of Bath Tobacco Control Research Group. Scope is borderline: it evaluates RAG over a corporate report for tobacco-control researchers rather than a health chatbot for patients or clinicians. Gold pairs were written by tobacco specialists; no data-availability statement found in the parts read. Only two models (Mixtral 8x7B, Llama 3.1 70B) were compared.'

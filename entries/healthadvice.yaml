@@ -1,0 +1,35 @@
+id: healthadvice
+name: HealthAdvice
+kind: benchmark
+year: 2025
+summary: 222 patient-posed advice-seeking primary-care questions (internal medicine, pediatrics, women's health), with a physician-rating framework that labels chatbot responses acceptable or problematic and tags the issues found.
+readme_section: safety
+links:
+  paper: https://arxiv.org/abs/2507.18905
+  arxiv: "2507.18905"
+  doi: 10.1038/s41746-026-02428-5
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: 91 questions were selected from Google's HealthSearchQA (search-engine suggested queries) and 131 were written by the authors with the same search-engine method; the paper does not state the search market or country.
+  rater_countries: [USA]
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [primary_care, maternal_newborn, child_health]
+  intended_users: [patient_public]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: 222 questions; 888 chatbot responses rated by 16 physicians
+provenance:
+  records: [r_38bfd0abc4]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "The data-availability statement says the dataset, chatbot responses, and physician ratings will be posted on GitHub upon publication; no link was found in the paper text read, so open_data is unknown. Rater countries are taken from the physicians' listed affiliations (all US). The paper is a red-teaming study of four chatbots (Claude 3.5 Sonnet, Gemini 1.5 Flash, GPT-4o, Llama 3) that also defines a reusable dataset and rating scheme; kept as a benchmark because the paper names HealthAdvice as a dataset."

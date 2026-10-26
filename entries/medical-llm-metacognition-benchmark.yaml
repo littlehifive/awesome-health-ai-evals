@@ -1,0 +1,32 @@
+id: medical-llm-metacognition-benchmark
+name: Medical LLM Metacognition Benchmark
+kind: benchmark
+year: 2026
+summary: 45 synthetic clinical vignettes (135 trials per model across 3 prompt variants) contrasting Alzheimer-type neurocognitive disorder with depression-related cognitive impairment, scoring whether a model's stated confidence tracks evidence strength, conflict, and missing information.
+readme_section: knowledge_exam
+links:
+  code: https://github.com/anazz-dev/medical-llm-metacognition-benchmark
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Synthetic vignettes built from a feature bank; no country origin stated.
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [unknown]
+  venue: preprint
+facets:
+  health_areas: [mental_health, other_specialty]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match, automatic_metric]
+  modality: [text]
+  size: 45 vignettes, 135 trials per model
+provenance:
+  records: [r_85c469825f]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "Read the repo README, benchmark protocol, and file tree; the manuscript PDF was not read and no preprint URL is given in the README. Models return JSON with a forced-choice diagnosis, 0-100 confidence, and a more-information flag; metrics are accuracy, Brier score, expected calibration error, AUROC2, and information-sufficiency accuracy. Vignette authorship, authors, and countries not stated; no license file seen. Placed under knowledge_exam because scoring is forced-choice accuracy plus calibration metrics."

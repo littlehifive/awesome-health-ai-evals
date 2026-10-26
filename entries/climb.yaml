@@ -1,0 +1,33 @@
+id: climb
+name: CLIMB
+kind: benchmark
+year: 2024
+summary: "A clinical bias benchmark that measures intrinsic bias (name-diagnosis association disparities across sex and ethnicity groups over ICD-10-CM diagnoses) and extrinsic bias (change in diagnosis recall when demographics in 199 CliBench MIMIC-IV admission notes are swapped)."
+readme_section: safety
+links:
+  paper: https://arxiv.org/abs/2407.05250
+  arxiv: "2407.05250"
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Extrinsic part reuses CliBench cases from MIMIC-IV (Boston); intrinsic part uses ICD-10-CM diagnoses and popular baby names from New York City.
+  localization: adapted
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, literature]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: "94,739 ICD-10-CM diagnoses at the finest level; 199 base admission cases for counterfactual swaps"
+provenance:
+  records: [r_3e17a07582]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "The paper says code and data are at github.com/usc-nlp-lime/climb, but that URL returned 404 when checked, so release status is unknown and no license was seen. Metrics: AssocMAD (association disparity), correctness of sex preference, and recall difference under counterfactual demographics. Evaluated on Mistral and LLaMA families. Extrinsic part depends on MIMIC-IV (credentialed access)."

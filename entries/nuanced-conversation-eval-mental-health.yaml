@@ -1,0 +1,33 @@
+id: nuanced-conversation-eval-mental-health
+name: Nuanced Conversation Evaluation Framework (mental health)
+kind: eval_framework
+year: 2024
+summary: A framework of quantitative conversation metrics drawn from psychotherapy conversation analysis (emotion consistency, sentiment change, active listening, readability) comparing LLM answers with verified therapist answers on mental health questions.
+readme_section: frameworks
+links:
+  paper: https://arxiv.org/abs/2403.09705
+  arxiv: "2403.09705"
+  doi: 10.48550/arXiv.2403.09705
+open_data: described_only
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: The framework is demonstrated on the Counsel Chat dataset (questions answered by verified counsellors on an online platform); the paper does not state the platform's country.
+  lead_institution_countries: [AUS]
+  localization: native
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: Framework with pseudocode for each metric; demonstrated on the Counsel Chat Q&A dataset (31 topics)
+provenance:
+  records: [r_90d3c95808]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "No code or data release found in the paper text. The framework reuses an existing public dataset rather than releasing its own items."

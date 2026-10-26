@@ -1,0 +1,35 @@
+id: veileval
+name: VeilEval
+kind: benchmark
+year: 2026
+summary: A privacy-preserving benchmark for multi-turn psychological support dialogues, with synthetic user profiles built from validated clinical inventories (such as PHQ-9 and GAD-7) in English and Chinese versions, scored on LLM-judged quality and informativeness metrics.
+readme_section: mental_health
+links:
+  paper: https://doi.org/10.18653/v1/2026.findings-acl.416
+  doi: 10.18653/v1/2026.findings-acl.416
+license: null
+open_data: unknown
+geography:
+  item_languages: [English, Mandarin Chinese]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Profiles are synthetic (GPT-4o) from clinical questionnaire variables, so there is no real-world origin country.
+  localization: mixed
+  lead_institution_countries: [CHN]
+  subsets:
+    - {name: VeilEvalEN, languages: [English], countries: [UNKNOWN], localization: unknown}
+    - {name: VeilEvalCH, languages: [Mandarin Chinese], countries: [UNKNOWN], localization: unknown}
+origin:
+  builder_types: [academic, industry_lab]
+  item_provenance: [llm_generated]
+  venue: peer_reviewed
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge, simulated_multi_turn, expert_human_rating]
+  modality: [text]
+provenance:
+  records: [r_7f835c924e]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "From the ACL Findings 2026 paper EmoRes, which also proposes the EmoRes multi-agent method; VeilEval is the benchmark half. The paper gives no dataset size, release link, or license, so open_data is unknown. Metrics (empathy, relevance, repetition, helpfulness, breadth, depth) are scored by LLM judges, with a human preference study for EmoRes only. Authors are at Xi'an Jiaotong University and Xi'an Jiyun Technology."

@@ -1,0 +1,34 @@
+id: pocket-professional-medscape
+name: Medscape Challenge second-opinion cases (The Pocket Professional)
+kind: benchmark
+year: 2024
+summary: 183 hard clinical cases (361 usable multiple-choice questions) from Medscape's Case Challenge forum, Jan 2023 to Oct 2024, scored by agreement with the crowd-sourced physician vote; 23 LLMs tested.
+readme_section: knowledge_exam
+links:
+  paper: https://arxiv.org/abs/2410.20636
+  arxiv: "2410.20636"
+  doi: 10.48550/arxiv.2410.20636
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Cases come from Medscape's professional forum; the paper does not state a country.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [industry_lab]
+  item_provenance: [web_forum]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 183 cases; 361 viable questions
+provenance:
+  records: [r_da58dfb58f]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: low
+  notes: The abstract says the work "aggregated a novel benchmark for others", but the text has no data or code link and no license; the cases are Medscape content, so redistribution rights are unclear. Could be reclassified as study_no_release if no release exists. The paper also adds 21 Supreme Court cases as a legal comparison. Author is at PeopleTec (a US company); builder type is a guess.

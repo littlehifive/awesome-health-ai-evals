@@ -1,0 +1,33 @@
+id: medqa-ptbr
+name: MedQA-ptBR
+kind: benchmark
+year: 2025
+adapted_from: [medqa]
+summary: Brazilian Portuguese machine translation (gpt-4.1-mini) of the English MedQA USMLE multiple-choice questions, with train, validation, and test splits (12,722 rows in total), scored by accuracy.
+readme_section: multilingual_regional
+links:
+  huggingface: [cabralski/MedQA-ptBR]
+license: null
+open_data: open
+geography:
+  item_languages: [Portuguese]
+  item_origin_countries: [USA]
+  item_origin_note: Translated from the English MedQA (USMLE), so the questions come from US licensing exams, not Brazilian ones.
+  localization: translated
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [unknown]
+  item_provenance: [adapted_dataset]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician, medical_student]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 12,722 questions (10,177 train, plus validation and test splits)
+provenance:
+  records: [r_a86ee78f4c]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: medium
+  notes: "Dataset card only, no paper. The card says license: unknown, so license is null. The card header gives size category 1K<n<10K but the dataset server reports 12,722 rows. Uploader and institution are not stated. The card warns that LLM translation may contain inaccuracies and does not describe quality checks. Download is open (parquet files on the Hub, no gate seen)."

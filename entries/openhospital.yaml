@@ -1,0 +1,34 @@
+id: openhospital
+name: OpenHospital
+kind: benchmark
+year: 2026
+summary: An interactive arena where LLM physician agents diagnose and treat synthetic patient agents (583 diseases, 467 comorbidities, 19 departments, diverse personas), measured by examination precision, diagnostic accuracy and treatment plan alignment, for benchmarking multi-agent collective intelligence.
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2603.14771
+  arxiv: "2603.14771"
+  code: https://github.com/ZJU-LLMs/Agent-Kernel
+license: null
+open_data: unknown
+geography:
+  item_languages: [UNKNOWN]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Patient records are synthesized with DeepSeek-v3.1 from a curated disease knowledge base; the language of the records is not stated.
+  localization: unknown
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [simulated_multi_turn, automatic_metric]
+  modality: [text]
+  size: 583 diseases, 467 comorbidities, 19 departments; number of cases not stated
+provenance:
+  records: [r_ab4f1c75c6]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "The code link on the paper is the Agent-Kernel framework repo, which the paper uses for its baseline; I did not confirm the OpenHospital arena or data are released there. Focus is evolving agent collective intelligence as well as benchmarking, so it is borderline for a health eval catalog. Language and case count not found."

@@ -30,7 +30,7 @@ METHOD = {"mcq_exact_match": "MCQ", "automatic_metric": "metric", "rubric_llm_ju
           "real_user_data": "real users"}
 BUILDER = {"academic": "academic", "industry_lab": "industry", "implementer_ngo": "implementer",
            "government": "government", "multilateral": "multilateral", "unknown": "?"}
-OPEN = {"open": "open", "gated": "gated", "closed": "closed", "described_only": "described"}
+OPEN = {"open": "open", "gated": "gated", "closed": "closed", "described_only": "described", "unknown": "?"}
 INCOME = {"low": "low", "lower-middle": "lower-mid", "upper-middle": "upper-mid", "high": "high"}
 HEADER = ("| Name | Year | Languages | Item origin | Income group | Method | Open data | Builder |\n"
           "|---|---|---|---|---|---|---|---|")

@@ -1,0 +1,35 @@
+id: care-bench-counseling
+name: CARE-Bench (psychological counseling)
+kind: benchmark
+year: 2025
+summary: 500 simulated client profiles built from real Chinese counseling cases and played by an LLM under psychologist-written principles, used to test counselor LLMs over multi-turn dialogue scored by three psychological scales (WAI, BLRI, CCS-R).
+readme_section: mental_health
+links:
+  paper: https://doi.org/10.1609/aaai.v40i46.41287
+  arxiv: "2511.09407"
+  doi: 10.1609/aaai.v40i46.41287
+license: null
+open_data: unknown
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Profiles come from publicly available real-world counseling cases in Chinese sources; the paper calls it a Chinese benchmark but does not name a country.
+  rater_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, llm_generated]
+  venue: peer_reviewed
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [simulated_multi_turn, rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 500 client profiles with about 5 expert principles each
+provenance:
+  records: [r_332fd9f645]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: No dataset or code link appears in the paper text. Ten psychologists wrote the simulation principles; GPT-4o scores dialogues (agreement with two psychologists 0.72 on 100 dialogues). Profiles were extracted by GPT-4o from 1,500 client descriptions. Same-name benchmarks in this batch are separate entries or excluded (see care-bench-triage; CAREBench child safety r_bc29748ad2 excluded).

@@ -1,0 +1,34 @@
+id: causal-sensitivity-score
+name: Causal Sensitivity Score (CSS)
+kind: eval_framework
+year: 2026
+summary: A pre-registered counterfactual metric that mutates oncology tumor-board cases along five clinical dimensions (12 interventions) and scores 0, 0.5, or 1 on whether a model's treatment recommendations update in the correct direction, tested on 224 cases.
+readme_section: frameworks
+links:
+  paper: https://arxiv.org/abs/2605.30590
+  arxiv: "2605.30590"
+  doi: 10.48550/arxiv.2605.30590
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: The 224 tumor-board cases come from a published oncologist-consensus set used for the Consensus Match Score; the paper does not say which country or institution the cases came from.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [industry_lab]
+  item_provenance: [clinician_written]
+  venue: preprint
+facets:
+  health_areas: [oncology]
+  intended_users: [clinician]
+  eval_methods: [rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 12 interventions in 5 families; 224 oncology cases (about 790 case-intervention tuples)
+provenance:
+  records: [r_f0a20948b0]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Author is at Protege Data Lab (New York); treated as an industry lab. No code, dataset, or license statement found in the text, so open_data is unknown. The ground truth is a two-round expert-oncologist consensus protocol (rater countries not stated). A three-rater medical-professional check on a 100-tuple subset validates the LLM judge. Item provenance is a best fit: cases carry expert consensus labels, but their authorship is not described."

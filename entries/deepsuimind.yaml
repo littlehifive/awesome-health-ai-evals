@@ -1,0 +1,34 @@
+id: deepsuimind
+name: DeepSuiMind
+kind: benchmark
+year: 2025
+summary: 1,200 LLM-generated dialogue test cases simulating implicit suicidal ideation, with a psychology-guided framework that scores whether an LLM identifies the ideation and responds supportively.
+readme_section: mental_health
+links:
+  paper: https://doi.org/10.18653/v1/2025.findings-emnlp.998
+  arxiv: "2502.17899"
+  doi: 10.18653/v1/2025.findings-emnlp.998
+license: null
+open_data: closed
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Cases are synthetic, built from D/S-IAT patterns, cognitive distortions, and stressor scenarios; no country origin.
+  localization: native
+  lead_institution_countries: [SAU]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated]
+  venue: peer_reviewed
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: 1,200 test cases
+provenance:
+  records: [r_0efd1bc109]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: No dataset, Hugging Face, or GitHub link found in the paper, so open_data is set to closed; a human should check for a release. Scoring uses LLM replies with human-annotated scoring evidence; the exact judge setup was not read closely. First author is at KAUST (Saudi Arabia) and also a US institution; only SAU recorded.

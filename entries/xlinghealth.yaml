@@ -1,0 +1,36 @@
+id: xlinghealth
+name: XLingHealth / XLingEval
+kind: benchmark
+year: 2023
+summary: Cross-lingual health Q&A benchmark built by translating three English expert-curated datasets (HealthQA, LiveQA, MedicationQA; 2,070 questions) into Spanish, Chinese, and Hindi, with the XLingEval framework scoring correctness, consistency, and verifiability.
+readme_section: multilingual_regional
+links:
+  paper: https://doi.org/10.1145/3589334.3645643
+  arxiv: "2310.13132"
+  doi: 10.1145/3589334.3645643
+  huggingface: [claws-lab/XLingHealth]
+  code: https://github.com/claws-lab/XLingEval
+license: Apache-2.0
+open_data: gated
+geography:
+  item_languages: [English, Spanish, Mandarin Chinese, Hindi]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Source sets are HealthQA (articles on the Patient health website), LiveQA (FAQs from NIH-associated platforms), and MedicationQA; the paper excerpt read does not give countries for all three.
+  localization: translated
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine, pharmacy_medication]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge, automatic_metric, expert_human_rating]
+  modality: [text]
+  size: "2,070 English questions (1,134 HealthQA dev, 246 LiveQA, 690 MedicationQA) in four languages"
+provenance:
+  records: [r_b3015780f8]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Hugging Face dataset is auto-gated; Apache-2.0 appears in the card tags and on the GitHub repo. Correctness labels came from GPT-3.5 comparison with expert answers, validated by IRB-approved human annotation (103 instances per language; fewer than three annotators for Chinese and Hindi). Annotator countries not stated. Lead authors at Georgia Institute of Technology."

@@ -1,0 +1,34 @@
+id: medfact-llm-claims-zh
+name: MedFact (Chinese LLM-response fact-checking)
+kind: benchmark
+year: 2025
+summary: 1,321 Chinese medical questions from webMedQA with 7,409 atomic claims extracted from LLM answers, each labeled for evidence support (supported, partially supported, refuted, uncertain, not applicable), scored by macro-F1.
+readme_section: safety
+links:
+  paper: http://arxiv.org/abs/2509.17436
+  arxiv: "2509.17436"
+  code: https://github.com/AshleyChenNLP/MedFact
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: Questions come from webMedQA, a Chinese online health Q&A set; the paper does not state the forum's country, so CHN is inferred from the language and data source.
+  localization: native
+  lead_institution_countries: [CHN, GBR]
+origin:
+  builder_types: [academic]
+  item_provenance: [web_forum, llm_generated]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 1,321 questions, 7,409 claims
+provenance:
+  records: [r_6c68162fc1]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Different benchmark from the 2026 GEM paper of the same name (see medfact-zh-expert). Claims are checked against retrieved evidence by an LLM-then-human process with student annotators. License Apache-2.0 is stated in the paper's ethics section and mirrors webMedQA; the GitHub README presents it as a competition task with a 70/15/15 split. Lead countries are from the affiliation lines (Xi'an Jiaotong-Liverpool University, University of Liverpool)."

@@ -1,0 +1,33 @@
+id: multi-domain-medical-red-teaming
+name: Multi-Domain Medical Red Teaming Framework
+kind: benchmark
+year: 2026
+summary: 690 clinician-written, adversarially mutated clinical scenarios (selected from 1,500 prepared) across nine safety domains and over 150 subcategories, scored on a seven-dimension binary rubric by an LLM judge with human review.
+readme_section: safety
+links:
+  paper: https://arxiv.org/abs/2606.00027
+  arxiv: "2606.00027"
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Scenarios were written by three clinicians with AI-safety experience; the country is not stated.
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [industry_lab]
+  item_provenance: [clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician, patient_public]
+  eval_methods: [rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 690 scenarios evaluated (1,500 prepared); 9 domains; 150+ subcategories
+provenance:
+  records: [r_d4c626711f]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Text2Story'26 workshop paper by authors with John Snow Labs emails. The paper describes a framework and dataset but gives no download link or license for the scenarios, so open_data is unknown. Rubric dimensions: safety, medical accuracy, robustness to mutations, bias and equity, ethical compliance, privacy, toxicity. Seven mutation types (negation, contradiction, impossibility, missing context, distraction, bias counterfactual, privacy trigger). GPT-5 judge, with humans auditing about 10 percent of outputs."

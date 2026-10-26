@@ -1,0 +1,35 @@
+id: openmtb-audit
+name: OpenMTB-Audit
+kind: benchmark
+year: 2026
+summary: "500 synthetic non-small cell lung cancer molecular tumor board cases (200 clean, 300 adversarial) labeled Supported, Partially Supported, Unsupported, or Insufficient Information, testing whether LLMs detect unsafe recommendations without over-refusing."
+readme_section: safety
+links:
+  paper: https://arxiv.org/abs/2610.01497
+  arxiv: "2610.01497"
+  code: https://github.com/Negiiinx/OpenMTB-Audit
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Fully synthetic cases built from vocabulary and distributions of public NSCLC cohorts in cBioPortal (including TCGA); no real patient records.
+  rater_countries: [USA]
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated]
+  venue: preprint
+facets:
+  health_areas: [oncology]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric, expert_human_rating]
+  modality: [text]
+  size: "500 synthetic cases"
+provenance:
+  records: [r_cb68043e5f]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Paper states prompts, evaluation code, and benchmark data are at the GitHub repo (the repo holds benchmark/benchmark_cases.json and reference labels). The repo has no recognized license, so license is null. Scored with accuracy, macro F1, and a Safety Score; a 50-case two-oncologist study found moderate agreement for one oncologist (kappa 0.553). Also proposes MTB-AuditAgent, a method, which is not part of this entry. Rater country inferred from the Stanford and Dana-Farber affiliations."

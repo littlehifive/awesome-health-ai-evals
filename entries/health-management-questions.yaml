@@ -1,0 +1,32 @@
+id: health-management-questions
+name: Health Management Questions
+kind: benchmark
+year: 2026
+summary: 615 Chinese-language questions from past national qualification examinations for health managers, mostly multiple-answer, with answers and explanations.
+readme_section: multilingual_regional
+links:
+  huggingface: [YDXX/Health-management-questions]
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: Questions are from national qualification exams for health managers; the card does not name the country, and China is inferred from the Chinese-language exams and the cited paper.
+  localization: native
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions]
+  venue: grey_literature
+facets:
+  health_areas: [public_health]
+  intended_users: [unspecified]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 615 questions
+provenance:
+  records: [r_b61fb52736]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "Dataset card only. The card cites Lin et al. 2026, 'Clinically grounded multi-agent artificial intelligence for preventive health management', as the source; no paper describing the benchmark was read. Fields per item: id, type (single/multiple), content, options, answer, explanation, source. Builder type is a guess (academic); the card names no institution."

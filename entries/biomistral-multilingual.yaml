@@ -1,0 +1,36 @@
+id: biomistral-multilingual
+name: BioMistral multilingual medical QA benchmark (BioInstructQA)
+kind: benchmark
+year: 2024
+summary: Ten English medical multiple-choice QA tasks (MMLU medical subjects, MedQA, MedMCQA, PubMedQA) machine-translated into seven other languages (Arabic, Chinese, French, German, Portuguese, Russian, Spanish) with GPT-3.5 Turbo, scored by accuracy.
+readme_section: multilingual_regional
+adapted_from: [medqa, medmcqa, pubmedqa]
+links:
+  paper: https://doi.org/10.18653/v1/2024.findings-acl.348
+  arxiv: "2402.10373"
+  doi: 10.18653/v1/2024.findings-acl.348
+  huggingface: [BioMistral/BioInstructQA]
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [English, Arabic, Mandarin Chinese, French, German, Portuguese, Russian, Spanish]
+  item_origin_countries: [USA, IND, GLOBAL]
+  item_origin_note: Source sets are MedQA (USMLE, USA), MedMCQA (Indian medical entrance exams), PubMedQA and MMLU medical subjects; the translations are automatic, with no human check described.
+  localization: translated
+  lead_institution_countries: [FRA]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, exam_questions]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician, medical_student]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 10 tasks in 8 languages (for example MedQA test 1,273 questions); the dataset also holds train splits
+provenance:
+  records: [r_49cb19a9f1]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: The benchmark is one contribution of a model paper (BioMistral 7B); the model and its pretraining data are not part of this entry. The Hugging Face card (BioInstructQA, Apache-2.0) mixes train and test splits and lists seven languages including English, while the paper names seven other languages; the language list here follows the paper's results tables. The lead country France is inferred from the paper's affiliations and was not checked in the text read.

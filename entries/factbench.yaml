@@ -1,0 +1,35 @@
+id: factbench
+name: FActBench
+kind: eval_framework
+year: 2025
+summary: A fact-checking evaluation suite for LLM-generated medical text that breaks outputs into atomic facts and checks them with NLI and chain-of-thought methods on four tasks (summarization, lay summarization, RAG, open-ended answers), validated against medical annotators.
+readme_section: frameworks
+links:
+  paper: https://aclanthology.org/2025.icnlsp-1.11/
+  arxiv: "2509.02198"
+  doi: 10.48550/arxiv.2509.02198
+  code: https://github.com/jvladika/FactSumm
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Reuses existing English biomedical sets (1,000 PubMed summarization articles, 1,000 PLOS articles, 1,130 BioASQ-QA questions); no country origin.
+  localization: adapted
+  lead_institution_countries: [DEU]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [unspecified]
+  eval_methods: [automatic_metric, rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 4 tasks, 6 LLMs; 80 generations annotated by 8 annotators with a medical background
+provenance:
+  records: [r_d2c7dfeced]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Biomedical literature tasks rather than patient-facing health questions, so scope is borderline. The repository holds code (an adapted FActScore) and no license file was seen; no released item set of its own. Lead country is Germany (Technical University of Munich) from the author affiliations. Scores are atomic-fact support rates from NLI (DeBERTa), CoT (FActScore+ with GPT-4o mini) and unanimous voting of both."

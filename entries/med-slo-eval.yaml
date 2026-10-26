@@ -1,0 +1,31 @@
+id: med-slo-eval
+name: Slovenian Medical Eval (med-slo-eval)
+kind: benchmark
+year: 2026
+summary: Hand-curated open-ended Slovenian clinical questions (13 domains of 10 questions plus a hard set) with no reference answers, scored 1 to 5 for correctness and completeness by an LLM judge, plus a held-out test split of a Slovenian medical fine-tuning corpus.
+readme_section: multilingual_regional
+links:
+  huggingface: [texdata/med-slo-eval]
+license: custom
+open_data: gated
+geography:
+  item_languages: [Slovenian]
+  item_origin_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [industry_lab]
+  item_provenance: [clinician_written]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine]
+  intended_users: [unspecified]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: "130+ open-ended questions (13 domains x 10) plus a hard-question file; a held-out test split (size not seen)"
+provenance:
+  records: [r_ab8a7f009b]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: low
+  notes: "Read from the public dataset page and API metadata; the files are gated (manual approval), so item counts beyond '13 domains x 10' and the size of the hard set were not seen. License is 'research-noncommercial' (custom). Built by MediaAtlas, a small dataset-engineering company, to score its own Slovenian model (Vran), so builder type industry_lab is approximate. The card says the benchmark is 'authored' and 'hand-curated' but not by whom; item_provenance clinician_written is an assumption to check. The second part is a test split of the med-slo-sft corpus with references. Country of origin not stated; Slovenian is the language only."

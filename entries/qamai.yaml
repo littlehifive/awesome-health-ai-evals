@@ -1,0 +1,34 @@
+id: qamai
+name: QAMAI
+kind: eval_framework
+year: 2024
+summary: A six-item, 5-point rating tool (accuracy, clarity, relevance, completeness, sources, usefulness; total 6 to 30 with five quality grades) for clinicians to judge the quality of health information from AI chatbots, validated on 30 ChatGPT-4 head and neck surgery answers rated by 27 surgeons.
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.1007/s00405-024-08710-0
+  doi: 10.1007/s00405-024-08710-0
+  pmcid: PMC11512889
+license: null
+open_data: described_only
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: The rubric has no items of its own; the 30 validation questions were written by the study team for head and neck surgery, with no country of origin stated.
+  localization: unknown
+  lead_institution_countries: [ITA]
+origin:
+  builder_types: [academic]
+  item_provenance: [not_applicable]
+  venue: peer_reviewed
+facets:
+  health_areas: [other_specialty]
+  intended_users: [clinician, patient_public]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: 6 items scored 1 to 5; validated on 30 questions and 792 ratings from 27 reviewers at 25 centers
+provenance:
+  records: [r_0b3639db89, r_faedbbb385]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Read the PMC full text (methods, tool items, validation design). r_faedbbb385 is the medRxiv preprint of the same validation study. The paper mentions supplementary material (including per-question scores) in the journal, but no separate release of the 30 questions was checked. Authors are mostly Italian (University of Sassari) with reviewers from several European countries and the USA."

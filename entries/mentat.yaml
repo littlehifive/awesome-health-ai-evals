@@ -1,0 +1,35 @@
+id: mentat
+name: MENTAT
+kind: benchmark
+year: 2025
+summary: 203 base mental healthcare decision-making questions (diagnosis, treatment, monitoring, triage, documentation) written by US psychiatrists, with expert preference ratings that capture ambiguity and patient-demographic variants for testing fairness, scored on multiple-choice and free-form consistency.
+readme_section: mental_health
+links:
+  paper: https://arxiv.org/abs/2502.16051
+  arxiv: "2502.16051"
+  code: https://github.com/maxlampe/mentat
+license: MIT
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: All nine question designers and annotators are practising psychiatrists in the US system; the paper calls the dataset US-centric.
+  rater_countries: [USA]
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written]
+  venue: preprint
+facets:
+  health_areas: [mental_health]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match, expert_human_rating]
+  modality: [text]
+  size: 203 base questions with gender, nationality, and age variants
+provenance:
+  records: [r_f330a063c1]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "The record title is 'Moving Beyond Medical Exams: A Clinician-Annotated Fairness Dataset of Real-World Tasks and Ambiguity in Mental Healthcare'; the dataset is named MENTAT. Triage and documentation questions have expert ratings (657 annotations from eight annotators on 57 questions) used to build preference scores; other questions use the question designer's intended answer. Free-form evaluation reuses earlier consistency code. License MIT is from the GitHub repository and the paper's availability statement. The record's year of 2026 is the venue year; first preprint was February 2025. Lead institution country is inferred from the clinicians' US practice, not from a stated affiliation list."

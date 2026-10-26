@@ -1,0 +1,34 @@
+id: systemone-medbench
+name: SystemOne-MedBench
+kind: benchmark
+year: 2026
+summary: Public subset of a medical decision-reliability benchmark, with 10 datasets (4,408 parent entries, 29,582 requests) of triage, clinical judgment and safety-review decisions from existing sources, evaluated for accuracy, format robustness, abstention and probability-based selection.
+readme_section: knowledge_exam
+links:
+  paper: https://arxiv.org/abs/2610.18529
+  arxiv: "2610.18529"
+  huggingface: [yrdu/systemone-medbench]
+license: custom
+open_data: open
+geography:
+  item_languages: [English, Chinese]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Items are repackaged from existing public datasets (CARE-Bench, MedQA, MedXpertQA, MEDEC, RxSafe and others) with different origins; no single country is stated.
+  localization: adapted
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [unknown]
+  item_provenance: [adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [general_medicine, emergency_triage, pharmacy_medication]
+  intended_users: [unspecified]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: "10 public datasets, 4,408 parent entries, 29,582 evaluation requests (full paper benchmark: 15 datasets, 8,742 instances)"
+provenance:
+  records: [r_9c03f672af]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: medium
+  notes: "Read the Hugging Face dataset card and the arXiv abstract page; the paper body was not read. The card says license 'other' with source-specific licenses (not blanket MIT or CC0; some sources are noncommercial) and links to a LICENSES/README. The dataset repackages existing benchmarks in a 'Jev' decision-model request format, so it sits near a mirror/compilation; it is kept because it adds its own robustness, abstention and probability-selection protocols. Five source-restricted subsets (MIMIC-derived and VitalDB) are withheld. It also includes numeric tasks (CTG fetal-state classification from 21 predictors). The card does not name the authors' institutions; the arXiv authors were not checked for affiliation. Task types are mainly choice or binary decisions with detached gold labels."

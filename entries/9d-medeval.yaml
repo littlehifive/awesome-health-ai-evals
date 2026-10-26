@@ -1,0 +1,32 @@
+id: 9d-medeval
+name: 9D-MedEval
+kind: eval_framework
+year: 2026
+summary: "A Chinese-language nine-dimension framework for evaluating medical LLMs (knowledge and guidelines, clinical reasoning, prescription review, communication and empathy, EHR structuring, ethics and boundaries, lab report interpretation, and others), with one test prompt and a 1-5 rubric per dimension, applied to a vendor medical model."
+readme_section: frameworks
+links:
+  code: https://github.com/Wuzh-bit/medical-llm-evaluation
+license: MIT
+open_data: open
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Prompts are Chinese-language clinical scenarios; the source does not state a country.
+  localization: native
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [unknown]
+  item_provenance: [unknown]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician, patient_public]
+  eval_methods: [rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 9 dimensions, each with a test prompt and rubric; proposes a 500-1000 question set not released
+provenance:
+  records: [r_1fca133f11]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Personal GitHub repository (repo name medical-llm-evaluation) holding an evaluation report of Ant AntAngelMed plus docs/eval-framework.md. Red-line rule: fatal drug or safety errors score 0. Proposes three-tier evaluation (automatic, LLM judge, blind expert review) and multi-turn degradation tests. Only the nine example prompts are released, not a full item set. Read docs/eval-framework.md (in Chinese); did not read the main report."

@@ -1,0 +1,35 @@
+id: triagebench-consistency
+name: TriageBench
+kind: benchmark
+year: 2026
+summary: A counterfactual-consistency test for clinical LLM triage, which holds a symptom vignette fixed, swaps one irrelevant detail (gender, language, ZIP code), and measures how far the ER-referral decision moves (TriageGap).
+readme_section: safety
+links:
+  paper: https://arxiv.org/abs/2606.03641
+  arxiv: "2606.03641"
+  huggingface: [wongqihan/triagebench]
+  code: https://github.com/wongqihan/triagebench
+license: MIT
+open_data: open
+geography:
+  item_languages: [English, Spanish, Mandarin Chinese, Hindi, Japanese, Arabic]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Vignettes are simulated; US ZIP codes are used for the socioeconomic probe. The vignette's country is not stated.
+  localization: native
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [unknown]
+  venue: preprint
+facets:
+  health_areas: [emergency_triage]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: One core neurological red-flag vignette with swapped attributes (gender, 6 to 8 languages, ZIP or socioeconomic status); abdominal and chest-pain scenarios in the repo
+provenance:
+  records: [r_cb611def2e]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Read the GitHub README and Hugging Face card (MIT on both). The README says eight languages in one place and the card lists six; six are recorded. Authorship and affiliation are not given in the sources I read (single author named Wong Qi Han in the citation), so lead country is UNKNOWN. Companion papers are arXiv 2606.03641 (gender) and 2606.01204 (language). It scores consistency only, not clinical correctness. Very small item set."

@@ -1,0 +1,35 @@
+id: rarearena
+name: RareArena
+kind: benchmark
+year: 2025
+summary: "Nearly 50,000 rare-disease patient cases from PMC case reports covering over 4,000 diseases, in two tasks (screening before diagnostic tests, and confirmation at final diagnosis), scored by top-1 and top-5 recall judged by GPT-4o."
+readme_section: open_ended
+links:
+  paper: https://doi.org/10.1016/j.landig.2025.100953
+  doi: 10.1016/j.landig.2025.100953
+  huggingface: [THUMedInfo/RareArena]
+  code: https://github.com/zhao-zy15/RareArena
+license: CC-BY-NC-SA-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: "Cases come from PubMed Central case reports (via PMC-Patients); no country of origin is recorded."
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature, llm_generated]
+  venue: peer_reviewed
+facets:
+  health_areas: [other_specialty]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric, rubric_llm_judge]
+  modality: [text]
+  size: "nearly 50,000 cases, more than 4,000 diseases; a smaller representative subset was added in 2026"
+provenance:
+  records: [r_62551f5acf]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: medium
+  notes: "Read the Hugging Face card, GitHub README and Lancet Digital Health abstract; the full text was behind a paywall (the Crossref record lists CC BY-NC 4.0 for the article). GPT-4o rewrites cases to avoid diagnosis leakage and judges whether the true diagnosis appears in the model's top-5 list (synonym and hypernym scoring). Lead institution inferred from the THUMedInfo Hugging Face organization (Tsinghua); author affiliations were not confirmed."

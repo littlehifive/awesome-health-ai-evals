@@ -1,0 +1,35 @@
+id: medexqa
+name: MedExQA
+kind: benchmark
+year: 2024
+summary: Multiple-choice questions in five underrepresented health professions (biomedical engineering, clinical laboratory science, clinical psychology, occupational therapy, speech-language pathology), each with two reference explanations, scored by accuracy and explanation-quality metrics.
+readme_section: knowledge_exam
+links:
+  paper: https://doi.org/10.18653/v1/2024.bionlp-1.14
+  arxiv: "2406.06331"
+  doi: 10.18653/v1/2024.bionlp-1.14
+  huggingface: [bluesky333/MedExQA, rob28/MedExQA]
+license: CC-BY-NC-SA-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Questions were collected from freely accessible online mock tests and exams for each profession; the paper does not name the exams' countries.
+  localization: native
+  lead_institution_countries: [GBR]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions]
+  venue: peer_reviewed
+facets:
+  health_areas: [mental_health, other_specialty]
+  intended_users: [clinician, medical_student]
+  eval_methods: [mcq_exact_match, automatic_metric, expert_human_rating]
+  modality: [text]
+  size: five specialty subsets with dev and test splits (exact counts not recorded)
+provenance:
+  records: [r_528153fc7c]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Explanations are scored with automatic text metrics and by three annotators with MSc degrees in health-related subjects (human evaluation on dev sets). The paper's Table 1 with question counts was not read. rob28/MedExQA is a second Hugging Face copy with the same card and is merged here. Authors are at University College London. The paper also releases a MedPhi-2 model, which is not part of this entry."

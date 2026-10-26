@@ -1,0 +1,33 @@
+id: maqa
+name: MAQA
+kind: benchmark
+year: 2023
+summary: About 434,000 Arabic healthcare questions across 20 medical specializations, scraped from three Arabic medical Q&A websites, used to benchmark LSTM, Bi-LSTM, and Transformer answer generation with cosine similarity and BLEU.
+readme_section: multilingual_regional
+links:
+  paper: https://doi.org/10.1007/s13278-023-01077-w
+  doi: 10.1007/s13278-023-01077-w
+license: null
+open_data: open
+geography:
+  item_languages: [Arabic]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Questions come from altibbi.com (70 percent), tbeeb.net (20 percent), and cura.healthcare (10 percent), in Modern Standard Arabic and Egyptian dialect; the paper does not state the sites' or askers' countries.
+  localization: native
+  lead_institution_countries: [EGY]
+origin:
+  builder_types: [academic]
+  item_provenance: [web_forum]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine, other_specialty]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 434,543 questions in 20 specializations
+provenance:
+  records: [r_bbf46432e6]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Authors are at Cairo University. The paper says the dataset is publicly and freely available as an SQLite database and cites a 2022 data deposit (Abdelhay and Mohammed 2022); the deposit link was not resolved and no license was seen. Primarily a Q&A corpus used to train and test answer-generation models, so benchmark status is borderline (the paper's own framing is a corpus plus model baselines)."

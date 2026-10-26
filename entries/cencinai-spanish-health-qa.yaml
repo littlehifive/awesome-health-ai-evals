@@ -1,0 +1,34 @@
+id: cencinai-spanish-health-qa
+name: CEN-CINAI Spanish Health QA Benchmark
+kind: benchmark
+year: 2026
+summary: 300 Spanish question-answer pairs (100 yes/no, 100 short-answer, 100 open-ended) built from seven Costa Rican CEN-CINAI child-malnutrition and growth-surveillance documents, with expert-validated reference answers.
+readme_section: multilingual_regional
+links:
+  dataset: https://huggingface.co/datasets/whoami0anonymous/cencinai-spanish-health-qa
+  huggingface: [whoami0anonymous/cencinai-spanish-health-qa]
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [Spanish]
+  item_origin_countries: [CRI]
+  item_origin_note: Questions are grounded in official documents of CEN-CINAI, a Costa Rican public health institution.
+  rater_countries: [CRI]
+  localization: native
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [unknown]
+  item_provenance: [literature]
+  venue: grey_literature
+facets:
+  health_areas: [child_health, nutrition, public_health]
+  intended_users: [unspecified]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 300 questions (100 yes/no, 100 short answer, 100 open-ended)
+provenance:
+  records: [r_39c1c25e69]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: medium
+  notes: Based on the dataset card only. The card cites a BIP 2026 conference paper (Quesada Chaves et al.) that was not read. The card gives no scoring method, so eval_methods is a guess. Authors' institutions and builder type are not stated on the card. Reference answers were validated by a domain expert at CEN-CINAI's UIVCD unit. Source documents are not released.

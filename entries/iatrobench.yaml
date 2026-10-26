@@ -1,0 +1,36 @@
+id: iatrobench
+name: IatroBench
+kind: benchmark
+year: 2026
+summary: "60 pre-registered clinical scenarios, each posed as a patient query and a matched doctor consultation, scored for commission and omission harm against physician-authored rubrics."
+readme_section: safety
+links:
+  paper: https://arxiv.org/abs/2604.07709
+  arxiv: "2604.07709"
+  doi: 10.48550/arxiv.2604.07709
+  code: https://github.com/davidgringras/iatrobench
+license: MIT
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: "Scenarios were written by the single author; the paper does not state a country, though it discusses US healthcare access."
+  rater_countries: [UNKNOWN]
+  localization: unknown
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public, clinician]
+  eval_methods: [rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: "60 scenarios (matched patient and doctor framings); 3,600 model responses"
+provenance:
+  records: [r_a498665565]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "License is the MIT tag on the GitHub repository (not stated on the paper). Gold responses were written by one physician with AI assistance and checked by two physicians on 100 responses. Lead institution country inferred from the author's stated Harvard affiliation."

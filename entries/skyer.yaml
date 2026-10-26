@@ -1,0 +1,32 @@
+id: skyer
+name: Skyer
+kind: benchmark
+year: 2026
+summary: 55 realistic pediatric emergency department triage scenarios used to score LLMs on weighted over- and under-triage accuracy and on consistency across three repeated runs.
+readme_section: open_ended
+links:
+  doi: 10.1007/s43678-026-01214-2
+  paper: https://doi.org/10.1007/s43678-026-01214-2
+license: CC-BY-NC-ND-4.0
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [emergency_triage, child_health]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 55 pediatric triage scenarios (550-point weighted scale; three repeats)
+provenance:
+  records: [r_cf809ebb16]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "Springer full text was blocked (bot challenge), so only the abstract (via the screening record and Europe PMC) was read. The license is the article's CC BY-NC-ND 4.0 from Crossref, not a dataset license. Scenario source, language, triage scale, and whether the scenarios are released were not seen; item languages and provenance are inferred from the abstract and need checking. Published in the Canadian Journal of Emergency Medicine; single author (Nourbakhsh), affiliation not retrievable. Compared 15 LLMs against human triage experts (64% accuracy)."

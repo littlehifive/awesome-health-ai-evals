@@ -1,0 +1,38 @@
+id: banglamedqa
+name: BanglaMedQA and BanglaMMedBench
+kind: benchmark
+year: 2025
+summary: 2,000 Bangla medical multiple-choice questions, 1,000 from Bangladeshi medical admission tests with rationales and 1,000 translated and refined from MMedBench, used to benchmark retrieval-augmented generation strategies by accuracy.
+readme_section: multilingual_regional
+links:
+  paper: https://doi.org/10.2139/ssrn.5719285
+  arxiv: "2511.04560"
+  doi: 10.2139/ssrn.5719285
+  huggingface: [ajwad-abrar/BanglaMedQA]
+license: CC-BY-SA-4.0
+open_data: open
+geography:
+  item_languages: [Bengali]
+  item_origin_countries: [BGD]
+  item_origin_note: BanglaMedQA questions come from medical admission tests in Bangladesh. BanglaMMedBench questions are translated and refined from the English MMedBench and have no single country origin stated.
+  localization: mixed
+  lead_institution_countries: [BGD]
+  subsets:
+    - {name: BanglaMedQA, languages: [Bengali], countries: [BGD], localization: native}
+    - {name: BanglaMMedBench, languages: [Bengali], countries: [UNKNOWN], localization: translated}
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions, adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [medical_student, clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 2,000 questions (1,000 + 1,000)
+provenance:
+  records: [r_67bddbe468]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: Record URL is an SSRN version; the arXiv preprint is the same paper. Also reports rationale quality for the BanglaMedQA subset. License is from the Hugging Face dataset tags. MMedBench is already catalogued (see mmedbench).

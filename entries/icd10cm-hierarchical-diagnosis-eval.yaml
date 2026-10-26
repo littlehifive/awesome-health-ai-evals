@@ -1,0 +1,34 @@
+id: icd10cm-hierarchical-diagnosis-eval
+name: ICD-10-CM hierarchical diagnosis evaluation
+kind: benchmark
+year: 2026
+summary: 50 real published case reports (MultiCaRe, post-August 2024) where LLMs give three ranked differential diagnoses mapped to ICD-10-CM codes, scored with a four-level hierarchical match against dual-annotator reference codes.
+readme_section: open_ended
+links:
+  paper: https://doi.org/10.1186/s12911-026-03511-3
+  pmcid: PMC13371598
+  doi: 10.1186/s12911-026-03511-3
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Cases are drawn from the MultiCaRe collection of published case reports; countries of origin not stated.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 50 cases
+provenance:
+  records: [r_d8853d0b97]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Primarily a four-model comparison (DeepSeek-V3, GPT-4o, GPT-4o mini, Claude) that proposes the scoring framework. No data or code availability statement was found in the text read, so open_data is unknown. Authors at USC, UW, Purdue, Northeastern."

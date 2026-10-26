@@ -1,0 +1,34 @@
+id: causal-kg-intervention-eval
+name: Causal knowledge graph grounding evaluation framework
+kind: eval_framework
+year: 2026
+summary: A graph-centered framework that scores LLM intervention reasoning in healthcare (intervention accuracy, causal edge F1, adverse-effect F1, evidence accuracy, unsupported-claim rate) under four grounding conditions, piloted on 80 synthetic cardiovascular scenarios.
+readme_section: frameworks
+links:
+  paper: https://arxiv.org/abs/2608.15382
+  arxiv: "2608.15382"
+  doi: 10.48550/arxiv.2608.15382
+license: null
+open_data: gated
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Scenarios are synthetic, generated from a cardiovascular knowledge graph.
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated]
+  venue: preprint
+facets:
+  health_areas: [cardiology]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 80 synthetic scenarios across 8 reasoning failure modes, 4 conditions
+provenance:
+  records: [r_7ef25a216d]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Data availability statement says benchmark tables and results are available on request; code is in a companion repository whose license is to be added. Author institutions were not visible in the text read."

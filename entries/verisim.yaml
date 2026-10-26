@@ -1,0 +1,34 @@
+id: verisim
+name: VeriSim
+kind: eval_framework
+year: 2026
+summary: "A patient-simulation framework that injects controllable communication noise (memory gaps, low health literacy, anxiety and others) into 300 diagnostic cases while a UMLS-grounded verifier keeps the patient's facts true, used to stress-test doctor LLMs on top-1 diagnostic accuracy and conversation length."
+readme_section: frameworks
+links:
+  paper: https://arxiv.org/abs/2604.10441
+  arxiv: "2604.10441"
+  code: https://anonymous.4open.science/r/VeriSim-D4B0/README.md
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: "The 300 cases come from DDXPlus (synthetic differential-diagnosis data) and MIMIC-IV-ED (real emergency department records); the paper text read does not state countries."
+  localization: adapted
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [general_medicine, emergency_triage]
+  intended_users: [clinician]
+  eval_methods: [simulated_multi_turn, automatic_metric, rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 300 patient cases x 7 doctor models = 2,100 conversations; six noise categories at severity levels 0-4
+provenance:
+  records: [r_b887c58698]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "George Mason University. The paper footnote links an anonymized 4open.science repo, which was blocked by bot protection, so release contents and license are unknown. The patient simulator is Llama-3.1-70B; Claude Opus 4.5 is the judge, validated against an OB-GYN and a nurse who rated 300 conversations. Authors note the evaluation is English-only."

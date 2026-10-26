@@ -1,0 +1,35 @@
+id: medconceptsqa
+name: MedConceptsQA
+kind: benchmark
+year: 2024
+summary: "Over 800,000 four-option multiple-choice questions asking for the description of a medical code (ICD-9-CM, ICD-10-CM, ICD procedure, and ATC drug codes) at easy, medium, and hard distractor levels, scored by accuracy."
+readme_section: knowledge_exam
+links:
+  paper: https://www.sciencedirect.com/science/article/pii/S0010482524011740
+  arxiv: "2405.07348"
+  huggingface: [ofir408/MedConceptsQA]
+  code: https://github.com/nadavlab/MedConceptsQA
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: "Questions are generated from code vocabularies (ICD-9-CM, ICD-10-CM, ICD procedure codes, ATC) via PyHealth; no country origin is stated."
+  localization: native
+  lead_institution_countries: [ISR]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine, pharmacy_medication]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: "819,772 test and 60 dev questions across 3 vocabularies and 3 difficulty levels"
+provenance:
+  records: [r_aa8fd5bb6c]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Borderline scope: tests understanding of medical codes (close to coding), kept as a knowledge MCQ set. Paper read on arXiv; the published version is in Computers in Biology and Medicine per the dataset card link (ScienceDirect S0010482524011740), which was not opened. License is from the Hugging Face card; the GitHub repo shows none. Authors at Ben-Gurion University of the Negev (Israel)."

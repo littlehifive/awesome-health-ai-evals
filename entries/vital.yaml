@@ -1,0 +1,36 @@
+id: vital
+name: VITAL
+kind: benchmark
+year: 2025
+summary: About 13.1K health-related value-laden situations and 5.4K multiple-choice questions, filtered from survey and moral-reasoning datasets, for benchmarking whether LLMs handle plural viewpoints in health (Overton, steerable, and distributional alignment).
+readme_section: safety
+links:
+  paper: https://doi.org/10.18653/v1/2025.acl-long.1119
+  doi: 10.18653/v1/2025.acl-long.1119
+  arxiv: "2502.13775"
+  code: https://github.com/anudeex/VITAL
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Items are filtered from existing survey, poll, and moral datasets (for example OpinionQA, GlobalOpinionQA, and ValueKaleido-based situations); the paper does not give countries for the retained items.
+  rater_countries: [UNKNOWN]
+  localization: adapted
+  lead_institution_countries: [AUS]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine, public_health]
+  intended_users: [unspecified]
+  eval_methods: [mcq_exact_match, automatic_metric, rubric_llm_judge]
+  modality: [text]
+  size: 13.1K situations and 5.4K multiple-choice questions (18,846 samples across three alignment modes)
+provenance:
+  records: [r_4624861c62]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Health relevance was checked by few-shot FLAN-T5 classification; a 10% human check labeled about 80% of samples health-related. Scoring is accuracy for steerable questions, Jensen-Shannon distance for distributional questions, and value coverage judged by GPT-4 and humans for Overton. The data sit in the dataset folder of the GitHub repo (MIT license applies to the repo; no separate dataset license seen), so license is null. readme_section is safety as the closest fit for a values and fairness benchmark; a human may prefer another section. Source dataset names beyond the cited papers were not checked in the appendix."

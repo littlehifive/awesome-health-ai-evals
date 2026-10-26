@@ -1,0 +1,34 @@
+id: medsafe-dx
+name: MedSafe-Dx
+kind: benchmark
+year: 2025
+summary: Safety benchmark of synthetic GP intake cases from DDXPlus (250 in the preprint, 900 in v0.3) where a model gives a differential and an escalation decision, scored by Triage Success Rate and Safety Pass Rate using rule-based labels instead of a model judge.
+readme_section: safety
+links:
+  paper: https://doi.org/10.64898/2026.04.14.26350711
+  doi: 10.64898/2026.04.14.26350711
+  code: https://github.com/cortico-health/MedSafe-Dx
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Patients are synthetic, drawn from the public DDXPlus dataset; no country origin stated.
+  localization: adapted
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [industry_lab]
+  item_provenance: [adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [emergency_triage, general_medicine]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 250 cases in the v0 preprint; 900 cases in the v0.3 full run
+provenance:
+  records: [r_41e2c23c3c, r_96ee09bdf5]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: medium
+  notes: "Read the GitHub README (v0.3) and the medRxiv abstract; the preprint full text was not opened. The README says the preprint's escalation labels were replaced in v0.3 by cited rules, so the two versions are not comparable. The repo has a leaderboard at msdx.cortico.health. Built by Cortico Health Technologies (clinical software company; country not stated). The GitHub API reports the license as NOASSERTION and the case files were not checked for release, so license and open_data are left unknown; cases derive from DDXPlus, which must be obtained separately."

@@ -1,0 +1,34 @@
+id: kampobench
+name: KampoBench
+kind: benchmark
+year: 2026
+summary: "74 Japanese consultation scenarios on Kampo (traditional Japanese herbal medicine) with 310 conversation-specific rubric criteria revised by board-certified Kampo physicians, scored HealthBench-style by LLM graders from three vendors."
+readme_section: multilingual_regional
+links:
+  doi: 10.64898/2026.10.07.26365005
+  dataset: https://doi.org/10.5281/zenodo.23129442
+  code: https://github.com/medicalcloud/kampobench
+license: CC-BY-4.0
+open_data: gated
+geography:
+  item_languages: [Japanese]
+  item_origin_countries: [JPN]
+  rater_countries: [JPN]
+  localization: native
+  lead_institution_countries: [JPN]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated, clinician_written]
+  venue: preprint
+facets:
+  health_areas: [traditional_medicine]
+  intended_users: [patient_public, clinician]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: "74 scenarios, 310 rubric criteria"
+provenance:
+  records: [r_0924adde70]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Read the medRxiv full-text XML. Scenarios, criteria and reference answers were drafted by an LLM and revised by board-certified Kampo physicians. Data availability statement: the dataset (CC BY 4.0) is deposited on Zenodo but files are restricted until the journal publishes the article; evaluation code and provenance are on GitHub. Coded gated for that embargo, so check whether the files are open now. Every example carries a canary string. Corresponding author at Tokai University School of Medicine."

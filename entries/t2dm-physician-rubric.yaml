@@ -1,0 +1,35 @@
+id: t2dm-physician-rubric
+name: T2DM five-dimension physician rating rubric
+kind: eval_framework
+year: 2026
+summary: A 120-point physician rubric (Accuracy, Safety, Clarity, Integrity, Action Orientation) built from 784 patient queries in China and applied to 66 curated type 2 diabetes questions answered by four AI models and rated by seven physicians.
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.1145/3829807.3829833
+  arxiv: "2607.03720"
+  doi: 10.1145/3829807.3829833
+license: null
+open_data: unknown
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: Queries reported by 21 T2DM patients in four northern Chinese provinces; question language is inferred from recruitment on Chinese platforms and is not stated.
+  rater_countries: [CHN]
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [real_user_queries, clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [ncd]
+  intended_users: [patient_public]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: 66 evaluation questions across seven domains; 784 reported patient queries
+provenance:
+  records: [r_6268ee3904]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Queries were self-reported by patients, not from a deployed service. Accuracy and Safety carry 30 points each, the other three 20 each. The authors say the rubric is T2DM-specific, not universal. No data-availability statement found. Borderline between a reusable rubric and a one-off study."

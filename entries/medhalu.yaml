@@ -1,0 +1,35 @@
+id: medhalu
+name: MedHalu
+kind: benchmark
+year: 2024
+summary: 2,077 real healthcare questions (HealthQA, LiveQA, MedicationQA) paired with LLM-generated hallucinated and correct responses across three hallucination types, with expert and layperson detection ratings on a 500-pair sample.
+readme_section: safety
+links:
+  paper: https://doi.org/10.1609/icwsm.v20i1.42623
+  arxiv: "2409.19492"
+  doi: 10.1609/icwsm.v20i1.42623
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA, GBR]
+  item_origin_note: "LiveQA and MedicationQA come from the US National Library of Medicine; HealthQA comes from Patient.info, which the paper does not tie to a country, so GBR is an assumption to check. Raters were UK-based."
+  rater_countries: [GBR]
+  localization: adapted
+  lead_institution_countries: [GBR, USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, llm_generated]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine, pharmacy_medication]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric, expert_human_rating]
+  modality: [text]
+  size: 2,077 questions (1,141 HealthQA, 246 LiveQA, 690 MedicationQA)
+provenance:
+  records: [r_eb238515ba]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "The paper calls MedHalu a dataset but no download link was found in the full text or by searching GitHub and Hugging Face, so open_data is unknown. 30 UK-based medical experts and laypeople (via Prolific) rated 500 sampled pairs. HealthQA origin country (GBR) not confirmed."

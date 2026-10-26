@@ -1,0 +1,36 @@
+id: patientagentbench
+name: PatientAgentBench
+kind: eval_framework
+year: 2026
+summary: Framework that generates synthetic primary-care scenarios (1,200 used in the paper) in which a tool-using health agent converses with a simulated patient, scored by an LLM jury on six dimensions with over a hundred clinician-grounded criteria.
+readme_section: frameworks
+links:
+  paper: https://arxiv.org/abs/2607.25485
+  arxiv: "2607.25485"
+  doi: 10.48550/arxiv.2607.25485
+  code: https://github.com/amazon-science/PatientAgentBench
+license: CC-BY-NC-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: All patient profiles, records, and conversations are synthetic; the sources do not tie them to a country.
+  rater_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [industry_lab]
+  item_provenance: [llm_generated]
+  venue: preprint
+facets:
+  health_areas: [primary_care]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge, simulated_multi_turn, expert_human_rating]
+  modality: [text]
+  size: 1,200 scenarios in the paper, generated on demand; 10 models benchmarked
+provenance:
+  records: [r_29801df8e1]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "The repository ships the pipeline (scenario generator, healthcare sandbox, conversation runner, jury scoring) but no fixed dataset, so open_data refers to the code. The license is the CC BY-NC 4.0 badge in the README; GitHub's API reports no SPDX license. Licensed clinicians annotated shared conversations to validate the jury (79-93% adjacent agreement); their countries are not stated. Authors are at Amazon; the medical lead is described as US board-certified."

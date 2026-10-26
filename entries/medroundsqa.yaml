@@ -1,0 +1,35 @@
+id: medroundsqa
+name: MedRoundsQA
+kind: benchmark
+year: 2026
+summary: 1,387 text-sufficient diagnostic cases from MedQA, MedMCQA, and NEJM turned into doctor-patient dual-agent dialogues under controlled patient personas, scored by LLM-judged diagnostic accuracy and question relevance, with difficulty labels.
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2609.12851
+  arxiv: "2609.12851"
+  huggingface: [youssefkhalil320/MedRoundsQA]
+  code: https://github.com/youssefkhalil320/MedRoundsQA
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Cases come from MedQA (USMLE-style), MedMCQA, and NEJM diagnostic cases; the paper does not state countries.
+  localization: adapted
+  lead_institution_countries: [ARE]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, exam_questions]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [simulated_multi_turn, rubric_llm_judge]
+  modality: [text]
+  size: 1,387 cases across 17 specialties (292 MedQA, 646 NEJM, 449 MedMCQA), each with several persona variants
+provenance:
+  records: [r_5b5d8d09a6]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Cases were filtered by an LLM and two GPs, converted to a 24-slot structured record, then played as doctor-patient dialogues; personas vary health literacy, language proficiency, affect, and occupation. The HF repo holds the reformatted case records (GPT-4o reformatted) with no license on the card; the GitHub README says accepted at EMNLP 2026 Main, which was not verified. Lead institution MBZUAI (UAE) taken from the first author's affiliation."

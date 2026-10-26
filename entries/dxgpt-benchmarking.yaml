@@ -1,0 +1,31 @@
+id: dxgpt-benchmarking
+name: DxGPT Latitude Bench (DxGPT-Benchmarking)
+kind: eval_framework
+year: 2025
+summary: A repository of pipelines that test AI models on diagnosing medical cases (nearly 10,000 cases from hospitals, medical exams, and rare-disease databases) with semantic matching so medically equivalent diagnoses are not penalized, forked to add ethical evaluation metrics.
+readme_section: frameworks
+links:
+  code: https://github.com/yago-mendoza/DxGPT-Benchmarking
+license: null
+open_data: unknown
+geography:
+  item_languages: [UNKNOWN]
+  item_origin_countries: [UNKNOWN]
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [unknown]
+  item_provenance: [unknown]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine]
+  intended_users: [unspecified]
+  eval_methods: [automatic_metric, rubric_llm_judge]
+  modality: [text]
+  size: nearly 10,000 medical cases (per README)
+provenance:
+  records: [r_89b1483fa7]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: low
+  notes: "Read the README and repo tree only. The repo is a fork of F29 dxgpt-bench-lab; the case data directory (data29/data-repos) is an empty placeholder in the repo, so the cases are not released here and open_data is unknown. Case languages, countries, license, and the original team's identity are not stated in the README. Eval methods are inferred from the README description of code matching plus an LLM semantic check. Needs a human look at the upstream repo."

@@ -1,0 +1,34 @@
+id: intraoperative-crisis-safety-benchmark
+name: Intraoperative Crisis Safety Benchmark
+kind: benchmark
+year: 2026
+summary: Ten phase-based intraoperative crisis scenarios (five to seven deterioration phases each) scored against 150 binary guideline-anchored sentinel safety actions, used to test LLM completeness and run-to-run consistency.
+readme_section: safety
+links:
+  paper: https://doi.org/10.21203/rs.3.rs-10438275/v1
+  doi: 10.21203/rs.3.rs-10438275/v1
+license: null
+open_data: gated
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Scenarios were drafted by one attending anesthesiologist from published perioperative guidelines and crisis checklists; no country of origin is stated.
+  localization: unknown
+  rater_countries: [USA]
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written, literature]
+  venue: preprint
+facets:
+  health_areas: [emergency_triage, other_specialty]
+  intended_users: [clinician]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: 10 scenarios; 150 sentinel actions
+provenance:
+  records: [r_d1ae29d680]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Research Square preprint (CC BY 4.0 for the paper; no dataset license). Scenario definitions, sentinel lists, scoring rules, and prompts are available to qualified researchers on reasonable request and deliberately not posted publicly, so open_data is gated. Rater countries come from the authors' shared UCSD affiliation, not an explicit statement. Three frontier chat models were run through consumer web interfaces, three runs per scenario, and double-scored by blinded clinicians with no adjudicator. Scenario stems do not name the diagnosis."

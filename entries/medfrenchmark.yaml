@@ -1,0 +1,32 @@
+id: medfrenchmark
+name: MedFrenchmark
+kind: benchmark
+year: 2024
+summary: A minimal benchmark of 114 open-ended questions across medical domains for evaluating LLMs in medical French, tested on seven 7B-parameter models.
+readme_section: multilingual_regional
+links:
+  paper: https://doi.org/10.3233/shti240486
+  doi: 10.3233/shti240486
+license: null
+open_data: unknown
+geography:
+  item_languages: [French]
+  item_origin_countries: [UNKNOWN]
+  localization: unknown
+  lead_institution_countries: [CHE]
+origin:
+  builder_types: [academic]
+  item_provenance: [unknown]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [unspecified]
+  eval_methods: [expert_human_rating]
+  modality: [text]
+  size: 114 open questions
+provenance:
+  records: [r_3cc08a78b9]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "Only the abstract (Crossref) and author affiliations (Geneva University Hospitals and University of Geneva) were reachable; the full text, any data link, question origin, and scoring method could not be fetched. eval_methods is a guess for open-ended questions and should be checked. The paper is in Studies in Health Technology and Informatics (2024); PubMed lists it as non-open-access."

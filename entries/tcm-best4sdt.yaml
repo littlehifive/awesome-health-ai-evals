@@ -1,0 +1,36 @@
+id: tcm-best4sdt
+name: TCM-BEST4SDT
+kind: benchmark
+year: 2025
+summary: 600 Chinese traditional Chinese medicine items (300 clinical cases for syndrome differentiation and treatment, and 100 questions each on TCM basic knowledge, medical ethics, and LLM content safety), scored with selection-based and outcome-oriented metrics.
+readme_section: multilingual_regional
+links:
+  paper: https://doi.org/10.1038/s41597-026-07587-4
+  arxiv: "2512.02816"
+  doi: 10.1038/s41597-026-07587-4
+  dataset: https://doi.org/10.6084/m9.figshare.30615956
+  code: https://github.com/DYJG-research/TCM-BEST4SDT
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: Samples come from clinical cases, classical case records and authoritative TCM examination questions collected by TCM experts; Chinese language is inferred from the TCM source material.
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written, exam_questions, literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [traditional_medicine]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match, automatic_metric]
+  modality: [text]
+  size: 600 items (300 SDT cases plus 3 x 100 selected-response questions); 27 evaluation dimensions
+provenance:
+  records: [r_0c7cc848b4]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Read the data-availability and methods text of the arXiv version (the Scientific Data article is the same work). The license is the CC-BY-4.0 stated for the Figshare dataset; the GitHub repo is Apache-2.0 (code). Eval methods are inferred from the scoring formula over selected options and the outcome-oriented dimensions; the exact set of metrics for the SDT cases was not fully read. Authors are at the China Academy of Chinese Medical Sciences and associated institutes (first and last author affiliations not individually checked)."

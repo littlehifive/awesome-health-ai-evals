@@ -1,0 +1,36 @@
+id: halluhard
+name: HalluHard
+kind: benchmark
+year: 2026
+summary: 950 seed questions in four domains (legal cases, research questions, medical guidelines, coding), 250 of them medical-guideline questions built from NICE and similar guidelines, extended into multi-turn conversations and scored by a citation-checking LLM judge for hallucinated claims.
+readme_section: safety
+links:
+  paper: https://arxiv.org/abs/2602.01031
+  arxiv: "2602.01031"
+  doi: 10.48550/arxiv.2602.01031
+  code: https://github.com/epfml/halluhard
+  website: https://halluhard.com/
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: "Seed questions are LLM-generated from source documents; medical questions come from clinical guidelines \"such as NICE\" publicly available before 2023. The paper does not state countries for the other domains."
+  localization: unknown
+  lead_institution_countries: [CHE]
+origin:
+  builder_types: [academic]
+  item_provenance: [llm_generated, literature]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [unspecified]
+  eval_methods: [rubric_llm_judge, simulated_multi_turn]
+  modality: [text]
+  size: 950 seed questions (250 medical guidelines); multi-turn with LLM-generated follow-ups
+provenance:
+  records: [r_8ed346b3ef]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "General-purpose hallucination benchmark; health is one of four domains (medical guidelines, 250 seeds). Questions for the medical domain were written by GPT-5-mini from guideline articles and reviewed by domain experts. A user LLM writes follow-up turns; responses must carry inline citations, and the judge retrieves and reads sources via web search. The public repo holds medical_guidelines/data/guidelines.jsonl (source guidelines); I did not confirm that the question files are in the repo, and no license file was found."

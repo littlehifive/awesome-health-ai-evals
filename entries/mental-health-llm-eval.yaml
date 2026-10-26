@@ -1,0 +1,32 @@
+id: mental-health-llm-eval
+name: mental-health-llm-eval
+kind: eval_framework
+year: 2026
+summary: A zero-shot evaluation harness that runs an LLM over 19 tasks drawn from eight public mental-health benchmarks (CPsyExam, EmoBench, IMHI, PsySUICIDE, MentalManip, CBT-Bench, MDD-5k, EATD) and reports accuracy, F1 and confidence intervals.
+readme_section: frameworks
+links:
+  code: https://github.com/AllenLi441/mental-health-llm-eval
+license: null
+open_data: described_only
+geography:
+  item_languages: [English, Mandarin Chinese]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Items come from the eight underlying public datasets; their countries were not checked. The README shows Chinese-language tasks (CPsyExam, MDD-5k, EATD) and English and Chinese EmoBench.
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [unknown]
+  item_provenance: [adapted_dataset]
+  venue: grey_literature
+facets:
+  health_areas: [mental_health]
+  intended_users: [unspecified]
+  eval_methods: [mcq_exact_match, automatic_metric]
+  modality: [text]
+  size: 8 datasets, 19 tasks; default samples of 79 to 3,902 items per task
+provenance:
+  records: [r_ede7ffc697]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Chinese-language README (read in translation). A personal repo that ships code and aggregate metrics only; the underlying datasets are not redistributed. The README warns that MentalManip and CBT-Bench are CC BY-NC, that PsySUICIDE needs a separate agreement for for-profit use, and that EATD and IMHI texts are sensitive, so the data are not open through this repo. Protocols for MDD-5k (ICD grouping) and CBT-Bench (top-1 hit) are defined by this suite, not the original papers. The repo shows no license. Borderline as a harness over existing benchmarks; kept as an evaluation framework."

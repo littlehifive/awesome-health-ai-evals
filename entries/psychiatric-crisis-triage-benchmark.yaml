@@ -1,0 +1,33 @@
+id: psychiatric-crisis-triage-benchmark
+name: Psychiatric Crisis Triage Benchmark Audit
+kind: benchmark
+year: 2026
+summary: 48 synthetic acute psychiatric vignettes (suicidality, psychosis, toxicity and delirium, severe agitation) with expert-consensus Emergency Severity Index gold labels and a rubric for guardrail behavior and hallucinations, for auditing LLM triage.
+readme_section: mental_health
+links:
+  paper: https://doi.org/10.17605/osf.io/au27q
+  doi: 10.17605/osf.io/au27q
+  dataset: https://osf.io/au27q
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [unknown]
+  venue: grey_literature
+facets:
+  health_areas: [mental_health, emergency_triage]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric, expert_human_rating]
+  modality: [text]
+  size: 48 vignettes (4 domains); only 4 vignettes were present in the OSF vignette file when read
+provenance:
+  records: [r_ee8ec540df]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "OSF preregistration (au27q) and its working project (gr8t9). The registration describes 48 vignettes and a rubrics file (adjudication_rubrics.json: ESI concordance with quadratic weighted kappa and macro F1, a G-0 to G-3 guardrail taxonomy, hallucination categories), but vignettes_benchmark.json held only 4 vignettes when read, so the full set may not be released yet. ESI v4 and the 988 hotline suggest a US setting, but no country is stated. Authors' institution and how vignettes and gold labels were produced are not stated beyond 'synthetic' and 'board-certified emergency psychiatrists'. License not stated."

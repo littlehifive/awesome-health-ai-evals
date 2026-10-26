@@ -1,0 +1,34 @@
+id: medmatch
+name: MedMatch
+kind: benchmark
+year: 2026
+summary: "A standardized medication-order format and ROUGE-1-style score for automatically evaluating LLM medication outputs, with a clinician-annotated set of 100 medication prompts (oral and intravenous) and standardized answers."
+readme_section: knowledge_exam
+links:
+  doi: 10.64898/2026.01.13.26343949
+  pmcid: PMC12870651
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Prompts curated by two clinicians; the source does not state the country of origin. The IRB is at the University of Colorado.
+  rater_countries: [USA]
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written]
+  venue: preprint
+facets:
+  health_areas: [pharmacy_medication]
+  intended_users: [pharmacist, clinician]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 100 medication prompts (40 oral solid, 10 oral liquid, 17 IV intermittent, 17 IV push, 16 IV continuous)
+provenance:
+  records: [r_2c02f96f12]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Standard developed by critical care pharmacists via two surveys (40 prompts, 4 pharmacists) and a modified Delphi panel. Tested four LLMs (GPT-4o-mini, Gemma-3-27B, Qwen3-32B, LLaMA-3.3-70B) on arranging prompts into the MedMatch format; the main task is formatting rather than open clinical answering. No data availability statement or repository link found; the license and open_data are unknown."

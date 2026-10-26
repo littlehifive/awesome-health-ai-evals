@@ -1,0 +1,36 @@
+id: research-through-evaluation
+name: Research through Evaluation (RtE)
+kind: eval_framework
+year: 2026
+summary: "An iterative co-evaluation method for refining grading criteria with clinicians, demonstrated on 157 prostate-cancer patient-message pairs (GPT-4-based in-basket bot versus the clinical care team) graded by clinicians and four LLM graders."
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.21203/rs.3.rs-9735115/v1
+  doi: 10.21203/rs.3.rs-9735115/v1
+  pmcid: PMC13308374
+  code: https://yuexinghao.github.io/Research_Through_Evaluation/code.html
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Patient inquiries from the Mayo Clinic radiation oncology department.
+  rater_countries: [USA]
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [real_user_queries]
+  venue: preprint
+facets:
+  health_areas: [oncology]
+  intended_users: [clinician, patient_public]
+  eval_methods: [expert_human_rating, rubric_llm_judge]
+  modality: [text]
+  size: "157 anonymized patient chat histories with in-basket bot responses; four evaluation rounds"
+provenance:
+  records: [r_df646a1741]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Final rubric scores completeness, correctness, clarity and empathy on 1-5, plus editing level and estimated time to answer. Data availability statement says the 157 pairs are released on a project web page and in Supplementary Data; I did not open the download, so open_data rests on the statement. Preprint (Research Square); also a Cornell/Mayo/MIT team. Rather a method demonstrated on one case study than a general benchmark."

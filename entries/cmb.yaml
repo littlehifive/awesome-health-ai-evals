@@ -1,0 +1,41 @@
+id: cmb
+name: CMB
+kind: benchmark
+year: 2023
+summary: "280,839 Chinese multiple-choice questions from health-professions qualification exams (physicians, nurses, technicians, pharmacists, TCM) plus 74 textbook clinical cases with 208 questions posed as multi-turn dialogue, scored by accuracy and by GPT-4 and expert ratings."
+readme_section: multilingual_regional
+links:
+  paper: https://arxiv.org/abs/2308.08833
+  arxiv: "2308.08833"
+  doi: 10.48550/arxiv.2308.08833
+  huggingface: [FreedomIntelligence/CMB]
+  code: https://github.com/FreedomIntelligence/CMB
+  website: https://cmedbenchmark.llmzoo.com/
+license: Apache-2.0
+open_data: open
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: Chinese qualification exams and Chinese medical textbooks; much of the exam data comes from the Medtiku platform, which gave permission to share it.
+  rater_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [CHN]
+  subsets:
+    - {name: CMB-Exam, languages: [Mandarin Chinese], countries: [CHN], localization: native}
+    - {name: CMB-Clin, languages: [Mandarin Chinese], countries: [CHN], localization: native}
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions, literature]
+  venue: preprint
+facets:
+  health_areas: [general_medicine, nursing, pharmacy_medication, traditional_medicine]
+  intended_users: [clinician, medical_student]
+  eval_methods: [mcq_exact_match, rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: "280,839 exam questions (400 per subcategory held out as test); 74 clinical cases, 208 questions"
+provenance:
+  records: [r_9b84b38378]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "CMB-Clin is scored on Fluency, Relevance, Completeness, and Medical Proficiency (1-5) by GPT-4, validated against three medical annotators on 320 responses (Spearman 0.93 on rankings). Authors are at CUHK Shenzhen and the Shenzhen Research Institute of Big Data. Rater countries not stated."

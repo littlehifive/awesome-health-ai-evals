@@ -1,0 +1,33 @@
+id: one-year-later-mental-health-harms
+name: Mental health harm taxonomy and multi-turn jailbreak evaluation (One Year Later)
+kind: eval_framework
+year: 2026
+summary: A provisional eight-type harm taxonomy for LLMs in mental health contexts and a multi-turn adversarial protocol (scripted prompts across 16 DSM-5 conditions in four attack variants) scored on harm dimensions by an LLM scorer with human verification.
+readme_section: frameworks
+links:
+  paper: https://arxiv.org/abs/2606.23884
+  arxiv: "2606.23884"
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL]
+  item_origin_note: Prompt scripts were written by the authors for DSM-5 conditions; no country origin.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [clinician_written]
+  venue: preprint
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge, expert_human_rating, simulated_multi_turn]
+  modality: [text]
+  size: 16 DSM-5 conditions x 4 attack variants; 8 models; 3 repetitions per cell
+provenance:
+  records: [r_d0e9ec9beb]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Follow-up to the authors' earlier multi-turn jailbreak study. Scripts, taxonomy and scoring dimensions are described in the paper, but I found no release link, so open_data is unknown. item_provenance clinician_written is a guess (authors wrote the scripts; paper does not say they are clinicians). Scorer is Llama 3.3 70B, with full review by one human. Could arguably be classed as a study with no release; a human may want to decide."

@@ -1,0 +1,34 @@
+id: qibo-benchmark
+name: Qibo-Benchmark
+kind: benchmark
+year: 2024
+summary: Traditional Chinese medicine (TCM) evaluation set with 150 subjective questions rated for professionalism, safety, and fluency, 3,175 multiple-choice questions from 13 TCM practice exams, and three TCM NLP tasks scored with ROUGE-L.
+readme_section: multilingual_regional
+links:
+  paper: https://doi.org/10.1016/j.eswa.2025.127672
+  arxiv: "2403.16056"
+  doi: 10.1016/j.eswa.2025.127672
+license: null
+open_data: unknown
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: TCM practice exams and Chinese TCM datasets; the paper does not name the exams individually.
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions, clinician_written, adapted_dataset]
+  venue: peer_reviewed
+facets:
+  health_areas: [traditional_medicine]
+  intended_users: [clinician, patient_public]
+  eval_methods: [mcq_exact_match, automatic_metric, rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 150 subjective questions; 3,175 multiple-choice questions; 517, 689, and 475 items for three NLP tasks
+provenance:
+  records: [r_6613a59f67]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "The benchmark is one contribution of a paper mainly about the Qibo TCM model. No release link for the benchmark was found in the arXiv text. Subjective answers are judged by GPT-4 (professionalism, fluency) and medical experts' assessments (safety) as win, tie, and loss rates. Who wrote the 150 questions is not stated."

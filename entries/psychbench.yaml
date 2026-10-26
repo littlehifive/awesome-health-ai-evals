@@ -1,0 +1,35 @@
+id: psychbench
+name: PsychBench
+kind: benchmark
+year: 2025
+summary: "300 real Chinese psychiatric inpatient cases (from a pool of 900 de-identified records on the dataset card) used for six LLM tasks (domain knowledge MCQ, record generation, principal diagnosis, differential analysis, medication recommendation, long-record understanding), scored with text-overlap metrics, F1 and accuracy, plus a 60-psychiatrist reader study."
+readme_section: mental_health
+links:
+  paper: https://arxiv.org/abs/2503.01903
+  arxiv: "2503.01903"
+  huggingface: [BMEr-ATP/PsychBench]
+license: null
+open_data: gated
+geography:
+  item_languages: [Mandarin Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: Cases come from three specialized psychiatric medical centers in China, documented in Chinese; the knowledge test draws on items from the Chinese National Medical Licensing Examination.
+  rater_countries: [CHN]
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [unknown]
+  venue: preprint
+facets:
+  health_areas: [mental_health]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match, automatic_metric, expert_human_rating]
+  modality: [text]
+  size: 300 real cases (paper); six tasks; 16 LLMs evaluated; 60-psychiatrist reader study
+provenance:
+  records: [r_126260fdb1, r_e4cb5de24e]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Items are de-identified real electronic medical records, which the schema has no provenance value for, so item_provenance is unknown. The HF card (BMEr-ATP/PsychBench) says access is restricted, hence gated; the card's license tag was cut off in the screening record and was not seen in full, so license is null. The paper says 300 cases while the card says 900 records; the card calls the paper under review. Rater countries are inferred only from the reader study being run with psychiatrists, whose country was not confirmed in the text read; check."

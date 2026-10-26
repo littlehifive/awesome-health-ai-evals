@@ -1,0 +1,34 @@
+id: acuitybench
+name: AcuityBench
+kind: benchmark
+year: 2026
+summary: 914 cases (conversations, forum posts, vignettes, and patient-portal messages) labelled on a four-level care-urgency scale by physician panels, scored by acuity accuracy and, for 217 ambiguous cases, alignment with physician disagreement.
+readme_section: safety
+links:
+  paper: https://arxiv.org/abs/2605.11398
+  arxiv: "2605.11398"
+license: custom
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [GLOBAL, USA]
+  item_origin_note: Reuses HealthBench emergency-referral cases (453), Semigran symptom-checker vignettes (45), Ramaswamy triage vignettes (78), PMR-Synthetic (60) and PMR-Reddit r/AskDocs posts (362); individual source countries are not stated in the parts read.
+  rater_countries: [USA]
+  localization: adapted
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, web_forum, clinician_written]
+  venue: preprint
+facets:
+  health_areas: [emergency_triage]
+  intended_users: [patient_public]
+  eval_methods: [mcq_exact_match, rubric_llm_judge, expert_human_rating]
+  modality: [text]
+  size: 914 cases (697 consensus, 217 ambiguous)
+provenance:
+  records: [r_71c883188f]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: Released on Kaggle (link in paper checklist, dataset page not checked); the paper says the release carries mixed licenses inherited from the five sources, so license is recorded as custom. 20 board-certified emergency physicians at Columbia annotated (5 per case). Conversational format uses an LLM judge.

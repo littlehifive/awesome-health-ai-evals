@@ -1,0 +1,35 @@
+id: puthmedqa
+name: PUTHMedQA
+kind: benchmark
+year: 2025
+summary: Over 53,000 multiple-choice and 1,300 multi-answer medical examination questions in English and Chinese, covering 21 organ-specific specialties, for evaluating LLM medical knowledge.
+readme_section: multilingual_regional
+links:
+  code: https://github.com/conghuiz/PUTHMedQA
+license: MIT
+open_data: open
+geography:
+  item_languages: [English, Mandarin Chinese]
+  item_origin_countries: [CHN, UNKNOWN]
+  item_origin_note: The repository says the questions come from real-world English and Chinese medical examinations. Folder names suggest mainland Chinese (mm) and UK-style (uk) subsets, but the README does not name the exams or countries.
+  localization: native
+  lead_institution_countries: [UNKNOWN]
+  subsets:
+    - {name: Chinese MCQ and multi-answer (mm), languages: [Mandarin Chinese], countries: [CHN], localization: native}
+    - {name: English MCQ and multi-answer (uk), languages: [English], countries: [UNKNOWN], localization: native}
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine, nursing, traditional_medicine, pharmacy_medication]
+  intended_users: [medical_student, clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: more than 53,000 multiple-choice and 1,300 multi-answer questions
+provenance:
+  records: [r_46ad308855]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: low
+  notes: "Only a two-sentence README and the data files were available; no paper was found. The data folders hold per-subject test CSVs and dev/test JSONL files with questions, options, answers, and explanations (Chinese subjects include traditional Chinese medicine and pharmacy, nursing, dental medicine). The license is the MIT license on the repository. Exam sources, institution, and authors are not stated; the question counts come from the README and were not recounted."

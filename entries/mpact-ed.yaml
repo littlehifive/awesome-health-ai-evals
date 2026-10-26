@@ -1,0 +1,33 @@
+id: mpact-ed
+name: mPACT-ED
+kind: benchmark
+year: 2026
+summary: Clinician-authored multi-turn eating-disorder conversation scenarios, from subclinical to severe presentations, with talk-turn scoring by clinicians (0 to 10 composite, severity-weighted) of whether LLM replies avoid reinforcing disordered eating and respond appropriately to risk.
+readme_section: mental_health
+links:
+  paper: https://doi.org/10.31234/osf.io/htzcn_v1
+  doi: 10.31234/osf.io/htzcn_v1
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  rater_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [industry_lab]
+  item_provenance: [clinician_written]
+  venue: preprint
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [expert_human_rating, simulated_multi_turn]
+  modality: [text]
+  size: scenario count not stated in the abstract
+provenance:
+  records: [r_a5f648af50]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: low
+  notes: "Read only the OSF preprint record and abstract (full text not reachable by the tools used); no data link, license, or scenario count was seen, so open_data is unknown. English and the US lead country are assumptions from the model comparison and from mpathic being a US company; neither is stated in the abstract. Scores range from 7.12 (Claude) to 6.22 (Grok 4.1) across evaluated models. Sibling of mPACT-S. The conversations and evaluation are exclusively human, clinician-generated, rather than LLM users or judges."

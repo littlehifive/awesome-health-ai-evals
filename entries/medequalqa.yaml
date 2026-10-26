@@ -1,0 +1,35 @@
+id: medequalqa
+name: MedEqualQA
+kind: benchmark
+year: 2025
+summary: "About 23,000 US medical QA items in each of three pronoun variants (he/him, she/her, they/them), 69,000 in total, with physician-labeled critical symptoms and conditions ablated one at a time, to audit how stable LLM reasoning is under gender-pronoun changes."
+readme_section: safety
+links:
+  paper: http://arxiv.org/abs/2510.12818
+  arxiv: "2510.12818"
+  doi: 10.48550/arxiv.2510.12818
+  code: https://github.com/rajarsshi51382/MEDEQUALQA
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: "2,000 US-format English items sampled from EquityGuard."
+  localization: adapted
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: "about 23,000 items per pronoun dataset; 69,000 total"
+provenance:
+  records: [r_e49102eeb3]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Paper says data and code are at github.com/rajarsshi51382/MEDEQUALQA, but that URL returned 404 when checked, so open_data is unknown. Scoring is semantic textual similarity between GPT-4.1 reasoning traces across pronoun variants, with a categorized divergence analysis. Board-certified physicians labeled critical symptoms and conditions; their countries are not stated."

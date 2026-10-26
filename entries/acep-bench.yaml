@@ -1,0 +1,34 @@
+id: acep-bench
+name: ACEP-Bench
+kind: benchmark
+year: 2026
+summary: 210 emergency-medicine vignettes, each ending in a yes/no question on whether an ACEP clinical-policy recommendation applies, scored deterministically with no LLM judge.
+readme_section: open_ended
+links:
+  paper: https://purl.stanford.edu/jj744pf3301
+  doi: 10.25740/jj744pf3301
+license: CC-BY-NC-ND-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Vignettes are built from American College of Emergency Physicians clinical policies (US guidelines); languages not stated on the record.
+  rater_countries: [USA]
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature]
+  venue: grey_literature
+facets:
+  health_areas: [emergency_triage]
+  intended_users: [clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: 210 vignettes covering 25 ACEP Clinical Policies
+provenance:
+  records: [r_5c64a870a4]
+  extracted: 2026-10-26
+  read_full_text: false
+  confidence: medium
+  notes: Source is the Stanford Digital Repository record (undergraduate capstone report) only. The page does not say where the data files can be downloaded, so open_data is assumed from the CC license; check. Validated by two board-certified emergency physicians. 48 model variants from 9 providers evaluated.

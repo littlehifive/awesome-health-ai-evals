@@ -1,0 +1,34 @@
+id: mednli-pain
+name: MedNLI-Pain
+kind: benchmark
+year: 2026
+summary: 1,021 patient vignettes from MedNLI (MIMIC-III), including 543 counterfactually augmented premises, annotated by physicians for whether the patient is expected to be in pain, used to test LLM alignment with patients.
+readme_section: safety
+links:
+  paper: https://doi.org/10.1093/jamiaopen/ooag143
+  doi: 10.1093/jamiaopen/ooag143
+license: null
+open_data: gated
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Premises come from MIMIC-III clinical notes via MedNLI; MIMIC-III is a US hospital database.
+  rater_countries: [UNKNOWN]
+  localization: adapted
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, clinician_written]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric, expert_human_rating]
+  modality: [text]
+  size: 1,021 annotated premises (478 original, 543 counterfactual)
+provenance:
+  records: [r_e0f0d82359]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Read via Europe PMC full text (PMC13641077). Data availability: annotations for academic research via PhysioNet (access terms not seen, so marked gated). The paper is CC BY-NC but that is the article license, not a dataset license. Three physician co-authors annotated; their countries are not stated. Lead-institution country is inferred from author conflict-of-interest text mentioning WVU; verify. Task is clinical-text inference scored by agreement with physicians, so scope is borderline."

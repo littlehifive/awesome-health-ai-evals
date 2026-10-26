@@ -1,0 +1,34 @@
+id: opinion-lab
+name: Opinion Lab (Dietary Supplement Opinion Lab)
+kind: benchmark
+year: 2026
+summary: 400 dietary-supplement statements (consumer or health-professional audience, positive or negative framing) with evidence sources and human reference Likert ratings, scored by how closely LLM ratings match the references.
+readme_section: safety
+links:
+  code: https://github.com/hamdamme/opinion-lab
+  doi: 10.5281/zenodo.23357962
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Statements are written from NIH Office of Dietary Supplements fact sheets, with a few from NCCIH and PubMed Central.
+  rater_countries: [UNKNOWN]
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [literature]
+  venue: grey_literature
+facets:
+  health_areas: [nutrition]
+  intended_users: [patient_public, clinician]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 400 statements; 4,000 LLM ratings from 10 models
+provenance:
+  records: [r_945c5eac2e]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Read the GitHub README and docs/METHODOLOGY.md (Zenodo pages were blocked). Master's thesis dataset (Northeastern Illinois University, 2025). Metrics are mean absolute difference and Pearson correlation against reference ratings from one consumer and one registered dietitian; the docs say these do not measure factual correctness. Data CC BY 4.0, code MIT per README. Rater countries are not stated. Zenodo concept DOI per README is 10.5281/zenodo.23357963; the record listed in screening is 23357962."

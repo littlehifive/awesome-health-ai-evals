@@ -1,0 +1,33 @@
+id: medxbench
+name: MeDxBench
+kind: benchmark
+year: 2026
+summary: 4,421 clinical cases across 20 specialties, standardized from five public datasets, for open-ended interactive diagnosis in which a model questions a simulated patient that answers only from the case description.
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2606.03416
+  arxiv: "2606.03416"
+license: null
+open_data: unknown
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Cases come from CRAFT-MD (200), DiagnosisArena (897), MedMCQA (847), MedQA (1,498), and PubMed cases curated by VivaBench (988); the paper gives no countries.
+  localization: adapted
+  lead_institution_countries: [IND, ARE]
+origin:
+  builder_types: [industry_lab, academic]
+  item_provenance: [adapted_dataset, literature]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [unspecified]
+  eval_methods: [simulated_multi_turn, automatic_metric]
+  modality: [text]
+  size: 4,421 cases
+provenance:
+  records: [r_11302d2741]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Introduced alongside the MeDxAgent system. The screening record says the dataset and code would be released upon publication; I did not find that statement or a link in the text I read, so open_data is unknown. Scoring is diagnostic accuracy. Lead countries from Microsoft Research India and MBZUAI affiliations. Item language assumed English from the source datasets but not stated explicitly."

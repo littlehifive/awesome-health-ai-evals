@@ -1,0 +1,33 @@
+id: mheval
+name: mheval (Mental Health Evaluation Harness)
+kind: eval_framework
+year: 2026
+summary: A single-command harness that runs nine published therapy and mental-health benchmarks (including MindEval, VERA-MH, CBT-Bench, CounselBench, Spiral-Bench and SIM-VAIL) from their original repositories, with a common result schema and a public leaderboard.
+readme_section: frameworks
+links:
+  code: https://github.com/slingshot-ai/mheval
+  website: https://slingshot-ai.github.io/mheval-leaderboard/
+license: MIT
+open_data: described_only
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Items come from the nine wrapped benchmarks. The README says MentalHealthBench breaks down by language, so some items are not English, but the languages were not verified here.
+  localization: unknown
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [unknown]
+  item_provenance: [adapted_dataset]
+  venue: grey_literature
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge, simulated_multi_turn, automatic_metric]
+  modality: [text]
+  size: 9 benchmarks (7 quality, 3 safety tasks listed in the README tables); one YAML task file each
+provenance:
+  records: [r_cfb05df3e4]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Wrapper around existing benchmarks, each pinned to a commit and run from its original repo; it releases no new items. Created in September 2026 by slingshot-ai (country and organization type not stated in the README). The MIT license is the harness's own and does not cover the wrapped datasets. The README lists nine named benchmarks across the quality and safety tables. Borderline as a harness; kept as an evaluation framework."

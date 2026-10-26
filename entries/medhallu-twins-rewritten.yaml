@@ -1,0 +1,32 @@
+id: medhallu-twins-rewritten
+name: MedHallu twins, rewritten answers
+kind: benchmark
+year: 2026
+summary: About 3,500 twin pairs for medical hallucination detection, each sharing a PubMed abstract and question with one grounded and one single-span hallucinated LLM-written answer, with leakage checks against PubMedQA-style shortcuts.
+readme_section: safety
+links:
+  huggingface: [Certops/medhallu-twins-rewritten, Certops/medhallu-twins-rewritten-v2]
+license: custom
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Built from PubMed abstracts (PubMedQA/MedHallu); countries not stated.
+  localization: adapted
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, llm_generated]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine]
+  intended_users: [unspecified]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: v1 card - 2,998 train and 500 test rows; v2 card - 2,004 rows
+provenance:
+  records: [r_54904945fc, r_8923009a88]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Dataset cards only, no paper. Card sets license: other and says no blanket license is asserted; defer to sources' terms. Labels come from construction (a recorded edit), checked by two LLM judges. Builder type and country not stated. Includes a train split, so partly usable as training data. Supersedes Certops/medhallu-twins-repaired-context."

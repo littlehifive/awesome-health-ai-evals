@@ -1,0 +1,31 @@
+id: igakuqa119
+name: IgakuQA119
+kind: benchmark
+year: 2025
+summary: "All 400 questions (with images) of the 119th Japanese Medical Licensing Examination (February 2025), with solver and grading scripts and a public leaderboard scored by the official 500-point scheme."
+readme_section: multilingual_regional
+links:
+  code: https://github.com/naoto-iwase/IgakuQA119
+license: MIT
+open_data: open
+geography:
+  item_languages: [Japanese]
+  item_origin_countries: [JPN]
+  localization: native
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [academic]
+  item_provenance: [exam_questions]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine]
+  intended_users: [medical_student, clinician]
+  eval_methods: [mcq_exact_match]
+  modality: [text]
+  size: "400 questions (297 without images)"
+provenance:
+  records: [r_7289740abe]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Builder affiliation not stated in the README, so builder_types is a guess and lead country is UNKNOWN. MIT is the repository license tag; exam content ownership not addressed. Separate project from IgakuQA (2018-2022); README says it was inspired by nmle-rta."

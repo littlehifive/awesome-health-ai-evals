@@ -1,0 +1,34 @@
+id: drugcareqa
+name: DrugCareQA
+kind: benchmark
+year: 2025
+summary: 2,700 medical consultation cases from Chinese online consultation platforms and PubMed case reports across seven clinical departments, each standardized to chief complaint, diagnosis, and medication, scored by Top-1 diagnosis accuracy and medication recommendation accuracy.
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2510.10461
+  arxiv: "2510.10461"
+  doi: 10.1109/bibm66473.2025.11356820
+license: null
+open_data: unknown
+geography:
+  item_languages: [Chinese]
+  item_origin_countries: [CHN]
+  item_origin_note: Dialogues come from Chinese online medical platforms; the paper also draws on PubMed case reports, whose language and country are not stated, so only the platform source is counted.
+  localization: native
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [real_user_queries, literature]
+  venue: peer_reviewed
+facets:
+  health_areas: [general_medicine, pharmacy_medication]
+  intended_users: [clinician, patient_public]
+  eval_methods: [automatic_metric]
+  modality: [text]
+  size: 2,700 cases
+provenance:
+  records: [r_5fda845b82]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Read the arXiv version of the MedCoAct paper (paperclip arx_2510.10461); the benchmark is a secondary contribution of a multi-agent method paper. No dataset or code link was seen, so open_data is unknown. Quality control used a medical knowledge base plus expert review; rater countries are not stated. Language of the PubMed-derived cases is not stated. Intended users are inferred from the doctor and pharmacist agents and consultation framing."

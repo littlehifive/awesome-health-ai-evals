@@ -1,0 +1,48 @@
+id: flo-sexual-wellbeing-chatbot-safety
+name: Safety-focused LLM sexual well-being chatbot evaluation framework
+kind: eval_framework
+year: 2026
+summary: A five-stage clinical safety evaluation framework (synthetic test cases, clinician vulnerability testing, controlled release) applied to an LLM sexual well-being education chatbot for women in a mobile app.
+readme_section: frameworks
+links:
+  paper: https://doi.org/10.1177/20552076261435861
+  doi: 10.1177/20552076261435861
+  pmcid: PMC13087339
+license: null
+open_data: described_only
+geography:
+  item_languages:
+  - English
+  item_origin_countries:
+  - UNKNOWN
+  item_origin_note: Test cases written by the chatbot team; real user dialogues from app users, whose countries are not stated in the parts read.
+  localization: unknown
+  lead_institution_countries:
+  - GBR
+origin:
+  builder_types:
+  - industry_lab
+  - academic
+  item_provenance:
+  - clinician_written
+  - real_user_queries
+  venue: peer_reviewed
+facets:
+  health_areas:
+  - srh
+  intended_users:
+  - patient_public
+  eval_methods:
+  - expert_human_rating
+  - rubric_llm_judge
+  - real_user_data
+  modality:
+  - text
+  size: 5 evaluation stages; 5,195 real user dialogues reviewed in controlled release
+provenance:
+  records:
+  - r_8290edd4f8
+  extracted: '2026-10-26'
+  read_full_text: true
+  confidence: medium
+  notes: Methods-focused feasibility study from Flo Health UK with the Oxford Internet Institute. Test sets are not released (supplementary material is a docx not read). Borderline between a one-off evaluation and a framework; kept because the paper presents the staged framework as the contribution. Language is assumed English from the prompt examples. An LLM 'Critic' monitor was used alongside clinician review.

@@ -1,0 +1,35 @@
+id: threadmed-qa
+name: ThReadMed-QA
+kind: benchmark
+year: 2026
+summary: 2,437 fully answered multi-turn patient-physician threads (8,204 question-answer pairs, up to 9 turns) from Reddit r/AskDocs, scored by an LLM judge against the verified physician's answers on a 238-thread test split.
+readme_section: open_ended
+links:
+  paper: https://arxiv.org/abs/2603.11281
+  arxiv: "2603.11281"
+  doi: 10.48550/arxiv.2603.11281
+  huggingface: [monicamunnangi23/threadmed-qa]
+license: CC-BY-NC-4.0
+open_data: gated
+geography:
+  item_languages: [English]
+  item_origin_countries: [UNKNOWN]
+  item_origin_note: Reddit r/AskDocs posts from January 2015 to June 2023; the paper does not state the posters' or physicians' countries.
+  localization: native
+  lead_institution_countries: [USA]
+origin:
+  builder_types: [academic]
+  item_provenance: [web_forum, real_user_queries]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [patient_public]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: 2,437 threads / 8,204 QA pairs (fully answered subset); 9,741 threads / 37,191 questions in the full set; 238-thread test split
+provenance:
+  records: [r_27de9feb4e, r_61e5dc7d04, r_801739860c]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Answers come from r/AskDocs authors with a moderator-verified physician flair. A GPT-4o judge scores each response 0, 0.5, or 1 against the physician answer; the paper also defines turn-level degradation, Conversational Consistency Score, and Error Propagation Rate. The five models tested were GPT-5, GPT-4o, Claude Haiku, Gemini 2.5 Flash, and Llama 3.3 70B. r_801739860c (arXiv 2607.12884, Evaluating LLMs on Misconceptions in Multi-Turn Medical Conversations) is a follow-up from the same authors that reuses the dataset with a misconception-correction rubric; r_61e5dc7d04 is a Northeastern repository DOI (10.17760/d20868106) that returned 403 and was not read. The Hugging Face card is gated (manual approval, research-use data use agreement); the license is the cc-by-nc-4.0 card tag."

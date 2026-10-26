@@ -1,0 +1,38 @@
+id: clinicalbr
+name: ClinicalBr
+kind: benchmark
+year: 2026
+summary: "2,892 real Brazilian case reports from 28 SciELO medical journals as parallel Portuguese-English pairs, with four open-ended tasks: diagnosis retrieval, differential diagnosis, exam recommendation, and treatment planning."
+readme_section: multilingual_regional
+links:
+  paper: https://arxiv.org/abs/2606.07853
+  arxiv: "2606.07853"
+  doi: 10.48550/arxiv.2606.07853
+  huggingface: [Giordanopsouza/clinicalbr]
+license: CC-BY-NC-4.0
+open_data: open
+geography:
+  item_languages: [Portuguese, English]
+  item_origin_countries: [BRA]
+  item_origin_note: Case reports come from the SciELO Brazil collection of medicine journals; the English side is a translation.
+  localization: native
+  lead_institution_countries: [BRA]
+  subsets:
+    - {name: Portuguese, languages: [Portuguese], countries: [BRA], localization: native}
+    - {name: English, languages: [English], countries: [BRA], localization: translated}
+origin:
+  builder_types: [academic]
+  item_provenance: [literature]
+  venue: preprint
+facets:
+  health_areas: [general_medicine]
+  intended_users: [clinician]
+  eval_methods: [automatic_metric, rubric_llm_judge]
+  modality: [text]
+  size: 2,892 cases (parallel PT/EN), 4 tasks
+provenance:
+  records: [r_a188f1adb6]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Diagnosis accuracy is checked against the reference diagnosis; treatment plans are scored by three LLM judges on accuracy, completeness, and clarity (mean scaled to 0-1). Differential-diagnosis references are model-generated lists. Cases were extracted into a structured schema with LLM prompts. License is from the HF card."

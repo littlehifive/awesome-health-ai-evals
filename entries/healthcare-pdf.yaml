@@ -1,0 +1,32 @@
+id: healthcare-pdf
+name: Healthcare.pdf
+kind: benchmark
+year: 2026
+summary: 25 expert-authored tasks (152 sub-questions, 1,513 rubric criteria) in which a clinician or pharmacist must answer from a real CDC or FDA drug-label PDF, graded against a four-tier rubric.
+readme_section: open_ended
+links:
+  huggingface: [CentificAIResearch/Healthcare.pdf]
+license: CC-BY-4.0
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [USA]
+  item_origin_note: Source documents are CDC Stacks publications (14) and FDA drug labels (11).
+  localization: native
+  lead_institution_countries: [UNKNOWN]
+origin:
+  builder_types: [industry_lab]
+  item_provenance: [clinician_written, literature]
+  venue: grey_literature
+facets:
+  health_areas: [general_medicine, pharmacy_medication, public_health]
+  intended_users: [clinician, pharmacist]
+  eval_methods: [rubric_llm_judge]
+  modality: [text]
+  size: 25 tasks, 152 sub-questions, 1,513 rubric criteria, 25 source PDFs (350 pages)
+provenance:
+  records: [r_7e7bced3c8]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: medium
+  notes: "Dataset card only, no paper. A deliberately hard 25-task subset of a 100-task redistributable pool (a third track on MIMIC-IV reports is withheld for licensing). Tasks are described as expert-authored; 6 of 25 were audited by practicing clinicians. Rubric tiers G1 to G4 (domain, persona, occupation, task). Difficulty metadata comes from two LLM graders. Only 25 tasks, so it is borderline against the 50-item floor; kept because the card reports 152 graded sub-questions. Releasing organization Centific AI Research; its country is not stated on the card."

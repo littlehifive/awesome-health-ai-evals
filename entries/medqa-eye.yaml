@@ -1,0 +1,34 @@
+id: medqa-eye
+name: MedQA-Eye
+kind: benchmark
+year: 2026
+adapted_from: [medqa]
+summary: 967 ophthalmology multiple-choice questions in English, Simplified Chinese, and Traditional Chinese selected from MedQA and annotated by three experts for subspecialty, scenario, and medical entity, scored by accuracy plus a framework rating the reasoning (thinking) of LLMs.
+readme_section: knowledge_exam
+links:
+  paper: https://doi.org/10.1136/bmjophth-2025-002615
+  doi: 10.1136/bmjophth-2025-002615
+license: null
+open_data: gated
+geography:
+  item_languages: [English, Mandarin Chinese]
+  item_origin_countries: [USA, CHN, TWN]
+  item_origin_note: Taken from MedQA, whose English questions come from the USMLE, simplified Chinese from mainland China exams, and traditional Chinese from Taiwan exams; the ophthalmology paper itself gives only the language split (452 Traditional Chinese, 334 English, 181 Simplified Chinese).
+  localization: adapted
+  lead_institution_countries: [CHN]
+origin:
+  builder_types: [academic]
+  item_provenance: [adapted_dataset, exam_questions]
+  venue: peer_reviewed
+facets:
+  health_areas: [ophthalmology]
+  intended_users: [clinician, medical_student]
+  eval_methods: [mcq_exact_match, expert_human_rating]
+  modality: [text]
+  size: 967 questions across 10 subspecialties
+provenance:
+  records: [r_3405dcf0ee]
+  extracted: 2026-10-26
+  read_full_text: true
+  confidence: high
+  notes: "Full text read via PMC (CC BY-NC article). The data availability statement says only that data are available on reasonable request, so open_data is gated and no license is stated for the dataset. No dataset link was found. Answer accuracy is automatic; the reasoning evaluation (information collection, memory retrieval, logical inference, semantic uncertainty) was rated by a multidisciplinary expert committee. This is close to a one-off study with a curated subset; kept because it names the dataset and a reusable evaluation framework, but a human may prefer to exclude it as study_no_release."
