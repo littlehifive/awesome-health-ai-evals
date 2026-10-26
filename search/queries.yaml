@@ -1,0 +1,137 @@
+# Every search query, by track. The search scripts read this file, and
+# search/log.csv records the hit count for each query on each run.
+
+since: "2019-01-01"
+
+# Reusable OpenAlex boolean fragments, referenced below as {llm}, {health}, ...
+terms:
+  llm: '("large language model" OR "large language models" OR LLM OR LLMs OR chatbot OR chatbots OR "conversational agent" OR "conversational agents" OR GPT OR ChatGPT OR "generative AI" OR "foundation model" OR "foundation models")'
+  health: '(medical OR medicine OR health OR healthcare OR clinical OR clinician OR patient OR patients OR nursing OR physician)'
+  bench_title: '(benchmark OR benchmarks OR benchmarking OR dataset OR datasets OR "evaluation framework" OR rubric OR "test set" OR leaderboard)'
+  bench: '(benchmark OR benchmarks OR dataset OR datasets OR "evaluation framework" OR rubric OR "test set" OR leaderboard OR corpus)'
+
+openalex:
+  # title: OpenAlex title.search; text: title_and_abstract.search. Both apply.
+  keyword:
+    - id: oa-core
+      title: "{bench_title}"
+      text: "{llm} AND {health}"
+    - id: oa-frameworks
+      title: '(framework OR rubric OR checklist OR taxonomy OR "human evaluation" OR criteria)'
+      text: '{llm} AND {health} AND ("evaluation framework" OR "assessment framework" OR "evaluation rubric" OR "evaluation criteria" OR "human evaluation" OR "evaluation dimensions")'
+    - id: oa-lmic
+      title: '(benchmark OR dataset OR evaluation OR evaluating OR framework OR Africa OR African OR India OR Indian OR "low-resource" OR multilingual)'
+      text: '{llm} AND {health} AND {bench} AND (Africa OR African OR India OR Indian OR "low-resource" OR "low- and middle-income" OR LMIC OR LMICs OR "global health" OR "global south" OR "community health worker" OR "community health workers" OR "resource-limited" OR "resource-constrained")'
+    - id: oa-multilingual
+      title: '(multilingual OR cross-lingual OR language OR languages OR Chinese OR Arabic OR Spanish OR Portuguese OR French OR Hindi OR Swahili OR Japanese OR Korean OR Vietnamese OR Indonesian OR Persian OR Turkish OR Russian OR Bengali OR Urdu OR Thai OR German OR Italian OR Polish)'
+      text: '{llm} AND {health} AND {bench} AND ("question answering" OR exam OR examination OR licensing OR questions)'
+    - id: oa-mental-health
+      title: '(benchmark OR dataset OR evaluation OR evaluating OR framework OR rubric OR safety)'
+      text: '{llm} AND ("mental health" OR psychotherapy OR counseling OR counselling OR depression OR suicide OR suicidal OR "crisis" OR psychiatric OR psychiatry) AND {bench}'
+    - id: oa-safety
+      title: '(benchmark OR dataset OR evaluation OR evaluating OR framework OR "red teaming" OR red-teaming)'
+      text: '{llm} AND {health} AND {bench} AND (safety OR harm OR harmful OR hallucination OR hallucinations OR bias OR fairness OR "red teaming" OR adversarial OR jailbreak OR misinformation)'
+    - id: oa-conversation
+      title: '(benchmark OR dataset OR evaluation OR evaluating OR framework OR simulation OR simulated)'
+      text: '{llm} AND {health} AND {bench} AND ("simulated patient" OR "standardized patient" OR "multi-turn" OR OSCE OR "diagnostic dialogue" OR "doctor-patient" OR "patient-facing" OR "history taking" OR conversational)'
+    - id: oa-voice
+      title: '(benchmark OR dataset OR evaluation OR evaluating OR framework OR speech OR voice OR spoken OR audio)'
+      text: '(voice OR speech OR spoken OR audio OR "voice assistant" OR "voice assistants") AND {llm} AND {health} AND {bench}'
+    - id: oa-surveys
+      title: '(survey OR review OR "scoping review" OR "systematic review" OR overview)'
+      text: '{llm} AND {health} AND (benchmark OR benchmarks OR "evaluation framework" OR "evaluation frameworks" OR "evaluation metrics" OR "evaluation methods")'
+
+  # Anchor benchmarks: every work citing any version of these is retrieved,
+  # restricted to works whose title or abstract matches citing_filter.
+  # Versions are found by exact title match, plus any listed DOIs. (MedQA's
+  # arXiv DOI maps to the wrong work in OpenAlex, so it is not listed.)
+  citing_filter: "{bench}"
+  anchors:
+    - id: medqa
+      titles: ["What Disease does this Patient Have? A Large-scale Open Domain Question Answering Dataset from Medical Exams"]
+    - id: medmcqa
+      titles: ["MedMCQA: A Large-scale Multi-Subject Multi-Choice Dataset for Medical domain Question Answering"]
+    - id: pubmedqa
+      titles: ["PubMedQA: A Dataset for Biomedical Research Question Answering"]
+    - id: multimedqa
+      titles: ["Large language models encode clinical knowledge", "Toward expert-level medical question answering with large language models", "Towards Expert-Level Medical Question Answering with Large Language Models"]
+    - id: healthbench
+      titles: ["HealthBench: Evaluating Large Language Models Towards Improved Human Health"]
+      dois: ["10.48550/arxiv.2505.08775"]
+    - id: medhelm
+      titles: ["MedHELM: Holistic Evaluation of Large Language Models for Medical Tasks", "Holistic evaluation of large language models for medical tasks with MedHELM"]
+    - id: afrimedqa
+      titles: ["AfriMed-QA: A Pan-African, Multi-Specialty, Medical Question-Answering Benchmark Dataset"]
+    - id: quest
+      titles: ["A framework for human evaluation of large language models in healthcare derived from literature review"]
+    - id: craftmd
+      titles: ["An evaluation framework for clinical use of large language models in patient interaction tasks"]
+    - id: mmedbench
+      titles: ["Towards building multilingual language model for medicine"]
+      dois: ["10.48550/arxiv.2402.13963"]
+    - id: amie
+      titles: ["Towards conversational diagnostic AI", "Towards conversational diagnostic artificial intelligence"]
+
+paperclip:
+  sources: [arxiv, medrxiv, pmc, abstracts]
+  limit: 100
+  queries:
+    - {id: pc-medqa, q: "benchmark for evaluating large language models on medical question answering"}
+    - {id: pc-chatbot-dataset, q: "dataset for evaluating health chatbots"}
+    - {id: pc-framework, q: "evaluation framework for large language models in healthcare"}
+    - {id: pc-rubric, q: "rubric for evaluating LLM responses to patient health questions"}
+    - {id: pc-holistic, q: "holistic evaluation of medical large language models across many tasks"}
+    - {id: pc-judge, q: "LLM-as-a-judge evaluation of medical answers validated against physician ratings"}
+    - {id: pc-multilingual, q: "multilingual medical question answering benchmark for large language models"}
+    - {id: pc-exam, q: "national medical licensing exam questions benchmark for large language models in a non-English language"}
+    - {id: pc-health-exams, q: "nursing pharmacy or dental licensing exam benchmark for large language models"}
+    - {id: pc-low-resource-lang, q: "health question answering dataset in a low-resource language for evaluating LLMs"}
+    - {id: pc-africa, q: "African medical question answering benchmark for large language models"}
+    - {id: pc-lmic, q: "benchmark of large language models for health in low- and middle-income countries"}
+    - {id: pc-chw, q: "evaluation of a chatbot for community health workers"}
+    - {id: pc-india, q: "Indian languages healthcare benchmark for large language models"}
+    - {id: pc-chinese, q: "Chinese medical benchmark for large language models"}
+    - {id: pc-arabic, q: "Arabic medical question answering benchmark for large language models"}
+    - {id: pc-maternal, q: "maternal and newborn health chatbot evaluation"}
+    - {id: pc-srh, q: "sexual and reproductive health chatbot evaluation benchmark"}
+    - {id: pc-infectious, q: "HIV tuberculosis or malaria question answering evaluation of large language models"}
+    - {id: pc-mental, q: "mental health chatbot safety evaluation benchmark"}
+    - {id: pc-suicide, q: "evaluating large language model responses to suicide and crisis scenarios dataset"}
+    - {id: pc-counseling, q: "psychotherapy or counseling conversation benchmark for large language models"}
+    - {id: pc-hallucination, q: "medical hallucination benchmark for large language models"}
+    - {id: pc-bias, q: "bias and fairness benchmark for medical large language models"}
+    - {id: pc-redteam, q: "red teaming dataset for medical large language model safety"}
+    - {id: pc-harmful, q: "harmful or adversarial medical questions safety benchmark for LLMs"}
+    - {id: pc-simulated-patient, q: "simulated patient multi-turn diagnostic conversation evaluation of large language models"}
+    - {id: pc-osce, q: "OSCE-style evaluation of conversational diagnostic AI"}
+    - {id: pc-consumer, q: "consumer health question answering dataset for evaluating language models"}
+    - {id: pc-real-queries, q: "real user health queries collected from a deployed chatbot used to evaluate LLMs"}
+    - {id: pc-voice, q: "evaluation of voice-based health assistants on spoken medical questions"}
+    - {id: pc-speech, q: "speech or audio benchmark for medical conversation with large language models"}
+    - {id: pc-nutrition, q: "nutrition and diet question answering benchmark for large language models"}
+    - {id: pc-medication, q: "medication and drug information question answering benchmark for large language models"}
+    - {id: pc-triage, q: "triage and symptom checker benchmark for large language models"}
+    - {id: pc-patient-education, q: "instrument for rating quality of AI-generated patient education information"}
+    - {id: pc-tcm, q: "traditional Chinese medicine benchmark for large language models"}
+    - {id: pc-survey-bench, q: "survey of benchmarks and evaluation of medical large language models"}
+    - {id: pc-review-eval, q: "systematic review of how large language models are evaluated in healthcare"}
+
+hf:
+  # Hugging Face dataset search matches dataset IDs. Results are kept only if the
+  # ID, tags, or card description match both keep_regex and health_regex.
+  terms: [medical, medicine, medic, med-, med_, medqa, medmcqa, medbench, medeval, clinical, health, healthcare, patient, doctor, nurse, nursing, mental, psych, maternal, hiv, symptom, diagnosis, pharma, drug, afrimed, usmle]
+  keep_regex: '(bench|eval|exam|leaderboard|rubric|judge|red.?team|safety|hallucinat|test.?set)'
+  health_regex: '(medic|clinic|health|patient|doctor|nurs|mental|psych|maternal|hiv|symptom|diagnos|pharma|drug|disease|usmle|\bmed)'
+
+github:
+  # GitHub repository search (name, description, README).
+  queries:
+    - {id: gh-medical-benchmark, q: "medical benchmark llm"}
+    - {id: gh-medical-eval, q: "medical llm evaluation"}
+    - {id: gh-health-benchmark, q: "health llm benchmark"}
+    - {id: gh-clinical-benchmark, q: "clinical llm benchmark"}
+    - {id: gh-medqa, q: "medical question answering benchmark"}
+    - {id: gh-chatbot-eval, q: "healthcare chatbot evaluation"}
+    - {id: gh-mental, q: "mental health llm benchmark"}
+    - {id: gh-safety, q: "medical llm safety benchmark"}
+    - {id: gh-hallucination, q: "medical hallucination benchmark"}

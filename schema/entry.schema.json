@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "awesome-health-ai-evals entry",
+  "description": "One benchmark or evaluation framework. Facts are recorded here; labels such as income group, WHO region, research vs practice, and the grounding badge are derived by the build scripts. See schema/README.md for field guidance.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "name", "kind", "year", "summary", "readme_section", "links", "open_data",
+               "geography", "origin", "facets", "provenance"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"},
+    "name": {"type": "string", "minLength": 1},
+    "kind": {"enum": ["benchmark", "eval_framework"]},
+    "year": {"type": "integer", "minimum": 1990, "maximum": 2030},
+    "summary": {"type": "string", "minLength": 10, "maxLength": 400},
+    "readme_section": {"enum": ["knowledge_exam", "open_ended", "safety", "mental_health",
+                                "multilingual_regional", "voice", "frameworks"]},
+    "featured": {"type": "boolean"},
+    "adapted_from": {"type": "array", "items": {"type": "string"}},
+    "links": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "paper": {"type": "string"},
+        "doi": {"type": "string"},
+        "arxiv": {"type": "string"},
+        "dataset": {"type": "string"},
+        "huggingface": {"type": "array", "items": {"type": "string"}},
+        "code": {"type": "string"},
+        "website": {"type": "string"}
+      }
+    },
+    "license": {"type": ["string", "null"]},
+    "open_data": {"enum": ["open", "gated", "closed", "described_only"]},
+    "geography": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["item_languages", "item_origin_countries", "localization", "lead_institution_countries"],
+      "properties": {
+        "item_languages": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+        "item_origin_countries": {"type": "array", "items": {"$ref": "#/$defs/country"}},
+        "item_origin_note": {"type": "string"},
+        "rater_countries": {"type": "array", "items": {"$ref": "#/$defs/country"}},
+        "localization": {"enum": ["native", "adapted", "translated", "mixed", "unknown"]},
+        "lead_institution_countries": {"type": "array", "items": {"$ref": "#/$defs/country"}},
+        "subsets": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["name"],
+            "properties": {
+              "name": {"type": "string"},
+              "languages": {"type": "array", "items": {"type": "string"}},
+              "countries": {"type": "array", "items": {"$ref": "#/$defs/country"}},
+              "localization": {"enum": ["native", "adapted", "translated", "mixed", "unknown"]}
+            }
+          }
+        }
+      }
+    },
+    "origin": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["builder_types", "item_provenance", "venue"],
+      "properties": {
+        "builder_types": {"type": "array", "minItems": 1,
+                          "items": {"enum": ["academic", "industry_lab", "implementer_ngo", "government", "multilateral", "unknown"]}},
+        "item_provenance": {"type": "array", "minItems": 1,
+                            "items": {"enum": ["real_user_queries", "clinician_written", "exam_questions", "llm_generated",
+                                               "adapted_dataset", "web_forum", "literature", "not_applicable", "unknown"]}},
+        "venue": {"enum": ["peer_reviewed", "preprint", "grey_literature"]}
+      }
+    },
+    "facets": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["health_areas", "intended_users", "eval_methods", "modality"],
+      "properties": {
+        "health_areas": {"type": "array", "minItems": 1,
+                         "items": {"enum": ["general_medicine", "primary_care", "maternal_newborn", "child_health", "srh",
+                                            "hiv", "tb", "malaria", "infectious_other", "ncd", "oncology", "cardiology",
+                                            "mental_health", "nutrition", "pharmacy_medication", "nursing", "dentistry",
+                                            "ophthalmology", "emergency_triage", "public_health", "traditional_medicine",
+                                            "other_specialty"]}},
+        "intended_users": {"type": "array", "minItems": 1,
+                           "items": {"enum": ["patient_public", "chw", "nurse_midwife", "pharmacist", "clinician",
+                                              "medical_student", "unspecified"]}},
+        "eval_methods": {"type": "array", "minItems": 1,
+                         "items": {"enum": ["mcq_exact_match", "automatic_metric", "rubric_llm_judge", "expert_human_rating",
+                                            "simulated_multi_turn", "real_user_data"]}},
+        "modality": {"type": "array", "minItems": 1, "items": {"enum": ["text", "voice"]}},
+        "size": {"type": "string"}
+      }
+    },
+    "signals": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "citations": {"type": ["integer", "null"]},
+        "citations_source": {"type": "string"},
+        "hf_downloads": {"type": ["integer", "null"]},
+        "github_stars": {"type": ["integer", "null"]},
+        "uptake": {"type": "array", "items": {"type": "string"}},
+        "updated": {"type": "string"}
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["records", "extracted", "confidence"],
+      "properties": {
+        "records": {"type": "array", "items": {"type": "string"}},
+        "extracted": {"type": "string"},
+        "read_full_text": {"type": "boolean"},
+        "confidence": {"enum": ["high", "medium", "low"]},
+        "notes": {"type": "string"}
+      }
+    }
+  },
+  "$defs": {
+    "country": {"type": "string", "pattern": "^([A-Z]{3}|GLOBAL|UNKNOWN)$"}
+  }
+}
