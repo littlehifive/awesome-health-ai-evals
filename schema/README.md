@@ -53,7 +53,7 @@ provenance:
 
 **summary**: one plain sentence: what the items are, how many, for whom.
 
-**readme_section**: where the entry appears in the README. Use the first that applies:
+**readme_section**: the entry's main focus, shown as "Main focus" on the site. Use the first that applies:
 1. `frameworks`: kind is `eval_framework`.
 2. `voice`: items are spoken or the model is evaluated on audio.
 3. `mental_health`: mental health is the main health area.

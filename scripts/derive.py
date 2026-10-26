@@ -79,3 +79,11 @@ def research_or_practice(entry: dict) -> str:
     if practice and research:
         return "both"
     return "practice" if practice else "research"
+
+
+def url_of(entry: dict) -> str | None:
+    """The best single link for an entry: paper, then arXiv, DOI, dataset, code, website."""
+    links = entry.get("links", {})
+    return (links.get("paper") or (f"https://arxiv.org/abs/{links['arxiv']}" if links.get("arxiv") else None)
+            or (f"https://doi.org/{links['doi']}" if links.get("doi") else None)
+            or links.get("dataset") or links.get("code") or links.get("website"))

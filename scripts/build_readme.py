@@ -1,4 +1,7 @@
-"""Generate README.md from entries/*.yaml and data/related.yaml.
+"""Generate README.md: what the catalog is, how it was built, and where to browse it.
+
+The README describes the process and points to the website for the data itself; it
+lists only the featured entries. Numbers come from the same files the site uses.
 
 Usage:
     uv run scripts/build_readme.py
@@ -6,215 +9,133 @@ Usage:
 
 from __future__ import annotations
 
-import csv
-from collections import Counter
 from datetime import date
 
 import yaml
 
-from common import ROOT, SEARCH
-from derive import country_name, grounding, income_groups, item_countries
+from common import ROOT, load_yaml, search_stats
+from derive import grounding, income_groups, item_countries
 from validate import load_entries
 
-SECTIONS = [
-    ("knowledge_exam", "Knowledge and exam QA"),
-    ("open_ended", "Open-ended and conversational"),
-    ("safety", "Safety, hallucination, and bias"),
-    ("mental_health", "Mental health"),
-    ("multilingual_regional", "Multilingual and regional"),
-    ("voice", "Voice"),
-    ("frameworks", "Evaluation frameworks"),
-]
-METHOD = {"mcq_exact_match": "MCQ", "automatic_metric": "metric", "rubric_llm_judge": "LLM judge",
-          "expert_human_rating": "expert rating", "simulated_multi_turn": "multi-turn",
-          "real_user_data": "real users"}
-BUILDER = {"academic": "academic", "industry_lab": "industry", "implementer_ngo": "implementer",
-           "government": "government", "multilateral": "multilateral", "unknown": "?"}
-OPEN = {"open": "open", "gated": "gated", "closed": "closed", "described_only": "described", "unknown": "?"}
-INCOME = {"low": "low", "lower-middle": "lower-mid", "upper-middle": "upper-mid", "high": "high"}
-HEADER = ("| Name | Year | Languages | Item origin | Income group | Method | Open data | Builder |\n"
-          "|---|---|---|---|---|---|---|---|")
+SITE = "https://awesome-health-ai-evals-iota.vercel.app"
+REPO = "https://github.com/littlehifive/awesome-health-ai-evals"
 
 
-def url_of(e: dict) -> str | None:
-    links = e.get("links", {})
-    return (links.get("paper") or (f"https://arxiv.org/abs/{links['arxiv']}" if links.get("arxiv") else None)
-            or (f"https://doi.org/{links['doi']}" if links.get("doi") else None)
-            or links.get("dataset") or links.get("code") or links.get("website"))
-
-
-def link(e: dict) -> str:
-    url = url_of(e)
-    return f"[{e['name']}]({url})" if url else e["name"]
-
-
-def short_list(items: list[str], limit: int = 3, noun: str = "") -> str:
-    if not items:
-        return "?"
-    if len(items) <= limit:
-        return ", ".join(items)
-    return f"{len(items)} {noun}".strip()
-
-
-def row(e: dict) -> str:
-    geo = e["geography"]
-    codes = item_countries(e)
-    groups = income_groups(codes)
-    cells = [
-        link(e),
-        str(e["year"]),
-        short_list(geo["item_languages"], 3, "languages"),
-        short_list([country_name(c) for c in codes], 3, "countries"),
-        ", ".join(INCOME[g] for g in groups) or ("global" if "GLOBAL" in codes else "?"),
-        ", ".join(METHOD[m] for m in e["facets"]["eval_methods"]),
-        OPEN[e["open_data"]],
-        ", ".join(BUILDER[b] for b in e["origin"]["builder_types"]),
-    ]
-    return "| " + " | ".join(c.replace("|", "/") for c in cells) + " |"
-
-
-def table(entries: list[dict]) -> str:
-    entries = sorted(entries, key=lambda e: (-e["year"], e["name"].lower()))
-    return HEADER + "\n" + "\n".join(row(e) for e in entries)
-
-
-def related_list(items: list[dict], limit: int = 40) -> str:
-    """The `limit` most cited items, newest first; the full list stays in data/related.yaml."""
-    top = sorted(items, key=lambda x: -(x.get("cited_by") or 0))[:limit]
-    lines = []
-    for it in sorted(top, key=lambda x: (-(x.get("year") or 0), x["title"].lower())):
-        who = f" {it['by']}." if it.get("by") else ""
-        year = f" ({it['year']})" if it.get("year") else ""
-        lines.append(f"- [{it['title']}]({it['url']}){year}.{who}")
-    if len(items) > limit:
-        lines += ["", f"The {limit} most cited are shown; all {len(items)} are in "
-                      f"[`data/related.yaml`](data/related.yaml)."]
-    return "\n".join(lines) or "_None yet._"
-
-
-def search_stats() -> tuple[int, int]:
-    records = sum(1 for _ in (SEARCH / "records.csv").open()) - 1 if (SEARCH / "records.csv").exists() else 0
-    screened = 0
-    if (SEARCH / "screening.csv").exists():
-        with (SEARCH / "screening.csv").open() as f:
-            screened = sum(1 for _ in csv.DictReader(f))
-    return records, screened
+def term_count() -> tuple[int, int]:
+    total = with_terms = 0
+    for path in (ROOT / "terms").glob("*.yaml"):
+        n = len((load_yaml(path.read_text()) or {}).get("terms") or [])
+        total += n
+        with_terms += bool(n)
+    return total, with_terms
 
 
 def main() -> None:
     entries = list(load_entries().values())
-    related_path = ROOT / "data" / "related.yaml"
-    related = yaml.safe_load(related_path.read_text()) if related_path.exists() else {}
-    records, screened = search_stats()
+    taxonomy = yaml.safe_load((ROOT / "taxonomy" / "constructs.yaml").read_text())
+    stats = search_stats()
+    n_terms, n_with_terms = term_count()
 
-    by_section = {key: [e for e in entries if e["readme_section"] == key] for key, _ in SECTIONS}
-    ground = Counter(grounding(e) for e in entries)
-    featured = [e for e in entries if e.get("featured")]
-    native = [e for e in entries if grounding(e) == "native LMIC"]
-    china_only = sum(1 for e in native if set(item_countries(e)) - {"GLOBAL", "UNKNOWN"} == {"CHN"})
-    low_income = sum(1 for e in entries if "low" in income_groups(item_countries(e)))
+    kinds = {k: sum(1 for e in entries if e["kind"] == k) for k in ("benchmark", "eval_framework")}
+    countries = {c for e in entries for c in item_countries(e) if len(c) == 3 and c != "UNKNOWN"}
+    languages = {lang for e in entries for lang in e["geography"]["item_languages"] if lang != "UNKNOWN"}
+    lmic = sum(1 for e in entries if grounding(e) == "native LMIC")
+    low = sum(1 for e in entries if "low" in income_groups(item_countries(e)))
+    n_constructs, n_domains = len(taxonomy["constructs"]), len(taxonomy["domains"])
+    featured = sorted((e for e in entries if e.get("featured")), key=lambda e: (-e["year"], e["name"].lower()))
 
-    out = [
-        "<!-- Generated by scripts/build_readme.py from entries/ and data/related.yaml. Edit those, not this file. -->",
-        "",
-        "# awesome-health-ai-evals",
-        "",
-        "A map of health benchmarks and evaluation frameworks for generative-AI chatbots, with attention to where "
-        "the evidence comes from: low- and middle-income countries (LMICs) as well as high-income ones.",
-        "",
-        "This is an exploratory catalog, not a systematic review. Screening and data extraction were done with "
-        "LLM assistance, and some facts may be wrong; each entry records how confident the extraction is. "
-        "See [How this list was built](#how-this-list-was-built) and [Known gaps](#known-gaps).",
-        "",
-        f"**{len(entries)} entries.** Item origin: "
-        + ", ".join(f"{n} {label}" for label, n in ground.most_common()) + f". Of the {len(native)} native LMIC "
-        f"entries, {china_only} have items from China alone; {low_income} entries include items from a low-income "
-        "country.",
-        "",
-        "Columns: **Item origin** is where the questions or conversations came from. **Income group** is the "
-        "World Bank group of those countries (pinned in `data/countries.csv`). **Method**: MCQ = multiple choice "
-        "or exact match; metric = automatic text metric; LLM judge = rubric scored by a language model; "
-        "expert rating = human expert rating; multi-turn = simulated patient or dialogue; real users = scored on "
-        "real users' conversations.",
-        "",
-        "## Contents",
-        "",
-    ]
-    if featured:
-        out.append("- [Featured](#featured)")
-    out += [f"- [{title}](#{title.lower().replace(',', '').replace(' ', '-')}) ({len(by_section[key])})"
-            for key, title in SECTIONS]
-    out += ["- [Related guidance](#related-guidance)", "- [Surveys and reviews](#surveys-and-reviews)",
-            "- [Constructs, site, and skills](#constructs-site-and-skills)",
-            "- [How this list was built](#how-this-list-was-built)", "- [Known gaps](#known-gaps)",
-            "- [Contributing](#contributing)", ""]
+    out = f"""<!-- Generated by scripts/build_readme.py. Edit that script or the data, not this file. -->
 
-    if featured:
-        out += ["## Featured", "", table(featured), ""]
-    for key, title in SECTIONS:
-        out += [f"## {title}", "", table(by_section[key]) if by_section[key] else "_None yet._", ""]
+<p align="center"><img src="site/src/logo.svg" width="64" height="64" alt=""></p>
+<h1 align="center">awesome health ai evals</h1>
+<p align="center">A catalog of benchmarks and evaluation frameworks for health chatbots,<br>sorted by where their questions come from and what they judge.</p>
+<p align="center"><a href="{SITE}"><b>Browse the catalog</b></a> &nbsp;·&nbsp; <a href="{SITE}/#/map">Map</a> &nbsp;·&nbsp; <a href="{SITE}/#/coverage">Coverage</a> &nbsp;·&nbsp; <a href="{SITE}/#/about">About</a></p>
 
-    out += [
-        "## Related guidance",
-        "",
-        "Governance guidance and reporting checklists for health AI. Listed for reference; they are not coded "
-        "as entries because they don't define how to judge a model's answers.",
-        "",
-        related_list(related.get("guidance", [])),
-        "",
-        "## Surveys and reviews",
-        "",
-        related_list(related.get("surveys", [])),
-        "",
-        "## Constructs, site, and skills",
-        "",
-        "- **Constructs.** Agents extracted the evaluation terms each judged benchmark and framework scores outputs "
-        "on ([`terms/`](terms/)), with verbatim definitions where the source gives them. These were clustered and "
-        "turned into a taxonomy of constructs (what evaluations judge) by a proposer agent and a challenger agent "
-        "with a low-resource primary-care lens; see [`taxonomy/`](taxonomy/) and "
-        "[`docs/taxonomy.md`](docs/taxonomy.md).",
-        "- **Site.** A browsable catalog with a world map, heatmaps, a construct explorer, and side-by-side "
-        "comparison is built from the same files (`uv run scripts/build_site.py`, output in `site/dist`).",
-        "- **Skills.** [`skills/`](skills/) holds four Claude Code skills, installable as a plugin: "
-        "`find-health-benchmarks`, `adapt-benchmark-rubric`, `score-transcripts-with-rubric`, and "
-        "`run-open-benchmark`. Install with `/plugin marketplace add littlehifive/awesome-health-ai-evals`, then "
-        "`/plugin install health-ai-evals@health-ai-evals`.",
-        "",
-        "## How this list was built",
-        "",
-        f"Searches of OpenAlex, paperclip (arXiv, medRxiv, PMC, and an abstracts corpus), Hugging Face, and "
-        f"GitHub returned {records:,} unique records (queries in [`search/queries.yaml`](search/queries.yaml), "
-        f"hit counts in [`search/log.csv`](search/log.csv)). The OpenAlex search also followed citations of "
-        f"anchor benchmarks and the reference lists of surveys. A small model screened {screened:,} titles and "
-        f"abstracts, keeping anything uncertain, and a larger model re-screened what it kept with a stricter "
-        f"prompt ([`search/screening.csv`](search/screening.csv)). Claude agents then read the full text of the "
-        f"remaining candidates ([`search/candidates.csv`](search/candidates.csv)) and wrote each entry or "
-        f"logged why not ([`search/extraction/`](search/extraction/)). Decisions and scope are in "
-        f"[`docs/plan.md`](docs/plan.md).",
-        "",
-        "## Known gaps",
-        "",
-        "- **English-language search only.** Benchmarks described only in other languages are likely missing.",
-        "- **Practice-built evaluations are undercounted.** Eval sets that implementers build for their own "
-        "chatbots are rarely published. If you have one you can share, even as a description, please open an issue.",
-        "- **LLM-assisted screening and extraction.** Expect some misclassified records and wrong facts. "
-        "Corrections are welcome.",
-        "",
-        "## Contributing",
-        "",
-        "Open an issue to add a benchmark or correct an entry. Each entry is a YAML file in `entries/`; the "
-        "fields are described in [`schema/README.md`](schema/README.md), and `uv run scripts/validate.py` checks them.",
-        "",
-        "## License",
-        "",
-        "Code: MIT. Content (entries, data, README): CC BY 4.0. Datasets are linked, not re-hosted; each keeps "
-        "its own license.",
-        "",
-        f"_Last built {date.today().isoformat()}._",
-        "",
-    ]
-    (ROOT / "README.md").write_text("\n".join(out))
-    print(f"README.md: {len(entries)} entries")
+## What's inside
+
+- {len(entries):,} benchmarks and evaluation frameworks ({kinds['benchmark']:,} benchmarks, {kinds['eval_framework']:,} frameworks) for judging how a model answers health questions or talks with people about their health.
+- Questions from {len(countries)} countries in {len(languages)} languages. {lmic} entries have questions written in low- and middle-income countries, and {low} include questions from a low-income country.
+- {n_terms:,} scoring terms copied from {n_with_terms:,} sources, matched to {n_constructs} shared constructs in {n_domains} domains, so you can compare benchmarks that use different words for the same thing.
+
+The [website]({SITE}) is the way to explore it: filter the catalog, see where questions come from on a map, check which constructs are tested in which settings, and compare benchmarks side by side. A [glossary]({SITE}/#/glossary) explains every label.
+
+This is an exploratory catalog built with LLM help, not a systematic review. Some facts will be wrong; each entry says how confident its extraction is.
+
+## How the catalog was built
+
+```mermaid
+flowchart LR
+  A["Search<br>OpenAlex, paperclip,<br>Hugging Face, GitHub"] --> B["{stats['screened']:,} titles and<br>abstracts screened"]
+  B --> C["Two LLM screening passes<br>{stats['kept']:,} kept"]
+  C --> D["Merged and read in full<br>{stats['candidates']:,} candidates"]
+  D --> E["{len(entries):,} entries"]
+  E --> F["{n_terms:,} scoring terms<br>copied from sources"]
+  F --> G["Clustered, then a proposer and<br>a challenger agent drafted constructs"]
+  G --> H["{n_constructs} constructs<br>in {n_domains} domains"]
+  E --> I["Website, README<br>and skills"]
+  H --> I
+```
+
+1. **Search.** Queries to OpenAlex (keywords, papers citing anchor benchmarks such as MedQA and HealthBench, and the reference lists of surveys), paperclip (arXiv, medRxiv, PubMed Central and an abstracts corpus), Hugging Face and GitHub. {stats['queries']} logged queries returned {stats['records']:,} unique records after removing duplicates by DOI, arXiv ID and title. Queries are in [`search/queries.yaml`](search/queries.yaml) and hit counts in [`search/log.csv`](search/log.csv).
+2. **Screening.** A small OpenAI model screened {stats['screened']:,} titles and abstracts against the inclusion criteria and kept anything uncertain. A larger model rescreened what it kept with a stricter prompt, leaving {stats['kept']:,} records ([`search/screening.csv`](search/screening.csv)).
+3. **Reading.** Records about the same benchmark were merged into {stats['candidates']:,} candidates ([`search/candidates.csv`](search/candidates.csv)). Claude agents read the full text, dataset card or README of each, then wrote an entry with its facts or logged why not ([`search/extraction/`](search/extraction/)). Review agents rechecked the weakest entries.
+4. **Terms.** For every entry, agents copied each term it scores answers on (an axis, criterion, metric and so on) with its definition in the source's words ([`terms/`](terms/)).
+5. **Constructs.** The terms were embedded and clustered. One agent proposed constructs from the clusters, and a second argued against the draft from the view of a primary-care clinician in a low-resource setting. The reconciled result and every decision are in [`taxonomy/`](taxonomy/), and each term is mapped to constructs with a match type (same idea, narrower, broader, or overlapping).
+6. **Labels.** Entries record facts: languages, countries, who built the set, how questions were made and how answers are scored. Labels such as income group and origin are derived from those facts at build time, using the World Bank classification pinned in [`data/countries.csv`](data/countries.csv).
+
+Scope and decisions are in [`docs/plan.md`](docs/plan.md).
+
+## Start here
+
+A short hand-picked list. Everything else is on the [website]({SITE}/#/catalog).
+
+{chr(10).join(f"- [{e['name']}]({SITE}/#/e/{e['id']}) ({e['year']}). {e['summary']}" for e in featured)}
+
+## Use it
+
+- **Website.** [{SITE.removeprefix('https://')}]({SITE}). The full data is one JSON file at [`/data/catalog.json`]({SITE}/data/catalog.json).
+- **Claude Code skills.** [`skills/`](skills/) has four skills that work from this catalog: `find-health-benchmarks`, `adapt-benchmark-rubric`, `score-transcripts-with-rubric` and `run-open-benchmark`. Install them as a plugin:
+
+  ```
+  /plugin marketplace add littlehifive/awesome-health-ai-evals
+  /plugin install health-ai-evals@health-ai-evals
+  ```
+
+- **Build it yourself.** `uv run scripts/validate.py` checks the entries, `uv run scripts/build_site.py` builds the site into `site/dist`, and `uv run scripts/build_readme.py` regenerates this file.
+
+## Repository layout
+
+| Path | What's there |
+|---|---|
+| [`entries/`](entries/) | One YAML file per benchmark or framework. Fields are described in [`schema/README.md`](schema/README.md). |
+| [`terms/`](terms/) | The scoring terms each entry uses, with definitions and where they appear in the source. |
+| [`taxonomy/`](taxonomy/) | Term clusters, the proposed and challenged constructs, the final constructs and mappings, and the decision log. |
+| [`search/`](search/) | Queries, hit counts, screening labels, candidates and extraction logs. |
+| [`data/`](data/) | Pinned country table, related guidance and surveys, and the site's glossary. |
+| [`scripts/`](scripts/) | Search, screening, validation and build scripts. |
+| [`site/`](site/) | The website (plain HTML, CSS and JavaScript). |
+| [`skills/`](skills/) | Claude Code skills that use the catalog. |
+| [`docs/`](docs/) | The plan and the instructions given to agents. |
+
+## Known gaps
+
+- The search was in English only, so benchmarks described only in other languages are likely missing.
+- Implementers rarely publish the evaluation sets they build for their own chatbots, so practice is undercounted. If you have one you can share, even as a description, please [open an issue]({REPO}/issues/new).
+- Language models did the screening and extraction. Expect some misclassified records and wrong facts.
+- The constructs are a working draft built with LLM help, not an agreed taxonomy.
+
+## Contributing
+
+Open an issue to add a benchmark or correct an entry, or send a pull request that edits the entry's YAML file. `uv run scripts/validate.py` checks it.
+
+## License
+
+Code: MIT. Content (entries, data, README): CC BY 4.0. Datasets are linked, not re-hosted; each keeps its own license.
+
+_Last built {date.today().isoformat()}._
+"""
+    (ROOT / "README.md").write_text(out)
+    print(f"README.md: {len(entries)} entries, {len(featured)} featured")
 
 
 if __name__ == "__main__":

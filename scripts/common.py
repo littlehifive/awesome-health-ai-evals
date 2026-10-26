@@ -197,3 +197,22 @@ def new_record(track: str, query_id: str, **fields) -> dict:
     if not rec["arxiv_id"]:
         rec["arxiv_id"] = arxiv_id_from(rec["doi"], rec["url"], rec["paperclip_id"])
     return rec
+
+
+def search_stats() -> dict[str, int]:
+    """Counts at each search and screening stage, for the README and the site's pipeline funnel."""
+    def rows(name: str) -> list[dict]:
+        path = SEARCH / name
+        if not path.exists():
+            return []
+        with path.open() as f:
+            return list(csv.DictReader(f))
+
+    screening = rows("screening.csv")
+    return {
+        "records": len(rows("records.csv")),
+        "screened": len(screening),
+        "kept": sum(1 for r in screening if r["label"] in {"benchmark", "eval_framework", "borderline"}),
+        "candidates": len(rows("candidates.csv")),
+        "queries": len(rows("log.csv")),
+    }
