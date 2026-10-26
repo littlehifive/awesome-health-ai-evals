@@ -1,1 +1,1 @@
-# awesome-healthbench
+# awesome-health-ai-evals
