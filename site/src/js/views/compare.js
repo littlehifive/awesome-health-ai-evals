@@ -168,7 +168,7 @@ export async function mount({ app, query }) {
   S = { ...readSlots(query), region: null, pickFor: null, pickQ: "" };
   if (!S.example) setSlots(S.slots);
   app.innerHTML = `<div class="wrap">
-    ${pageHead({ title: "Compare", lede: "Put up to three benchmarks or frameworks side by side and see which constructs each one judges." })}
+    ${pageHead({ title: "Compare", lede: "Compare benchmarks or frameworks side by side." })}
     <p class="callout" id="example-note" hidden style="margin-top:18px">This is an example: a global benchmark from an industry lab, a pan-African question set, and a vignette benchmark for community health workers in Rwanda. Change any slot to compare your own picks. Your choices are saved in this browser.</p>
     <div class="slots" id="slots"></div>
     <div id="picker-box"></div>

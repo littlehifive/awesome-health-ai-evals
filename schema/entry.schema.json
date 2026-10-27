@@ -437,6 +437,14 @@
         "validation": {
           "type": "string"
         },
+        "score_meaning": {
+          "type": "string",
+          "description": "Added by build_cards.py --pass scoring: what the scale levels and the final number mean."
+        },
+        "annotation_process": {
+          "type": "string",
+          "description": "Added by build_cards.py --pass scoring: how many raters or grader runs scored each item, their training, the stages, and how disagreements were settled."
+        },
         "results": {
           "type": "string"
         },

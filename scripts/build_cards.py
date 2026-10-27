@@ -7,13 +7,18 @@ limitations. One structured request per entry to the OpenAI API, from the paper 
 paperclip, the Hugging Face dataset card, the GitHub README, or the record abstracts when
 nothing else is reachable. Empty strings mean the sources don't say.
 
+Two passes share the commands. `card` (the default) writes the nine fields above. `scoring`
+adds two more to an existing card, what the scores mean and how the raters worked, from the
+same cached sources trimmed to the lines about rating. By default it covers every entry that
+isn't scored by multiple choice alone.
+
 Usage:
-    uv run scripts/build_cards.py fetch [--ids a,b] [--workers N]   # gather source text into search/raw/cards/
-    uv run scripts/build_cards.py test --ids a,b                     # synchronous check, prints the card
-    uv run scripts/build_cards.py submit [--ids a,b] [--model M]     # Batch API, half price
-    uv run scripts/build_cards.py collect                            # download finished batches
-    uv run scripts/build_cards.py run [--workers N]                  # standard API for entries still missing
-    uv run scripts/build_cards.py apply                              # write card blocks into entries/*.yaml
+    uv run scripts/build_cards.py fetch [--ids a,b] [--workers N]      # gather source text into search/raw/cards/
+    uv run scripts/build_cards.py test --ids a,b [--pass scoring]       # synchronous check, prints the fields
+    uv run scripts/build_cards.py submit [--ids a,b] [--pass scoring]   # Batch API, half price
+    uv run scripts/build_cards.py collect                               # download finished batches of either pass
+    uv run scripts/build_cards.py run [--workers N] [--pass scoring]    # standard API for entries still missing
+    uv run scripts/build_cards.py apply [--pass scoring]                # write the fields into entries/*.yaml
 """
 
 from __future__ import annotations
@@ -40,7 +45,6 @@ CARDS = RAW / "cards"
 RESULTS = WORK / "cards_results.jsonl"
 BATCHES = WORK / "cards_batches.json"
 MODEL = "gpt-6.1-sol"
-PROMPT = "card-v1"
 FAILED = ("failed", "expired", "cancelled")
 PC = ["uv", "run", "-q", "--no-project", "--python", "3.12", "--with", "requests,pyyaml,click,rookiepy",
       "python", str(Path.home() / ".local/bin/paperclip")]
@@ -64,12 +68,33 @@ Fields:
 
 If the only text is an abstract or a short dataset card, leave scoring, judge, scale, validation and results empty unless that text states them. Do not fill a field from what you know about the benchmark from elsewhere."""
 
-SCHEMA = {
-    "type": "object",
-    "properties": {f: {"type": "string"} for f in FIELDS},
-    "required": FIELDS,
-    "additionalProperties": False,
+SCORING_FIELDS = ["score_meaning", "annotation_process"]
+
+SCORING_SYSTEM = """You add two fields to the card of one entry in a catalog of benchmarks and evaluation frameworks for health chatbots and language models. You get the entry's current facts, what its card already says about scoring, the scoring terms copied from it, and text from its sources. Fill the fields below from the provided text only.
+
+Style: plain, specific English that a non-specialist can read. Use the numbers, names and roles the source gives (how many raters, which model grades, how many rounds). Write full sentences with no label in front. No marketing words, no "not only ... but", no "serves as", no hedging, no em dashes. Don't repeat what the card already says; add what it leaves out. When the text does not say, return an empty string. Never guess.
+
+Fields:
+- score_meaning: What the scale stands for and how the reported number is read: what each level, point or label means (the anchors of a Likert scale, the pass mark, what counts as a failure), what a higher value means, and what a score of a given size tells a reader about the model. One or two sentences.
+- annotation_process: How the scoring was carried out in practice: how many raters or grader runs scored each item, how raters were recruited, trained or calibrated, the stages (for example independent rating, then discussion or adjudication), and how disagreements were resolved. Two or three sentences. If outputs are compared with an answer key or a reference text automatically, say so in one sentence.
+
+If the only text is an abstract or a short dataset card, leave both fields empty unless that text states them. Do not fill a field from what you know about the benchmark from elsewhere."""
+
+PASSES = {
+    "card": {"prompt": "card-v1", "fields": FIELDS, "system": SYSTEM},
+    "scoring": {"prompt": "scoring-v1", "fields": SCORING_FIELDS, "system": SCORING_SYSTEM},
 }
+PROMPT = PASSES["card"]["prompt"]
+
+
+def schema_for(fields: list[str]) -> dict:
+    return {"type": "object", "properties": {f: {"type": "string"} for f in fields},
+            "required": list(fields), "additionalProperties": False}
+
+
+def fields_of(prompt: str) -> list[str]:
+    return next(p["fields"] for p in PASSES.values() if p["prompt"] == prompt)
+
 
 KEYWORDS = re.compile(
     r"evaluat|scor|metric|rubric|grader|judge|rater|annotat|likert|scale|accuracy|\bf1\b|agreement|kappa|"
@@ -78,7 +103,15 @@ KEYWORDS = re.compile(
     r"benchmark|framework|dimension|axis|axes|categor|prompt|respons|answer", re.I)
 VALIDATION = re.compile(r"agreement|kappa|krippendorff|inter-?rater|inter-?annotator|annotator|validat|human expert|"
                         r"macro.?f1|correlat|consensus|gold label", re.I)
+# The scoring pass keeps the lines about raters and scales, and caps the text lower.
+SCORING_KEYWORDS = re.compile(
+    r"rater|annotat|judge|grader|grading|likert|scale|anchor|rubric|criteri|scor|point|agreement|kappa|"
+    r"krippendorff|adjudicat|consensus|calibrat|train|disagree|threshold|pass|label|evaluat|physician|"
+    r"clinician|expert|nurse|human|independent|blind|round|review|correct|accuracy|metric|interpret", re.I)
+SCORING_BOOST = re.compile(r"agreement|kappa|krippendorff|inter-?rater|inter-?annotator|adjudicat|consensus|"
+                           r"calibrat|disagree|independent(ly)?|blind|likert|anchor|threshold|pass(ing)? (mark|score)", re.I)
 PAPER_CAP, HF_CAP, GH_CAP, ABS_CAP = 30000, 14000, 6000, 3000
+SCORING_PAPER_CAP, SCORING_HF_CAP, SCORING_GH_CAP = 20000, 10000, 4000
 
 
 # ---------- Sources ----------
@@ -120,7 +153,7 @@ def arxiv_html_text(arxiv_id: str) -> str:
     return text if text.count("\n") > 20 and len(text) > 4000 else ""
 
 
-def trim_paper(raw: str, cap: int = PAPER_CAP) -> str:
+def trim_paper(raw: str, cap: int = PAPER_CAP, keywords: re.Pattern = KEYWORDS, boost: re.Pattern = VALIDATION) -> str:
     """Keep the abstract and the lines most likely to describe the evaluation, in order."""
     lines = []
     for line in raw.splitlines():
@@ -136,7 +169,7 @@ def trim_paper(raw: str, cap: int = PAPER_CAP) -> str:
         return head + "\n" + "\n".join(body)
     # Lines about how the scoring was checked against people are the ones most often lost
     # (appendices, table captions), so they count triple.
-    scored = [((len(KEYWORDS.findall(x)) + 3 * len(VALIDATION.findall(x))) / max(1, len(x) / 80), i)
+    scored = [((len(keywords.findall(x)) + 3 * len(boost.findall(x))) / max(1, len(x) / 80), i)
               for i, x in enumerate(body)]
     keep, size = set(), len(head)
     for _, i in sorted(scored, reverse=True):
@@ -254,32 +287,40 @@ def cmd_fetch(args) -> None:
 
 
 # ---------- Requests ----------
-def user_text(eid: str, e: dict, bundle: dict, terms: list[str]) -> str:
+def user_text(eid: str, e: dict, bundle: dict, terms: list[str], pass_: str = "card") -> str:
     kind = "benchmark" if e["kind"] == "benchmark" else "evaluation framework"
     parts = [f"Entry: {e['name']} ({e['year']}, {kind})",
              f"Catalog summary: {e['summary']}",
              f"Scoring terms already copied from the source: {', '.join(terms[:40]) or 'none'}",
              f"Catalog notes: {(e['provenance'].get('notes') or '')[:800]}"]
-    if bundle["paper"]:
-        parts.append(f"\n=== Paper text, excerpts ({bundle['paper_url']}) ===\n{bundle['paper']}")
+    paper, hf_cap, gh_cap = bundle["paper"], None, None
+    if pass_ == "scoring":
+        c = e.get("card") or {}
+        parts.append("What the card already says, which the new fields must not repeat:")
+        parts += [f"- {f}: {c.get(f) or '(empty)'}" for f in ("scoring", "judge", "scale", "validation")]
+        paper = trim_paper(paper, SCORING_PAPER_CAP, SCORING_KEYWORDS, SCORING_BOOST) if paper else ""
+        hf_cap, gh_cap = SCORING_HF_CAP, SCORING_GH_CAP
+    if paper:
+        parts.append(f"\n=== Paper text, excerpts ({bundle['paper_url']}) ===\n{paper}")
     for h in bundle["hf"]:
-        parts.append(f"\n=== Dataset card (huggingface.co/datasets/{h['id']}) ===\n{h['text']}")
+        parts.append(f"\n=== Dataset card (huggingface.co/datasets/{h['id']}) ===\n{h['text'][:hf_cap]}")
     if bundle["gh"]:
-        parts.append(f"\n=== Repository README ({bundle['gh_url']}) ===\n{bundle['gh']}")
+        parts.append(f"\n=== Repository README ({bundle['gh_url']}) ===\n{bundle['gh'][:gh_cap]}")
     if not bundle["paper"] and bundle["abstracts"]:
         parts.append("\n=== Abstracts (the full text could not be reached) ===\n" + "\n\n".join(bundle["abstracts"]))
     return "\n".join(parts)
 
 
-def request_body(eid: str, e: dict, bundle: dict, terms: list[str], model: str) -> dict:
+def request_body(eid: str, e: dict, bundle: dict, terms: list[str], model: str, pass_: str = "card") -> dict:
+    p = PASSES[pass_]
     return {
         "model": model,
-        "messages": [{"role": "system", "content": SYSTEM},
-                     {"role": "user", "content": user_text(eid, e, bundle, terms)}],
+        "messages": [{"role": "system", "content": p["system"]},
+                     {"role": "user", "content": user_text(eid, e, bundle, terms, pass_)}],
         "response_format": {"type": "json_schema",
-                            "json_schema": {"name": "card", "strict": True, "schema": SCHEMA}},
+                            "json_schema": {"name": pass_, "strict": True, "schema": schema_for(p["fields"])}},
         "reasoning_effort": "low",
-        "max_completion_tokens": 3000,
+        "max_completion_tokens": 3000 if pass_ == "card" else 1200,
     }
 
 
@@ -326,12 +367,12 @@ def clean(text: str) -> str:
     return "" if EMPTY.match(text) else text
 
 
-def parse_card(content: str | None) -> dict | None:
+def parse_card(content: str | None, fields: list[str] = FIELDS) -> dict | None:
     try:
         out = json.loads(content or "")
     except json.JSONDecodeError:
         return None
-    return {f: clean(str(out.get(f, ""))) for f in FIELDS}
+    return {f: clean(str(out.get(f, ""))) for f in fields}
 
 
 def client() -> OpenAI:
@@ -339,15 +380,23 @@ def client() -> OpenAI:
     return OpenAI(api_key=os.environ["OPENAI_API_KEY"])
 
 
-def done_ids() -> set[str]:
-    return {r["id"] for r in read_jsonl(RESULTS) if r.get("prompt") == PROMPT and r.get("card")}
+def done_ids(prompt: str = PROMPT) -> set[str]:
+    return {r["id"] for r in read_jsonl(RESULTS) if r.get("prompt") == prompt and r.get("card")}
 
 
-def pending_ids(batches: list[dict]) -> set[str]:
+def pending_ids(batches: list[dict], prompt: str = PROMPT) -> set[str]:
     ids = set()
     for b in batches:
-        if not b["collected"] and b.get("status") not in FAILED:
+        if not b["collected"] and b.get("status") not in FAILED and b.get("prompt", PROMPT) == prompt:
             ids |= {row["custom_id"] for row in read_jsonl(WORK / b["input"])}
+    return ids
+
+
+def default_ids(pass_: str, entries: dict[str, dict]) -> list[str]:
+    """Every entry for the card pass; for the scoring pass, every entry not scored by multiple choice alone."""
+    ids = sorted(entries)
+    if pass_ == "scoring":
+        ids = [i for i in ids if entries[i]["facets"]["eval_methods"] != ["mcq_exact_match"]]
     return ids
 
 
@@ -357,7 +406,7 @@ def append_results(rows: list[dict]) -> None:
             f.write(json.dumps(row, ensure_ascii=False) + "\n")
 
 
-def requests_for(ids: list[str], model: str) -> list[dict]:
+def requests_for(ids: list[str], model: str, pass_: str = "card") -> list[dict]:
     entries = load_entries()
     terms = term_names()
     rows = []
@@ -368,45 +417,48 @@ def requests_for(ids: list[str], model: str) -> list[dict]:
             continue
         bundle = json.loads(path.read_text())
         rows.append({"custom_id": eid, "method": "POST", "url": "/v1/chat/completions",
-                     "body": request_body(eid, entries[eid], bundle, terms.get(eid, []), model)})
+                     "body": request_body(eid, entries[eid], bundle, terms.get(eid, []), model, pass_)})
     return rows
 
 
 def cmd_test(args) -> None:
+    p = PASSES[args.pass_]
     c = client()
-    for row in requests_for(args.ids.split(","), args.model):
+    for row in requests_for(args.ids.split(","), args.model, args.pass_):
         resp = c.chat.completions.create(**row["body"])
-        card = parse_card(resp.choices[0].message.content) or {}
+        card = parse_card(resp.choices[0].message.content, p["fields"]) or {}
         u = resp.usage
         print(f"\n## {row['custom_id']}  (tokens in={u.prompt_tokens} out={u.completion_tokens})")
-        for f in FIELDS:
+        for f in p["fields"]:
             print(f"{f}: {card.get(f, '')}")
 
 
 def cmd_submit(args) -> None:
+    p = PASSES[args.pass_]
     entries = load_entries()
     batches = json.loads(BATCHES.read_text()) if BATCHES.exists() else []
-    ids = args.ids.split(",") if args.ids else sorted(entries)
-    skip = done_ids() | pending_ids(batches)
+    ids = args.ids.split(",") if args.ids else default_ids(args.pass_, entries)
+    skip = done_ids(p["prompt"]) | pending_ids(batches, p["prompt"])
     todo = [i for i in ids if i not in skip]
     if not todo:
         print("nothing to submit", file=sys.stderr)
         return
-    rows = requests_for(todo, args.model)
+    rows = requests_for(todo, args.model, args.pass_)
     c = client()
     path = WORK / f"cards_input_{int(time.time())}.jsonl"
     write_jsonl(path, rows)
     with path.open("rb") as f:
         file = c.files.create(file=f, purpose="batch")
     batch = c.batches.create(input_file_id=file.id, endpoint="/v1/chat/completions", completion_window="24h")
-    batches.append({"batch_id": batch.id, "model": args.model, "prompt": PROMPT, "n": len(rows),
+    batches.append({"batch_id": batch.id, "model": args.model, "prompt": p["prompt"], "n": len(rows),
                     "input": path.name, "collected": False})
     BATCHES.write_text(json.dumps(batches, indent=2))
     chars = sum(len(r["body"]["messages"][1]["content"]) for r in rows)
-    print(f"submitted {batch.id}: {len(rows)} requests, about {chars // 4:,} input tokens", file=sys.stderr)
+    print(f"submitted {batch.id} ({args.pass_}): {len(rows)} requests, about {chars // 4:,} input tokens", file=sys.stderr)
 
 
-def collect_rows(text: str, model: str) -> tuple[list[dict], list[int]]:
+def collect_rows(text: str, model: str, prompt: str = PROMPT) -> tuple[list[dict], list[int]]:
+    fields = fields_of(prompt)
     rows, usage = [], [0, 0]
     for line in text.splitlines():
         item = json.loads(line)
@@ -416,9 +468,9 @@ def collect_rows(text: str, model: str) -> tuple[list[dict], list[int]]:
         body = resp["body"]
         usage[0] += body["usage"]["prompt_tokens"]
         usage[1] += body["usage"]["completion_tokens"]
-        card = parse_card(body["choices"][0]["message"]["content"])
+        card = parse_card(body["choices"][0]["message"]["content"], fields)
         if card:
-            rows.append({"id": item["custom_id"], "model": model, "prompt": PROMPT, "card": card})
+            rows.append({"id": item["custom_id"], "model": model, "prompt": prompt, "card": card})
     return rows, usage
 
 
@@ -441,11 +493,11 @@ def cmd_collect(args) -> None:
             b["status"] = batch.status
             if not text:
                 continue
-        rows, usage = collect_rows(text, b["model"])
+        rows, usage = collect_rows(text, b["model"], b.get("prompt", PROMPT))
         append_results(rows)
         b["collected"] = True
         b["tokens"] = {"input": usage[0], "output": usage[1]}
-        print(f"  collected {len(rows)} cards; tokens in={usage[0]:,} out={usage[1]:,}", file=sys.stderr)
+        print(f"  collected {len(rows)} results; tokens in={usage[0]:,} out={usage[1]:,}", file=sys.stderr)
     BATCHES.write_text(json.dumps(batches, indent=2))
     if pending:
         print(f"{pending} batch(es) still running", file=sys.stderr)
@@ -453,7 +505,8 @@ def cmd_collect(args) -> None:
 
 
 def cmd_run(args) -> None:
-    """Standard API for entries with no card yet (twice the batch price, minutes instead of hours)."""
+    """Standard API for entries with no result yet (twice the batch price, minutes instead of hours)."""
+    p = PASSES[args.pass_]
     entries = load_entries()
     batches = json.loads(BATCHES.read_text()) if BATCHES.exists() else []
     if args.cancel:
@@ -466,9 +519,9 @@ def cmd_run(args) -> None:
                     print(f"  {b['batch_id']}: {type(err).__name__}", file=sys.stderr)
                 b["status"] = "cancelled"
         BATCHES.write_text(json.dumps(batches, indent=2))
-    ids = args.ids.split(",") if args.ids else sorted(entries)
-    skip = set() if args.force else done_ids() | (set() if args.cancel else pending_ids(batches))
-    todo = requests_for([i for i in ids if i not in skip], args.model)
+    ids = args.ids.split(",") if args.ids else default_ids(args.pass_, entries)
+    skip = set() if args.force else done_ids(p["prompt"]) | (set() if args.cancel else pending_ids(batches, p["prompt"]))
+    todo = requests_for([i for i in ids if i not in skip], args.model, args.pass_)
     print(f"{len(todo)} requests", file=sys.stderr)
     c = client()
 
@@ -486,9 +539,9 @@ def cmd_run(args) -> None:
                 continue
             usage[0] += resp.usage.prompt_tokens
             usage[1] += resp.usage.completion_tokens
-            card = parse_card(resp.choices[0].message.content)
+            card = parse_card(resp.choices[0].message.content, p["fields"])
             if card:
-                rows.append({"id": eid, "model": args.model, "prompt": PROMPT, "card": card})
+                rows.append({"id": eid, "model": args.model, "prompt": p["prompt"], "card": card})
             if len(rows) >= 50 or i == len(futures):
                 append_results(rows)
                 rows = []
@@ -498,45 +551,72 @@ def cmd_run(args) -> None:
 
 
 # ---------- Apply ----------
+def merge_fields(existing: dict, new: dict) -> dict:
+    """The new fields go right after `validation`, so every card lists its fields in the same order."""
+    out = {}
+    for k, v in existing.items():
+        if k in new:
+            continue
+        out[k] = v
+        if k == "validation":
+            out.update(new)
+    for k, v in new.items():
+        out.setdefault(k, v)
+    return out
+
+
 def cmd_apply(args) -> None:
+    p = PASSES[args.pass_]
     latest = {}
     for row in read_jsonl(RESULTS):
-        if row.get("prompt") == PROMPT and row.get("card"):
+        if row.get("prompt") == p["prompt"] and row.get("card"):
             latest[row["id"]] = row["card"]
     written = 0
     for eid, card in sorted(latest.items()):
         path = ROOT / "entries" / f"{eid}.yaml"
         if not path.exists():
             continue
-        bundle_path = CARDS / f"{eid}.json"
-        bundle = json.loads(bundle_path.read_text()) if bundle_path.exists() else {"paper": "", "hf": [], "gh": ""}
-        block = {"card": {**{f: card[f] for f in FIELDS}, "sources": sources_of(bundle),
-                          "extracted": bundle.get("fetched") or date.today().isoformat()}}
         text = path.read_text()
+        m = re.search(r"^card:\n(?:  .*\n)*", text, flags=re.M)
+        if args.pass_ == "scoring":
+            if not m:
+                print(f"  {eid}: no card block to extend, skipping", file=sys.stderr)
+                continue
+            block = {"card": merge_fields(load_yaml(m.group(0))["card"], {f: card[f] for f in p["fields"]})}
+        else:
+            bundle_path = CARDS / f"{eid}.json"
+            bundle = json.loads(bundle_path.read_text()) if bundle_path.exists() else {"paper": "", "hf": [], "gh": ""}
+            block = {"card": {**{f: card[f] for f in FIELDS}, "sources": sources_of(bundle),
+                              "extracted": bundle.get("fetched") or date.today().isoformat()}}
         dump = yaml.safe_dump(block, sort_keys=False, allow_unicode=True, width=110)
-        if re.search(r"^card:\n(?:  .*\n)*", text, flags=re.M):
-            text = re.sub(r"^card:\n(?:  .*\n)*", lambda m: dump, text, flags=re.M)
+        if m:
+            text = text[:m.start()] + dump + text[m.end():]
         elif "\nsignals:" in text:
             text = text.replace("\nsignals:", "\n" + dump + "signals:", 1)
         else:
             text = text.replace("\nprovenance:", "\n" + dump + "provenance:", 1)
         path.write_text(text)
         written += 1
-    print(f"wrote card blocks into {written} entries", file=sys.stderr)
+    print(f"wrote {args.pass_} fields into {written} entries", file=sys.stderr)
 
 
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest="cmd", required=True)
+
+    def with_pass(sp):
+        sp.add_argument("--pass", dest="pass_", choices=list(PASSES), default="card",
+                        help="which fields to write: card (default) or scoring")
+        return sp
     f = sub.add_parser("fetch"); f.add_argument("--ids"); f.add_argument("--workers", type=int, default=3)
     f.add_argument("--force", action="store_true")
-    t = sub.add_parser("test"); t.add_argument("--ids", required=True); t.add_argument("--model", default=MODEL)
-    s = sub.add_parser("submit"); s.add_argument("--ids"); s.add_argument("--model", default=MODEL)
+    t = with_pass(sub.add_parser("test")); t.add_argument("--ids", required=True); t.add_argument("--model", default=MODEL)
+    s = with_pass(sub.add_parser("submit")); s.add_argument("--ids"); s.add_argument("--model", default=MODEL)
     sub.add_parser("collect")
-    r = sub.add_parser("run"); r.add_argument("--ids"); r.add_argument("--model", default=MODEL)
+    r = with_pass(sub.add_parser("run")); r.add_argument("--ids"); r.add_argument("--model", default=MODEL)
     r.add_argument("--workers", type=int, default=6); r.add_argument("--cancel", action="store_true")
-    r.add_argument("--force", action="store_true", help="rerun the given ids even if they have a card")
-    sub.add_parser("apply")
+    r.add_argument("--force", action="store_true", help="rerun the given ids even if they have a result")
+    with_pass(sub.add_parser("apply"))
     args = ap.parse_args()
     {"fetch": cmd_fetch, "test": cmd_test, "submit": cmd_submit, "collect": cmd_collect,
      "run": cmd_run, "apply": cmd_apply}[args.cmd](args)

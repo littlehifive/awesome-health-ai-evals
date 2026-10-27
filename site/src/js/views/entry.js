@@ -64,7 +64,7 @@ function termRow(t, showLoc, depth) {
   return `<tr class="d${depth}">
     <td class="t"><span class="tn">${esc(t.term)}</span>${showLoc && t.location ? `<span class="loc">${esc(t.location)}</span>` : ""}</td>
     <td class="d">${def}</td>
-    <td class="s" data-label="Scored as">${t.scale ? esc(t.scale) : `<span class="none">Not stated</span>`}</td>
+    <td class="s" data-label="Scale">${t.scale ? esc(t.scale) : `<span class="none">Not stated</span>`}</td>
     <td class="c" data-label="Construct">${constructCells(t)}</td>
   </tr>`;
 }
@@ -103,32 +103,43 @@ function termsTable(terms) {
   const left = terms.filter((t) => !seen.has(t));
   if (left.length) body += groupRows("Other terms", left, 0);
   return `<div class="list-wrap"><table class="terms">
-    <thead><tr><th scope="col">Term</th><th scope="col">Definition</th><th scope="col">Scored as</th><th scope="col">${help("construct", "Construct")}</th></tr></thead>
+    <thead><tr><th scope="col">Term</th><th scope="col">Definition</th><th scope="col">Scale</th><th scope="col">${help("construct", "Construct")}</th></tr></thead>
     <tbody>${body}</tbody></table></div>`;
 }
 
+// Three parts, the same on every entry: metrics (what is measured, from the scoring terms),
+// rubrics (how a measurement becomes a score) and annotators (who or what does the scoring).
 function judgedSection(e, det) {
   const c = det.card || {};
   const terms = det.terms || [];
   // Multiple-choice-only entries rarely spell out their scoring; the format implies it.
   const mcq = e.methods.length === 1 && e.methods[0] === "mcq_exact_match";
-  const head = facts([
-    ["Scored by", list("methods", e.methods) || NS],
-    ["Procedure", said(c.scoring, mcq ? "The chosen option is compared with the answer key; the score is the share of items answered correctly." : NS)],
-    ["Judge", said(c.judge, mcq ? "Exact match with the answer key." : NS)],
+  let metrics;
+  if (!terms.length) {
+    metrics = `<p class="terms-intro">${e.read_full_text ? "None were extracted: the source reports one score without naming the qualities it judges." : "None were extracted because the full text wasn't read."}</p>`;
+  } else {
+    const cons = new Set(terms.flatMap((t) => t.constructs.map((m) => m.construct)));
+    const verbatim = terms.some((t) => t.definition_verbatim !== false && hasDefinition(t));
+    metrics = `<p class="terms-intro">${terms.length} ${terms.length === 1 ? "term" : "terms"} from the source, matched to ${cons.size} of the catalog's ${help("construct", "constructs")}.${verbatim ? " Definitions in quotation marks are the source's own words; the rest are paraphrased." : ""}</p>
+      ${termsTable(terms)}`;
+  }
+  const rubrics = facts([
     ["Scale", said(c.scale, mcq ? "Correct or incorrect per item; accuracy overall." : NS)],
+    ["Procedure", said(c.scoring, mcq ? "The chosen option is compared with the answer key; the score is the share of items answered correctly." : NS)],
+    ["What the scores mean", said(c.score_meaning, mcq ? "A higher accuracy means more items answered as the key says." : NS)],
+  ]);
+  const annotators = facts([
+    ["Scored by", list("methods", e.methods) || NS],
+    ["Judge", said(c.judge, mcq ? "Exact match with the answer key." : NS)],
+    ["Process", said(c.annotation_process, mcq ? "Automatic comparison with the answer key; no human or model rater." : NS)],
     ["Checked against people", said(c.validation, `<span class="none">Not reported</span>`)],
     ["Raters based in", e.rater_countries.length ? join(names(e.rater_countries)) : ""],
-    ["Results at release", c.results ? esc(c.results) : ""],
   ]);
-  if (!terms.length) {
-    return `${head}<h3>Scoring terms</h3><p class="terms-intro">${e.read_full_text ? "None were extracted: the source reports one score without naming the qualities it judges." : "None were extracted because the full text wasn't read."}</p>`;
-  }
-  const cons = new Set(terms.flatMap((t) => t.constructs.map((m) => m.construct)));
-  const verbatim = terms.some((t) => t.definition_verbatim !== false && hasDefinition(t));
-  return `${head}<h3 id="judged-terms">Scoring terms</h3>
-    <p class="terms-intro">${terms.length} ${terms.length === 1 ? "term" : "terms"} from the source, matched to ${cons.size} of the catalog's ${help("construct", "constructs")}.${verbatim ? " Definitions in quotation marks are the source's own words; the rest are paraphrased." : ""}</p>
-    ${termsTable(terms)}`;
+  return `<p class="terms-intro">Metrics are what is measured, rubrics are how a measurement becomes a score, and annotators are who or what does the scoring.</p>
+    <h3 id="judged-terms">Metrics</h3>${metrics}
+    <h3>Rubrics</h3>${rubrics}
+    <h3>Annotators</h3>${annotators}
+    ${c.results ? `<h3>Results at release</h3><p>${esc(c.results)}</p>` : ""}`;
 }
 
 // ---------- Related entries ----------

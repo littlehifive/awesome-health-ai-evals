@@ -3,7 +3,7 @@
 # scripts/counts.py at build time. Links written as [text](path) point into the repository;
 # the README keeps them relative and the site turns them into GitHub links.
 
-tagline: A catalog of benchmarks and evaluation frameworks for health chatbots, sorted by where their questions come from and what they judge.
+tagline: There are more health AI evaluation benchmarks and frameworks than anyone can keep track of. This continuously updated catalog helps you stay informed and find what matters.
 
 what:
   - "{entries} benchmarks and evaluation frameworks ({benchmarks} benchmarks, {frameworks} frameworks) for judging how a model answers health questions or talks with people about their health."
@@ -57,8 +57,8 @@ built:
         For every entry, agents copied each term it scores answers on (an axis, criterion, metric and
         so on) with its definition in the source's words ([terms/](terms/)). A later pass with the
         OpenAI API wrote each entry's card from the paper, dataset card or README: what the model
-        has to do, how the items were made, how an output becomes a score, who judges it, and the
-        headline result ([scripts/build_cards.py](scripts/build_cards.py)).
+        has to do, how the items were made, how an output becomes a score and what the score means,
+        who judges it and how, and the headline result ([scripts/build_cards.py](scripts/build_cards.py)).
     - title: Constructs
       figure: "{constructs}"
       figure_label: constructs in {domains} domains
