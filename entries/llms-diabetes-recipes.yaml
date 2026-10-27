@@ -26,6 +26,35 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 7,607 recipes
+card:
+  task: Read a recipe's title, ingredients and preparation instructions and answer YES or NO to whether it is suitable
+    for people managing diabetes.
+  items_built: The University of South Carolina AI Institute authors collected 3,807 suitable recipes from MayoClinic,
+    Diabetes UK and Diabetes Food Hub. They selected 3,800 unsuitable recipes by searching Recipe1M titles and ingredients
+    for keywords drawn from MayoClinic guidance on foods to avoid, then randomly sampling the matches for class
+    balance.
+  example: ''
+  scoring: YES/NO predictions are compared with the dataset labels to report accuracy, precision and recall across
+    recipes separately for each of three prompt styles. The authors also report F1 scores and a stability score
+    calculated as 1 − |precision − recall|, with averages across prompt styles.
+  judge: Exact match with the dataset's YES/NO labels determines classification correctness.
+  scale: Binary correctness per recipe; aggregate accuracy, precision, recall, F1 and stability on a 0 to 1 scale.
+  validation: ''
+  score_meaning: Higher stability means a smaller gap between precision and recall, rather than greater classification
+    accuracy; 1 indicates high stability and 0 indicates instability. A false positive means that a recipe labeled
+    unsuitable for diabetes is predicted to be suitable.
+  annotation_process: Each model received one recipe at a time for each prompt type, and its decision and explanation
+    were stored. For the two prompts containing dietary guidelines, Gemma2 27B extracted guideline keywords from
+    the explanations; keywords from the recommended-food section were used to validate positive predictions, and
+    keywords from the avoid section were used to assess negative predictions.
+  results: Llama3.1 70B achieved the highest accuracy, 0.85, with the Exemplary Context Prompt, with precision 0.91
+    and recall 0.79. Mistral 7B led the Direct Query Prompt with accuracy, precision and recall all at 0.84.
+  limitations: The authors state that domain-expert validation is needed and that their analysis does not establish
+    whether models reasoned over individual ingredients and cooking methods.
+  sources:
+  - https://arxiv.org/abs/2609.03967
+  - https://github.com/revathyramanan/LLMs-Diabetes-Recipes
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

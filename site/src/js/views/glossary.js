@@ -28,7 +28,7 @@ export function mount({ app, arg }) {
         ${(t.see_also || []).filter((s) => byId.has(s)).length ? `<span>See also: ${t.see_also.filter((s) => byId.has(s)).map((s) => `<a href="#/glossary/${s}">${esc(byId.get(s).term)}</a>`).join(", ")}</span>` : ""}</div></dd></div>`;
 
   app.innerHTML = `<div class="wrap">
-    ${pageHead({ title: "Glossary", lede: `${G.terms.length} terms used in evaluating health chatbots and language models.` })}
+    ${pageHead({ title: "Glossary", lede: "Key terms used in evaluating health AI." })}
     <div class="gloss-head">
       <label class="search"><span class="vh">Find a term</span><span class="field"><i class="ph ph-magnifying-glass" aria-hidden="true"></i><input type="search" id="gq" placeholder="Find a term" autocomplete="off"></span></label>
       <nav class="az" aria-label="A to Z">${"ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("").map((l) => (firstOf.has(l) ? `<a href="#/glossary/${firstOf.get(l)}">${l}</a>` : `<span>${l}</span>`)).join("")}</nav>

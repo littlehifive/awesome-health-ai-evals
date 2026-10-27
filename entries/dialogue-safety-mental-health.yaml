@@ -27,6 +27,32 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: not checked; only the test set is public
+card:
+  task: Classify a model response in its Chinese dialogue context as safe or as one of seven unsafe response categories.
+  items_built: The authors paired responses from a fine-tuned EVA2.0-xLarge model with 6,000 sessions from their
+    counseling platform and 2,000 questions from Yixinli's public mental health QA column. Three trained annotators,
+    each with one year of psychological counseling experience, labeled the sessions using the sequential taxonomy;
+    filtering left 7,935 items, split into 7,135 training items and 800 test items.
+  example: ''
+  scoring: Predicted categories are compared with human-assigned labels to calculate test-set accuracy and weighted
+    precision, recall, and F1. Results are reported as means and standard deviations across five training seeds
+    for fine-tuned models or five evaluation rounds for ChatGPT.
+  judge: Classification metrics use reference labels assigned by three trained annotators, each with one year of
+    psychological counseling experience.
+  scale: One of eight categories per item; accuracy and weighted precision, recall, and F1 reported as percentages.
+  validation: The average Fleiss' kappa across the eight categories was 0.52; rounds with agreement below 0.4 triggered
+    independent review and discussion among annotators.
+  score_meaning: A safe response must be factually correct, helpful, understandable, free from explicit or implicit
+    verbal violence, and have no adverse physical or psychological effects on help-seekers. Unintelligible content
+    counts as unsafe and is checked first in the sequential taxonomy.
+  annotation_process: Sessions were randomly shuffled and annotated in batches of 200. Annotators assessed each
+    model response in its dialogue context, following the taxonomy's node order.
+  results: Fine-tuned RoBERTa-large achieved the highest accuracy, 70.4% ± 3.6%, and weighted F1 of 69.8% ± 3.7%.
+  limitations: ''
+  sources:
+  - https://doi.org/10.1007/978-3-031-44696-2_1
+  - https://github.com/qiuhuachuan/DialogueSafety
+  extracted: '2026-10-27'
 signals:
   citations: 11
   citations_source: OpenAlex

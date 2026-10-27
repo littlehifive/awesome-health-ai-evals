@@ -26,6 +26,39 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 22,503 annotated utterances; respiratory dialogues for train, validation, and in-domain test, musculoskeletal dialogues as out-of-domain test
+card:
+  task: Extract intents, medical slots and their attributes from dialogue turns, predict the doctor's next actions,
+    or generate the doctor's response in a medical history-taking conversation.
+  items_built: The authors annotated 22,503 utterances from publicly available staged respiratory and musculoskeletal
+    interviews collected by Fareez et al. (2022), using doctor-designed questionnaires and six annotators with medical
+    sciences or pharmacy backgrounds under a doctor's supervision. Medical terms were linked to UMLS concepts; in-domain
+    test dialogues were labeled by two annotators with a third resolving disagreements, while out-of-domain dialogues
+    were labeled by one annotator with periodic checks.
+  example: '"I used over-the-counter medicine at night time to help sleep"'
+  scoring: Understanding is scored by F1 against gold intent-slot-attribute tuples, using exact matching for canonicalized
+    medical attributes and ChatGPT judgments of semantic equivalence for non-medical attributes. Policy predictions
+    are scored by Precision@K against gold actions within the next 1, 4, 8 or all remaining turns, while generated
+    responses are compared with reference responses using BLEU, ROUGE and BERTScore.
+  judge: Automated reference-based metrics assign scores, with ChatGPT adjudicating semantic equivalence for non-medical
+    attributes.
+  scale: 'Understanding: overall, medical and non-medical F1; policy: Precision@1, @4, @8 and @infinity; generation:
+    BLEU, ROUGE and BERTScore.'
+  validation: Average pairwise Cohen's kappa for annotation agreement was 0.94 for intents and 0.72 for slot-value
+    pairs.
+  score_meaning: A high BERTScore indicates that generated responses are semantically similar to the reference responses,
+    even when their wording differs.
+  annotation_process: Annotators trained with guidelines and an annotated example, then independently labeled two
+    practice dialogues covering more than 200 utterances and received feedback. Each in-domain test dialogue was
+    labeled independently by two annotators, with a third annotator resolving inconsistencies. One annotator labeled
+    the entire out-of-domain test set, with periodic quality checks and feedback.
+  results: Llama3 8B led supervised in-domain understanding and most supervised generation metrics. On out-of-domain
+    understanding, Llama 8B had the highest reported overall F1, 0.524.
+  limitations: The authors limit the dataset to English dialogues in pulmonology and musculoskeletal medicine, restricting
+    its applicability to other languages and specialties.
+  sources:
+  - https://arxiv.org/abs/2410.14204
+  - https://github.com/dair-iitd/MediTOD
+  extracted: '2026-10-27'
 signals:
   citations: 5
   citations_source: OpenAlex

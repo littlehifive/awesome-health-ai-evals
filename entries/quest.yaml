@@ -27,6 +27,35 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: 5 principles; framework in three phases (planning, implementation and adjudication, scoring and review)
+card:
+  task: Generate responses for a specified healthcare application, such as summarizing clinical notes or recommending
+    emergency-department triage decisions, for human evaluation.
+  items_built: QUEST provides no fixed test set; it is intended for evaluating outputs from healthcare LLM applications
+    and was developed through a systematic literature review covering January 2018 to February 2024. Evaluation
+    teams select task-relevant dimensions and develop a checklist and guidelines for their evaluators.
+  example: ''
+  scoring: Human evaluators rate outputs using task-specific checklists, with expert adjudication, guideline updates,
+    and repeated evaluation until consensus is reached. The final score for each dimension is the mean or median
+    of evaluators' ratings, and these results are compared with automatic metrics such as F1 and AUROC.
+  judge: Human evaluators represent the intended users, with experts for clinical tasks and non-experts for patient-facing
+    tasks; QUEST recommends at least seven evaluators for clinical use cases.
+  scale: Task-specific Likert scales, presence-or-absence categories, or specialized scales; mean or median ratings
+    reported separately for each dimension.
+  validation: ''
+  score_meaning: 'The paper gives an example accuracy scale from 1 (inaccurate) to 5 (accurate). In the triage example,
+    ratings of next-step recommendations use five labels: strongly agree, agree, neither agree nor disagree, disagree,
+    and strongly disagree.'
+  annotation_process: QUEST recommends training all evaluators on the questionnaire and guidelines, with Cohen's
+    kappa of 0.7 or above given as an example threshold for consensus. In the clinical-note summarization example,
+    four physicians, two nurses, and one pharmacist received two hours of training and rated ten outputs alongside
+    the original records in an initial round. They discussed agreement and updated the guidelines before conducting
+    the final evaluation over two weeks.
+  results: ''
+  limitations: The authors identify making human evaluation more scalable and less resource-intensive through LLMs
+    or other technology as an unresolved research question.
+  sources:
+  - https://doi.org/10.1038/s41746-024-01258-7
+  extracted: '2026-10-27'
 signals:
   citations: 414
   citations_source: OpenAlex

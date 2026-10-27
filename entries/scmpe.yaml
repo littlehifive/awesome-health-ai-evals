@@ -30,6 +30,39 @@ facets:
   eval_methods: [mcq_exact_match, rubric_llm_judge, simulated_multi_turn]
   modality: [text]
   size: 4,258 MCQs (2,192 English, 2,066 Chinese); 60 guidelines (443 checkpoint instances); 118 case vignettes (498 checkpoint instances)
+card:
+  task: Answer dental multiple-choice and guideline-based open questions, and conduct multi-turn consultations with
+    a simulated patient to gather information and formulate a treatment plan.
+  items_built: The authors retained 4,258 questions from the MedMCQA dental subset and Chinese National Dental Licensing
+    Examination database after removing non-dental entries and checking explanation logic. Qwen (qwen3-max-preview)
+    drafted 205 open questions from 60 guidelines for clinician review, while 118 case reports became simulation
+    scenarios with clinician-verified mappings to 37 criteria established through three Delphi rounds.
+  example: ''
+  scoring: MCQs are scored by accuracy and Macro-F1; GPT-4.1 evaluates open answers and dialogues against reference
+    rubrics, awarding binary safety scores and normalizing effectiveness criteria weighted from -10 to 10 into checkpoint
+    scores from 0 to 1. Checkpoint scores are combined into weighted averages using Delphi-derived severity weights
+    from 1 to 5, with any zero safety score independently treated as a clinical veto.
+  judge: GPT-4.1 (gpt-4.1-2025-04-14) is the automated scoring engine.
+  scale: 'Safety checkpoints: 0 or 1; effectiveness checkpoints: 0 to 1; final weighted mean, MCQ accuracy and Macro-F1.'
+  validation: Automated scores were compared with human expert ratings, with Spearman correlations ranging from
+    0.8286 to 0.9429 across experts.
+  score_meaning: A safety checkpoint receives 1 only when all pass criteria are met and no fail criteria are triggered;
+    otherwise, it receives 0. Severity weight 1 means context-dependent or limited risk, while weight 5 means life-threatening
+    or catastrophic failure.
+  annotation_process: Qwen (qwen3-max-preview) drafted guideline-based question-answer pairs, and clinicians reviewed
+    the reference answers for alignment with the 37 consensus metrics; clinicians also verified all case-to-checkpoint
+    mappings. For reliability testing, each target model independently answered 74 randomly selected cases, two
+    per assessment criterion, 10 times each; Worst@k was calculated by randomly sampling k of those outcomes and
+    taking the lowest score.
+  results: MedGPT-251130 led all three tasks, with MCQ accuracy of 0.9436, an open-QA score of 0.7508, and a multi-turn
+    dialogue score of 0.5030.
+  limitations: The authors identify limited expert-panel generalizability, possible selection and Delphi conformity
+    biases, limitations of a single model judge, and evaluation restricted to text-based decisions rather than physical
+    actions or EHR integration.
+  sources:
+  - https://doi.org/10.2139/ssrn.6201887
+  - https://github.com/Medlinker-MG/SCMPE
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

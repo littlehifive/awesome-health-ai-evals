@@ -24,6 +24,31 @@ facets:
   eval_methods: [rubric_llm_judge]
   modality: [text]
   size: 200 samples
+card:
+  task: Answer an open-ended nutrition consulting question using the accompanying structured user profile.
+  items_built: The authors built 200 samples from Medical Alpaca, a corpus of approximately 23,000 medical question-answer
+    pairs from open forums, using a binary LLM classifier tree to retain questions where nutrition was the primary
+    or co-equal topic. An LLM extracted profile fields from each question, filling approximately 20% of fields on
+    average, and reference answers were taken from the source corpus.
+  example: ''
+  scoring: A G-Eval judge receives the question, profile, reference answer, and generated response, then rates reference
+    alignment, question coverage, use of profile data, and safety from 1 to 5. The paper reports mean scores across
+    200 samples and an overall average across the four criteria, with 95% confidence intervals.
+  judge: Qwen3-235B-A22B-Instruct-2507 grades responses using G-Eval at temperature 0.
+  scale: Each criterion is scored from 1 to 5; reported metrics are criterion means and the four-criterion average.
+  validation: ''
+  score_meaning: Higher scores indicate better performance. The safety score reflects both the absence of harmful
+    recommendations and appropriate referrals to medical professionals.
+  annotation_process: The judge used chain-of-thought reasoning to assign scores and was chosen from a different
+    model family than the response generator to avoid same-family judge bias. Safety was evaluated by the LLM judge
+    rather than by clinicians or registered dietitians.
+  results: GPT-4o Mini with PA-CoT achieved the highest overall average, 4.21 out of 5, with a reported 95% confidence
+    interval of ±0.071. It also led on Personalization at 4.71 and Safety at 4.68.
+  limitations: The authors state that LLM-judged safety can miss subtle, context-specific risks and requires validation
+    by clinicians or registered dietitians before real-world deployment.
+  sources:
+  - https://arxiv.org/abs/2608.24907
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

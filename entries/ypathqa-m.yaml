@@ -25,6 +25,28 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 300 questions (YpathR has 2,440)
+card:
+  task: Answer each text-based pathology question with a free-text response.
+  items_built: GPT-4o generated 2,440 questions from 300 pathology papers using structured templates and extracted
+    reference answers and evidence passages; the 300 hardest questions were selected using a difficulty score reflecting
+    reasoning depth and knowledge complexity. Humans and GPT-4o evaluated candidate passages for factual support,
+    and the selected questions received standard answers and keyword annotations.
+  example: ''
+  scoring: Answers are evaluated for keyword matching, information coverage, factual faithfulness, and semantic
+    similarity, using standard answers and reference keywords. The text does not specify the scoring formulas or
+    how scores across questions are combined.
+  judge: ''
+  scale: Keyword, Coverage, Faithfulness, and Semantic Similarity; per-item scales are not specified.
+  validation: ''
+  score_meaning: ''
+  annotation_process: During benchmark construction, humans and GPT-4o jointly evaluated candidate evidence passages,
+    assigning support labels and semantic rank scores from 0.10 to 0.95. They also generated justifications for
+    these annotations.
+  results: ''
+  limitations: ''
+  sources:
+  - https://arxiv.org/abs/2510.08603
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

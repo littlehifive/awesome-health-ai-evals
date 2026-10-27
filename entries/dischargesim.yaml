@@ -44,6 +44,40 @@ facets:
   modality:
   - text
   size: not stated; 18 LLMs evaluated
+card:
+  task: Conduct a multi-turn discharge education conversation with a simulated patient, then produce a personalized
+    discharge summary and an AHRQ checklist.
+  items_built: Scenarios use 49 discharge notes sampled from MIMIC-IV, paired with patient profiles varying in health
+    literacy, education and emotional style. US-based computer science PhD students drafted 5-10 multiple-choice
+    questions per note, which two US nursing professors and one South Korean physician reviewed and revised for
+    medical accuracy and clarity.
+  example: ''
+  scoring: DeepSeek-V3 rates dialogue and summary quality; content coverage and education strategy scores are averaged
+    across six categories each, while summaries also receive ROUGE, BLEURT and UMLS-F1 scores against references.
+    Patient comprehension is measured by accuracy on a 10-question exam using either the conversation or summary,
+    and AHRQ checklist accuracy compares the generated checklist with the ground truth.
+  judge: DeepSeek-V3 assigns dialogue and summary ratings, alongside automatic reference-based metrics and exam
+    and checklist accuracy.
+  scale: Separate quality ratings, six-category coverage and strategy averages, reference-based summary metrics,
+    and percentage exam and checklist accuracy.
+  validation: On 49 cases, one licensed nurse and one licensed physician independently compared pairs of outputs
+    across five criteria. Human agreement was 85.7%, with Cohen's κ = 0.715 and Spearman's ρ = 0.720; agreement
+    between the LLM judge and experts was 79.6%, with κ = 0.591 and ρ = 0.593, both correlations p < 0.001.
+  score_meaning: Higher scores indicate better performance across all reported metrics.
+  annotation_process: 'For the human validation, experts highlighted evidence supporting their preferences, marking
+    positive evidence in green and negative evidence in red. Comprehension questions were drafted by US-based computer
+    science PhD students, then reviewed and revised for medical accuracy and clarity by three medical experts: two
+    nursing professors in the United States and one physician in South Korea. Medical experts were paid $40 per
+    hour.'
+  results: GPT-5-mini led conversation-based patient comprehension at 84.89% and AHRQ checklist accuracy at 93.80%.
+    It also led judged summary quality and factuality, scoring 4.19 and 4.84 respectively.
+  limitations: The authors note that scripted, LLM-driven patients do not fully capture real patient behavior, the
+    English MIMIC-IV scenarios have untested generalizability to other settings, and the framework has not been
+    clinically validated for deployment.
+  sources:
+  - https://doi.org/10.48448/y95c-3x07
+  - https://github.com/michaels6060/DischargeSim
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

@@ -26,6 +26,37 @@ facets:
   eval_methods: [expert_human_rating, rubric_llm_judge]
   modality: [text]
   size: RARECASE-2000 (500 narratives x 4 masking levels); 40-case audit set with 200 traces and 5,600 expert annotations
+card:
+  task: Read a clinical case, explain the diagnostic reasoning, and give a final diagnosis as evidence is progressively
+    removed.
+  items_built: Four clinicians selected 500 rare clinical narratives from MultiCaRe and created four masked versions
+    of each, yielding RARECASE-2000. For the detailed audit, they selected 40 cases for complexity and suitability,
+    standardized their findings, diagnostic progression and outcomes, and produced 200 instances comprising the
+    original narratives and four masking levels.
+  example: ''
+  scoring: Human raters assess anonymized outputs against seven clinical reasoning criteria, including diagnostic
+    correctness against the gold diagnosis, using five ordinal scores from 0 to 1; results are reported as dimension
+    scores and an overall score. A separate judge audit measures the percentage of 142 human-verified failures scored
+    at least 0.75 by an automated judge given the case, rubric, model output and gold diagnosis.
+  judge: The human panel comprised two licensed physicians and two senior clinical interns with 4.5 years of medical
+    education, with two raters per output.
+  scale: 'Each dimension: 0, 0.25, 0.50, 0.75 or 1; reported dimension and overall scores, plus failure-rate percentages.'
+  validation: Human annotations had an inter-rater reliability of ICC = 0.802. On human-verified failures, GPT-4o-mini
+    incorrectly approved 47.9%, while HuatuoGPT-o1 approved 100% of its 138 validly scored cases.
+  score_meaning: Higher scores indicate better performance on every rubric dimension. Human scores of 0.25 or below
+    define the clinical failures used in the judge audit; a higher Hallucination Approval Rate means that a judge
+    more often approves these failures.
+  annotation_process: 'The rubric was developed through iterative review of clinical literature, pilot annotation,
+    and feedback from senior clinicians. The failure-set audit used four automated judges: GPT-4o-mini, HuatuoGPT-o1-8B,
+    DeepSeek-R1-Distill-Llama-8B, and Llama-3.1-8B-Instruct.'
+  results: GPT-4o-mini scored highest overall at 0.867, compared with 0.699 for HuatuoGPT-o1-8B; its diagnostic
+    precision was 0.713 versus 0.654.
+  limitations: The authors identify the approximately 1,000-hour annotation burden, inclusion of senior interns
+    rather than only licensed clinicians, coverage of just two models and 40 rare cases, limited relevance to routine
+    cases, and validation confined to clinical medicine as limitations.
+  sources:
+  - https://arxiv.org/abs/2606.31608
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

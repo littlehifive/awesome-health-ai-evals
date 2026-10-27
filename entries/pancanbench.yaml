@@ -28,6 +28,44 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 282 questions; 3,130 rubric criteria in the paper (3,639 in the current repo and dataset card)
+card:
+  task: Answer each pancreatic cancer question from a patient or caregiver in free text.
+  items_built: PanCAN staff selected 282 Help Line questions received during 2019-2025 for clinical breadth and
+    varied complexity, removed identifying details, and had four team members independently check de-identification.
+    Two oncology fellows independently drafted rubrics for each question, AI clarified and merged them, and a third
+    fellow finalized them, producing 3,639 released criteria compared with 3,130 in the original preprint.
+  example: '"My husband has pancreatic cancer and is experiencing severe pain. What are the options for pain management?"'
+  scoring: The rubric judge assigns full credit or zero for each weighted criterion, subtracts applicable penalties,
+    floors the total at zero, and divides by the maximum positive points to obtain a question percentage; the reported
+    rubric score is the arithmetic mean across answered questions. Separately, factual errors are counted only when
+    both factuality judges reject an extracted claim, and the factual error rate is the percentage of responses
+    containing at least one such error.
+  judge: GPT-5 grades rubrics in the paper; GPT-5 and Gemini-2.5 Pro independently check factual claims with web
+    search.
+  scale: Binary weighted criteria with negative penalties; question percentages floored at zero and averaged; factual
+    error rate as a percentage of responses.
+  validation: On 40 held-out questions with 424 criteria, GPT-5's agreement with two independently grading oncology
+    fellows averaged Cohen's κ = 0.528 and F1 = 0.838, versus human-human κ = 0.518 and F1 = 0.855. Factual-error
+    detection checked against 100 manually reviewed responses had a 5.8% false positive rate and a 3.2% false negative
+    rate.
+  score_meaning: Higher rubric scores indicate better coverage of the specified clinical and informational needs,
+    with criterion weights reflecting their relative importance. A high score does not establish that every statement
+    is factually correct or that the response is suitable for an individual patient's care.
+  annotation_process: Two oncology fellows independently drafted rubrics for each question, and GPT-4.1 and Claude-Sonnet-4
+    scored the same responses to check consistency; score differences greater than 20 points on the 0-100 scale
+    triggered GPT-4.1 refinement of the rubric. AI then merged equivalent criteria while retaining distinct criteria,
+    and the original two fellows checked for missing criteria and incorrect additions. A third oncology fellow finalized
+    the criteria and weights, with authority to add, remove, modify, or merge criteria.
+  results: Among 22 models in the paper, o3 achieved the highest mean rubric score at 82.3%. GPT-4o and Gemini-2.5
+    Pro tied for the lowest factual error rate at 6.0% of responses.
+  limitations: The authors identify the small, single-disease sample, purposive English-language Help Line sampling,
+    potential LLM-judge bias, changing clinical evidence, and the inability of rubric scores to establish complete
+    factual correctness or suitability for an individual patient's care.
+  sources:
+  - https://arxiv.org/abs/2603.01343
+  - https://huggingface.co/datasets/YiminZ07/PanCanBench
+  - https://github.com/YiminZhao97/PanCanBench
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

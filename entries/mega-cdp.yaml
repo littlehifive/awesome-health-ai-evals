@@ -29,6 +29,39 @@ facets:
   eval_methods: [simulated_multi_turn, automatic_metric]
   modality: [text]
   size: 42,353 cases from 2,274 guidelines; test set 7,458 cases from 440 guidelines
+card:
+  task: Use a supplied clinical guideline to produce a step-by-step decision pathway and final decision, either
+    from a complete vignette or by asking a patient-side environment one question at a time.
+  items_built: GPT-5.2 converted guidelines published from 2020 to 2025 into reasoning trees, extracted decision
+    pathways, and synthesized cases with uniquely determined outcomes; 7,458 cases from 440 guidelines formed the
+    test set. LLM sampling inspection and human review checked consistency across trees, pathways, and vignettes
+    and excluded faulty cases; among outputs from 500 sampled guidelines, fewer than 0.5% of pathways and fewer
+    than 1% of vignettes were flagged.
+  example: ''
+  scoring: GPT-5.4 Mini compares predicted and reference steps for matching decision points and guideline logic,
+    averaging five ratings per comparison and normalizing them before dynamic time warping computes Pathway Consistency
+    Cost (PCC). Outcome accuracy measures final-decision correctness, while multi-turn success rate is the proportion
+    of cases that follow the interaction format and complete the dialogue.
+  judge: GPT-5.4 Mini grades step-level consistency.
+  scale: Five-point step ratings, normalized to 0-1; lower PCC is better, while higher outcome accuracy and multi-turn
+    success rate are better.
+  validation: Across 200 pathway pairs, PCC agreed with aggregated preferences from two independent human annotators
+    in 90.0% of comparisons, with group rates of 88.5% and 91.5%. Agreement between the two annotators was also
+    90.0%.
+  score_meaning: For binary step matching, the thresholds are 0.7 for GPT-5.4 Mini, 0.9 for Qwen3-8B, and 0.2 for
+    BERTScore. PCC is the accumulated pathway alignment cost divided by the alignment path length, rather than the
+    percentage of incorrect final decisions.
+  annotation_process: Before formal evaluation, the scoring prompt was iteratively refined against human review.
+    Human annotators judged whether each reference step's best-matched predicted step was a correct match in outputs
+    sampled from seven models. Matching thresholds were selected using F1 scores against these judgments, considering
+    both the best threshold and a nearby stable range.
+  results: Among 16 models, GPT-5.4 had the best single-turn pathway consistency, with PCC of 28.41%, while Qwen3-235B-A22B
+    had the highest outcome accuracy at 75.81%. Claude-Sonnet-4.6 was the best-performing model in the multi-turn
+    setting, but its score is not given in the supplied text.
+  limitations: ''
+  sources:
+  - https://arxiv.org/abs/2608.26592
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

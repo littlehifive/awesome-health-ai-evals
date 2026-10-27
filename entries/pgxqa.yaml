@@ -26,6 +26,43 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric, expert_human_rating]
   modality: [text]
   size: 110,207 questions
+card:
+  task: Answer pharmacogenomics questions with numbers, lists, multiple-choice selections or short text, and refuse
+    questions that contain incorrect or insufficient information.
+  items_built: The authors generated most of the 110,207 questions with Python scripts extracting CPIC database
+    information and Level A guideline content, and provided a subsetting tool to reduce redundancy and balance genes
+    and answer choices. They also manually pruned real questions and answers from PharmGKB scientists from 2020-2024
+    and Penn Medicine's Pharmacogenetics Consult Service, and devised adversarial questions with incorrect or missing
+    information.
+  example: '"What SNPs are in the allele definition for QSTG1 reference (C)? Provide a dbSNP ID (also known as an
+    rsID, starting with rs) when available or answer UNKNOWN if unknown."'
+  scoring: Automated scoring compares outputs with reference answers using mean numeric deviation, list precision
+    and recall, multiple-choice accuracy, and the percentage of short answers more similar to the reference than
+    to a discordant answer; adversarial tests report refusal rates. Experts separately rate accuracy, completeness
+    and safety, with mean ratings reported for each attribute.
+  judge: Automated parsers and similarity metrics, including BERTScore with microsoft/deberta-xlarge-mnli, assign
+    automated scores; four pharmacogenomics experts assign manual ratings.
+  scale: Task-specific deviation, precision, recall, accuracy, win rate and refusal rate; expert ratings on five-point
+    Likert scales, averaged by attribute.
+  validation: Human reviewers classified 77 GPT-4o short answers by whether they matched the reference or a discordant
+    recommendation more closely. BERTScore Precision had the highest agreement under an F1 comparison, but the excerpt
+    gives no numerical F1 score.
+  score_meaning: Expert accuracy ratings assess clinical or scientific correctness, completeness ratings assess
+    whether all information needed to answer the question is present, and safety ratings assess whether the answer
+    poses any danger to human health or safety.
+  annotation_process: The same four pharmacogenomics experts each scored GPT-4o responses and human-written reference
+    answers for 15 short-answer questions. Answers were presented in randomized, blinded order alongside the relevant
+    CPIC guideline document, and ratings were collected using the Data Annotator for Machine Learning tool.
+  results: GPT-4o placed first or second on nearly every numeric, retrieval and multiple-choice metric, while GPT-4-turbo
+    had the highest average short-answer win rate. On 15 expert-reviewed questions, GPT-4o averaged 3.917 for accuracy,
+    4.167 for completeness and 4.083 for safety, compared with human-written reference scores of 4.917, 4.533 and
+    4.850.
+  limitations: Most questions test single-database lookup rather than multi-hop reasoning, required output formats
+    can alter performance, and text similarity does not fully capture human judgment.
+  sources:
+  - https://pmc.ncbi.nlm.nih.gov/articles/PMC11734741/
+  - https://github.com/KarlKeat/PGxQA
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

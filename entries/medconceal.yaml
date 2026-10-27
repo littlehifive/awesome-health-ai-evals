@@ -28,6 +28,38 @@ facets:
   eval_methods: [simulated_multi_turn, expert_human_rating]
   modality: [text]
   size: "300 cases; 600 clinician-LLM interactions; 159 human clinicians (Prolific)"
+card:
+  task: Conduct a dialogue with a simulated patient to uncover hidden concerns and submit concern categories and
+    descriptions, or address the primary concern and guide the patient toward a target care plan.
+  items_built: The authors converted 300 clinician-answered r/AskDocs discussions, filtered for longer exchanges
+    about common conditions, into de-identified patient charts and intervention targets. Hidden concerns came from
+    prior literature and a four-category taxonomy refined with clinicians, who reviewed pilot cases and simulator
+    behavior for clinical plausibility.
+  example: ''
+  scoring: Confirmation scoring compares submitted findings with gold concern categories and case-specific statements
+    to calculate precision, recall and F1, while simulator traces determine the fraction of concerns revealed and
+    matches made without disclosure. Intervention success is whether the simulator marks the primary concern addressed
+    and the target achieved, reported as a success rate across cases alongside timing and communication-style metrics.
+  judge: A shared turn evaluator supplies simulator-state scores, and automated finding-matching and style-analysis
+    pipelines supply other scores; grader model names are not given.
+  scale: 'Turn-level rubric: 10 dimensions scored 0 to 1; outcomes: reveal fractions, precision/recall/F1, intervention
+    success rates and turns to addressing.'
+  validation: ''
+  score_meaning: Values Detected is the mean number of patient values identified in a conversation. Higher Readability
+    scores indicate easier-to-read dialogue, while lower Word/Turn values indicate more concise dialogue.
+  annotation_process: The turn evaluator scores each clinician utterance using a recent window of dialogue history,
+    and all metrics are computed in the same way for human and AI clinicians. A separate hybrid reference uses Claude
+    Sonnet 4.5 to summarize the human dialogues and scores those summaries as submitted findings, alongside the
+    clinicians' original submissions.
+  results: At eight turns, Claude Sonnet 4.5 had the highest AI intervention success rate, 0.293, versus 0.427 for
+    159 human clinicians; Doctor-R1 matched 0.427 with 20 turns. Llama3-OpenBioLLM-8B achieved the highest extended-dialogue
+    confirmation Reveal Rate, 0.944, while no model led across all confirmation metrics.
+  limitations: The authors state that extended AI dialogues are substantially longer than human conversations and
+    are therefore not direct matched-length comparisons.
+  sources:
+  - https://arxiv.org/abs/2604.08788
+  - https://github.com/FAIRHealth/MedConceal
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

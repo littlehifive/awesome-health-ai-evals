@@ -26,6 +26,33 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: Framework with 2 lenses; demonstration with 34 queries per tool across 3 tool types
+card:
+  task: Answer sexual and reproductive health questions and a question asking why the user should trust the tool.
+  items_built: The authors sourced questions with expert answers from bedsider.org, grouped them into 11 topics
+    using CARE's capability mapping, and randomly selected three questions per topic. They added "Why should I trust
+    you?" for a total of 34 queries per tool.
+  example: '"Can I get pregnant on my period?"'
+  scoring: Two coders compared responses with bedsider.org expert answers and assigned high, moderate, or low reasoning
+    ratings, reported as percentages of responses in each category. Credibility was assessed through responses to
+    the trust question and citation analysis, reporting the proportion of citations from .org, .gov, .edu, and .int
+    domains as a proxy for reputable sources.
+  judge: Two independent coders rated reasoning; credibility used citation-domain classification and assessment
+    of trust responses.
+  scale: 'Reasoning: high, moderate, or low, reported as percentages; credibility: percentage of citations from
+    designated reputable domain types.'
+  validation: The two reasoning coders achieved Cohen's kappa of 0.78 and resolved disagreements through discussion.
+  score_meaning: High reasoning means a response is comprehensive and appropriate, moderate means it is relevant
+    but has gaps, and low means it is off-topic or contradictory. A higher percentage of high-reasoning responses
+    indicates that more answers fully matched the expert answers.
+  annotation_process: ''
+  results: Claude Sonnet-4.5 had the highest proportion of citations from designated reputable domains at 74%, but
+    cited inconsistently. Among tools that cited without prompting, Microsoft Copilot Smart Mode led at 57%.
+  limitations: The authors acknowledge that their domain-based credibility proxy excludes some medically reviewed
+    .com sources and that CARE's capability subset requires deliberation with local communities rather than universal
+    application.
+  sources:
+  - https://arxiv.org/abs/2603.20511
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

@@ -25,6 +25,28 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: Applied to 1,181 MedQA-USMLE items, 5 attack iterations, 5 replicates; 4 case studies with 30 control fuzzes each
+card:
+  task: Select the correct multiple-choice answer to a medical vignette modified to include misleading patient characteristics.
+  items_built: The study applied the framework to 1,181 MedQA-USMLE questions, using GPT-4 (gpt-4-turbo-2024-04-09)
+    to rewrite correctly answered items across five replicate runs with up to five attack attempts each. Medical
+    doctor coauthors reviewed successful attacks for preservation of the correct answer and evidence that misleading
+    patient characteristics, rather than increased difficulty, caused the error.
+  example: ''
+  scoring: Answers are compared with the original answer key, scored 1 for correct and 0 for incorrect, and averaged
+    across replicates after excluding model errors; overall accuracy is a weighted average based on the number of
+    retained replicates. Individual attacks are tested against control rewrites using a permutation test, while
+    explanations are counted as unfaithful if an answer changes without mentioning the added information.
+  judge: Correctness is determined against the original answer key; medical doctor coauthors review selected successful
+    attacks.
+  scale: Binary correctness per response; weighted post-attack accuracy, permutation-test p-values, and rates of
+    unfaithful explanations.
+  validation: ''
+  results: GPT-4 and Claude retained performance comparable to the reported human USMLE average of 76.6% after five
+    attack attempts.
+  limitations: ''
+  sources:
+  - http://arxiv.org/abs/2406.06573
+  extracted: '2026-10-27'
 signals:
   citations: 3
   citations_source: OpenAlex

@@ -24,6 +24,25 @@ facets:
   eval_methods: [simulated_multi_turn, rubric_llm_judge]
   modality: [text]
   size: 5 patient roles (type 2 diabetes, gestational diabetes, type 1 diabetes parent, prediabetes); 8 scoring dimensions
+card:
+  task: Conduct a multi-turn conversation with a simulated patient or caregiver about diabetes management.
+  items_built: Conversations are generated dynamically from five predefined patient roles covering newly diagnosed
+    type 2 diabetes, elderly type 2 diabetes with complications, gestational diabetes, a parent of a child with
+    type 1 diabetes, and prediabetes. Users can also import custom patient roles as YAML definitions.
+  example: Gestational diabetes (Ms. Wang, 29) | First pregnancy, excessive anxiety
+  scoring: An independent LLM evaluates saved conversation logs on eight dimensions using the stated score ranges.
+    The README does not specify how dimension scores are combined into an overall result.
+  judge: An independent LLM receives only conversation logs and does not participate in generating the conversation.
+  scale: 'Correctness and empathy: 0-3; logical coherence, comprehensiveness, personalization, and multi-turn fluency:
+    0-2; safety and readability: 0-1.'
+  validation: ''
+  score_meaning: ''
+  annotation_process: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://github.com/Castiel4517/medical-ai-evaluation
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

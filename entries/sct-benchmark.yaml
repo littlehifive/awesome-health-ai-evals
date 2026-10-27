@@ -26,6 +26,27 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 750 questions
+card:
+  task: Read a clinical vignette and rate how new information changes the likelihood of a proposed diagnosis or
+    management decision on a five-point scale from much less likely to much more likely.
+  items_built: The authors curated 750 questions from ten medical datasets spanning North America, Asia, and Australia,
+    with nine datasets previously unreleased. Each test was validated through scoring by an expert reference panel
+    following standard script concordance test methodology.
+  example: ''
+  scoring: Responses receive maximum credit for matching the expert panel's most common answer and partial credit
+    for other answers selected by panel members. Results are reported as the mean percentage of the maximum possible
+    score, with the primary analysis aggregating performance across prompting conditions.
+  judge: Reference panels of experienced clinicians provide the response distributions used for scoring.
+  scale: Five response options from −2 to +2; full or partial credit per item, reported as mean percentage of maximum
+    possible score.
+  validation: ''
+  results: ''
+  limitations: The authors state that scores depend on prompting and context, aggregate results can hide variation,
+    reference panels may not transfer across healthcare settings, and concordance scoring can penalize correct departures
+    from expert consensus.
+  sources:
+  - https://doi.org/10.1101/2025.02.11.25321822
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

@@ -27,6 +27,40 @@ facets:
   eval_methods: [simulated_multi_turn, rubric_llm_judge]
   modality: [text]
   size: 1,387 cases across 17 specialties (292 MedQA, 646 NEJM, 449 MedMCQA), each with several persona variants
+card:
+  task: Question a simulated patient about a clinical case and give a final free-form diagnosis within the allowed
+    turn budget.
+  items_built: The authors combined 449 MedMCQA, 292 MedQA, and 646 NEJM cases, then used GPT-4o to extract structured
+    clinical records that three resident physicians checked against the original vignettes and corrected. Cases
+    received Easy, Medium, or Hard labels from four reasoning models sampled six times each, and patient personas
+    varied communication style while keeping clinical content fixed.
+  example: '"I''ve noticed significant peripheral edema in my ankles and gained 10 pounds in 5 days despite no change
+    in my caloric intake"'
+  scoring: GPT-4o judges whether each final diagnosis matches the gold diagnosis in meaning, assigning correct or
+    incorrect; accuracy is the percentage correct across cases, and Drop is single-turn minus multi-turn accuracy.
+    Separate metrics average the fraction of available clinical slots elicited and questions judged relevant within
+    each case, then across cases, and report early-stopping rates and average turns.
+  judge: GPT-4o assigns diagnosis correctness and dialogue-quality judgments.
+  scale: Binary diagnosis correctness and question relevance; percentage accuracy, slot coverage, relevance and
+    early stopping, percentage-point accuracy drop, and mean turns.
+  validation: Three resident physicians independently labeled 300 dialogues, with majority vote as the reference;
+    the judging prompt was finalized on 100 dialogues and frozen for 200 held-out dialogues. GPT-4o achieved approximately
+    88-90% agreement with physician-majority diagnosis labels, with κ approximately 0.70-0.80. Difficulty labels
+    had 88.9% exact agreement with blinded physician-majority labels and weighted κ of 0.88.
+  score_meaning: Judge failures count as incorrect and are reported explicitly.
+  annotation_process: Physician annotators were recruited through the authors' academic and clinical networks based
+    on medical training and relevant clinical expertise. They provided informed consent and were paid 5 USD per
+    hour; no crowdsourcing platforms or members of the general public were involved.
+  results: Kimi-K2.5 achieved the best multi-turn diagnostic accuracy, 41.9%, under a 20-turn budget. On a separate
+    set of 60 difficult cases, three resident physicians averaged 48.33% accuracy versus 26.67% for the five tested
+    models, using 7.26 versus 12.32 turns on average.
+  limitations: The benchmark covers text-based, single-encounter consultations and does not model longitudinal records
+    or imaging.
+  sources:
+  - https://arxiv.org/abs/2609.12851
+  - https://huggingface.co/datasets/youssefkhalil320/MedRoundsQA
+  - https://github.com/youssefkhalil320/MedRoundsQA
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

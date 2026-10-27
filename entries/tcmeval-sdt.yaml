@@ -28,6 +28,32 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric]
   modality: [text]
   size: 300 cases
+card:
+  task: For each clinical record, extract relevant clinical information, select TCM pathogenesis and syndromes from
+    ten-option lists, and write an explanatory summary.
+  items_built: TCM experts and senior TCM students curated records from CNKI, Wanfang, classical Chinese medical
+    texts and hospitals; experts screened and annotated 300 cases using the Baibu Knowledge Engine, excluding duplicates,
+    rare cases and records scoring below 6 on a ten-item quality scale. A Python script built the multiple-choice
+    questions using annotated correct answers and randomly selected alternatives from the dataset.
+  example: ''
+  scoring: Evaluation scripts compare extracted clinical information with expert annotations, assess correct and
+    incorrect pathogenesis and syndrome selections against answer keys, and calculate ROUGE-L against reference
+    summaries. The four task scores contribute to the total weighted score with weights of 0.2, 0.3, 0.4 and 0.1,
+    respectively.
+  judge: Evaluation scripts score outputs against TCM expert annotations and reference summaries.
+  scale: Clinical-information overlap, answer-key-based reasoning scores and ROUGE-L; final weighted total.
+  validation: ''
+  score_meaning: A higher total score indicates better performance across the four syndrome-differentiation tasks.
+  annotation_process: TCM experts used the Baibu Knowledge Engine to annotate clinical information, pathogenesis,
+    syndromes and their relationships. They included only information relevant to diagnosis, annotated complete
+    phrases to preserve clinical meaning, and marked independently meaningful entities separately.
+  results: ChatGLM-130B achieved the highest total weighted score, 24.7378, on 50 randomly selected training records,
+    followed by Gemini 1.5-pro at 23.1816 and ChatGPT at 21.4753.
+  limitations: The authors report a small dataset with an uneven distribution of disease types, including only four
+    records related to Qi, blood and fluid disorders, and no rare-disease cases.
+  sources:
+  - https://doi.org/10.1038/s41597-025-04772-9
+  extracted: '2026-10-27'
 signals:
   citations: 20
   citations_source: OpenAlex

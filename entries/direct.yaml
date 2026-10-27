@@ -42,6 +42,37 @@ facets:
   modality:
   - text
   size: 511 clinical notes
+card:
+  task: Read a patient's clinical note, identify the final diagnosis, and extract supporting observations with explanations
+    of how they support the diagnosis.
+  items_built: The authors selected 511 MIMIC-IV notes across 25 disease categories in five medical domains and
+    removed text revealing the final diagnosis; nine clinical physicians annotated observations and rationales using
+    a guideline-based knowledge graph, and three senior medical experts checked accuracy and completeness. Physicians
+    added one missing supporting observation to each of 73 notes.
+  example: ''
+  scoring: The predicted diagnosis receives 1 if it matches the reference diagnosis and 0 otherwise, and these scores
+    are averaged. Llama3-8B compares predicted observations and rationales with physician annotations to assess
+    observation completeness and explanation completeness and faithfulness.
+  judge: Diagnosis matching uses the reference answer, and Llama3-8B judges observation and rationale matches.
+  scale: 'Diagnosis: 0 or 1 per note, reported as mean accuracy; observation and rationale matching: yes or no.'
+  validation: Three physicians, two from Cardiology and one from Gastroenterology, assessed GPT-4 predictions on
+    100 randomly selected notes, with agreement by at least two defining a match. The largest reported difference
+    in automatic evaluation results between Llama3-8B and GPT-4 Turbo did not exceed 5%.
+  score_meaning: An observation counts as a match when it expresses the same description as the physician's annotation,
+    even if the extracted text differs in length. A matching rationale must be meaningful and complete enough to
+    be understood on its own.
+  annotation_process: Nine clinical physicians created the reference annotations, which three senior medical experts
+    then checked for accuracy and completeness. Annotators followed the diagnostic knowledge graph, selecting observations
+    from the notes and linking written rationales to diagnoses. The automatic grader received no examples for observation
+    matching and five examples for rationale matching.
+  results: ''
+  limitations: The authors note limited disease coverage, a single final diagnosis without inter-diagnostic relationships,
+    evaluation that emphasizes following the supplied graph, and a baseline that does not address hallucinations
+    or necessarily use optimal prompts.
+  sources:
+  - https://arxiv.org/abs/2408.01933
+  - https://github.com/wbw520/DiReCT
+  extracted: '2026-10-27'
 signals:
   citations: 13
   citations_source: OpenAlex

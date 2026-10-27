@@ -24,6 +24,32 @@ facets:
   eval_methods: [simulated_multi_turn, rubric_llm_judge, automatic_metric]
   modality: [text]
   size: 303 cases; 8,857 checklist items
+card:
+  task: Interview a standardized patient over multiple turns, propose a differential diagnosis, select laboratory
+    or imaging tests, and give a final diagnosis.
+  items_built: The Baichuan-M3 Team transformed diverse clinical cases into 303 cases across 12 departments and
+    annotated 8,857 ground-truth checklist items covering OSCE-derived clinical points. The test-selection pool
+    contains 38 categories.
+  example: ''
+  scoring: GPT-4.1 checks inquiry coverage against OSCE-derived clinical points in four SCAN dimensions, excluding
+    repeated non-diagnostic content such as self-introductions. Test selection receives a weighted F1 score that
+    gives greater weight to recall of essential tests, while diagnosis is scored by ICD-10 hierarchical matching
+    that rewards correct leaf-node matches and penalizes off-branch predictions.
+  judge: GPT-4.1 grades inquiry coverage; test selection and diagnosis use weighted F1 and ICD-10 matching, respectively.
+  scale: Checklist coverage for inquiry, weighted F1 for test selection, and ICD-10 hierarchical match for diagnosis;
+    three separate scores.
+  validation: ''
+  score_meaning: Higher Safety Stratification scores indicate greater sensitivity to red-flag symptoms and critical
+    risks. Higher Associative Questioning scores indicate better ability to uncover clinical clues beyond the patient's
+    initial description.
+  annotation_process: ''
+  results: Baichuan-M3 led all three stages, scoring 74.9 in clinical inquiry, 72.1 in laboratory testing, and 74.4
+    in diagnosis. It exceeded the baseline of attending physicians from Grade-A tertiary hospitals with at least
+    five years of clinical experience.
+  limitations: ''
+  sources:
+  - https://arxiv.org/abs/2602.06570
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

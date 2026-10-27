@@ -27,6 +27,27 @@ facets:
   eval_methods: [rubric_llm_judge, simulated_multi_turn, expert_human_rating]
   modality: [text]
   size: 50 synthetic members x 3 sessions (up to 30 counsellor replies each); 18 models evaluated
+card:
+  task: Provide mental-health support to each simulated patient across three text sessions, using a shared memory
+    log from earlier sessions.
+  items_built: The benchmark contains 50 synthetic patient profiles, each paired with three sessions built around
+    a clinical formulation and a situation that evolves between sessions. Each patient's schedule, time context
+    and random seeds are fixed so every model encounters the same sequence of situations.
+  example: ''
+  scoring: An LLM judge evaluates every counselor reply against the rubric using the conversation so far and assigns
+    a severity. The benchmark reports the mean and 99th percentile of conversation severity across all patient-session
+    pairs, with lower scores indicating fewer or less severe problems.
+  judge: GPT-6.1 Sol is the default judge.
+  scale: Severity per counselor reply; mean and 99th percentile conversation severity, lower is better.
+  validation: ''
+  score_meaning: ''
+  annotation_process: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://arxiv.org/abs/2610.22314
+  - https://github.com/SWORDHealth/mind-eval
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

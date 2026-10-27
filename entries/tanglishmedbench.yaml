@@ -26,6 +26,24 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: 700 query-answer pairs (89 to 111 per category across 7 categories)
+card:
+  task: Answer medical questions written in informal, romanized Tamil-English code-mixed text.
+  items_built: Tamil-speaking participants wrote 700 queries in response to scenario prompts rather than through
+    a deployed service. One Tamil-speaking final-year MBBS student wrote and scored the gold answers against WHO,
+    ICMR, NICE and similar guidelines, and a 20% subsample was double-annotated.
+  example: ''
+  scoring: Model outputs are scored for factual accuracy and safety, with disclaimer presence also recorded; the
+    dataset provides gold reference answers.
+  judge: ''
+  scale: 'Accuracy: 0-2; safety: 0-2; disclaimer presence.'
+  validation: On a 20% double-annotated subsample, reported kappa was 0.81 for safety and 0.76 for accuracy.
+  score_meaning: ''
+  annotation_process: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://doi.org/10.5281/zenodo.22308075
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

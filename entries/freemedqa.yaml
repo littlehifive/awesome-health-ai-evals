@@ -25,6 +25,33 @@ facets:
   eval_methods: [mcq_exact_match, rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 10,278 paired MC and free-response questions
+card:
+  task: Answer medical knowledge questions in paired multiple-choice and free-response formats.
+  items_built: The authors used GPT-4o with ten manually curated examples to filter 14,965 MultiMedQA questions
+    for answerability without options, retaining 10,278, then used regular expressions to rewrite multiple-choice
+    wording for free response. A senior medical student, blinded to GPT-4o's decisions, checked the filtering on
+    100 randomly sampled questions.
+  example: ''
+  scoring: Multiple-choice answers are checked against the answer key by string matching; GPT-4o judges whether
+    each free-response answer matches or contains the correct answer, without seeing the question. Accuracy is reported
+    separately for each format across five experimental runs, with standard deviations.
+  judge: String matching grades multiple-choice answers, and GPT-4o grades free-response answers.
+  scale: Correct or incorrect per answer; percentage accuracy for each format.
+  validation: ''
+  score_meaning: Random guessing corresponds to 25% accuracy on the multiple-choice questions. The authors attribute
+    the 0.15% free-response accuracy under complete question masking to evaluation noise rather than genuinely correct
+    answers.
+  annotation_process: For the medical-student evaluation, GPT-4o automatically compared multiple-choice responses
+    with the stored correct answers and assessed free-response answers for equivalent meaning.
+  results: Across GPT-4o, GPT-3.5, and Llama-3-70B-Chat, accuracy fell by an average of 39.43 percentage points
+    from multiple-choice to free-response questions. Senior medical students scored 39.43% on multiple-choice questions
+    and 17.79% on free-response questions in a 350-question subset.
+  limitations: The authors note that the benchmark covers only English questions from one source, its LLM-based
+    filtering may retain questions that cannot be answered without options, and its GPT-4o grader can introduce
+    noise, particularly false positives.
+  sources:
+  - https://doi.org/10.1038/s41598-025-26036-7
+  extracted: '2026-10-27'
 signals:
   citations: 19
   citations_source: OpenAlex

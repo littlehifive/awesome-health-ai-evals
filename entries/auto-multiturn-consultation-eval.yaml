@@ -25,6 +25,33 @@ facets:
   eval_methods: [simulated_multi_turn, automatic_metric]
   modality: [text]
   size: 3 test sets (MedQA 1,127; QMax 1,483; Sample Exam 299 instances)
+card:
+  task: Ask a simulated patient questions over multiple turns to obtain missing medical information, then answer
+    a multiple-choice question using the consultation history.
+  items_built: The authors reformulated physician-exam questions into 1,127 MedQA cases, 1,483 QMax cases from purchased
+    USMLE-RX materials, and 299 Sample Exam cases from USMLE practice materials, excluding questions without patient
+    information and removing duplicate Sample Exam questions. Each question was split into medical information and
+    a final task, and ChatGPT generated an initial patient request and extracted medical information into key-value
+    pairs.
+  example: ''
+  scoring: ROUGE-1 recall, precision, and F1 compare the patient's dialogue with the extracted medical information
+    values and the doctor's dialogue with the corresponding keys. Final-task accuracy measures correct multiple-choice
+    answers against the answer key, while average consultation turns and output lengths are reported separately.
+  judge: Automated ROUGE-1 comparisons and correctness checks against the multiple-choice answer key assign the
+    scores.
+  scale: ROUGE-1 recall, precision, and F1; final-task accuracy; average turns and output length.
+  validation: ''
+  score_meaning: Higher patient recall means more medical information was revealed, while higher patient precision
+    means the responses contained a greater density of that information. The authors interpret higher doctor recall
+    and F1 as indicating fewer hallucinations, and higher doctor precision as indicating more professional language
+    because a greater proportion of the output contains medical terms.
+  annotation_process: ''
+  results: ''
+  limitations: The authors state that dataset size, potential bias, and the limited number of medical examination
+    examples restrict evaluation of comprehensive abilities in real-world consultations.
+  sources:
+  - http://arxiv.org/abs/2309.02077
+  extracted: '2026-10-27'
 signals:
   citations: 3
   citations_source: OpenAlex

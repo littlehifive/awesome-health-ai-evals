@@ -25,6 +25,36 @@ facets:
   eval_methods: [automatic_metric, simulated_multi_turn]
   modality: [text]
   size: up to 2,597 patient simulations (valid admissions after filtering; final count after keeping one admission per patient not confirmed)
+card:
+  task: Ask a simulated patient follow-up questions over multiple rounds and return a ranked list of up to 10 likely
+    diagnoses.
+  items_built: The authors filtered MIMIC-III admissions to those with fewer than five diagnoses, excluding newborn
+    and deceased patients and requiring complete structured data and a discharge summary, leaving 2,597 admissions.
+    They retained one admission per patient, leaving 2,452, then randomly selected 500 and compiled each patient's
+    clinical records into a JSON file.
+  example: ''
+  scoring: Predicted diagnoses are mapped to ICD-9 codes through the BioPortal API and counted as correct when their
+    first three digits match a recorded diagnosis; Hit@5 and Hit@10 report whether any diagnosis matches, while
+    Recall@5 and Recall@10 measure the fraction of recorded diagnoses recovered. The evaluation also reports the
+    average number of questions per case, and separately averages human truthfulness and relevance ratings across
+    patient questions and annotators.
+  judge: Diagnosis scores use three-digit ICD-9 code matching; three medical students independently rate simulated
+    patient responses.
+  scale: Hit@K is binary per case; Recall@K ranges from 0 to 1; average questions per case; patient-response truthfulness
+    and relevance each range from 0 to 2.
+  validation: Three medical students independently evaluated question-answer histories for 100 randomly selected
+    patients, giving overall mean scores of 1.95 out of 2 for truthfulness and 1.79 out of 2 for relevance.
+  score_meaning: For truthfulness against the patient's JSON record, 0 means incorrect, 1 partially correct, and
+    2 fully correct. For relevance to the doctor's question, 0 means irrelevant, 1 somewhat related, and 2 highly
+    relevant.
+  annotation_process: The reviewed logs came from the multi-agent setting using GPT-4.1. Raters assessed truthfulness
+    against each patient's JSON record and relevance against the doctor's question.
+  results: ''
+  limitations: The system uses only textual and tabular data, and the simulated patient does not volunteer important
+    information unless asked.
+  sources:
+  - https://arxiv.org/abs/2507.02616
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

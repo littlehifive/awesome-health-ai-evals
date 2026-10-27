@@ -32,6 +32,28 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 12,723 English, 34,251 simplified Chinese, and 14,123 traditional Chinese questions
+card:
+  task: Choose the single best answer from four options for each medical exam question, using the supplied medical
+    textbook collection.
+  items_built: The authors collected 12,723 English, 34,251 simplified Chinese, and 14,123 traditional Chinese questions
+    and answer options from publicly accessible real and mock licensing exams, removed duplicates, and randomly
+    split questions into 80% training, 10% development, and 10% test sets. They shuffled options and randomly removed
+    one wrong option from each US and mainland China question to produce four-option items.
+  example: '"Which of the following symptoms belongs to schizophrenia?"'
+  scoring: The selected option is compared with the correct answer, and accuracy is reported as the percentage of
+    test questions answered correctly for each exam dataset.
+  judge: Exact match with the answer key.
+  scale: Correct or incorrect per question; test accuracy from 0% to 100%.
+  validation: ''
+  results: BIOBERT-LARGE achieved the best reported test accuracy on USMLE at 36.7% and TWMLE at 42.0%; the best
+    reported simplified Chinese test accuracy was 70.1%. No human baseline was reported because the authors cited
+    high variation in examinee scores.
+  limitations: The authors identify evidence retrieval as a bottleneck because their retrieval system cannot perform
+    multi-hop reasoning and often returns passages that match only part of a clinical case.
+  sources:
+  - https://arxiv.org/abs/2009.13081
+  - https://github.com/jind11/MedQA
+  extracted: '2026-10-27'
 signals:
   citations: 714
   citations_source: OpenAlex

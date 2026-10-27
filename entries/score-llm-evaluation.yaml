@@ -28,6 +28,34 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: "5 criteria rated on a 3-point (applied study) or 5-point (original proposal) scale"
+card:
+  task: Answer open-ended healthcare questions, with repeated answers to the same question assessed for consistency.
+  items_built: The authors proposed the framework for expert assessment of open-ended healthcare answers and tested
+    it on commonly asked patient questions about general ophthalmology and medications. Domain experts manually
+    crafted the question-answer pairs, with ophthalmology pairs drawn from a previous study.
+  example: '"Are there any genetic factors that influence azathioprine use?"'
+  scoring: Clinical domain experts rate each answer on five criteria, judging clinical evidence, professional consensus,
+    bias, potential harm and supporting explanations, and compare repeated answers for contextual consistency. Scores
+    are averaged across questions separately for each criterion.
+  judge: A board-certified senior consultant ophthalmologist, DT, and a principal pharmacist, JO, graded the demonstration
+    responses.
+  scale: Each criterion uses a 1 to 5 Likert scale, from strongly disagree to strongly agree; results are mean scores
+    per criterion.
+  validation: ''
+  score_meaning: The intermediate ratings are 2 for disagree, 3 for neutral and 4 for agree. One answer received
+    3 out of 5 for Consensus because it listed symptoms that were not incorrect but were not typically observed
+    in diabetic retinopathy.
+  annotation_process: In the azathioprine example, two additional responses were generated to the same question,
+    giving three responses for assessing reproducibility. For the quantitative comparison, BLEU, ROUGE-1, ROUGE-L
+    and BERTScore compared generated answers against paired reference answers manually crafted by domain experts.
+  results: The only model tested, GPT4-omni, averaged 5, 4.2, 5, 4.6 and 5 on Safety, Consensus, Objectivity, Reproducibility
+    and Explainability for ophthalmology questions. Its corresponding medication scores were 4.8, 5, 5, 4.4 and
+    4.4.
+  limitations: The authors state that the framework needs specialty-specific refinement and that model-based grading
+    cannot replace domain-expert human evaluation without further validation.
+  sources:
+  - http://arxiv.org/abs/2407.07666
+  extracted: '2026-10-27'
 signals:
   citations: 12
   citations_source: OpenAlex

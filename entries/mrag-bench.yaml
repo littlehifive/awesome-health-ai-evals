@@ -28,6 +28,35 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric, rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 14,816 test samples across 13 datasets
+card:
+  task: Answer medical multiple-choice or long-form questions, extract information, or identify the relation between
+    two medical entities, depending on the item.
+  items_built: The authors combined existing datasets, including medical exams, biomedical research questions, MultiMedQA
+    and randomly selected ADInt and DRKG samples, with 1,200 Traditional Chinese Medicine questions they constructed.
+    They also collected 1,253 Chinese queries from an online medical consultation platform, with an expert panel
+    checking their safety.
+  example: ''
+  scoring: Closed-form tasks use accuracy or strict micro-F1, with the multiple-choice results averaged over five
+    runs and reported with standard deviations. For long-form answers, GPT-4 judges pairs of responses to the same
+    query on usefulness, readability, knowledge and reasoning; each model pair has at least 80 matches per axis,
+    and outcomes update Elo ratings initialized at 1,000 with a K factor of 40.
+  judge: GPT-4 judges long-form answers, and medical experts annotate part of the matches.
+  scale: Closed-form accuracy or strict micro-F1; long-form win, loss or draw converted to separate Elo ratings
+    for four axes.
+  validation: Medical experts annotated part of the long-form matches to check judging quality; no agreement figures
+    are reported.
+  score_meaning: Higher Elo ratings indicate stronger performance relative to the other models in the arena on the
+    relevant evaluation axis, rather than a percentage of correct answers.
+  annotation_process: 'The arena compares four configurations: GPT-4 and GPT-3.5, each with and without retrieval-augmented
+    generation. Each match randomly selects two responses to the same query.'
+  results: GPT-4 (gpt-4o) with RAG led the five reported multiple-choice datasets with 85.2% average accuracy, compared
+    with 80.2% without RAG. In long-form evaluation, it led usefulness at 1270.9 Elo and reasoning at 1259.4 Elo,
+    while GPT-4 without RAG led readability and GPT-3.5 without RAG led knowledge.
+  limitations: Resource limits prevented evaluation of Gemini, Claude-3 and Grok, and the experiments did not evaluate
+    more advanced RAG workflows such as iterative retrieval.
+  sources:
+  - https://arxiv.org/abs/2601.16503
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

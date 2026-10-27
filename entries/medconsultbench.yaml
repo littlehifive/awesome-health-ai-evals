@@ -26,6 +26,42 @@ facets:
   eval_methods: [simulated_multi_turn, rubric_llm_judge, automatic_metric]
   modality: [text]
   size: "number of test cases not stated in the parts read; 22 metrics; 19 LLMs evaluated"
+card:
+  task: Conduct a text consultation with a simulated patient, gathering history, giving diagnoses and a treatment
+    plan, and answering follow-up questions while adjusting the plan to patient constraints.
+  items_built: The authors built structured cases and inquiry resources from 35,792 de-identified online consultation
+    sessions across 17 clinical departments, supplemented by clinical guidelines. An LLM extracted minimal clinical
+    statements, which were clustered and normalized into Atomic Information Units and reviewed by clinicians; diagnosis
+    targets and medication safety resources also underwent clinical review.
+  example: ''
+  scoring: An automated harness compares elicited information with required evidence sets and inquiry constraints,
+    compares ICD-11-normalized diagnoses with gold labels, and checks treatment plans against medication safety
+    rules, with LLM judging for additional quality measures. Twelve primary metrics contribute to the aggregate
+    leaderboard score, while ten secondary metrics are reported separately; the supplied text does not give the
+    aggregation formula.
+  judge: Deterministic scoring and a rule-based clinical safety critic assign scores, with Claude Sonnet 3.7 used
+    as an LLM judge and Claude Sonnet 3.5 used for reliability testing.
+  scale: Twelve primary metrics form an aggregate score; ten secondary metrics are reported separately.
+  validation: On 50 randomly sampled cases, repeated Claude Sonnet 3.7 judging yielded intra-judge correlations
+    of 0.87 for DRSS, 0.82 for FQR, and 0.92 for PSC, with mean absolute differences of 0.12, 0.15, and 0.08, respectively.
+    The authors also tested whether the metrics distinguished GPT-5.1 from refusal, fixed-template, and random-response
+    baselines.
+  score_meaning: PSC of 1.0 means every treatment plan passes checks for absolute contraindications, severe drug
+    interactions and gross dosing errors; CPRw, POVR, DDIV and PCR of 0 mean no redundant questioning, inquiry-order
+    violations, severe drug interactions or patient-profile conflicts, respectively. Higher FQR means more follow-up
+    responses match the patient's intent, while higher DCSR means more revised regimens meet new constraints without
+    dropping below the required treatment-quality threshold.
+  annotation_process: For reliability testing, identical model outputs were scored twice by Claude Sonnet 3.7 and
+    once by Claude Sonnet 3.5. The LLM judging pipeline was calibrated against human clinicians.
+  results: Gemini-3-Pro was described as the most balanced model, leading in history taking and diagnosis; its follow-up
+    DCSR was 0.49, compared with 0.814 for the empirical process baseline from real consultations. Its accuracy
+    fell from 0.76 under static evaluation to 0.52 when clinical workflow constraints were enforced.
+  limitations: The authors identify potential LLM-judge and historical-data biases, subjective scoring of interpersonal
+    skills, restricted specialties within a Chinese medical context, and text-only testing that excludes physical
+    examinations and raw imaging, and caution that benchmark performance does not establish clinical readiness.
+  sources:
+  - http://arxiv.org/abs/2601.12661
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

@@ -29,6 +29,29 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 488 questions per language (264 from GPT-4 Turbo, 224 from Claude 3.5 Sonnet)
+card:
+  task: Select the single correct answer from four options for each English or French medical question about the
+    fictional organ Glianorex.
+  items_built: A volunteer physician wrote the grounding facts, and GPT-4 Turbo and Claude 3.5 Sonnet generated
+    textbooks and then 264 and 224 English questions respectively, which they translated into French. Two physicians
+    who had completed at least one USMLE step in the previous five years assessed 100 English questions, giving
+    mean quality ratings of 6.94 and 6.86 out of 7; manual checks found eight incomplete questions across both languages.
+  example: ''
+  scoring: The lm-evaluation-harness uses answer-choice log-likelihoods to select an answer, which is compared with
+    the correct answer key. Accuracy is the percentage of questions answered correctly, with 95% confidence intervals
+    calculated as the mean plus or minus 1.96 standard errors.
+  judge: Automated comparison with the answer key using lm-evaluation-harness.
+  scale: Correct or incorrect per question; percentage accuracy overall.
+  validation: ''
+  results: Evaluated models averaged 63.8% accuracy, while both physicians scored 27% on a sample of 100 English
+    questions. DeepSeek-V3-0324 scored 70.1% with zero-shot prompting and 70.3% with chain-of-thought prompting.
+  limitations: The authors note that independently generated textbook sections can contain contradictions or support
+    multiple answers, coherence checks were partial, and synthetic biases can persist, including biases from the
+    single clinician who wrote the grounding facts.
+  sources:
+  - https://arxiv.org/abs/2406.02394
+  - https://huggingface.co/datasets/maximegmd/glianorex
+  extracted: '2026-10-27'
 signals:
   citations: 12
   citations_source: OpenAlex

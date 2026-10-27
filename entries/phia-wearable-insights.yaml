@@ -27,6 +27,42 @@ facets:
   eval_methods: [mcq_exact_match, expert_human_rating]
   modality: [text]
   size: 4,000 objective queries; 172 open-ended queries
+card:
+  task: Answer numerical and open-ended personal health questions using an individual's wearable data.
+  items_built: Two domain experts manually crafted templates that generated 4,000 objective queries and answer-generating
+    code, and a domain expert in data science and health research checked every query for precision and comprehensibility.
+    A survey of colleagues with personal and consumer health research expertise produced about 3,000 open-ended
+    queries, which were manually categorized, randomly sampled to 200, and filtered for semantic similarity to yield
+    172 queries withheld from agent development.
+  example: '"What was the distance of my longest run in the past 21 days?"'
+  scoring: Objective responses are compared automatically with ground truth to within two digits of precision, and
+    accuracy is the proportion correct. Human raters assess reasoning and code quality using yes/no criteria and
+    overall 1-5 ratings converted to 0-100 scores, with yes/no results reported as the proportion answering yes;
+    code error rate is the fraction of code-using responses that raise an error.
+  judge: Automatic ground-truth comparison grades numerical answers; 12 independent annotators familiar with sleep
+    and fitness wearable data rate reasoning, and seven graduate-trained data scientists with wearable-data experience
+    rate code, with at least three raters per response.
+  scale: Numerical correctness is binary and reported as accuracy; human criteria are yes/no proportions, with overall
+    1-5 ratings mapped to 0-100; code error rate is a proportion.
+  validation: ''
+  score_meaning: The overall reasoning scale runs from 1 ("Poor") to 5 ("Excellent"), with 3 meaning "Acceptable";
+    higher scores indicate better reasoning. The reported 83% acceptable-or-better result counts responses rated
+    3 or above.
+  annotation_process: Raters were blinded to which method generated each response. For reasoning assessment, they
+    received final answers and English explanations of Python code produced through a Gemini Ultra translation pipeline
+    developed by two domain experts; code assessors independently reviewed complete responses, including Python
+    code, reasoning steps and error messages. Two experts also independently reviewed all open-ended responses for
+    errors and grouped them into error categories.
+  results: PHIA achieved 84% numerical accuracy, compared with 74% for Code Generation and 22% for Numerical Reasoning.
+    Its overall open-ended reasoning score was 68/100 versus 52/100 for Code Generation, and 83% of its responses
+    were rated acceptable or better.
+  limitations: The authors did not test effects on real users or health outcomes, did not employ health experts
+    to validate recommendations, and acknowledge that translating code into English for non-programmer raters may
+    introduce noise.
+  sources:
+  - https://arxiv.org/abs/2406.06464
+  - https://github.com/yahskapar/personal-health-insights-agent
+  extracted: '2026-10-27'
 signals:
   citations: 27
   citations_source: OpenAlex

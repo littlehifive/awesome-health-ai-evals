@@ -25,6 +25,22 @@ facets:
   eval_methods: [rubric_llm_judge]
   modality: [text]
   size: 6 risk categories with 0-5 severity anchors; 200 K-QA prompts
+card:
+  task: Answer patient questions from K-QA with patient-facing responses.
+  items_built: The framework is meant to be applied to patient-facing answers to K-QA questions.
+  example: ''
+  scoring: A three-judge LLM ensemble rates answers for treatment directives, contraindications, dosage expressions,
+    urgency triage, high-alert medications and overconfident assertions.
+  judge: A three-judge LLM ensemble assigns the ratings.
+  scale: ''
+  validation: ''
+  score_meaning: ''
+  annotation_process: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://arxiv.org/abs/2610.24807
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

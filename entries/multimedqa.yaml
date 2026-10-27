@@ -29,6 +29,37 @@ facets:
   eval_methods: [mcq_exact_match, expert_human_rating]
   modality: [text]
   size: 7 datasets; HealthSearchQA has 3,173 questions
+card:
+  task: Answer medical questions by selecting a multiple-choice option or writing a long-form response, using a
+    supporting PubMed abstract when provided.
+  items_built: The authors combined six existing English medical question-answering datasets with HealthSearchQA,
+    a curated collection of commonly searched consumer health questions. For detailed human evaluation, they randomly
+    selected 100 HealthSearchQA questions, 20 LiveQA questions and 20 MedicationQA questions, and clinicians wrote
+    reference answers.
+  example: '"how does valium affect the brain?"'
+  scoring: Multiple-choice answers are scored for accuracy against the answer key. For long-form answers, one clinician
+    rates each answer without knowing its source, and lay users assess intent and helpfulness; results are reported
+    as percentages in rating categories for each axis, with 95% percentile intervals from 100 bootstrap replicas.
+  judge: Multiple-choice scoring uses answer keys; long-form raters comprise nine practicing clinicians based in
+    the UK, USA and India and five lay users without medical backgrounds based in India.
+  scale: Multiple-choice percentage accuracy; categorical long-form ratings reported as percentages for each axis.
+  validation: Three qualified clinicians each assessed 25 question-answer pairs per dataset while the rating framework
+    and instructions were refined until their rating approaches converged.
+  score_meaning: Scientific consensus ratings distinguish answers aligned with prevailing consensus, answers opposed
+    to it, and questions with no consensus or that cannot be answered. Correct and incorrect comprehension, retrieval
+    and reasoning are assessed separately, so an answer can show both; higher percentages for correct evidence indicate
+    more answers showing that capability, while higher percentages for incorrect evidence indicate more answers
+    containing errors.
+  annotation_process: Each answer received one lay-person rating. The evaluation used 100 randomly selected HealthSearchQA
+    questions, 20 LiveQA questions and 20 MedicationQA questions; a separate clinician panel wrote reference answers,
+    which were evaluated alongside Flan-PaLM and Med-PaLM answers.
+  results: Flan-PaLM achieved 67.6% accuracy on MedQA, 57.6% on MedMCQA and 79.0% on PubMedQA. Lay users rated 80.3%
+    of Med-PaLM answers helpful, compared with 91.1% of clinician answers.
+  limitations: The authors state that the small number of evaluated responses, limited rater pool and single clinician
+    or lay-person rating per response limit generalizability.
+  sources:
+  - https://doi.org/10.1038/s41586-023-06291-2
+  extracted: '2026-10-27'
 signals:
   citations: 4040
   citations_source: OpenAlex

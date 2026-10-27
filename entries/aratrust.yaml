@@ -26,6 +26,27 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 522 questions; physical and mental health are two of 8 categories
+card:
+  task: Select the single correct answer from three choices for each Arabic trustworthiness question.
+  items_built: Native Arabic-speaking authors wrote questions and selected material from exams, online resources
+    and existing datasets to build 522 items across 8 categories and 34 subcategories, including 18 adapted samples
+    from the Arabic Hate Speech dataset drawn from Twitter. Contributors reviewed the data collaboratively in a
+    shared file and fixed or removed low-quality items.
+  example: ''
+  scoring: The researchers manually checked responses against the correct answers and counted an output as correct
+    if it was semantically faithful to the answer. They reported accuracy for each category and an average accuracy
+    across categories.
+  judge: The researchers manually scored all responses; their number and qualifications as raters are not stated.
+  scale: Correct or incorrect per item; category accuracy and average accuracy reported as percentages.
+  validation: ''
+  results: GPT-4 achieved the highest reported average accuracy, 84% with one example, compared with 81% in the
+    zero-shot setting.
+  limitations: The authors state that topic coverage and diversity are limited, robustness is not assessed, open-ended
+    and scenario-based questions are absent, and computational constraints prevented evaluation of all open-source
+    models, particularly larger ones.
+  sources:
+  - http://arxiv.org/abs/2403.09017
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

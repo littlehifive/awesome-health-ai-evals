@@ -25,6 +25,35 @@ facets:
   eval_methods: [expert_human_rating, rubric_llm_judge, simulated_multi_turn]
   modality: [text]
   size: 4 primary items and 26 secondary items; MedEval set of 2,680 dialogues (1,880 train, 300 validation, 500 test)
+card:
+  task: Conduct a multi-turn medical consultation with a patient, asking about symptoms and providing diagnosis
+    and treatment advice.
+  items_built: A group of 20 senior doctors and 14 intermediate doctors adapted the original Chinese Mini-CEX through
+    literature review, focus groups and three Delphi consultation rounds, then tested its reliability and validity.
+    Experts scored 2,680 medical consultation dialogues for MedEval, with trial annotation used to select a team
+    and formal annotation including privacy removal, quality audits and re-annotation.
+  example: ''
+  scoring: ChatGPT evaluates each secondary criterion using a separate prompt, assigning 0 if its feedback is "not"
+    and 1 otherwise; experts also score dialogues against the rubric. In the comparison on 18 patient self-reports,
+    scores are reported as percentages of the dimension totals of 144, 144 and 126, with an average across the three
+    dimensions.
+  judge: ChatGPT assigns automatic scores; 10 experts are required for manual evaluation of each dialogue.
+  scale: Automatic criteria receive 0 or 1; dimension scores and their average are reported as percentages.
+  validation: Automatic scores were compared with expert labels on 500 test dialogues, with accuracy above 80% for
+    11 of 26 criteria. Scale testing gave Cronbach's alpha of 0.802, KMO of 0.835 and Bartlett's statistic of 2278.5
+    (P=0.000).
+  score_meaning: ''
+  annotation_process: Three crowdsourcing teams completed trial annotation to learn the task, and the team with
+    the best trial performance was selected for formal annotation. Experts then scored each dialogue against the
+    rubric. Formal annotation included detailed privacy removal, an option to skip items, quality audits and re-annotation.
+  results: GPT-4 ranked highest across the 18 patient self-reports, with an average of 61.11% under human grading
+    and 51.93% under ChatGPT grading.
+  limitations: The authors report poor automatic grading of diagnosis and treatment because of insufficient medical
+    knowledge and the use of a general-domain judge, while the simulator assumes patients understand their symptoms
+    clearly.
+  sources:
+  - https://arxiv.org/abs/2308.07635
+  extracted: '2026-10-27'
 signals:
   citations: 2
   citations_source: OpenAlex

@@ -28,6 +28,35 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric]
   modality: [text]
   size: 600 items (300 SDT cases plus 3 x 100 selected-response questions); 27 evaluation dimensions
+card:
+  task: Select answers and write responses about syndrome differentiation and treatment for clinical cases, and
+    answer selected-response questions on TCM knowledge, medical ethics, and content safety.
+  items_built: TCM experts assembled 300 clinical cases from clinical practice and classical case records, while
+    300 general questions came from public medical examinations, authoritative question banks, and expert-designed
+    ethics and safety scenarios. Samples were deduplicated, cleaned, and anonymized where needed, with answers and
+    options checked through expert annotation, mutual cross-validation, and independent third-party review.
+  example: ''
+  scoring: 'Selected-response questions use three rounds with randomized option order: single-selection answers
+    count as correct only when correct in all three rounds, while multiple-selection scores divide correctly selected
+    options by the number of correct options plus incorrectly selected options, then average across rounds. An LLM
+    compares written responses with reference answers using expert-designed prompts and assesses reasoning completeness
+    and accuracy, while a reward model scores prescription-syndrome compatibility.'
+  judge: Scores come from answer-key comparison, an unnamed LLM judge, and a prescription-syndrome reward model
+    fine-tuned from Qwen3-14B.
+  scale: 'Single-selection: correct or incorrect; multiple-selection: 0 to 1, averaged over three rounds; judge
+    and reward scales and overall aggregation are not specified.'
+  validation: ''
+  score_meaning: Chain-of-thought completeness measures coverage of key patient information in the model's reasoning.
+    Chain-of-thought accuracy measures whether details cited in that reasoning agree with the original clinical
+    case, identifying hallucinations or reasoning deviations.
+  annotation_process: TCM experts annotated the standard answers and options, then cross-validated one another's
+    annotations. The annotations then underwent independent third-party review.
+  results: ''
+  limitations: ''
+  sources:
+  - https://doi.org/10.1038/s41597-026-07587-4
+  - https://github.com/DYJG-research/TCM-BEST4SDT
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

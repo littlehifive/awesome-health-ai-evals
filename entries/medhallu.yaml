@@ -28,6 +28,34 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: "10,000 questions (1,000 from PubMedQA pqa_labeled, 9,000 from pqa_artificial)"
+card:
+  task: Classify an answer to a medical question as hallucinated or not hallucinated.
+  items_built: UTAustin-AIHealth used 1,000 expert-annotated PubMedQA pairs and 9,000 randomly selected pairs from
+    its artificial split, generating hallucinated answers with Qwen2.5B-14B. GPT-4o mini, Gemma2-9B and Qwen2.5-7B
+    checked how convincing the answers were, bidirectional entailment checked correctness, and failed answers underwent
+    TextGrad refinement or regeneration before a similarity-based fallback.
+  example: '"#Question#: How does penicillin treat strep throat?#Answer#: Penicillin kills bacteria."'
+  scoring: Predicted hallucination labels are compared with the dataset's hallucinated and ground-truth answer labels
+    to report precision, recall and F1 overall and by difficulty.
+  judge: The dataset's hallucinated and ground-truth answer labels provide the reference for scoring.
+  scale: Binary classification per answer; precision, recall and F1 overall and by difficulty.
+  validation: ''
+  score_meaning: 'Difficulty labels describe how many filtering models were fooled into choosing the hallucinated
+    answer as more accurate than the ground truth: "easy" means one, "medium" means multiple but not all, and "hard"
+    means all three.'
+  annotation_process: GPT-4o mini, Gemma2-9B and Qwen2.5-7B independently compared each generated answer with the
+    ground-truth answer without access to the supporting context. Correctness was checked automatically against
+    the ground truth using microsoft/deberta-large-mnli for bidirectional entailment with a confidence threshold
+    of 0.75. Failed samples received TextGrad feedback using GPT-4o mini, with at most five generation attempts;
+    if none passed, the generated answer most semantically similar to the ground truth was selected.
+  results: GPT-4o achieved the best reported F1 on hard hallucinations without supplied knowledge, at 0.625. With
+    domain knowledge supplied, Qwen2.5-14B reached an overall F1 of 0.852.
+  limitations: The authors cite resource constraints that excluded advanced reasoning models from generation and
+    restricted evaluation to zero-shot prompting, along with reliance on PubMedQA that limits domain coverage.
+  sources:
+  - https://doi.org/10.18653/v1/2025.emnlp-main.143
+  - https://huggingface.co/datasets/UTAustin-AIHealth/MedHallu
+  extracted: '2026-10-27'
 signals:
   citations: 29
   citations_source: OpenAlex

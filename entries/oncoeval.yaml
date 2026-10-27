@@ -27,6 +27,27 @@ facets:
   eval_methods: [rubric_llm_judge]
   modality: [text]
   size: "subset of 2023 to 2024 cases from 734 case reports (exact count not found)"
+card:
+  task: Answer questions about examination recommendations, diagnosis, or treatment at decision points in cancer
+    cases.
+  items_built: OncoEval is a subset of OncoCoT, built from clinical records from the past four years across eight
+    common cancer types. The construction framework creates medical-event timelines, generates questions, reasoning
+    traces, and answers at critical decision points, and uses information from later events to check and refine
+    the reasoning and answers.
+  example: ''
+  scoring: Evaluator LLMs extract items from model responses and compare them with reference-answer items to calculate
+    precision, recall, and accuracy.
+  judge: LLM evaluators assign the scores; their model names are not provided.
+  scale: Item-level precision, recall, and accuracy.
+  validation: ''
+  score_meaning: ''
+  annotation_process: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://github.com/ydli-ai/OncoCoT
+  - https://doi.org/10.48448/jjm7-1x33
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

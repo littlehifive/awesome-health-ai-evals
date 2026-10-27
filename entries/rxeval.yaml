@@ -26,6 +26,26 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 1,547 questions, 584 patients, 969 unique medications
+card:
+  task: Read a patient profile and time-ordered clinical history, then select all medication-dose-route options
+    that should be prescribed at the specified timepoint.
+  items_built: The authors curated 1,547 questions from 11,257 candidate prescribing timepoints across 587 MIMIC-IV
+    admissions, using recorded prescriptions as correct answers. GPT-5-series models generated and checked reasoning
+    chains and five patient-specific distractors per question, and one licensed physician audited 95 distractors
+    from 19 timepoints.
+  example: ''
+  scoring: Predicted option sets are compared with the recorded correct sets to calculate exact match, Jaccard similarity,
+    precision, recall, and F1 for each question. Each metric is averaged over all questions.
+  judge: Scores are calculated by comparing selected options with the answer key.
+  scale: Exact match is 0 or 1; Jaccard, precision, recall, and F1 range from 0 to 1, with question averages reported
+    as percentages.
+  validation: One licensed physician judged 96.8% of 95 audited distractors clearly inappropriate, 3.2% clinically
+    debatable, and none appropriate.
+  results: Gemini-3.1-Pro led the 16 evaluated models with 77.10 F1 and 46.10% exact match.
+  limitations: ''
+  sources:
+  - https://arxiv.org/abs/2605.14543
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

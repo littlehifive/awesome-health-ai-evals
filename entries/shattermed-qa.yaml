@@ -31,6 +31,30 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: "10,558 questions (EN 5,923 easy and 1,692 hard; ZH 2,616 easy and 327 hard); 264 physician-verified ZH-Hard questions"
+card:
+  task: Choose the correct answer from four options for each clinical vignette by inferring the unstated links needed
+    for multi-step medical reasoning.
+  items_built: The authors synthesized 10,558 English and Chinese questions from paths in a medical knowledge graph
+    extracted from a raw medical corpus, removing generic hubs, hiding intermediate entities, and adding closely
+    related distractors. Three LLM adjudicators, listed as GPT-5/4.1-mini and Grok-4-1, checked clarity, validity
+    and difficulty, and three board-certified physicians from Grade 3A hospitals in China blindly reviewed 700 sampled
+    questions.
+  example: ''
+  scoring: Accuracy is the percentage of selected answers that match the answer key, reported by language and difficulty
+    split. Hard Negative Error Rate is the percentage of incorrect answers that select the designated hard distractor,
+    while Reasoning Recovery Rate is the percentage of zero-shot errors corrected when the masked evidence is supplied
+    through retrieval.
+  judge: Answers are scored by exact match with the answer key and categorical counting, without an LLM grader.
+  scale: Correct or incorrect per item; accuracy, hard-distractor errors among failures, and recovered failures
+    are reported as percentages.
+  validation: ''
+  results: ''
+  limitations: The authors acknowledge that textbook-based generation misses clinical variability, that automated
+    quality ratings can show self-preference bias, and that physician review required outside literature for some
+    specialties and could reflect Chinese regional practices and guidelines.
+  sources:
+  - http://arxiv.org/abs/2603.12458
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

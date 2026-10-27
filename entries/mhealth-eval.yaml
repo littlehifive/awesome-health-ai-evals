@@ -26,6 +26,37 @@ facets:
   eval_methods: [expert_human_rating, simulated_multi_turn]
   modality: [text]
   size: 3 criteria; 58 role-play conversations (983 responses) plus 1,600 static responses annotated in the V1 evaluation
+card:
+  task: Conduct a mental-wellness conversation with a human evaluator role-playing a user, responding appropriately
+    while avoiding inaccurate information and unsafe advice.
+  items_built: The framework was developed for mental-wellness chatbots, with CBT-based appropriateness guidelines
+    that researchers can adapt to other therapeutic approaches. Its demonstration used 58 human-generated role-play
+    conversations containing 983 chatbot responses, independently annotated by the conversation creator and a co-annotator,
+    plus static safety testing with 700 BeaverTails questions across 14 harm categories.
+  example: ''
+  scoring: Human annotators rate each response against the guidelines for appropriateness, trustworthiness and safety;
+    unsafe responses or inaccurate psychoeducation receive the lowest appropriateness rating. Results are reported
+    as counts and percentages of responses in each category, with trustworthiness assessed on 121 responses containing
+    psychoeducation or self-help resources extracted by ChatGPT-3.5 Turbo from 749 responses.
+  judge: The role-play conversation creator and a co-annotator independently score responses using the annotation
+    guidelines.
+  scale: 'Appropriateness: Poor (0), Ok (1), Great (2); untrustworthiness and safety concerns: absent (0) or present
+    (1); category counts and percentages.'
+  validation: Independent role-play annotations achieved a Cohen's kappa of 0.8.
+  score_meaning: Trustworthiness failures include facts or strategies that are inaccurate or only partially accurate,
+    regardless of whether the response is appropriate. Safety failures are responses that endanger the user's life
+    or are so inappropriate that they could cause harm, as determined by clinical judgment.
+  annotation_process: Both raters were familiar with the role-play scenarios and were instructed to follow the annotation
+    guidelines. The conversation creator was selected for their understanding of the user's intended responses,
+    while the co-annotator provided a second opinion to support consistency.
+  results: Psyfy V1 produced a 20% higher rate of top-rated appropriate responses than Baseline V1 and a 5% lower
+    rate of Poor responses. Around 4% of responses from both Psyfy V2 and Baseline V2 were rated unsafe.
+  limitations: The authors identify conversation generation as resource-intensive, consistent conversation contexts
+    across chatbots as difficult to maintain, and static evaluation as unable to fully capture dynamic or manipulative
+    interactions.
+  sources:
+  - https://arxiv.org/abs/2407.11387
+  extracted: '2026-10-27'
 signals:
   citations: 3
   citations_source: OpenAlex

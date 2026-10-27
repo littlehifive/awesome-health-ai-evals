@@ -27,6 +27,41 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating, mcq_exact_match]
   modality: [text]
   size: "7,102 cases; 47,648 questions across 10 tasks"
+card:
+  task: Given a clinical case, case segment, image or question, produce the requested differential diagnosis, testing
+    plan, diagnostic evidence, literature search result or multiple-choice answer.
+  items_built: The authors processed 7,102 NEJM CPCs and 1,021 Image Challenges; ten physicians, comprising five
+    board-certified internal medicine attendings and five residents, each annotated 20 case reports with double
+    annotation, then used these annotations to develop and validate automated annotation with o3-mini. o4-mini generated
+    1,851 text questions and 1,914 image questions from case text and captions, and two physicians independently
+    checked 50 random examples from each question set.
+  example: '"Which morphological change is shown in Panel A?"'
+  scoring: For differential diagnoses, a physician-validated LLM judge determines whether the published final diagnosis
+    appears first or within the top ten predictions, and accuracy is reported across cases. Multiple-choice answers
+    use exact match with the answer key, while GPT-4.1 evaluates alignment between proposed and actual diagnostic
+    tests.
+  judge: A physician-validated LLM judge grades diagnoses, GPT-4.1 grades testing plans, and exact match grades
+    multiple-choice answers.
+  scale: Correct or incorrect for top-1, top-10 and multiple-choice outcomes; percentage accuracy across items.
+  validation: The diagnosis judge achieved 86% accuracy and 89% F1 against 1,467 differentials annotated by three
+    physicians; the testing-plan judge achieved 84% accuracy and 83% weighted F1 against 112 scores from two physicians.
+    In question review, both reviewers judged one text question (2%) invalid; one image question (2%) was invalid
+    and two (4%) were trivial.
+  score_meaning: Physicians rated differential diagnoses on 1-5 scales for overall quality, diagnostic justification,
+    citation quality and learner engagement. For diagnostic rankings across successive clinical events, a lower
+    mean rank means the correct diagnosis appears closer to the top of the list.
+  annotation_process: Five internal medicine physicians, two attendings and three residents, reviewed paired Dr.
+    CaBot and NEJM differentials without knowing their source in 62 trials across 27 cases. For 22 cases, they also
+    rated both differentials in 44 trials using the quality rubric. Separately, two physicians independently reviewed
+    50 randomly selected examples from each of the text and visual question-answering sets for question quality.
+  results: On 377 contemporary CPCs, o3 led differential diagnosis generation with 60% top-1 and 84% top-10 accuracy.
+    In a prior study of 302 CPCs, 20 internal medicine physicians with unrestricted electronic search achieved 24%
+    top-1 and 45% top-10 accuracy.
+  limitations: The authors note that unknown model training data may contain CPCs and their answers, and that highly
+    curated, information-dense educational cases do not represent real-life diagnosis.
+  sources:
+  - https://arxiv.org/abs/2509.12194
+  extracted: '2026-10-27'
 signals:
   citations: 2
   citations_source: OpenAlex

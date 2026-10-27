@@ -25,6 +25,26 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 21,808 Q&A items (10,904 questions plus negated forms)
+card:
+  task: Answer each text-only electrocardiography knowledge question with True or False.
+  items_built: GPT-4o generated 10,904 question pairs from 23 ECG references and Computing in Cardiology proceedings
+    from 2003-2025, with each pair containing minimally different True and False statements. A language model checked
+    source grounding and rejected image-dependent or malformed items; programmatic checks verified opposite labels,
+    and source-text similarity checks removed duplicates.
+  example: ''
+  scoring: Predicted True or False answers are compared with the generated reference labels, and accuracy is the
+    percentage correct on the held-out test set reported as n=1,050. Macro-F1 is also reported by averaging F1 across
+    the True and False classes.
+  judge: Exact match with the GPT-4o-generated reference labels.
+  scale: Each answer is correct or incorrect; final accuracy is 0-100%, with macro-F1 also reported.
+  validation: ''
+  results: The five-model fine-tuned voting ensemble achieved the highest accuracy, 78.5%; the best individual fine-tuned
+    model, DeepSeek-R1-Distill-Qwen-14B, reached 76.3%. GPT-5 led the zero-shot models at 74.4%.
+  limitations: The authors state that the generated questions and answers have not undergone expert review, so the
+    labels are weak labels rather than clinical ground truth.
+  sources:
+  - https://arxiv.org/abs/2608.30893
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

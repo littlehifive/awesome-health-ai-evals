@@ -25,6 +25,28 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 10,545 samples (8,435 train, 2,110 test), five balanced label classes
+card:
+  task: Classify whether and how synthetic medical advice diverges from medication guideline documents, given a
+    patient profile, the relevant documents, and the advice.
+  items_built: An LLM generated advice that either conflicts with or aligns with text extracted from 93 medication
+    guideline documents, paired with patient personas. The dataset contains 8,435 training samples and 2,110 test
+    samples, with each split balanced across five label classes.
+  example: ''
+  scoring: The evaluation notebook compares predicted divergence labels with the ground-truth Synth Type labels
+    and computes macro F1, precision, recall, a confusion matrix, and a classification report. It also computes
+    binary metrics for divergence versus no divergence.
+  judge: The evaluation notebook compares model predictions with the ground-truth Synth Type labels.
+  scale: Five-class classification with macro F1, precision, and recall; binary divergence versus no divergence
+    metrics.
+  validation: ''
+  score_meaning: A divergent label means the synthetic advice conflicts with advice extracted from the medication
+    document; a non-divergent label means it aligns with that document.
+  annotation_process: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://doi.org/10.5281/zenodo.18140793
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

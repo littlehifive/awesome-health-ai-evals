@@ -24,6 +24,38 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 50 vignettes
+card:
+  task: Read each adult telephone-triage vignette and recommend where the patient should receive care and how urgently.
+  items_built: A large language model drafted 50 synthetic cases using structured prompts, and STCC Adult Editorial
+    Team Nurse Editors refined them and assigned dispositions using the 2026 STCC Adult After-Hours Telehealth Triage
+    Guidelines. A second Nurse Editor independently confirmed each disposition, five expert telehealth triage nurses
+    performed blinded validation, and the Senior Medical Editor approved the final set.
+  example: ''
+  scoring: Compare predicted dispositions with the reference labels to measure disposition accuracy, and use the
+    ordered urgency_group labels to measure over-triage and under-triage. The card does not specify an aggregation
+    formula for urgency errors.
+  judge: The reference dispositions were assigned by STCC Nurse Editors and validated by five expert telehealth
+    triage nurses.
+  scale: 10 disposition classes; 6 ordered urgency groups; disposition accuracy.
+  validation: The five expert telehealth triage nurses achieved 94.4% agreement with the reference dispositions
+    across the 50 retained cases. Cases were discarded or revised when two or more panelists disagreed with the
+    reference disposition.
+  score_meaning: The urgency groups run from Very High (call 911 now), through High (care now or within one hour),
+    Moderate (within four hours or one day), Low (within three days), and Routine (within two weeks), to Self Care
+    (care at home). Under-triage means recommending less urgent care than the reference label and is identified
+    as the clinically dangerous error.
+  annotation_process: Two Nurse Editors independently reviewed each scenario, with the drafting editor assigning
+    its reference disposition using the 2026 STCC Adult After-Hours Telehealth Triage Guidelines and the second
+    editor confirming it. Cases without editor consensus were revised or discarded, with Senior Medical Editor consultation
+    as needed, before blinded panel validation. Validation batches were retained only when aggregate panel agreement
+    reached at least 95% across the source guideline, and the Senior Medical Editor approved the final result.
+  results: The nurse triager reference benchmark was 94.4% disposition accuracy; no model results are reported.
+  limitations: The authors note the small set, single examples for two dispositions, adult-only cases aged 19 to
+    75, US care conventions, one reference answer despite potentially defensible alternatives, and retained typos,
+    and warn that performance does not validate a model for patient care.
+  sources:
+  - https://huggingface.co/datasets/schmitt-thompson-clinical-content/adult-after-hours-telehealth-triage-2026
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

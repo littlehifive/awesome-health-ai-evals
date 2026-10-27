@@ -24,6 +24,28 @@ facets:
   eval_methods: [simulated_multi_turn, expert_human_rating]
   modality: [text]
   size: 480 vignettes
+card:
+  task: Assess a patient vignette through interaction with a simulated patient and recommend an urgency level mapped
+    to emergency, acute, or not urgent.
+  items_built: Physicians curated 480 patient vignettes from German routine triage data. A pool of seven physicians
+    provided preliminary reference classifications and consensus for all 480 vignettes.
+  example: ''
+  scoring: Recommendations are mapped to three urgency categories and compared with preliminary physician consensus,
+    using winsorised weights derived from routine triage frequencies. Reported measures include weighted emergency
+    sensitivity and weighted exact three-category agreement.
+  judge: A pool of seven physicians supplied the reference classifications and consensus.
+  scale: Three urgency categories; weighted emergency sensitivity and weighted exact agreement reported as percentages.
+  validation: ''
+  score_meaning: ''
+  annotation_process: ''
+  results: gpt-4.1 had the highest weighted exact agreement at 68.8%, but the lowest weighted emergency sensitivity
+    at 51.3%. gpt-6-astra had the highest weighted emergency sensitivity at 99.9%; no system performed best across
+    all urgency categories.
+  limitations: The authors state that broader expert consensus and evaluation, and reduced dependence on SmED-derived
+    source data, are needed before drawing conclusions about clinical safety.
+  sources:
+  - https://doi.org/10.64898/2026.10.12.26365287
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

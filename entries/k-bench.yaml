@@ -26,6 +26,36 @@ facets:
   eval_methods: [rubric_llm_judge, simulated_multi_turn, expert_human_rating]
   modality: [text]
   size: "200 multi-turn vignettes (up to 20 talk turns each); 151 clinician-rated transcripts (16,157 consensus item-level cells)"
+card:
+  task: Hold a mental health support conversation with a simulated patient for up to 20 talk turns, identifying
+    and exploring emerging risks and responding appropriately.
+  items_built: The authors created 200 synthetic vignettes by combining lived-experience-derived source material
+    with a 122-variable factorial design covering presentations, histories, protective factors and disclosure styles.
+    Synthetic patient conversations were compared with real human-AI conversations, with comparable results across
+    four patient models.
+  example: ''
+  scoring: A frozen GPT-4o judge scores transcripts using the 47-component clinical rubric. The overall score aggregates
+    D1-D7, while the combined-risk score combines D1 clinical judgement and D2 risk exploration.
+  judge: A frozen GPT-4o judge assigns scores after calibration against consensus ratings from six clinicians in
+    clinical psychology, counselling psychology and systemic psychotherapy.
+  scale: Risk severity uses low, high or imminent categories; overall and combined-risk scores use a 0-100 scale.
+  validation: GPT-4o exactly matched clinician consensus on 94.2% of 6,751 eligible D1-D7 comparisons from 151 transcripts.
+    Each transcript received at least three independent clinician ratings; clinician-clinician exact agreement was
+    89.4% across 22,816 eligible item-pair comparisons.
+  score_meaning: Higher scores indicate better performance on the clinical rubric. Scores assess whether a model
+    identifies expressed risk, gathers relevant information and responds proportionately, rather than predicting
+    a later suicide attempt or episode of self-harm.
+  annotation_process: The clinician group included trainees and qualified practitioners with at least two years
+    of equivalent clinical experience. Ratings were consolidated item by item using the most frequent response;
+    the principal investigator and research associate reviewed ties and discrepancies against the transcript and
+    rubric to produce one consensus record per transcript.
+  results: GPT-5.5 achieved the highest overall score of 98.96, while Claude Fable 5 achieved the highest combined-risk
+    score of 96.11.
+  limitations: K-Bench evaluates current risk identification, information gathering and proportionate responses
+    rather than predicting later suicide attempts or self-harm.
+  sources:
+  - https://arxiv.org/abs/2609.15855
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

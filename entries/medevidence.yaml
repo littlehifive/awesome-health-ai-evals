@@ -27,6 +27,29 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 284 questions from 100 systematic reviews
+card:
+  task: Read the supplied research articles or abstracts and classify an intervention's effect relative to a control
+    as higher, lower, no difference, uncertain effect, or insufficient data.
+  items_built: Three human annotators with one to five years of graduate education converted conclusions from 100
+    Cochrane reviews into 284 questions and selected relevant evidence from 329 articles, including 114 with full
+    text available. They checked answerability by requiring studies with numerical comparisons for the specified
+    outcome to account for at least 75% of the review's analysis weight.
+  example: Is stroke prevention higher, lower, or the same when comparing Transcatheter Device Closure (TDC) to
+    medical therapy?
+  scoring: The answer field is lowercased, stripped of surrounding whitespace, and compared by exact match with
+    the review-derived answer; missing or nonmatching answers count as incorrect. Accuracy is the mean of these
+    binary scores, with 95% confidence intervals calculated using 1,000 bootstrap samples.
+  judge: Automated exact match with the human-curated answer key.
+  scale: Correct or incorrect per question; overall percentage accuracy.
+  validation: ''
+  results: DeepSeek V3 performed best with 62.40% accuracy and a 95% confidence interval of 56.35% to 68.45%.
+  limitations: The authors note selection bias from requiring all source studies to be available as full text or
+    abstracts, and the benchmark excludes literature search, screening, and risk-of-bias assessment.
+  sources:
+  - http://arxiv.org/abs/2505.22787
+  - https://huggingface.co/datasets/clcp/med-evidence
+  - https://github.com/zy-f/med-evidence
+  extracted: '2026-10-27'
 signals:
   citations: 2
   citations_source: OpenAlex

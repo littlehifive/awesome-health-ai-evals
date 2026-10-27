@@ -28,6 +28,38 @@ facets:
   eval_methods: [expert_human_rating, rubric_llm_judge]
   modality: [text]
   size: "157 anonymized patient chat histories with in-basket bot responses; four evaluation rounds"
+card:
+  task: Draft a response to a prostate cancer patient's inquiry using the patient's clinical context.
+  items_built: RtE is meant to evaluate generated outputs through small pilot evaluations, discussions with evaluators,
+    and rubric revisions before full-dataset grading. In this case study, nurse practitioner recommendations and
+    existing literature informed the initial criteria, which five clinicians refined through repeated grading and
+    roundtable discussions.
+  example: ''
+  scoring: Graders independently assess each response against the rubric in a randomized, single-blinded setup,
+    with access to patient records; clinicians assign one overall score per criterion rather than scoring its guiding
+    points separately. The four content scores are summed to a total out of 20 and averaged across responses, while
+    editing level and estimated response time are recorded separately by clinicians.
+  judge: Three primary radiation oncology clinicians and two senior prostate cancer clinicians grade responses,
+    alongside GPT-4, GPT-4o, Gemini 1.5-Pro, and Llama 3.1.
+  scale: 'Completeness, correctness, clarity, and empathy: 1-5 each, totaling 4-20; editing level: 0-3; estimated
+    answer time: minutes.'
+  validation: Initial clinician agreement was ICC 0.50 for correctness, 0.53 for trustworthiness, 0.59 for conciseness,
+    and 0.64 for completeness, with Krippendorff's alpha ranging from 0.30 to 0.61. Correctness agreement reached
+    ICC 0.69 in the next pilot; senior clinicians subsequently reviewed 41 disputed responses and then two further
+    responses.
+  score_meaning: ''
+  annotation_process: The study used four rounds, starting with two clinicians grading 30 pairs, followed by the
+    same two grading 15 pairs before the full clinician evaluation and the LLM evaluation. Round-table discussions
+    after the first two rounds helped clinicians refine the rubric and clarify how to apply it. All nurse practitioners
+    and clinician graders were recruited from the clinic's prostate cancer specialty and were paid $70 each for
+    participating.
+  results: GPT-4o assigned the in-basket bot an average of 17.70/20 and the clinical care team 15.83/20. Clinician
+    graders rated the bot higher only for empathy.
+  limitations: The authors state that small pilot cohorts can bias rubric changes and that zero-shot LLM graders
+    lack context and domain knowledge, hallucinate, and favor LLM-generated content.
+  sources:
+  - https://pmc.ncbi.nlm.nih.gov/articles/PMC13308374/
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

@@ -26,6 +26,31 @@ facets:
   eval_methods: [rubric_llm_judge]
   modality: [text]
   size: Metric system for interview dialogues; MedQA-Dialog has 10,263 dialogues across 3,154 diseases (a training set)
+card:
+  task: Conduct a multi-turn clinical interview with a simulated patient, gathering medical history and providing
+    diagnostic conclusions and follow-up recommendations.
+  items_built: The framework evaluates simulated clinical interview dialogues against their source clinical notes.
+    Its six main metrics and thirty sub-metrics draw on Peking Union Medical College interview scoring criteria,
+    Tulane University School of Medicine's Master Interview Rating Scale, and Multi-View Evaluation Criteria, with
+    additions for simulated interviews.
+  example: ''
+  scoring: GPT-4o creates an interview demonstration from the source clinical note, then compares the tested dialogue
+    with that demonstration and assigns metric scores after a qualitative assessment. Scores across the six main
+    metrics are summed into the reported total score.
+  judge: GPT-4o acts as both the senior physician generating the reference demonstration and the clinical instructor
+    assigning scores.
+  scale: Metric-specific scores summed across six main metrics into a total interview score.
+  validation: ''
+  score_meaning: Higher scores indicate better clinical interview performance on the assessed metrics.
+  annotation_process: The reported evaluations relied entirely on automated assessment, with no expert clinical
+    ratings. Validation of agreement between automated scores and expert judgments was left for future work.
+  results: CliniChatGLM led the extrinsic evaluation with a total score of 71.14, compared with 60.91 for GLM-4-Air.
+    No human baseline was reported.
+  limitations: The authors state that evaluation relied solely on GPT-4o automated assessment, which cannot replace
+    expert clinical judgment, and that alignment with human assessments still requires expert validation.
+  sources:
+  - http://arxiv.org/abs/2504.10418
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

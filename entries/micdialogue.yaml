@@ -25,6 +25,23 @@ facets:
   eval_methods: [automatic_metric, expert_human_rating]
   modality: [text]
   size: 8,813 dialogues, 40,730 utterances (8:1:1 train, validation, test split)
+card:
+  task: Generate a Chinese dialogue response about maternity or infant care from the preceding conversation.
+  items_built: The dataset contains 8,813 multi-turn dialogues curated from Chinese social media, with 7,685 from
+    blog posts and 1,128 from doctors' short videos. The dialogues have annotations for topics, diseases, symptoms,
+    and causes.
+  example: ''
+  scoring: ''
+  judge: Five students rated 1,000 dialogues.
+  scale: Human ratings from 1 to 5 for relevance, informativeness, fluency, and topic alignment.
+  validation: ''
+  score_meaning: ''
+  annotation_process: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://doi.org/10.24963/ijcai.2025/923
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

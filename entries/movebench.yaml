@@ -27,6 +27,29 @@ facets:
   eval_methods: [mcq_exact_match, rubric_llm_judge]
   modality: [text]
   size: 809 questions with 5,012 rubric criteria in the paper; 80 questions (50 open-ended, 30 MCQ) released publicly
+card:
+  task: Answer Chinese multiple-choice and open-ended questions by designing personalized exercise plans, interpreting
+    exercise data, or answering sports and health knowledge questions.
+  items_built: 'MoveBench Team and Capital University of Physical Education and Sports publicly provide 80 questions
+    built from real user profiles: 50 open-ended questions and 30 multiple-choice questions, including 11 single-answer
+    and 19 multiple-answer items. The profiles cover ages 16-58, and 32 questions mention injuries or discomfort.'
+  example: ''
+  scoring: Multiple-choice answers are scored by exact match with the answer key, while open-ended answers are assessed
+    against rubrics by a three-judge language-model ensemble with a safety redline. Maintainers run and review grading
+    privately and publish aggregate scores; the provided text does not specify the aggregation formula.
+  judge: An unnamed three-model judging ensemble grades open-ended answers, and multiple-choice answers use exact
+    match with the answer key.
+  scale: Multiple-choice exact match; rubric-based open-ended scores with a safety redline.
+  validation: ''
+  score_meaning: ''
+  annotation_process: ''
+  results: ''
+  limitations: The authors warn that public answers and rubrics can enable targeted optimization or memorization,
+    so public scores are not an unexposed hidden test and do not certify medical safety or real-world training effects.
+  sources:
+  - https://arxiv.org/abs/2610.26185
+  - https://github.com/SatoSakula/MoveBench
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

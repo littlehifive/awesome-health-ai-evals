@@ -37,6 +37,41 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric]
   modality: [text]
   size: 53,566 questions with rationales
+card:
+  task: Select the correct answer option or options for each medical question and explain the reasoning behind the
+    selection.
+  items_built: The authors pooled 53,566 questions from MedQA, IgakuQA, FrenchMedMCQA, RuMedDaNet and Head-QA, producing
+    45,048 training and 8,518 test pairs. GPT-4 generated reference rationales; three annotators checked 200 randomly
+    selected rationales per language for answer consistency and explanatory logic, retaining 1,136 for rationale
+    evaluation.
+  example: ''
+  scoring: Answer accuracy is calculated against the answer key for each language, and the reported average is the
+    mean across six languages. Generated rationales are compared with verified references using BLEU, ROUGE and
+    multilingual BERTScore; on 50 cases per language, humans and GPT-4 also rank six models' outputs from 6 points
+    for best to 1 for worst.
+  judge: Answer keys and automated similarity metrics score outputs; GPT-4 and five postgraduate medical students
+    from Shanghai Jiao Tong University and Peking Union Medical College assign relative rankings.
+  scale: Correct or incorrect answers; mean accuracy across six languages as a percentage; rationale similarity
+    scores and relative rankings from 1 to 6.
+  validation: Kendall rank correlation with human rationale rankings was 0.660 for GPT-4 and 0.538 for BERTScore,
+    the strongest absolute automatic metric.
+  score_meaning: Human rankings reflect answer accuracy, logical reasoning beyond repeating the question or options,
+    and internal knowledge. A reference rationale qualified for use in evaluation only if it agreed with the correct
+    answer and explained the logic behind it rather than merely repeating it.
+  annotation_process: For reference verification, 200 samples per language were randomly selected, shuffled and
+    distributed among three annotators; 1,136 passed and were used for rationale similarity evaluation. For relative
+    ranking, the order of cases and model outputs was randomized, and evaluators received the question, options,
+    correct answer and manually verified reference rationale.
+  results: GPT-4 achieved the highest reported mean accuracy at 74.27%; MMed-Llama 3 was the strongest open-source
+    model at 67.75% after full fine-tuning. MMed-Llama 3 led the six-model rationale comparison with human and GPT-4
+    ratings of 4.10 and 4.73 out of 6.
+  limitations: The authors note that GPT-4's relative rankings are difficult to scale to newly introduced models
+    and that human evaluators' preferences can be influenced by response brevity.
+  sources:
+  - https://doi.org/10.1038/s41467-024-52417-z
+  - https://huggingface.co/datasets/Henrychur/MMedBench
+  - https://github.com/MAGIC-AI4Med/MMedLM
+  extracted: '2026-10-27'
 signals:
   citations: 146
   citations_source: OpenAlex

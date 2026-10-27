@@ -24,6 +24,26 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric, rubric_llm_judge]
   modality: [text]
   size: 14 third-party medical datasets, 8 metrics
+card:
+  task: Answer medical benchmark questions, usually by selecting a multiple-choice answer, or generate responses
+    for datasets such as HealthBench.
+  items_built: Lunit's Chain-of-Evidence team developed the framework to evaluate medical language models on 14
+    existing datasets, including the full HealthBench set of 5,000 examples.
+  example: ''
+  scoring: Most multiple-choice datasets use deterministic exact-match scoring, while HealthBench responses are
+    graded by an LLM judge. The framework saves per-sample scores, aggregated metrics and breakdowns for each dataset,
+    and a cross-dataset leaderboard.
+  judge: Deterministic exact-match scoring is used for most multiple-choice datasets; gpt-4.1 grades HealthBench
+    responses in the documented configuration.
+  scale: ''
+  validation: ''
+  score_meaning: ''
+  annotation_process: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://github.com/lunit-io/CoEval
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

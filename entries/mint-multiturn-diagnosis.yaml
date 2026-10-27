@@ -26,6 +26,30 @@ facets:
   eval_methods: [mcq_exact_match, simulated_multi_turn]
   modality: [text]
   size: 1,035 cases (up to 16 turns each in fixed-turn variants)
+card:
+  task: Choose a diagnosis from the answer options as clinical evidence is revealed turn by turn, either waiting
+    or answering and revising when the question is available, or answering once when it appears at the final turn.
+  items_built: The authors assembled 1,035 cases from MedQA (600), MedMCQA (174), Derm-Public (100), Derm-Private
+    (99), and MedBullets (62), filtering for diagnosis questions, adding missing questions, and removing one mislabeled
+    case. Qwen3-32B generated evidence shards and their 13 clinical category labels, and an information-preservation
+    check compared performance on full cases with concatenated shards.
+  example: ''
+  scoring: Diagnostic choices are compared with the case answers to report percentage accuracy at the first committed
+    answer and at the final turn. The evaluation also reports the percentage of cases without a final answer and
+    the percentages changing from incorrect to correct or correct to incorrect between initial and final answers.
+  judge: Answers are checked against the source cases' answer keys.
+  scale: Correct or incorrect per answer; accuracy, abstention, and answer-revision rates reported as percentages.
+  validation: ''
+  score_meaning: The restoration ratio (F2T/T2F) compares incorrect-to-correct revisions with correct-to-incorrect
+    revisions. A value of 10.6 means corrections occur 10.6 times as often as revisions that turn a correct answer
+    into an incorrect one.
+  annotation_process: ''
+  results: ''
+  limitations: The authors state that the evaluation does not constitute clinical validation or endorsement of any
+    model for clinical deployment.
+  sources:
+  - http://arxiv.org/abs/2604.04325
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

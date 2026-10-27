@@ -24,6 +24,22 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 269 questions in 9 sections
+card:
+  task: Answer multiple-choice questions about the management of advanced HIV disease.
+  items_built: GLM-5, DeepSeek 3.2 and MiniMax 2.5 generated 269 questions from sampled sections of the WHO guidelines
+    on the management of advanced HIV disease, which Gemini parsed with manual verification of structure and clinical
+    context. DeepSeek 3.2 audited batches to remove questions with overlapping management strategies.
+  example: ''
+  scoring: Accuracy is reported overall and by clinical category.
+  judge: ''
+  scale: Accuracy reported as a percentage.
+  validation: ''
+  results: Qwen3.5-4B instruct had the highest overall accuracy at 70.26%, with reported bounds of +5.6 and -5.6
+    percentage points, under zero-shot evaluation with greedy decoding.
+  limitations: ''
+  sources:
+  - https://huggingface.co/datasets/Larxel/HIVBench
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

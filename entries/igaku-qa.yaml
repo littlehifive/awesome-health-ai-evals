@@ -27,6 +27,31 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: "five years of exams (2018-2022), 400 questions per year in Parts A-F"
+card:
+  task: Answer Japanese medical licensing questions by selecting all required answer choices or, for a few arithmetic
+    questions, providing a number.
+  items_built: Native Japanese-speaking NLP researchers and a practicing cardiologist in Japan collected original
+    Japanese exam questions and official answers from Japan's Ministry of Health, Labour and Welfare, with 400 questions
+    per year. The repository covers 2018-2022, while the paper also evaluates 2023; answer-choice frequencies and
+    student accuracy metadata came from exam preparation books.
+  example: 睡眠時無呼吸症候群による高血圧について、正しくないのはどれか。
+  scoring: Outputs are automatically exact-matched against official answers, with all required choices needing to
+    match for credit. Correct required-section answers earn one point for general questions or three for clinical
+    practical questions, while general-section answers earn one point; passing requires at least 80% in the required
+    section, 70% in the general section, and no more than three prohibited choices.
+  judge: Exact match with the official answer key.
+  scale: Correct or incorrect per item; weighted section percentage scores and a prohibited-choice count determine
+    pass or fail.
+  validation: ''
+  results: GPT-4 outperformed GPT-3 and ChatGPT and was reported to pass all six exams from 2018 through 2023, although
+    prohibited-choice data were unavailable for 2023. It substantially underperformed the student majority-vote
+    baseline.
+  limitations: The authors identify changing black-box APIs, potential training-data leakage, restriction to Japanese
+    licensing exams, and the omission of image input during evaluation as limitations.
+  sources:
+  - http://arxiv.org/abs/2303.18027
+  - https://github.com/jungokasai/IgakuQA
+  extracted: '2026-10-27'
 signals:
   citations: 47
   citations_source: OpenAlex

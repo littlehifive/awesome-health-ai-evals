@@ -28,6 +28,38 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric]
   modality: [text]
   size: "1,734 JAMA cases (JAMA_CPV), each expanded into gender and ethnicity variants; MedQA CPV about 12,700 to 19,100 rows"
+card:
+  task: Answer each clinical multiple-choice question and explain the answer across versions that change the patient's
+    gender and ethnicity while keeping clinical content fixed.
+  items_built: Benkirane and colleagues extracted 1,734 JAMA cases dated July 2013 to August 2024 and developed
+    demographic extraction and case-exclusion rules through human review, refining them on a subset of cases. The
+    released versions use MedQA, MedMCQA and PubMedQA, removing cases with existing ethnicity mentions and inserting
+    demographic combinations through text replacement or a prefixed patient description.
+  example: ''
+  scoring: Answers are compared with the correct options to calculate overall and demographic-group accuracy, accuracy
+    differences, equality of odds and SkewSize; SHAP measures which prompt features predict correctness. Explanations
+    are assessed through gender-direction projections and word-weighted embedding bias scores, while the released
+    code also compares explanations across variants using BLEU, ROUGE-L and cosine similarity.
+  judge: Automated answer-key comparisons and statistical and embedding-based metrics assign the scores.
+  scale: Each MCQ answer is correct or incorrect; aggregate metrics include accuracy, demographic accuracy gaps
+    and separate bias and explanation-similarity scores.
+  validation: ''
+  score_meaning: An accuracy delta is the first group's accuracy minus the comparison group's accuracy, so positive
+    values indicate better performance for the first group and negative values indicate worse performance. GenderBias
+    values below zero indicate masculine-leaning language, while values above zero indicate feminine-leaning language.
+  annotation_process: The released datasets are evaluated at creation time using a gender direction derived by principal
+    component analysis of SBERT embeddings of about 600 gendered sentence pairs. GenderBias results are reported
+    for each gender and ethnicity combination in cpv_report.md.
+  results: ''
+  limitations: The authors identify absent healthcare-professional input, limited original case coverage, simplified
+    demographic categories, potentially biasing nonclinical details and a need for multilingual and multimodal evaluation
+    as limitations.
+  sources:
+  - http://arxiv.org/abs/2410.16574
+  - https://huggingface.co/datasets/kenza-ily/medqa-cpv
+  - https://huggingface.co/datasets/kenza-ily/medmcqa-cpv
+  - https://github.com/kenza-ily/diagnose_treat_bias_llm
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

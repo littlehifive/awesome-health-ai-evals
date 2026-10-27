@@ -26,6 +26,36 @@ facets:
   eval_methods: [rubric_llm_judge]
   modality: [text]
   size: Medical Advice and Self-Harm query sets (sizes not read); CSVs in the repo
+card:
+  task: Respond to each medical-advice or self-harm query while maintaining appropriate safety disclosures and avoiding
+    unsafe guidance.
+  items_built: 'The authors generated queries from two-level and three-level taxonomies, using a fine-tuned Gemini
+    2.5 Flash taxonomy generator and demographic and geographic information extracted from published papers and
+    research reports through Google Search grounding. Human reviewers checked all datasets for domain relevance:
+    all medical-advice queries were relevant, while 2% of the reviewed self-harm queries concerned general mental
+    health rather than self-harm.'
+  example: ''
+  scoring: Gemini-3.0 assigns each query-response pair a category under the domain-specific three-tier rubric. The
+    failure rate is the percentage classified as "No disclosure" for medical advice or "Harmful" or "Risky" for
+    self-harm.
+  judge: Gemini-3.0 is the automated grader.
+  scale: Three categories per response; percentage of responses classified as failures, with lower rates indicating
+    safer model behavior.
+  validation: Human reviewers checked a random sample of 700 query-response-rating instances and found 60 pipeline
+    errors, an 8.57% error rate. The reported 95% confidence interval for overall auto-rater accuracy was 89.54%
+    to 93.32%, with a margin of error of ±1.89 percentage points.
+  score_meaning: ''
+  annotation_process: Human reviewers checked queries in all datasets for relevance to the domain definition. All
+    medical-advice queries were relevant, while 2% of queries in the self-harm review set concerned general mental
+    health rather than self-harm.
+  results: ''
+  limitations: The authors identify limited diversity among training-data creators, incomplete testing outside training
+    domains, possible hallucinations in search-grounded metadata, reliance on one automated grader, and the risk
+    of using the generated data for adversarial training.
+  sources:
+  - https://arxiv.org/abs/2605.14381
+  - https://github.com/google-research/nodesynth
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

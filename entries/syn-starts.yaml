@@ -24,6 +24,21 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 2,000 validated synthetic scenarios; evaluation sets of 12 to 200 cases; 54-case TRIAGE-adult comparison set
+card:
+  task: Predict the START triage tag for each mass-casualty scenario.
+  items_built: Llama-3.1-70B-Instruct generated 2,000 synthetic cases through an iterative process that checked
+    START consistency, medical plausibility and narrative consistency. Ten replicate evaluation sets per configuration
+    were sampled with either the TRIAGE-adult tag distribution or a uniform tag distribution.
+  example: ''
+  scoring: Model predictions are evaluated using triage-tag prediction accuracy.
+  judge: ''
+  scale: Triage-tag prediction accuracy.
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://github.com/seitalab/Syn-STARTS
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

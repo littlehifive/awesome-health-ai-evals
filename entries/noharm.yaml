@@ -27,6 +27,36 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: 100 cases (the arXiv abstract says 1,100 tasks), 4,249 options, 12,747 expert annotations
+card:
+  task: Recommend clinical management actions for each real primary care-to-specialist consultation case.
+  items_built: Three physicians reviewed eligible cases from 16,399 Stanford Health Care eConsults and identified
+    149 candidates for specialist review, yielding 100 final cases with physician-led anonymization. Eight LLMs
+    generated 17,278 possible management options, which were condensed to 4,249 options, manually checked for clinical
+    plausibility, and given 12,747 expert annotations.
+  example: ''
+  scoring: Recommended harmful actions and omitted appropriate actions receive mild, moderate, or severe harm ratings
+    from the expert rubric, with rules for equivalent alternatives and overlapping actions. Harm counts feed a severity-weighted
+    Safety index; the Overall Score is the harmonic mean of Safety, Completeness, and Restraint, and solo-model
+    results average 10 trials for each of two prompts.
+  judge: The reference rubric was rated by 29 board-certified physicians, including 23 specialists and subspecialists.
+  scale: Actions use a modified 9-point RAND-UCLA scale and WHO harm severity categories; final metrics include
+    percentage Safety and an Overall Score.
+  validation: Expert ratings achieved 84% near-perfect concordance and 95.5% overall concordance on appropriate
+    and inappropriate options, with overall concordance requiring a rating range of no more than 2 points.
+  score_meaning: Higher Safety percentages indicate less potential patient harm. An appropriate action that the
+    model recommends counts as no harm, while a recommended action rated uncertain receives the Uncertain label.
+  annotation_process: 'Each action was independently rated by three physicians, blinded to one another''s ratings:
+    either two specialists or subspecialists and one internal medicine physician, or three specialists or subspecialists.
+    For grading model results, a harm severity level required unanimous support from the raters; otherwise, severity
+    was downgraded to the level they all supported.'
+  results: Gemini 2.5 Pro had the highest Safety score, 69.5 ± 1.0%. On a 30-case subset, the strongest LLM exceeded
+    10 board-certified internal medicine physicians by 9.7 percentage points in Safety (95% CI 7.0-12.5).
+  limitations: The authors note that added clarifying information may improve performance, action interactions are
+    simplified, expert ratings reflect academic medical center practice, and financial or system-level harms are
+    excluded.
+  sources:
+  - https://arxiv.org/abs/2512.01241
+  extracted: '2026-10-27'
 signals:
   citations: 8
   citations_source: OpenAlex

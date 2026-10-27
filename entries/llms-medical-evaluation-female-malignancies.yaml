@@ -24,6 +24,20 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 205 multiple-choice questions
+card:
+  task: Answer multiple-choice questions on female malignancies.
+  items_built: The test.jsonl file contains 205 multiple-choice questions with correct answers on female malignancies.
+  example: ''
+  scoring: Automated scripts evaluate model answers and save summary statistics and per-question results, including
+    accuracy, consistency, and token usage; the README does not explain the calculations.
+  judge: Automated evaluation scripts assign the scores.
+  scale: ''
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://github.com/roubaokai/LLMs_Medical_Evaluation
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

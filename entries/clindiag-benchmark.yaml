@@ -27,6 +27,37 @@ facets:
   eval_methods: [simulated_multi_turn, expert_human_rating, automatic_metric, rubric_llm_judge]
   modality: [text]
   size: 4,421 cases, 32 specialties
+card:
+  task: Starting from a patient's initial presentation, request medical history, examination findings, and test
+    results, then produce stage reports and a final diagnosis; in the static setting, diagnose from patient information
+    supplied upfront.
+  items_built: The authors assembled 4,421 cases from MIMIC-IV-Ext Clinical Decision Making, their previously developed
+    rare-disease dataset, and a new collection of peer-reviewed case reports. Cases passed two-tier screening using
+    internal standards and selected CARE checklist criteria, then were structured into initial information, medical
+    history, physical examination, diagnostic tests, and diagnosis.
+  example: ''
+  scoring: GPT-4o-mini evaluates final diagnoses against reference standards to calculate diagnostic accuracy and
+    rates six procedural criteria at each of three stages using supplied criteria and references. BLEU, ROUGE-L,
+    and BERTScore compare generated final reports with original case records for lexical and semantic similarity.
+  judge: GPT-4o-mini assigns diagnostic and procedural ratings; two physicians provide parallel ratings for validation.
+  scale: Diagnostic accuracy as a percentage; six stage-wise criteria rated 1-5, from complete non-compliance to
+    full compliance; BLEU, ROUGE-L, and BERTScore reported separately.
+  validation: Two physicians, blinded to model conditions, and GPT-4o-mini independently evaluated 700 randomly
+    selected cases, 100 per model, with Cohen's kappa of 0.70-0.92.
+  score_meaning: Bond's diagnostic scoring gives 5 points for the exact diagnosis, 4 for a very close suggestion,
+    3 for a closely related and potentially helpful suggestion, 2 for a related but unlikely helpful suggestion,
+    and 0 for no relevant suggestions. Only diagnoses receiving 5 points count as accurate.
+  annotation_process: The evaluator temperature was set to 0, and model responses were standardized into a consistent
+    JSON structure to reduce bias from differences in output style. Physicians reviewed content in randomized order
+    during validation. Each model was tested in three independent runs, with diagnostic accuracy recorded for each
+    run and agreement across runs measured using Fleiss' kappa.
+  results: ClinDiag-GPT led the Challenging Case and Emergency Case subsets with diagnostic accuracies of 29.55%
+    and 48.67%, respectively. GPT-4o led the Rare Disease subset with 35.10% accuracy.
+  limitations: The authors note that LLM evaluators can favor particular output styles or their own model's responses,
+    and that validating evaluation on a sampled subset rather than the entire dataset can introduce bias.
+  sources:
+  - https://doi.org/10.1038/s41467-026-70274-w
+  extracted: '2026-10-27'
 signals:
   citations: 2
   citations_source: OpenAlex

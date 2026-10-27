@@ -24,6 +24,23 @@ facets:
   eval_methods: [simulated_multi_turn, rubric_llm_judge]
   modality: [text]
   size: framework with a mammography case study; number of questions not stated
+card:
+  task: Answer simulated patients' medical questions expressed at different health literacy levels.
+  items_built: LLMs generated questions representing patient populations with different health literacy levels for
+    a mammography case study.
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: ''
+  validation: ''
+  score_meaning: ''
+  annotation_process: ''
+  results: In the mammography case study, answer accuracy varied with the simulated patients' health literacy level.
+  limitations: The framework evaluates conversational agents with predefined medical content; extending it to agents
+    without predefined content is left to future research.
+  sources:
+  - https://doi.org/10.3233/shti240006
+  extracted: '2026-10-27'
 signals:
   citations: 11
   citations_source: OpenAlex

@@ -24,6 +24,24 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 1,045 questions (single train split; card says about 1,000 as of March 2025 with planned expansion)
+card:
+  task: Answer Korean medical licensing examination-style questions based on chief complaints by selecting one of
+    five options, A to E.
+  items_built: SNUH-HARI curated about 1,045 questions drafted using GPT-4o, Perplexity Deep Research, and Claude
+    3.7 Sonnet to reflect Korean medical settings and terminology. Three clinicians reviewed the questions for medical
+    accuracy.
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: Accuracy.
+  validation: ''
+  results: ''
+  limitations: The authors note that Korean medical settings may differ from those elsewhere, AI-drafted errors
+    may remain after review, content may lag current guidelines, and sources cited by the drafting models may be
+    inaccurate.
+  sources:
+  - https://huggingface.co/datasets/snuh/ClinicalQA
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

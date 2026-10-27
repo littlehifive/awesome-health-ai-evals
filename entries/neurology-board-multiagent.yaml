@@ -25,6 +25,21 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 305 questions
+card:
+  task: Answer multiple-choice questions from Israeli Board Certification Exams in Neurology.
+  items_built: The authors assembled 305 questions from Israeli Board Certification Exams in Neurology and classified
+    each by factual knowledge depth, clinical concept integration, and reasoning complexity.
+  example: ''
+  scoring: Performance is reported as accuracy.
+  judge: ''
+  scale: Accuracy as a percentage.
+  validation: ''
+  results: OpenAI-o1 achieved the highest base-model performance at 90.9% accuracy. The LLaMA 3.3-70B multi-agent
+    system reached 89.2%, compared with 69.5% for its base model.
+  limitations: ''
+  sources:
+  - https://doi.org/10.1371/journal.pdig.0001106
+  extracted: '2026-10-27'
 signals:
   citations: 5
   citations_source: OpenAlex

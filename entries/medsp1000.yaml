@@ -28,6 +28,38 @@ facets:
   eval_methods: [simulated_multi_turn, rubric_llm_judge]
   modality: [text]
   size: 1,638 cases; 24,602 rubric items
+card:
+  task: Act as the clinician in a multi-turn simulated encounter, gathering information, requesting examinations
+    and tests, and making care decisions as the patient's state changes.
+  items_built: The authors used an automated Codex pipeline to convert 1,073 peer-reviewed MedEdPORTAL articles
+    and 22,244 attachments into role-specific case packets, checking source fidelity and information leakage between
+    roles. Twelve clinicians independently double-reviewed 100 constructed cases and corrected identified errors
+    to produce the MedSP1000-Verified subset.
+  example: '"My speech got slurred this morning and my right arm went weak. I take warfarin for my heart rhythm."'
+  scoring: An evaluator agent compares the full encounter transcript with the original educators' rubric and marks
+    each criterion completed or not completed. The overall score is the mean of the per-case fractions of completed
+    criteria.
+  judge: An LLM evaluator assigns scores; the repository's example command uses GPT-5.5 for this role.
+  scale: Binary completion per rubric item; per-case completion percentages averaged across cases.
+  validation: Twelve clinicians with a mean of eight years of medical training double-rated 100 completed runs on
+    six runtime dimensions, including evaluator correctness. Across these dimensions, 97.7% of ratings were 4 or
+    5 on a five-point scale, paired ratings agreed exactly in 83.3% of cases, and 96.2% differed by no more than
+    one point.
+  score_meaning: Higher scores indicate that the model completed more of the expert-defined clinical criteria. In
+    the competency results, the micro rate gives each rubric item equal weight, while the macro rate gives each
+    of the six competencies equal weight.
+  annotation_process: The clinician reviewers came from affiliated hospitals of Shanghai Jiao Tong University and
+    rated cases and completed runs independently. During case validation, they corrected identified errors to create
+    the 100-case MedSP1000-Verified subset. Each case's rubric was constructed once and applied unchanged to every
+    model evaluated on that case.
+  results: GPT-5.5 achieved the highest overall rubric completion rate at 60.4%. The strongest medically specialized
+    model reached 40.0%.
+  limitations: ''
+  sources:
+  - https://arxiv.org/abs/2606.05112
+  - https://huggingface.co/datasets/byrLLCC/MedSP1000
+  - https://github.com/MAGIC-AI4Med/MedSP1000
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

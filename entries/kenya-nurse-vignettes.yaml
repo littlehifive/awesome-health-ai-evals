@@ -28,6 +28,37 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: "507 vignettes benchmarked (stratified from a 7,606-scenario source pool), rated by 6 physicians on 11 domains"
+card:
+  task: Give an open-ended, single-turn answer to a primary-care scenario reflecting clinical or non-clinical decisions
+    in Kenyan frontline practice.
+  items_built: Nurses generated scenarios using an adapted Situation-Background-Assessment-Recommendation framework
+    in participatory workshops and follow-up digital submissions across Kiambu, Kakamega, and Uasin Gishu. Clinician
+    responses underwent predefined quality checks that excluded 231 low-quality cases, leaving responses for 5,107
+    vignettes, from which 507 were randomly sampled across 12 competency categories, with up to 46 per category.
+  example: ''
+  scoring: Two blinded physicians independently rated each response against the 11-domain rubric; differences greater
+    than one point went to consensus and, if unresolved, a third physician, while one-point differences retained
+    the lower score. Final ratings were summarized as means and standard deviations by domain and respondent, with
+    Bayesian ordinal logistic regression estimating probabilities of ratings of at least 4 and pairwise comparisons.
+  judge: Six family physicians practicing in Kenya, each with 10 to 16 years of professional experience, scored
+    responses in pairs.
+  scale: Each domain is rated from 1 (very poor) to 5 (excellent); reported metrics are domain means and estimated
+    probabilities of ratings of at least 4.
+  validation: ''
+  score_meaning: Ratings of 4 or 5 count as high quality. Higher safety-domain scores indicate a lower likelihood
+    of harm and less severe potential harm if the advice is followed.
+  annotation_process: Evaluators were instructed to consider both clinical content and communication quality when
+    assigning scores. Panel evaluations took place from 4 to 29 August 2025.
+  results: o3 led numerically in most domains, scoring 4.72 for guideline alignment compared with the clinician
+    baseline of 2.86. Credible intervals broadly overlapped among LLMs, and clinicians scored lower than LLMs in
+    9 of 11 domains.
+  limitations: The authors note that single-turn vignettes do not capture real clinical encounters, nurse-written
+    scenarios may not represent all community-based health workers, and English-only testing leaves performance
+    in Swahili and other local languages untested.
+  sources:
+  - https://doi.org/10.1136/bmjdh-2026-000081
+  - https://github.com/pmwaniki/vignette
+  extracted: '2026-10-27'
 signals:
   citations: 3
   citations_source: OpenAlex

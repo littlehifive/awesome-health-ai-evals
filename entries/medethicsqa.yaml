@@ -27,6 +27,35 @@ facets:
   eval_methods: [mcq_exact_match, rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: "5,623 MCQs and 5,351 open-ended questions"
+card:
+  task: Answer medical ethics questions by selecting an option for multiple-choice items or writing a response to
+    open-ended items.
+  items_built: The authors filtered 29,000 candidate questions from medical benchmarks and question banks into 5,623
+    multiple-choice items using three-model consensus, semantic deduplication and removal of questions all tested
+    small models answered correctly. GPT-4o-1120 generated 5,351 open-ended items from 2,100 PubMed papers after
+    filtering for source fidelity, answer relevance and ethics relevance; domain experts checked 1,200 sampled open-ended
+    items and reported a 2.72% error rate.
+  example: ''
+  scoring: Multiple-choice answers are compared with the answer key to calculate accuracy, while GPT-4o-mini awards
+    one point for each reference-answer key point addressed in an open-ended response and divides points earned
+    by available points to calculate Relative Score (RS). The overall Ethics Score is the mean of multiple-choice
+    accuracy and open-ended RS.
+  judge: Multiple-choice scoring uses the answer key, and GPT-4o-mini grades open-ended responses.
+  scale: One point per reference key point addressed; accuracy and RS are percentages, and Ethics Score is their
+    mean.
+  validation: ''
+  score_meaning: Higher scores indicate more correct multiple-choice answers and greater coverage of the ethical
+    considerations in the reference answers. The reported average Ethics Score of 55.5 indicates that the evaluated
+    models still have substantial room for improvement in medical ethics.
+  annotation_process: ''
+  results: GPT-4o achieved the highest Ethics Score of 64.5, with 91.1% multiple-choice accuracy and 37.0% open-ended
+    RS.
+  limitations: The authors limit the benchmark to text in a single language, leaving multimodal ethics and cross-language
+    biases untested, and provide no training methods to improve medical ethics capabilities.
+  sources:
+  - http://arxiv.org/abs/2506.22808
+  - https://github.com/JianhuiWei7/MedEthicsQA
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

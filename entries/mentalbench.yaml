@@ -28,6 +28,29 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 24,750 cases (1,725 medical chart, 3,450 self-report, 6,525 ambiguous, 13,050 unambiguous)
+card:
+  task: Read a psychiatric case and select the diagnosis or complete set of plausible diagnoses from the supplied
+    options.
+  items_built: The authors sampled symptom profiles from MentalKG, added patient demographics and symptom details,
+    and used GPT-4.1, Gemini 2.5 Pro, and Qwen3-235B to generate 24,750 cases of 150-200 words each. Experts reviewed
+    and revised seed profiles, and a board-certified psychiatrist and a licensed clinical psychologist rated 220
+    randomly sampled cases for naturalness, diagnostic validity, and clinical realism.
+  example: ''
+  scoring: A prediction is correct only when its selected diagnoses exactly match the complete ground-truth answer
+    set. Overall accuracy is the average of the four case-type accuracies weighted by their sample counts.
+  judge: Exact match with the answer key.
+  scale: Correct or incorrect per case; overall accuracy reported as a percentage.
+  validation: ''
+  results: Claude Sonnet-4.5 achieved the highest overall accuracy at 62.69%, followed by GPT-5.1 at 62.17%.
+  limitations: The authors note that cases are English-only narratives rather than interactive interviews, evaluation
+    examines final diagnoses rather than intermediate reasoning, and results do not guarantee real-world clinical
+    performance.
+  sources:
+  - https://arxiv.org/abs/2602.12871
+  - https://huggingface.co/datasets/hysong/MentalBench
+  - https://huggingface.co/datasets/kth8/MentalBench-formatted
+  - https://github.com/HoyunS/MentalBench
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

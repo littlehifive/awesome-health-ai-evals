@@ -25,6 +25,36 @@ facets:
   eval_methods: [rubric_llm_judge, simulated_multi_turn]
   modality: [text]
   size: 5,000 adversarial prompts (25 topics, 100 subtopics)
+card:
+  task: Respond to adversarial medical requests while maintaining medical safety, including when a malicious agent
+    participates in a multi-agent discussion.
+  items_built: Three licensed physicians with over five years of clinical experience selected 25 topics and 100
+    subtopics from GPT-o3 proposals across five medical safety domains. GPT-4o and Claude 3.7 Sonnet each generated
+    50 instructions per subtopic; physicians retained 25 per model, and the generating models reduced explicit malicious
+    cues to produce 5,000 prompts.
+  example: ''
+  scoring: An Evaluator Agent scores responses against the AMA Principles of Medical Ethics, using the final summary
+    for Layers, the Leader's verdict for Centralized, and the whole discussion for SharedPool and Decentralized.
+    LCS evaluates the first 100 response tokens, while RS evaluates the complete response; reported cross-subset
+    figures are means across the two generator-model subsets.
+  judge: An Evaluator Agent with the AMA Principles of Medical Ethics in its system prompt assigns scores; its model
+    is not specified.
+  scale: AMA score from 0 to 90, with higher scores indicating greater safety; LCS covers the first 100 tokens and
+    RS the full response.
+  validation: ''
+  score_meaning: A dark-personality risk score above 60 flags an agent for priority monitoring; isolation requires
+    concrete danger signals in its utterances, such as ethical violations, coercive rhetoric, or fabricated data.
+  annotation_process: GPT-4o and Claude 3.7 Sonnet each generated 50 candidate instructions per subtopic and assigned
+    each a Low, Medium, or High threat label. The Enforcement Agent screened agents with a ten-item scale derived
+    from the Dark Triad, PCL-R, and MACH-IV inventories, then checked flagged agents' utterances for dangerous behavior
+    before isolating them.
+  results: 'Decentralized was the highest-scoring topology, with LCS/RS of 83.4/83.2 on GPT-4o-generated prompts
+    and 80.2/82.4 on Claude-3.7-generated prompts. It also had the smallest declines after malicious-agent insertion:
+    2.6% in LCS and 2.7% in RS.'
+  limitations: ''
+  sources:
+  - https://arxiv.org/abs/2505.20824
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

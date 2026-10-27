@@ -27,6 +27,25 @@ facets:
   eval_methods: [automatic_metric, rubric_llm_judge]
   modality: [text]
   size: 100 patient timelines, average 1,669.8 turns and 29.7 sessions per conversation
+card:
+  task: Answer questions about a patient's chronological doctor-patient dialogue using evidence from one or several
+    admissions, and abstain when the dialogue does not contain the answer.
+  items_built: Synthetic dialogues and paired question sets were generated from MIMIC-IV v3.1 and MIMIC-IV-Note
+    v2.2, using discharge notes, radiology notes, diagnosis and procedure codes, and microbiology records. Each
+    admission becomes one session with Doctor and Patient speakers, and admissions without discharge notes are excluded.
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: ''
+  validation: ''
+  score_meaning: ''
+  annotation_process: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://arxiv.org/abs/2607.22566
+  - https://github.com/leozzy13/MedLoCoMo
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

@@ -24,6 +24,24 @@ facets:
   eval_methods: [automatic_metric, rubric_llm_judge]
   modality: [text]
   size: 460 QA pairs
+card:
+  task: Answer medication questions in Yorùbá using information from Nigerian drug labels.
+  items_built: The dataset contains 460 English and Yorùbá question-answer pairs, with five pairs for each of 92
+    drugs, drawn from EMDEX drug monographs and the Nigerian Essential Medicines list. Certified pharmacists validated
+    the English answers, and native speakers used the Spitch translation model to produce Yorùbá translations that
+    Yorùbá language experts checked.
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: ''
+  validation: ''
+  score_meaning: ''
+  annotation_process: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://doi.org/10.18653/v1/2026.loreslm-1.8
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

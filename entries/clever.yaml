@@ -26,6 +26,33 @@ facets:
   eval_methods: [expert_human_rating, rubric_llm_judge]
   modality: [text]
   size: 500 cases (about 125 per task; 100 reserved for inter-annotator agreement)
+card:
+  task: Generate a clinical summary, extract clinical information, or answer a biomedical research or open-ended
+    medical question for each case.
+  items_built: Medical doctors across multiple specialties drafted 500 new cases using deidentified electronic health
+    records, clinical case reports, peer-reviewed biomedical literature, clinical guidelines, and medical documentation
+    formats, while avoiding existing benchmarks and copyrighted material. At least 2 additional physicians reviewed
+    each case for accuracy, clarity, and task suitability until consensus was reached; 100 cases were reserved for
+    interannotator agreement analysis.
+  example: ''
+  scoring: Physicians blinded to model identity compare responses in randomized evaluations and express preferences
+    on factuality, clinical relevance, and conciseness.
+  judge: Four externally hired medical professionals evaluated outputs, with GPT-4o used as a fifth evaluator in
+    a separate comparison.
+  scale: ''
+  validation: Interrater reliability was checked with intraclass correlation coefficients, with factuality the least
+    consistent dimension and conciseness the most consistent. In a repeat evaluation after 2 weeks, an average of
+    approximately 83% of labels across 3 raters remained unchanged, while reported F1-scores could exceed 0.8.
+  score_meaning: ''
+  annotation_process: Three physicians independently scored a seed set of 100 medical queries using a predefined
+    rubric. The physicians had no prior exposure to the models or their training data. In a second annotation round,
+    evaluators assessed the same questions without access to their previous responses.
+  results: ''
+  limitations: The authors report weak interrater agreement, numerous neutral responses suggesting gaps in specialist
+    expertise, and substantial costs and delays from physician review and the washout period.
+  sources:
+  - https://doi.org/10.2196/72153
+  extracted: '2026-10-27'
 signals:
   citations: 27
   citations_source: OpenAlex

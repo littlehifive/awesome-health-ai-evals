@@ -26,6 +26,37 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: about 820,000 statements (raw); balanced and length-filtered variants with train/val/test splits
+card:
+  task: Classify each medical statement as factual or non-factual using the supplied context or established medical
+    knowledge, and explain any factual inconsistency.
+  items_built: Mehenni and Zouaq transformed training examples from MedMCQA, MedQA, MedNLI, Augmented-Clinical Notes
+    and SumPubMed, using Llama-3-70B to rewrite answers and extractions or introduce contradictions, alongside answer
+    substitution and extraction swapping. Generated content was checked primarily by visual inspection of a sample;
+    the paper reports 313,920 training, 17,458 validation and 17,443 test samples.
+  example: '"Insulin is most commonly used as first-line treatment for newly diagnosed type 2 diabetes mellitus
+    in patients without contraindications."'
+  scoring: Predicted factuality labels are compared with reference labels to calculate precision, recall and F1,
+    excluding outputs that do not match the required format. Generated explanations are compared with reference
+    explanations using ROUGE-1, ROUGE-2 and BLEU, only for items where both prediction and reference label are non-factual.
+  judge: Automated comparison with reference labels and explanations assigns the scores.
+  scale: Binary factual/non-factual labels; aggregate precision, recall and F1, plus ROUGE-1, ROUGE-2 and BLEU for
+    explanations.
+  validation: ''
+  score_meaning: A statement is factual only if every piece of information it contains is supported by the provided
+    context or established medical knowledge.
+  annotation_process: 'Llama-3-70B generated dataset content using one example in each prompt, while NLI labels
+    were taken directly from the source datasets: entailment became factual, contradiction became non-factual, and
+    neutral examples were excluded. The validity of generated hallucinations was assessed primarily by visual inspection
+    of a sample of the generated data.'
+  results: ''
+  limitations: The authors identify reliance on generated content without comprehensive medical-professional validation,
+    possible label inaccuracies in synthetic information-extraction data, task imbalance and possible memorization
+    of source training examples.
+  sources:
+  - https://arxiv.org/abs/2504.08596
+  - https://huggingface.co/datasets/GM07/medhal
+  - https://huggingface.co/datasets/GM07/medhal-lf
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

@@ -28,6 +28,30 @@ facets:
   modality: [text]
   size: 1,373 questions
 adapted_from: [medqa, glianorex]
+card:
+  task: Choose one of six answers to each medical question, including options for no correct answer or inability
+    to answer, and report confidence from 1 to 5.
+  items_built: The authors created 1,373 items from MedQA-USMLE and 100 fictional-organ questions from Glianorex,
+    manually auditing the benchmark and identifying 55 questions with missing media or insufficient information.
+    They also randomly selected 125 questions and changed the correct option or question to make the original answer
+    incorrect.
+  example: ''
+  scoring: 'Selected answers are compared with the answer key to calculate overall accuracy and accuracy within
+    confidence groups: 5, 3 to 4, and below 3. Missing-answer recall and unknown recall are the percentages of the
+    respective answer-key categories correctly identified.'
+  judge: Exact match with the answer key.
+  scale: Correct or incorrect per item; percentage accuracy overall and by confidence group, plus percentage recall
+    for missing answers and unanswerable questions.
+  validation: ''
+  results: GPT-4o-2024-05-13 had the highest overall accuracy at 73.3%, with 46.1% missing-answer recall and 3.7%
+    unknown recall. Nine of the twelve models scored 0% on unknown recall.
+  limitations: The authors state that multiple-choice questions cannot capture real clinical decision-making, manual
+    audits and changes introduce potential human error and bias, confidence scores and metrics incompletely capture
+    uncertainty and safety, and findings are limited to models available in June 2024.
+  sources:
+  - https://doi.org/10.1038/s41467-024-55628-6
+  - https://huggingface.co/datasets/maximegmd/MetaMedQA
+  extracted: '2026-10-27'
 signals:
   citations: 122
   citations_source: OpenAlex

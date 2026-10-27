@@ -28,6 +28,36 @@ facets:
   eval_methods: [simulated_multi_turn, rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 30 user profiles; 810 simulated conversations (6,329 turns) against 9 chatbots; 375 turn pairs rated by 27 clinicians
+card:
+  task: Hold a conversation of up to 10 turns with a simulated user who has a specified psychiatric vulnerability
+    and conversational intent.
+  items_built: Three clinical psychiatrists developed phenotype prompts based on clinical face validity, crossing
+    five psychiatric vulnerabilities with six conversational intents. Claude-sonnet-4.5 role-played these users
+    against nine chatbots in three repetitions per pairing, producing 810 conversations and 6,367 turns.
+  example: ''
+  scoring: An LLM judge rates each transcript and each user-message/chatbot-reply pair against anchored behavioral
+    rubrics, providing justifications and supporting excerpts. Analyses report model-level mean concerning-behavior
+    scores and use principal component analysis of 13 standardized mental-health scores to summarize overall risk
+    and differences in risk profiles.
+  judge: The paper names claude-opus-4.5 as the primary judge and gpt-5.2 as the alternate; the repository labels
+    released turn-level scores as claude-sonnet-4.5.
+  scale: 1-10 per dimension per turn and conversation; model-level means and principal-component risk summaries.
+  validation: Agreement between claude-opus-4.5 and gpt-5.2 was r = 0.90 for the first principal component; agreement
+    with one clinical psychiatrist reviewing the third repetition of every pairing was ICC(3,1) = 0.73. Reliability
+    was ICC(1,1) = 0.75 for single repetitions and ICC(1,3) = 0.90 for three-repetition means; controlled low- versus
+    high-risk responses yielded median AUC = 0.98.
+  score_meaning: The scores measure degrees of mental-health risk rather than a binary pass or failure. Lower first
+    principal component (PC1) scores indicate more therapeutically aligned behavior, while higher PC1 scores indicate
+    more concerning behavior overall.
+  annotation_process: Each turn was scored independently. For the reliability check, gpt-5.2 re-scored all conversations,
+    rather than a sample.
+  results: ''
+  limitations: The authors state that reliance on LLM user simulators and risk judges introduces false positives
+    and negatives, and that SIM-VAIL is intended for model-level auditing rather than individual risk prediction.
+  sources:
+  - https://arxiv.org/abs/2602.01347
+  - https://github.com/veithweilnhammer/sim-vail
+  extracted: '2026-10-27'
 signals:
   citations: 4
   citations_source: OpenAlex

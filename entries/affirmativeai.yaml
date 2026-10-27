@@ -26,6 +26,28 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: framework proposal; no items
+card:
+  task: Respond to prompts simulating LGBTQ+ users seeking support with coming out, discrimination, gender identity,
+    or relationship issues.
+  items_built: The framework is proposed for auditing LLM chatbot responses to LGBTQ+ mental health support prompts,
+    drawing on affirmative therapy principles and the sexual orientation counselor competency scale (SOCCS). The
+    paper proposes adapting attitude and knowledge scale items and constructing scenarios covering diverse LGBTQ+
+    experiences, but reports no completed item set.
+  example: '"being born a heterosexual person in this society carries with it certain advantages"'
+  scoring: The proposed evaluation compares LLM responses with responses collected from therapists experienced in
+    LGBTQ+ mental health, combining therapists' qualitative review with quantitative comparisons of affirmativeness,
+    empathy, relevance, and accuracy. The paper gives no scoring rules or method for combining scores.
+  judge: Therapists experienced in LGBTQ+ mental health are proposed as reviewers; no number is specified.
+  scale: ''
+  validation: ''
+  score_meaning: ''
+  annotation_process: ''
+  results: ''
+  limitations: The authors state that affirmativeness is hard to quantify and that an affirmative LLM cannot solve
+    LGBTQ+ mental health issues.
+  sources:
+  - https://arxiv.org/abs/2405.04652
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

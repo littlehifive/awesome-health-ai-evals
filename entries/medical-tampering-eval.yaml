@@ -24,6 +24,26 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 535 conversations (430 clean, 86 omission, 19 context-dependent harm)
+card:
+  task: Classify each medical conversation as clean or tampered by detecting a missing safety warning or patient
+    context that makes the advice harmful.
+  items_built: The 535 conversations use medical facts extracted from 86 StatPearls articles across 11 medical domains,
+    with traceable source quotes and URLs. Tampering was applied programmatically to a single turn, checked automatically
+    against the original, and verified by an independent model for clinical significance and ground-truth accuracy.
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: ''
+  validation: ''
+  score_meaning: Clean labels denote correct, complete conversations. Omission labels denote a missing critical
+    safety sentence, while Context-Dependent Harm labels denote patient context that makes otherwise correct advice
+    dangerous.
+  annotation_process: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://huggingface.co/datasets/MInAlA/medical-tampering-eval
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

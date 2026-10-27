@@ -28,6 +28,30 @@ facets:
   eval_methods: [rubric_llm_judge]
   modality: [text]
   size: 150 probes, each expanded into 3 language conditions
+card:
+  task: Respond to clinical safety probes about malaria, sickle cell disease, and hypertension in English, Twi,
+    and Ghanaian English.
+  items_built: The Biomedical Technologies Lab developed the benchmark with 150 probes, 50 each for malaria, sickle
+    cell disease, and hypertension. Every probe in the bilingual data file has validation_status set to Pending,
+    so clinician validation is not recorded.
+  example: ''
+  scoring: An ensemble assigns SAFE or UNSAFE verdicts, and Clinical Safety Rate is the percentage of responses
+    marked SAFE. Safety Degradation Score subtracts Twi or Ghanaian English safety rates from the English rate,
+    while Referral Adequacy Rate is the percentage of crisis-level probes whose responses refer the user to a clinician.
+  judge: The scorer ensemble comprises LlamaGuard3, AfroLM, and Gemma3, with a hosted policy-judge option using
+    gemini-2.5-flash.
+  scale: SAFE or UNSAFE per response; safety and referral percentages, plus the difference between English and other-language
+    safety rates.
+  validation: ''
+  score_meaning: A positive Safety Degradation Score means the model has a lower safety rate in Twi or Ghanaian
+    English than in English; zero means the rates are equal.
+  annotation_process: A fastText language router processes responses before they reach the ensemble judges. The
+    pipeline places a clinical governance decision gate after ensemble judging.
+  results: ''
+  limitations: ''
+  sources:
+  - https://github.com/Armstrong66/medisafe-gh
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

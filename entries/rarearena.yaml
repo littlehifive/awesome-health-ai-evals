@@ -27,6 +27,34 @@ facets:
   eval_methods: [automatic_metric, rubric_llm_judge]
   modality: [text]
   size: "nearly 50,000 cases, more than 4,000 diseases; a smaller representative subset was added in 2026"
+card:
+  task: Produce a ranked list of five diagnoses for each patient case, using information available before confirmatory
+    tests for screening or through the final diagnostic stage for confirmation.
+  items_built: The creators used GPT-4o to process PMC-Patients case summaries, map diagnoses to Orphanet with CODER
+    embeddings, exclude unmapped cases, and truncate and rephrase cases to remove diagnosis leakage, yielding 49,760
+    screening cases covering 4,597 diseases and 22,901 confirmation cases covering 3,522 diseases. Two physicians
+    checked dataset quality for leakage, fidelity, and complexity.
+  example: ''
+  scoring: GPT-4o compares the predicted diagnoses with the reference diagnosis, assigning 0 for missing, 1 for
+    a broader disease term (hypernym), and 2 for a synonym. Top-1 and top-5 recall are the percentages of cases
+    with either a score-1 or score-2 match in the first prediction or anywhere in the five predictions, respectively.
+  judge: GPT-4o assigns the diagnostic match scores.
+  scale: Matches receive 0, 1, or 2; top-1 and top-5 recall count both 1 and 2 as matches and are reported as percentages.
+  validation: ''
+  score_meaning: The March 2026 revision uses an Orphanet-based rare-disease hierarchy to apply stricter criteria
+    for awarding score 1 to broader disease terms, because the earlier evaluation method awarded that score too
+    readily.
+  annotation_process: Each model first generates five diagnoses using the provided prompt and generation script.
+    After grading, a separate script parses the evaluation outputs and calculates recall.
+  results: GPT-4o performed best, with top-1 and top-5 recall of 33.05% and 56.86% for screening and 64.24% and
+    85.92% for confirmation.
+  limitations: The authors reported that the original evaluation overcredited broader disease terms and introduced
+    an Orphanet-based hierarchy in March 2026 to make score-1 assignments stricter.
+  sources:
+  - https://huggingface.co/datasets/THUMedInfo/RareArena
+  - https://github.com/zhao-zy15/RareArena
+  - https://doi.org/10.1016/j.landig.2025.100953
+  extracted: '2026-10-27'
 signals:
   citations: 3
   citations_source: OpenAlex

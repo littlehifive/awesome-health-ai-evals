@@ -28,6 +28,35 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric]
   modality: [text]
   size: 3,562 cases (3,271 distinct diagnoses)
+card:
+  task: Read a patient case presentation and identify the most likely diagnosis, either by choosing one of four
+    options or by writing a free-text answer.
+  items_built: The authors extracted 3,562 case presentations with a Python script and used GPT-4o-mini to remove
+    diagnoses and post-diagnosis treatments, refining the prompts through manual checks of random 35-case samples.
+    They selected semantically similar ICD-10-CM diagnoses as distractors and manually checked 35 cases to ensure
+    the distractors did not contain the correct diagnosis.
+  example: ''
+  scoring: Multiple-choice selections are compared with the correct diagnosis to calculate accuracy; free-text diagnoses
+    are compared with the reference diagnosis using BERTScore F1. Reported means and standard deviations use eight
+    bootstrap samples of 500 cases for most models and four samples of 250 cases for GPT-4o and MedLM-Large.
+  judge: Automatic answer-key comparison grades multiple-choice answers, and BERTScore F1 grades free-text answers.
+  scale: Multiple-choice answers are correct or incorrect, reported as mean accuracy; free-text similarity is scored
+    from 0 to 1, reported as mean BERTScore F1.
+  validation: ''
+  score_meaning: A BERTScore F1 of 1 indicates the greatest semantic similarity to the reference diagnosis, while
+    0 indicates the least similarity. For multiple-choice accuracy, random guessing among the four options gives
+    25%.
+  annotation_process: ''
+  results: GPT-4o performed best on both tasks, with 87.9% multiple-choice accuracy and a free-text BERTScore F1
+    of 0.7642.
+  limitations: The authors note that cases come from one journal, only samples received manual validation, evaluation
+    used only zero-shot text inputs without figures, and the cases could have appeared in the evaluated models'
+    training data.
+  sources:
+  - https://arxiv.org/abs/2503.06204
+  - https://huggingface.co/datasets/ofir408/CupCase
+  - https://github.com/nadavlab/CUPCase
+  extracted: '2026-10-27'
 signals:
   citations: 2
   citations_source: OpenAlex

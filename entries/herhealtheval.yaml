@@ -24,6 +24,41 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 540 matched items per language (three languages)
+card:
+  task: For each women's-health message, return structured predictions of the concern category, risk level, and
+    whether clarification is needed.
+  items_built: The authors filtered, cleaned, deduplicated, and category-balanced cases from MENST, HealthCareMagic-100k,
+    and iCliniq-10k, then created machine-generated register variants and translations to produce 540 evaluation
+    items per language. Human reviewers checked semantic preservation, register fidelity, and naturalness; native
+    speakers validated translations, and a professional Arabic-English medical translator additionally reviewed
+    Arabic.
+  example: « Quelles sont les étiologies courantes des saignements menstruels irréguliers ? »
+  scoring: Parsed predictions are compared with predefined concern, risk, and constructed under-specification targets
+    to calculate accuracy, under- and over-triage, and clarification recall and specificity; parse failures are
+    reported separately. Consistency is the fraction of case groups receiving the same label across all six forms,
+    with cross-language agreement calculated on matched cases.
+  judge: Automated comparison with predefined labels, including deterministic silver risk targets and constructed
+    under-specification targets.
+  scale: Correct or incorrect label predictions; aggregate accuracy, error rates, recall, specificity, parse compliance,
+    and agreement proportions from 0 to 1.
+  validation: ''
+  score_meaning: Under-triage is the share of parse-valid outputs labeled routine when the reference label is see-doctor,
+    so 0.718 means 71.8% of those cases were assigned the lower-risk label; lower is better. Near-zero clarification
+    recall means failure to recognize deliberately omitted information, while high consistency can reflect repeatedly
+    choosing routine rather than correct understanding.
+  annotation_process: Risk targets are computed once per English source case and copied to matched French and Arabic
+    items by shared case identity. Risk, concern and clarification metrics exclude outputs that cannot be parsed;
+    parsing failures are counted separately.
+  results: 'Zero-shot Qwen3.5-9B-Instruct achieved the highest reported English risk accuracy, 0.667, against a
+    majority-class baseline of 0.644, with clarification recall of 0.856. Risk-corrected multilingual adaptation
+    achieved the lowest reported under-triage rates: 0.590 in English, 0.572 in French, and 0.558 in Arabic, but
+    clarification recall was 0.000 in all three languages.'
+  limitations: The study covers only three women's-health categories, three languages, and one model family with
+    limited adaptation configurations, uses silver rather than clinician-adjudicated risk and clarification targets,
+    and does not establish clinical safety.
+  sources:
+  - https://arxiv.org/abs/2609.20684
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

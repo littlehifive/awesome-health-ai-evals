@@ -29,6 +29,34 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: "about 21,000 QA pairs (8,530 Cochrane, 2,580 AHA, 10,500 narrative guideline)"
+card:
+  task: Answer clinical questions with yes, no, or no evidence, and classify evidence quality, recommendation strength,
+    or discrepancies between randomized trials and observational studies where requested.
+  items_built: GPT-4o generated structured questions and answers from Cochrane abstracts, AHA recommendations, and
+    narrative clinical guidelines, including 8,530 systematic-review questions and 10,456 narrative-guideline questions.
+    Five independent reviewers manually checked subsamples of 100, 20, 20, 20, and 20 question sets, and three reviewers
+    separately wrote questions for 25 abstracts, producing 75 human-authored questions.
+  example: '"in adults with chronic heart failure, does exercise therapy improve quality of life?"'
+  scoring: Predicted labels are compared with reference labels using exact match, and accuracy is the proportion
+    correct across all evaluated items; invalid labels count as incorrect. Class-wise precision, recall, and F1
+    are also reported, and a sensitivity analysis adjusts answer accuracy for errors in generated reference labels
+    using human-reviewed samples.
+  judge: Exact match with the reference labels.
+  scale: Each label is correct or incorrect; final accuracy is the percentage of evaluated items answered correctly.
+  validation: 'Five reviewers, all quantitative-science graduates enrolled in biostatistics or epidemiology graduate
+    programs with experience evaluating medical evidence, achieved pooled agreement with generated answers of 85%
+    (95% CI: 77%-91%; reviewer range: 68%-96%). Human-calibrated accuracy estimates for systematic-review questions
+    fell from 60.3% to 58.2% for GPT-4o-mini and from 67.8% to 65.6% for GPT-5.'
+  results: GPT-5 led the reported systematic-review comparison with 67.8% accuracy, while Claude 4.5 achieved 97.0%
+    on structured AHA guidelines. On the 75 human-authored questions, GPT-5 ranked highest at 48.7% accuracy.
+  limitations: The authors report that generated questions can overemphasize isolated details and understate uncertainty,
+    human validation covers only subsamples, and models score roughly 10 percentage points lower on human-authored
+    questions than on LLM-generated questions.
+  sources:
+  - https://doi.org/10.1016/j.patter.2026.101519
+  - https://huggingface.co/datasets/cwang271/MEDAL
+  - https://github.com/yiqunchen/MEDAL
+  extracted: '2026-10-27'
 signals:
   citations: 8
   citations_source: OpenAlex

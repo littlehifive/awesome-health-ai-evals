@@ -28,6 +28,33 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric, rubric_llm_judge]
   modality: [text]
   size: 13.1K situations and 5.4K multiple-choice questions (18,846 samples across three alignment modes)
+card:
+  task: Respond to health situations or multiple-choice questions by covering diverse viewpoints, following a specified
+    value or demographic perspective, or matching a population's answer distribution.
+  items_built: The authors curated 13.1K value-laden situations and 5.4K multiple-choice questions from surveys,
+    polls, and moral datasets, using few-shot FLAN-T5 classification to remove items unrelated to health, lacking
+    diverse opinions, or requiring no action. Human annotators checked 10% of the dataset and judged 80% health-related,
+    with Fleiss' kappa of 0.49.
+  example: ''
+  scoring: For Overton, an NLI model calculates the percentage of reference values covered by responses; humans
+    and GPT-4 also compare paired responses on 100 queries, reporting win, tie, and loss rates. Steerable scoring
+    measures accuracy in maintaining the specified attribute, while distributional scoring measures Jensen-Shannon
+    distance between model and expected answer distributions.
+  judge: An NLI model cited to Schuster et al. (2021), GPT-4, and human annotators assess Overton responses; accuracy
+    and Jensen-Shannon distance score the other modes.
+  scale: Overton value coverage and steerable accuracy in percent, higher is better; Jensen-Shannon distance, lower
+    is better.
+  validation: ''
+  score_meaning: ''
+  annotation_process: The automated Overton check tests response sentences individually for entailment of reference
+    values.
+  results: Aligned Gemma-7B with pluralism prompting achieved the highest reported Overton value coverage, at 40.61%.
+  limitations: The authors note that VITAL cannot cover all perspectives and values, tests only English, risks perpetuating
+    stereotypes, and uses sentence-level NLI coverage scoring that can favor longer responses.
+  sources:
+  - https://arxiv.org/abs/2502.13775
+  - https://github.com/anudeex/VITAL
+  extracted: '2026-10-27'
 signals:
   citations: 2
   citations_source: OpenAlex

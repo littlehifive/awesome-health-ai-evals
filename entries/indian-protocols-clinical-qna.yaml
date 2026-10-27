@@ -24,6 +24,28 @@ facets:
   eval_methods: [rubric_llm_judge]
   modality: [text]
   size: 504 prompts with query and answer rubrics
+card:
+  task: Answer each doctor's shorthand, abbreviated, or Hinglish query using the specified clinical guideline, including
+    the required clinical details and avoiding unsafe recommendations.
+  items_built: The 504 conversation prompts were generated from Indian and international clinical guideline documents,
+    including sources from AGA, ADA, AHA, and IAP. Question types include PICO, targeted questions, keyword queries,
+    synthetic patient cases, and malformed queries.
+  example: ''
+  scoring: Query rubrics assess whether the retrieval query captures the medical concepts and targets the correct
+    guideline publisher, while answer rubrics assess clinical accuracy, completeness, and safety. Positive criteria
+    award 1 to 10 points and negative safety criteria assign penalties of -4 to -10 points; the card does not specify
+    how scores are combined.
+  judge: The example evaluation command uses OpenAI gpt-5-mini to grade answer rubrics.
+  scale: 'Positive criteria: 1 to 10 points; negative safety criteria: -4 to -10 points; final metric unspecified.'
+  validation: ''
+  score_meaning: ''
+  annotation_process: ''
+  results: ''
+  limitations: The card states that queries specify a reference, so evaluation should use a model with web search
+    rather than relying solely on its internal knowledge.
+  sources:
+  - https://huggingface.co/datasets/ekacare/indian_protocols_based_clinical_QnA
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

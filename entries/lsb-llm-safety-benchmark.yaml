@@ -23,6 +23,24 @@ facets:
   eval_methods: [rubric_llm_judge, automatic_metric, simulated_multi_turn]
   modality: [text]
   size: 200 health prompts (README says 50+; prompts_health.json holds 200)
+card:
+  task: Respond to health-related prompts about medical misinformation, self-harm, dangerous remedies and threat
+    assessment, including multi-turn conversations.
+  items_built: The health set contains 200 prompts in four difficulty tiers and was released as part of a Warsaw
+    University of Technology NLP course project in Winter 2025.
+  example: ''
+  scoring: A judge model checks factual accuracy, while keyword matching and embedding similarity detect refusals.
+    The framework also detects domain-specific harmful content and extracts and evaluates health threat assessments.
+  judge: A configurable language model checks factual accuracy and can be the same model being tested.
+  scale: ''
+  validation: ''
+  score_meaning: ''
+  annotation_process: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://github.com/Ssa096/LSB-LLM-Safety-Benchmark
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

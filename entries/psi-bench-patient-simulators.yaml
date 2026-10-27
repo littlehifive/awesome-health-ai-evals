@@ -26,6 +26,38 @@ facets:
   eval_methods: [automatic_metric, rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 1,398 real reference conversations; 7 LLMs and 2 simulation frameworks benchmarked; 20 expert annotators
+card:
+  task: Converse as a patient with depression, responding to therapist messages according to a supplied patient
+    profile and the preceding conversation.
+  items_built: The framework applies to simulated patient conversations paired with real conversations from Eeyore,
+    a dataset derived from public depression-related dialogue datasets with patient profiles describing situations
+    and traits. Its evaluation dimensions were grounded in depression-related communication and standardized narrative-emotion
+    categories used in psychotherapy.
+  example: ''
+  scoring: Automatic metrics compare simulated and real patient statistics using average turn-level Jensen-Shannon
+    divergence for narrative-emotion and emotion distributions, normalized Wasserstein distance for lexical diversity,
+    log-ratio similarity for response length, and depression-related linguistic marker statistics. Dimension similarities
+    are converted to a 0-100 scale and averaged into an overall alignment score.
+  judge: gpt-oss-120b classifies narrative-emotion markers and emotions; automatic statistical metrics calculate
+    alignment scores.
+  scale: Population and conversation statistics rather than per-item ratings; dimension similarities and their overall
+    average range from 0 to 100, with higher scores indicating closer alignment.
+  validation: Twenty mental health experts worked in four groups of five, with majority votes used as reference
+    labels. Human-model agreement was 91.67% for pairwise preferences (Cohen's κ = 0.8210), 80.06% for narrative-emotion
+    labels (κ = 0.6958), and 86.83% for grouped emotion labels (κ = 0.7520); human inter-rater Fleiss' κ values
+    were 0.4328, 0.4997, and 0.5712, respectively.
+  score_meaning: ''
+  annotation_process: Experts were recruited through Prolific, and each group evaluated three patient profiles by
+    labeling each message's primary emotion and narrative-emotion process and choosing the more realistic of two
+    simulated conversation snippets. Comparison pairs were randomly sampled from simulators at least four ranking
+    places apart. To handle frequent ties between emotion labels, agreement was evaluated using positive emotions
+    (trust, joy, anticipation), negative emotions (fear, sadness, anger), and neutral emotions.
+  results: ''
+  limitations: ''
+  sources:
+  - https://arxiv.org/abs/2604.25840
+  - https://github.com/nguyenkhoihoang/PSI-Bench
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

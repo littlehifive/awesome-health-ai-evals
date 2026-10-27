@@ -29,6 +29,39 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 2,996 questions in the paper (667 on the Hugging Face card)
+card:
+  task: Answer medical questions, interpret clinical text, reason through clinical cases, or produce medical writing
+    according to each item's instructions.
+  items_built: Medical professionals created and repeatedly refined questions, reference answers, prompts, and checklists
+    from clinical records, public datasets, and expert-designed scenarios; ten licensed physicians checked a sample
+    and found 86% factually correct. The paper reports 2,996 items and a randomly selected 677-question evaluation
+    set, while the dataset card and repository describe a 667-question test set.
+  example: '"Why is β-OH anthraquinone more acidic than α-OH anthraquinone?"'
+  scoring: GPT-4o scores responses against expert reference answers and checklists, while humans score medical text
+    generation across five dimensions and map those ratings to a usability score. Automated scores are averaged
+    across three judging runs before applying the usable-response threshold, and usability rates report the percentage
+    of responses meeting the threshold.
+  judge: GPT-4o grades four task categories, and human evaluators grade medical text generation.
+  scale: 'Automated scores: 0-5, usable at ≥4; human text-generation scores: mapped to 0-7, usable at ≥5 with a
+    safety veto; final metric: percentage usable.'
+  validation: The paper reports 92.36% overall human-machine agreement on usability and separately reports 92.47%
+    for the four categories scored automatically. Agreement was lower for medical text generation, so its reported
+    results use human ratings; GPT-4o's variability over five repeated scorings of the same response was 0.99%.
+  score_meaning: An automated score of 4 means the response adequately addresses the user's primary inquiry. A higher
+    human-machine agreement rate means automated and human assessments more often give the same usable or unusable
+    judgment.
+  annotation_process: Human evaluation included two rounds of quality control and acceptance procedures to standardize
+    scoring criteria, and medical experts inspected random samples of automated results. Cases with low human-machine
+    agreement were used to revise or add checklist criteria and refine GPT-4o's scoring prompts.
+  results: DeepSeek-R1 achieved the highest overall performance at 64.23%, followed by o1-preview at 61.23%, among
+    13 models evaluated.
+  limitations: The authors identify a focus on Chinese medical contexts, exclusion of images and audio, and the
+    need for regular updates as medical knowledge changes.
+  sources:
+  - https://doi.org/10.48448/vzhq-5f55
+  - https://huggingface.co/datasets/llmeval-fdu/LLMEval-Med
+  - https://github.com/llmeval/LLMEval-Med
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

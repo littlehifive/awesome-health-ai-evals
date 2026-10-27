@@ -25,6 +25,22 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 4,127 questions
+card:
+  task: Choose the one correct answer from five numbered options for each Romanian advanced biology question.
+  items_built: The dataset contains 4,127 questions drawn from medical school entrance examinations in Romania.
+  example: Care afirmații sunt adevărate în legătură cu glanda hipofiză? 1. prolactina este un hormon trop secretat
+    de adenohipofiză 2. secreția adenohipofizei este controlată de hipotalamus 3. GnRH și FSH sunt secretați de
+    adenohipofiză 4. hormonul de creștere este secretat de neurohipofiză 5. niciun răspuns corect
+  scoring: Accuracy measures the proportion of questions for which the selected option matches the correct answer.
+  judge: Exact match with the answer key.
+  scale: Correct or incorrect per question; overall accuracy.
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://huggingface.co/datasets/craciuncg/RoMedQA_v1
+  - https://doi.org/10.18653/v1/2024.findings-emnlp.261
+  extracted: '2026-10-27'
 signals:
   citations: 5
   citations_source: OpenAlex

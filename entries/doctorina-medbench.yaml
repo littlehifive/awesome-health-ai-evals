@@ -25,6 +25,42 @@ facets:
   eval_methods: [simulated_multi_turn, rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: Over 1,000 clinical cases covering 750+ diagnoses
+card:
+  task: Conduct a dialogue with a simulated patient, elicit relevant history, interpret available attachments, and
+    provide differential diagnoses, a final diagnosis, and clinical recommendations.
+  items_built: Physicians created more than 1,000 cases covering over 750 diagnoses using expert knowledge and consented
+    consultation logs from Doctorina prototype users, with clinical categories balanced after USMLE Step 2 CK. At
+    least two physicians checked each case for realism, diagnostic accuracy, valid investigation and treatment recommendations,
+    and recommendation weights.
+  example: ''
+  scoring: An automated pipeline compares the dialogue with case-specific expected diagnoses, mandatory questions,
+    and weighted investigation and treatment recommendations; final diagnosis receives 100 if at least one diagnosis
+    is correct and 0 otherwise, while question and differential coverage are percentages. Scores are averaged across
+    cases and within categories, with a separate category-balanced average giving each category equal weight; dialogue
+    steps count complete physician-patient exchanges.
+  judge: Four automated assessment modules assign scores through a deterministic, case-based framework; no grader
+    model is named.
+  scale: 'Diagnosis: 0 or 100; coverage and weighted recommendation scores: 0 to 100; dialogue steps: exchange count;
+    final metrics: case means and equally weighted category means.'
+  validation: Three general practitioners completed 100 typical cases without comorbidities, achieving 83% diagnosis
+    accuracy versus AI Doctor's 87% and GPT-5's 81%; this compared participant performance rather than grader agreement.
+    The framework also includes intentional-error tests whose scores must decrease by predetermined amounts.
+  score_meaning: Treatment Accuracy is the percentage of matching prescriptions out of all matching, extra, missing,
+    and incorrect prescriptions, so higher scores mean closer agreement with the gold-standard treatment. High diagnosis
+    accuracy with more dialogue steps can indicate reduced efficiency despite correct diagnoses.
+  annotation_process: Each case was validated by at least two physicians for clinical realism, diagnosis accuracy,
+    and the validity of investigation and treatment recommendations, with particular attention to recommendation
+    weights. During scoring, constrained LLM calls extract clinical entities into schema-validated records, which
+    deterministic scoring functions then assess; ICD-10 codes are normalized and checked using algorithmic code-matching
+    rules.
+  results: AI Doctor achieved 89.27% diagnosis accuracy versus GPT-5's 84.61%, and 53.04% treatment accuracy versus
+    37.99%; GPT-5 scored higher on weighted investigation recommendations, 33.51% versus 22.16%. In the separate
+    100-case human comparison, three GPs achieved 83% diagnosis accuracy versus AI Doctor's 87%.
+  limitations: The authors state that independent externally developed cases are needed to reduce researcher bias,
+    human testing is limited by practical constraints, and cases must match participating physicians' specialties.
+  sources:
+  - https://arxiv.org/abs/2603.25821
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

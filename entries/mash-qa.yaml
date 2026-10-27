@@ -26,6 +26,25 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: "34,808 QA pairs over 5,574 contexts (27,728 train, 3,493 dev, 3,587 test)"
+card:
+  task: Select the sentences that answer a consumer-health question from a long document, including sentences from
+    non-consecutive parts of the document.
+  items_built: The dataset contains 34,808 question-answer pairs built from WebMD articles, with questions drawn
+    from article headings and answers excerpted from the article text.
+  example: ''
+  scoring: Selected answer spans are compared with the reference answer spans using span-level precision, recall,
+    F1 and exact match.
+  judge: ''
+  scale: Span-level precision, recall, F1 and exact match.
+  validation: ''
+  score_meaning: ''
+  annotation_process: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://github.com/mingzhu0527/MASHQA
+  - https://doi.org/10.18653/v1/2020.findings-emnlp.342
+  extracted: '2026-10-27'
 signals:
   citations: 62
   citations_source: OpenAlex

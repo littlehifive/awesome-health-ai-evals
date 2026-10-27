@@ -26,6 +26,21 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 1,000 base questions with bias-injected variants in seven subsets (baseline, age, gender, confirmation, frequency, self_diagnosis, mixed)
+card:
+  task: Answer PubMedQA questions under unbiased conditions and with injected cognitive or demographic bias cues.
+  items_built: The repository's bias-injection script creates PubMedQA-Biased from the 1,000 expert-labeled PubMedQA
+    items by injecting confirmation, frequency, self-diagnosis, age, and gender cues.
+  example: ''
+  scoring: The evaluation compares accuracy under baseline and biased conditions and reports demographic parity,
+    equal opportunity, and answer flip rates under bias cues.
+  judge: ''
+  scale: ''
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://github.com/kafasg/bias-amplification-medical-llms
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

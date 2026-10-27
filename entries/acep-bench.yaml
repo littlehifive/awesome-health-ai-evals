@@ -26,6 +26,25 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 210 vignettes covering 25 ACEP Clinical Policies
+card:
+  task: Read a patient vignette and answer a yes/no question about whether a specific ACEP clinical-policy recommendation
+    applies to the patient's care.
+  items_built: The benchmark contains 210 vignettes covering 25 ACEP Clinical Policies, with patient details such
+    as history and vital signs. The abstract states that all vignettes are undergoing validation by two board-certified
+    emergency physicians.
+  example: ''
+  scoring: Scoring is fully deterministic, with no LLM used in the evaluation pipeline, and performance is reported
+    as accuracy.
+  judge: A deterministic scoring procedure assigns scores without an LLM judge.
+  scale: Accuracy, reported as a percentage.
+  validation: ''
+  results: Across 48 model variants from 9 providers, accuracy ranged from 39% to 92%, with a median of 68%; the
+    abstract does not name the highest-scoring model.
+  limitations: The finding that models scored lower on Level A guidelines than on Level C recommendations is based
+    on only 9 Level A vignettes.
+  sources:
+  - https://doi.org/10.25740/jj744pf3301
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

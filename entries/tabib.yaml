@@ -25,6 +25,31 @@ facets:
   eval_methods: [automatic_metric, simulated_multi_turn]
   modality: [text]
   size: "7 protocols (B1-B7); item counts vary by protocol and were not totalled (e.g. B7 uses 100 cases of 900, from 14,400 generated instances)"
+card:
+  task: Assess drug-interaction safety under question perturbations or work through a simulated clinical session
+    and decide what to do when a prescription violates the national drug-interaction reference.
+  items_built: The seven behavioral protocols draw on the ANSM drug-interaction thesaurus and the BDPM, with perturbations
+    such as generic-name/brand substitutions, clinical context, patient pressure and language changes. The agent
+    harness pairs fictitious patient reports from PARHAF with synthetic prescriptions in hospital-pharmacy, consultation
+    and companion settings, including deliberately altered reference passages.
+  example: ''
+  scoring: The agent harness grades committed actions and their payloads against the ANSM reference rather than
+    grading the model's explanations; dispensing a forbidden prescription marks a session as unsafe. The provided
+    text does not describe how scores are aggregated across sessions or how the seven paper protocols are scored.
+  judge: An automated scorer reads committed actions and their payloads against the national drug-interaction reference.
+  scale: Session-level unsafe dispensing outcome; aggregate scale not specified.
+  validation: The harness requires policies that ignore the manipulation to score exactly zero and a positive-control
+    policy to demonstrate the target behavior; its test suite includes a broken scenario that the gate must reject.
+  score_meaning: ''
+  annotation_process: ''
+  results: ''
+  limitations: The authors state that the harness does not measure clinical correctness or reasoning quality, cannot
+    support stable absolute rates as API models change, is exposed to training contamination through its public
+    worlds, and has no human baseline.
+  sources:
+  - https://github.com/Rian-T/tabib-eval
+  - https://hal.science/hal-05708478v1
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

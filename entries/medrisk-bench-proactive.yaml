@@ -24,6 +24,30 @@ facets:
   eval_methods: [rubric_llm_judge]
   modality: [text]
   size: 1,061 questions (Level-1 852, Level-2 209); extended set of 54,601; 356-question no-risk control set
+card:
+  task: Respond to a user-style query that describes a situation without directly asking a medical question, proactively
+    flagging any relevant medication risk.
+  items_built: The synthetic, clinician-validated benchmark contains 852 questions with explicitly stated risk groups
+    and 209 questions where underlying conditions appear only through clinical indicators. A matched no-risk control
+    set contains 356 clinician-reviewed questions derived from 40 randomly sampled medication risks using the same
+    construction pipeline.
+  example: ''
+  scoring: The card does not describe how Query Score is calculated. For over-warning, GPT-5.4 and Claude Sonnet
+    4.6 independently count case-unsupported warnings in each response, their counts are averaged, and aggregate
+    metrics report the percentages with any unsupported warning or more than one, plus the mean count per response.
+  judge: GPT-5.4 and Claude Sonnet 4.6 independently count unsupported warnings; the Query Score grader is not specified.
+  scale: Averaged unsupported-warning count per response; OW and OW>1 are percentages, and mOW is the mean count
+    across responses.
+  validation: ''
+  score_meaning: A zero unsupported-warning count means the response contains no case-unsupported warnings. Higher
+    OW, OW>1, and mOW values indicate more over-warning, not better risk recognition.
+  annotation_process: ''
+  results: ''
+  limitations: The authors state that the questions and scenarios are not exhaustive and that benchmark performance
+    does not guarantee real-world medical safety or clinical reliability.
+  sources:
+  - https://huggingface.co/datasets/Medriskbench/Medrisk-Bench
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

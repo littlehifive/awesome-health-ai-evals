@@ -25,6 +25,25 @@ facets:
   eval_methods: [automatic_metric, expert_human_rating]
   modality: [text]
   size: Framework evaluated on four existing QA datasets plus clinician judgments and fact-verification benchmarks
+card:
+  task: Answer medical questions from MedQA, MMLU, MS-AKT, and LiveQA.
+  items_built: The framework is designed to assess the factuality of medical LLM responses without reference answers
+    and was investigated through experiments on medical tasks with human subjective evaluations.
+  example: ''
+  scoring: FAITH decomposes each response into atomic claims, links the claims to a medical knowledge graph, and
+    scores them using evidence paths without reference answers.
+  judge: FAITH assigns scores using evidence paths in a medical knowledge graph.
+  scale: ''
+  validation: The abstract reports higher correlations with clinician judgments, the ability to distinguish models
+    with different capabilities, and robustness to textual variation, but gives no numerical results.
+  score_meaning: ''
+  annotation_process: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://github.com/COLA-Laboratory/FAITH
+  - https://doi.org/10.1609/aaai.v40i46.41317
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

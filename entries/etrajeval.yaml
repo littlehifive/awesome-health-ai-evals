@@ -27,6 +27,37 @@ facets:
   eval_methods: [simulated_multi_turn, automatic_metric]
   modality: [text]
   size: 328 emotional contexts, 1,152 disturbance events
+card:
+  task: Hold a multi-turn emotional-support conversation with a simulated distressed user, adapting to changes in
+    the user's circumstances and emotional state.
+  items_built: The authors constructed 328 emotional contexts and 1,152 disturbance events across 14 scenarios in
+    four domains, drawing on psychological and conflict theory literature. Human reviewers inspected all data, and
+    the reported experiments sampled 118 background environments with 0, 1 or 3 disturbance events.
+  example: '"in a context involving regret over past life choices, a realistic aggravation might involve comparisons
+    to more "successful" peers at a family gathering."'
+  scoring: A sentiment model estimates the simulated user's emotional state at each turn, with causal adjustment
+    applied before calculating trajectory scores. BEL averages emotional levels over the conversation, ETV measures
+    weighted upward versus downward emotional transitions, and ECP calculates the expected position of transitions
+    from the estimated transition matrix.
+  judge: Skywork-Reward-V2-Llama-3.1-8B estimates sentiment for scoring; ChatGPT-4o simulates the user.
+  scale: Turn-level sentiment is mapped to 0 to 1; conversation-level metrics are BEL, weighted transition advantage
+    (ETV), and a two-coordinate emotional centroid (ECP).
+  validation: Three expert annotators assigned binary sentiment labels to turns in nearly 2,000 English and Chinese
+    dialogues from Daily Dialog and CPED. The causally adjusted Skywork estimator achieved 74.92% accuracy in Chinese
+    and 89.83% in English, compared with 72.18% and 89.59% without adjustment.
+  score_meaning: Higher BEL scores indicate more positive user emotions overall, while higher ETV scores indicate
+    better recovery from negative emotions and resistance to emotional decline. For ECP, higher C_x and C_y − C_x
+    values indicate stronger progress toward positive, stable emotional states.
+  annotation_process: The evaluation used 118 background environments, with an initial exchange followed by 40 additional
+    turns for each model. Each environment included 0, 1 or 3 disturbance events, gradually revealed to the simulated
+    user during the dialogue.
+  results: Kimi-K2-Preview had the highest English BEL at 49.00, while DeepSeek-R1 had the highest Chinese BEL at
+    45.32. Kimi-K2-Preview led ETV in both languages, scoring 22.92 in English and 16.74 in Chinese.
+  limitations: ''
+  sources:
+  - https://arxiv.org/abs/2511.09003
+  - https://github.com/RuoChoXio/ETrajEval
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

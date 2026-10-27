@@ -28,6 +28,31 @@ facets:
   eval_methods: [rubric_llm_judge, simulated_multi_turn]
   modality: [text]
   size: 369 case reports expanded into multi-session dialogues; over 2,000 client profiles; 677 meta-skills and 4,577 atomic skills; 18 metrics
+card:
+  task: Conduct psychological counseling with a simulated client across 6 to 10 sessions, maintaining continuity
+    through assessment, intervention, and consolidation while using the relevant therapeutic approach.
+  items_built: The authors used LLMs including GPT-5 to reconstruct dialogues from 369 cleaned and classified, peer-reviewed
+    clinical case reports, extracting client profiles, treatment plans, dialogue examples, and therapeutic skills
+    before generation. They assessed the generated data against eight existing datasets using counselor-level and
+    client-level psychological metrics.
+  example: ''
+  scoring: An LLM supervisor scores counseling dialogues using shared and therapy-specific instruments to assess
+    clinical proficiency, client consistency, post-session psychological states, and changes across sessions. The
+    provided text does not specify how these scores are combined into an overall score.
+  judge: DeepSeek-V3.1 is the LLM judge, with deepseek-v3.1-terminus shown in the repository configuration.
+  scale: ''
+  validation: ''
+  score_meaning: ''
+  annotation_process: ''
+  results: ''
+  limitations: The authors state that PsychEval covers text only, underrepresents acute suicidality and highly resistant
+    clients, and is limited to the Chinese linguistic and sociocultural context.
+  sources:
+  - https://arxiv.org/abs/2601.01802
+  - https://huggingface.co/datasets/ecnu-icalk/PsychEval
+  - https://huggingface.co/datasets/XuShihao6715/counseling-psycheval
+  - https://github.com/ECNU-ICALK/PsychEval
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

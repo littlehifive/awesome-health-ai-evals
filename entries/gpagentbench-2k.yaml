@@ -27,6 +27,40 @@ facets:
   eval_methods: [simulated_multi_turn, automatic_metric]
   modality: [text]
   size: 2,428 cases; 16 LLMs evaluated
+card:
+  task: Manage each simulated primary-care encounter by gathering patient information, requesting examinations and
+    tests, and choosing either diagnosis and treatment or referral within 10 dialogue turns.
+  items_built: The authors retained 2,428 real GP records from a primary-care network spanning 9 primary and 62
+    secondary departments after two senior physicians checked diagnostic evidence, diagnosis and treatment correctness,
+    or referral necessity and specialty. Gemini-3-Flash converted records into structured JSON, all files were manually
+    checked against the originals, clinical experts inspected a random 20%, and each case was paired with a sampled
+    patient persona.
+  example: ''
+  scoring: GPT-5.4 grades diagnoses and treatments against ground-truth labels; management and safety metrics are
+    computed deterministically against the management label, with referral destinations checked by string match.
+    Episode rewards and costs are aggregated on a 485-case test split containing 284 diagnose-and-manage and 201
+    abstain-and-refer cases, with average turns and diagnostic costs also reported.
+  judge: GPT-5.4 grades diagnosis and treatment; deterministic comparisons grade management and safety.
+  scale: Binary management correctness per episode; aggregate diagnosis accuracy, treatment score, management accuracy
+    and safety-failure percentages, average turns, and diagnostic cost in USD.
+  validation: On randomly sampled outputs across evaluated models, agreement with two senior physicians was Cohen's
+    κ = 0.92 for diagnosis accuracy and 0.89 for treatment score. Re-scoring frontier models with a different LLM
+    judge preserved rankings and changed scores within the reported standard errors.
+  score_meaning: Miss Refer is the percentage of required referrals the model misses, while Miss GP measures failure
+    to manage locally cases suitable for primary care, including unnecessary referrals. Lower values mean fewer
+    of these failures; higher diagnosis accuracy, treatment score and management accuracy indicate better clinical
+    quality.
+  annotation_process: Two senior physicians independently audited randomly sampled complete interaction trajectories
+    for factual consistency, clinical realism and persona adherence.
+  results: Claude Opus 4.7 led diagnosis accuracy at 70.0%, while GPT-5.4 led treatment score at 53.2%. Claude Opus
+    4.7 missed 67.2% of required referrals, and no model led across all dimensions.
+  limitations: The authors note that English-only records, simulated patients, institution-specific referral norms,
+    and expert-designed action masks limit generalizability, and the masks' validity in real clinical practice needs
+    further verification.
+  sources:
+  - https://arxiv.org/abs/2608.30188
+  - https://github.com/jianing-lab/GPAgentBench
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

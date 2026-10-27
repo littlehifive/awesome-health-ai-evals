@@ -35,6 +35,22 @@ facets:
   modality:
   - text
   size: 100 scenarios; 2,000 development response records (4 model profiles x 5 runs)
+card:
+  task: Identify the anatomical structure at greatest risk in each text-only scenario describing a common surgical
+    approach.
+  items_built: The authors constructed 100 clinical anatomy scenarios across 10 surgical domains.
+  example: ''
+  scoring: Responses are scored for exact target identification and answer stability across five repeated prompts.
+  judge: ''
+  scale: ''
+  validation: ''
+  score_meaning: ''
+  annotation_process: ''
+  results: ''
+  limitations: The response matrix is development data used to exercise the scoring pipeline, rather than an estimate
+    of model provider performance.
+  sources: []
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

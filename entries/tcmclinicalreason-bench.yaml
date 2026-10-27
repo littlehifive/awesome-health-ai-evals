@@ -25,6 +25,33 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating, automatic_metric]
   modality: [text]
   size: 2,000 cases
+card:
+  task: Read a Chinese patient case and produce seven sequential blocks covering diagnostic reasoning, pathogenesis,
+    syndrome diagnosis, treatment principles, prescription generation, prescription analysis, and prescription modification
+    when symptoms change.
+  items_built: The 2,000 cases were curated from multicenter electronic health records and published case reports
+    documented by renowned senior TCM physicians, then decomposed into seven-step diagnostic and therapeutic sequences.
+    Cases were divided into easy, medium, and hard tiers using embedding similarity between reference answers and
+    outputs from two TCM-specialized models.
+  example: ''
+  scoring: Qwen3.7-Plus with TCM-specific retrieval scores each of seven content blocks against withheld reference
+    labels and separately scores consistency across three cross-block reasoning chains, accepting clinically defensible
+    alternative pathways. BLEU, ROUGE-L, and embedding cosine similarity are also reported but do not determine
+    ranking; the provided text does not specify how rubric scores are aggregated.
+  judge: Qwen3.7-Plus augmented with TCM-RAG is the primary judge.
+  scale: 0 to 5 per content block and per reasoning chain; final aggregation is not specified.
+  validation: On outputs from three models across 462 cases, Qwen3.7-Plus followed content score-cap rules in 99.9%
+    of assessments, versus 67.6% for HuatuoGPT-3-32B. In 900 matched original-perturbed response pairs from 100
+    cases, the selected judge detected targeted errors at rates of 57%, 56%, and 31% across the three reasoning
+    chains.
+  score_meaning: ''
+  annotation_process: ''
+  results: ''
+  limitations: The judge was less sensitive to omission-type errors in prescription analysis, detecting 31% of these
+    perturbations, which limits the reasoning errors its scores reflect.
+  sources:
+  - https://github.com/NJUCM-BJUCM-TCM-AI/TCMClinicalReason-Bench
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

@@ -46,6 +46,39 @@ facets:
   modality:
   - text
   size: 810 created queries (3 languages x 8 themes) and 780 localized queries (260 per language)
+card:
+  task: Answer health queries in Hindi, Kannada, or Malayalam with useful, understandable, and contextually appropriate
+    information.
+  items_built: Native-speaking data workers created 810 queries from scratch and localized 780 queries drawn from
+    CSO chatbot logs, using healthcare topics informed by interviews with five civil-society organizations. Workers
+    were instructed to write realistic questions they would ask doctors, nurses, or pharmacists, include relevant
+    context, and exclude personal information.
+  example: ''
+  scoring: Human and LLM judges independently rated each answer on four dimensions using Yes, Somewhat, or No, with
+    mean scores averaged across items, criteria, and languages. They also compared all three pairs of model answers
+    per question, choosing A, B, or Not sure; these judgments were aggregated into pairwise win rates and per-model
+    win shares.
+  judge: GPT-4o, Sarvam-M, and 23 native-speaking data workers recruited by Karya assigned ratings.
+  scale: Yes, Somewhat, or No per criterion, aggregated as mean scores; A, B, or Not sure for comparisons, aggregated
+    as win rates and win shares.
+  validation: Pearson correlations over item-level mean scores were approximately 0.40 between GPT-4o and Sarvam-M
+    and approximately 0.13 between each LLM judge and human annotators.
+  score_meaning: Accuracy reflects whether an answer seems trustworthy and factually correct based on general knowledge,
+    rather than a clinical expert assessment. Pairwise wins reflect annotators' personal preferences, with no prescribed
+    definition of a good or bad response.
+  annotation_process: Annotators received guidelines and examples explaining the three rating options for each dimension.
+    Human annotators recorded a voice note explaining each rating and a detailed spoken explanation for each pairwise
+    choice; LLM judges also had to provide rationales. For pairwise tasks, coordinators provided examples of informative
+    explanations, but no rules for choosing the better answer.
+  results: Qwen3-235B-A22B generally had the highest standalone mean and was preferred overall by humans in pairwise
+    comparisons, but numerical scores were not provided in the excerpts. GPT-4o preferred Sarvam-M in pairwise comparisons,
+    while Sarvam-M as judge preferred Qwen3.
+  limitations: The authors report that example queries biased workers' submissions, while LLM judges showed ceiling
+    effects, missed completeness and subtle factual problems, and were less sensitive than humans to language-specific
+    weaknesses.
+  sources:
+  - https://doi.org/10.1145/3772318.3791172
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

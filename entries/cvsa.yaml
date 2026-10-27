@@ -25,6 +25,36 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: 21 open-ended questions; rubric with maximum score 34
+card:
+  task: Give short written answers to open-ended otolaryngology and head and neck surgery board examination questions.
+  items_built: CVSA was developed from established assessment tools, including ACI, to assess open-ended clinical
+    answers. Its initial evaluation used 21 past examination questions with model answers from the Royal College's
+    official sample exam, reviewed by specialty educational leads; random spot checks checked that the content was
+    not indexed online.
+  example: ''
+  scoring: Physicians assess whether explanations are relevant and internally consistent, classify factual validity
+    against accepted evidence and specialist opinion, and flag potentially harmful statements. Accuracy points follow
+    the answer key and are summed across questions, with the total reported as a percentage of 34 available points.
+  judge: Two physicians, Cai Long and Alaa Alanazi, scored independently, and a third physician, David Cote, resolved
+    major discrepancies.
+  scale: Concordant or discordant; six validity categories; safety flags; answer-key points totaling 34, reported
+    as a percentage.
+  validation: ''
+  score_meaning: '"Valid" means all information is valid; "mostly valid" means more than half is valid but at least
+    one piece is invalid; "fair" means equal valid and invalid information; "mostly invalid" means more than half
+    is invalid but at least one piece is valid; "invalid" means all information is invalid; and "indeterminate"
+    means the response gives generic, inapplicable information or does not answer the question. The stated examination
+    pass mark is 70%, so the reported 69.1% falls below it, while 75.0% and 72.1% exceed it.'
+  annotation_process: Each answer was regenerated twice to assess consistency, and the regenerated answers were
+    scored independently. Evaluators were also asked to identify and red-flag hallucinated statements that could
+    pose risks to patient safety.
+  results: ChatGPT-4 scored highest with an OHNS-specific prompt at 75.0%, compared with 69.1% without prompting
+    and 72.1% on regenerated prompted answers. The stated examination pass threshold was 70%.
+  limitations: The authors identify hallucinations as a potential patient safety risk and verbosity as a barrier
+    to practical use.
+  sources:
+  - https://doi.org/10.1101/2023.05.30.23290758
+  extracted: '2026-10-27'
 signals:
   citations: 14
   citations_source: OpenAlex

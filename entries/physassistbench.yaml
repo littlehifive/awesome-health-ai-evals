@@ -28,6 +28,33 @@ facets:
   eval_methods: [rubric_llm_judge, simulated_multi_turn, expert_human_rating]
   modality: [text]
   size: 324 sessions, 1,296 turns per language
+card:
+  task: Follow physician requests across a four-turn clinical encounter by querying and updating a FHIR R4 health
+    record, asking a simulated patient questions, and integrating the evidence into responses to the physician.
+  items_built: A multi-agent pipeline generated 324 four-turn sessions from MIMIC-IV admissions, executing real
+    FHIR queries to produce grounded reference answers and filtering unsupported scenarios. The English and Chinese
+    sessions cover diagnostic workup, medication safety, treatment response, and discharge planning, with automated
+    quality checks, review by 8 trained annotators, and validation by one physician.
+  example: ''
+  scoring: GPT-5.4-mini receives each answer, EHR ground truth, and turn-specific rubric items, and marks each item
+    passed or failed; the fraction passed is averaged across four turns and then across sessions to produce mRS.
+    Pass@Turn is the fraction of turns meeting a chosen threshold, and Pass@Session is the fraction of sessions
+    in which all four turns meet that threshold.
+  judge: GPT-5.4-mini assigns binary scores to rubric items.
+  scale: Binary rubric items; turn scores range from 0 to 1, with mRS, Pass@Turn, and Pass@Session reported as percentages.
+  validation: One human expert and the GPT-5.4-mini judge independently scored 128 turns from 32 sessions spanning
+    all four scenarios on the same rubric items; the judge agreed with the expert on 94% of items.
+  score_meaning: The reported pass thresholds require a turn to pass at least 60% or 75% of its rubric items. Tool
+    use is judged through answer correctness, so a clinically correct answer can receive credit even when the model
+    follows a different tool sequence from the reference.
+  annotation_process: The same GPT-5.4-mini judge was used for all evaluated models. It provided a reason for each
+    rubric item's score.
+  results: ''
+  limitations: The authors report limited full turn-level physician validation and acknowledge source-record, synthetic-dialogue,
+    and cohort-selection biases that limit how well the benchmark represents real patient experience.
+  sources:
+  - https://arxiv.org/abs/2606.18613
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

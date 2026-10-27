@@ -27,6 +27,36 @@ facets:
   eval_methods: [expert_human_rating, automatic_metric]
   modality: [text]
   size: 47,457 QA pairs; 2,479 judged answers for the LiveQA-Med test questions
+card:
+  task: Return a ranked list of answers to each consumer health question.
+  items_built: Asma Ben Abacha and Dina Demner-Fushman used hand-crafted, website-specific patterns to generate
+    question-answer pairs from article structures and section titles, with question types derived from manual evaluation
+    of 1,721 consumer health questions. For testing, they used TREC-2017 LiveQA medical questions and manually judged
+    2,479 answers retrieved from MedQuAD by the IR and QA systems.
+  example: ''
+  scoring: Assessors rated retrieved answers using LiveQA reference answers, and assessor A's ratings were used
+    for the reported results. The first answer's grade is shifted from 1-4 to 0-3 and averaged across questions;
+    top-ten MAP and MRR treat grades 3 and 4 as correct.
+  judge: Human assessors, including assessor A whose ratings determined the reported results, assigned the grades.
+  scale: Four grades from 1 (incorrect) to 4 (correct and complete); mean first-answer score of 0-3, success and
+    precision at grade thresholds, and MAP@10 and MRR@10.
+  validation: Inter-assessor agreement was 88.5% F1 across the four grades and 94.33% F1 when grades were grouped
+    into correct versus incorrect; the authors also consulted NIST assessors about the test-question paraphrases
+    used for judging.
+  score_meaning: Grade 2 means incorrect but related, while grade 3 means correct but incomplete. Success@i+ is
+    the proportion of all questions whose first answer reaches grade i or higher; precision@i+ uses only questions
+    answered by the system as its denominator.
+  annotation_process: 'Three assessors scored answers with the method names hidden: a medical doctor (A), a medical
+    librarian (B), and a medical informatics researcher (C), none of whom developed the QA methods. Assessors B
+    and C each evaluated 1,000 answers from each method, while assessor A evaluated 2,000 answers from both methods.'
+  results: The hybrid IR+RQE system achieved a mean first-answer score of 0.827, a 29.8% improvement over the best
+    official LiveQA medical score of 0.637 from CMU-OAQA. Its MAP@10 was 0.311 and MRR@10 was 0.333.
+  limitations: The authors report weaker performance on drug questions than disease questions and note that each
+    collection answer can cover only one subquestion, while many LiveQA questions contain several.
+  sources:
+  - https://arxiv.org/abs/1901.08079
+  - https://github.com/abachaa/MedQuAD
+  extracted: '2026-10-27'
 signals:
   citations: 207
   citations_source: OpenAlex

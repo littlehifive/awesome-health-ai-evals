@@ -26,6 +26,34 @@ facets:
   eval_methods: [mcq_exact_match, rubric_llm_judge]
   modality: [text]
   size: 591 questions, 9 tasks
+card:
+  task: Answer each Chinese ophthalmology question by selecting one or more correct options or writing an open-ended
+    response.
+  items_built: Three junior ophthalmologists created and refined 591 questions from Chinese medical licensing, residency
+    training and doctor-in-charge examinations, authoritative Chinese ophthalmology textbooks and real-world clinical
+    cases; a senior ophthalmologist with an associate-level title reviewed all questions. Ophthalmologists agreed
+    on choice-question answers and reviewed and refined GPT-4o drafts of open-ended reference answers.
+  example: ''
+  scoring: Single-choice answers receive accuracy scores, multiple-choice answers receive F1 scores, and CompassJudger-1-7B
+    compares open-ended responses with reference answers across seven dimensions. Each task score is normalized
+    so that the highest advanced-prompt score among the 39 models equals 90, and scenario and overall scores are
+    harmonic means of the corresponding normalized task scores.
+  judge: Choice questions use reference answers supplied by ophthalmologists, and CompassJudger-1-7B grades open-ended
+    responses.
+  scale: Accuracy, F1 and seven-dimension open-ended scoring; task scores scaled relative to the best model at 90,
+    then combined by harmonic mean.
+  validation: ''
+  score_meaning: ''
+  annotation_process: Ophthalmologists agreed on the reference answers for choice questions; GPT-4o drafted open-ended
+    reference answers, which ophthalmologists reviewed and refined. Models were evaluated with both common prompts
+    and advanced prompts designed to improve their responses. Regular expressions extracted option letters from
+    commercial model responses, while the Outlines library constrained open-source models to the permitted options.
+  results: ''
+  limitations: The authors state that the evaluation excludes some LLMs, especially inaccessible ophthalmology-specific
+    models, and that the dataset is limited in size and task coverage.
+  sources:
+  - http://arxiv.org/abs/2502.01243
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

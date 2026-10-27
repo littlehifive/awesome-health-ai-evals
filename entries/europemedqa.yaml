@@ -32,6 +32,29 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 12,340 questions across 6 exams (GitHub README count)
+card:
+  task: Select the correct answer option or options for each medical examination question, using the accompanying
+    images when provided.
+  items_built: 'The repository contains 12,340 questions from six exam sets: Italian SSM and clinical and pre-clinical
+    Abilitazione, Spanish MIR, French ECN, and Portuguese PNA. The protocol specifies extraction by six medical
+    doctors fluent in the examination languages, independent cross-checking by six researchers with discrepancies
+    resolved by consensus, duplicate removal, image matching, and English translation using GPT-4o mini.'
+  example: ''
+  scoring: The planned evaluation compares each prediction with the answer key; French items count as correct only
+    when all expected correct answers are identified, and incorrectly formatted outputs are excluded rather than
+    counted as wrong. Accuracy is the proportion of evaluated questions answered correctly, reported overall and
+    separately by text-only versus image-based items and original language versus English translation.
+  judge: Automated comparison with the answer key.
+  scale: Correct or incorrect per question; proportion correct across evaluated questions.
+  validation: ''
+  results: ''
+  limitations: The authors state that examination questions do not reflect real-world case distributions, shuffled
+    answer positions create an artificial balance, and managed cloud APIs limit control over hardware and decoding
+    and prevent guaranteed bitwise determinism.
+  sources:
+  - https://arxiv.org/abs/2604.14306
+  - https://github.com/causius0/europemedqa
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

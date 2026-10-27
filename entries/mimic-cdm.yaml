@@ -28,6 +28,32 @@ facets:
   eval_methods: [simulated_multi_turn, automatic_metric, expert_human_rating]
   modality: [text]
   size: 2,400 cases (957 appendicitis, 648 cholecystitis, 257 diverticulitis, 538 pancreatitis); full-information variant MIMIC-CDM-FI
+card:
+  task: Starting with a patient's history of present illness, request examination findings, laboratory results and
+    imaging reports, then give a diagnosis and treatment plan.
+  items_built: The authors curated 2,400 real patient cases from MIMIC-IV hospital records covering appendicitis,
+    pancreatitis, cholecystitis and diverticulitis. The attending clinicians' discharge diagnoses provide the reference
+    diagnoses.
+  example: ''
+  scoring: Diagnoses are compared with discharge diagnoses, accepting medically correct alternative names, while
+    requested tests and proposed treatments are checked against disease-specific guidelines. Treatment recommendation
+    rates include only correctly diagnosed patients who actually received that treatment; instruction violations
+    are counted separately.
+  judge: ''
+  scale: Diagnostic accuracy and treatment recommendation percentages; counts of instruction-following errors.
+  validation: ''
+  score_meaning: For laboratory interpretation, "low," "normal," and "high" mean below, within, and above the supplied
+    reference range, respectively. Laboratory interpretation accuracy is the percentage of results classified correctly.
+  annotation_process: ''
+  results: Clinical Camel achieved the highest mean diagnostic accuracy at 73%, compared with OASST at 68%, but
+    could not participate in the iterative clinical decision-making task. OASST performed best overall across the
+    evaluated capabilities.
+  limitations: The authors note reliance on discharge-diagnosis accuracy, inability to supply information absent
+    from the hospital records, and a limited clinician comparison involving three residents from Germany and one
+    senior hospitalist from the United States.
+  sources:
+  - https://github.com/paulhager/MIMIC-Clinical-Decision-Making-Framework
+  extracted: '2026-10-27'
 signals:
   citations: 783
   citations_source: OpenAlex

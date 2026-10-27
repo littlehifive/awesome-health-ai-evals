@@ -26,6 +26,36 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating, simulated_multi_turn]
   modality: [text]
   size: "32,155 recommendations and conversations from 3,418 guidelines; human check by 56 clinicians"
+card:
+  task: Identify the clinical guideline recommendation and its title in a multi-turn conversation, or continue a
+    truncated conversation with a response that follows the expected recommendation.
+  items_built: The authors extracted recommendations from guideline documents published from 2015 to August 2025,
+    generated one conversation per recommendation using LLMs, checked format constraints, and truncated conversations
+    for the adherence task. Fifty-six China-licensed clinicians with at least three years of clinical practice evaluated
+    1,500 sampled conversations for recommendation inclusion, suitability of the background, and clinical plausibility.
+  example: ''
+  scoring: A Judge-LLM compares detected recommendation content and guideline titles with the ground truth used
+    to generate each conversation. It also checks whether the continuation includes the expected recommendation,
+    assigning binary scores and reporting detection, title-grounding, and adherence rates.
+  judge: A Judge-LLM, with GPT4o given as an example, assigns the automatic scores.
+  scale: Binary 0 or 1 per task per conversation; aggregate percentage rates.
+  validation: Human checks used responses from eight models to 75 conversations, totaling 600 responses per task.
+    Judge-human Cohen's kappa for scores of 0 and 1 was 0.84 for content detection, 0.62 for title grounding, and
+    0.70 for adherence; corresponding human-human kappas were 0.53, 0.73, and 0.81.
+  score_meaning: In human validation, 0 means no match, 0.5 a partial match, and 1 a full match to the reference
+    recommendation or title. The reported content detection rates are upper bounds because the automatic judge usually
+    accepts matches that humans rate as partial.
+  annotation_process: The automatic judge returns a score, rationale, supporting response text and confidence, and
+    repeats the evaluation if its output fails the required dictionary format. Clinicians or postgraduate medical
+    students independently score responses to validate the judge. A different group independently rescores 150 randomly
+    sampled responses to measure human agreement.
+  results: ''
+  limitations: The authors report that generated conversations can omit risk information, treatment alternatives,
+    explanations of patient concerns, or clinical information, and that the judge grades borderline content detection
+    and title grounding more leniently than humans.
+  sources:
+  - https://arxiv.org/abs/2603.25196
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

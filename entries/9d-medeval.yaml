@@ -24,6 +24,24 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 9 dimensions, each with a test prompt and rubric; proposes a 500-1000 question set not released
+card:
+  task: Respond in Chinese to medical prompts testing clinical knowledge, reasoning, medication safety, communication,
+    record structuring, ethics, report interpretation, triage, and evidence summarization.
+  items_built: The repository releases nine example prompts, one per dimension, rather than a full test set. The
+    framework was developed for a personal technical and clinical usability assessment of AntAngelMed.
+  example: ''
+  scoring: Responses are assessed against a dimension-specific rubric from 1 to 5, with fatal medication or safety
+    errors receiving 0 under a red-line rule. The provided text does not specify how scores are combined.
+  judge: The framework proposes automatic scoring, LLM judging, and blind expert review.
+  scale: 1 to 5 per dimension; 0 for fatal medication or safety errors.
+  validation: ''
+  score_meaning: ''
+  annotation_process: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://github.com/Wuzh-bit/medical-llm-evaluation
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

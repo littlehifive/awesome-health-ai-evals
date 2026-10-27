@@ -261,7 +261,7 @@ function bind(app) {
 export function mount({ app, query }) {
   S = { st: read(query), limit: PAGE, open: new Map(), expanded: new Set(), find: new Map() };
   app.innerHTML = `<div class="wrap">
-    ${pageHead({ title: "Catalog", lede: "Benchmarks and evaluation frameworks for health chatbots. Filter by what they test, where their questions come from, and how they score answers." })}
+    ${pageHead({ title: "Catalog", lede: "Benchmarks and frameworks for evaluating health AI." })}
     <div id="banner"></div>
     <button class="btn filters-btn" id="filters-btn" type="button" aria-controls="filters"></button>
     <div class="cat-grid">

@@ -26,6 +26,29 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 100 question-answer pairs in four question types
+card:
+  task: Answer each medical question with yes or no using the stated blood pressure reading and patient or research
+    context.
+  items_built: The authors created 100 synthetic yes-or-no QA pairs, balanced between 50 yes and 50 no answers,
+    with 25 pairs each on abnormality detection under special contexts, symptoms and illness, intervention opinions,
+    and medical research. The research questions were manually selected and adapted from PubMedQA, and two senior
+    medical students reviewed the dataset in May 2024.
+  example: '... an 80-year-old individual has a blood pressure reading of 155/65 mmHg. Is this considered hypertension?'
+  scoring: Predicted yes-or-no answers are compared with the reference answers, and accuracy is the proportion answered
+    correctly. Accuracy is reported separately for dataset variants that retain or remove blood pressure readings
+    and add general or context-specific labels.
+  judge: Answers are scored against the dataset's yes-or-no answer key.
+  scale: Correct or incorrect per question; overall accuracy from 0 to 1.
+  validation: ''
+  score_meaning: An accuracy of 0.5 represents chance performance on this balanced dataset, which contains 50 yes
+    answers and 50 no answers.
+  annotation_process: Two senior medical students reviewed the dataset in May 2024.
+  results: GPT-3.5 achieved the best reported accuracy, 0.83, on the original dataset with raw blood pressure readings.
+  limitations: The authors describe the study as preliminary, using only 100 synthetic QA pairs and four models,
+    with blood pressure alone failing to capture the diversity of clinical measurements and scenarios.
+  sources:
+  - https://arxiv.org/abs/2503.04155
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

@@ -24,6 +24,35 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: 190 prompts; 570 stored responses
+card:
+  task: Respond separately to each synthetic prompt involving a mental-health risk scenario.
+  items_built: The benchmark contains 190 synthetic prompts across seven scenario categories, with detailed manuscript
+    comparisons focused on 95 prompts from four groups. The source does not describe how the prompts were generated
+    or checked.
+  example: ''
+  scoring: The study author assigns each stored response to one of five categories, from A for appropriate and safe
+    to E for unsafe or harmful, and reports category percentages by model and subset. Current analyses use revised
+    labels for the disorganized or loosely associated language subset and normalized original labels for the other
+    focal subsets.
+  judge: The study author assigns the labels.
+  scale: Five categories, A to E, per response; category percentages by model and subset.
+  validation: An internal coding audit compared labels produced by the same study author. All 33 responses in the
+    A4a subset were later re-evaluated under clarified criteria, which the authors describe as a sensitivity analysis
+    rather than independent inter-rater reliability or clinical validation.
+  score_meaning: For disorganized or loosely associated language, appropriate uncertainty management is distinguished
+    from safe but inadequate or disproportionate responses, including over-medicalization, and from genuine missed
+    risk or scenario misclassification.
+  annotation_process: The operational criteria for the disorganized or loosely associated language subset were clarified
+    following supervisor feedback. Original labels were retained as an audit trail, with revised labels stored in
+    separate columns.
+  results: In the revised A4a subset, Claude Sonnet 4.6 had the highest proportion of appropriate and safe responses
+    at 72.7%, compared with 45.5% each for ChatGPT-5.4 and Gemini-3.
+  limitations: The authors state that coding checks were not independent, the changed A4a rubric prevents treating
+    unchanged-label rates as reliability estimates, and changing commercial systems prevent guaranteed regeneration
+    of identical outputs.
+  sources:
+  - https://github.com/feiwang856-cmyk/llm-safety-mental-health-benchmark
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

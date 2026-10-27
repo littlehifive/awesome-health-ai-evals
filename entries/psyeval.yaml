@@ -31,6 +31,41 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric, expert_human_rating]
   modality: [text]
   size: 727 + 153 QA questions; 500 SMHD, 130 D4, and 100 PsyQA instances
+card:
+  task: Answer mental-health multiple-choice questions, identify disorders from social media posts, classify depression
+    and suicide risk from Chinese doctor-patient dialogues, or write a supportive response to a Chinese patient
+    inquiry using supplied counseling strategies.
+  items_built: The authors selected 727 USMLE questions from MedQA by keyword matching and manual review, and created
+    153 crisis-response questions from two manuals, with GPT-4 generating three incorrect options per question and
+    medical students reviewing them. They also randomly sampled 500 SMHD cases using 16 classifier-selected posts
+    per user, 130 D4 dialogues with clinician-assigned risk labels, and 100 PsyQA inquiries from a Chinese mental-health
+    service platform.
+  example: ''
+  scoring: Question answering and diagnostic classification are scored by accuracy against the dataset labels. Counseling
+    outputs receive GPT-4 and human ratings for communication and empathy, safety scores from a fine-tuned BERT-base
+    evaluator, BLEU against professional responses averaged across BLEU-1 through BLEU-4, and Distinct-1 and Distinct-2
+    diversity scores.
+  judge: Dataset labels determine accuracy; GPT-4 and eight human evaluators rate counseling outputs, with four
+    humans per instance, and fine-tuned BERT-base scores safety.
+  scale: QA and diagnosis accuracy in percent; separate counseling ratings, BLEU, Distinct-1, Distinct-2, and safety
+    scores.
+  validation: On 60 randomly selected instances with outputs from six models, each instance was rated by four of
+    eight human evaluators and by GPT-4. Fleiss' kappa between GPT-4 and human scores was 0.84 for fluency, 0.80
+    for coherence, 0.71 for relevance, 0.72 for helpfulness, 0.75 for emotional reactions, 0.74 for interpretations,
+    and 0.77 for explorations.
+  score_meaning: Higher BLEU scores indicate closer alignment with responses from mental health professionals, while
+    higher Distinct-1 and Distinct-2 scores indicate greater text diversity. The reported automatic evaluation values
+    are multiplied by 100.
+  annotation_process: The authors first checked agreement between human and GPT-4 ratings on a small sample, then
+    used GPT-4 to score subsequent model outputs.
+  results: GPT-4 led mental-health question answering and was the only model with average accuracy above 60%. Human-rated
+    empathy scores for GPT-4 were 1.70 for emotional reactions, 1.69 for interpretations, and 1.29 for explorations,
+    compared with human counselor scores of 2.12, 1.96, and 1.53.
+  limitations: ''
+  sources:
+  - https://arxiv.org/abs/2311.09189
+  - https://github.com/KaguraRuri/Psy-Eval
+  extracted: '2026-10-27'
 signals:
   citations: 8
   citations_source: OpenAlex

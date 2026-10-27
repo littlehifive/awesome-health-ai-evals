@@ -26,6 +26,36 @@ facets:
   eval_methods: [rubric_llm_judge, automatic_metric]
   modality: [text]
   size: 1,200 post-note pairs (400 text, 400 image, 400 video; 200 Helpful and 200 Not Helpful notes per modality)
+card:
+  task: Write an evidence-grounded Community Note correcting the health claim in each flagged post, using the post
+    text and any supplied image or video captions.
+  items_built: The authors curated posts flagged by X users and paired them with human-written notes and crowd verdicts,
+    selecting 200 Helpful and 200 Not Helpful notes for each of the text, image and video subsets. Three independent
+    annotators checked whether captions preserved correction-relevant content, achieving majority-vote accuracy
+    of 0.95 on 100 image captions and 0.96 on 100 video captions.
+  example: '"Just in time for Pfizer''s new cancer vaccine: 143,233% Surge in Fatal Cancers Among Vaxxed Americans"'
+  scoring: Notes exceeding 280 characters are marked Not Helpful; GPT-4.1 judges assess the remaining notes for
+    evidence relevance, correct evidence representation and helpful note style, with all gates required for Helpful.
+    Generated and human-written notes are compared first by binary helpfulness and, when those outcomes match, by
+    a randomized utility comparison covering understandability, meaningfulness, usability and trustworthiness; the
+    reported win rate counts ties as half a win.
+  judge: A rule-based length filter and GPT-4.1-based helpfulness and pairwise utility judges assign the scores.
+  scale: Binary Helpful or Not Helpful per note; pairwise win, tie or loss, aggregated as percentage wins with ties
+    worth 0.5.
+  validation: On 100 sampled pairwise comparisons, the utility judge agreed with the majority vote of three independent
+    annotators in 98% of cases.
+  score_meaning: Understandability means accessible comprehension, and meaningfulness concerns health interpretation
+    and risk perception. Usability concerns safe action implications, while trustworthiness concerns calibrated
+    use of evidence under uncertainty.
+  annotation_process: ''
+  results: EvoNOTE, using MedGemma-27B text-it, achieved the highest reported pairwise win rate against human-written
+    notes at 89.6%. The hierarchical judge rated 460 of the 1,200 human-written notes Helpful.
+  limitations: The authors limit the setting to English health misinformation and already-flagged posts, excluding
+    upstream detection, prioritization and real-time routing.
+  sources:
+  - https://arxiv.org/abs/2606.02215
+  - https://github.com/Maekami/EvoNote
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

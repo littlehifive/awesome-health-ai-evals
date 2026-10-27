@@ -28,6 +28,30 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 15,908 questions across 57 subjects (at least 100 test items per subject); the medical subsets are a few hundred items each
+card:
+  task: Choose the correct answer from four options for each medical or biology question.
+  items_built: Graduate and undergraduate students manually collected questions from freely available online sources,
+    including US Medical Licensing Examination practice questions, undergraduate course questions, and questions
+    for readers of Oxford University Press books. The paper reports 15,908 questions across the full benchmark,
+    with five development questions per subject, 1,540 validation questions, and 14,079 test questions.
+  example: '"What is the embryological origin of the hyoid bone?" Choices: "The first pharyngeal arch"; "The first
+    and second pharyngeal arches"; "The second pharyngeal arch"; "The second and third pharyngeal arches". Answer:
+    D.'
+  scoring: Predicted choices are compared with the answer key to compute classification accuracy across examples
+    and tasks. For GPT-3, the highest-probability answer letter is the prediction; for UnifiedQA, the choice with
+    the highest token overlap with its generated text is the prediction.
+  judge: Exact match with the answer key.
+  scale: Correct or incorrect per question; percentage accuracy, with weighted averages across tasks.
+  validation: ''
+  results: Across the full benchmark at release, UnifiedQA with 11 billion parameters led with 48.9% accuracy. Unspecialized
+    Amazon Mechanical Turk participants scored 34.5%, while the authors estimated expert-level accuracy at 89.8%.
+  limitations: The benchmark uses text only and does not assess concepts conveyed mainly through images, audio,
+    or physical interaction.
+  sources:
+  - https://arxiv.org/abs/2009.03300
+  - https://huggingface.co/datasets/cais/mmlu
+  - https://github.com/hendrycks/test
+  extracted: '2026-10-27'
 signals:
   citations: 290
   citations_source: OpenAlex

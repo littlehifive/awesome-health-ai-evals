@@ -26,6 +26,30 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 8,380 questions
+card:
+  task: Select one of five answer options for each Spanish-language question from Peruvian medical specialty and
+    subspecialty entrance examinations.
+  items_built: The authors used Python programs to extract 8,380 questions, options and answer keys from CONAREME
+    examination PDFs for 2018-2025, excluding unavailable 2021 exams, and added an NA option to four-option questions.
+    One person checked every extracted correct answer against the PDFs and corrected 16 entries, but did not check
+    the question or option text.
+  example: ''
+  scoring: Selected answers are compared with the official CONAREME answer keys, and accuracy is the number correct
+    divided by the number of valid responses, reported overall and by model, examination and year. Invalid responses,
+    such as nonexistent option letters or explanations without an answer letter, are excluded from the denominator.
+  judge: Exact match with the official CONAREME answer key.
+  scale: Correct or incorrect per valid response; percentage correct among valid responses.
+  validation: In a follow-up stress evaluation with shuffled answer options, MedGemma 27B, OctoMed 7B and Meditron
+    7B showed no statistically significant performance differences in any comparison; every other model had at least
+    one significant difference at p < 0.05 using paired t-tests or Wilcoxon tests.
+  results: medgemma-27b-text-it performed best, with scores around 80% and above 90% on some examinations.
+  limitations: The authors evaluated only open-access medical models with zero-shot prompts, did not assess answer
+    reasoning, excluded exams for medical students and other healthcare professionals, and could not directly compare
+    scores with human grades because adding a fifth option changed the original exams.
+  sources:
+  - https://doi.org/10.1007/s40670-026-02692-w
+  - https://github.com/rodrigo-carrillo/perumedqa
+  extracted: '2026-10-27'
 signals:
   citations: 2
   citations_source: OpenAlex

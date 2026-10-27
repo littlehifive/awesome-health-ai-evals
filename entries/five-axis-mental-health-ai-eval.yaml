@@ -26,6 +26,38 @@ facets:
   eval_methods: [rubric_llm_judge]
   modality: [text]
   size: 250 PE therapy scenarios and 146 CBT scenarios (plus 29 severity-escalated variants); over 5,000 judgments
+card:
+  task: Respond to therapy scenarios and exercises, detect embedded clinical errors, and maintain clinically appropriate
+    behavior across multi-turn conversations and demographic groups.
+  items_built: The framework was developed from the authors' Prolonged Exposure evaluation pipeline and is intended
+    for mental health support agents across therapy types. Proposed tasks draw on Thousand Voices of Trauma, with
+    3,000 synthetic conversations whose therapeutic fidelity was validated by clinical experts, and TIDE, with 10,000
+    two-turn conversations; demonstrations used 250 Prolonged Exposure scenarios and 146 CBT exercises plus 29 severity-escalated
+    variants.
+  example: ''
+  scoring: In the demonstrations, three LLM judges assessed each response against the scenario, a reference response,
+    and six rubric dimensions, with scores averaged across judges and scenarios for each dimension. The proposed
+    framework also checks clinical claims against authoritative references and treats demographic performance degradation
+    beyond a predefined threshold as a framework-level failure.
+  judge: Opus 4.6, Gemini 3.1 Pro, and GPT-5.4 graded the demonstrations.
+  scale: Binary or 0-1 scores per dimension; means across judges and scenarios, with no combined five-axis score
+    specified.
+  validation: Across 2,993 Prolonged Exposure judgments, Fleiss' κ was 0.511 with 73.7% unanimous agreement; across
+    2,098 CBT judgments, κ was 0.704 with 94.8% unanimous agreement. No human clinical expert validation of the
+    study's scores was conducted.
+  score_meaning: A therapeutic appropriateness score of 0 marks a response as therapeutically inappropriate; higher
+    CBT safety-interference scores mean fewer unnecessary safety insertions that disrupt the exercise. The reported
+    safety-trigger percentage is the share of samples where at least one judge detected a safety disclaimer, crisis
+    resource, or refusal to engage.
+  annotation_process: The judges were chosen from different model families to reduce correlated systematic bias.
+    For CBT, judges also recorded a separate safety-trigger flag and a free-text description of the detected behavior.
+  results: ''
+  limitations: The authors report an LLM-only judge panel without human clinical validation, synthetic data that
+    approximate real interactions and introduce English-language bias, and unquantified computational, financial,
+    and clinical expertise costs.
+  sources:
+  - https://arxiv.org/abs/2604.23445
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

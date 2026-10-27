@@ -26,6 +26,35 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 740 questions over 74 guideline recommendations
+card:
+  task: Answer clinician-style questions about management recommendations in EULAR and ACR rheumatology guidelines.
+  items_built: ChatGPT 4.5 generated 740 questions, ten for each of 74 EULAR and ACR guideline documents selected
+    by rheumatologists for clinical relevance. Rheumatologists Dalifer Freites-Núnez and Diego Benavent reviewed
+    the questions for relevance and replaced 14 that were outside the guideline's scope.
+  example: ''
+  scoring: Gemini 2.0 Flash receives the question, original guideline, retrieved context, and paired answers with
+    and without retrieval, then rates each answer on relevance, factual accuracy, safety, completeness, and conciseness
+    and selects a preferred answer or a tie. Ratings are summarized by criterion using medians and means, and preference
+    is reported as a percentage of comparisons with a definitive preference.
+  judge: Gemini 2.0 Flash grades all answers; two independent, blinded rheumatologists, Chamaida Plasencia-Rodríguez
+    and Zulema Rosales-Rosado, grade a 111-question sample.
+  scale: Each criterion is rated from 1 (poor) to 5 (excellent); criterion-level summaries and pairwise preference
+    percentages are reported.
+  validation: Two rheumatologists independently rated 111 questions, a random 15% sample covering every guideline.
+    Human inter-rater agreement was Kendall's coefficient 0.46-0.60; Gwet's AC2 was 0.63-0.79 for relevance, completeness,
+    and conciseness, 0.76-0.83 for factual accuracy, and above 0.95 for safety, while preference agreement was 76
+    of 111 pairs (68.5%).
+  score_meaning: ''
+  annotation_process: The human reviewers received each question paired with both corresponding answers. They could
+    mark the answers as comparable in quality instead of selecting a preferred response.
+  results: ChatGPT o3-mini with retrieval was preferred over the same model without retrieval in 570 of 614 definitive
+    judge comparisons (92.8%) and scored higher across all five criteria (p<0.001). The two rheumatologists preferred
+    retrieval-based answers in 74.8% and 71.2% of the 111 sampled pairs.
+  limitations: The authors did not systematically verify that every question was answerable from its source guideline,
+    noted that source attributions could bias human preferences toward retrieval-based answers, and warned that
+    automated grading could overlook subtle clinical inaccuracies.
+  sources: []
+  extracted: '2026-10-27'
 signals:
   citations: 13
   citations_source: OpenAlex

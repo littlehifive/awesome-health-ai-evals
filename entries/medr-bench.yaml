@@ -28,6 +28,39 @@ facets:
   eval_methods: [automatic_metric, rubric_llm_judge]
   modality: [text]
   size: 1,453 cases
+card:
+  task: Recommend examinations, make a diagnosis, or plan treatment for a patient case using the supplied clinical
+    information, and explain the reasoning step by step.
+  items_built: GPT-4o restructured PMC open-access case reports into 1,453 patient cases with reference reasoning.
+    Six licensed physicians from Xin Hua Hospital, each with approximately five years of experience, checked 100
+    randomly sampled cases, with three independent reviews per case and majority voting; 100% of diagnostic cases
+    and 96% of treatment cases passed.
+  example: ''
+  scoring: GPT-4o checks diagnoses against case-report answers, while treatment judgments also use retrieved medical
+    information; examination precision and recall compare recommended tests with the report's test list. The Reasoning
+    Evaluator measures the proportion of useful reasoning steps, factual accuracy among effective steps, and coverage
+    of reference reasoning steps, with results reported as means across cases.
+  judge: GPT-4o grades final outputs, and the automated Reasoning Evaluator grades reasoning using medical resources
+    and reference reasoning.
+  scale: Binary diagnosis and treatment accuracy; examination precision and recall; reasoning efficiency, factuality,
+    and completeness proportions, averaged across cases.
+  validation: Six licensed physicians checked sampled outputs and reasoning steps using majority votes. Agreement
+    with the automated grader was around 95% on most tasks, including 94.00% for diagnostic accuracy and 86.00%
+    for treatment accuracy, compared with individual physician agreement of 92.00% and 85.33%, respectively.
+  score_meaning: A diagnosis counts as correct when it matches the reference diagnosis, including equivalent medical
+    terms. A treatment plan counts as incorrect if it omits even one critical component, so treatment accuracy measures
+    how often plans address all required key aspects.
+  annotation_process: For validation of the automated scores, physicians independently checked 50 diagnostic outputs
+    and 50 treatment outputs against the case ground truth. They also assessed 146 diagnostic and 139 treatment
+    reasoning steps for efficiency, 90 diagnostic and 106 treatment reference steps for coverage, and 89 diagnostic
+    and 100 treatment reasoning steps for factual errors.
+  results: DeepSeek-R1 achieved the highest one-turn diagnostic accuracy at 71.79% and reached 89.76% when all crucial
+    examination results were supplied.
+  limitations: The automated evaluator is overly conservative, with treatment-accuracy precision of 93.75% but recall
+    of 71.43%, causing it to mark more answers as incorrect.
+  sources:
+  - https://doi.org/10.1038/s41467-025-64769-1
+  extracted: '2026-10-27'
 signals:
   citations: 52
   citations_source: OpenAlex

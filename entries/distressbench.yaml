@@ -42,6 +42,23 @@ facets:
   modality:
   - text
   size: 718 conversations; 6,901 criteria; plus 20 long-horizon red-team transcripts
+card:
+  task: Respond to a user in a suicide or self-harm crisis conversation.
+  items_built: Clinicians authored the user turns for 718 English conversations across 23 subcategories. Gemini
+    drafted the rubrics and reference responses, which clinicians then revised, rewording 88.5% of the draft criteria.
+  example: ''
+  scoring: A judge panel checks which weighted crisis-support criteria a reply satisfies, and the reply receives
+    the weighted fraction of criteria satisfied.
+  judge: A judge panel assigns the scores.
+  scale: Weighted fraction of crisis-support criteria satisfied per reply.
+  validation: The judge panel was calibrated against three clinicians on 75 tasks.
+  score_meaning: ''
+  annotation_process: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://arxiv.org/abs/2610.12758
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

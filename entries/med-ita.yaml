@@ -25,6 +25,24 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 10,000 questions (selected from 104,876); 100-question hard subset
+card:
+  task: Select the single correct answer from five options for each Italian medical examination question.
+  items_built: The CRISP research centre selected 10,000 questions from an initial corpus of 104,876, drawn from
+    official public recruitment competitions, medical degree and speciality school admission tests, and public-agency
+    exam preparation materials published between 2010 and 2024. Domain experts originally wrote the questions for
+    public evaluations.
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: ''
+  validation: ''
+  results: ''
+  limitations: The benchmark tests knowledge recall and reasoning on standardised questions rather than real-world
+    clinical practice and should not be used to validate models for direct clinical decision-making or patient care.
+  sources:
+  - https://huggingface.co/datasets/Crisp-Unimib/MED-ITA
+  - https://github.com/Crisp-Unimib/MED-ITA
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

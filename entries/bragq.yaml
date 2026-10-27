@@ -26,6 +26,33 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 1,302 questions
+card:
+  task: Answer questions about bariatric surgery for patient education, covering preoperative preparation through
+    long-term postoperative care.
+  items_built: 'The authors constructed 1,302 entries in collaboration with board-certified bariatric surgeons:
+    611 came from PubMedQA and 691 were synthetically generated from expert-informed templates and real-world patient
+    interactions. A board-certified bariatric surgeon validated the dataset, and experts flagged 201 of the PubMedQA
+    entries as not representative of everyday patient concerns.'
+  example: ''
+  scoring: A surgeon rated outputs for 105 instances, and ChatGPT-4o rated answers given the question and an evaluation
+    rubric, both scoring factuality, clinical relevance, and comprehensiveness. Scores are averaged across questions
+    for each dimension, and the reported overall average combines the three dimensions.
+  judge: One board-certified bariatric surgeon and ChatGPT-4o assign ratings.
+  scale: Each dimension is rated from 1 (poor) to 5 (excellent); final scores are averages across questions and
+    the three dimensions.
+  validation: Expert and ChatGPT-4o scores had an average Spearman rank correlation of 0.94 across models.
+  score_meaning: Factuality measures accuracy and correctness, clinical relevance measures appropriateness in a
+    clinical context, and comprehensiveness measures completeness and informativeness for patients. BERTScore measures
+    semantic similarity between generated outputs and reference texts.
+  annotation_process: The surgeon's evaluation was blinded. Outputs were also compared automatically with reference
+    texts using BERTScore.
+  results: bRAGgen with Llama3-8B scored highest, averaging 4.51/5 in surgeon review and 4.44/5 with ChatGPT-4o
+    grading.
+  limitations: ''
+  sources:
+  - https://arxiv.org/abs/2505.16102
+  - https://github.com/yashkumaratri/bRAGgen
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

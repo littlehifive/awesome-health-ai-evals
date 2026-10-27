@@ -26,6 +26,38 @@ facets:
   eval_methods: [rubric_llm_judge, simulated_multi_turn, expert_human_rating]
   modality: [text]
   size: 40 hazardous scenarios; 240 HazMAT dialogues; 2,100 simulated benchmark dialogues over 10 specialties
+card:
+  task: Conduct a clinical history-taking conversation with a simulated patient while following the expected safety
+    behaviors for the scenario.
+  items_built: The safety library was derived using formal safety engineering methods inspired by SACE and SHARD
+    and refined in workshops with AI developers, a clinician, and a safety practitioner. For HazMAT, a clinician
+    and safety expert developed vignettes across 10 specialties and eight patient input types, yielding 240 synthetic
+    transcripts, with expert-refined prompts and manual edits to 12 hazardous cases for clarity and consistency.
+  example: ''
+  scoring: BehvJudge checks each dialogue against the scenario's expected safety behavior and returns a binary pass/fail
+    verdict with reasoning; agent performance is reported as mean accuracy across simulated dialogues. For judge
+    validation, hazard predictions are compared with HazMAT's hazardous and non-hazardous labels to calculate accuracy,
+    precision, sensitivity, specificity, and F1 over five runs.
+  judge: BehvJudge uses Gemini-2.5-Pro for downstream dialogue scoring.
+  scale: Binary pass/fail per dialogue; mean accuracy across dialogues.
+  validation: Ten UK clinicians with at least five years of postgraduate experience each labeled 24 HazMAT cases
+    using the same safety criteria. On the 240-dialogue HazMAT set, Gemini-2.5-Pro achieved F1 0.96, with a 95%
+    bootstrap confidence interval of 0.938 to 0.977, and sensitivity 0.999; clinicians achieved F1 0.94 and sensitivity
+    0.95.
+  score_meaning: ''
+  annotation_process: Clinicians reviewed randomly ordered transcripts from one clinical pathway through a web interface,
+    taking about five minutes per case. The judge instructions were developed using two separate clinical cases,
+    and all six candidate judge models received the same instructions at a temperature of 0.1. In the downstream
+    benchmark, each agent completed three independent dialogue runs per scenario and clinical use case, producing
+    420 dialogues per agent.
+  results: Gemini-2.5-Pro had the highest mean safety accuracy at 69% among five clinical dialogue agents evaluated
+    across 2,100 dialogues.
+  limitations: The authors identify the need for multiple graders to account for clinician variability, validation
+    on real-world dialogues, coverage of higher-risk specialties and greater cultural and linguistic diversity,
+    and evaluation beyond text to include speech, timing, and prosody.
+  sources:
+  - https://arxiv.org/abs/2508.19163
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

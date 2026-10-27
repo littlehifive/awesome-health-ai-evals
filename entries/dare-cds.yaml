@@ -25,6 +25,27 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric]
   modality: [text]
   size: Applied to 59,254 Med-HALT items and 12 model checkpoints; includes a difficulty-controlled repair of the Med-HALT protocol
+card:
+  task: ''
+  items_built: The framework is meant to be applied to existing medical hallucination benchmarks rather than a new
+    item set. It models each task with a response curve whose pseudo-guessing parameter is measured from released
+    data, and was applied to 59,254 Med-HALT items across seven tasks and twelve model checkpoints.
+  example: ''
+  scoring: Task response curves use pseudo-guessing parameters measured from the released data to correct accuracy
+    relative to knowledge-free performance.
+  judge: ''
+  scale: ''
+  validation: ''
+  score_meaning: On the PubMed items, 40.46% accuracy can be achieved by replying "Unknown" to every item, matching
+    the best published memory-retrieval accuracy without medical knowledge.
+  annotation_process: ''
+  results: Only 2 of 84 model-task cells exceeded the knowledge-free ceiling under Holm-corrected exact binomial
+    tests. The unnamed model ranked first in 77.60% of random task mixtures under raw accuracy ranked first in 0.02%
+    after correction.
+  limitations: Within-task item difficulty cannot be identified from knowledge-free responses.
+  sources:
+  - https://jcphs.com/index.php/JCPHS/article/view/73
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

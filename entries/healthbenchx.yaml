@@ -28,6 +28,23 @@ facets:
   eval_methods: [rubric_llm_judge]
   modality: [text]
   size: 5,000 conversations per language (2,085 multi-turn and 2,915 single-turn files for each of Japanese and Korean)
+card:
+  task: Respond to a health-related conversation in Japanese or Korean.
+  items_built: The source HealthBench contains 5,000 realistic health conversations, each paired with a custom rubric,
+    and was built with 262 physicians across 60 countries. HealthBenchX translated the conversations using GPT-5
+    without reasoning mode, with no human post-editing.
+  example: 「前回の検査では数値が少し高めだったが、どの項目だったかは覚えていない。」
+  scoring: ''
+  judge: ''
+  scale: ''
+  validation: ''
+  score_meaning: ''
+  annotation_process: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://huggingface.co/datasets/li-lab/HealthBenchX
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

@@ -27,6 +27,32 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 51,274 cases; 9 departments, 17 disease categories, 16 treatment pathways
+card:
+  task: Use each patient's clinical information to select an admission department, a disease category, and a treatment
+    pathway from the available options.
+  items_built: The authors linked MIMIC-IV tables by patient identifier to construct 51,274 cases containing demographics,
+    radiology reports, and medical history. They took triage labels from admission department records and treatment
+    labels from the service table, regrouped 1,298 disease labels into 17 categories using the international disease
+    classification system, and retained the three highest-priority diagnostic indicators.
+  example: ''
+  scoring: Predicted categories are compared with the recorded labels, and accuracy reports the percentage of correct
+    predictions for each task. The paper also reports macro precision, macro F1, sensitivity, specificity, Cohen's
+    kappa, Matthews correlation coefficient, AUC, and a disease-specific misdiagnosis rate.
+  judge: Exact match with the recorded category labels.
+  scale: Correct or incorrect classification; accuracy as a percentage of cases.
+  validation: On 100 randomly selected test cases, three board-certified clinicians from different tertiary hospitals,
+    with 5 to 15 years of experience, independently assessed triage, diagnosis, and treatment. Diagnostic agreement
+    with ground truth was ICC 0.81 for MAP and 0.80, 0.67, and 0.68 for the clinicians; MAP's agreement with clinicians
+    was 0.84, 0.73, and 0.75.
+  results: MAP achieved 78.10% diagnosis accuracy, compared with 53.00% for the best standalone model, HuatuoGPT2-13B.
+    On the 100-case clinical comparison, MAP's accuracy exceeded the three clinicians' accuracy by 10 to 12 percentage
+    points (p = 0.0067).
+  limitations: MIMIC data agreements prevented evaluation through external APIs, including ChatGPT, GPT-4, and Med-PaLM,
+    and clinicians' limited time constrained the human comparison to 100 cases.
+  sources:
+  - https://doi.org/10.1038/s44401-026-00085-0
+  - https://github.com/franciszchen/MAIDS
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

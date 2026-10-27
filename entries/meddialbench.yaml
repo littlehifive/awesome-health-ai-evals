@@ -27,6 +27,37 @@ facets:
   eval_methods: [simulated_multi_turn, rubric_llm_judge]
   modality: [text]
   size: "85 cases x 17 configurations x 5 models = 7,225 dialogues"
+card:
+  task: Question a simulated patient for up to 20 turns and then give a specific diagnosis.
+  items_built: The evaluation retains 85 of 107 OSCE-style cases after baseline consultations checked diagnosability;
+    a subset comes from AgentClinic cases rewritten into colloquial patient language. An LLM generated case-specific
+    behavioral scripts, which were manually reviewed against the clinical details for plausibility.
+  example: 'Doctor: "How long did the dizziness last?" Patient: "Maybe 10 minutes. My heart was racing too."'
+  scoring: Qwen3-Max checks whether each diagnosis is semantically equivalent to the ground-truth diagnosis, and
+    accuracy is reported as the percentage correct across cases for each configuration. Information coverage tracks
+    the case's atomic facts, inquiry efficiency is coverage per turn, and the observed-to-expected ratio compares
+    combined-behavior accuracy with accuracy expected from independent single-behavior effects.
+  judge: Qwen3-Max grades diagnoses, with Gemini 3 Pro used for cross-validation.
+  scale: Binary diagnosis correctness; accuracy as a percentage, coverage from 0 to 1, coverage per turn, and observed-to-expected
+    accuracy ratio.
+  validation: The paper reports agreement of κ = 0.882 between Qwen3-Max and Gemini 3 Pro on 220 stratified cases,
+    and κ = 0.469 for whether false patient information caused an incorrect diagnosis. Qwen3-Max was selected by
+    comparing three candidate judges on 28 human-annotated dialogues.
+  score_meaning: An O/E ratio below 1.0 means combined behaviors reduce accuracy more than independent effects predict;
+    a ratio near 1.0 means their effects are additive. The exploratory "Misled" label marks an incorrect diagnosis
+    caused by false patient information, and diagnosis scoring gives no partial credit.
+  annotation_process: ''
+  results: Gemini 3.1 Pro had the highest baseline diagnostic accuracy at 90.6%, but GPT-5.4 led under fabricated
+    symptoms at 63.5%. Fabrication significantly reduced accuracy for all five models, with drops of 18.8 to 30.6
+    percentage points.
+  limitations: The authors note the use of one patient model, fixed behaviors throughout each dialogue, only 85
+    cases, no physical examinations or laboratory testing, no partial credit for diagnoses, preserved information
+    volume under expression perturbations, moderate agreement on the misled metric, and different thinking settings
+    across doctor models.
+  sources:
+  - http://arxiv.org/abs/2604.06846
+  - https://huggingface.co/datasets/anon-meddial-2026/meddialbench
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

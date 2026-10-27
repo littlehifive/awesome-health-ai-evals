@@ -28,6 +28,42 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: "5,383 test pairs (10,766 rows); 10,689 reference pairs"
+card:
+  task: Read each first-person patient narrative and name the correct diagnosis from 49 possible diseases, treating
+    control and trap cases as independent diagnostic tasks.
+  items_built: The authors filtered 226,814 DDXPlus samples for cases whose two leading diagnoses differed in probability
+    by less than 0.5%, converted structured features into narratives, and used an LLM to substitute distinguishing
+    evidence grounded in the DDXPlus knowledge base. GPT-5, DeepSeek-R1, and Gemini-2.5-Pro checked the pairs, requiring
+    two votes for diagnostic correctness; four board-certified physicians with over eight years of clinical experience
+    reviewed 1,500 pairs, finding 96.1% valid with Fleiss' kappa of 0.79, and failing pairs were revised or excluded.
+  example: ''
+  scoring: 'Predicted diagnoses are compared with the control and trap ground-truth labels: Baseline Accuracy is
+    the fraction of controls diagnosed correctly, and Robust Accuracy is the fraction of pairs with both diagnoses
+    correct. Bias Trap Rate is the fraction of correctly solved controls whose paired trap receives the control
+    diagnosis rather than the trap diagnosis.'
+  judge: Predicted diagnoses are compared with the dataset's ground-truth labels.
+  scale: Correct or incorrect diagnosis per case; Baseline Accuracy, Robust Accuracy, and conditional Bias Trap
+    Rate are reported as percentages.
+  validation: ''
+  score_meaning: Higher Baseline Accuracy indicates stronger diagnostic ability on typical cases, while higher Robust
+    Accuracy indicates better performance when discriminative evidence changes. A higher Bias Trap Rate indicates
+    greater susceptibility to favoring familiar diagnoses over patient-specific evidence.
+  annotation_process: During dataset construction, GPT-5, DeepSeek-R1 and Gemini-2.5-Pro judged each pair for diagnostic
+    correctness, medical plausibility and narrative fluency; inclusion required positive diagnostic-correctness
+    votes from at least two judges. Four board-certified physicians with over 8 years of clinical experience assessed
+    a stratified random sample of 1,500 pairs using seven yes/no quality dimensions, with all dimensions required
+    for validity. Of the sampled pairs, 2.1% were revised and 1.8% were excluded after failing the quality thresholds.
+  results: ECR-Agent using Qwen3-32B achieved the highest Baseline Accuracy at 69.49%, the highest Robust Accuracy
+    at 24.21%, and the lowest Bias Trap Rate at 33.75%. Among standalone LLMs, GPT-5 led Baseline Accuracy at 54.30%
+    and Robust Accuracy at 15.78%, with a Bias Trap Rate of 51.87%.
+  limitations: The authors note that coverage is limited to 49 common pathologies across eight departments, leaving
+    rare diseases and complex comorbidities unexplored, and warn that the synthetic narratives are biased toward
+    acute-care conditions and require rigorous clinical validation before real-world deployment.
+  sources:
+  - https://arxiv.org/abs/2601.06636
+  - https://huggingface.co/datasets/zhui711/MedEinst
+  - https://github.com/zhui711/MedEinst
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

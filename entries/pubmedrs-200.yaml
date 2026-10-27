@@ -27,6 +27,40 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 200 questions (146 used in the reported experiments)
+card:
+  task: Retrieve relevant scientific articles for each clinical question and synthesize their findings into an answer.
+  items_built: The authors used PubMed's E-utilities API to find systematic reviews across medical specialties and
+    selected titles containing explicit questions, producing 200 question-answer pairs. Two human evaluators, Alejandro
+    Lozano and Scott L. Fleming, manually reviewed the questions and extracted minimally modified answers from abstract
+    results and conclusions, removing review-method descriptions and excluding abstracts without substantive results.
+  example: '"Does high-grade dysplasia/carcinoma in situ of the biliary duct margin affect the prognosis of extrahepatic
+    cholangiocarcinoma?"'
+  scoring: Retrieval is scored by precision and recall against the articles cited by the source systematic review.
+    Generated answers are compared with human-curated reference answers using source-free metrics and source-augmented
+    metrics that also receive the review's introduction, results and conclusions; UniEval reports four dimensions
+    and their overall average.
+  judge: Automated metrics include UniEval with T5-large, COMET with XLM-RoBERTa, CTC with BERT, BERTScore, ROUGE-L,
+    METEOR, chrF, GoogleBLEU and CharacTer.
+  scale: Retrieval precision and recall; separate answer-quality metrics, including UniEval's average across four
+    dimensions.
+  validation: ''
+  score_meaning: Higher retrieval precision and recall mean that more retrieved articles match the systematic review's
+    references and that more of those references were retrieved, respectively. Answer scores reward alignment with
+    the systematic review's synthesis, so an answer based on different evidence can be penalized even when it addresses
+    the question.
+  annotation_process: Two human evaluators, AL and SF, prepared reference answers by removing descriptions of review
+    methods from abstract results and conclusions, retaining text that directly answered the title question and
+    excluding abstracts without substantive results. System outputs were scored automatically rather than through
+    human preference ratings.
+  results: Clinfo.ai outperformed the other retrieval-augmented systems on overall UniEval, with reported improvements
+    of 6.2% to 14.9%. Its TL;DR output performed better than its longer synthesis outputs.
+  limitations: The authors did not check the automated scores against human preferences in this study and note that
+    source-free metrics reward short answers that need not be accurate or comprehensive, while several source-augmented
+    metrics favor longer answers.
+  sources:
+  - https://doi.org/10.1142/9789811286421_0002
+  - https://github.com/som-shahlab/Clinfo.AI
+  extracted: '2026-10-27'
 signals:
   citations: 55
   citations_source: OpenAlex

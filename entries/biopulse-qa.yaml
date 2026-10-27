@@ -25,6 +25,37 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 2,280 QA pairs (928 drug labels, 650 clinical trials, 702 guidelines) plus perturbed variants
+card:
+  task: Answer free-text questions using a supplied biomedical document, either extracting information directly
+    or combining information and making inferences.
+  items_built: GPT-4o generated 928 QA pairs from drug labels, 650 from clinical trials and 702 from clinical guidelines,
+    with questions and answers generated in separate steps. One clinical expert filtered questions, two co-authors
+    reviewed extractive answers, and two clinically trained domain experts independently reviewed abstractive questions
+    for clarity, relevance, factual accuracy and reasoning.
+  example: '"What is the maximum starting dose recommended for this drug?" Answer: "45 mg orally once daily".'
+  scoring: Predicted answers are automatically compared with reference answers using relaxed F1 based on answer
+    overlap, with extractive and abstractive results reported separately and combined by document source. Robustness
+    and bias are assessed through changes in F1 across perturbed and demographic-counterfactual questions; the formula
+    for combining item scores is not specified.
+  judge: Automated F1 comparison with expert-reviewed reference answers assigns the scores.
+  scale: F1 from 0 to 1; separate and combined scores by question type and document source.
+  validation: ''
+  score_meaning: Higher F1 indicates closer agreement with reference answers, but semantically close or factually
+    correct answers can lose points for using different wording. In the manual error analysis, factual incorrectness
+    means a mismatch with the reference in content and format, while incompleteness means missing essential answer
+    details.
+  annotation_process: Two co-authors reviewed extractive reference answers for accuracy, grounding in the source
+    text, and alignment with the question; incorrect or incomplete answers were flagged and revised. Two domain
+    experts with clinical training independently reviewed abstractive questions for clarity and relevance, answer
+    accuracy, and correctness of the required reasoning.
+  results: GPT-o1 had the strongest combined performance across question types, scoring 0.92 on drug labels and
+    0.85 on clinical guidelines. Llama-3.1-8B achieved the best combined clinical-trial score, 0.57.
+  limitations: The authors state that token-level F1 can penalize semantically correct wording, pretraining biases
+    were not fully accounted for, and robustness and bias coverage is limited, with demographic tests restricted
+    to age and gender.
+  sources:
+  - http://arxiv.org/abs/2601.12632
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

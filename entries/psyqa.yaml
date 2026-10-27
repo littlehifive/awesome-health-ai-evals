@@ -27,6 +27,42 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: about 22,000 questions and 56,000 answers; 4,012 answers annotated with strategies
+card:
+  task: Generate a long Chinese counseling answer from a help-seeker's question, description and keywords, or assign
+    a support-strategy label to each sentence in an existing answer.
+  items_built: The authors crawled 22,346 questions and 56,063 answers from Yixinli, which manually reviews and
+    blocks unsafe content. Nine trained workers annotated the highest-voted answers to 4,012 randomly sampled questions
+    using Helping Skills System strategies, and two clinical psychology graduate students checked 200 annotated
+    question-answer pairs.
+  example: ''
+  scoring: Strategy identification uses F1 scores against annotated labels; generation uses perplexity, BLEU averaged
+    across BLEU-1 through BLEU-4 with all answers to a question as references, Distinct-1/2, and agreement between
+    requested strategy tokens and classifier predictions. For human evaluation, three raters independently scored
+    each answer for fluency, coherence, relevance and helpfulness on 100 test questions, with average ratings reported
+    for each dimension.
+  judge: Automatic metrics and the contextual RoBERTa strategy classifier score outputs, alongside 15 graduate students
+    majoring in psychology or psychological counseling.
+  scale: 'Human ratings: 1 to 3 stars per dimension, with 3 best; reported means, plus F1, perplexity, BLEU, Distinct-1/2
+    and strategy consistency proportion.'
+  validation: Human-rating Krippendorff's alpha was 0.58 for fluency, 0.60 for coherence, 0.55 for relevance and
+    0.62 for helpfulness.
+  score_meaning: Fluency measures grammatical, fluent writing; coherence measures logic and organization; relevance
+    measures whether the answer addresses the question; and helpfulness measures whether its interpretations and
+    suggestions are suitable from a psychological counseling perspective. In the separate ethical-risk evaluation,
+    an answer counts as risky when at least two of three annotators flag it.
+  annotation_process: 'Each question had three answers for evaluation: one from GPTft, one from GPTft+strategy and
+    one human-written reference answer; the resulting 300 question-answer pairs were shuffled before assignment
+    to raters. Raters received a detailed scoring guideline and were paid 60 CNY per hour. For the separate ethical-risk
+    evaluation, senior graduate students in psychology or psychological counseling judged whether answers contained
+    risks and supplied reasons.'
+  results: GPTft+strategy scored 1.78 for fluency, 1.55 for coherence, 1.75 for relevance and 1.45 for helpfulness,
+    outperforming GPTft on all four human-rated dimensions. Human answers scored 2.77, 2.80, 2.76 and 2.47, respectively.
+  limitations: The authors state that the data comes from an online mutual-help forum rather than professional counseling,
+    carries potential ethical risks, and can lead models to generate fabricated or inaccurate information.
+  sources:
+  - https://arxiv.org/abs/2106.01702
+  - https://github.com/thu-coai/PsyQA
+  extracted: '2026-10-27'
 signals:
   citations: 67
   citations_source: OpenAlex

@@ -27,6 +27,38 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: "about 1,200 verified question-answer pairs (800 human, 400 LLM)"
+card:
+  task: Rank NICE guideline recommendations to retrieve the recommendation that answers each clinical question.
+  items_built: Six UK-based medical students generated 1,150 question-answer pairs and gpt-3.5-turbo generated 100,325,
+    using NICE recommendations and shared instructions with examples checked by a primary care physician. Four of
+    the students verified 800 human-written and 400 LLM-written pairs, without seeing their source or reviewing
+    their own questions; 230 pairs were rated completely plausible and completely answered and used for retrieval
+    evaluation.
+  example: '"What considerations should be addressed while revising the management programme for a child or adolescent?"'
+  scoring: Ranked recommendations are compared with the paired reference recommendation for each of the 230 verified
+    pairs. Recall@k measures whether the correct recommendation appears among the top k results, while nDCG@k and
+    MAP@k measure ranking quality across questions.
+  judge: The scikit-learn implementations of retrieval metrics score rankings against the reference recommendations.
+  scale: Recall@k for k = 1, 2, 5, 10, 20, 50 and 100; nDCG@k and MAP@k for k = 2, 5, 10, 20, 50 and 100.
+  validation: Dataset verification agreement was checked between two verifiers on 50 human-written and 50 LLM-written
+    pairs. Three-category Cohen's kappa for plausibility and answerability was 0.64 and 0.30 for human pairs and
+    0.60 and 0.24 for LLM pairs; merging partial and negative ratings gave 0.85 and 0.37 for human pairs and 0.59
+    and 0.22 for LLM pairs.
+  score_meaning: Verification ratings were "Completely", "Partially" or "Not at all" for both clinical plausibility
+    and whether the recommendation answered the question. An "ideal" pair received "Completely" on both criteria
+    and was eligible for the retrieval evaluation.
+  annotation_process: Four of the six UK-based medical students recruited through a university employment agency
+    carried out one verification round, each receiving 200 human-written and 100 LLM-written pairs. Verifiers were
+    blinded to whether questions came from humans or the LLM and used an updated instruction sheet.
+  results: ''
+  limitations: The authors state that the dataset is too small for training, agreement on whether recommendations
+    fully answer questions is low, newer GPT versions could change the cost analysis, and the evaluation covers
+    retrieval rather than potentially more appropriate retrieval-augmented generation workflows.
+  sources:
+  - https://pubmed.ncbi.nlm.nih.gov/40417548
+  - https://huggingface.co/datasets/k2141255/RealMedQA
+  - https://github.com/gck25/RealMedQA
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

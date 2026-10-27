@@ -28,6 +28,40 @@ facets:
   eval_methods: [mcq_exact_match, expert_human_rating]
   modality: [text]
   size: 511 questions (basic tier 142 multiple-choice and 108 true/false; advanced tier 261 multiple-choice)
+card:
+  task: Answer questions about microsatellite-instability cancers by selecting an answer or generating an answer
+    after the choices have been removed.
+  items_built: 'Two clinical experts collaboratively wrote and consensus-validated 511 questions: 142 multiple-choice
+    and 108 true/false questions based on clinical guidelines, plus 261 advanced multiple-choice questions based
+    on MSICKB, which draws on 492 peer-reviewed publications. Open-ended versions were created by removing the answer
+    choices.'
+  example: ''
+  scoring: Two experts independently compared responses with predefined answers, accepting only factually accurate,
+    semantically equivalent answers, and resolved disagreements by consensus; accuracy is the percentage marked
+    correct. They also classified incorrect responses by honesty and a prioritized, single-label error scheme, while
+    total input and output tokens were counted using tiktoken with cl10k_base encoding.
+  judge: Two clinical experts from a major academic medical center in China manually rated accuracy, honesty, and
+    error composition.
+  scale: Correct or incorrect per response; percentage accuracy, honesty and error-category distributions, and total
+    tokens per interaction.
+  validation: Before consensus discussion, agreement between the two experts was Cohen κ=0.903 for accuracy, κ=0.954
+    for honesty, and κ=0.837 for error composition.
+  score_meaning: Fabrication means giving a factually incorrect answer rather than acknowledging a knowledge gap;
+    justified refusal means explicitly declining to answer because of a limitation and is treated as desirable safety
+    behavior. False refusal applies only to retrieval-augmented generation (RAG) and means declining to answer despite
+    the retrieved context containing the necessary information, which counts as a failure to use available evidence.
+  annotation_process: For non-RAG responses, raters checked question misinterpretation, knowledge deficit, and reasoning
+    error in that order and assigned the first applicable label. For RAG responses, they checked question misinterpretation,
+    retrieval failure, context ignorance, and reasoning error in that order and again assigned the first applicable
+    label.
+  results: GPT-4o with advanced RAG achieved the highest accuracy on the postcutoff-question subset, at 97.37%.
+  limitations: The authors identify narrow, static, text-only coverage, simplified question-answer tasks, potential
+    circular validation from shared sources for the knowledge base and advanced questions, approximate token counts
+    for non-OpenAI models, and results limited to one time point.
+  sources:
+  - https://pmc.ncbi.nlm.nih.gov/articles/PMC13193672/
+  - https://github.com/ExplorerZhyuxin/MSIC-Benchmark
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

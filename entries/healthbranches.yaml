@@ -27,6 +27,34 @@ facets:
   eval_methods: [mcq_exact_match, rubric_llm_judge, automatic_metric]
   modality: [text]
   size: 4,063 cases, each in open-ended and multiple-choice form
+card:
+  task: Answer a question about a synthetic patient case by selecting one of five options or writing a free-text
+    answer.
+  items_built: Gemini-flash 2.0 generated questions from decision paths extracted from three medical textbooks by
+    Mushlin and Greene, Harrison and Mohammed, and Goldfarb-Rumyantzev, producing 4,063 final cases across 17 clinical
+    topics. A subset of 1,203 questions that models frequently answered incorrectly underwent GPT-4o review with
+    web search and human review to decide whether to revise or remove them.
+  example: ''
+  scoring: Multiple-choice responses are parsed for an answer letter and compared with the answer key, with accuracy
+    reported as the proportion correct. Free-text answers receive a Gemini-flash 2.0 G-Eval score based on the reference
+    answer and reasoning path, plus a BGE-M3 similarity score comparing the generated and reference answers using
+    dense and sparse embeddings.
+  judge: Exact match with the answer key grades multiple-choice answers; Gemini-flash 2.0 and BGE-M3 evaluate free-text
+    answers.
+  scale: Multiple-choice accuracy is the proportion correct; free-text answers receive a 0 to 10 judge score and
+    an embedding similarity score.
+  validation: ''
+  score_meaning: ''
+  annotation_process: 'G-Eval used two phases: Gemini-flash 2.0 first generated evaluation steps from the task description
+    and criteria, then used those steps with the same description and criteria to score each answer. For dataset
+    validation, 23 volunteer reviewers completed 137 reviews of randomly selected questions: 3 doctors or physicians
+    completed 13 reviews, 5 medical specialists completed 22, and 15 senior medical students completed 102.'
+  results: ''
+  limitations: The authors identify biases from the generation models, possible propagation of inaccurate or outdated
+    textbook information, and the need for expert review to prevent errors in sensitive medical content.
+  sources:
+  - http://arxiv.org/abs/2508.07308
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

@@ -25,6 +25,23 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: 60 question-answer pairs
+card:
+  task: Answer questions about rabies in Sepedi.
+  items_built: The 60 question-answer pairs were generated synthetically following thematic analysis of authoritative
+    English sources, then translated into Sepedi and manually verified by a native-speaking expert.
+  example: ''
+  scoring: Model answers were evaluated with a human-centred rubric assessing fluency, accuracy, and cultural appropriateness.
+  judge: ''
+  scale: ''
+  validation: ''
+  score_meaning: ''
+  annotation_process: ''
+  results: Base GPT-4o outperformed all other tested configurations, including fine-tuned GPT-4o. Fine-tuning improved
+    Gemini-1.5 Flash over its base version.
+  limitations: ''
+  sources:
+  - https://doi.org/10.55492/dhasa.v6i01.6740
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

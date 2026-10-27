@@ -24,6 +24,23 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 9,406 curated items across 23 shipped benchmarks (24 in the paper, 9,594 curated; MedBullets not redistributed)
+card:
+  task: Select an answer to each multiple-choice question covering clinical judgment, robustness and fairness, ethics,
+    medical knowledge, or legal and regulatory issues.
+  items_built: The suite combines 24 benchmarks from 15 upstream sources, including clinical case reports, medical
+    exams, research literature, and legal datasets. Quality control reduced the full suite from 10,020 to 9,594
+    items, with every removal and its reason recorded; the repository distributes 9,406 curated items across 23
+    benchmarks and omits MedBullets for licensing reasons.
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: ''
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://github.com/KatherLab/MillerQA
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

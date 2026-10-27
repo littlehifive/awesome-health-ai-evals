@@ -24,6 +24,28 @@ facets:
   eval_methods: [mcq_exact_match, rubric_llm_judge, automatic_metric]
   modality: [text]
   size: 10 evaluators; no own item set
+card:
+  task: Answer clinical questions and calculation problems, assess clinical statements, or synthesize SOAP notes
+    from multi-turn conversations, depending on the evaluator.
+  items_built: The framework is intended for evaluating clinical model outputs, including answers to four-option
+    MedQA/USMLE licensing examination vignettes. The README does not describe creating or checking new test items
+    or developing the scoring rubric.
+  example: ''
+  scoring: 'The multiple-choice evaluator extracts the selected option and reports accuracy, with a passing threshold
+    of 60.0%. Other evaluators assign safety flags or use an LLM judge with four dimensions: diagnostic accuracy,
+    reasoning quality, completeness, and safety; the supplied text does not explain how these scores are combined.'
+  judge: Supported judge backends are OpenAI, Anthropic Claude, Mistral, Google Gemini, and Ollama, with fallback
+    heuristic scoring.
+  scale: Multiple-choice accuracy as a percentage; safety tiers CRITICAL, HIGH, WARNING, or SAFE; judge score from
+    1 to 5.
+  validation: ''
+  score_meaning: ''
+  annotation_process: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://github.com/Sugumaran-Balasubramaniyan/clinical-llm-eval
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

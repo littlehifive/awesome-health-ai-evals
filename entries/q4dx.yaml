@@ -27,6 +27,37 @@ facets:
   eval_methods: [simulated_multi_turn, mcq_exact_match, automatic_metric]
   modality: [text]
   size: 100 disease-symptom anchors, 300 case descriptions (three disclosure levels), with simulated dialogues
+card:
+  task: Diagnose a patient from an initial description, asking a simulated patient up to five follow-up questions
+    when information is incomplete and updating the diagnosis after each answer.
+  items_built: The authors randomly sampled 100 disease-symptom pairings from SDPD and used GPT-4o-mini to generate
+    patient narratives at three disclosure levels, checking symptom reduction with Jaccard similarity. GPT-4.1 generated
+    reference question sequences through dialogues with a GPT-4o-mini patient that had access to the complete symptom
+    set.
+  example: ''
+  scoring: ZDA is the percentage of initial top-ranked diagnoses that exactly match the case diagnosis from a predefined
+    list; MQD averages the questions needed to first reach the correct diagnosis, assigning five to failures. ISE
+    aligns model questions with GPT-4.1 reference questions to maximize cumulative BERTScore similarity, penalizing
+    extra or missing questions.
+  judge: Automated diagnosis matching and BERTScore-based sequence alignment assign scores against case labels and
+    GPT-4.1-generated reference questions.
+  scale: 'ZDA: percentage correct; MQD: mean question count capped at five; ISE: BERTScore-based sequence similarity.'
+  validation: ''
+  score_meaning: Higher ZDA means more accurate initial diagnoses, lower MQD means fewer questions needed, and higher
+    ISE means closer semantic agreement with the reference questioning sequence, not proven clinical optimality.
+    The reported MQD of 2.4 means an average of 2.4 questions across evaluated cases, including failures at the
+    capped value.
+  annotation_process: ZDA is evaluated only on cases with 100% symptom disclosure. In interactive evaluation, GPT-4o-mini
+    plays the patient with access to the complete symptom set, and the model being evaluated makes a diagnosis after
+    each question-and-answer round; a question counts toward MQD only if it elicits new clinical information.
+  results: GPT-4.1 achieved 51% zero-shot diagnostic accuracy with full symptom disclosure and a mean of 2.4 questions
+    to reach the correct diagnosis. The reported mean maximum question similarity across rounds was 0.657.
+  limitations: The authors state that reference questioning sequences are LLM-generated rather than clinician-authored
+    and support relative model comparison rather than establishing clinically optimal questioning.
+  sources:
+  - https://doi.org/10.1038/s41598-026-37022-y
+  - https://github.com/MaiWert/MedQDx
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

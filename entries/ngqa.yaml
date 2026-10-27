@@ -27,6 +27,35 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: "13,802 records (8,490 sparse, 3,622 standard, 1,690 complex)"
+card:
+  task: Use a user's health information and a food's nutritional graph to decide whether the food is healthy for
+    that user, identify relevant nutrition tags, or generate a natural-language explanation, depending on the task.
+  items_built: The authors constructed 8,490 sparse, 3,622 standard, and 1,690 complex questions from NHANES health
+    profiles and dietary records linked to FNDDS food information. Rule-based tags established matching or contradictory
+    relationships between health conditions and foods, followed by an LLM sanity check and review and cross-validation
+    by three human annotators with domain expertise.
+  example: ''
+  scoring: Classification outputs are compared with ground-truth labels using accuracy, recall, precision, and F1,
+    with weighted versions for multi-label classification. Generated explanations are compared with reference texts
+    using ROUGE, BLEU, and BERT scores.
+  judge: Automated classification and text-similarity metrics assign the scores.
+  scale: Binary yes/no labels, multiple nutrition-tag labels, or generated text; classification metrics and ROUGE,
+    BLEU, and BERT scores.
+  validation: ''
+  score_meaning: A "match" label means a food's nutritional property aligns with the user's health needs, such as
+    low sodium for hypertension. A "contradict" label means it conflicts with those needs, such as high calories
+    for obesity.
+  annotation_process: After initial filtering and rule-based tagging, LLMs checked the annotations for inconsistencies
+    or anomalies. Three human annotators with domain expertise then reviewed and cross-validated the results to
+    remove remaining inaccuracies.
+  results: ''
+  limitations: The authors note limited health-condition coverage, omission of factors such as food insecurity,
+    simplification of complex dietary trade-offs into counts of matching and contradictory tags, and a limited range
+    of tasks.
+  sources:
+  - http://arxiv.org/abs/2412.15547
+  - https://github.com/Yiyang-Ian-Li/NGQA
+  extracted: '2026-10-27'
 signals:
   citations: 2
   citations_source: OpenAlex

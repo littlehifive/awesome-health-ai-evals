@@ -25,6 +25,40 @@ facets:
   eval_methods: [simulated_multi_turn, expert_human_rating]
   modality: [text]
   size: Library of virtual patients at Easy, Medium and Hard difficulty; 31 persuasive strategies
+card:
+  task: Conduct a multi-turn counseling conversation as a nurse to persuade a simulated patient with type 1 diabetes
+    to adopt a closed-loop insulin delivery system.
+  items_built: The authors synthesized patient profiles from anonymized public online diabetes support narratives
+    and LLM outputs, combining clinical and psychosocial features with adoption barriers and having medical experts
+    review them. In a check of 100 algorithmically combined profiles, 99% were judged reasonable and representative
+    of real type 1 diabetes cases.
+  example: ''
+  scoring: Patient Agents assign persuasion ratings, which are averaged across patients within each difficulty group;
+    multi-visit and social-resistance results use the area under the curve of mean persuasion ratings across visits.
+    OpenAI o3 separately scores each turn for responsiveness, empathy, persuasive strategy appropriateness, clinical
+    relevance, and nurse behavioral realism, while clinical experts score sampled responses on these dimensions
+    plus persuasion rating change justifiability.
+  judge: Patient Agents assign persuasion ratings, OpenAI o3 grades dialogue quality, and two clinical experts independently
+    evaluate sampled outputs.
+  scale: 'Human response ratings: 1.0-5.0 per criterion; persuasion results: patient-group means and area under
+    the curve across visits.'
+  validation: Two clinical experts independently assessed 50 dialogue rounds, with inter-annotator agreement exceeding
+    87.5%; 90% of judgments endorsed persuasion rating change justifiability and 92.5% endorsed patient behavioral
+    realism.
+  score_meaning: Human response scores above 4.0 are reserved for clearly exceptional performance; raters are instructed
+    to use decimals and avoid inflated scores.
+  annotation_process: In the controlled single-turn evaluation, experts reviewed 25 randomly sampled patient cases
+    covering all difficulty levels, with 13 model responses per case presented in blinded, randomized order alongside
+    GPT-4o patient follow-ups and persuasion ratings. Experts wrote their own reference response before scoring
+    the model responses, indicated whether any model outperformed their response, and provided justifications. Annotations
+    were adjudicated for final reporting, and a further qualitative review covered four full patient cases involving
+    deepseek-r1 and gpt-o4-mini in multi-visit and social-resistance settings.
+  results: ''
+  limitations: The authors state that simulated patients cannot capture the full complexity of real clinical encounters,
+    the benchmark is limited to English-language and North American contexts, simulated persuasion does not establish
+    real adoption or long-term clinical impact, and acute or crisis scenarios are excluded.
+  sources: []
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

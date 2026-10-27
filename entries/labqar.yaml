@@ -25,6 +25,22 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 550 reference ranges across 363 lab tests, with multiple-choice questions
+card:
+  task: Answer multiple-choice questions about laboratory test reference ranges and classify test results as normal,
+    low, or high.
+  items_built: The dataset was manually curated from authoritative medical sources and contains 550 reference ranges
+    covering 363 unique laboratory tests. Its multiple-choice questions include annotations for reference ranges,
+    specimen types, and other factors affecting interpretation.
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: ''
+  validation: ''
+  results: GPT-4o outperformed the other tested models; the abstracts give no numerical score.
+  limitations: ''
+  sources:
+  - https://doi.org/10.1038/s41597-026-07554-z
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

@@ -27,6 +27,39 @@ facets:
   eval_methods: [simulated_multi_turn, rubric_llm_judge]
   modality: [text]
   size: 520 patient profiles, 26 diseases, 10 ICD-11 chapters
+card:
+  task: Given a patient's basic information and chief complaint, ask questions with answer options in a simulated
+    pre-consultation dialogue to collect clinically relevant history.
+  items_built: Clinicians collected referenced diagnostic guidelines from credible clinical organizations, selected
+    26 sufficiently common diseases distinguishable through consultation alone, and assigned guideline features
+    medium or high importance. OpenAI o3-mini generated patient profiles, which expert clinicians reviewed for diversity
+    and clinical detail, retaining 20 per disease for 520 profiles.
+  example: ''
+  scoring: GPT-4o-mini extracts and deduplicates clinical information units from each dialogue and matches them
+    to disease-specific guidelines, awarding 1 point per match or, with weighting, 1 for medium-importance and 2
+    for high-importance matches; dialogue totals are averaged across 520 profiles. A separate diagnostician predicts
+    diseases from the dialogue, and an evaluator checks predictions against the gold diagnosis, accepting parent
+    or child disease concepts, to calculate Top-1 and Top-k accuracy.
+  judge: GPT-4o-mini performs organization, guideline comparison, diagnosis, and diagnosis evaluation with separate
+    prompts.
+  scale: Each information unit earns 0 or 1 point unweighted, or 0, 1, or 2 weighted; mean dialogue totals and Top-1
+    and Top-k diagnostic accuracy are reported.
+  validation: One dialogue per disease was randomly sampled for evaluation by a human clinician using the same pipeline.
+    An F-test found no significant variance difference (p > 0.05), and a subsequent t-test found no significant
+    score difference (p > 0.05).
+  score_meaning: A higher HPI comparison score means the dialogue collected more distinct pieces of information
+    relevant to the disease guidelines, but does not necessarily mean it supports a more accurate diagnosis.
+  annotation_process: All agents used a fixed random seed and a temperature of 0 for reproducibility. Expert clinicians
+    assigned each diagnostic guideline its medium or high importance before scoring.
+  results: In five-turn dialogues, GPT-4.1 scored 4.82 unweighted and 8.12 weighted, with 74.56% Top-1 and 83.81%
+    Top-k accuracy; Claude-3.7-Sonnet tied its weighted score. The human expert baseline scored 4.35 and 7.29, with
+    68.24% Top-1 and 80.65% Top-k accuracy.
+  limitations: The benchmark covers only text-based pre-consultation and excludes diseases requiring physical test
+    results such as X-rays or MRIs, so it does not cover all disease categories.
+  sources:
+  - https://arxiv.org/abs/2601.03627
+  - https://github.com/seemdog/EPAG
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

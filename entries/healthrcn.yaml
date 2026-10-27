@@ -27,6 +27,36 @@ facets:
   eval_methods: [automatic_metric, rubric_llm_judge]
   modality: [text]
   size: 1.12 million rumors; 2,500-sample evaluation set (1,497 rumor, 855 not rumor, 148 not health-related)
+card:
+  task: Classify each Chinese input as "Rumor," "Not rumor," or "Not related to health information," and explain
+    the judgment.
+  items_built: The authors consolidated about 2 million user questions scraped primarily from 39.net into 1.12 million
+    questions, then used GPT-3.5-Turbo-0301 to generate rumors, refutations and correct answers. They randomly selected
+    generated rumor content and correct answers for evaluation, excluding fine-tuning samples, and added manually
+    constructed non-health inputs to produce 1,497 rumor, 855 non-rumor and 148 non-health items.
+  example: '"The main cause of diabetes is not eating too much sugar"'
+  scoring: Predicted labels are compared with dataset labels to calculate accuracy and F1 using only valid responses;
+    the valid answer rate measures compliance with the required format and label range. GPT-4-1106-Preview scores
+    every response for relevance, reliability and richness, including invalid responses, and scores are averaged
+    separately for each criterion.
+  judge: Dataset labels determine classification scores, and GPT-4-1106-Preview grades explanation quality.
+  scale: 'Explanation criteria: 0 to 10 each, averaged across responses; classification: accuracy, F1 and valid
+    answer rate.'
+  validation: ''
+  score_meaning: Higher relevance scores mean the answer focuses more closely on the input and whether it is a rumor;
+    higher reliability scores mean the judgment is better supported by scientific evidence and reasonable reasoning
+    without creating misunderstandings. Higher richness scores mean the analysis includes more comprehensive information
+    and arguments and covers more of the input's key points.
+  annotation_process: ''
+  results: HRDE achieved 91.04% accuracy, 91.58% F1 and a 100% valid answer rate. Its mean relevance, reliability
+    and richness scores were 9.25, 8.99 and 7.30 out of 10.
+  limitations: The authors state that too few non-health examples in fine-tuning sometimes cause HRDE to misinterpret
+    non-health inputs, and that document retrieval slows its responses.
+  sources:
+  - https://arxiv.org/abs/2407.00668
+  - https://huggingface.co/datasets/Hush-cd/HealthRCN
+  - https://github.com/hush-cd/HRDE
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

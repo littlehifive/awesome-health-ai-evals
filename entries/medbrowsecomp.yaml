@@ -27,6 +27,35 @@ facets:
   eval_methods: [rubric_llm_judge]
   modality: [text]
   size: "605 deep-research questions (five hops) and 484 computer-use questions (four hops); 50-question human-checked subset"
+card:
+  task: Browse the live web to retrieve and combine medical facts across linked sources and return a short, verifiable
+    answer to each question.
+  items_built: The authors worked with physicians and HemOnc.org editors to link regimen data to PubMed, ClinicalTrials.gov,
+    April 2025 FDA Orange Book data and Yahoo Finance stock prices; author SC manually verified and deduplicated
+    the data into 121 trials, excluding trials with multiple linked publications or drugs that could not be readily
+    matched. These trials produced 605 deep-research questions across five hop levels and 484 computer-use questions
+    across four tasks, with a 50-question subset for selected evaluations.
+  example: '"Which clinical-trial ID best describes Rituximab monotherapy compared to Ibrutinib monotherapy when
+    used to treat Chronic lymphocytic leukemia."'
+  scoring: GPT-4.1 mini compares each response with the reference short answer using an adapted judging prompt,
+    and credited answers are totaled to report accuracy. Half credit is given for a specific two-hop question when
+    the response identifies the sub-entity's company rather than the requested answer.
+  judge: GPT-4.1 mini-2025-04-14 assigns the automated scores.
+  scale: Correct or incorrect, with one specified half-credit exception; total credited answers reported as accuracy.
+  validation: Two annotators, SC and JG, manually answered MedBrowseComp-50, with 100% inter-annotator agreement
+    and 98% agreement with GPT-4.1 mini.
+  score_meaning: The reported "Best of 1" result of 30/50 selects the best answer across all evaluated systems for
+    each question after seeing their outputs; it is not the accuracy of a single system.
+  annotation_process: ''
+  results: O3 deepresearch led MedBrowseComp-50 with 25.5/50 credited answers (51% accuracy), followed by Gemini-2.5-pro
+    deepsearch with 24.5/50 (49%).
+  limitations: The authors report incomplete system coverage, lightly audited machine judging, substantial evaluation
+    costs, no clinical validation of answers and coverage of only a small portion of medical knowledge.
+  sources:
+  - http://arxiv.org/abs/2505.14963
+  - https://huggingface.co/datasets/AIM-Harvard/MedBrowseComp
+  - https://huggingface.co/datasets/AIM-Harvard/MedBrowseComp_Meta
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

@@ -116,7 +116,7 @@ initCompare();
 initCopy();
 loadEntries().then((D) => {
   const built = new Date(`${D.meta.built}T00:00:00`).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
-  $("#foot-built").textContent = `${D.entries.length.toLocaleString("en-US")} entries, built ${built}.`;
+  $("#foot-built").textContent = `Last built ${built}.`;
   addEventListener("hashchange", route);
   route();
 }).catch((err) => {

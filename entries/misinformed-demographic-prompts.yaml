@@ -28,6 +28,39 @@ facets:
   eval_methods: [automatic_metric, expert_human_rating]
   modality: [text]
   size: "5,882 true/false questions (3,120 climate, 2,762 mental health); 40 mental-health misinformation prompts and 38 bias prompts"
+card:
+  task: Classify mental-health statements as true or false and answer questions containing misinformation or demographic
+    details.
+  items_built: The authors curated 2,762 mental-health true/false questions and selected 40 mental-health questions
+    from authoritative sources such as NASA and the CDC, then altered facts, tone or wording to introduce misinformation.
+    They also added demographic details such as age, race and location to 38 mental-health questions for bias assessment.
+  example: ''
+  scoring: True/false responses are compared with the correct answers to calculate confusion matrices, precision,
+    recall, F1 and accuracy; BLEU, ROUGE and METEOR compare generated answers with factual reference answers and
+    are normalized to a maximum of 1. Experts assess misinformation and bias through interviews and questionnaires,
+    with responses analyzed thematically rather than combined into a single score.
+  judge: Automated reference comparisons and 14 domain experts, seven per domain, including two interviewees and
+    five questionnaire respondents for mental health, assess the outputs.
+  scale: Binary true/false correctness; percentage precision, recall, F1 and accuracy; similarity scores normalized
+    to a maximum of 1.
+  validation: ''
+  score_meaning: Higher similarity scores indicate closer agreement with factual reference answers, but no score
+    threshold defines misinformation. Mental-health precision of 90.1% means that 90.1% of statements classified
+    as true were correct, while recall of 95.2% means that 95.2% of true statements were identified.
+  annotation_process: The initial approach sent chatbot responses to experts a week before interviews; time constraints
+    led to a switch to questionnaires after the first two climate-change interviews. Interviews lasted 45-60 minutes
+    and covered 8-13 questions. Mental-health questionnaires contained 16 closed- and open-ended items and took
+    10-30 minutes to complete.
+  results: The reported average mental-health performance across the three chatbots was 92.5% accuracy and 92.6%
+    F1. Bard (LaMDA) ranked highest on mental-health response similarity, but the supplied text gives no numerical
+    score for it.
+  limitations: The authors report limited expert recruitment, with only four interviewees and ten questionnaire
+    respondents across both domains, below their stated targets of five interviewees per domain and at least 50
+    questionnaire respondents.
+  sources:
+  - https://arxiv.org/abs/2410.10850
+  - https://github.com/tolusophy/Edge-of-Tomorrow
+  extracted: '2026-10-27'
 signals:
   citations: 4
   citations_source: OpenAlex

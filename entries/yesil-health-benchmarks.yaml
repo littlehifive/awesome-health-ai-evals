@@ -23,6 +23,21 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: "About 7,500 questions in 50+ subsets (roughly 80 to 180 questions each)"
+card:
+  task: Answer multiple-choice questions on medical specialties and health topics by selecting the correct answer
+    letter.
+  items_built: ''
+  example: ''
+  scoring: Compare model answers with the supplied ground-truth answers using exact match, F1 score, or semantic
+    similarity.
+  judge: ''
+  scale: Exact match, F1 score, or semantic similarity.
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://huggingface.co/datasets/yesilhealth/Health_Benchmarks
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

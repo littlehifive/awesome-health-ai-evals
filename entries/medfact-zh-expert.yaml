@@ -26,6 +26,24 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 2,116 annotated texts
+card:
+  task: Determine whether a Chinese medical text contains factual errors and locate the erroneous text spans.
+  items_built: Xunfei (iFlytek) Healthcare Technology built the benchmark from real-world Chinese medical texts
+    using AI-driven filtering refined through iterative expert feedback, reducing 27,116 candidates to 6,405. Three
+    licensed medical professionals annotated veracity, error spans, and corrections, yielding 2,116 expert-annotated
+    instances.
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: ''
+  validation: ''
+  score_meaning: ''
+  annotation_process: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://doi.org/10.18653/v1/2026.gem-main.59
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

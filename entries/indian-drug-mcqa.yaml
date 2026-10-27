@@ -24,6 +24,22 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 1,512 questions (3-5 options each)
+card:
+  task: Choose the correct generic name or salt composition for an Indian branded medication from 3 to 5 answer
+    options.
+  items_built: Eka.Care provides 1,512 questions, including variants for hard-difficulty drugs that use different
+    distractor strategies and phrasing styles. The card does not describe how the questions were written or checked.
+  example: ''
+  scoring: The recommended metric is exact match between the model's predicted answer letter (A-E) and the correct
+    answer letter.
+  judge: Exact match with the answer key.
+  scale: Correct or incorrect per item; exact-match accuracy.
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://huggingface.co/datasets/ekacare/indian_drug_mcqa
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

@@ -29,6 +29,41 @@ facets:
   eval_methods: [automatic_metric, expert_human_rating]
   modality: [text]
   size: 25,174 notes, 3,984 encounters; 194 script-concordance cases (2,555 annotations)
+card:
+  task: Use a patient's longitudinal clinical notes to assess urgency, summarize relevant history, explain diagnostic
+    and treatment decisions, and predict disposition and final diagnosis, or update differential diagnoses as new
+    evidence is presented.
+  items_built: The notes came from a large academic medical center, were de-identified to HIPAA Safe Harbor standards,
+    and received institutional compliance approval; emergency medicine residents and attending physicians wrote
+    72 step-by-step reasoning rationales. The repository also describes 194 physician-authored script-concordance
+    cases derived from the notes, with up to five differential/evidence pairs per case and 2,555 annotations from
+    two ER physicians.
+  example: ''
+  scoring: Predictions are compared with recorded physician decisions using acuity, disposition, and diagnosis accuracy,
+    while summaries are compared with physician summaries using ROUGE F1; cTAKES measures the fraction of concepts
+    in physician rationales recovered by model outputs, reported as average overlap. A physician rates hallucination
+    severity and clinical utility, reported as means and standard deviations; the repository additionally compares
+    sequential diagnostic updates and rankings with physician consensus.
+  judge: Automated matching, ROUGE, and cTAKES score the main tasks; one board-certified ER physician rates 20 GPT-4o
+    cases, and two ER physicians supply script-concordance annotations.
+  scale: Task-specific accuracy percentages, ROUGE F1, and clinical concept recall; human ratings from 1 to 5, with
+    5 meaning most severe hallucinations or greatest utility; script-concordance updates from −2 to +2.
+  validation: ''
+  score_meaning: ICD-10 Exact Match requires the predicted diagnosis to match the recorded code, while HCC Category
+    Match accepts agreement within a broader CMS diagnosis category. Hallucination severity measures factually incorrect
+    or fabricated clinical content, while clinical utility measures how meaningfully an output contributes to an
+    ER physician's clinical decisions.
+  annotation_process: The physicians who wrote the 72 reference rationales were compensated and used a custom application
+    that guided them through a sequential workflow reflecting their clinical reasoning. They provided step-by-step
+    explanations covering rule-out reasoning, relevant medical factors, and treatment planning.
+  results: o3-mini achieved the best acuity accuracy at 62.70%, exact ICD-10 diagnosis accuracy at 34.40%, and disposition
+    accuracy at 63.08%. GPT-4o led summarization with ROUGE-1 F1 of 0.347.
+  limitations: The benchmark does not account for hospital-level factors such as bed availability, staffing constraints,
+    and institutional protocols that influence triage and disposition decisions.
+  sources:
+  - https://arxiv.org/abs/2505.22919
+  - https://github.com/AlaaLab/ER-Reason
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

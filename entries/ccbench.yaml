@@ -27,6 +27,35 @@ facets:
   eval_methods: [rubric_llm_judge]
   modality: [text]
   size: 773 QA pairs (in scope); 420 VQA triplets (image, out of scope)
+card:
+  task: Answer yes-or-no and open-ended text questions about cervical cytology screening, giving an answer and a
+    reason for each.
+  items_built: The authors used GPT-4 to generate 773 QA pairs from 424 textual knowledge points extracted from
+    the Bethesda System textbook, simplifying sentences and excluding those containing "follow-up". All pairs were
+    manually reviewed to correct logic, grammar, context, question phrasing, and question-type errors, and GPT-4
+    inserted "not" into some questions to balance yes and no answers.
+  example: ''
+  scoring: Close-ended answers are compared with reference answers to calculate accuracy, specificity, precision,
+    recall, and F1 score. For open-ended answers, three experts and GPT-4 independently assess accuracy, completeness,
+    logic, precision, risk awareness, and conciseness, with average expert scores and distributions of G-Eval scores
+    reported.
+  judge: Three experienced experts assign human scores, and GPT-4 assigns G-Eval scores.
+  scale: Close-ended classification metrics; open-ended expert scores up to 10 points and G-Eval scores up to 1
+    point.
+  validation: The authors assessed agreement among the three experts using mean Spearman rank correlations across
+    questions and reported that QA G-Eval scores were consistent with expert evaluations, but the supplied text
+    gives no numerical agreement values.
+  score_meaning: Higher expert evaluation and G-Eval scores indicate better answer quality.
+  annotation_process: Answers with formatting problems underwent manual review and handling before scoring. GPT-4
+    used the same custom evaluation criteria as the human experts.
+  results: GPT-4 performed best on the text QA dataset, with 70.5% accuracy on close-ended questions and an average
+    expert score of 6.9/10 on open-ended questions.
+  limitations: The authors state that model responses still differ from those of cytopathologists and that misinformation
+    could cause harm in clinical practice.
+  sources:
+  - https://doi.org/10.1038/s41698-025-00916-7
+  - https://github.com/systemoutprintlnhelloworld/CCBench
+  extracted: '2026-10-27'
 signals:
   citations: 9
   citations_source: OpenAlex

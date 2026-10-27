@@ -26,6 +26,37 @@ facets:
   eval_methods: [simulated_multi_turn, rubric_llm_judge]
   modality: [text]
   size: 4,041 dialogues, median eight clinician-patient rounds
+card:
+  task: Ask a simulated emergency-department patient focused triage questions within ten rounds, or use a completed
+    dialogue to predict five-level Emergency Severity Index acuity and write a patient-facing closing.
+  items_built: The authors generated 4,041 dialogues from MIMIC-IV-ED encounters using separate clinician and patient
+    language models, with post-triage events and recorded ESI labels hidden from both. A verifier checked proposed
+    clinical disclosures against eligible source facts and recorded each accepted fact's supporting EHR event and
+    first disclosure turn.
+  example: ''
+  scoring: Information acquisition counts each eligible patient fact once at its first accepted disclosure, excludes
+    facts already visible to the clinician, and tracks changes in a fixed ESI reader's assessment. Predictions are
+    compared with recorded ESI labels using Macro-AUC, Macro-F1, quadratic weighted kappa and under-triage rates;
+    closings are scored for key-information coverage, dialogue-supported claims, reference similarity and corpus-level
+    lexical diversity.
+  judge: A verifier checks fact support, and a fixed ESI reader assesses acquired evidence; their model names and
+    the closing-content graders are not specified.
+  scale: Five ESI levels; fact coverage, reader entropy, Macro-AUC, Macro-F1, QWK, under-triage rates, closing-content
+    and reference-similarity scores, and corpus-level Distinct-2.
+  validation: ''
+  score_meaning: Larger ESI numbers mean lower urgency, so a prediction above the recorded ESI level counts as under-triage.
+    Lower ESI-reader entropy means the predicted probabilities are more concentrated on fewer ESI levels.
+  annotation_process: For the round-by-round analysis, a fixed multinomial logistic regression classifier, trained
+    with patients kept separate from the evaluation set, predicts recorded ESI from the initially visible information
+    and facts disclosed so far. Closing similarity is scored automatically against a reference response using BERTScore
+    F1, ROUGE-L and BLEU-4.
+  results: GPT-5.6 had the highest Key Recall, Grounded Precision and Distinct-2 for patient-facing closings, but
+    the supplied text gives no numerical scores.
+  limitations: The authors state that their internal benchmark analyses do not establish clinical validity or readiness
+    for deployment.
+  sources:
+  - https://arxiv.org/abs/2608.09024
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

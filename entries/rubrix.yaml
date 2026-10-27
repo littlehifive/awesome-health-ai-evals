@@ -26,6 +26,36 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: "over 20,000 caregiver queries (ADRD-Caregiver and General-Caregiver datasets); 152-query seed corpus used to build the rubric"
+card:
+  task: Respond to a caregiver-authored query with caregiving information or support.
+  items_built: The authors collected 799 seed posts from r/Alzheimers, 10,321 posts from ALZConnected and 10,017
+    posts from r/CaregiverSupport. They developed the rubric through thematic analysis of responses to 152 queries,
+    including 87 seed posts and 65 clinician-curated queries, grounded it in the Elements of an Ethic of Care, and
+    iteratively refined it with two clinicians.
+  example: ''
+  scoring: GPT-5-nano assigns a binary risk flag to each of 29 audit questions and extracts supporting text for
+    flagged risks. The flags are summed and divided by 29 to produce each response's RubRIX score, and mean scores
+    are reported by model and dataset.
+  judge: GPT-5-nano scores the responses.
+  scale: Each audit question is 0 for risk absent or 1 for risk present; response scores range from 0 to 1, with
+    higher scores indicating more flagged risks.
+  validation: Three coauthors independently reviewed assessments for 150 randomly sampled responses, then resolved
+    disagreements by consensus; their consensus agreed with GPT-5-nano in 88.67% of cases. Clinicians also qualitatively
+    assessed 50 pairs of initial and refined responses, finding modest, consistent improvements in empathy and acknowledgment
+    of distress, alongside persistent or newly introduced inaccuracies.
+  score_meaning: The score does not distinguish risks by severity, frequency, or downstream impact. A lower score
+    does not establish improved caregiver wellbeing, decision-making, or help-seeking, which the study did not measure.
+  annotation_process: Each response was evaluated initially and after each of two refinement rounds, with the generating
+    model revising its response using the full evaluator feedback. GPT-5-nano was excluded from response generation
+    to prevent self-evaluation bias. During validation, reviewers labeled agreement or disagreement with the evaluator's
+    assessment rather than independently assigning audit-question scores.
+  results: ''
+  limitations: The authors identify limited generalizability beyond caregiving, self-selected online samples, binary
+    scores that obscure risk severity, potential GPT-5-nano evaluator biases, and no evidence that reduced rubric-defined
+    risk improves caregiver well-being.
+  sources:
+  - https://doi.org/10.18653/v1/2026.findings-acl.1774
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

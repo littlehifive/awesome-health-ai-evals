@@ -47,6 +47,35 @@ facets:
   modality:
   - text
   size: 1,269 seizure descriptions; 81-item subset for clinician review
+card:
+  task: Read each seizure description and assign likelihoods from 0 to 100% to seven possible seizure onset zones.
+  items_built: The authors filtered and standardized seizure descriptions from the public Semio2Brain dataset, which
+    contains 4,643 patient data points, to obtain 1,269 descriptions linked to seizure onset zones.
+  example: '"right upper limb ballistic-like movement"'
+  scoring: Predictions are compared with annotated seizure onset zones using precision, recall and F1, with reported
+    F1 means and 95% confidence intervals estimated from 999 bootstrap resamples; confidence uses an entropy-based
+    measure, and calibration uses Brier score loss. For 81 reasoning outputs per reviewed model, a clinician rates
+    correctness and completeness in three categories, and two authors independently check cited author lists and
+    publication titles, reporting category proportions and citation accuracy.
+  judge: Dataset labels determine classification scores; one clinician rates reasoning, and two paper authors independently
+    check citations.
+  scale: Aggregate F1 as a percentage; confidence from 0 to 1; Brier score loss, lower is better; three-category
+    reasoning ratings and percentage citation accuracy.
+  validation: Citation raters achieved Cohen's kappa of 0.73 for GPT-4 and 0.74 for Mixtral-8 × 7B.
+  score_meaning: Reasoning correctness and completeness are each rated as correct/complete, somewhat correct/complete,
+    or incorrect/incomplete. Confidence of 0 means the lowest certainty and 1 means the highest certainty in the
+    predicted seizure onset zone, but high confidence does not guarantee a correct prediction.
+  annotation_process: The reasoning review used randomly selected chain-of-thought responses from GPT-4 and Mixtral-8
+    × 7B, with model identifiers hidden from the clinician to prevent bias. The review followed protocols adapted
+    from Med-PaLM and Liévin et al.
+  results: GPT-4 achieved 53.44% F1 with self-consistency prompting. Two German neurologists trained in epilepsy
+    care achieved 48.77% and 46.75% F1 on 81 descriptions.
+  limitations: The authors identify limits from a single adult focal epilepsy dataset, missing demographic and cultural
+    metadata, an originally monolingual corpus, epilepsy-specific prompt optimization, and possible sampling bias
+    and subjectivity in the small reasoning review.
+  sources:
+  - https://doi.org/10.1038/s43856-026-01653-z
+  extracted: '2026-10-27'
 signals:
   citations: 2
   citations_source: OpenAlex

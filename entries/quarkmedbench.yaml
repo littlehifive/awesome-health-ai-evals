@@ -26,6 +26,36 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 20,821 single-turn queries and 3,853 multi-turn sessions (6,215 turns); 220,617 rubrics
+card:
+  task: Answer open-ended healthcare queries in single-turn or multi-turn text conversations.
+  items_built: The Quark Medical Team at Alibaba Group used stratified sampling of real online healthcare logs to
+    compile 20,821 single-turn queries and 3,853 multi-turn sessions containing 6,215 turns. Multi-model consensus
+    and external evidence retrieval produced reference answers, Gemini 2.5 Pro extracted 220,617 scoring rubrics,
+    and 11 attending or higher-tier physicians audited 2,580 rubrics from 259 queries.
+  example: ''
+  scoring: Qwen3-235B evaluates answers against query-specific rubrics, rewarding essential facts, important information
+    and additional insights while deducting for pitfalls, with safety penalties and caps on redundant information.
+    Scores undergo min-max normalization to 0 to 1 and aggregation using Essential:Important:Highlight:Pitfall weights
+    of 2:1:1:2, with scores also grouped by rubric attributes.
+  judge: Qwen3-235B assigns the automated scores.
+  scale: Raw scoring range of −10 to 30; metrics normalized to 0 to 1 for weighted aggregation.
+  validation: On 28 queries, judge scores correlated with human expert scores at Pearson r = 0.696 for Essential,
+    0.610 for Important, 0.585 for Highlight and 0.375 for Pitfall. An audit by 11 attending or higher-tier physicians
+    from Grade-3A hospitals across nine specialties found confirmed rubric error rates of 6.20% for correctness,
+    6.24% for comprehensiveness and 0.50% for relevance.
+  score_meaning: 'High absolute scores reflect comprehensive open-ended answers rather than easier tasks. Equal-sized
+    gains are not equally difficult: improving from 0.8 to 0.9 is described as substantially harder than improving
+    from 0.2 to 0.3.'
+  annotation_process: The external rubric audit used a stratified random sample of 259 queries containing 2,580
+    rubrics. Experts first reviewed rubrics independently and flagged suspected defects, then discussed disagreements
+    to reach a final consensus. Confirmed defects were classified as Minor for wording problems that do not affect
+    core clinical decisions, or Major for factual errors or missing critical clinical indications.
+  results: ''
+  limitations: The authors identify limitations in the completeness of evaluation dimensions, fidelity to changing
+    clinical interactions and biases within the evaluation algorithms.
+  sources:
+  - http://arxiv.org/abs/2603.13691
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

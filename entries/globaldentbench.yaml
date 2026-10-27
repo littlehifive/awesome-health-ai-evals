@@ -27,6 +27,41 @@ facets:
   eval_methods: [mcq_exact_match, rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 8,978 questions (full); open-access subset on Hugging Face
+card:
+  task: Answer a dental multiple-choice question with one final option, or give a free-text answer to a short-answer
+    or clinical case-based question.
+  items_built: An automated agent pipeline constructed 3,679 multiple-choice questions from dental qualification
+    and licensure exams, 3,709 short-answer questions from textbooks, and 1,590 case-based questions from peer-reviewed
+    case reports, checking each against its source through up to three correction rounds. Six board-certified senior
+    dentists with an average of 6.8 years of clinical practice reviewed all multiple-choice and short-answer items
+    and audited 523 case-based items, confirming accuracy rates of 99.98% and 96.78%, respectively.
+  example: ''
+  scoring: Multiple-choice answers are matched exactly to reference answers, while Gemini-3-Flash-Preview compares
+    short answers with references to determine correctness; both are reported as accuracy. For case-based answers,
+    the judge awards 20 points for each of five reference key points covered and averages totals across cases, while
+    separately assigning S0, S1 or S2 safety categories and reporting the proportion classified as unsafe.
+  judge: Exact matching grades multiple-choice answers, and Gemini-3-Flash-Preview grades short-answer and case-based
+    answers and assigns clinical risk categories.
+  scale: Multiple-choice and short-answer items are correct or incorrect, reported as accuracy; cases receive 0
+    to 100 points in steps of 20, reported as a mean, plus S0, S1 or S2 risk labels and an unsafe rate.
+  validation: Two dentists reviewed 300 short-answer judgments and 1,500 case-based key-point judgments, with 5%
+    overlap to assess consistency. Agreement with dentist review was 98.15% for Gemini-3-Flash-Preview, 97.88% for
+    Kimi-K2.5, 97.49% for GPT-5.4, 96.96% for GLM-5 and 94.05% for Doubao-Seed-2.0-Pro; dentist inter-rater agreement
+    was 96.67%.
+  score_meaning: S0 means a clinically safe response, S1 means an unsafe response with potential for reversible
+    patient harm, and S2 means an unsafe response with potential for irreversible patient harm.
+  annotation_process: The two dentists auditing automated judgments reviewed the sampled records independently.
+    The expert panel came from a single clinical institution and comprised six board-certified senior dentists with
+    an average of 6.8 years of clinical practice, who provided iterative supervision and calibration of the automated
+    assessment framework.
+  results: ''
+  limitations: The authors identify generation hallucinations requiring human verification, potential local bias
+    from a single-institution expert panel, restriction to dentistry, and static single-turn testing that does not
+    capture iterative clinical dialogue.
+  sources:
+  - https://arxiv.org/abs/2605.24636
+  - https://github.com/FreedomIntelligence/GlobalDentBench
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

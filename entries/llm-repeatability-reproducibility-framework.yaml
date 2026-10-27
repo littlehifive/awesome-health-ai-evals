@@ -26,6 +26,32 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 4 metrics; demonstration on 518 USMLE and 90 UDN cases (912,000 generations)
+card:
+  task: Give a free-response diagnosis for each clinical case repeatedly under identical and varied experimental
+    conditions.
+  items_built: The framework was developed from FDA draft guidance definitions to measure output variability across
+    biomedical tasks, models, prompts, and settings. Its demonstration reused Savage et al.'s 518 MedQA Step 2 and
+    Step 3 questions converted to free response and 90 non-public Vanderbilt UDN cases summarized as multi-paragraph
+    patient histories, with five diagnostic reasoning prompts developed and validated by Savage et al.
+  example: ''
+  scoring: Semantic scores compare output embeddings across repeated runs and across condition-level average embeddings;
+    internal scores use token-level Shannon entropy averaged over output positions and runs. The demonstration used
+    100 runs per prompt-case-model combination, calculating repeatability within each combination and reproducibility
+    across the five prompts for each case-model combination.
+  judge: Automated embedding comparisons and token-probability entropy calculations assign the scores.
+  scale: Semantic reproducibility is rescaled to 0 to 1; higher values on all four metrics indicate greater consistency
+    or certainty.
+  validation: ''
+  score_meaning: The scores support relative comparisons, with no universal pass or failure thresholds defined.
+    A high consistency score does not establish diagnostic correctness, since a model can consistently produce incorrect
+    answers.
+  annotation_process: ''
+  results: ''
+  limitations: The authors state that computational cost limited the configurations evaluated and that internal
+    metrics require access to token-level probabilities, restricting their applicability primarily to autoregressive
+    models.
+  sources: []
+  extracted: '2026-10-27'
 signals:
   citations: 23
   citations_source: OpenAlex

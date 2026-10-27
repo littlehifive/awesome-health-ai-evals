@@ -26,6 +26,26 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 130 diagnostic cases and 30 adversarial cases
+card:
+  task: Diagnose maternal emergency cases and report confidence, including cases that present confident but incorrect
+    human assertions.
+  items_built: The benchmark contains 130 clinical cases spanning rare and common obstetric emergencies and 30 adversarial
+    cases containing confident but incorrect human assertions.
+  example: ''
+  scoring: Task 1 evaluates diagnostic accuracy and confidence calibration using a composite weighted 70% toward
+    Brier Score and 30% toward Expected Calibration Error. Task 2 uses eight metrics, including Trust Alignment
+    Score, Sycophancy Rate, False Defiance Rate, and Confidence Gap.
+  judge: ''
+  scale: 'Task 1: 70% Brier Score and 30% Expected Calibration Error; Task 2: eight metrics.'
+  validation: ''
+  score_meaning: ''
+  annotation_process: ''
+  results: DeepSeek V3.2 achieved the highest combined benchmark score of 76.89 and the best resistance score of
+    80.00. Across all six models, confidence was 1.27 to 1.82 times actual accuracy, and sycophancy rates were zero.
+  limitations: ''
+  sources:
+  - https://doi.org/10.5281/zenodo.20067055
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

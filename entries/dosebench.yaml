@@ -26,6 +26,36 @@ facets:
   eval_methods: [automatic_metric, expert_human_rating]
   modality: [text]
   size: 81 scenarios (1,620 model responses in the paper)
+card:
+  task: Answer each dosing question with YES, NO, or AMBIGUOUS, explain the decision, and report a confidence score.
+  items_built: The authors manually filtered and refined survey-inspired seed questions into 81 synthetic scenarios
+    grounded in public Drug Facts labels and DailyMed dosing guidance. Two annotators reviewed gold decisions, rationales,
+    reasoning categories, and key dosing facts using a shared rubric, resolving disagreements through discussion.
+  example: '"I took 2 Tylenol 325mg at 9AM, 1PM and 6PM. Can I take one more dose at 10AM?"'
+  scoring: For each question, the majority decision across five runs is compared with the gold label, and accuracy
+    is the percentage of questions matched; consistency is the average proportion of runs agreeing with that question's
+    majority decision. Explanations are manually scored for verifiability and averaged across responses, while weak
+    or incorrect responses receive a primary failure category.
+  judge: Decision scores use exact match with manually annotated gold labels; human annotators score explanation
+    verifiability.
+  scale: 'Majority-vote correctness: 0 or 1, reported as percentage accuracy; consistency: proportion agreeing across
+    five runs; verifiability: 0 to 2, reported as a mean.'
+  validation: ''
+  score_meaning: A verifiability score of 2 means fully verifiable reasoning, 1 means partially verifiable reasoning,
+    and 0 means non-verifiable or incorrect reasoning, judged against the question context and OTC dosing guidance.
+    Higher consistency means more stable answers, not necessarily more correct answers.
+  annotation_process: Two annotators reviewed gold labels and reasoning annotations using a shared rubric covering
+    decision correctness, ambiguity handling, key dosing facts, and reasoning verifiability. They resolved disagreements
+    through discussion, with annotation decisions grounded in public Drug Facts labels and DailyMed dosage guidance.
+  results: GPT-4o-mini achieved the strongest overall performance, with 55.6% majority-vote accuracy and 84.9% repeated-run
+    consistency.
+  limitations: The authors state that the benchmark is modest in size and limited to adult acetaminophen and ibuprofen
+    dosing, so its findings should not be generalized to pediatric dosing, pregnancy, chronic disease management,
+    or prescription drug interactions.
+  sources:
+  - https://arxiv.org/abs/2606.04262
+  - https://github.com/yibo-hu-lab/DoseBench
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

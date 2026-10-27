@@ -25,6 +25,36 @@ facets:
   eval_methods: [mcq_exact_match, rubric_llm_judge]
   modality: [text]
   size: "3,535 multiple-choice questions and 337 open-ended cases"
+card:
+  task: Answer multiple-choice questions about liver, pancreatic and biliary diseases, or generate detailed diagnoses
+    from a patient's clinical information, laboratory results and imaging findings.
+  items_built: The authors filtered public medical datasets with GPT-4o and DeepSeek-V3 and added source-grounded
+    synthetic questions for rare ICD-10 diseases; four licensed physicians reviewed 500 synthetic questions, with
+    more than 96% meeting quality standards and 94% agreement. They also structured 120 journal cases, 167 case-sharing
+    website cases and 50 hospital cases, with diagnoses validated by four licensed physicians.
+  example: ''
+  scoring: Extracted option letters are compared with reference answers to calculate accuracy, with means and standard
+    deviations reported across shifted option orders. For diagnostic cases, an LLM checks coverage of each reference
+    diagnosis across six clinical dimensions and a second model reviews negative judgments; disease-level recall
+    counts diagnoses recovered, patient-level recall requires all diagnoses for a patient, and results are averaged
+    across four prompts.
+  judge: DeepSeek-V3-0324 grades diagnostic coverage, Claude-3.7-Sonnet checks negative judgments, and GPT-4o-mini
+    extracts option letters when standard parsing fails.
+  scale: Correct or incorrect answers and covered or uncovered diagnoses; accuracy, disease-level recall and all-diagnoses
+    patient-level recall.
+  validation: The diagnostic grading method agreed with physicians on 97.5% of 393 Chinese disease judgments and
+    97.7% of 132 English disease judgments.
+  score_meaning: Low patient-level recall indicates that the model misses concurrent diagnoses, even when its disease-level
+    recall is relatively high.
+  annotation_process: When Claude-3.7-Sonnet finds that a diagnosis is covered, its judgment replaces DeepSeek-V3-0324's
+    initial non-coverage judgment. Four licensed physicians validated the reference case diagnoses, each receiving
+    a $50 honorarium.
+  results: ''
+  limitations: The benchmark is text-only, and its open-ended scoring method is complex, computationally expensive
+    and subject to the randomness of LLM-based assessment.
+  sources:
+  - https://arxiv.org/abs/2506.00095
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

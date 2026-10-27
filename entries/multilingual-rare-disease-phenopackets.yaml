@@ -29,6 +29,34 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 4,917 vignettes x 10 languages (98,340 prompts)
+card:
+  task: Read each clinical vignette and return a ranked list of candidate genetic disease diagnoses in English.
+  items_built: The authors generated 4,917 vignettes from Phenopacket Store version 0.1.19, manually curated from
+    case reports in 706 publications, selecting cases whose phenotype terms had translations in all nine non-English
+    languages. Physicians or medical researchers translated the templates, which were checked using 54 simulated
+    cases in each language; the prompts omitted diagnoses and genetic information.
+  example: ''
+  scoring: An automated system maps predicted disease names to Mondo disease ontology identifiers, accounting for
+    synonyms and disease subtypes, and compares them with the known diagnosis. It reports the count and percentage
+    of cases with the correct diagnosis ranked first, within the first three, or within the first ten, separately
+    for each language.
+  judge: Automated ontology-aware scoring uses the Mondo disease ontology.
+  scale: Correct or incorrect at each rank cutoff per case; Top-1, Top-3, and Top-10 accuracy by language.
+  validation: ''
+  score_meaning: '"Not ranked" means the reply did not contain the correct diagnosis, while "No Diagnosis" means
+    the returned text could not be parsed as a differential diagnosis, including refusals to provide a diagnosis.'
+  annotation_process: Automated scoring covered 98,340 differential diagnoses from GPT-4o and Meditron3-70B across
+    ten languages, comparing outputs with the known case diagnoses. In a separate check of response language, researchers
+    manually evaluated and scored outputs for 100 randomly chosen cases in Italian, German and Spanish.
+  results: GPT-4o (gpt-4o-2024-08-06) outperformed Meditron3-70B overall, achieving 19.9% Top-1, 27.0% Top-3, and
+    31.2% Top-10 accuracy in English. Across the nine other languages, its Top-3 accuracy ranged from 25.4% to 28.6%.
+  limitations: The authors note that phenotype-list prompts miss nuances of clinical notes, only two models and
+    ten widely used languages were tested with one prompting strategy, disease-name mapping failures could affect
+    language comparisons, and published cases could have appeared in model training data.
+  sources:
+  - https://doi.org/10.1016/j.ebiom.2025.105957
+  - https://github.com/monarch-initiative/pheval.llm
+  extracted: '2026-10-27'
 signals:
   citations: 14
   citations_source: OpenAlex

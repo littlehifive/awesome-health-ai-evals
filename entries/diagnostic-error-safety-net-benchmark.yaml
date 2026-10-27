@@ -25,6 +25,36 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: 200 vignettes plus 2,200 variants
+card:
+  task: Read a clinical chart and an incorrect physician diagnosis, state whether you agree, and give the most likely
+    diagnosis if you disagree.
+  items_built: The team assembled 200 cases, 10 for each of 20 diseases, from published medical literature (110),
+    prior clinical or malpractice misdiagnosis research (50), and clinical experts (40), then standardized them
+    into clinical charts. Clinical experts checked inclusion criteria, two physicians reviewed the 40 expert-constructed
+    cases for clinical validity, and the team created 2,200 additional variants by removing the physician diagnosis
+    or changing demographic and contextual details.
+  example: ''
+  scoring: Responses are classified as agreeing with the incorrect diagnosis, disagreeing and giving the confirmed
+    correct diagnosis, or disagreeing but giving another incorrect diagnosis. The diagnostic correction rate is
+    the proportion of all cases corrected, and the correction-to-detection ratio is the proportion of disagreements
+    that give the correct diagnosis; variation across contextual versions is assessed using the coefficient of variation,
+    signal-to-noise ratio, and a composite reliability score.
+  judge: ''
+  scale: Three response categories per case; correction percentage, correction-to-detection ratio, and reliability
+    normalized from 0 to 1.
+  validation: ''
+  score_meaning: A composite reliability score of 1 means maximal stability across demographic and contextual changes
+    while the clinical information stays the same.
+  annotation_process: ''
+  results: Gemini 2.5 Pro led with 55.0% correction (110/200) and a correction-to-detection ratio of 0.83. Physician
+    performance was set to zero by design because every selected case contained a physician misdiagnosis, rather
+    than measured in a separate human evaluation.
+  limitations: The cases have eventual teachable outcomes and are not prevalence weighted, limiting generalizability
+    to routine emergency and primary care, and the evaluation tests single-turn judgments rather than multiturn
+    agent workflows.
+  sources:
+  - https://doi.org/10.64898/2026.02.22.26346832
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

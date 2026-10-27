@@ -27,6 +27,32 @@ facets:
   eval_methods: [automatic_metric, real_user_data]
   modality: [text]
   size: 540 call transcripts (plus 520 calls for few-shot and fine-tuning)
+card:
+  task: Read each hotline call transcript and classify mood as depression or normal, suicidal ideation and suicide
+    plan as present or absent, and risk as high or non-high, returning the classifications in JSON.
+  items_built: The benchmark contains 540 transcribed calls from the Hangzhou Psychological Assistance Hotline at
+    Hangzhou Seventh People's Hospital, labeled using hotline operators' structured post-call assessments.
+  example: ''
+  scoring: Predicted classifications are compared with the annotated labels to calculate F1 separately for each
+    task; responses that fail to follow the required JSON format are marked incorrect regardless of their content.
+    Reported scores are averaged over three evaluation runs.
+  judge: Scoring compares predictions with the hotline operators' assessment labels.
+  scale: Binary classifications per call; F1 from 0 to 1 for each task, averaged over three runs.
+  validation: ''
+  score_meaning: '"Depression" means multiple persistent negative emotions or typical depressive symptoms, suicidal
+    ideation means expressed suicidal thoughts, a suicide plan means mentioning a time, place, method or means,
+    and "High risk" means an urgent need for intervention; the alternative labels indicate these conditions are
+    absent. F1 balances precision and recall, so higher scores indicate better performance at avoiding both missed
+    cases and false alarms.'
+  annotation_process: ''
+  results: Fine-tuned Qwen2.5-1.5B led mood recognition with F1 0.8045 and suicidal ideation detection with F1 0.8925.
+    Claude-3.5-Sonnet led suicide plan identification with F1 0.7791, and QwQ-32B led risk assessment with F1 0.9067,
+    both using four-shot prompting.
+  limitations: Transcription loses vocal mood cues, and general-purpose models can confuse transient sadness with
+    the stricter psychiatric definition of depression used in the benchmark.
+  sources:
+  - https://doi.org/10.1109/jbhi.2026.3688375
+  extracted: '2026-10-27'
 signals:
   citations: 4
   citations_source: OpenAlex

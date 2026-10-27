@@ -26,6 +26,37 @@ facets:
   eval_methods: [automatic_metric, expert_human_rating]
   modality: [text]
   size: "Framework with an illustrative case; 3 classification tasks, 14 open-source models, category-balanced synthetic sets (sizes in supplement)"
+card:
+  task: Classify each user statement for suicidal ideation or a request for therapy, or each user-chatbot dialogue
+    for therapy-like interaction.
+  items_built: Gemini 2.5 Pro generated synthetic statements and dialogues, which one psychiatrist approved, edited
+    or removed before a second psychiatrist reviewed the retained material. Categories were then down-sampled so
+    that none exceeded the size of the smallest approved category.
+  example: ''
+  scoring: Predicted classes are compared with the clinician-reviewed categories to calculate sensitivity, specificity,
+    accuracy, F1 score and false-negative rates, with parsing success also reported. False-negative rates feed simulations
+    of P1 and P2 alongside prevalence and behavioural assumptions, including a multiplier for correlated detection
+    failures; zero-false-negative results use the median of Beta(1, n) as a conservative false-negative-rate floor.
+  judge: Classification is evaluated against categories reviewed by two psychiatrists.
+  scale: Binary classification per item; aggregate classification metrics and estimated P1 and P2 probabilities
+    with 95% confidence intervals.
+  validation: ''
+  score_meaning: At a 1% baseline probability that lack of professional care results in harm, P2 estimates of 4.9×10⁻⁵
+    to 5.1×10⁻³ correspond to 49 to approximately 5,100 harms per million individual user-model four-turn exchanges.
+    These are assumption-dependent simulation estimates, not calibrated, fixed rates of harm or validated safety
+    thresholds.
+  annotation_process: A psychiatrist reviewed each generated statement and either approved it, made minor modifications
+    to match its intended category, or removed it. A second psychiatrist then approved, modified or rejected the
+    statements retained by the first reviewer. Before simulation, each category was down-sampled so that it did
+    not exceed the size of the category with the fewest approved statements.
+  results: ''
+  limitations: The authors state that these illustrative English-language proxy tasks do not establish validated
+    safety thresholds, depend on unvalidated behavioural assumptions, omit important human factors and false-positive
+    costs, and may underestimate real-world risk because synthetic language and clinician editing can inflate measured
+    sensitivity.
+  sources:
+  - https://doi.org/10.1136/bmjment-2026-302626
+  extracted: '2026-10-27'
 signals:
   citations: 2
   citations_source: OpenAlex

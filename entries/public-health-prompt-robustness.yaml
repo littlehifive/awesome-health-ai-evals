@@ -24,6 +24,24 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: not stated in the abstract
+card:
+  task: Respond to public-health prompts containing false health claims or symptoms rewritten in everyday language,
+    with predictions compared against those for unperturbed prompts.
+  items_built: 'The benchmark introduces two prompt perturbations: misinformation framing injects false health claims,
+    and layperson rewriting replaces medical terminology with everyday symptom descriptions.'
+  example: ''
+  scoring: Robustness is measured by the change in accuracy and the prediction flip rate under perturbed prompts
+    relative to clean prompts.
+  judge: ''
+  scale: Accuracy change in percentage points and prediction flip rate as a percentage.
+  validation: ''
+  results: Misinformation framing reduced accuracy by 7.2 percentage points on average, with prediction flip rates
+    of 9-38%, even when claims were labelled unsupported. Layperson rewriting reduced accuracy by 1.4 percentage
+    points.
+  limitations: ''
+  sources:
+  - https://doi.org/10.1145/3816325.3843642
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

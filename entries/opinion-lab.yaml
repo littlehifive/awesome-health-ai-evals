@@ -26,6 +26,30 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 400 statements; 4,000 LLM ratings from 10 models
+card:
+  task: Rate agreement with each dietary-supplement statement on a Likert scale.
+  items_built: The master's thesis dataset contains 400 statements, with 100 in each combination of consumer or
+    health-professional audience and positive or negative framing. Each statement is paired with an evidence source,
+    primarily NIH Office of Dietary Supplements fact sheets.
+  example: ''
+  scoring: Model ratings are compared with human reference ratings using mean absolute difference and Pearson correlation,
+    reported overall and by category. These metrics measure agreement with the reference raters, not factual or
+    medical correctness.
+  judge: One knowledgeable consumer provided references for consumer statements, and one registered dietitian provided
+    references for professional statements.
+  scale: Likert ratings; overall and category mean absolute difference and Pearson correlation against human references.
+  validation: ''
+  score_meaning: ''
+  annotation_process: The archived evaluation contains one run from April 2025, with each of ten language models
+    rating all 400 statements. The models were prompted zero-shot using a shared prompt template, producing 4,000
+    ratings.
+  results: ''
+  limitations: The authors state that the metrics do not measure factual or medical correctness and that the public
+    dataset contains only one evaluation run, collected in April 2025.
+  sources:
+  - https://github.com/hamdamme/opinion-lab
+  - https://doi.org/10.5281/zenodo.23357962
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

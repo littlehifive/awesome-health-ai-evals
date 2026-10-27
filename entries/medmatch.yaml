@@ -26,6 +26,32 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 100 medication prompts (40 oral solid, 10 oral liquid, 17 IV intermittent, 17 IV push, 16 IV continuous)
+card:
+  task: Reformat each medication order written as a sentence into the standardized MedMatch fields, and identify
+    its administration route when route information is withheld.
+  items_built: 'Two clinicians curated 100 medication prompts and reference orders: 40 oral solid, 10 oral liquid,
+    17 intravenous intermittent, 17 intravenous push, and 16 intravenous continuous infusion orders, plus a version
+    withholding route information. The format was developed through two surveys with four board-certified critical
+    care pharmacists and modified Delphi discussions with five pharmacist panelists.'
+  example: ''
+  scoring: An order counts as correct only when all fields exactly match the standardized reference; accuracy is
+    the number of correct entries divided by all entries, multiplied by 100. A separate experiment measures correct
+    route categorization, and each prompt was tested three times.
+  judge: Automated exact matching against reference orders assigns accuracy, with a clinician pharmacist panel reviewing
+    LLM performance for reliability.
+  scale: Each order is correct or incorrect; accuracy is reported as a percentage by medication type.
+  validation: ''
+  score_meaning: ''
+  annotation_process: Four board-certified critical care pharmacists answered 40 medication prompts, then rated
+    whether the resulting responses were appropriate as computer-generated outputs using yes/no judgments. A five-pharmacist
+    panel used these survey results in modified Delphi discussions to establish the reference format, discussing
+    the placement of additional medication information until consensus was reached.
+  results: ''
+  limitations: The authors note that other order formats may be reasonable, regional or demographic differences
+    were not covered by the pharmacist panel, and the standards exclude several complex dosing patterns and routes
+    other than oral and intravenous.
+  sources: []
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

@@ -27,6 +27,25 @@ facets:
   eval_methods: [automatic_metric, rubric_llm_judge]
   modality: [text]
   size: "6,273 prompts from 2,091 QA records"
+card:
+  task: Answer CDC-grounded public health questions under neutral, provocative, and misinformation-seeking prompts.
+  items_built: The test contains 6,273 prompts built from 2,091 CDC-grounded question-answer records. Three annotators,
+    including one biology domain expert, validated the records and rejected about 100 question-answer pairs.
+  example: ''
+  scoring: A two-layer framework combines quantitative measures of factual alignment, semantic and topic drift,
+    hallucination, toxicity, overconfidence, and refusal behavior with qualitative LLM-as-a-judge assessments into
+    a unified robustness score.
+  judge: An unnamed LLM provides the qualitative assessments.
+  scale: ''
+  validation: ''
+  score_meaning: ''
+  annotation_process: ''
+  results: DeepSeek and GPT-4.1-nano showed the strongest factual consistency and safer responses, but no numerical
+    scores were reported in the abstract.
+  limitations: ''
+  sources:
+  - https://doi.org/10.15439/2026f3733
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

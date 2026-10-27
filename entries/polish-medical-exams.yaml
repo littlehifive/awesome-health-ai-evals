@@ -29,6 +29,31 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: over 24,000 questions
+card:
+  task: Choose the single correct answer to each multiple-choice medical, dental or specialization exam question
+    in Polish or English.
+  items_built: The authors scraped exam questions from 2008-2024 from the Medical Examination Center and Supreme
+    Medical Chamber, collecting 180,712 PES questions and selecting the latest exam per specialty for an analysis
+    covering over 22,000 questions across all exam types. They removed questions containing images or outdated medical
+    content; medical experts at the examination center translated the English LEK and LDEK questions.
+  example: ''
+  scoring: Selected answers are compared with the exam answer keys, and accuracy is reported as the percentage of
+    questions answered correctly for each dataset. Passed exams are also counted, using thresholds of 56% for LEK
+    and LDEK and 60% for PES.
+  judge: Exact match with the exam answer key.
+  scale: Correct or incorrect per question; percentage accuracy and number of exams passed.
+  validation: ''
+  results: GPT-4o performed best overall and passed all evaluated exams except six PES exams. On spring 2024 LEK,
+    it scored 184 points versus a human mean of 163.47 ± 19.79; on spring 2024 LDEK, it scored 139 versus a human
+    mean of 147.62 ± 26.08.
+  limitations: The authors note that multiple-choice exams do not assess practical clinical skills or patient interaction,
+    public questions may have appeared in model training data, and the dataset is dominated by PES questions with
+    no English PES counterpart.
+  sources:
+  - https://doi.org/10.18653/v1/2025.findings-emnlp.480
+  - https://huggingface.co/datasets/amu-cai/medical-exams-LDEK-EN-2013-2024
+  - https://huggingface.co/datasets/amu-cai/medical-exams-LDEK-PL-2008-2024
+  extracted: '2026-10-27'
 signals:
   citations: 3
   citations_source: OpenAlex

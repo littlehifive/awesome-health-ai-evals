@@ -26,6 +26,34 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric]
   modality: [text]
   size: "about 2,260 questions (sum of the per-type counts in the paper's Table 1)"
+card:
+  task: Answer single-choice, multiple-choice and open-ended traditional Chinese medicine questions, including classical
+    text interpretation, clinical case analysis, formula analysis and treatment planning.
+  items_built: The authors extended TCM-3CEval using primarily the national planning textbook exercise sets from
+    the 13th and 14th Five-Year Plans, with questions selected across easy, medium and hard difficulty levels. Subject-matter
+    experts from Shanghai University of Traditional Chinese Medicine and the China Academy of Chinese Medical Sciences
+    curated and validated all content for accuracy and clinical relevance.
+  example: ''
+  scoring: Objective answers are scored for accuracy against annotated answers, while open-ended responses are assessed
+    using BERTScore and macro recall; the text does not specify how these metrics are combined into the reported
+    dimension scores. A separate consistency test counts a single-choice question as passed only when the model
+    selects the correct answer across all five cyclic rotations of its options.
+  judge: Automated accuracy, BERTScore and macro recall assign scores.
+  scale: Objective accuracy, open-ended BERTScore and macro recall; consistency accuracy requires five correct option
+    rotations.
+  validation: ''
+  score_meaning: ''
+  annotation_process: For the option-order consistency test, each model produced one prediction per permutation,
+    giving five predictions per single-choice question. All model inferences used a temperature of 0 to reduce variation
+    from random generation.
+  results: 'Kimi_K2_Instruct_0905 led three dimensions: TCM-Exam at 0.847, TCM-MRCD at 0.746 and TCM-CMM at 0.749.
+    deepseek_r1 led TCM-LitQA at 0.731, and grok_4_0709 led TCM-ClinNPT at 0.642.'
+  limitations: The datasets rely primarily on textbooks and literature cases rather than large-scale real-world
+    clinical data, leave ambiguous TCM terminology unresolved, and assess text without diagnostic information such
+    as tongue and pulse findings.
+  sources:
+  - http://arxiv.org/abs/2511.13169
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

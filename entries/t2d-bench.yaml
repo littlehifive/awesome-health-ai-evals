@@ -26,6 +26,37 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 100 vignettes; knowledge graph of 2.1M nodes and 495K edges
+card:
+  task: Answer each type 2 diabetes patient vignette with clinical guidance or a mechanistic explanation that explicitly
+    includes the required guideline rule and lifestyle-mechanism identifiers.
+  items_built: The authors constructed 100 structured vignettes containing demographics, conditions, laboratory
+    observations, medications and lifestyle signals, pairing each with required ADA guideline Rule IDs and lifestyle-mechanism
+    tokens. They checked that vignette observation nodes could reach all required gold identifiers in the benchmark
+    graph slice.
+  example: '"Case ID: T2D_CONFLICT_008 Diagnosis: Type 2 diabetes (T2D) Lab: FPG 128 mg/dL Profiles: Short sleep;
+    High sugar intake Question: Explain causal contributors to fasting glucose; prioritize without hallucinating."'
+  scoring: A deterministic verifier checks whether each answer contains every required gold Rule ID and mechanistic
+    bridge token; a case passes only when all are present. Evidence-path compliance is the fraction of passing cases,
+    and intervention rate is the fraction requiring at least one constrained revision, also reported by scenario
+    family.
+  judge: A deterministic Evidence Gate checks required identifiers against each vignette's gold specification.
+  scale: Pass or fail per case; fraction passing and fraction requiring revision across 100 cases.
+  validation: ''
+  score_meaning: A compliance score of 100/100 means every final answer met the benchmark's evidence requirements,
+    not that every answer was clinically correct. A higher intervention rate means more answers needed correction
+    before meeting those requirements.
+  annotation_process: GPT-4o-mini and GPT-4o generated baseline and evidence-gated answers with temperature set
+    to 0. When verification found missing identifiers, the model received a constrained revision request naming
+    them, and its revised answer was checked again until it passed or a fixed revision budget was exhausted.
+  results: GPT-4o had the highest baseline evidence-path compliance at 67/100, compared with 65/100 for GPT-4o-mini.
+    After evidence gating and constrained revision, both reached 100/100 under the automated verifier.
+  limitations: The authors state that the benchmark covers only part of diabetes care, identifier compliance does
+    not replace prospective clinical validation, and testing was limited to deterministic decoding rather than variable
+    generation or interactive decision support.
+  sources:
+  - https://arxiv.org/abs/2606.24145
+  - https://github.com/Saba-Farahani/t2d-bench-
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

@@ -27,6 +27,33 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 20 user queries with personalized health data, rated by 5 expert and 10 non-expert annotators; plus two board-style MCQ sets (cardiology, endocrinology) used only to choose the base model
+card:
+  task: Answer open-ended health queries using the supplied user health data.
+  items_built: The framework was developed for personalized health responses by automatically expanding PH-LLM Likert
+    criteria into yes/no questions, refining them with medical expert feedback, and filtering them for relevance
+    to each query-response pair. Human evaluation used 20 randomly selected user queries and 80 query-response pairs.
+  example: ''
+  scoring: Human raters or Gemini 1.5 Pro mark whether each retained rubric criterion is satisfied, using rubric
+    guidelines, blood-biomarker reference ranges and the complete user persona. Average rubric scores are reported
+    for query-response pairs.
+  judge: Gemini 1.5 Pro, 5 medical experts and 10 non-expert annotators assigned rubric scores.
+  scale: Each criterion is scored 0 or 1; mean rubric scores range from 0 to 1.
+  validation: Reliability was assessed using ICC3 within and between human and automated evaluator groups. For relevance
+    labels used in adaptive filtering, three medical experts unanimously agreed on 16/20 blood-biomarker questions,
+    20/20 additional user-health questions and 19/20 wearable time-series questions.
+  score_meaning: ''
+  annotation_process: Human evaluation covered 80 query-response pairs in two rounds, each using a separate set
+    of 10 user queries, with the order of Boolean and Likert tasks alternated across query groups. Adaptive scores
+    were derived by retaining only the Boolean ratings selected by the relevance classifier or by majority-vote
+    expert relevance labels. Automated grading evaluated one query-response-criterion combination at a time, using
+    a prompt that described the grader as an "expert medical evaluator" and requested a numerical score without
+    an explanation.
+  results: ''
+  limitations: The authors limited their experiments to comparisons between Likert and Boolean rubrics and left
+    comparisons with open-ended evaluation criteria for future work.
+  sources:
+  - https://doi.org/10.1038/s41746-026-02492-x
+  extracted: '2026-10-27'
 signals:
   citations: 7
   citations_source: OpenAlex

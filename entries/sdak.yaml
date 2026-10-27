@@ -26,6 +26,32 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 14,048 atomic knowledge items (factual and counterfactual claim pairs)
+card:
+  task: Judge each factual and counterfactual Chinese medical claim as correct or incorrect, stating the judgment
+    first and then explaining why.
+  items_built: The authors used thematic analysis of KUAKE-QIC search queries to identify knowledge types, then
+    applied heuristic rules to structured content from public medical websites to construct paired claims. They
+    randomly selected 50 factual claims per type for manual checking against the top 10 search results for each
+    claim.
+  example: ''
+  scoring: Automatic scoring measures whether both responses begin with a judgment and whether the model accepts
+    the factual claim and rejects the counterfactual claim, reporting instruction-following and factual-accuracy
+    percentages across items. An optional manual check of 100 randomly selected items measures whether the explanations
+    support both judgments.
+  judge: Automatic checks assign the main scores; manual reviewers whose number and qualifications are not specified
+    check explanation reliability.
+  scale: Binary checks per claim pair; percentage instruction following, factual accuracy, and optional accuracy
+    reliability.
+  validation: Manual checking of 100 randomly selected items found accuracy reliability above 95% for most models.
+  score_meaning: Higher factual accuracy indicates better memorization of self-diagnostic medical knowledge, rather
+    than better performance on complex medical reasoning.
+  annotation_process: ''
+  results: GPT-4 had the highest zero-shot factual accuracy at 65.42%.
+  limitations: The authors state that limited size prevents comprehensive coverage, 4% of samples do not match objective
+    facts, and data leakage cannot be completely ruled out.
+  sources:
+  - http://arxiv.org/abs/2310.11722
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

@@ -24,6 +24,28 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text, voice]
   size: 1,020 intent messages; 40 questions in three languages; 60 danger-sign and look-alike messages; 20 adversarial messages; 20 synthetic document images; 45 voice questions; 19-sign danger lexicon
+card:
+  task: Classify patient-message intent, answer patient questions, distinguish danger-sign messages from look-alikes,
+    respond to adversarial messages, extract expected fields from laboratory report and prescription images, and
+    process recorded voice questions.
+  items_built: The intent test set contains 120 messages written entirely by people, with a separate 50-message
+    sample labelled independently by two annotators. The synthetic full-system evaluation sets contain 40 questions
+    written in all three languages with answering guideline documents and a tune/report split, 30 danger-sign messages,
+    30 look-alikes, 20 adversarial messages, 10 laboratory report images, 10 prescription images with expected fields,
+    and 45 recorded voice questions with transcripts.
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: ''
+  validation: ''
+  score_meaning: ''
+  annotation_process: Two annotators independently labelled a 50-message sample from the intent dataset. The labels
+    were question, reminder_setup, reminder_reply and smalltalk.
+  results: ''
+  limitations: ''
+  sources:
+  - https://doi.org/10.21227/m81y-kj83
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

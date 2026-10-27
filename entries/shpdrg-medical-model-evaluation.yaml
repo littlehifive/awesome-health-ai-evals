@@ -25,6 +25,25 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 1,000 samples in 10 task subsets of 100
+card:
+  task: Read each Chinese question or case and provide the requested medical advice, clinical analysis, selected
+    diagnostic options, or structured information extracted from a medical record.
+  items_built: The release samples 100 items from each of 10 existing medical task subsets and retains their case
+    descriptions, questions, answer requirements, source notes and classification fields. The data were organized,
+    sampled and format-standardized, with the original spreadsheet rows also converted to Parquet while preserving
+    field names and values.
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: ''
+  validation: ''
+  results: ''
+  limitations: The authors state that the public release contains only 100 sample items per subset and should not
+    be used as a basis for clinical diagnosis or treatment.
+  sources:
+  - https://huggingface.co/datasets/SHPDRG/medical-model-evaluation-benchmark
+  - https://github.com/lengfeng650-star/medical-model-evaluation-benchmark
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

@@ -28,6 +28,31 @@ facets:
   eval_methods: [automatic_metric, rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 1,000 cases
+card:
+  task: Use a patient's clinical materials to predict TNM stage, recommend treatment with the reference TNM stage
+    supplied, or generate end-to-end clinical decision support without a supplied stage.
+  items_built: The authors collected imaging reports, pathology reports, clinical records and genomic testing results
+    from 1,000 cases at more than ten Chinese hospitals between 2019 and 2025, de-identified them and combined them
+    into standardized case documents. Senior clinicians used a two-stage annotation protocol to produce evidence-based
+    TNM labels with explicit reasoning and treatment plans based on structured clinical information.
+  example: ''
+  scoring: TNM accuracy counts a case as correct only when T, N and M all match the clinician reference, while an
+    LLM judge assesses the medical validity and evidence traceability of staging reasoning. Treatment outputs are
+    compared with clinician prescriptions using precision, and their reasoning is compared with clinician reference
+    reasoning using BERT-F1.
+  judge: An unnamed LLM grades reasoning quality; TNM correctness uses exact match with clinician labels.
+  scale: TNM is correct or incorrect per case, reported as percentage accuracy; treatment uses precision and BERT-F1.
+  validation: ''
+  score_meaning: ''
+  annotation_process: 'Senior clinicians created reference answers in two stages: evidence-based TNM staging with
+    explicit reasoning, followed by treatment plan generation from structured clinical information. For subjective
+    scoring, a language model evaluator used predefined rubrics.'
+  results: On LungCURE-Core under Chinese-language conditions, Qwen3.5 had the highest TNM staging accuracy at 61.46%.
+    GLM-4.6V had the highest end-to-end F1 at 51.88.
+  limitations: ''
+  sources:
+  - https://arxiv.org/abs/2604.06925
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

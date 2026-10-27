@@ -23,6 +23,22 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 209 questions
+card:
+  task: Answer a clinical-decision question using a case summary.
+  items_built: The ground-truth file contains 209 items derived from published case reports, with source identifiers,
+    case summaries, questions, short and long reference answers, and evidence reasoning with citations.
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: ''
+  validation: ''
+  score_meaning: ''
+  annotation_process: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://huggingface.co/datasets/xuandin/med-factcheck-benchmark
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

@@ -25,6 +25,31 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 1,724 items (1,430 medical, 294 math) x 13 prompt conditions
+card:
+  task: Answer medical and mathematics multiple-choice questions under conditions that vary whether user-provided
+    context includes a wrong answer, a wrong rationale, or instructions to resist that context.
+  items_built: The authors retained 1,430 MedMCQA and 294 GSM8K items after a six-category audit excluded 770 items,
+    including 732 with multiple correct answers. GPT-5.4 generated supporting wrong rationales for its own incorrect
+    choices on 279 items and randomly selected non-gold choices on 1,445 items; specialists had not validated the
+    rationales at submission.
+  example: ''
+  scoring: Answers are compared with the gold answer to calculate accuracy and with the seeded wrong answer to calculate
+    sycophancy rate, pooled across responses. Misinformation Damage Index subtracts attack-condition accuracy from
+    distractor-free accuracy, while Guard Protection Index subtracts unguarded attack accuracy from guarded accuracy;
+    each condition has three runs.
+  judge: Answers are compared with the gold answer key and the seeded wrong answer.
+  scale: Correct or incorrect per response; accuracy and sycophancy as percentages, damage and guard protection
+    as percentage-point differences.
+  validation: Three alternative conditioning rules produced model-rank correlations of at least 0.84, and restricting
+    evaluation to non-(A) distractors reproduced the damage ranking with a correlation of 0.94. Removing truncated
+    responses shifted damage by at most 2.9 percentage points in 9 of 10 models.
+  results: ''
+  limitations: The authors limit generalization to 10 open-weight models of 1B-27B parameters, one distractor-generating
+    model family, English single-turn multiple-choice questions, and three prompt-based defenses, and acknowledge
+    unvalidated rationale plausibility, observational capacity comparisons, and possible MedMCQA contamination.
+  sources:
+  - https://doi.org/10.64898/2026.05.07.26352627
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

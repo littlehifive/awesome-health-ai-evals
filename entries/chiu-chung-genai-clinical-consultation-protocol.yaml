@@ -25,6 +25,34 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: 40 clinical scenarios; 4 chatbots; 2 panels of 3 specialists and 3 residents
+card:
+  task: Analyse each clinical microbiology or infectious disease consultation scenario and recommend initial investigations,
+    treatment, and management.
+  items_built: The protocol specifies 40 unique scenarios drawn from new inpatient consultation referrals to the
+    Department of Microbiology at Queen Mary Hospital, excluding duplicates and follow-up consultations. Edwin Kwan-Yeung
+    Chiu and Tom Wai-Hin Chung will manually de-identify and standardise the notes, retain their clinical context,
+    and organise them into five categories covering demographics, admission, examination, investigations, and treatments.
+  example: ''
+  scoring: Blinded clinicians will independently rate each response for factual consistency with the supplied clinical
+    data, comprehensiveness, coherence, and medical harmfulness. The four ratings will be summed into a composite
+    score, with mean composite scores compared across chatbots and domain medians compared separately.
+  judge: Three consultant-level specialists in clinical microbiology, virology, and infectious diseases, and three
+    non-specialist resident trainees from microbiology and infectious diseases departments will assign scores.
+  scale: Five-point ratings for each of four domains; summed composite score of 4 to 20, with chatbot-level means
+    reported.
+  validation: ''
+  score_meaning: Responses labelled "insufficiently verified facts" for factual consistency or "substantially incoherent"
+    for coherence will be counted as crossing critical thresholds.
+  annotation_process: The six evaluators will be randomly selected from a larger pool of clinical microbiologists
+    and infectious disease physicians and instructed to read the entire scenario and each response before grading.
+    Scenarios and responses will be presented in random order through Qualtrics, which will automatically record
+    their ratings.
+  results: ''
+  limitations: The authors identify an unvalidated and potentially subjective rating scale, limited representation
+    of clinical viewpoints, dependence on source-note quality, reliance on historical rather than real-time cases,
+    and no assessment of chatbot learning over time.
+  sources: []
+  extracted: '2026-10-27'
 signals:
   citations: 7
   citations_source: OpenAlex

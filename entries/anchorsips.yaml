@@ -25,6 +25,39 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 10,000 synthetic interviews
+card:
+  task: Read an interview transcript and return structured JSON containing symptom endorsements, follow-up details,
+    symptom-class decisions, frank-psychosis exclusion, an attenuated psychosis syndrome decision, and supporting
+    transcript turn IDs.
+  items_built: The authors generated 10,000 synthetic interviews modeled on Mini-SIPS by fixing clinical states,
+    labels, and interview structure with hidden case sheets and a deterministic planner, then using GPT-OSS-120B
+    to write patient utterances under validation and bounded repair. Three psychosis-risk interview-trained research
+    reviewers audited evidence support for 15 interview-by-symptom-class decision records.
+  example: ''
+  scoring: The evaluator compares outputs with fixed reference labels using positive-class F1 for decisions, token-level
+    F1 for follow-up fields, and F1 overlap for supporting transcript turn IDs. The workflow composite score is
+    the unweighted mean of follow-up, symptom-class, frank-psychosis, APS, and evidence-link F1; query endorsement
+    is reported separately.
+  judge: Benchmark evaluator code scores predictions against fixed reference labels and transcript turn IDs.
+  scale: F1 metrics from 0 to 1; the workflow composite averages five task metrics.
+  validation: Three research reviewers with a combined 12+ years of relevant experience independently rated 15 decision
+    records on six evidence-support criteria, producing 270 ratings. Pairwise exact agreement was 57.0%, and the
+    mean absolute ordinal difference was 0.51 on the No-Partly-Yes scale; this checked label-evidence support, not
+    model-grader agreement.
+  score_meaning: Evidence-link F1 measures both finding the supporting transcript passage and following the reference
+    convention of citing only the patient's disclosure turn. Citing both the interviewer's question and the patient's
+    answer reduces precision even when the cited passage contains the correct evidence.
+  annotation_process: Each baseline used a single transcript-to-JSON pass on a fixed set of 200 interviews. For
+    the separate evidence-support audit, reviewers received email packages containing the symptom area, automated
+    decision, and transcript snippets grouped by criterion; the sampled records were balanced across symptom class,
+    diagnosis label, and disclosure difficulty.
+  results: ''
+  limitations: The authors state that synthetic language and simplified demographic templates do not capture natural
+    clinical variation, labels are not diagnostic ground truth, and results from one prompting regime establish
+    neither performance limits nor clinical validity or deployment readiness.
+  sources:
+  - https://arxiv.org/abs/2608.12329
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

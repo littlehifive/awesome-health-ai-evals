@@ -26,6 +26,36 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: 120 synthetic questions per condition; 12-case public check
+card:
+  task: Answer evidence-linked clinical or public-health questions, or assess health claims, using the cited sources.
+  items_built: The investigator constructed 120 grounded question-answer items from 30 fictional guideline-style
+    passages, with one gold answer and one evidence sentence per item. A separate 12-case public check used six
+    PubHealth-style health claims and six cases from official medical or public-health sources, with gold answers
+    drawn from those source pages.
+  example: ''
+  scoring: A single investigator compared each response with its gold answer and evidence, then assigned binary
+    correctness, citation support, numeric concordance, hedging, and ornamentation labels; the veneer label was
+    derived as citation support present but correctness absent. Results report the percentage of responses meeting
+    each signal, with Wilson 95% confidence intervals, rather than a combined quality score.
+  judge: A single investigator assigned all labels using explicit rules; no independent clinical raters participated.
+  scale: Six binary signals per response; signal rates reported as percentages with Wilson 95% confidence intervals.
+  validation: ''
+  score_meaning: Uppercase letters mark a signal as present (1), and lowercase letters mark it as absent (0); correctness
+    is 0 for answers missing clinically required qualifiers, and numeric concordance is 0 for any wrong or unsupported
+    number or omitted required number. These labels flag errors, not their severity, so a minor interval discrepancy
+    and a life-threatening dosing error can receive the same label.
+  annotation_process: Gold answers for synthetic questions were created directly from the source evidence sentences,
+    while gold answers for the 12 public cases came from the listed public source pages. Inter-rater reliability
+    was not calculated.
+  results: No live model or human baseline was evaluated. In the scripted RUSH condition, correctness was 73.3%,
+    evidential support was 93.3%, and citation veneer was 25.8%; in the public check, veneer was 66.7% for RUSH
+    and 0% for VERIFY and POSTER.
+  limitations: The authors state that binary labels omit error severity, single-investigator scoring lacks reliability
+    testing, synthetic items and 12 public cases do not establish generalizability, and neither live-model performance
+    nor reviewer usability was tested.
+  sources:
+  - https://pmc.ncbi.nlm.nih.gov/articles/PMC13203309/
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

@@ -27,6 +27,32 @@ facets:
   eval_methods: [automatic_metric]
   modality: [voice, text]
   size: 100 consultations, 2,937 minutes of audio
+card:
+  task: Predict scores for all 17 HAMD-17 items from the audio, transcript, or both of a Mandarin clinician-patient
+    consultation.
+  items_built: Ten senior psychiatrists conducted standardized face-to-face consultations with 100 inpatients aged
+    18 to 65 at Beijing Anding Hospital and completed HAMD-17 assessments after each consultation. WeNet generated
+    initial transcripts, which two trained medical students independently checked, corrected and aligned with audio
+    timestamps, resolving disagreements by discussion.
+  example: ''
+  scoring: Predicted HAMD-17 item scores are compared with clinicians' reference scores using classification precision,
+    recall and F1. The text does not specify how scores are averaged across items and consultations.
+  judge: Classification metrics compare predictions with reference HAMD-17 assessments completed by the participating
+    psychiatrists.
+  scale: HAMD-17 symptom scores range from 0 to 4, with 9 indicating uncertainty or inapplicability; reported metrics
+    are precision, recall and F1.
+  validation: ''
+  score_meaning: HAMD-17 item scores mean 0 for no symptoms, 1 for mild symptoms, 2 for moderate symptoms, 3 for
+    severe symptoms, and 4 for extremely severe symptoms. The cumulative score reflects the severity of the patient's
+    depression.
+  annotation_process: After each consultation, the participating doctor completed the patient's HAMD-17 assessment.
+    The doctor scored all 17 dimensions using clinical judgment and observations of the patient's symptoms.
+  results: GPT4o-mini-audio-preview achieved the best reported multimodal result, with F1 of 0.407, precision of
+    0.412 and recall of 0.403 using text and audio.
+  limitations: ''
+  sources:
+  - https://doi.org/10.1038/s41597-025-05817-9
+  extracted: '2026-10-27'
 signals:
   citations: 11
   citations_source: OpenAlex

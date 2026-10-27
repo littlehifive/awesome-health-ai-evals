@@ -27,6 +27,38 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric]
   modality: [text]
   size: "20 datasets, about 38K test samples"
+card:
+  task: For each item, select an answer to a Japanese biomedical multiple-choice question, translate biomedical
+    text between Japanese and English, extract named entities, classify a document, or rate the similarity of two
+    sentences.
+  items_built: Jiang, Huang and Aizawa combined existing Japanese datasets with English biomedical datasets translated
+    using GPT-4 for test sets and ChatGPT for training or validation sets, yielding 38,130 test samples. They translated
+    questions together with their options, retried invalid named-entity translations with GPT-4, and manually corrected
+    the remaining 223 invalid entries.
+  example: ''
+  scoring: The evaluator selects the highest-likelihood answer or class for question answering and document classification
+    and reports accuracy, selects the highest-likelihood similarity rating from 0 to 5 and reports Pearson correlation
+    with reference ratings, and compares generated translations and entities with references using BLEU and entity-level
+    F1. Results use the highest score across four prompt templates, with micro-averages across datasets for question
+    answering, document classification and entity recognition, and an average across translation directions.
+  judge: Automated evaluation code compares predictions with dataset reference answers, labels, translations and
+    entities.
+  scale: Accuracy (%) for answers and classes; entity-level F1 (%); BLEU for translation; Pearson correlation for
+    similarity ratings from 0 to 5.
+  validation: ''
+  score_meaning: ''
+  annotation_process: ''
+  results: Qwen2-7B led multiple-choice question answering with 42.58% micro-average accuracy in zero-shot evaluation
+    and 49.03% with few-shot examples. Llama3-8B led named-entity recognition with micro-average entity-level F1
+    scores of 40.69% and 61.69%, respectively.
+  limitations: The authors state that translations can contain unfaithful content, translation budgets restricted
+    dataset coverage, model evaluation focused on small models, each prompt category used only one template, and
+    broader natural-language generation tasks were left out.
+  sources:
+  - https://arxiv.org/abs/2409.13317
+  - https://huggingface.co/datasets/Coldog2333/JMedBench
+  - https://github.com/nii-nlp/med-eval
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

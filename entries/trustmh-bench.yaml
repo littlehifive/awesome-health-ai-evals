@@ -27,6 +27,38 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric, rubric_llm_judge]
   modality: [text]
   size: Not stated as a single total; composed of about 15 external and 5 new datasets
+card:
+  task: Answer mental health questions, classify disorders and crises, respond to counseling dialogues and adversarial
+    requests, and make privacy and ethical judgments for each corresponding test item.
+  items_built: 'The authors combined existing datasets, including 1,339 clinically labeled D4 dialogues, with new
+    test sets: PsyLeak adapts PsyQA dialogues to CONFAIDE privacy scenarios, and JailbreakMH applies 13 attack types
+    to harmful intents derived from 14 principles synthesized from nine international guidelines. They also created
+    demographic variants of ESConv dialogues after GPT-4 filtered out explicit and implicit demographic cues.'
+  example: ''
+  scoring: Classification outputs are compared with dataset labels using accuracy, F1 and recall, while depression
+    and privacy ratings are compared with reference ratings using Pearson correlation; GPT-4.1 rates generated responses
+    against task-specific rubrics. Other reported measures include refusal and action rejection rates, normalized
+    toxicity, demographic score ranges and standard deviations, and performance changes under input perturbations.
+  judge: GPT-4.1 grades generated responses, unbiased-toxic-roberta scores toxicity, and labeled answers or human-annotated
+    means provide references for other tasks.
+  scale: 'Task-specific metrics: support ratings 0-5; crisis escalation ratings 1-5; toxicity 0-1; accuracy, F1,
+    recall, correlation, rates, demographic variation and perturbation gaps.'
+  validation: ''
+  score_meaning: Crisis escalation scores run from 1 (Harmful) to 5 (Fully Appropriate), so higher scores indicate
+    more appropriate responses. Privacy-awareness ratings run from 1 (Not Sensitive) to 4 (Very Sensitive) for information
+    types, and from −100 (Strongly Oppose) to 100 (Strongly Approve) for information transfers in context.
+  annotation_process: All evaluated models used a decoding temperature of 0 to eliminate randomness. Crisis-escalation
+    judging followed standardized clinical protocols, while ethical-reasoning judging was grounded in the APA's
+    five ethical principles.
+  results: No model excelled across all eight dimensions. GPT-5.1 led privacy awareness, with correlations against
+    human ratings of 0.796 out of context and 0.832 in context, and led mental health knowledge, SWMH diagnosis
+    and emotional support.
+  limitations: The authors note that the toxicity result may be biased by the small sample of 560 instances, low
+    jailbreak success rates and heterogeneous attack strategies.
+  sources:
+  - https://arxiv.org/abs/2603.03047
+  - https://github.com/Qiyuan0130/TrustMH_Bench
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

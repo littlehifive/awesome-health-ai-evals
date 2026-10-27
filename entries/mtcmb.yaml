@@ -27,6 +27,41 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric]
   modality: [text]
   size: 12 sub-datasets (for example TCM-ED-A 1,200 and TCM-ED-B 4,800 exam questions; several 100 to 200 item generative sets)
+card:
+  task: Answer TCM questions, extract clinical entities, generate structured records, diagnoses and prescriptions
+    from supplied text or cases, and identify safety contraindications.
+  items_built: The authors curated exam-bank questions, clinical cases from online databases and practitioner submissions,
+    classical texts, textbook annotations, competition datasets and safety guidelines in collaboration with certified
+    TCM practitioners. The datasets include 1,200 attending-physician exam questions, 4,800 practitioner exam questions,
+    100 items each for six other tasks, 200 each for diagnosis and treatment generation, and 50 each for two safety
+    tasks, with expert verification or annotation reported for several subsets.
+  example: ''
+  scoring: Extracted answers are compared with reference answers using exact-match accuracy for multiple-choice
+    and multi-label tasks, BERTScore for open-ended QA, and BLEU, ROUGE and BERTScore for generation tasks; prescription
+    prediction uses the official task2_score for formula accuracy and ingredient correctness, while GLM-4-Air-250414
+    assesses safety fill-in responses. Reported dimension scores average the scores across the corresponding datasets.
+  judge: Automatic reference-based metrics score most tasks, and GLM-4-Air-250414 grades safety fill-in responses.
+  scale: Exact-match accuracy, BLEU, ROUGE, BERTScore, task2_score and LLM safety judgments; dataset scores are
+    averaged within each dimension.
+  validation: TCM experts rated outputs from 14 models on 20 instances each from TCM-CHGD, TCM-Diagnosis and TCM-FRD
+    using a 1-to-10 scale. Pearson and Spearman correlations with automated scores were moderate for record generation
+    and diagnosis and strong for treatment generation, with p < 0.01 for all; exact coefficients and the number
+    of experts are not reported in the excerpts.
+  score_meaning: The expert rating scale runs from 1 (Poor) to 10 (Excellent), judging diagnostic accuracy, relevance
+    to TCM principles, and clinical practicality. High safety scores did not rule out missed rare contraindications
+    or context-specific restrictions.
+  annotation_process: Model outputs were processed with regular expressions to extract final answers before scoring.
+    For the expert comparison, scores across model responses to each question were aggregated separately for automatic
+    and human evaluations using a trimmed mean that excluded the highest and lowest scores, producing 20 paired
+    values per dataset.
+  results: Dimension leaders were Doubao for knowledge QA (91.8), DeepSeek-V3 CoT for language understanding (66.7),
+    Qwen3-235B FS for diagnosis (50.0), and DeepSeek-r1 FS for safety (87.9). Doubao FS, DeepSeek-V3 FS and Doubao
+    CoT tied for prescription recommendation at 48.5.
+  limitations: The authors warn that using TCM-capable models without expert oversight could produce harmful or
+    unsafe recommendations.
+  sources:
+  - http://arxiv.org/abs/2506.01252
+  extracted: '2026-10-27'
 signals:
   citations: 3
   citations_source: OpenAlex

@@ -25,6 +25,28 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: "400 questions (302 text-only, 98 with images)"
+card:
+  task: Answer Japanese medical licensing examination questions using the question text and any accompanying clinical
+    images.
+  items_built: The dataset puts all 400 questions from the 120th Japanese Medical Licensing Examination, held February
+    7-8, 2026, into JSON, with answers based on the official answer key. It includes 302 text-only questions and
+    98 image-based questions referencing 110 clinical images.
+  example: ''
+  scoring: Answers are compared with the official answer key, and correct answers receive the official question
+    weights, summed to a maximum of 500 points; accuracy is also reported as the proportion of questions answered
+    correctly. Passing requires at least 160/200 required points, 224/300 general points, and no more than three
+    prohibited choices, although the questions containing prohibited choices are not publicly disclosed.
+  judge: Answers are checked against the official Ministry of Health, Labour and Welfare answer key.
+  scale: Correct required answers earn 1 or 3 points and correct general answers earn 1 point; total score out of
+    500 and accuracy out of 400.
+  validation: ''
+  results: Claude Opus 4.6 and Gemini 3.1 Pro Preview tied for the highest overall score at 493/500 (98.6%), each
+    answering 393/400 questions correctly (98.2%).
+  limitations: ''
+  sources:
+  - https://github.com/naoto-iwase/jmle2026-bench
+  - https://github.com/naoto-iwase/JMLE2026-Bench
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

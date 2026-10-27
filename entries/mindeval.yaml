@@ -27,6 +27,34 @@ facets:
   eval_methods: [rubric_llm_judge, simulated_multi_turn, expert_human_rating]
   modality: [text]
   size: 50 simulated patient interactions of 20 turns; 12 LLMs evaluated
+card:
+  task: Provide mental health support in a 20-turn text conversation with a simulated patient.
+  items_built: GPT-5 Chat generated backstories for 50 distinct patient profiles, with fresh conversations generated
+    for each model tested. Four PhD-level clinical psychologists developed the backstory and simulation prompts
+    through direct interaction with language models, and simulation realism was checked against 432 turns from conversations
+    in which 10 psychologists played patients.
+  example: ''
+  scoring: The judge rates each complete conversation against five clinician-designed criteria grounded in American
+    Psychological Association guidance, rather than scoring individual replies. Scores are averaged across all conversations
+    for each criterion, and the overall score is the mean across the five criteria.
+  judge: Claude-Sonnet-4.5-20250929 with high reasoning assigns the benchmark scores.
+  scale: Each criterion is rated from 1 (worst) to 6 (best); the final metric is the mean across criteria and conversations.
+  validation: Four psychologists rated interactions involving three clinician models across 20 patient profiles;
+    five annotated interactions were used as judge examples. Across 30 judge runs, median agreement with the average
+    psychologist rating was Kendall's tau 0.3786 and mean interaction-level pairwise system accuracy 0.6686.
+  score_meaning: ''
+  annotation_process: For human annotation, each evaluation axis except AI-Specific Communication Quality was split
+    into two criteria, whose scores were averaged to obtain the axis score. The psychologists' scores were then
+    averaged across raters; when comparing an individual psychologist with the group, the average used only the
+    other three psychologists' scores.
+  results: Gemini 2.5 Pro scored highest at 3.83 out of 6. All 12 tested models averaged below 4.
+  limitations: The authors state that simulated patients do not fully reproduce human behavior, high-risk scenarios
+    such as imminent self-harm are excluded, judge models can show self-preference bias, and rubric scores remain
+    a proxy for actual patient outcomes.
+  sources:
+  - http://arxiv.org/abs/2511.18491
+  - https://github.com/SWORDHealth/mind-eval
+  extracted: '2026-10-27'
 signals:
   citations: 2
   citations_source: OpenAlex

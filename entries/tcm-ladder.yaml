@@ -27,6 +27,34 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric]
   modality: [text]
   size: 52,169 QA instances (21,326 questions plus 25,163 diagnostic dialogues in the paper, and image, audio and video data)
+card:
+  task: Answer traditional Chinese medicine questions by selecting one or more options, filling blanks, interpreting
+    images, or generating diagnostic responses from the supplied information.
+  items_built: The authors assembled 52,169 QA instances from literature, examinations, public resources, expert-written
+    questions, and manually annotated or automatically generated visual questions; licensed TCM practitioners wrote
+    5,000 QA pairs, each checked by two additional TCM physicians. After duplicate and semantic-similarity filtering,
+    two licensed physicians reviewed all questions and answers, and the data were split into 80% training, 10% validation,
+    and 10% evaluation.
+  example: '"Which of the following images shows Huangqi?"'
+  scoring: Single-choice and image tasks use top-1 accuracy, multiple-choice tasks use exact match accuracy, and
+    generated answers are compared with reference answers using accuracy and text-similarity metrics. Ladder-Score
+    combines terminology accuracy and completeness with LLM-assessed logical consistency, semantic accuracy, knowledge
+    coverage, and fluency, weighted 0.4 and 0.6 respectively.
+  judge: Answer keys determine accuracy; an unnamed large language model assigns the semantic component of Ladder-Score.
+  scale: Top-1 or exact match accuracy; Ladder-Score = 0.4 × TermScore + 0.6 × SemanticScore, with component ranges
+    and aggregation unspecified.
+  validation: ''
+  score_meaning: ''
+  annotation_process: For the human comparison on 20% of the test set, two licensed clinical TCM physicians who
+    had not participated in the original data annotation answered questions and identified herbal medicine and tongue
+    images.
+  results: Tongyi Qwen achieved the highest diagnostic-dialogue Ladder-Score of 0.861, while Bencao led fill-in-the-blank
+    exact match accuracy at 0.9034. Two licensed clinical TCM physicians answering 20% of the test set achieved
+    64% top-1 answer-retrieval accuracy, approximately four percentage points below Bencao.
+  limitations: ''
+  sources:
+  - https://arxiv.org/abs/2505.24063
+  extracted: '2026-10-27'
 signals:
   citations: 3
   citations_source: OpenAlex

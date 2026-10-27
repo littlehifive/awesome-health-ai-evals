@@ -24,6 +24,32 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: 540 question-response pairs (572 with 32 double-annotated)
+card:
+  task: Answer a medical question about young adult mental health or prenatal care.
+  items_built: Clinicians created the questions, and the dataset contains 540 question-response pairs with outputs
+    from llama2, llama3, gemma2, olmo2 and biollm, annotated by clinical subject-matter experts. MedExpert-All adds
+    32 double-annotated examples for inter-annotator agreement, bringing its total to 572.
+  example: '"Is it okay to skip the 20-week anatomy scan if everything has been normal so far?"'
+  scoring: Clinical experts mark sentences or phrases as factually correct or incorrect, record the most severe
+    factual error, identify missing medical information and its severity, and rate whether the response provides
+    enough certainty and information to act. The card gives no rule for combining these annotations into an overall
+    score.
+  judge: Clinical subject-matter experts identified as Annotator000 through Annotator007 assign the annotations.
+  scale: 'Factuality: true or false; highest factual severity: No Error, Mild, Moderate, Severe or Life-threatening;
+    omission severity: Mild through Life-threatening; certainty: Low, Moderate or High; no final metric specified.'
+  validation: ''
+  score_meaning: For omissions, Mild means no action is required; Moderate means inaction may harm the patient's
+    health; Severe means a doctor's intervention may be required; and Life-threatening means the omission can be
+    life-threatening without medical intervention. Model certainty is Low when the response gives insufficient certainty
+    and information to act, Moderate when it gives some, and High when it gives enough.
+  annotation_process: 'Annotations were recorded through the John Snow Labs interface. MedExpert-All contains 572
+    records: the 540 primary examples plus 32 additional annotations for double-annotated cases used to assess inter-annotator
+    agreement.'
+  results: ''
+  limitations: ''
+  sources:
+  - https://huggingface.co/datasets/sonal-ssj/MedExpert
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

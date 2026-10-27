@@ -26,6 +26,26 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 300 questions (100 yes/no, 100 short answer, 100 open-ended)
+card:
+  task: Answer Spanish questions about CEN-CINAI public health procedures, technical norms, and clinical criteria
+    with a yes/no answer, a concise response of 1-3 sentences, or an explanation, comparison, or synthesis.
+  items_built: The dataset was developed through a professional practicum at the Instituto Tecnológico de Costa
+    Rica in collaboration with CEN-CINAI's UIVCD unit, using seven official institutional documents to construct
+    300 question-answer pairs. One domain expert from UIVCD reviewed and validated all pairs.
+  example: '"¿El Instrumento de detección debe devolverse siempre al establecimiento cuando tiene algún error, por
+    mínimo que sea?" Reference answer: "No".'
+  scoring: ''
+  judge: ''
+  scale: ''
+  validation: ''
+  score_meaning: ''
+  annotation_process: ''
+  results: ''
+  limitations: The reference answers reflect institutional procedures in effect in 2026 and may miss later regulatory
+    updates, and the dataset may require adaptation for other public health settings.
+  sources:
+  - https://huggingface.co/datasets/whoami0anonymous/cencinai-spanish-health-qa
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

@@ -27,6 +27,40 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 16 stimuli (19 prompts, 3 held out), 7 criteria, 448 binary human-consensus judgments over 4 models' responses
+card:
+  task: Respond to a first-person user message describing delusions or hallucinations, with the response assessed
+    against seven binary safety criteria.
+  items_built: Claude Sonnet (claude-sonnet-4-20250514) converted clinical psychology vignettes into 19 first-person
+    prompts, with three reserved for rater calibration and 16 used to collect 64 responses from four models. The
+    researchers developed the criteria with three clinical psychologists and two psychiatrists experienced in psychosis,
+    refined them on the holdout samples, and had two human raters independently label all responses before resolving
+    disagreements by consensus.
+  example: ''
+  scoring: Each response receives a Yes or No judgment for each criterion from individual LLM judges or a majority
+    vote of three judges. Judge ratings are compared with human-consensus labels using Cohen's Kappa across all
+    448 judgments and separately by criterion, with results averaged across 25 seeds.
+  judge: The automated graders are Gemini (gemini-2.5-pro), Qwen (qwen-32b-fp8), and Kimi (kimi-k2-instruct); two
+    clinician-guided human raters without clinical training established the reference labels.
+  scale: Seven Yes/No judgments per response; agreement reported as Cohen's Kappa from −1 to 1.
+  validation: The two human raters achieved Cohen's Kappa of .80 before consensus resolution. Agreement with human
+    consensus was .75 for Gemini, .68 for Qwen, .56 for Kimi, and .74 for the majority-vote jury.
+  score_meaning: 'Higher Cohen''s Kappa means closer agreement with human consensus: 1 means perfect agreement,
+    0 means chance-level agreement, and negative values mean worse-than-chance agreement. The paper interprets values
+    at or below .00 as no agreement, .01-.20 as none to slight, .21-.40 as fair, .41-.60 as moderate, .61-.80 as
+    substantial, and .81-1.00 as almost perfect agreement.'
+  annotation_process: Three held-out stimuli were used to calibrate the human raters and refine criteria with poor
+    agreement, with input from three clinical psychologists and two psychiatrists. The two raters then independently
+    scored all 64 responses, retained matching ratings, and jointly reviewed disagreements to select consensus ratings.
+    Automated judges received zero-shot prompts at temperature 0, each containing one criterion, the stimulus and
+    the response, and were asked for a binary judgment and an explanation.
+  results: Gemini was the best individual judge, with Cohen's Kappa of .75 against human consensus, slightly above
+    the three-model jury's .74. Human inter-rater agreement was .80.
+  limitations: The authors identify the small stimulus set, absence of non-psychosis controls, unresolved scalability,
+    and human raters' lack of clinical training or professional experience with psychosis as limitations.
+  sources:
+  - https://doi.org/10.1609/iaseai.v2i1.43055
+  - https://github.com/skeuomorph/psychosis-LLM-evaluation
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

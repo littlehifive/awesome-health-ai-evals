@@ -27,6 +27,36 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating, simulated_multi_turn]
   modality: [text]
   size: about 4,000 single-turn questions; number of dialogues not extracted
+card:
+  task: Respond in Persian to an independent counseling question or participate in a multi-turn therapy-like conversation
+    while maintaining context.
+  items_built: The authors collected approximately 4,000 real questions from Persian-language psychological forums
+    and counseling platforms for PsychoLexQuery. They built PsychoLexDialogue using scripted and LLM-assisted generation
+    grounded in client profiles derived from those questions, producing 3,400 dialogues across 16 themes with an
+    average of 10-14 turns per session and multiple layers of human review.
+  example: ''
+  scoring: GPT-5 scores anonymized outputs against predefined therapeutic and linguistic criteria; the paper describes
+    five-point automatic scoring but later specifies ten-point scoring for multi-turn results, without explaining
+    aggregation. In the single-turn human study, three blinded psychology graduate students rank five outputs per
+    sampled query without ties, and results are reported as mean ranks.
+  judge: GPT-5 grades outputs, and three blinded psychology graduate students assign single-turn preference rankings.
+  scale: 'Automatic criteria: 1-5, with 1-10 also specified for multi-turn scoring; human preference: ranks 1-5,
+    reported as mean rank, lower is better.'
+  validation: Human and automatic evaluations both placed PsychoLexTherapy highest and Simple Prompt lowest; no
+    numerical agreement statistic is reported.
+  score_meaning: The stated ten-point scale runs from 1, meaning very poor, to 10, meaning excellent. These ratings
+    assess response quality, not measured improvements in patients' mental health.
+  annotation_process: Human annotators used the predefined criteria as guidelines for their overall preference judgments
+    rather than scoring each criterion separately. They provided informed consent, and system responses were evaluated
+    without human post-editing.
+  results: PsychoLexTherapy achieved the best single-turn human mean rank of 1.43 and was reported as the highest-rated
+    system in automatic single-turn and multi-turn evaluation.
+  limitations: The authors cite limited generalizability beyond Iranian Persian contexts, possible synthetic dialogue
+    biases, variable human judgments, sensitivity to configuration, and the absence of prospective clinical outcome
+    testing or validated crisis protocols.
+  sources:
+  - https://arxiv.org/abs/2510.03913
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

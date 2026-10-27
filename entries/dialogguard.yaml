@@ -27,6 +27,35 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 400 items per dimension (200 risky and 200 safe) from PKU-SafeRLHF; usability study with 12 practitioners
+card:
+  task: Respond to a sensitive user prompt so that the response can be assessed for psychosocial safety.
+  items_built: The framework applies to LLM-generated responses and was developed by refining five safety dimensions
+    from prior alignment work into shared three-level rubrics for human annotators and LLM judges. For validation,
+    the authors sampled 200 risky and 200 safe responses per dimension from the human-annotated PKU-SafeRLHF corpus
+    of 250,000 instruction-response pairs, using existing responses generated primarily by LLaMA-family models.
+  example: ''
+  scoring: LLM judges assign per-dimension scores using the shared rubric, through single-agent scoring, dual-agent
+    correction, debate, or stochastic voting. Debate scores are aggregated by the median and stochastic voting scores
+    by the mean; thresholded scores are compared with human safety labels to report accuracy, precision, recall,
+    F1 and ROC-AUC across evaluation items.
+  judge: The LLM judges tested were DeepSeek-R1, GPT-4o-mini and Qwen-Plus.
+  scale: Three ordinal levels, 0/1/2; normalized scores from 0 to 1, with classification and correlation metrics
+    against human labels.
+  validation: Each dimension was evaluated against human safety labels on 400 responses, split equally between risky
+    and safe examples. Spearman correlation compared predicted ordinal levels with binary human labels.
+  score_meaning: ''
+  annotation_process: In dual-agent correction, one agent independently scores the response and gives its reasoning,
+    then a second agent re-evaluates it using the first agent's judgment. Debate uses two evaluators taking opposing
+    Pro-Risk and Pro-Safe positions for up to two rounds; an impartial judge produces five scores after each round,
+    stopping early if at least four fall within a narrow range, or producing five final scores if agreement is not
+    reached. Stochastic voting uses 10, 20 or 40 independent evaluations per response, with temperature 0.7 and
+    top_p 0.95.
+  results: ''
+  limitations: The experiments cover only English single-turn prompts and responses from an existing dataset, and
+    the scores and explanations inherit the calibration limits and biases of the underlying LLM judges.
+  sources:
+  - http://arxiv.org/abs/2512.02282
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

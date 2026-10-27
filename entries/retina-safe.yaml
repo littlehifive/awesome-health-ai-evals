@@ -25,6 +25,25 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 12,522 samples
+card:
+  task: Choose one of four answers to a diabetic retinopathy question using structured retinal evidence, rejecting
+    misleading premises or deferring when the evidence is insufficient.
+  items_built: The authors rule-constructed 12,522 items from retinal grading records and structured grading descriptors,
+    using rule-based extraction and canonicalization. Hospital-affiliated co-authors and clinical collaborators
+    provided clinical input and reviewed construction, evidence canonicalization, and task design.
+  example: ''
+  scoring: The selected answer is compared with the gold answer to calculate accuracy separately for E-Align, E-Conflict,
+    and E-Gap. The three task accuracies are averaged to obtain macro task accuracy.
+  judge: Answers are scored against the gold answer key.
+  scale: Correct or incorrect per item; per-task accuracy and macro task accuracy on a 0 to 1 scale.
+  validation: ''
+  results: Qwen2.5-7B had the highest reported macro task accuracy, 0.5606, with accuracies of 0.5891 on E-Align,
+    0.8812 on E-Conflict, and 0.2114 on E-Gap.
+  limitations: The evaluation uses evidence-grouped rather than patient-disjoint splits and structured image-derived
+    text rather than direct image input.
+  sources:
+  - https://arxiv.org/abs/2604.05348
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

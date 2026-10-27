@@ -27,6 +27,28 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 400 questions over 20 patient cases
+card:
+  task: Answer multiple-choice questions about a named patient using shuffled clinical documents, including records
+    mixed with other patients' notes and questions whose required information is missing.
+  items_built: Three experienced physicians (LCA, KKB, and FB) created 20 fictional cases using a literature review,
+    current guidelines, and clinical experience; another physician from the team reviewed each case and revised
+    it as needed. Each case has 20 questions with five answer options, giving 400 questions in total.
+  example: ''
+  scoring: Answers are compared with the correct options to calculate the percentage of questions answered correctly.
+    Each task is repeated five times with shuffled or sampled documents, and mean accuracy and the range across
+    runs are reported.
+  judge: Answers are checked against the answer key.
+  scale: Correct or incorrect per question; mean percentage accuracy and range over five runs.
+  validation: ''
+  results: 'Mistral-Small-24B-Instruct-2501 achieved the highest mean accuracy on all three tasks: 84% on shuffled
+    single-patient records, 93% with other patients'' records mixed in, and 76% when required information was missing.'
+  limitations: The authors identify biases from deliberately selected diseases and a small clinician team, limited
+    model coverage, untested alternative prompting strategies, and multiple-choice questions that do not reflect
+    open-ended clinical queries or more complex multi-step reasoning.
+  sources:
+  - https://doi.org/10.1007/s41666-025-00204-w
+  - https://github.com/kbressem/LongHealth
+  extracted: '2026-10-27'
 signals:
   citations: 10
   citations_source: OpenAlex

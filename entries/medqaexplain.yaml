@@ -24,6 +24,25 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 1,000 question rows in the released preview subset
+card:
+  task: Generate an explanation for each open-ended medical question.
+  items_built: The dataset was built through a construction pipeline that uses large language models, and the public
+    preview contains 1,000 items. The provided text does not identify the question sources, builders, or checking
+    process.
+  example: ''
+  scoring: The evaluation script computes BLEU-1, BLEU-4 and ROUGE using jieba tokenization to compare generated
+    explanations with gold explanations; the provided text does not specify how item scores are aggregated.
+  judge: The evaluate_scores.py script computes automated text-overlap scores.
+  scale: BLEU-1, BLEU-4 and ROUGE.
+  validation: ''
+  score_meaning: ''
+  annotation_process: ''
+  results: ''
+  limitations: The authors state that the dataset is a preview and that the full dataset and construction code will
+    be released after the paper is accepted.
+  sources:
+  - https://huggingface.co/datasets/Whliuyu/MedQAExplain
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

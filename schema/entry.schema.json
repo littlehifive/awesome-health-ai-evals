@@ -397,6 +397,70 @@
           "type": "string"
         }
       }
+    },
+    "card": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Prose facts about how the test works, written by scripts/build_cards.py from the sources. Empty strings mean the sources don't say.",
+      "required": [
+        "task",
+        "items_built",
+        "example",
+        "scoring",
+        "judge",
+        "scale",
+        "validation",
+        "results",
+        "limitations",
+        "sources",
+        "extracted"
+      ],
+      "properties": {
+        "task": {
+          "type": "string"
+        },
+        "items_built": {
+          "type": "string"
+        },
+        "example": {
+          "type": "string"
+        },
+        "scoring": {
+          "type": "string"
+        },
+        "judge": {
+          "type": "string"
+        },
+        "scale": {
+          "type": "string"
+        },
+        "validation": {
+          "type": "string"
+        },
+        "score_meaning": {
+          "type": "string",
+          "description": "Added by build_cards.py --pass scoring: what the scale levels and the final number mean."
+        },
+        "annotation_process": {
+          "type": "string",
+          "description": "Added by build_cards.py --pass scoring: how many raters or grader runs scored each item, their training, the stages, and how disagreements were settled."
+        },
+        "results": {
+          "type": "string"
+        },
+        "limitations": {
+          "type": "string"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "extracted": {
+          "type": "string"
+        }
+      }
     }
   },
   "$defs": {

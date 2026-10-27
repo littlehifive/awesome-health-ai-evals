@@ -26,6 +26,33 @@ facets:
   eval_methods: [automatic_metric, rubric_llm_judge, simulated_multi_turn]
   modality: [text]
   size: 30 cases, each with 1 to 2 medical images (MRI, ultrasound, or X-ray)
+card:
+  task: Conduct a multi-turn consultation with a simulated patient, request examinations, interpret medical images,
+    and produce a final report with a diagnosis and treatment recommendations.
+  items_built: The authors collected 30 cases, primarily in general surgery, from the iiyi website, where doctors
+    voluntarily upload cases. Each case contains a chief complaint, present illness, medical history, examination
+    findings, diagnosis, treatment, image report, and 1 to 2 medical images, with personally identifiable information
+    excluded.
+  example: ''
+  scoring: Automatic metrics measure ROUGE-1 recall between the final report and reference information for basic
+    patient information, examinations, medical imaging, diagnosis, and treatment. GPT-4o separately rates inquiry,
+    examination, multimodal analysis, diagnosis, and treatment using prompts based on assessment plans from Peking
+    University and the National Health Commission of China.
+  judge: ROUGE-1 recall and GPT-4o assign the scores.
+  scale: ROUGE-1 recall by category; GPT-4o ratings from 1 to 5 per criterion.
+  validation: ''
+  score_meaning: For patient-simulator quality, description clarity, information completeness, cooperation, understanding,
+    and communication ability are each worth 2 points, for a total of 10. The actor's semantic consistency and character
+    features are each worth 5 points, also totaling 10.
+  annotation_process: For patient-simulator evaluation, the researchers randomly selected 3 dialogues from each
+    consultation case for GPT-4o to score. They assessed the actor's semantic consistency and character features
+    by comparing its output with the standard patient's output. The evaluation seed was set to 0.
+  results: ''
+  limitations: ''
+  sources:
+  - https://arxiv.org/abs/2408.08693
+  - https://github.com/LiuHC0428/Med-PMC
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

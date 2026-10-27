@@ -25,6 +25,30 @@ facets:
   eval_methods: [simulated_multi_turn, automatic_metric]
   modality: [text]
   size: 4,421 cases
+card:
+  task: Question a simulated patient to gather clinical information and give a final open-ended diagnosis within
+    20 turns.
+  items_built: The authors aggregated and standardized patient descriptions paired with ground-truth diagnoses from
+    CRAFT-MD (200 cases), DiagnosisArena (897), MedMCQA (847), MedQA (1,498), and PubMed cases curated by VivaBench
+    (988). Sources include exam questions, clinical vignettes, and peer-reviewed case reports.
+  example: ''
+  scoring: An LLM judge compares the final diagnosis with the ground-truth labels, accepting exact matches, synonyms,
+    paraphrases, and more specific subtypes, but rejecting broader diagnoses; matching any label is sufficient for
+    multi-label cases. Diagnostic accuracy is the percentage of cases judged correct, with reported results averaged
+    over three runs.
+  judge: An LLM-based Judge agent assigns correctness scores; its model name is not specified in the supplied text.
+  scale: Correct or incorrect per case; percentage diagnostic accuracy averaged over three runs.
+  validation: ''
+  score_meaning: ''
+  annotation_process: The Judge receives the ground-truth diagnosis at initialization and remains fixed across all
+    tested variants. All experiments use a temperature setting of 0.
+  results: MeDxAgent using GPT-4o achieved 57.4% diagnostic accuracy, compared with 47.1% for the baseline and 66.8%
+    for a full-information oracle.
+  limitations: The authors note that evaluation is text-only, case-bound patient responses reduce realism and natural
+    variability, and the study covers a limited range of prompts, interaction flows, and agent configurations.
+  sources:
+  - https://arxiv.org/abs/2606.03416
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

@@ -25,6 +25,30 @@ facets:
   eval_methods: [rubric_llm_judge]
   modality: [text]
   size: Rubric set built from HealthBench's physician-authored criteria; evaluated on HealthBench, HealthBench-Hard, and CSEDB
+card:
+  task: Generate an open-ended response to a healthcare prompt or conversation.
+  items_built: The authors developed 29 reusable criteria for open-ended healthcare responses by embedding HealthBench's
+    physician-written rubrics with OpenAI's text-embedding-3 and clustering them by meaning. They manually inspected
+    and refined the clusters and removed outliers before deriving the final criteria.
+  example: ''
+  scoring: An LLM selects relevant criteria using five-point relevance ratings, then judges whether the response
+    satisfies each selected criterion. Satisfied positive criteria receive +1, satisfied negative criteria receive
+    -1, and unsatisfied criteria receive 0; points are summed and normalized into a response-level score.
+  judge: An LLM grades Health-SCORE criteria; GPT-4.1 applies the independent physician-authored rubrics used to
+    evaluate the experiments.
+  scale: Each selected criterion receives -1, 0, or +1; points are summed and normalized per response.
+  validation: ''
+  score_meaning: Reported experimental scores range from 0.0 to 1.0, with higher scores indicating better alignment
+    with independent, physician-authored criteria. Health-SCORE rewards give all selected criteria equal weight,
+    so they do not distinguish differences in criterion severity or importance.
+  annotation_process: ''
+  results: ''
+  limitations: The authors identify automated-judge bias and inconsistency, subjective choices in clustering and
+    manual refinement, and equal-weight binary scoring that does not capture differences in criterion severity or
+    importance.
+  sources:
+  - http://arxiv.org/abs/2601.18706
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

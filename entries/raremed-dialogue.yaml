@@ -25,6 +25,25 @@ facets:
   eval_methods: [simulated_multi_turn, automatic_metric]
   modality: [text]
   size: "10,114 cases (dialogue and turn counts not read)"
+card:
+  task: Carry out a multi-turn clinical dialogue covering eight stages of diagnosis and treatment for a difficult,
+    rare, or complex case.
+  items_built: The creators transformed 10,114 authentic difficult, rare, and complex cases into rule-based templates
+    covering eight stages of diagnosis and treatment. Chinese multi-turn dialogues were generated with multidisciplinary
+    expert input, then checked by humans and augmented using large language models.
+  example: ''
+  scoring: Dialogue-chain Integrity (DCI) and Stage Accuracy (SA) assess coherence and correctness across multi-turn
+    clinical reasoning processes.
+  judge: ''
+  scale: ''
+  validation: ''
+  score_meaning: ''
+  annotation_process: ''
+  results: ''
+  limitations: Further external validation is needed to determine generalizability to real-world clinical settings.
+  sources:
+  - https://doi.org/10.1186/s12911-026-03846-x
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

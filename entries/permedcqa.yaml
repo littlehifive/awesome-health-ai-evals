@@ -28,6 +28,32 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: "68,138 QA pairs (64,280 train, 345 eval, 3,513 test)"
+card:
+  task: Write a Persian-language answer to each consumer medical question.
+  items_built: The authors collected 87,780 question-answer pairs from DrYab, HiSalamat, GetZoop and Mavara-e-Teb,
+    where verified physicians answered users' questions. Rule-based filtering removed 14,364 invalid, short, duplicate
+    or non-textual entries, and GPT-4o-mini identified another 5,278 entries containing personal information for
+    removal.
+  example: سلام خسته نباشید. من واسه پسر ۱ ساله‌ام که جای واکسنش سفت شده بود، پماد موضعی استفاده کردم. ولی الان
+    پوستش خیلی قرمز شده و خارش داره. ممکنه حساسیت داده باشه؟ باید چکار کنم؟
+  scoring: Med-Judge compares each model answer with the physician's reference answer and assigns categories for
+    correctness, coverage and critical impact. The provided text does not specify how these categories are combined
+    into a final score.
+  judge: Med-Judge uses Gemini-Flash-2.5 as the grader.
+  scale: 'Correctness: Correct, Partially correct, Incorrect or Contradictory; Coverage: equal, model_subset, expert_subset
+    or overlap_none; Critical_Impact: Negligible, Moderate, Significant or Critical.'
+  validation: The authors report validation against expert physician assessments, but provide no rater count or
+    agreement statistics in the supplied text.
+  score_meaning: ''
+  annotation_process: ''
+  results: ''
+  limitations: The authors identify topical and demographic biases from the limited forum sources, restricted generalizability
+    beyond Persian-speaking communities and represented medical domains, limited expert review, and exclusion of
+    cases requiring visual information.
+  sources:
+  - http://arxiv.org/abs/2505.18331
+  - https://huggingface.co/datasets/NaghmehAI/PerMedCQA
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

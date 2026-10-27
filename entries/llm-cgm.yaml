@@ -26,6 +26,25 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 30 question templates over CGM time series
+card:
+  task: Answer questions about a patient's continuous glucose monitoring data, including summary statistics, timing,
+    sensor quality, and comparisons.
+  items_built: The repository defines 30 question templates, Q1-Q30, in src/benchmarkQandA.py, with code that computes
+    reference answers from a continuous glucose monitoring dataframe. The repository contains no data files.
+  example: ''
+  scoring: Reference answers are computed programmatically from a continuous glucose monitoring dataframe; the provided
+    sources do not specify how model responses are compared with them or combined into a score.
+  judge: ''
+  scale: ''
+  validation: ''
+  score_meaning: ''
+  annotation_process: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://github.com/lizhealey/LLM-CGM
+  - https://doi.org/10.1142/9789819807024_0007
+  extracted: '2026-10-27'
 signals:
   citations: 13
   citations_source: OpenAlex

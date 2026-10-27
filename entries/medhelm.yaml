@@ -29,6 +29,41 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric, rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 121-task taxonomy; 35 benchmarks (13 open-ended)
+card:
+  task: Follow each item's instruction to answer a medical question, classify clinical information, or generate
+    text such as a clinical note, patient message, or research query from the supplied context.
+  items_built: The authors organized tasks from a JAMA review with a clinician, then revised the taxonomy using
+    feedback from 29 practicing clinicians across 14 specialties and four institutions. They assembled 17 existing
+    benchmarks, reformulated five medical datasets with standardized prompts and metrics, and created 13 new benchmarks,
+    including 12 based on electronic health records, partnering with Stanford Healthcare to fill gaps in routine
+    health-system tasks.
+  example: '"What''s a patient''s HAS-BLED score?"'
+  scoring: Closed-ended outputs are scored against reference answers using task-specific metrics such as exact match
+    or micro-F1; open-ended outputs receive the mean of nine jury ratings across accuracy, completeness and clarity,
+    with structure replacing completeness for NoteExtract. Overall performance is the equally weighted mean of normalized
+    scores across 35 benchmarks, and pairwise win rate averages comparisons against other models, counting ties
+    as wins.
+  judge: GPT-4o, Claude 3.7 Sonnet and LLaMA 3.3 70B grade open-ended responses; automated task-specific metrics
+    score closed-ended outputs.
+  scale: 'Jury criteria: 1 to 5, averaged across three judges and three criteria; overall macro-average: 0 to 1;
+    mean pairwise win rate.'
+  validation: Twenty clinicians rated subsets of 31 ACI-Bench and 25 MEDIQA-QA instances, with at least two clinicians
+    per instance. After within-rater z-scoring, jury-clinician agreement was ICC(3,k) = 0.47, compared with 0.43
+    between clinicians, 0.36 for ROUGE-L and 0.44 for BERTScore-F.
+  score_meaning: The clinical-note grading prompt defines 1 as very poor and 5 as excellent. Accuracy means correct
+    clinical information, completeness means inclusion of all important medical details, and clarity means clear
+    writing organized in a standard clinical format.
+  annotation_process: The three jury members make independent judgments without chain-of-thought reasoning. The
+    clinical-note grading prompt asks each judge to review the doctor-patient conversation, compare the generated
+    note with the reference note when needed, and provide a short justification for each criterion score.
+  results: ''
+  limitations: The authors report that jury validation covered only two benchmarks, 15 of 22 subcategories had only
+    one benchmark, and benchmark-level rubrics lack instance-specific criteria for subjective or context-dependent
+    tasks.
+  sources:
+  - http://arxiv.org/abs/2505.23802
+  - https://github.com/stanford-crfm/helm
+  extracted: '2026-10-27'
 signals:
   citations: 52
   citations_source: OpenAlex

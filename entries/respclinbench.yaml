@@ -26,6 +26,40 @@ facets:
   eval_methods: [rubric_llm_judge, automatic_metric]
   modality: [text]
   size: 623 cases (427 COPD text cases, 196 multimodal nodule cases)
+card:
+  task: Produce patient-specific risk assessments and management plans from longitudinal COPD records, or assess
+    pulmonary nodules and plan further evaluation, treatment, or surveillance using chest CT images and clinical
+    information.
+  items_built: Three attending-level respiratory physicians adapted de-identified clinical records into 427 COPD
+    cases and 196 pulmonary nodule cases, reconstructing chronology, standardizing questions, and iteratively revising
+    reference answers and atomic clinical actions against the evidence and guidelines. One senior respiratory specialist
+    independently cross-reviewed and adjudicated the complete packages; cases with unresolved ambiguity or insufficient
+    evidence were excluded.
+  example: ''
+  scoring: Automated evaluation marks each reference action as explicitly covered or absent and converts the fraction
+    covered to a 0-to-100 recall score; a structured LLM judge separately assigns a rubric score normalized to 0
+    to 100 and independent safety flags. Each response's final score is the arithmetic mean of recall and rubric
+    scores, and overall performance is the case-weighted mean across cases.
+  judge: An automated action-coverage evaluator and a structured LLM-as-a-Judge agent assign scores; the grader
+    model is not named.
+  scale: 'Actions: 0 or 1; rubric dimensions: 1 to 5; recall and rubric scores normalized to 0 to 100 and averaged,
+    then averaged across cases.'
+  validation: ''
+  score_meaning: Higher scores indicate better performance. A high rubric score reflects clinical plausibility,
+    coherence, prioritization, and usability, but can coexist with omissions of required clinical actions; the scores
+    do not justify autonomous diagnosis or treatment.
+  annotation_process: During reference preparation, disagreements about case framing, reference-answer content,
+    or which atomic points to include were resolved through revision. Cases with unresolved ambiguity or insufficient
+    evidence were excluded.
+  results: Qwen3.6-27B ranked first among seven models overall at 71.22 out of 100 and led the COPD subset at 71.11.
+    Qwen3.5-397B-A17B led the pulmonary nodule subset at 72.48.
+  limitations: The authors note that retrospective cases do not measure patient outcomes or clinician behavior,
+    selected CT images omit the full interactive stack, standardized histories can be more coherent than routine
+    records, automated grading can introduce bias, safety flags cover only prespecified harms, model updates affect
+    reproducibility, and only two respiratory workflows are represented.
+  sources:
+  - https://arxiv.org/abs/2608.04514
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

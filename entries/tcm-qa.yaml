@@ -27,6 +27,41 @@ facets:
   eval_methods: [mcq_exact_match, expert_human_rating]
   modality: [text]
   size: "about 800 questions (paper: 574 single-choice, 131 multiple-choice, 97 true or false; GitHub README: 578/131/96)"
+card:
+  task: Answer single-choice, multiple-choice, and true-or-false questions about traditional Chinese medicine and
+    explain each answer.
+  items_built: The authors extracted questions from BaiduWenKu qualification-exam and textbook exercise materials,
+    and three TCM experts annotated and verified 801 question-answer pairs using supporting references and randomly
+    assigned two-worker reviews. Counts differ across the paper and repository README.
+  example: ''
+  scoring: 'Answers are compared with standard answers: single-choice and true-or-false answers receive 1 or 0 points,
+    while multiple-choice answers receive 1 for fully correct, 0.5 for partially correct, and 0 for wholly wrong
+    answers; summed points are divided by all questions for precision or by answered questions for Precision in
+    Responsive. Three annotators rate explanations for readability, reliability, and integrity, with average scores
+    reported.'
+  judge: Answer scoring is automatic against standard answers; three annotators with TCM backgrounds rate explanations,
+    and an expert summarizes their ratings.
+  scale: 'Answers: 0, 0.5, or 1 point, reported as precision and Precision in Responsive; explanations: 1 to 3 per
+    criterion, reported as averages.'
+  validation: Overall Fleiss' kappa between explanation raters was 0.247 for readability, 0.646 for reliability,
+    and 0.594 for integrity.
+  score_meaning: Readability scores of 1, 2 and 3 mean incoherent text with many errors, mostly coherent text with
+    several errors, and fully coherent, fluent, error-free text; reliability scores mean unreliable information
+    with wrong reasoning, mostly reliable information with some inconsistencies, and fully reliable information
+    with sound comprehension and reasoning. Integrity measures coverage of relevant knowledge and sufficient context;
+    higher ratings indicate better performance, and 3 denotes approaching human performance.
+  annotation_process: An expert further defined the assessment criteria before explanations were rated. Ratings
+    with a majority vote were counted as agreement; the text does not describe how cases without a majority were
+    resolved.
+  results: Only ChatGPT (gpt-3.5-turbo, March 2023) was evaluated; the abstract reports its highest precision as
+    0.688 on true-or-false questions and its lowest as 0.241 on multiple-choice questions. The results table instead
+    lists Chinese few-shot true-or-false precision as 0.788 and Precision in Responsive as 0.688.
+  limitations: The authors state that the prompt comparisons do not establish significant differences and call for
+    more diverse datasets, more advanced prompting strategies, and evaluations across multiple models.
+  sources:
+  - http://arxiv.org/abs/2403.09164
+  - https://github.com/yizhen-buaa/TCM-QA-datasets
+  extracted: '2026-10-27'
 signals:
   citations: 6
   citations_source: OpenAlex

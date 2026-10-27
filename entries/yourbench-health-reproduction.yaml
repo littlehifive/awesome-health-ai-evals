@@ -23,6 +23,20 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: "1,475 questions in the DeepSeek-R1 set; the other two sets were not counted"
+card:
+  task: Answer English health multiple-choice questions with up to 10 answer options.
+  items_built: Different language models generated the three question sets from health documents using the YourBench
+    framework; the DeepSeek-R1 set contains 1,475 questions.
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: ''
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://huggingface.co/datasets/yourbench/reproduction_deepseekr1_health
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

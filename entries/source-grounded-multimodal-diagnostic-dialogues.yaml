@@ -26,6 +26,38 @@ facets:
   eval_methods: [rubric_llm_judge]
   modality: [text]
   size: 24 case reports, 86 evaluable image turns
+card:
+  task: Describe findings in sequentially disclosed medical images, then provide diagnostic reasoning and a final
+    diagnosis after receiving the remaining diagnostic evidence.
+  items_built: The authors used GPT-4.1 to extract structured clinical information, figure-linked evidence, and
+    diagnostic references from 24 PubMed Central internal medicine case reports and generate staged reference dialogues.
+    Automated comparison with the article-derived references yielded diagnosis F1 of 0.99, reasoning F1 of 0.69,
+    and image-finding F1 of 0.67.
+  example: '"Based on all clinical information, image findings, and key laboratory results, provide the diagnostic
+    reasoning and final diagnosis."'
+  scoring: An LLM matches atomic output items one-to-one against article-derived reference items to calculate strict
+    diagnosis and lenient reasoning and image-finding precision, recall, and F1, macro-averaged over 24 cases or
+    86 evaluable image turns. A separate case-level judgment assigns factuality, validity, coherence, utility, and
+    holistic overall scores, each averaged over 24 cases; the overall score is not the mean of the four dimensions.
+  judge: GPT-4.1 decomposes items, and GPT-5.1 performs semantic matching and case-level scoring.
+  scale: Alignment precision, recall, and F1 from 0 to 1; case-level dimensions and holistic overall quality from
+    1 to 5.
+  validation: ''
+  score_meaning: Unmatched reference items count as missing evidence, while unmatched generated items count as extra
+    content, which can include plausible findings absent from the source article. Major factual or clinical-validity
+    errors and omission of case-defining evidence lower the overall reasoning-quality score.
+  annotation_process: For each case, the judge received the reference diagnosis and evidence, the model's diagnosis
+    and reasoning, and a summary of matched, missing, extra, and contradictory evidence. It provided a brief evidence-grounded
+    justification for each dimension score before assigning the holistic overall score; formal clinician scoring
+    was not included.
+  results: o4-mini outperformed Claude Haiku 4.5, with diagnosis F1 of 0.35, reasoning F1 of 0.28, image-finding
+    F1 of 0.17, and overall reasoning quality of 2.75 out of 5.
+  limitations: The authors note that fixed evidence disclosure excludes autonomous diagnostic decisions, the small
+    case-report corpus and two tested models limit coverage, source references are not exhaustive expert annotations,
+    and LLM-dependent scoring introduces bias without independent clinician validation.
+  sources:
+  - https://arxiv.org/abs/2608.22713
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

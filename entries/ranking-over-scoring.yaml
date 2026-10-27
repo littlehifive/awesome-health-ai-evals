@@ -27,6 +27,44 @@ facets:
   eval_methods: [automatic_metric, expert_human_rating]
   modality: [text]
   size: Three proxy tasks; clinicians ranked 61 MMCQA, 39 misinformation and a smaller NLI set of instances
+card:
+  task: Generate an explanatory medical argument for a clinical multiple-choice answer, a health-claim verdict,
+    or a clinical-trial inference decision.
+  items_built: The framework repurposed English CasiMedicos questions, 742 HealthFC instances, and 1,404 single-trial
+    NLI4CT instances, retaining expert explanations or clinical-trial evidence as reference arguments. GPT-4o, OpenBioLLM,
+    and instruction-tuned Llama3-70B-Instruct generated alternative arguments using one example per task, and two
+    clinicians independently ranked arguments for 61 medical questions, 39 misinformation instances, and 98 inference
+    instances.
+  example: '"An 18-month-old boy, with complete immunization schedule to date, who consults the Emergency Department
+    for right knee swelling after playing in the park, without obvious trauma. In the directed anamnesis, the mother
+    refers that an uncle of hers had similar problems..."'
+  scoring: Trained EriBERTa evaluators receive each argument alongside its proxy-task input, and their prediction
+    accuracy against the task labels determines the ranking of argument sources across the test set. Human rankings
+    are averaged for each source, and a Friedman test at the 5% significance level checks differences between rankings.
+  judge: Three EriBERTa-based evaluators assign automated scores; two clinicians experienced in medical annotation
+    and system evaluation provide comparison rankings.
+  scale: Proxy-task accuracy and source rankings; human ranks from 1 to 5, with 5 indicating clearly incorrect arguments
+    and ties allowed.
+  validation: Initial clinician agreement on five examples per task gave Krippendorff's alpha of 0.72 for MMCQA,
+    0.61 for misinformation, and 0.44 for NLI. Removing misinformation cases labeled "Not Enough Evidence" and rating
+    14 new examples raised alpha to 0.73; human NLI rankings showed no significant differences in the Friedman test
+    (p = 0.561).
+  score_meaning: Higher proxy-task accuracy means the supplied arguments help the evaluator solve more task items
+    correctly, but does not necessarily mean its argument rankings agree more closely with clinicians. A robust
+    evaluator should place misleading or irrelevant control inputs below genuine arguments.
+  annotation_process: After a preliminary round and an agreement check, the clinicians independently ranked four
+    arguments per instance across 61 MMCQA instances, 39 misinformation instances, and 98 NLI instances. Only the
+    primary arguments, comprising expert-written and LLM-generated arguments, received human rankings; control cases
+    were evaluated automatically.
+  results: GPT-4o ranked first for MMCQA under the LLM-trained evaluator, with 78.90% proxy-task accuracy; Llama3
+    ranked first for misinformation and NLI, with 49.43% and 61.12%, respectively. The LLM-trained evaluator exactly
+    matched the human ordering for misinformation arguments.
+  limitations: The evaluator has a 512-token input limit, and the framework does not explicitly measure hallucinations,
+    factual accuracy, or coherence.
+  sources:
+  - https://arxiv.org/abs/2409.20565
+  - https://github.com/hitz-zentroa/ranking-over-scoring-coling-2025
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

@@ -32,6 +32,32 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 100 cases, each as an MSA dialogue and 4 dialect versions
+card:
+  task: Write the withheld final assistant response to an Arabic patient-assistant dialogue.
+  items_built: Three native Arabic-speaking physicians from a multi-specialty hospital authored 100 cases across
+    nine organ systems, which Claude-Opus-4.6 expanded into 3-8-turn MSA dialogues verified by clinicians; two clinicians
+    per case independently wrote final-turn references. GPT-5.2 translated all dialogues into Emirati, Jordanian,
+    Moroccan and Egyptian Arabic, with review by two native speakers per dialect.
+  example: ''
+  scoring: GPT-5.2 judges each final response as correct or incorrect against a clinician-written reference and
+    reasoning objective, and results are reported as the percentage correct. AraBERTv2 BERTScore-F1 is reported
+    as a secondary measure of similarity to the reference.
+  judge: GPT-5.2 assigns correctness labels, and AraBERTv2 computes BERTScore-F1.
+  scale: Correct or incorrect per response; percentage correct and BERTScore-F1.
+  validation: A fourth clinician assessed agreement on physician-written references, with 87% inter-annotator agreement.
+    The judge was validated on 100 short-answer examples from MedAraBench-OE, rather than AraClinicDialog, with
+    Pearson correlation 0.978 and Spearman correlation 0.982 against human labels.
+  score_meaning: The score measures factual correctness of the concluding clinical response, not overall dialogue
+    quality. High scores can occur even when responses are short, mix languages, or communicate poorly.
+  annotation_process: Two clinicians per case independently wrote the reference final response using a structured
+    form. Audio responses were transcribed with Whisper-Large-V3 and manually reviewed.
+  results: ''
+  limitations: The benchmark does not cover all regional Arabic varieties and needs greater scale to cover long-tail
+    cases, rare diseases and low-frequency scenarios; its scoring rewards clinical accuracy rather than overall
+    communication quality.
+  sources:
+  - https://arxiv.org/abs/2608.00207
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

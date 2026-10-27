@@ -27,6 +27,37 @@ facets:
   eval_methods: [rubric_llm_judge]
   modality: [text]
   size: 2,437 threads / 8,204 QA pairs (fully answered subset); 9,741 threads / 37,191 questions in the full set; 238-thread test split
+card:
+  task: Answer each patient question and follow-up in sequence, using the full conversation history, including the
+    model's own earlier answers.
+  items_built: The authors extracted conversations from approximately 1.8 million r/AskDocs posts dated January
+    2015 to June 2023, retaining exchanges between the original poster and respondents with moderator-verified physician
+    flair. They removed threads with unanswered questions or fewer than three question-answer pairs, producing 2,437
+    threads with 8,204 pairs, and sampled a length-stratified test set of 238 threads with 948 pairs.
+  example: ''
+  scoring: GPT-4o compares each response with the physician's answer for medical correctness, recommended actions,
+    safety information and urgency, assigning 1, 0.5 or 0; scores are averaged and multiplied by 100. Additional
+    metrics track score changes across turns, within-thread consistency, and the probability of another wrong answer
+    after a wrong turn, with amplification measured relative to the wrong-answer rate after a correct turn.
+  judge: GPT-4o assigns scores using an explicit rubric and verified physician answers as references.
+  scale: Each response receives 0, 0.5 or 1; the overall mean and Conversational Consistency Score are reported
+    on a 0-100 scale.
+  validation: ''
+  score_meaning: A partially correct score requires exactly one omission or weakness, such as missing a safety warning
+    or key recommendation, excessive reassurance, or guidance too generic to act on, with no factual errors; an
+    incorrect score covers answering the wrong question, harmful factual errors, or dangerously low or high urgency.
+    CCS of 100 means quality stays unchanged within every conversation, even if consistently poor, while 0 means
+    every conversation includes both fully correct and completely wrong answers.
+  annotation_process: ''
+  results: GPT-5 led with a mean score of 65.0 out of 100 and 41.2% fully correct responses. All five models declined
+    significantly from turn 0 to turn 2, with wrong-answer rates roughly tripling.
+  limitations: The authors note that forum physician answers vary in completeness and are not formal clinical documentation,
+    judge scores still need validation against structured physician ratings, and evaluation excludes non-English
+    and multimodal conversations, longitudinal patient behavior and whether patients can understand and act on the
+    guidance.
+  sources:
+  - http://arxiv.org/abs/2603.11281
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

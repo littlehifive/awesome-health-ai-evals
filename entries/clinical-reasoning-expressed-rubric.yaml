@@ -27,6 +27,25 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: rubric with 5 or more domains and sub-dimensions; no item set
+card:
+  task: Write a free-text response to a gold-standard clinical vignette that expresses the clinical reasoning behind
+    the answer.
+  items_built: The framework is meant to be applied to free-text responses to gold-standard clinical vignettes.
+    Its development drew on ART, SCT, Key Feature Problems, OSCE, HealthBench, MedR-Bench and the Factuality-Validity-Coherence-Utility
+    taxonomy.
+  example: ''
+  scoring: Responses are assessed across seven domains using provisional five-point behavioral anchors, with a separate
+    safety-critical-error flag.
+  judge: ''
+  scale: Five-point behavioral anchors and a separate safety-critical-error flag.
+  validation: ''
+  score_meaning: ''
+  annotation_process: ''
+  results: ''
+  limitations: The authors state that the rubric has not been tested for inter-rater reliability or validity.
+  sources:
+  - https://arxiv.org/abs/2609.37788
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

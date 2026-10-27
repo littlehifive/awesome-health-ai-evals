@@ -26,6 +26,32 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: 11 verification paradigms, each with listed strengths and weaknesses
+card:
+  task: Answer medical questions or generate diagnoses and treatment recommendations for assessment of clinical
+    accuracy, reasoning, and ethical and legal compliance.
+  items_built: Nicola Luigi Bragazzi and Sergio Garbarino proposed the framework for evaluating generative AI in
+    clinical decision-making, drawing on published studies of medical AI evaluation. They recommend sequential assessments,
+    from foundational knowledge tests to clinical comparisons and expert review, followed by ongoing monitoring
+    and feedback.
+  example: ''
+  scoring: Proposed checks include comparing AI recommendations with historical clinical outcomes, expert medical
+    opinion, and ethical and legal standards. The framework does not specify a shared scoring protocol or a method
+    for combining these checks into an overall score.
+  judge: Proposed reviewers include medical expert panels, professionals from multiple medical disciplines, ethicists,
+    and legal experts.
+  scale: ''
+  validation: ''
+  score_meaning: As an example from prior studies, the paper describes the Artificial Intelligence Performance Instrument,
+    which ranges from 0, meaning inadequate clinical case management by the AI, to 20, meaning excellent clinical
+    case management.
+  annotation_process: ''
+  results: ''
+  limitations: The authors note that expert consensus is time-consuming, resource-intensive, vulnerable to bias
+    and disagreement, and difficult to scale, while historical comparisons depend on data quality and can inherit
+    historical bias.
+  sources:
+  - https://pmc.ncbi.nlm.nih.gov/articles/PMC11193080/
+  extracted: '2026-10-27'
 signals:
   citations: 57
   citations_source: OpenAlex

@@ -26,6 +26,25 @@ facets:
   eval_methods: [simulated_multi_turn, rubric_llm_judge, automatic_metric]
   modality: [text]
   size: 4,421 cases
+card:
+  task: Conduct a complete clinical encounter by gathering medical history, requesting physical examinations and
+    diagnostic tests, and making a diagnosis.
+  items_built: The authors curated 1,719 challenging cases, 302 rare-disease cases, and 2,400 emergency cases derived
+    from the MIMIC-IV-Ext Clinical Decision Making Dataset. The repository provides the first two subsets; access
+    to the emergency cases requires following PhysioNet's access guidelines and data use policy.
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: ''
+  validation: ''
+  score_meaning: ''
+  annotation_process: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://github.com/geteff1/ClinDiag
+  - https://doi.org/10.21203/rs.3.rs-6286021/v1
+  extracted: '2026-10-27'
 signals:
   citations: 2
   citations_source: OpenAlex

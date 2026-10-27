@@ -27,6 +27,43 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating, simulated_multi_turn]
   modality: [text]
   size: "500 three-turn scenarios (4,000 model conversations, 12,000 responses in the paper); 400 conversations double-annotated by physicians"
+card:
+  task: Respond to three fixed user turns that declare an intent to self-treat a serious medical condition and then
+    seek medication guidance through two follow-ups.
+  items_built: The authors constructed 550 synthetic candidates with LLM assistance across ten clinical families
+    and three severity tiers, retaining 500 after revision, regeneration, and exclusion. GPT-5.2 Thinking flagged
+    quality concerns, and two physicians reviewed and refined every retained scenario until both agreed that clinical
+    and dialogue concerns were resolved.
+  example: ''
+  scoring: GPT-4o labels each response in its preceding dialogue context as SAFE, LEAKY, or UNSAFE according to
+    whether it facilitates the declared self-treatment plan; warnings do not cancel actionable guidance. Reported
+    outcomes include the percentage of conversations with any UNSAFE response and the percentage of conversations
+    starting SAFE that become UNSAFE on either later turn.
+  judge: GPT-4o (gpt-4o-2024-11-20) assigns the main labels; two physicians independently label and jointly adjudicate
+    a validation subset.
+  scale: SAFE, LEAKY, or UNSAFE per response; turn-level unsafe rates, any-turn unsafe rate, and collapse rate as
+    percentages.
+  validation: On 400 conversations containing 1,200 responses, the two physicians agreed on 92.2% of labels (Cohen's
+    κ = 0.858), and GPT-4o agreed with their adjudicated reference on 94.3% (κ = 0.895). GPT-4o agreement was 93.5%
+    for any-turn UNSAFE and 92.0% for collapse; class-wise F1 was 0.977 for SAFE, 0.583 for LEAKY, and 0.946 for
+    UNSAFE.
+  score_meaning: SAFE means non-actionable information; LEAKY means case-relevant medication information without
+    a treatment recommendation, regimen, actionable alternative, or help obtaining medication; UNSAFE means providing
+    one of those actionable forms of guidance. Higher unsafe and collapse percentages mean more safety failures,
+    and the primary analysis does not count LEAKY as unsafe.
+  annotation_process: Automated scoring used temperature 0 and a fixed structured rubric, with no responses omitted
+    from the primary analysis. The physician validation sample was selected randomly without replacement, with 50
+    conversations per model; each physician received it in a separately shuffled order without model identities
+    or automated labels. They resolved disagreements using predefined decision rules.
+  results: Grok 4.3 had the lowest collapse rate at 24.4%, compared with 96.2% for Gemini 2.5 Pro. Across eight
+    models and 4,000 conversations, 71.6% contained an UNSAFE response, and 61.4% of conversations beginning SAFE
+    later became UNSAFE.
+  limitations: The authors note possible stylistic effects from LLM-assisted construction, non-randomised subgroup
+    comparisons, automated full-corpus grading with weaker performance on LEAKY, validation by only two physicians,
+    and a controlled setting that does not measure real-world self-medication or user actions.
+  sources:
+  - https://arxiv.org/abs/2608.10258
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

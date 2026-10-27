@@ -26,6 +26,37 @@ facets:
   eval_methods: [simulated_multi_turn, automatic_metric]
   modality: [text]
   size: 583 diseases, 467 comorbidities, 19 departments; number of cases not stated
+card:
+  task: Question a simulated patient, order examinations, and produce a final diagnosis and treatment plan, consulting
+    other physician agents when needed.
+  items_built: The authors used DeepSeek-v3.1 to synthesize 12,000 patient records from a curated medical knowledge
+    base and cleaned attributes from public persona datasets, with iterative refinement to check consistency among
+    symptoms, findings and diagnoses. Records were split 9:1 for training and testing, and GPT-5.2 assessed their
+    clinical consistency, giving a mean score of 4.4113 out of 5.
+  example: ''
+  scoring: Examination Precision is the fraction of ordered examinations in the standard clinical set, and Diagnostic
+    Accuracy assigns 1 when the final diagnosis matches the ground truth and 0 otherwise. An LLM evaluates treatment
+    plans against gold-standard guidelines for safety, effectiveness and personalization; Total Input Tokens sums
+    input tokens across the full workflow, while the clinical score aggregation procedure is not specified.
+  judge: Diagnosis and examination scores use ground-truth comparisons; an unnamed LLM grades treatment plans.
+  scale: Examination precision ranges from 0 to 1; diagnosis is 0 or 1; clinical results are reported as percentages,
+    alongside total input tokens.
+  validation: ''
+  score_meaning: Lower perplexity means the synthetic patient records align more closely with professional clinical
+    text. Higher Examination Precision indicates fewer unnecessary or redundant tests.
+  annotation_process: GPT-5.2 judges the clinical consistency of synthesized patient records by assessing symptom-diagnosis
+    alignment, the timing of patient histories, and the safety of implied clinical pathways. It also judges dynamic
+    patient responses for accuracy, relevance, and persona alignment, with access to complete patient data. Baichuan-M2-32B
+    computes perplexity across the entire synthetic dataset to evaluate its linguistic quality.
+  results: The Qwen/Qwen3-Next-80B-A3B-Instruct baseline reached 61.31% Examination Precision, 57.34% Diagnostic
+    Accuracy and 61.52% Treatment Plan Alignment after 22 training batches, up from 45.05%, 48.11% and 58.49%. Input
+    tokens per batch fell from 16.04 million to 14.83 million.
+  limitations: The authors state that the text-only simulation cannot process medical images or continuous biosignals
+    and does not model fine-grained disease progression, evolving symptoms or dynamically changing clinical conditions.
+  sources:
+  - https://arxiv.org/abs/2603.14771
+  - https://github.com/ZJU-LLMs/Agent-Kernel
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

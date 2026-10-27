@@ -27,6 +27,36 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 156 questions with passages and four summary types
+card:
+  task: Write a question-focused extractive or abstractive summary of one answer document or a set of answer documents
+    for a consumer health question.
+  items_built: NLM researchers selected MEDIQA-QA passages manually rated as incomplete or excellent, yielding 552
+    passages from 348 unique articles for 156 questions. Two subject matter experts wrote extractive and abstractive
+    summaries for individual answers and for all answers to each question, and their summaries were compared using
+    ROUGE and BLEU.
+  example: ''
+  scoring: Automatically generated summaries are compared with expert-written extractive or abstractive reference
+    summaries using ROUGE-1, ROUGE-2, ROUGE-L and BLEU, which measure overlapping words and word sequences. The
+    paper reports separate scores by reference summary type but does not specify how item scores are aggregated.
+  judge: ROUGE and BLEU automatically score outputs against summaries written by two subject matter experts.
+  scale: ROUGE-1, ROUGE-2, ROUGE-L and BLEU overlap scores, reported on a 0 to 1 scale.
+  validation: Inter-annotator ROUGE-2/ROUGE-L/BLEU scores were 0.19/0.32/0.17 for multi-document abstractive summaries,
+    0.56/0.57/0.49 for multi-document extractive summaries, 0.28/0.42/0.19 for single-document abstractive summaries,
+    and 0.82/0.83/0.74 for single-document extractive summaries.
+  score_meaning: Higher scores indicate greater overlap with the reference wording, with ROUGE emphasizing recall
+    and BLEU emphasizing precision. A low score does not establish that a summary is incorrect or missing information,
+    and a high score does not establish that it is high quality.
+  annotation_process: The experts used a dedicated interface to select relevant text chunks for extractive summaries
+    and rewrite source text or extractive summaries into condensed, easier-to-understand sentences for abstractive
+    summaries. They then created multi-document summaries using all answers to each question.
+  results: BART led the full-page single-document comparison, scoring ROUGE-1/ROUGE-2/ROUGE-L/BLEU of 0.29/0.15/0.12/0.09
+    against extractive references and 0.32/0.12/0.08/0.09 against abstractive references. On passages, question-driven
+    BART scored 0.46/0.37/0.35/0.18 against extractive references and 0.46/0.29/0.24/0.19 against abstractive references.
+  limitations: The authors state that ROUGE and BLEU miss meaningful differences between informative summaries,
+    so low scores need not indicate poor quality and high scores do not guarantee it.
+  sources:
+  - https://arxiv.org/abs/2005.09067
+  extracted: '2026-10-27'
 signals:
   citations: 90
   citations_source: OpenAlex

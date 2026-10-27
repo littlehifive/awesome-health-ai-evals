@@ -24,6 +24,24 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 68 generated questions in the released files (L1-A 3, L1-B 57, L1-C 8)
+card:
+  task: Answer four-option oncology questions by applying guideline footnotes that override recommendations, specify
+    clinical conditions, or introduce alternative treatment pathways.
+  items_built: An automated vision-language-model pipeline extracted main-text and footnote pairs from one NCCN
+    guideline, producing 68 questions in three generator output files, although the README mentions more than 100
+    L1 questions. The pipeline checked logical relationships and filtered duplicate text and navigation references,
+    but question quality has not yet been evaluated.
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: ''
+  validation: ''
+  results: ''
+  limitations: The repository describes the dataset as a work in progress, with question quality not yet evaluated
+    and only one guideline processed.
+  sources:
+  - https://github.com/zhenglijia686-tech/NCCN-QA
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

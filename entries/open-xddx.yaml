@@ -26,6 +26,39 @@ facets:
   eval_methods: [rubric_llm_judge, automatic_metric, expert_human_rating]
   modality: [text]
   size: 570 clinical notes (nine specialties; mean 4.6 diagnoses and 14.5 interpretation reasons per note)
+card:
+  task: Read each clinical note, list possible diagnoses, and explain which symptoms support each diagnosis.
+  items_built: The authors created 570 notes by removing answer options from MedQA USMLE exercises and questions
+    in First Aid for the USMLE Step 2 CS and First Aid Q&A for the USMLE Step 1, removing duplicates, cleaning text,
+    and excluding notes shorter than 130 characters. Three University of Minnesota physicians annotated diagnoses,
+    supporting interpretations, and specialties, with two independently annotating each note and the third resolving
+    disagreements.
+  example: ''
+  scoring: Diagnostic accuracy is the cumulative number of correct diagnoses divided by the total number of diagnoses;
+    interpretation accuracy uses the same calculation for interpretations, with GPT-4o comparing predictions against
+    reference interpretations. BERTScore, SentenceBERT, and METEOR also compare generated and reference interpretations,
+    while physicians rate correctness, completeness, and usefulness on 100 randomly selected notes; reported results
+    are averaged over five runs.
+  judge: Automatic comparison scores diagnoses, GPT-4o judges interpretation consistency, and two physicians review
+    each human-rated note with a third resolving grading disagreements.
+  scale: Diagnosis and interpretation accuracy are proportions from 0 to 1; human ratings range from 1 to 5 on each
+    of three dimensions.
+  validation: Annotation agreement was 0.885 for diagnoses and 0.859 for interpretations using Jaccard scores, and
+    0.914 for specialty using Cohen's kappa.
+  score_meaning: In physician review, a predicted diagnosis counted as correct if it was a synonym or subtype of
+    the reference diagnosis. For interpretations, correctness measures medical accuracy, completeness measures coverage
+    of the symptom descriptions, and usefulness measures the interpretation's overall value for diagnosis.
+  annotation_process: Three clinical physicians from the University of Minnesota created the reference annotations.
+    Two independently annotated each source exercise, and the third examined cases with disagreements and made the
+    final annotation.
+  results: Dual-Inf with GPT-4o achieved interpretation accuracy of 0.488, compared with 0.408 for SC-CoT. Dual-Inf
+    with GPT-4 achieved diagnostic accuracy of 0.533 and interpretation accuracy of 0.446.
+  limitations: The authors state that the nine specialties do not cover the full breadth of real-world scenarios
+    and that the dataset lacks annotations ranking diagnoses by likelihood.
+  sources:
+  - http://arxiv.org/abs/2407.07330
+  - https://github.com/betterzhou/Dual-Inf
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

@@ -28,6 +28,28 @@ facets:
   eval_methods: [automatic_metric, rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 911 question-answer pairs
+card:
+  task: Answer Indonesian clinical-nutrition questions about pediatric and adult inpatients using the supporting
+    case-report text.
+  items_built: Three nutritionists wrote 911 question-answer pairs from real hospital nutrition case reports, using
+    eight standardized questions per report. Reports were extracted, split into chunks and anonymized, and answers
+    were matched to their source chunks.
+  example: ''
+  scoring: Predictions are compared with reference answers using Exact Match, F1, BLEU, ROUGE, BERTScore F1 and
+    embedding cosine similarity. An LLM judge also assesses factuality, completeness and safety, while RAGAS provides
+    retrieval and answer diagnostics for the RAG baseline.
+  judge: An LLM judge assigns rubric scores, and expert raters assess agreement with the judge.
+  scale: ''
+  validation: ''
+  score_meaning: ''
+  annotation_process: ''
+  results: ''
+  limitations: The authors report that 6 to 10 percent of reference answers are contestable and that the LLM-judge
+    rubric is unreliable for clinical safety.
+  sources:
+  - https://arxiv.org/abs/2610.31256
+  - https://github.com/NLP-UB/IndoNutriQA
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

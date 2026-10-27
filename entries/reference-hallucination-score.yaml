@@ -26,6 +26,32 @@ facets:
   eval_methods: [automatic_metric, expert_human_rating]
   modality: [text]
   size: 7 scored items per reference; 10 prompts x 10 references x 6 chatbots
+card:
+  task: Produce 10 recent, relevant paper references for each medical prompt, including each paper's title, journal,
+    authors, DOI, publication date, web link, and relevance to the prompt keywords.
+  items_built: The framework was developed for chatbot-generated references through a literature review, Delphi
+    consultation with 12 senior and 11 junior physicians, most of whom were academics, and final consensus among
+    the authors. Its demonstration used 10 medical prompts refined through extensive trials, with five covering
+    basic topics and five covering clinical scenarios or complex topics.
+  example: ''
+  scoring: References are manually checked against PubMed and Google Scholar, with 2 points assigned for each erroneous
+    title, journal, author list, or DOI and 1 point for each erroneous date, link, or keyword relevance. Points
+    are summed per reference, averaged within each prompt, and summarized across prompts for each chatbot; failure
+    to generate references is recorded as "N."
+  judge: Human reviewers compare citations with PubMed and Google Scholar; their number and qualifications are not
+    specified.
+  scale: 0 to 11 per reference, with lower scores better; prompt means and chatbot means or medians are reported.
+  validation: ''
+  score_meaning: A score of 0 means no reference hallucination was found across the seven checked items. A score
+    of 11 means errors were found in all seven items, the maximum degree of reference hallucination.
+  annotation_process: ''
+  results: Elicit and SciSpace had the lowest reported RHS of 1, compared with 11 for ChatGPT 3.5 and Bing and 7
+    for Perplexity. Bard failed to generate references for all 10 prompts.
+  limitations: The authors note that the selected bibliographic parameters may omit important identifiers, results
+    depend on prompt structure, and the medical prompts cover a limited range of topics and scenarios.
+  sources:
+  - https://pmc.ncbi.nlm.nih.gov/articles/PMC11325115/
+  extracted: '2026-10-27'
 signals:
   citations: 175
   citations_source: OpenAlex

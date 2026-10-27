@@ -26,6 +26,35 @@ facets:
   eval_methods: [simulated_multi_turn, rubric_llm_judge]
   modality: [text]
   size: about 3,000 patient profiles
+card:
+  task: Conduct a multi-turn conversation with a simulated patient to gather the information needed for diagnosis,
+    deciding what to ask and when to end the inquiry.
+  items_built: The authors assembled 3,000 patient profiles across 21 medical departments from MedQA, Craft-MD,
+    NEJM, DiagnosisArena, and synthetic cases. GPT-4o converted clinical descriptions into structured atomic information
+    units, which support controlled disclosure, varied language, and injected memory, comprehension, or emotional
+    noise during simulation.
+  example: ''
+  scoring: GPT-5 diagnoses from the inquiry history, and diagnostic correctness is scored by string matching; robustness
+    measures variation in correctness across specialties, while efficiency counts questions and tokens per session.
+    GPT-4o-Mini rates inquiry proficiency, dialogue competence, and patient experience from 1 to 5 using evaluation
+    guidelines, with scores normalized to 0 to 1.
+  judge: GPT-4o-Mini grades conversation quality, GPT-5 provides diagnoses, and rule-based matching and counting
+    score correctness and efficiency.
+  scale: 'Judged criteria: 1 to 5, normalized to 0 to 1; diagnostic correctness, cross-specialty robustness, average
+    questions per session, and total tokens per session are reported separately.'
+  validation: ''
+  score_meaning: Coverage measures the share of task-relevant atomic information units obtained, so a score of 0.385
+    indicates roughly 39% coverage. Higher robustness scores mean diagnostic correctness varies less across medical
+    specialties.
+  annotation_process: Coverage is judged at the session level against the atomic information units annotated in
+    the dataset. Relevance is judged at the turn level by comparing each question with the session's atomic information
+    units, penalizing off-topic or redundant questions.
+  results: Claude-Sonnet-4 achieved the highest information coverage score, 0.385.
+  limitations: The evaluation focuses on diagnosis scenarios and does not cover other medical settings such as general
+    health consultation.
+  sources:
+  - http://arxiv.org/abs/2509.24958
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

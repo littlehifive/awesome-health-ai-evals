@@ -26,6 +26,35 @@ facets:
   eval_methods: [simulated_multi_turn, rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: Dynamic generation; evaluation used 5 sets of 300 cases (1,500 cases) and 15 LLMs
+card:
+  task: Question a simulated patient, request examinations, and give a final diagnosis within 15 dialogue turns.
+  items_built: A generative LLM creates patient demographics and symptoms from diseases sampled from a disease-symptom
+    knowledge graph and corresponding medical encyclopedia passages; the experiments used five sets of 300 unique
+    cases. Five licensed clinicians independently checked 200 shared cases, finding 99.0% without diagnosis leakage
+    and 93.5% realistic and medically consistent.
+  example: ''
+  scoring: The final diagnosis is compared with the case's ground-truth disease, and sessions that reach the turn
+    limit without a diagnosis count as failures; efficiency measures track dialogue turns, findings, and positive
+    hit rate. An LLM judge scores each dialogue on seven weighted quality dimensions to produce DQS, with results
+    reported as means and standard errors across five independent runs.
+  judge: An unnamed high-performing LLM assigns quality scores, while diagnostic accuracy compares the final diagnosis
+    with the ground-truth disease.
+  scale: Correct or incorrect diagnosis; dialogue efficiency measures; seven quality dimensions worth 10, 10, 20,
+    10, 10, 30, and 10 points, totaling 100.
+  validation: Changing the patient and examiner simulators among GPT-5, Gemini-3-Pro, and Claude-4.5-Sonnet yielded
+    diagnostic-accuracy rank correlations of 0.946, 0.954, and 0.964; the top four models retained identical rankings.
+  score_meaning: Higher quality scores indicate more thorough information gathering, stronger diagnostic reasoning,
+    and better diagnostic conclusions and handling of uncertainty. Even the highest observed chief complaint exploration
+    score of 6.3 out of 10 and history completeness score of 3.8 out of 10 were interpreted as weaknesses in information
+    gathering.
+  annotation_process: Each evaluation run used a separately generated set of 300 unique patient cases, with dialogues
+    capped at 15 turns. For a separate check of simulation quality, five licensed clinicians independently reviewed
+    the same 200 randomly sampled cases for disclosure of the correct diagnosis and clinical realism and consistency.
+  results: ''
+  limitations: ''
+  sources:
+  - http://arxiv.org/abs/2512.23440
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

@@ -25,6 +25,22 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 515 cases (multiple-choice)
+card:
+  task: Choose a diagnosis from multiple-choice options for each gynecologic case using patient characteristics
+    and laboratory test data.
+  items_built: The authors assembled 515 samples from real-world cases and the Chinese Clinical Case Outcomes Database,
+    with over 50 patient characteristics and laboratory data points per sample, and converted them into multiple-choice
+    questions. Physicians of Associate Chief Physician rank or above reviewed the samples.
+  example: ''
+  scoring: Models were evaluated by diagnostic accuracy in zero-shot and few-shot settings.
+  judge: ''
+  scale: Diagnostic accuracy.
+  validation: ''
+  results: No evaluated model achieved accuracy above 90%.
+  limitations: ''
+  sources:
+  - https://doi.org/10.1002/ijgo.70437
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

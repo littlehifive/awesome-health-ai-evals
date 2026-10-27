@@ -27,6 +27,28 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 157,803 questions (149,603 train, 200 validation, test split on Hugging Face); 3,497-question 2024 subset
+card:
+  task: Choose the one correct answer from four options for each healthcare examination question in Chinese.
+  items_built: The authors collected expert-written exams issued by Taiwan's Ministry of Examination from 2011 to
+    2024, whose questions undergo public and medical-community scrutiny. They excluded questions requiring images
+    or tables and subjects unrelated to healthcare or specific to local rules, attached shared premises to individual
+    questions, and removed near-duplicates with MinHash, leaving 149,603 training questions, 200 validation questions
+    and 8,000 test questions.
+  example: ''
+  scoring: The selected option is compared with the correct answer, and micro-average accuracy is the proportion
+    of questions answered correctly. Questions blocked by an API provider and responses that fail to give the correct
+    choice count as wrong.
+  judge: Exact match with the answer key.
+  scale: Correct or incorrect per question; micro-average accuracy reported as a percentage.
+  validation: ''
+  results: GPT-4 achieved over 75% accuracy and led on 19 of the 20 professions. Random guessing achieved 24.96%
+    micro-average accuracy.
+  limitations: The authors note that multiple-choice questions allow success through guessing, Chinese-only coverage
+    limits assessment in English, and uneven representation limits evaluation of some professions.
+  sources:
+  - http://arxiv.org/abs/2406.11328
+  - https://huggingface.co/datasets/KenLuo/EMPEC
+  extracted: '2026-10-27'
 signals:
   citations: 2
   citations_source: OpenAlex

@@ -26,6 +26,38 @@ facets:
   eval_methods: [rubric_llm_judge, simulated_multi_turn]
   modality: [text]
   size: 500 Chinese-English parallel persona pairs (1,000 examples); 28 agents evaluated
+card:
+  task: Hold a 20-turn emotional-companionship conversation with a simulated user in Chinese or English, responding
+    to behavior-dependent changes in what the user discloses.
+  items_built: The authors constructed 500 Chinese-English parallel persona pairs using events, histories and profiles
+    from tens of thousands of real conversations, with all real-user-derived data de-identified and LLM-rewritten.
+    A framework drawn from 25 psychology and counseling theories guided the personas and 17 scenarios, and labeling
+    the real data led to revisions of the scenario taxonomy.
+  example: ''
+  scoring: Judges score each whole conversation on applicable capabilities and flag reverse anti-patterns; reports
+    separate the normalized capability mean, tier-weighted penalties and their difference, while rankings use an
+    IRT model that adjusts for judge severity. Separately, a deterministic state machine replays judge-labeled moves
+    and disclosure depths to measure earned disclosure and gate violations without combining them into the capability
+    score.
+  judge: deepseek-v4-pro grades both axes, with claude-opus-4-8 and gpt-5.1 joining it for capability scoring.
+  scale: 'Capabilities: 1-10 each, with applicable means normalized to 0-1; final rankings: judge-adjusted IRT θ;
+    disclosure: separate depth and gate metrics.'
+  validation: Independent repeat grading produced capability-ranking Spearman correlations of 0.996 in Chinese and
+    0.953 in English; pairwise correlations between judges ranged from 0.845 to 0.951 in English. Eight of ten capabilities
+    had repeat-grading correlations of at least 0.93, while positive resonance and calibrated challenge scored 0.829
+    and 0.863.
+  score_meaning: A high score does not certify that a model is safe; the benchmark supports comparative research
+    rather than certification.
+  annotation_process: Judges use 42 sub-dimensions as a checklist without scoring them individually. Reliability
+    was checked with a second, independently executed grading pass under the same configuration; no human or counselor
+    baseline or expert inter-rater reliability study was included.
+  results: ''
+  limitations: The authors report residual judge-family-language bias, low-confidence core-depth labels, a fixed
+    20-turn single-session limit, no human or counselor baseline, and missing expert inter-rater and external-validity
+    studies.
+  sources:
+  - https://arxiv.org/abs/2608.02046
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

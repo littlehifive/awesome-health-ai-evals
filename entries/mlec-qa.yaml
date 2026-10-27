@@ -31,6 +31,24 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 136,236 questions
+card:
+  task: Choose the correct answer from five options for each Chinese biomedical exam question, using any accompanying
+    image or table.
+  items_built: The 136,236 questions were collected from China's National Medical Licensing Examination, where human
+    experts designed them to assess prospective medical practitioners' knowledge and skills. Human experts annotated
+    the accompanying images or tables.
+  example: ''
+  scoring: Performance is reported as answer accuracy on each of the five subsets.
+  judge: ''
+  scale: Answer accuracy per subset.
+  validation: ''
+  results: The best baseline model, unnamed in the abstract, achieved accuracies between 40% and 55% across the
+    five subsets.
+  limitations: ''
+  sources:
+  - https://github.com/Judenpech/MLEC-QA
+  - https://doi.org/10.18653/v1/2021.emnlp-main.698
+  extracted: '2026-10-27'
 signals:
   citations: 25
   citations_source: OpenAlex

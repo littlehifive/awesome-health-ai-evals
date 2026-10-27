@@ -31,6 +31,37 @@ facets:
   eval_methods: [rubric_llm_judge, simulated_multi_turn]
   modality: [text]
   size: 1,275 Chinese and 5,804 English samples
+card:
+  task: Use each patient's evolving hospital record to choose a department, recommend examinations, give diagnoses
+    and supporting reasoning, assess changes in condition, and plan treatment through discharge.
+  items_built: An LLM segmented multi-course hospital records from MedEureka and PMC-Patients into 1,275 Chinese
+    cases and 5,804 English cases, which three clinically trained inspectors checked and two senior clinicians reviewed.
+    Three independent senior clinicians with over ten years of experience checked 4,000 sampled cases against six
+    binary quality criteria; 93.3% passed all criteria, and the remaining cases were manually corrected.
+  example: ''
+  scoring: Outputs are compared with reference annotations using accuracy for triage, recall for examination recommendations,
+    F1 for diagnoses, and intersection over union for assessment and treatment entities against gold-standard interventions.
+    An LLM scores whether diagnostic reasoning is coherent and supported by evidence and whether differential diagnoses
+    cover clinically significant alternatives; the excerpt does not specify how these scores are combined into the
+    reported average.
+  judge: Automated reference comparisons and an LLM grader assign the scores.
+  scale: Accuracy, recall, F1, entity intersection over union, and LLM-assigned reasoning scores; results and averages
+    reported as percentages.
+  validation: ''
+  score_meaning: ''
+  annotation_process: Reference annotations were produced through LLM segmentation of multi-course electronic health
+    records, initial verification by three clinically trained inspectors, and a dual review by two senior clinicians.
+    GPT-4 graded model outputs in three runs.
+  results: The best reported average scores are 49.68% on English and 48.17% on Chinese, but the excerpt does not
+    identify the winning models. A medical student who was not involved in annotation answered 100 sampled cases,
+    with human averages reported as 87.51% on English and 85.00% on Chinese.
+  limitations: The benchmark lacks medical images and time-series physiological signals, and its uneven department
+    coverage may affect generalization to underrepresented departments.
+  sources:
+  - https://doi.org/10.48448/9hks-x828
+  - https://huggingface.co/datasets/hzyue/ClinicalMC
+  - https://github.com/hzyuezh/ClinicalMPD
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

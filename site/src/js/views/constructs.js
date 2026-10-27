@@ -3,7 +3,7 @@
 // come from (or another column), with the constructs grouped under their domains.
 
 import { D, constructName, tally } from "../data.js";
-import { FACETS, ORIGIN_ORDER, help, lab } from "../labels.js";
+import { FACETS, ORIGIN_ORDER, lab } from "../labels.js";
 import { bin, bindToc, chart, pageHead, registerPop } from "../ui.js";
 import { $, $$, catalogHref, esc, fmt, setTitle } from "../util.js";
 
@@ -15,26 +15,52 @@ const domainsOf = (e) => [...new Set(e.constructs.map((c) => (D.constructs.get(c
 async function treemap(box, counts) {
   try {
     const d3 = await import("https://cdn.jsdelivr.net/npm/d3-hierarchy@3.1.2/+esm");
-    const w = 960, h = 520;
+    const w = 960, h = 600, strip = 22;
     const root = d3.hierarchy({ children: D.meta.domains.map((d) => ({ ...d, children: D.meta.constructs.filter((c) => c.domain === d.id).map((c) => ({ ...c, value: Math.max(1, counts.get(c.id) || 0) })) })) })
       .sum((d) => d.value || 0).sort((a, b) => b.value - a.value);
-    d3.treemap().size([w, h]).paddingOuter(3).paddingTop(20).paddingInner(2).round(true)(root);
+    d3.treemap().size([w, h]).paddingOuter(3).paddingTop(strip).paddingInner(2).round(true)(root);
     const maxN = Math.max(1, ...counts.values());
     const shade = (n) => (!n ? 0 : Math.min(5, Math.max(1, Math.ceil((5 * n) / maxN))));
-    const label = (d, cls) => {
+    // Labels wrap by words to fill the cell; what still doesn't fit ends in an ellipsis. Narrow
+    // cells get a smaller face, and the bold domain names a wider per-character estimate.
+    const label = (d, cls, { oneLine = false, bold = false } = {}) => {
       const ww = d.x1 - d.x0, hh = d.y1 - d.y0;
-      const chars = Math.floor((ww - 8) / 6.6);
-      if (chars < 4 || hh < 18) return "";
-      let text = d.data.name;
-      if (text.length > chars) text = `${text.slice(0, Math.max(3, chars - 1)).replace(/\s+\S*$/, "")}…`;
-      return `<text class="${cls}" x="${d.x0 + 5}" y="${d.y0 + 13}">${esc(text)}</text>`;
+      const name = d.data.name;
+      const fit = (size) => Math.floor((ww - 10) / ((bold ? 0.6 : 0.53) * size));
+      const sizes = [12.5, 11, 10];
+      let si = ww >= 150 ? 0 : ww >= 90 ? 1 : 2;
+      // A one-line label (the domain strip) shrinks before it truncates.
+      if (oneLine) while (si < sizes.length - 1 && name.length > fit(sizes[si])) si += 1;
+      const size = sizes[si];
+      const lh = Math.round(size * 11.5) / 10;
+      const budget = fit(size);
+      const maxLines = oneLine ? 1 : Math.floor((hh - 8) / lh);
+      if (budget < 4 || maxLines < 1) return "";
+      const cut = (s, n) => `${s.slice(0, Math.max(1, n - 1))}…`;
+      const lines = [];
+      let line = "";
+      // Words break at spaces and after hyphens, so "danger-sign" can wrap as "danger-" / "sign".
+      name.split(/\s+|(?<=-)/).map((x) => (x.length > budget ? cut(x, budget) : x)).forEach((x) => {
+        const glue = line.endsWith("-") ? "" : " ";
+        if (!line) line = x;
+        else if (line.length + glue.length + x.length <= budget) line += glue + x;
+        else { lines.push(line); line = x; }
+      });
+      if (line) lines.push(line);
+      if (lines.length > maxLines) {
+        lines.length = maxLines;
+        const last = lines[maxLines - 1];
+        lines[maxLines - 1] = last.length < budget ? `${last}…` : cut(last, budget);
+      }
+      const x = d.x0 + 5;
+      return `<text class="${cls}" x="${x}" y="${d.y0 + size + 1}" font-size="${size}">${lines.map((l, i) => `<tspan x="${x}" dy="${i ? lh : 0}">${esc(l)}</tspan>`).join("")}</text>`;
     };
     const leaves = root.leaves().map((d) => {
       const n = counts.get(d.data.id) || 0, s = shade(n);
       registerPop(`tm:${d.data.id}`, () => `<b>${esc(d.data.name)}</b><div>${fmt(n)} ${n === 1 ? "entry judges" : "entries judge"} this.</div><div class="pop-long">${esc(d.data.definition || "")}</div><a class="pop-more" href="#/c/${d.data.id}">Open the construct</a>`);
       return `<a href="#/c/${d.data.id}" data-pop="tm:${d.data.id}" aria-label="${esc(d.data.name)}: ${fmt(n)} entries"><rect x="${d.x0}" y="${d.y0}" width="${d.x1 - d.x0}" height="${d.y1 - d.y0}" style="fill:var(--m${s})"></rect>${label(d, `cell-label${s >= 3 ? " light" : ""}`)}</a>`;
     }).join("");
-    const doms = root.children.map((d) => `<rect class="dom-rect" x="${d.x0}" y="${d.y0}" width="${d.x1 - d.x0}" height="${d.y1 - d.y0}"></rect>${label({ x0: d.x0, x1: d.x1, y0: d.y0, y1: d.y0 + 20, data: d.data }, "dom-label")}`).join("");
+    const doms = root.children.map((d) => `<rect class="dom-rect" x="${d.x0}" y="${d.y0}" width="${d.x1 - d.x0}" height="${d.y1 - d.y0}"></rect>${label({ x0: d.x0, x1: d.x1, y0: d.y0, y1: d.y0 + strip, data: d.data }, "dom-label", { oneLine: true, bold: true })}`).join("");
     box.innerHTML = `<svg viewBox="0 0 ${w} ${h}" role="img" aria-label="Treemap of ${D.meta.domains.length} domains and ${D.meta.constructs.length} constructs, sized by the number of entries that judge each">${leaves}${doms}</svg>`;
   } catch (err) {
     box.innerHTML = "";
@@ -147,12 +173,10 @@ function switchHtml() {
 }
 
 function render() {
-  const C = D.meta.counts;
   $("#view").innerHTML = switchHtml() + (S.view === "matrix" ? matrixHtml() : browseHtml(S.counts));
   if (S.view === "matrix") renderMatrix();
   else { treemap($("#tm"), S.counts); bindToc(S.app); }
   setTitle(S.view === "matrix" ? "Matrix" : "", "Constructs");
-  $("#lede").innerHTML = `The qualities evaluations score: ${fmt(C.terms)} scoring terms from ${fmt(C.entries_with_terms)} sources, matched to ${C.constructs} shared ${help("construct", "constructs")} in ${C.domains} ${help("domain", "domains")}. A draft made with LLM help.`;
 }
 
 function readQuery(query) {
@@ -164,7 +188,7 @@ function readQuery(query) {
 export function mount({ app, query }) {
   S = { app, counts: tally(D.entries, (e) => e.constructs), collapsed: new Set() };
   readQuery(query);
-  app.innerHTML = `<div class="wrap">${pageHead({ title: "Constructs", lede: "" })}<p class="lede" id="lede" style="margin-top:-6px"></p><div id="view"></div></div>`;
+  app.innerHTML = `<div class="wrap">${pageHead({ title: "Constructs", lede: "Common constructs across benchmarks and frameworks, grouped by key domains of evaluation." })}<div id="view"></div></div>`;
   render();
 
   app.addEventListener("change", (ev) => {

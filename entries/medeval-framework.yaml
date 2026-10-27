@@ -24,6 +24,28 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric]
   modality: [text]
   size: Software harness; the README demo uses 60 filtered MedQA and PubMedQA queries
+card:
+  task: Answer medical questions from the selected benchmark or custom dataset.
+  items_built: The framework uses existing MedQA, PubMedQA, MedMCQA and MMLU-Medical items or user-supplied JSONL
+    and HuggingFace datasets, with optional filtering by medical topic. Its public comparison used 60 filtered clinical
+    queries from MedQA and PubMedQA.
+  example: ''
+  scoring: Extracted answers are compared with reference answers for accuracy, and a cross-encoder natural language
+    inference detector compares predictions with ground-truth clinical facts for hallucination rates. The framework
+    also reports confidence-based ECE, MCE and Brier scores, safety violation counts from regex and semantic checks,
+    and bootstrap 95% confidence intervals for accuracy and hallucination rates.
+  judge: Automated answer matching, an unnamed cross-encoder natural language inference model, and Python regex
+    safety rules assign the scores.
+  scale: Accuracy and hallucination rates; ECE, MCE and Brier scores; safety violation counts.
+  validation: ''
+  score_meaning: ''
+  annotation_process: ''
+  results: In the reported comparison using 60 filtered queries, glm-5.3 had the highest accuracy at 0.9286, with
+    a 95% confidence interval of 0.7735 to 0.9802.
+  limitations: ''
+  sources:
+  - https://github.com/TeslaInch/medeval-framework
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

@@ -30,6 +30,40 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 750 claims with evidence articles
+card:
+  task: Select evidence sentences from an article and classify its health claim as supported, refuted, or not enough
+    information.
+  items_built: The authors scraped 750 claim-and-article pairs from Medizin Transparent, where Cochrane Austria's
+    team investigated user inquiries and news claims using clinical studies, with study quality checked by at least
+    two scientific team members and summaries checked by a medical professional. They translated the German material
+    into English using DeepL and Opus-MT, corrected translation errors during review, and had two authors annotate
+    up to five evidence sentences per article.
+  example: Does taking LaVita promote health or physical and mental performance?
+  scoring: Predicted evidence selections and verdicts are compared with the annotated sentences and medical experts'
+    verdict labels using precision, recall, and macro-F1. Results are reported as the mean and standard deviation
+    across five folds with equal size and label distribution.
+  judge: Automated comparison with medical experts' verdict labels and evidence sentences annotated by two authors
+    assigns the scores.
+  scale: Binary evidence selection and three-class verdict prediction; precision, recall, and macro-F1 reported
+    across five folds.
+  validation: The two evidence annotators independently annotated 50 documents, or 6.7% of the dataset, achieving
+    Cohen's kappa of 0.72.
+  score_meaning: The verdict codes are Supported (0), Not enough information (1), and Refuted (2), rather than an
+    ordered performance scale. Not enough information means that an evidence article is available, but relevant
+    clinical studies are absent or too low in quality to support a reliable verdict.
+  annotation_process: At least two members of the portal's scientific team checked study quality; an author summarized
+    the findings, and a medical professional checked the summary. Evidence annotators read the claim and its verdict
+    before reading the full article, then selected up to five sentences that addressed the claim's veracity. They
+    held regular meetings to discuss labels and resolve uncertainties.
+  results: Joint DeBERTa achieved the highest verdict-prediction macro-F1 of 67.5 ± 3.2 and evidence-selection macro-F1
+    of 73.4 ± 1.4 across five folds. With gold evidence sentences, pipeline DeBERTa reached verdict-prediction macro-F1
+    of 81.9 ± 1.4.
+  limitations: The authors identify possible translation and evidence-annotation errors, some topics specific to
+    German-speaking countries, and clinical findings from demographic subgroups that do not apply to the whole population.
+  sources:
+  - https://arxiv.org/abs/2309.08503
+  - https://github.com/jvladika/HealthFC
+  extracted: '2026-10-27'
 signals:
   citations: 3
   citations_source: OpenAlex

@@ -28,6 +28,46 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 500 cases; 1,059 prefixes; 269 held-out rounds
+card:
+  task: Write a patient-facing response using only the patient information disclosed so far, communicating whether
+    to ask for clarification, advise self-care or monitoring, recommend nonurgent care, or recommend urgent care.
+  items_built: GPT-5.5 constructed, reviewed, and revised 500 cases with 1,059 evaluated prefixes from MedDialog/OpenMed,
+    ChatDoctor, PriMock57, and Followup-Q sources. A public health PhD candidate screened flagged cases for source
+    fidelity, labels, information state, and release suitability; a medical trainee reviewed cases requiring clinical
+    judgment, and both reviewers discussed unresolved cases.
+  example: '"My 13-year-old daughter may be having an allergic reaction to an antibiotic. She had hives and some
+    swelling earlier today, got a steroid shot, and now the hives are coming back. I already gave Benadryl. What
+    should I do?"'
+  scoring: A fixed GPT-5.5 mapper receives the patient context, model response, and four-label codebook, without
+    the gold label, and classifies the action communicated. Mapped labels are compared with gold labels to calculate
+    four-label macro-F1 and accuracy across evaluated rounds, with confidence intervals from 1,000 case-clustered
+    bootstrap replicates.
+  judge: GPT-5.5 assigns action labels using a fixed prompt and structured JSON output.
+  scale: One of four action labels per response; macro-F1 is the main metric, with accuracy and label-level and
+    threshold-error metrics also reported.
+  validation: In a 120-response audit after strict review, Reviewer 1 agreed with the mapper on 95.0% of four-label
+    actions, 96.7% of professional-care decisions, and 99.2% of urgent-care decisions; Reviewer 2 agreed on 85.0%,
+    92.5%, and 95.0%, respectively.
+  score_meaning: Information needed means asking for the smallest necessary clarification before recommending an
+    action; self-care or monitor means giving self-care or monitoring guidance; nonurgent care means recommending
+    professional evaluation without urgent language; urgent care means recommending same-day, emergency, or other
+    care that cannot safely be delayed. Higher scores indicate better agreement with the intended current actions,
+    not established clinical safety, diagnostic accuracy, fairness, or deployment readiness.
+  annotation_process: GPT-5.5 drafted cases and candidate labels, checked them against the sources, and revised
+    flagged problems in an iterative construction, review, and revision loop. A public health PhD candidate screened
+    flagged cases for source fidelity, triage labels, information state, and release suitability; a medical trainee
+    reviewed cases requiring clinical judgment. Both reviewers discussed unresolved cases before inclusion, revision,
+    or exclusion, and the loop continued until each retained case had a resolved label and release decision.
+  results: Claude Haiku 4.5 had the highest prompted macro-F1 point estimate, 63.4, on 269 held-out rounds. Across
+    11 models, unprompted macro-F1 ranged from 31.2 to 50.4, and prompted macro-F1 ranged from 46.9 to 63.4.
+  limitations: The authors state that reconstructed cases assume cooperative disclosure and may be cleaner than
+    real patient language, four labels omit local care-system differences, mapper boundaries remain imperfect, and
+    scores do not establish clinical safety, diagnostic accuracy, fairness, or deployment readiness.
+  sources:
+  - https://arxiv.org/abs/2608.03731
+  - https://huggingface.co/datasets/ningkko/CARE-Bench
+  - https://github.com/ningkko/CARE-bench
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

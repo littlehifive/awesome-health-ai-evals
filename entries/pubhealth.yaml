@@ -28,6 +28,43 @@ facets:
   eval_methods: [automatic_metric, expert_human_rating]
   modality: [text]
   size: 11,832 claims (9,832 train, 1,235 test, 1,225 validation)
+card:
+  task: Classify each public-health claim as true, false, mixture or unproven, and generate an explanation of its
+    veracity using the accompanying article.
+  items_built: Neema Kotonya and Francesca Toni scraped 39,301 claims from Snopes, Politifact, TruthorFiction, FactCheck,
+    FullFact, Associated Press, Reuters and Health News Review, retaining 11,832 in the paper's dataset. They standardized
+    labels, assumed news headlines from reputable sources were true, filtered articles using a 7,000-term health
+    lexicon, and removed entries with unsuitable claim lengths or incomplete or brief explanations.
+  example: '"Expired boxes of cake and pancake mix are dangerously toxic."'
+  scoring: Predicted labels are compared with reference labels using accuracy, macro-F1, precision and recall, while
+    generated explanations are compared with journalist-written references using ROUGE-1, ROUGE-2 and ROUGE-L F1.
+    Human annotators and natural-language inference models also assess whether explanation sentences entail or avoid
+    contradicting the claim and avoid contradicting each other, reporting separate coherence percentages.
+  judge: Automatic reference-based metrics, five human annotators, a decomposable attention model with ELMo trained
+    on SNLI, and RoBERTa trained separately on SNLI and MNLI assign scores.
+  scale: Four-class classification metrics; ROUGE F1 scores; separate percentages for strong global, weak global
+    and local coherence.
+  validation: Five annotators assessed 25 test entries; for EXPLAINERFC-EXPERT, Randolph's free-marginal kappa was
+    0.36, 0.44 and 0.20, with agreement of 68%, 62.73% and 40% on two-, three- and four-option questions. The authors
+    found the inference-model approximation reliable for weak global and local coherence but poor for strong global
+    coherence, and called for a larger human study.
+  score_meaning: For coherence scoring, a contradiction between an explanation and a claim labelled false is treated
+    as neutral; an explanation that entails a false claim is not relabelled. Local coherence fails if any pair of
+    sentences in the explanation contradicts each other.
+  annotation_process: The human evaluation used randomly sampled test entries and covered journalist-written explanations
+    alongside outputs from EXPLAINERFC and EXPLAINERFC-EXPERT, using multiple-choice questions about sentence agreement
+    and relevance to the claim. The computational coherence evaluation covered all 1,183 test examples.
+  results: SCIBERT achieved the highest reported classification macro-F1 and accuracy, but the supplied text gives
+    no numerical scores. EXPLAINERFC-EXPERT achieved ROUGE-1, ROUGE-2 and ROUGE-L F1 scores of 32.30, 13.46 and
+    26.99.
+  limitations: The authors state that entries vary in medical information and in the intended purpose of their explanation
+    texts, that ROUGE gives an incomplete picture of explanation quality, and that the human evaluation needs a
+    larger study.
+  sources:
+  - https://arxiv.org/abs/2010.09926
+  - https://huggingface.co/datasets/ImperialCollegeLondon/health_fact
+  - https://github.com/neemakot/Health-Fact-Checking
+  extracted: '2026-10-27'
 signals:
   citations: 195
   citations_source: OpenAlex

@@ -24,6 +24,23 @@ facets:
   eval_methods: [automatic_metric, expert_human_rating]
   modality: [text]
   size: 2.8k question-answer pairs
+card:
+  task: Answer questions in Amharic about sexual, reproductive, and maternal health rights.
+  items_built: The researchers automatically generated question-answer pairs from medical textbooks and guidelines
+    authored by medical institutions and organizations. Annotation, translation, and evaluation produced a refined
+    collection of 2.8k Amharic question-answer pairs.
+  example: ''
+  scoring: Test results were assessed using BLEU scores and human evaluations.
+  judge: ''
+  scale: ''
+  validation: ''
+  score_meaning: ''
+  annotation_process: ''
+  results: ''
+  limitations: The authors state that the dataset needs improvements in size, quality, and domain coverage.
+  sources:
+  - https://doi.org/10.1109/ichi61247.2024.00091
+  extracted: '2026-10-27'
 signals:
   citations: 4
   citations_source: OpenAlex

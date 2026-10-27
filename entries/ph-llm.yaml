@@ -27,6 +27,40 @@ facets:
   eval_methods: [mcq_exact_match, rubric_llm_judge, expert_human_rating, automatic_metric]
   modality: [text]
   size: 857 case studies; sleep-medicine and fitness MCQ exams; sleep-quality prediction set
+card:
+  task: Generate personalized sleep and fitness insights and recommendations from wearable data, answer domain-specific
+    multiple-choice questions, and predict self-reported sleep disturbance and impairment from sensor readings.
+  items_built: 'Domain experts curated 857 wearable-data case studies: 457 sleep and 300 fitness cases used expert
+    revisions of Gemini responses with repeated quality checks, while 100 holdout cases had expert responses written
+    from scratch. The exam sets drew from AMA PRA Category 1 and ABIM MOC sleep medicine question banks and NSCA-CSCS
+    fitness certification question banks; sleep prediction targets came from validated self-report surveys.'
+  example: '"What can I do to improve my sleep?"'
+  scoring: Domain experts grade case-study responses on 15 rubric questions, and ratings are averaged across evaluations;
+    fine-tuned AutoEval models also predict rubric ratings for model development. Exam accuracy is the percentage
+    of answers matching the single correct option, while sleep prediction is assessed with AUROC and AUPRC.
+  judge: Sleep and fitness domain experts grade case studies, Gemini Pro 1.0-based AutoEval models predict ratings,
+    and exam answers are checked against answer keys.
+  scale: 'Case-study criteria: 1 to 5, higher is better, reported as mean ratings; exams: percentage correct; prediction:
+    AUROC and AUPRC.'
+  validation: AutoEval predictions were compared with expert ratings using Spearman correlation, Kendall's W, weighted
+    Cohen's kappa, and ICC(3,1); the best models had agreement similar to inter-rater agreement, but numerical values
+    are not provided in the excerpts.
+  score_meaning: For important data interpretations, ratings of 2 and 3 mean many or several interpretations are
+    missing, while 4 and 5 mean few or none are missing. The approximate threshold is 70% for sleep-medicine continuing
+    education credit or passing the fitness practice exam.
+  annotation_process: 'Experts were randomly assigned case studies whose expert response they had not written, and
+    each assigned expert rated all three responses: Gemini Ultra 1.0, PH-LLM, and a domain expert. Cases were distributed
+    across primary experts according to availability, with some also assigned to other available domain experts.
+    AutoEval selected the rubric option with the highest predicted probability from the five possible ratings.'
+  results: PH-LLM scored 79% on sleep medicine exams and tied Gemini Ultra 1.0 at 88% on fitness exams, compared
+    with expert averages of 76% and 71%, respectively. Its mean sleep case-study rating was 4.61 versus 4.75 for
+    experts, while its fitness ratings were not statistically different from expert ratings.
+  limitations: The authors report that rubric ratings clustered near the top of the scale, making model differences
+    hard to distinguish, and that expert ratings varied between raters.
+  sources:
+  - http://arxiv.org/abs/2406.06474
+  - https://github.com/google-health/consumer-health-research
+  extracted: '2026-10-27'
 signals:
   citations: 57
   citations_source: OpenAlex

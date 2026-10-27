@@ -26,6 +26,35 @@ facets:
   eval_methods: [mcq_exact_match, rubric_llm_judge]
   modality: [text]
   size: 5,749 questions (4,117 objective, 1,632 subjective)
+card:
+  task: Answer Chinese pediatric questions by judging statements, selecting options, matching sentence gaps to options,
+    explaining concepts, or analyzing clinical cases.
+  items_built: The authors collected 3,576 multiple-choice questions from CNMLE banks, extracted 258 true/false,
+    167 essay and 67 case-analysis questions from university exam PDFs, curated 1,398 essays from pediatric standards
+    and guidelines, and manually built 283 pairing questions from multiple-choice items. They removed duplicates
+    and manually checked and corrected disease-group labels suggested by GLM-4 using ICD-11.
+  example: ''
+  scoring: True/false and multiple-choice answers are checked for correctness and weighted by difficulty derived
+    from the proportion of tested models answering correctly; pairing answers receive 3, 1 or 0 points for fully,
+    partly or entirely incorrect matches. GPT-4o grades essays and case analyses with weights of 5 and 10 respectively,
+    and scores are summed within question types and combined in proportions of 10:40:10:30:10 for true/false, multiple
+    choice, pairing, essay and case analysis.
+  judge: Objective answers are checked against correct answers, and GPT-4o grades subjective responses.
+  scale: 'Pairing: 0, 1 or 3 points; essay weight: 5; case-analysis weight: 10; difficulty-weighted objective scores
+    and a weighted integrated score.'
+  validation: Human and GPT-4o case-analysis scores had Spearman/Kendall correlations of 0.7508/0.6430 for BianQue-7B,
+    0.7328/0.6325 for ChatGLM3-6B, 0.8079/0.7149 for Qwen1.5-72B and 0.7732/0.6511 for GPT3.5-turbo.
+  score_meaning: An overall score of 60 or more is a pass. For the 50 multiple-choice questions with more than one
+    correct answer, a response counts as correct only if it selects all correct options and no incorrect options.
+  annotation_process: Each case-analysis sub-question is assigned its own score, and GPT-4o is prompted to give
+    reasons for its grading decisions. Human evaluators also scored case-analysis responses from BianQue-7B, ChatGLM3-6B,
+    Qwen1.5-72B and GPT3.5-turbo to check agreement with GPT-4o.
+  results: ''
+  limitations: The authors state that coverage omits many pediatric diseases and treatments, is limited to pediatrics,
+    and may be affected by GPT-4o's preference for particular answer styles.
+  sources:
+  - https://doi.org/10.1007/s11704-025-41345-w
+  extracted: '2026-10-27'
 signals:
   citations: 4
   citations_source: OpenAlex

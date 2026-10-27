@@ -84,8 +84,7 @@ i.ph { line-height: 1; }
 .site .wrap { display: flex; align-items: center; gap: 28px; min-height: 60px; }
 .brand { display: inline-flex; align-items: center; gap: 10px; font-family: var(--serif); font-size: 19px; color: var(--ink); text-decoration: none; white-space: nowrap; }
 .brand:hover { color: var(--ink); }
-.brand .mark { width: 14px; height: 14px; border: 2px solid var(--accent); border-radius: 50%; position: relative; flex: none; }
-.brand .mark::after { content: ""; position: absolute; inset: 2px; background: var(--accent); border-radius: 50%; }
+.brand svg { width: 22px; height: 22px; flex: none; }
 .nav { display: flex; gap: 2px; margin-left: auto; }
 .nav a { color: var(--ink-2); text-decoration: none; padding: 6px 10px; border-radius: var(--radius); font-size: 16px; white-space: nowrap; }
 .nav a:hover { color: var(--ink); background: var(--accent-soft); }
@@ -213,14 +212,7 @@ figure.chart { margin: 0; min-width: 0; }
 .hero .wrap { display: grid; grid-template-columns: minmax(260px, 340px) minmax(0, 1fr); gap: 28px 56px; align-items: start; }
 .hero h1 { font-size: clamp(30px, 3.1vw, 42px); line-height: 1.12; }
 .hero .sub { font-size: 19px; color: var(--ink-2); margin: 18px 0 26px; line-height: 1.45; max-width: 34ch; }
-.numbers { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 28px 0; }
-.numbers .wrap { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
-.stat { text-decoration: none; color: inherit; }
-.stat strong { display: block; font-family: var(--serif); font-size: 40px; font-weight: 500; line-height: 1; font-variant-numeric: tabular-nums; }
-.stat span { display: block; font-size: 15px; color: var(--ink-2); margin-top: 8px; line-height: 1.35; max-width: 24ch; }
-a.stat:hover strong { color: var(--accent); }
 @media (max-width: 900px) { .hero { padding: 32px 0 28px; } .hero .wrap { grid-template-columns: 1fr; } .hero .sub { max-width: none; } }
-@media (max-width: 700px) { .numbers .wrap { grid-template-columns: 1fr 1fr; gap: 20px 16px; } .stat strong { font-size: 34px; } }
 
 /* ---------- Catalog ---------- */
 .cat-grid { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 32px 56px; padding-top: 30px; }
@@ -353,6 +345,7 @@ table.list { width: 100%; border-collapse: collapse; font-size: 15px; min-width:
 .none { color: var(--muted); }
 q.ex { display: block; font-style: italic; color: var(--ink-2); }
 .terms-intro { color: var(--ink-2); font-size: 16px; max-width: 66ch; }
+.sections .terms-intro + h3 { margin-top: 18px; }
 /* Scoring terms: one table for every entry, nested the way the source nests its terms. */
 .terms { width: 100%; border-collapse: collapse; font-size: 15px; margin-top: 4px; }
 .terms th { text-align: left; font-weight: 600; font-size: 13.5px; color: var(--muted); padding: 6px 14px 6px 0; border-bottom: 1px solid var(--line-strong); vertical-align: bottom; }
@@ -426,9 +419,9 @@ details.notes p { padding: 0 0 14px; color: var(--ink-2); font-size: 15.5px; lin
 .tm a rect { cursor: pointer; }
 .tm a:hover rect { stroke: var(--ink); }
 .tm text { font-family: var(--sans); pointer-events: none; }
-.tm .cell-label { font-size: 12px; fill: var(--ink); }
+.tm .cell-label { fill: var(--ink); }
 .tm .cell-label.light { fill: #fff; }
-.tm .dom-label { font-size: 12.5px; font-weight: 600; fill: var(--ink); }
+.tm .dom-label { font-weight: 600; fill: var(--ink); }
 .tm .dom-label.light { fill: #fff; }
 .dom-layout { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 24px 48px; padding-top: 36px; }
 .dom-nav { position: sticky; top: 16px; align-self: start; font-size: 15px; }

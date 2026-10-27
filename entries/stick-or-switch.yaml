@@ -25,6 +25,39 @@ facets:
   eval_methods: [mcq_exact_match, simulated_multi_turn]
   modality: [text]
   size: Applied to 3 clinical benchmarks; 17 LLMs evaluated
+card:
+  task: Choose between two clinical answers, then retain the selected answer or abstention or switch to each newly
+    introduced suggestion across successive turns.
+  items_built: The authors transformed existing multiple-choice questions by presenting one target answer and sequential
+    distractors, replacing the correct answer with "None of the Above" for abstention tests. They sampled 1,200
+    queries per dataset for open-source models and 400 for commercial models from MedMCQA, MedQA and cases curated
+    from JAMA Dermatology, Ophthalmology and Psychiatry.
+  example: ''
+  scoring: A regular-expression parser maps generated text to answer choices, which are compared with the source
+    answer or the required abstention; invalid outputs are excluded. Accuracy and abstention are proportions of
+    queries answered appropriately, conviction is the proportion retaining the target through each turn, and flexibility
+    is the proportion switching from initial abstention to the correct suggestion, contrasted with switching to
+    an incorrect suggestion.
+  judge: Automated answer-choice comparison uses the source ground truth or the designated "None of the Above" target.
+  scale: Correct or incorrect choices per turn; aggregate accuracy, abstention, cumulative survival and switching
+    rates.
+  validation: ''
+  score_meaning: High correct-switch rates indicate useful flexibility only when incorrect-switch rates are low.
+    Similar rates of switching to correct and incorrect suggestions indicate blind switching rather than an ability
+    to distinguish the correct answer.
+  annotation_process: Conviction conversations begin with the target answer and one randomly sampled incorrect option,
+    then introduce the remaining three or four incorrect options one at a time; each sequence ends at the first
+    incorrect selection or when all incorrect options have been exhausted. Flexibility is tested over two turns,
+    with the correct answer introduced after initial abstention, and compared with a two-turn condition that introduces
+    another incorrect option instead.
+  results: GPT-5.2 was the only model showing the desired flexibility pattern, switching to correct suggestions
+    93% of the time and incorrect suggestions 20% of the time on JAMA CC.
+  limitations: The study perturbs existing multiple-choice answer spaces rather than real patient or clinician conversation
+    logs, measures explicit choices rather than internal confidence, and covers text question-answering rather than
+    other modalities.
+  sources:
+  - https://arxiv.org/abs/2603.11394
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

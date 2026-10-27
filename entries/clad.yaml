@@ -27,6 +27,35 @@ facets:
   eval_methods: [rubric_llm_judge, simulated_multi_turn]
   modality: [text]
   size: 268 cases (198 used for evaluation); 16 LLMs, 3,072 runs
+card:
+  task: Conduct a multi-turn consultation with a simulated patient and recommend care that meets the court-derived
+    standard of care for the case.
+  items_built: The dataset contains 268 cases built from publicly available US medical malpractice court opinions
+    through a pipeline with LLM-based case extraction and quality-assurance and validation components. Symptoms,
+    the defendant physician's actions and the court-endorsed actions were extracted; 198 cases were used for evaluation
+    after excluding cases where no model scored above zero.
+  example: ''
+  scoring: Three LLM judges compare each consultation with court-derived criteria, assigning 0 when the primary
+    action is not addressed, 0.5 when it is addressed but fewer than half the secondary criteria are met, and 1
+    when at least half are met. Majority vote determines the consultation score, with three-way ties resolved by
+    the median; recommended diagnostic procedures are also matched to CPT codes and priced using 2026 CMS Medicare
+    schedules.
+  judge: Claude Sonnet 4, Grok 4.1 and GPT-5.2 assign the defensibility scores.
+  scale: Consultation scores of 0, 0.5 or 1; reported defensibility on a 0-1 scale and estimated Medicare cost per
+    consultation.
+  validation: Pairwise judge agreement was 84% for Claude Sonnet 4 and Grok 4.1, 77% for Claude Sonnet 4 and GPT-5.2,
+    and 69% for Grok 4.1 and GPT-5.2; all three agreed in 66% of consultations. Physician validation of 121 sampled
+    consultations showed 84% agreement with the majority vote on binary outcomes.
+  score_meaning: Higher defensibility means the model's advice more closely meets the court's requirements for avoiding
+    a malpractice finding. Reported results use 198 cases after excluding cases where no model scored above zero.
+  annotation_process: The three LLM judges scored consultations independently.
+  results: GPT-5.2-Concise, an ablation variant, had the highest reported defensibility score at 0.74, with an estimated
+    mean diagnostic cost of $1,022. GPT-5.2 scored 0.71 with a mean cost of $1,073.
+  limitations: ''
+  sources:
+  - https://github.com/dviraran/CLAD
+  - https://doi.org/10.5281/zenodo.21097484
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

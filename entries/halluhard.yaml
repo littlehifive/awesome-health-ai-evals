@@ -28,6 +28,41 @@ facets:
   eval_methods: [rubric_llm_judge, simulated_multi_turn]
   modality: [text]
   size: 950 seed questions (250 medical guidelines); multi-turn with LLM-generated follow-ups
+card:
+  task: Answer an open-ended question and two follow-up questions using the conversation history, providing inline
+    citations for factual claims.
+  items_built: The authors assembled 250 legal questions from verified questions and California bar exams, 250 research
+    questions from arXiv abstracts, 250 medical questions from guidelines, and 200 coding questions across Python,
+    Scala, R and Elixir; all seed questions were reviewed by domain experts. GPT-5-mini wrote the medical questions
+    from publicly available guidelines published before 2023, including NICE guidelines, and a user LLM generated
+    follow-up questions from each conversation's history.
+  example: '"According to authoritative guidelines, discuss the role of protein kinase inhibitors in the treatment
+    of cancer, including their mechanism of action, typical targets (with examples), and how these characteristics
+    inform their clinical use."'
+  scoring: For legal, research and medical answers, the judge checks extracted claims against web evidence, including
+    full-text sources, and marks a claim as hallucinated if its reference or content grounding fails; evaluation
+    samples up to five claims per response from 100 conversations per domain and averages hallucination rates across
+    three turns. For coding, the judge flags an entire response if it contains an installation, import or function-call
+    hallucination and reports the percentage flagged across 600 responses.
+  judge: GPT-5-mini-thinking judges citation grounding, and GPT-5-mini with web search judges coding responses.
+  scale: Binary hallucination verdict per claim, or per coding response; percentage hallucinated, averaged across
+    three turns, with lower values better.
+  validation: Two postgraduate students independently annotated more than 120 claims from 10 research-domain responses.
+    Their agreement was 93.5% for reference grounding and 92.5% for content grounding; the judge agreed with their
+    consensus on 97.0% and 87.9%, respectively.
+  score_meaning: A reference-grounding failure means the cited source cannot be located; a content-grounding failure
+    means the cited source does not support the claimed content.
+  annotation_process: The judge decides whether the retrieved evidence is sufficient, refining queries and running
+    additional searches when it is not, rather than using a fixed number of searches. For the human validation,
+    annotators first read the academic papers to understand them before judging content grounding; the process took
+    around 10 hours for both annotators.
+  results: Opus-4.5 with web search was the strongest configuration, with an approximately 30% hallucination rate.
+  limitations: The authors warn that benchmark scores can be over-relied on or misinterpreted and recommend using
+    HalluHard alongside broader evaluations.
+  sources:
+  - https://arxiv.org/abs/2602.01031
+  - https://github.com/epfml/halluhard
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

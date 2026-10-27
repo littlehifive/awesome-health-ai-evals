@@ -26,6 +26,36 @@ facets:
   eval_methods: [automatic_metric, expert_human_rating]
   modality: [text]
   size: Process framework; suggests at least 20 scenarios with 30 replicates each and at least 500 synthetic patient records
+card:
+  task: Answer clinical vignette questions, such as naming diagnoses or recommending treatments, for comparison
+    across patient demographic groups.
+  items_built: The framework applies to locally selected clinical tasks rather than a fixed item set and was developed
+    from a literature review, established governance guidelines, and iterative feedback from clinicians, behavioral
+    scientists, and AI experts. It recommends at least 20 clinical scenarios drawn from sources such as USMLE, NEJM
+    Healer, Merck Manual, or published cases; its example audit varies age, sex, and race while keeping medical
+    history unchanged.
+  example: ''
+  scoring: The framework recommends comparing text outputs with clinically validated gold-standard responses using
+    ROUGE, METEOR, or BERTScore, and classifying clinical correctness against guidelines. Analysts compare numeric
+    outcomes, categorical outcomes, or text scores across demographic groups using statistical tests; no single
+    aggregate score is specified.
+  judge: Automated text metrics support scoring, with analysts, clinical experts, and biostatisticians interpreting
+    audit results.
+  scale: Fully correct, partially correct, or incorrect; task-specific metrics and demographic comparisons, with
+    no fixed overall scale.
+  validation: ''
+  score_meaning: '"Fully correct" means complete alignment with clinical guidelines, "partially correct" means minor
+    clinically acceptable deviations, and "incorrect" means clinically unacceptable deviations.'
+  annotation_process: 'The framework recommends validating synthetic patient cases in two stages: analysts statistically
+    compare synthetic and real clinical data distributions, then clinical experts independently review a sample
+    for clinical plausibility and anomalies. For a human baseline, it recommends evaluating at least five clinicians
+    on the same scenarios as the AI.'
+  results: ''
+  limitations: The authors state that broad AI tools require extensive expertise and evaluation resources, the framework
+    still needs empirical testing in clinical settings, and its list of biases is not exhaustive.
+  sources:
+  - https://pmc.ncbi.nlm.nih.gov/articles/PMC12234702/
+  extracted: '2026-10-27'
 signals:
   citations: 52
   citations_source: OpenAlex

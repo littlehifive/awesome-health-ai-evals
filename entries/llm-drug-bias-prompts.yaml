@@ -24,6 +24,23 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: "about 177,000 prompts (spreadsheet with 177,121 rows)"
+card:
+  task: Recommend a medication for the condition described in each clinical vignette, where a specified drug or
+    drug class needs to be initiated.
+  items_built: The standardized clinical vignettes systematically vary patient demographic characteristics, either
+    stating them explicitly or leaving them unspecified.
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: ''
+  validation: ''
+  score_meaning: ''
+  annotation_process: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://huggingface.co/datasets/Medical-AI-Lab/llm-drug-bias
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

@@ -24,6 +24,37 @@ facets:
   eval_methods: [automatic_metric, expert_human_rating]
   modality: [text]
   size: 416 question-answer pairs
+card:
+  task: Answer a patient's question in patient-friendly language using the supplied discharge summary, with its
+    patient-facing discharge letter removed.
+  items_built: An LLM generated 500 question-answer pairs from clinician-written patient-facing letters within MIMIC-IV
+    discharge summaries, after Llama-3-70B-Instruct split the letters into sentences verified by exact string matching.
+    One physician retained 416 pairs after checking factual correctness, completeness, safety, answerability from
+    the remaining summary, and sufficient complexity.
+  example: ''
+  scoring: Generated answers are compared with reference answers using ROUGE-1, ROUGE-2, ROUGE-L, Bio_ClinicalBERT-based
+    BERTScore, and scispaCy-extracted UMLS entity F1, with an average across the five metrics reported. A physician
+    also rated 100 answers sampled across five automatic-score bins from two models on five criteria and made blinded
+    preferences between reference answers and 100 additional generated answers.
+  judge: Automatic similarity metrics and one physician assign the scores.
+  scale: Five automatic similarity metrics and their average; factuality, brevity, patient-friendliness, and relevance
+    rated 1-5, and safety rated 0 or 1.
+  validation: 'Physician ratings generally increased across five automatic-score bins: Mistral-7B-Instruct-v0.1
+    factuality rose from 2.5 in the lowest bin to 4.3 in the highest, while Meta-Llama-3.1-8B-Instruct remained
+    above 4.0 across all bins.'
+  score_meaning: Factuality measures medical accuracy, brevity measures conciseness, patient-friendliness measures
+    clarity for lay readers, and relevance measures alignment with the question; higher ratings indicate better
+    performance. Safety is 0 for unsafe answers and 1 for safe answers, based on potential harm or misleading information.
+  annotation_process: For each model, answers were sorted by their average automatic score and divided into five
+    equal-sized groups, then ten answers were sampled from each group for physician rating. The same sampling procedure
+    selected the additional answers used in the blinded preference comparison.
+  results: Meta-Llama-3.1-8B-Instruct led all seven tested models with an average automatic score of 31.43, including
+    BERTScore F1 of 69.35 and UMLS F1 of 23.55.
+  limitations: The authors identify English-only coverage, underrepresentation of post-discharge care and follow-up,
+    and automatic metrics that sometimes disagree with physician judgments, especially on brevity and relevance.
+  sources:
+  - https://arxiv.org/abs/2502.03298
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

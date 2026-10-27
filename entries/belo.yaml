@@ -27,6 +27,39 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric, expert_human_rating]
   modality: [text]
   size: 900 questions
+card:
+  task: Choose the correct option for each ophthalmology multiple-choice question and explain the reasoning behind
+    the answer.
+  items_built: The authors sampled 900 questions from BCSC (260), BioASQ (10), MedMCQA (572), MedQA (40), and PubMedQA
+    (18), using ophthalmology labels, keyword matching, and a fine-tuned PubMedBERT classifier to identify relevant
+    items. Research staff, two optometrists, and 13 ophthalmologists checked the items across multiple rounds, replacing
+    duplicates and irrelevant or outdated questions, correcting errors, and refining explanations before senior
+    ophthalmologists adjudicated them.
+  example: ''
+  scoring: Selected answers are compared with the answer key to calculate accuracy across all 900 questions and
+    macro-F1 on four-option questions; explanations are compared with expert reference explanations using ROUGE-L,
+    BERTScore, BARTScore, AlignScore, and METEOR. The five mean text-generation scores are each rescaled from the
+    lowest to highest observed model value onto 0 to 1 and averaged equally for an aggregate reasoning score; experts
+    separately rated 50 questions answered correctly by all three models in the qualitative evaluation.
+  judge: Automated answer-key comparisons and text-generation metrics assign quantitative scores; two board-certified
+    ophthalmologists rate reasoning accuracy, completeness, and readability.
+  scale: 'Answer correctness: correct or incorrect; final accuracy and macro-F1: 0 to 1; aggregate reasoning score:
+    0 to 1; expert criteria: 5-point Likert scales.'
+  validation: ''
+  score_meaning: Higher scores indicate better performance on all metrics; for BARTScore, which has negative values,
+    scores closer to zero indicate better performance.
+  annotation_process: Each reference explanation needing improvement was revised by one board-certified ophthalmologist,
+    and corrected or replacement questions were rechecked by the ophthalmologist who flagged them. Three senior
+    ophthalmologists then proofread, further amended and adjudicated the items. For the qualitative evaluation,
+    FA and KL rated each response from GPT-4o, Llama-3-8B and Gemini 1.5 Pro on randomly selected questions.
+  results: 'OpenAI o1 led with accuracy of 0.882 (95% CI: 0.861-0.903), macro-F1 of 0.890 (95% CI: 0.869-0.910),
+    and the highest aggregate reasoning performance. Among the three models rated by experts, GPT-4o led in reasoning
+    accuracy (4.91) and readability (4.92), while Gemini 1.5 Pro led in completeness (4.79).'
+  limitations: The authors state that BELO has insufficient real-world clinical cases and does not yet include visual
+    questions or cases with multiple follow-ups and management plans.
+  sources:
+  - https://arxiv.org/abs/2507.15717
+  extracted: '2026-10-27'
 signals:
   citations: 2
   citations_source: OpenAlex

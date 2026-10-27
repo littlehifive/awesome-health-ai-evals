@@ -26,6 +26,26 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 1,215 conversations; 5,262 rubric criteria
+card:
+  task: Write the next assistant response to a mental-health conversation, retaining any initial system message
+    that supplies age or other background context.
+  items_built: OpenAI built the synthetic conversations, and more than 80 licensed psychiatrists and psychologists
+    from more than 20 countries wrote the rubrics. Two clinicians authored each rubric, and a third adjudicated
+    it.
+  example: ''
+  scoring: An OpenAI model grades the response against the conversation's rubric criteria. Meeting a positive criterion
+    earns its assigned points, while meeting a negative criterion incurs its assigned penalty; the provided text
+    does not specify how these scores are combined into the reported metric.
+  judge: An OpenAI model assigns the scores; its name is not given in the provided text.
+  scale: Signed integer points per criterion; final aggregation is not specified.
+  validation: ''
+  score_meaning: ''
+  annotation_process: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://huggingface.co/datasets/MercuriusDream/MentalHealthBench
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

@@ -36,6 +36,34 @@ facets:
   modality:
   - text
   size: 5 principles with components and subcomponents (Table 1); three-step evaluation process
+card:
+  task: Respond to user queries about personal wearable and health data, wellness information, and healthy lifestyle
+    changes.
+  items_built: The framework was developed through a literature review of generative AI evaluation frameworks, datasets,
+    benchmarks, and human and automated evaluation methods. For its Fitbit application, realistic user queries were
+    created by use case with expected response and data types, checked for lexical and semantic diversity, and updated
+    using real-world interactions.
+  example: ''
+  scoring: Human raters assess outputs against guidelines with definitions and examples, using Boolean questions
+    wherever possible; programmatic and LLM autoraters assess selected output properties against predefined criteria.
+    The text does not specify how ratings are combined into an overall score.
+  judge: Scores are assigned by 18 external generalist raters, 15 clinical raters comprising physicians and scientists,
+    programmatic autoraters, and LLM judges using Gemini Flash 2.5.
+  scale: Boolean responses wherever possible; no fixed aggregate metric specified.
+  validation: Inter-rater reliability was assessed after each evaluation round, and autoraters were measured using
+    accuracy, precision, recall, F1, and Cohen's kappa, but no numerical results are provided in the excerpts.
+  score_meaning: ''
+  annotation_process: Before evaluation cycles, raters received interactive training with written guidelines, realistic
+    tasks using labeled examples, and detailed feedback. For accuracy assessments, evaluators sought evidence from
+    guideline-producing health organizations or public health organizations to identify claims opposed by medical
+    or scientific consensus or otherwise factually inaccurate. Clinical raters used live adjudication to resolve
+    disagreements.
+  results: ''
+  limitations: The authors identify subjective judgments and inter-rater disagreement as evaluation challenges,
+    and note that autoraters have limited alignment with humans on subjective user-experience criteria such as helpfulness.
+  sources:
+  - http://arxiv.org/abs/2512.08936
+  extracted: '2026-10-27'
 signals:
   citations: 2
   citations_source: OpenAlex

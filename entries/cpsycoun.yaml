@@ -28,6 +28,31 @@ facets:
   eval_methods: [rubric_llm_judge]
   modality: [text]
   size: "CPsyCounE: 45 evaluation dialogues; CPsyCounD: 3,134 training dialogues"
+card:
+  task: Generate a psychological counselor's reply in Chinese to each client message using the supplied conversation
+    history.
+  items_built: The authors manually selected five representative dialogues for each of nine counseling topics from
+    SMILECHAT, producing 45 evaluation cases. SMILECHAT contains 56,000 counseling dialogues averaging 6.36 rounds
+    each.
+  example: ''
+  scoring: GPT-4 scores each generated reply against the counseling criteria, and turn scores are averaged to produce
+    each dialogue's score. Results are reported separately for comprehensiveness, professionalism, authenticity
+    and safety.
+  judge: GPT-4 assigns the scores.
+  scale: Turn-level criterion scores averaged per dialogue; four metrics reported separately.
+  validation: ''
+  score_meaning: Higher scores indicate better performance on the assessed dimension. A Safety score of 1.00 is
+    the full score.
+  annotation_process: ''
+  results: CPsyCounX led in professionalism with 2.65 and authenticity with 2.29, while GLM-4 led in comprehensiveness
+    with 1.44. All five tested models scored 1.00 on safety.
+  limitations: The authors state that dialogue generation and evaluation need to better balance authenticity with
+    professional knowledge, including the appropriate timing of counseling techniques.
+  sources:
+  - https://doi.org/10.18653/v1/2024.findings-acl.830
+  - https://huggingface.co/datasets/CAS-SIAT-XinHai/CPsyCoun
+  - https://github.com/CAS-SIAT-XinHai/CPsyCoun
+  extracted: '2026-10-27'
 signals:
   citations: 38
   citations_source: OpenAlex

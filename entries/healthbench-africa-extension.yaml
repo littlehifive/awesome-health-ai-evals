@@ -30,6 +30,26 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 500 examples (sampled from the 5,000 HealthBench prompts); per-language count not stated
+card:
+  task: Respond to medical prompts in Igbo, Yoruba, Nigerian Pidgin, or Kikuyu.
+  items_built: The card lists 500 train examples sampled from HealthBench's 5,000 prompts, with prompts and responses
+    translated using gpt-4o-mini and adapted culturally and linguistically while retaining the original expert-defined
+    rubrics. Human validation by native speakers and domain experts is optional and does not yet cover all samples.
+  example: ''
+  scoring: LLM judges and human evaluators assess responses using the original HealthBench rubrics, which contain
+    evaluation criteria and scoring rules. The card does not specify how criterion scores are combined.
+  judge: Unspecified LLM judges and medically trained professionals fluent in the target languages assign scores.
+  scale: ''
+  validation: ''
+  score_meaning: ''
+  annotation_process: ''
+  results: ''
+  limitations: The authors state that translations may contain inaccuracies or inconsistencies, human evaluation
+    may not cover all samples, medical context may need further localization, and coverage is limited to selected
+    African languages.
+  sources:
+  - https://huggingface.co/datasets/tonative/healthbench-africa-extension
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

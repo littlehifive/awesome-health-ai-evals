@@ -24,6 +24,38 @@ facets:
   eval_methods: [rubric_llm_judge, simulated_multi_turn]
   modality: [text]
   size: 63 tasks (text LLM track plus multimodal and agent tracks)
+card:
+  task: Answer clinical questions, generate clinical text, or carry out clinical interactions and tool-based tasks,
+    including multi-turn cases with missing, contradictory, or delayed evidence.
+  items_built: 'The Shanghai Artificial Intelligence Laboratory authors organize clinical evaluation into 52 datasets
+    across text, multimodal, and agentic tracks, plus four executable skill environments; the excerpts do not describe
+    the original item sources or checks. For the process audit, they randomly sample five instances from each of
+    18 selected open-ended datasets, yielding 90 instances: 50 text, 15 multimodal, and 25 agentic.'
+  example: ''
+  scoring: Task-specific metrics include accuracy, F1, retrieval precision, semantic recall, interception ratio,
+    and agent-based judging; a separate judge model evaluates process trajectories against scenario metadata, gold-standard
+    references, and the audit protocol. Task scores are normalized to 0-100 and macro-averaged separately across
+    36 text tasks, 12 multimodal tasks, 11 agentic tasks, and four skill environments, without a single overall
+    leaderboard.
+  judge: Automatic metrics and unnamed judge models assign scores; three human annotators assess agreement on a
+    validation sample.
+  scale: Task scores normalized to 0-100, then macro-averaged within each track or across the four skill environments.
+  validation: On 440 randomly selected open-domain CCR samples, three annotators compared model answers with reference
+    answers on a 5-point Likert scale. Human inter-rater ICC(A,k) was 0.74 (95% CI 0.66-0.79); automatic-human Spearman
+    correlation was 0.26 (p < 0.001), and quadratic weighted Cohen's kappa was 0.32 (95% bootstrap CI 0.20-0.43)
+    after automatic scores were mapped to five equal-width levels.
+  score_meaning: Higher task scores indicate better performance. In the process-audit change plots, positive values
+    indicate improvement over baseline, negative values indicate deterioration, and zero indicates no change, with
+    the sign adjusted for whether higher or lower values are better for each metric.
+  annotation_process: Human annotators rated each validation sample independently. Process-audit metrics are calculated
+    only for applicable scenarios; cases with empty denominators are excluded from the corresponding aggregate.
+  results: ''
+  limitations: The authors state that text tasks provide limited separation among the strongest general-purpose
+    models and that high agent-track scores reflect broad interaction responsiveness rather than complete agentic
+    reliability.
+  sources:
+  - https://arxiv.org/abs/2606.24155
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

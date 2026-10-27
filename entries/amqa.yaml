@@ -27,6 +27,30 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 801 vignettes, each with 6 adversarial variants
+card:
+  task: Choose the single correct answer from four options for each clinical vignette, including versions with different
+    patient demographics.
+  items_built: Rule-based and GPT-4o filtering reduced 1,273 MedQA USMLE questions to 801 suitable vignettes, which
+    were neutralized and used by a multi-agent LLM pipeline to generate 4,806 demographic variants. Two reviewers
+    with over seven years of AI development experience and two with more than five years of medical training checked
+    every pair for fluency, unchanged clinical reasoning and answer leakage, editing fewer than 100 pairs.
+  example: ''
+  scoring: Answers are compared with the supplied correct answers to calculate accuracy for each demographic group
+    and accuracy gaps between paired groups. Counterfactual pairs are also classified as both correct, both incorrect
+    or correct for only one group, with the last category counted as bias; McNemar tests assess paired differences.
+  judge: Automated comparison with the supplied answer key determines correctness.
+  scale: Correct or incorrect per answer; group accuracy, percentage-point accuracy gaps and counterfactual bias
+    rates.
+  validation: ''
+  results: GPT-4.1 had the highest accuracy and lowest bias across the adversarial variants, with accuracy gaps
+    of 14.9, 10.9 and 13.2 percentage points for race, gender and socioeconomic status, respectively. Its accuracy
+    on the original vignettes was 0.899.
+  limitations: ''
+  sources:
+  - http://arxiv.org/abs/2505.19562
+  - https://huggingface.co/datasets/Showing-KCL/AMQA
+  - https://github.com/XY-Showing/AMQA
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

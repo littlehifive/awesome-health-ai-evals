@@ -26,6 +26,30 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 2,700 cases
+card:
+  task: Given a patient's symptoms and history, suggest diagnoses and recommend a medication regimen.
+  items_built: The authors built 2,700 cases from screened Chinese online patient-physician dialogues and PubMed
+    clinical reports, case studies, and guidelines, using expert-guided LLM prompts to construct questions with
+    clinical pitfalls and similar-drug distractors. Checks combined retrieval from 300 medical textbooks and LLM
+    fact-consistency comparisons with independent review by three medical experts and final adjudication of disputed
+    questions by one senior medical expert.
+  example: ''
+  scoring: Top-1 diagnostic accuracy is the proportion of cases whose primary diagnosis matches the standard answer,
+    while Top-3 accuracy counts cases where the standard answer appears among the first three suggestions. Drug
+    prescription accuracy measures the proportion of recommended medication regimens matching standard prescriptions.
+  judge: ''
+  scale: Diagnosis and prescription match rates across cases, reported as percentages.
+  validation: ''
+  score_meaning: ''
+  annotation_process: Three medical experts independently reviewed each question for medical accuracy and medication
+    appropriateness, including diagnostic logic and suitability of drug selection. One senior medical expert made
+    the final decision on disputed questions.
+  results: MedCoAct using Qwen-max-0428 achieved the best Top-1 diagnostic accuracy and drug prescription accuracy,
+    both at 67.58%. Local deep research achieved the best Top-3 diagnostic accuracy at 82.59%.
+  limitations: ''
+  sources:
+  - https://arxiv.org/abs/2510.10461
+  extracted: '2026-10-27'
 signals:
   citations: 6
   citations_source: OpenAlex

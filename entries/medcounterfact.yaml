@@ -27,6 +27,37 @@ facets:
   eval_methods: [mcq_exact_match, rubric_llm_judge]
   modality: [text]
   size: "203 base questions, each with 4 counterfactual variants"
+card:
+  task: Answer a clinical comparison question about whether an outcome is higher, lower, unchanged, or uncertain
+    for a substituted intervention versus a comparator, with or without accompanying randomized trial evidence.
+  items_built: The authors filtered 284 expert-written MedEvidence questions derived from Cochrane reviews to 203
+    with clear answer labels, then used GPT-5-mini to replace interventions in questions and evidence, producing
+    809 counterfactual records. They inspected 50 records per category and every toxic record, excluded three failed
+    replacements, and had an MD check treatment-scope mismatches for medical substitutions.
+  example: ''
+  scoring: Uncertain rate is the percentage of answers labeled Uncertain, and Evidence Adherence rate is the fraction
+    matching the original MedEvidence expert answer, with higher adherence not necessarily better. Claude Sonnet
+    4.5 maps free-form answers to labels and classifies reasoning as Explicit Yes, Implicit Yes, or No implausibility
+    awareness; category proportions are reported.
+  judge: Answer labels are compared with the expert answer key; Claude Sonnet 4.5 labels free-form answers and grades
+    implausibility awareness.
+  scale: Four answer labels and three awareness categories per item; aggregate answer and awareness percentages.
+  validation: Human evaluation on 70 randomly sampled instances found 92.86% accuracy for Claude's free-form answer
+    classification and 90.00% for implausibility-awareness classification. Two co-authors without medical backgrounds
+    performed double-blind labeling of outputs to validate Claude's reliability.
+  score_meaning: Higher, Lower and No Difference describe the outcome for the intervention relative to the comparator;
+    Uncertain expresses doubt when evidence is insufficient or unreliable. Explicit Yes means the model explicitly
+    recognizes the intervention's implausibility, Implicit Yes means it senses a problem but rationalizes or reinterprets
+    the intervention as plausible, and No means it shows no recognition that the intervention is counterfactual
+    or adversarial.
+  annotation_process: ''
+  results: ''
+  limitations: The authors limit their findings to English scientific literature and RCT-based comparison questions
+    rather than broader user queries, note nonuniform evidence formats, and acknowledge that Claude-based grading
+    can propagate the judge's own limitations in detecting safety failures.
+  sources:
+  - https://arxiv.org/abs/2601.11886
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

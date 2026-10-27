@@ -26,6 +26,30 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: 21 scenarios x 6 languages x 4 chatbots = 504 responses; 1,008 physician ratings; 12,576 checklist item judgments; plus a 200-response paired-English arm
+card:
+  task: Give health advice in response to a patient scenario presented in English, Hebrew, French, Russian, Arabic
+    or Thai.
+  items_built: Clinicians adapted 21 clinical scenarios from publicly posted patient forum content, removing identifying
+    details, to produce 126 scenario-language prompts. Specific source forums, URLs and verbatim source posts are
+    not released.
+  example: ''
+  scoring: Two language-matched physicians rate each answer on five dimensions using 1-5 scores and mark clinical
+    checklist items designated as required or bonus. The recorded dimension scores are each physician's final judgment;
+    the advisory red-flag score cap was never applied.
+  judge: Two language-matched physicians rate each response; the released rater file contains 12 rater IDs, some
+    belonging to the same physician.
+  scale: Five 1-5 dimension scores per physician per answer, plus item-level clinical checklist marks; no overall
+    score formula is stated.
+  validation: ''
+  score_meaning: ''
+  annotation_process: ''
+  results: ''
+  limitations: The authors state that the event counts do not support a product ranking, and the four chatbots were
+    queried on different dates.
+  sources:
+  - https://github.com/deanariel-md/warmth-substance-asymmetry
+  - https://doi.org/10.5281/zenodo.20100653
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

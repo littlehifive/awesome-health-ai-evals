@@ -28,6 +28,31 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 84 clinical protocols; 15 questions; 4 AI systems evaluated
+card:
+  task: Answer clinical questions in English and Russian in accordance with Kazakhstan's official obstetrics and
+    gynecology protocols.
+  items_built: Akhmetzhan Dilnaz created 15 questions from specific sections of 84 Ministry of Health protocols,
+    using stratified purposive sampling across diagnosis and criteria, pharmacotherapy, surgery and emergencies,
+    monitoring and screening, and infection and sepsis. The English and Russian question set was checked for coverage
+    and clinical specificity, without formal clinician validation.
+  example: ''
+  scoring: The automated pipeline compares biomedical entities in responses with protocol entity sets using precision,
+    recall, omission rate, hallucination rate, and Jaccard similarity, and compares response and protocol embeddings
+    for semantic similarity. It also compares performance between English and Russian prompts.
+  judge: An automated pipeline uses d4data/biomedical-ner-all for biomedical entity extraction and embeddings for
+    semantic comparison.
+  scale: Entity-level precision, recall, omission rate, hallucination rate, and Jaccard similarity; embedding-based
+    semantic similarity and cross-language stability.
+  validation: ''
+  score_meaning: 'Semantic similarity does not establish compliance with all elements of the clinical protocols:
+    responses can be semantically meaningful while omitting protocol content.'
+  annotation_process: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://github.com/dilnazakhmetzhan/medical_protocols_thesis/
+  - https://nur.nu.edu.kz/handle/123456789/18761
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

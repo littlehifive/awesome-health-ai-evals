@@ -28,6 +28,27 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 10 tasks in 8 languages (for example MedQA test 1,273 questions); the dataset also holds train splits
+card:
+  task: Select the correct answer to each medical multiple-choice question, using the supplied abstract as context
+    for PubMedQA questions.
+  items_built: The authors selected 1,089 MMLU questions across six medical subjects, 1,273 MedQA test questions
+    in four- and five-option formats, 4,183 MedMCQA validation questions, and 500 expert-labeled PubMedQA test questions.
+    They used GPT-3.5 Turbo version 1106 to translate the questions, options, and context into seven languages,
+    while keeping the English few-shot examples unchanged.
+  example: ''
+  scoring: The model's predicted answer option is compared with the answer key to calculate accuracy for each task.
+    Reported accuracies are averaged across three random seeds using different sets of three few-shot examples.
+  judge: Exact match with the answer key.
+  scale: Correct or incorrect per question; percentage accuracy per task, averaged across three random seeds.
+  validation: ''
+  results: ''
+  limitations: The authors state that the selected multiple-choice tasks and metrics may not reflect end users'
+    actual usage patterns or priorities, and attribute lower multilingual performance partly to automatic translation
+    quality.
+  sources:
+  - https://doi.org/10.18653/v1/2024.findings-acl.348
+  - https://huggingface.co/datasets/BioMistral/BioInstructQA
+  extracted: '2026-10-27'
 signals:
   citations: 267
   citations_source: OpenAlex

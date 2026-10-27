@@ -24,6 +24,36 @@ facets:
   eval_methods: [automatic_metric, rubric_llm_judge]
   modality: [text]
   size: "327 questions from 109 pairs (plus 327 negative-pair questions); 49 extra unverified pairs in separate configs"
+card:
+  task: Answer an open-ended question about whether two drugs share a protein, have a documented interaction, or
+    cause a change in exposure, effect or risk, and explain the answer.
+  items_built: Construction started with 1,620 MedHop training pairs and used DrugBank interaction sentences, protein
+    annotations and cited PubMed abstracts to produce 327 templated questions across 109 positive pairs, plus 327
+    questions across 109 negative pairs. Citation checks required abstracts to name the drug, protein and claimed
+    role, and Claude reviewed each positive evidence abstract against a fixed rubric; only pairs with two abstracts
+    judged strong entered the default set.
+  example: A clinician plans to prescribe Tramadol together with Fluphenazine. Do these documents provide a basis
+    for expecting an interaction between them, and if so what is the mechanism?
+  scoring: The card recommends comparing answers with structured gold slots using a rubric or LLM judge, scoring
+    the interaction decision across positives and negatives, mechanism slots on positives, and justification separately.
+    It requests separate results for each question tier but gives no score aggregation formula.
+  judge: A rubric or LLM judge is recommended, but no output grader is named.
+  scale: ''
+  validation: ''
+  score_meaning: A positive label means a documented interaction; a negative label means no interaction is recorded
+    in DrugBank, not that the combination is safe or that no interaction can exist. Gold answers specify the direction
+    of an effect, not its magnitude.
+  annotation_process: For evidence validation, Claude checked each gold abstract against a fixed rubric requiring
+    an explicit statement of the drug's claimed role at the shared protein. When the first-choice abstract was judged
+    weak, other papers on the drug's DrugBank protein card that mentioned both the drug and protein were reviewed,
+    and the first strong paper replaced it on 39 of 316 sides. A supporting quote and a one-line reason were recorded
+    for every side.
+  results: ''
+  limitations: The authors note the small set of 109 positive pairs, evidence without expert review, some minor-pathway
+    bridges, uniform templated answers, and bridge questions that can be answered from prior knowledge.
+  sources:
+  - https://huggingface.co/datasets/jinyangli/DrugBankDDI
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

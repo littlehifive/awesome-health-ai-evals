@@ -27,6 +27,36 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric]
   modality: [text]
   size: 3,863 MCQs; 20 cases with 100 QAs
+card:
+  task: Select one or more correct options for each Chinese psychological counseling exam question, or answer an
+    open question about a supplied case's diagnosis, causes, or treatment.
+  items_built: The authors collected publicly available examination questions, including Level 2 and Level 3 psychological
+    counselor exams, yielding 3,863 multiple-choice questions and 20 cases with 100 open questions. They used OCR
+    where needed, then several students checked the text against the original documents, corrected formatting and
+    garbled characters, and removed duplicate questions.
+  example: ''
+  scoring: 'Answers extracted with regular expressions are compared with the answer key: standard accuracy requires
+    all choices to be correct, while elastic accuracy gives partial credit for an incomplete selection containing
+    no wrong options, calculated as selected correct options divided by all correct options. Reported averages use
+    either standard accuracy throughout or single-answer standard accuracy with multiple-answer elastic accuracy;
+    open responses are compared with reference answers using ROUGE-1 and ROUGE-L F1, BLEU-4, and BERTScore.'
+  judge: Automatic answer-key matching and reference-based text metrics assign the scores.
+  scale: 'MCQs: correct or incorrect, with fractional elastic credit for multiple-answer items; final accuracy averages
+    and separate ROUGE, BLEU, and BERTScore metrics.'
+  validation: ''
+  score_meaning: The paper treats an average MCQ accuracy above 60% as passing the examination questions. For open
+    responses, ROUGE-1 measures word overlap as an indicator of informativeness, ROUGE-L measures longest common
+    subsequence overlap as an indicator of fluency, and BERTScore measures similarity in meaning and context to
+    the reference answer.
+  annotation_process: ''
+  results: PsycoLLM achieved average MCQ accuracy above 60%. It led the case-based evaluation on ROUGE-1, BLEU-4,
+    and BERTScore, while Emollim led on ROUGE-L.
+  limitations: The authors note that ROUGE and BLEU focus on surface-level word overlap and fail to capture semantic
+    equivalence and contextual appropriateness adequately.
+  sources:
+  - https://doi.org/10.1109/tcss.2024.3497725
+  - https://github.com/MACLAB-HFUT/PsycoLLM
+  extracted: '2026-10-27'
 signals:
   citations: 39
   citations_source: OpenAlex

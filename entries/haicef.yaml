@@ -26,6 +26,28 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: 271 evaluation questions in 60 third-level constructs
+card:
+  task: Evaluators use questions about a health care chatbot to assess its suitability for their intended use, rather
+    than asking the chatbot to answer test items.
+  items_built: The authors developed the framework for patient-facing and back-office health care chatbots, refining
+    questions from existing frameworks with input from clinicians, patients, developers, epidemiologists, and policymakers.
+    Four authors, including one clinician, independently reviewed question-to-construct mappings and reached consensus
+    through discussion; ChatGPT-4o rewrote some questions into binary form, which the authors reviewed and edited.
+  example: ''
+  scoring: HAICEF maps questions to constructs without assigning individual scores or combining responses into an
+    overall score. Evaluators interpret responses according to their situation and intended use.
+  judge: Users and stakeholders interpret the questions; no fixed scoring panel or automated grader is specified.
+  scale: No per-question scoring scale or final metric is assigned.
+  validation: ''
+  score_meaning: ''
+  annotation_process: ''
+  results: ''
+  limitations: The authors state that prospective validation is needed, evolving technology may require additional
+    dimensions, some constructs remain placeholders because of limited literature coverage, and included frameworks
+    received no formal quality assessment.
+  sources:
+  - https://doi.org/10.2196/69006
+  extracted: '2026-10-27'
 signals:
   citations: 29
   citations_source: OpenAlex

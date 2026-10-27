@@ -28,6 +28,35 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 1,800 messages (900 crisis, 900 non-crisis)
+card:
+  task: Classify each user message as crisis or non-crisis and identify any applicable mental health crisis categories.
+  items_built: The research team created 1,800 LLM-synthesized messages reflecting conversational texting, with
+    900 crisis messages and 900 non-crisis health messages, using crisis dimensions identified with clinical experts.
+    Two licensed clinicians independently annotated the messages and resolved disagreements through adjudication
+    and consensus.
+  example: ''
+  scoring: Predicted labels are compared with clinician labels to calculate sensitivity and specificity for overall
+    crisis detection. Crisis categories are evaluated separately against all other categories, with per-category
+    metrics and macro-averaged F1, sensitivity, and positive predictive value reported.
+  judge: Predictions are scored against labels independently reviewed by two licensed clinicians, Benjamin W. Nelson
+    and Alanna Robinson.
+  scale: Binary crisis and category labels; sensitivity, specificity, and macro-averaged F1 range from 0 to 1.
+  validation: The two clinicians' independent crisis versus non-crisis annotations had Cohen's κ = 0.99 before disagreements
+    were resolved by consensus.
+  score_meaning: Higher sensitivity means fewer crisis messages are missed, while higher specificity means fewer
+    non-crisis messages are incorrectly flagged as crises.
+  annotation_process: The internal evaluation assessed crisis-category classification only on the 898 messages flagged
+    as crises by the first-stage classifier. For comparisons with other guardrails, category predictions were evaluated
+    across all 1,800 messages, and each comparison guardrail's overall crisis flag was checked against each specific
+    crisis category's reference labels.
+  results: The Verily Mental Health Guardrail achieved sensitivity of 0.990 and specificity of 0.992 on the Verily
+    dataset, with a category macro-averaged F1 of 0.939.
+  limitations: The authors state that messages were simulated, English-only, single-turn, and predominantly explicit
+    about crisis risk (91.1%), with too few ambiguous or masked examples for rigorous comparison, and that the same
+    team developed the guardrail prompts and internal dataset, creating potential implicit data leakage.
+  sources:
+  - https://doi.org/10.1038/s41746-026-02579-5
+  extracted: '2026-10-27'
 signals:
   citations: 3
   citations_source: OpenAlex

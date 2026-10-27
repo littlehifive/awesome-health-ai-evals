@@ -28,6 +28,37 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating, automatic_metric]
   modality: [text]
   size: 500 questions
+card:
+  task: Answer each medical question and provide a step-by-step rationale for the answer.
+  items_built: Ten medical experts selected 500 questions requiring multi-step reasoning from ten public medical
+    QA datasets after removing duplicates and image-dependent questions. Two physicians independently annotated
+    each question, with a third physician resolving disagreements about the annotations.
+  example: ''
+  scoring: For each question, GPT-4o-mini checks whether the generated rationale supports each expert-annotated
+    reasoning step, and the reasoning score is the fraction of steps supported, averaged across questions. Final-answer
+    accuracy is scored separately by exact match with the answer key and averaged across questions.
+  judge: GPT-4o-mini grades reasoning, ten medical professionals provide human evaluations, and exact match with
+    the answer key grades final answers.
+  scale: Each reference step is supported or not; per-question fractions and their dataset mean range from 0 to
+    1.
+  validation: Across the tested models, Pearson correlations with expert reasoning scores were 0.68 to 0.87 for
+    LLM-w-Ref, compared with 0.01 to 0.27 for the reference-free judge and -0.17 to 0.45 for text-similarity metrics.
+  score_meaning: A reasoning score of 2/3 can reflect partially correct reasoning even when the final answer is
+    wrong, as shown in the paper's case study. In human evaluation, the score is the fraction of steps judged present
+    out of those the expert deems necessary.
+  annotation_process: Two physicians independently annotated each question's reference reasoning, and a third physician
+    made the final annotation when they disagreed. For human scoring, a domain expert received the question and
+    model-generated rationale and judged which required reasoning steps were present. Automated judging used zero-shot
+    Chain-of-Thought prompting, temperature 0.1, a maximum of 4096 decoding tokens, and random seed 42.
+  results: 'MedGemma-27B had the highest expert-rated reasoning score, 0.759 (95% CI: 0.730-0.789). OpenAI-o3 had
+    the highest final-answer accuracy, 0.692 (95% CI: 0.652-0.732).'
+  limitations: The authors note that prior exposure to source questions during pretraining could inflate answer
+    accuracy, and that the cost of expert annotation limits the dataset size and its usefulness for training or
+    fine-tuning.
+  sources:
+  - https://doi.org/10.1038/s41746-025-02208-7
+  - https://github.com/plusnli/MedThink-Bench
+  extracted: '2026-10-27'
 signals:
   citations: 27
   citations_source: OpenAlex

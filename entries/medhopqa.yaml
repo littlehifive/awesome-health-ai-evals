@@ -28,6 +28,36 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 1,000 evaluation questions inside a 10,000-question download package
+card:
+  task: Answer each disease-centered question in free text by combining information from two distinct Wikipedia
+    articles.
+  items_built: Sixteen annotators wrote questions from Wikipedia page pairs, and o1 generated additional questions
+    using human-written examples. Each pair needed acceptance by two independent reviewers blinded to its origin;
+    four researchers then finalized 1,000 pairs through iterative human review supported by LLM checks of grammar,
+    conceptual accuracy, answer correctness and uniqueness.
+  example: ''
+  scoring: Answers are compared with gold answers and ontology-grounded synonyms using lexical matching, with MedCPT
+    providing concept-level validation based on semantic proximity. Results are reported as overall accuracy and
+    macro-averaged accuracy across answer categories.
+  judge: Automated lexical matching and MedCPT concept-level validation assess answers.
+  scale: Correct or incorrect per answer; overall percentage accuracy and macro-averaged accuracy across answer
+    categories.
+  validation: Manual review of 200 MedCPT decisions found 75.5% agreement (151/200), with 28 false rejections and
+    19 false acceptances reported.
+  score_meaning: Scores measure whether final answers are correct, not the quality of intermediate reasoning steps.
+  annotation_process: Sixteen researchers developed the reference questions and answers, meeting twice weekly for
+    three months to calibrate their judgments; each pair needed acceptance by two independent reviewers who did
+    not know whether it was human- or AI-written. Rejected human-written pairs could be revised and sent to reviewers
+    who had not seen them, and each accepted pair was revised or validated by at least three researchers. Four human
+    evaluators then reviewed reports from an LLM debate framework assessing grammar, conceptual accuracy, answer
+    correctness and uniqueness, revising and rerunning evaluation until each pair passed all four checks.
+  results: GPT-5.1 achieved the highest zero-shot accuracy at 83.4%, followed by Gemini 2.5 Pro at 79.7%, Claude
+    Sonnet 4.5 at 77.1% and GPT-4o at 66.3%.
+  limitations: The authors state that synonym coverage is incomplete, structured answers are sensitive to formatting,
+    and scoring assesses answer correctness rather than intermediate reasoning quality.
+  sources:
+  - https://pubmed.ncbi.nlm.nih.gov/42389245
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

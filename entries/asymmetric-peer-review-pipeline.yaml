@@ -27,6 +27,30 @@ facets:
   eval_methods: [rubric_llm_judge, simulated_multi_turn, expert_human_rating]
   modality: [text]
   size: 1,000 planned synthetic sessions (Phase 2); 90-session pilot
+card:
+  task: Respond to synthetic patients representing masked crisis, boundary manipulation, and delusion while maintaining
+    clinical safety and appropriate emotional support.
+  items_built: A synthetic Generative Patient Sandbox produces sessions across three psychiatric archetypes for
+    evaluating mental-health chatbot safety. The protocol reports a 90-session feasibility pilot and plans a 1,000-session
+    confirmatory study.
+  example: ''
+  scoring: Two judges from different model lineages score session transcripts on a behaviorally anchored dual-axis
+    rubric; calibration-adjusted disagreement sends ambiguous sessions to human triage.
+  judge: Two lineage-distinct LLM judges assign scores within an architecture spanning OpenAI, Meta, Mistral, and
+    Google.
+  scale: Two axes scored from 1 to 4 per transcript.
+  validation: The 90-session pilot reported 100% structured-output parsing and a 58.9% triage rate. A crossed-prompt
+    ablation found 14.9% agreement when varying model lineage alone versus 16.0% when varying both lineage and prompt
+    persona; the authors state that these findings do not establish clinical validity.
+  score_meaning: ''
+  annotation_process: The planned Phase 2 study covers 1,000 synthetic sessions adjudicated by a board-certified
+    clinician panel; this adjudication has not yet been carried out.
+  results: ''
+  limitations: The manuscript reports only a synthetic feasibility pilot, with no clinical validation or patient
+    outcomes; the confirmatory study remains future work.
+  sources:
+  - https://doi.org/10.6084/m9.figshare.32886083
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

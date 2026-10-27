@@ -26,6 +26,31 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: 10 cases; 30 model outputs rated by 10 physicians
+card:
+  task: Provide a diagnosis and relevant differential diagnoses for a clinical vignette containing the patient's
+    history, initial investigations, and examination findings.
+  items_built: The authors developed the rubric to assess the clinical interpretability, utility, and safety of
+    diagnostic outputs, and tested it on 10 cases selected from the NEJM case series. They used the unedited initial
+    vignettes and relevant data tables as inputs, with the NEJM diagnoses and differentials as reference answers.
+  example: ''
+  scoring: Physicians independently grade each output using the rubric, comparing diagnoses and differentials with
+    the NEJM reference answers and assessing readability, explainability, hallucinations, incorrect statements,
+    and potentially risky suggestions. The study reports mean total scores across raters and cases for each model.
+  judge: Ten physicians from three countries, with a range of specialties and seniority levels, independently assign
+    scores.
+  scale: Total rubric score per output; mean total score per model.
+  validation: Across 30 outputs scored by 10 raters, the two-way consistency intraclass correlation coefficient
+    was 0.892 (95% CI 0.823-0.941; p = 3.76e-26).
+  score_meaning: Higher total scores indicate higher physician-assessed quality of the diagnostic output. The overall
+    mean of 11.4 was used as a comparison point for case performance, not as a pass mark.
+  annotation_process: ''
+  results: Gemini had the highest mean total score at 12.3, compared with 11.5 for ChatGPT and 10.4 for Bing. The
+    difference between Gemini and ChatGPT was not statistically significant (p = 0.075).
+  limitations: The authors identify the small number of cases, evaluation outside real-time clinical practice, and
+    restriction to English-language outputs as limitations to generalisability.
+  sources:
+  - https://pmc.ncbi.nlm.nih.gov/articles/PMC11330891/
+  extracted: '2026-10-27'
 signals:
   citations: 14
   citations_source: OpenAlex

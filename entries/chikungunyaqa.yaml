@@ -27,6 +27,28 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 1,262 QA pairs (556 physician, 581 patient, 125 caregiver)
+card:
+  task: Answer Brazilian Portuguese questions about chikungunya clinical management in language appropriate for
+    a physician, patient, or caregiver.
+  items_built: GPT-4o mini generated 1,262 retained question-answer pairs from 112 productive source fragments among
+    141 fragments extracted from six Brazilian clinical and technical documents. Claude Sonnet 4.5 checked every
+    pair for faithfulness, completeness, persona appropriateness, and clinical relevance, with below-threshold pairs
+    repaired and re-evaluated; a physician and a physical therapist also evaluated 200 pairs.
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: ''
+  validation: Human review of dataset quality by a physician and a physical therapist yielded Gwet's AC2 values
+    of 0.944 to 0.961 in their shared subset for clinical accuracy, completeness, and persona adherence.
+  score_meaning: ''
+  annotation_process: Claude Sonnet 4.5 evaluated every QA pair using G-Eval for faithfulness, completeness, persona
+    appropriateness, and clinical relevance. Pairs below a threshold underwent feedback-guided repair and re-evaluation.
+    Two human raters evaluated 200 pairs, with a shared subset rated by both.
+  results: ''
+  limitations: ''
+  sources:
+  - https://doi.org/10.5281/zenodo.20444765
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

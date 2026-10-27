@@ -25,6 +25,35 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 730 DDXPlus cases (stratified sample), 5 differential diagnoses per case
+card:
+  task: Produce a list of five differential diagnoses from each patient's chief complaint and history of present
+    illness.
+  items_built: The authors selected 730 synthetic patient cases by stratified sampling from DDXPlus, preserving
+    the pathology distribution of its more than 1.3 million records across 49 pathologies. The framework adapts
+    established hierarchical precision and recall metrics to differential diagnosis lists using the ICD-10 taxonomy.
+  example: ''
+  scoring: Predicted and ground-truth diagnoses are mapped to ICD-10 codes and expanded to include their ancestors,
+    then compared as sets to calculate precision and recall for each case. Precision and recall are separately macro-averaged
+    across cases, and their harmonic mean gives HDF1; the separate Top-5 Accuracy metric counts cases where GPT-4o
+    judges a predicted diagnosis semantically equivalent to the ground truth.
+  judge: Automated ICD-10 set comparisons assign HDF1 scores, with text-embedding-3-large retrieval and GPT-4o reranking
+    for mapping; GPT-4o judges Top-5 matches.
+  scale: Hierarchical precision and recall range from 0 to 1 per case; final HDF1 is their harmonic mean after macro-averaging
+    across cases.
+  validation: On 101 diagnoses manually mapped by clinicians, the mapping pipeline achieved 93.1% Top-1 accuracy,
+    compared with 71.3% for retrieval alone. All observed mapping errors were correct at the immediate parent level
+    of ICD-10.
+  score_meaning: Higher HDF1 scores indicate that the overall differential diagnosis list is closer to the reference
+    diagnoses in the ICD-10 hierarchy, with partial credit for related diagnoses even when the exact diagnosis is
+    absent. A higher HDF1 score does not necessarily mean that the list contains the exact diagnosis.
+  annotation_process: For the Top-5 evaluation, GPT-4o received predicted and true diagnosis names and was asked
+    to answer "y" or "n"; a prediction was marked correct when it returned "y".
+  results: ''
+  limitations: The authors state that evaluation uses synthetic data and needs real-world clinical validation, ICD-10
+    may miss clinical nuances, and static diagnosis lists do not capture sequential clinical reasoning.
+  sources:
+  - https://arxiv.org/abs/2510.03700
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

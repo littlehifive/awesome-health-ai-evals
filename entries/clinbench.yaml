@@ -25,6 +25,23 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: "2,014 text questions (ClinBench-Text) plus a multimodal subset"
+card:
+  task: Select a diagnosis from six to ten options using a clinical case with patient information and clinical test
+    results.
+  items_built: The 2,014 questions were built from English case reports in PubMed Central journals across 11 specialties,
+    retaining the original patient information and clinical test results. Candidate options were built through a
+    pipeline with medical expert review.
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: ''
+  validation: ''
+  results: Human medical experts performed better within their own specialties, while LLMs performed better overall
+    across a broader range of specialties.
+  limitations: ''
+  sources:
+  - https://doi.org/10.18653/v1/2026.findings-acl.767
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

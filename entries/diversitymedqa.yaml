@@ -41,6 +41,31 @@ facets:
   modality:
   - text
   size: about 540 gender and 567 ethnicity questions
+card:
+  task: Choose the correct answer to each medical board-exam question presented with its original patient demographics
+    or modified gender or ethnicity.
+  items_built: The Algoverse AI Research team used ChatGPT to modify MedQA questions and GPT-4 to filter out questions
+    whose answers depended on gender or ethnicity, then manually cleaned the sets to 540 gender questions and 567
+    ethnicity questions. They added 501 questions from MedQA training data to each set using the same filtering
+    method.
+  example: ''
+  scoring: Extracted answer choices are compared with the correct answers, and accuracy is calculated using either
+    the first response or the majority answer across five responses per question. Accuracy differences between original
+    and demographic-modified questions are tested with Z-tests.
+  judge: Answer choices are scored against the MedQA answer key.
+  scale: Correct or incorrect per question; percentage accuracy for first responses and majority votes across five
+    responses (Maj@5).
+  validation: ''
+  results: GPT-4o performed best, with Maj@5 accuracy of 89.15% for both female and male patients and 88.76% to
+    89.33% across the five ethnicity groups. Llama3-8B showed a significant accuracy drop for African ethnicity,
+    including a total-proportion Z-score of 6.4008 with p < 0.00001.
+  limitations: The authors evaluated only 1,041 gender questions and 1,068 ethnicity questions from over 12,000
+    MedQA questions, and their team included no medical professionals, so clinically demographic-dependent questions
+    could remain despite filtering.
+  sources:
+  - http://arxiv.org/abs/2409.01497
+  - https://huggingface.co/datasets/Rajat1212/DiversityMedQA
+  extracted: '2026-10-27'
 signals:
   citations: 10
   citations_source: OpenAlex

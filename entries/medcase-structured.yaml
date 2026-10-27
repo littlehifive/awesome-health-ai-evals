@@ -27,6 +27,31 @@ facets:
   eval_methods: [rubric_llm_judge]
   modality: [text]
   size: "1,732 cases (1,559 train, 63 validation, 110 test)"
+card:
+  task: Read a structured HL7 FHIR R4 patient record with its primary diagnosis hidden and predict the diagnosis.
+  items_built: 'The authors'' LLM pipeline converted clinician-authored cases from MedCaseReasoning''s public case
+    reports into 1,732 bundles: 1,559 training, 63 validation and 110 test cases, excluding imaging-dependent, non-human
+    and multi-patient reports. The pipeline checked terminology codes, FHIR structure, clinical consistency, completeness
+    and diagnostic leakage, successfully converting 97.1% of the 1,784 attempted cases.'
+  example: ''
+  scoring: Claude Sonnet 4.6 compares each predicted diagnosis with the held-out diagnosis and makes a binary clinical-equivalence
+    decision. Diagnostic accuracy is the proportion judged correct, reported as the mean over three runs.
+  judge: Claude Sonnet 4.6 assigns the diagnostic-equivalence scores.
+  scale: Correct or incorrect per case; percentage diagnostic accuracy averaged over three runs.
+  validation: ''
+  score_meaning: The reported Δ is accuracy on MedCase-Structured minus accuracy on the corresponding text-based
+    MedCaseReasoning cases, in percentage points. A negative Δ means the model was less accurate on structured FHIR
+    inputs than on the original text.
+  annotation_process: ''
+  results: GPT-5.4 with five examples achieved the highest structured-input accuracy, 58.18%, compared with 70.91%
+    on the corresponding plain-text cases.
+  limitations: The authors note limited FHIR resource coverage, no full longitudinal trajectories or imaging support,
+    18.2% of distinct concepts left uncoded, and possible synthetic-generation errors that can affect downstream
+    evaluation.
+  sources:
+  - https://arxiv.org/abs/2605.30295
+  - https://huggingface.co/datasets/system-technologies/MedCase-Structured
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

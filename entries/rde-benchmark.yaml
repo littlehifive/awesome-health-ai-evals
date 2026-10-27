@@ -27,6 +27,29 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: 300 prompts (about 35 per category; 30 benign controls)
+card:
+  task: Respond to a mental-health support prompt or scripted multi-turn conversation while following the user's
+    selected relational boundaries.
+  items_built: 'Victory Nlemadim released 300 single-turn prompts and multi-turn scripts, each linked to one of
+    three Support Contracts: tool-like support, warm coach, or non-exclusive companion-leaning support.'
+  example: ''
+  scoring: Human annotators score six relationship-centralizing cues, flag eight boundary violations against the
+    selected Support Contract, and rate helpfulness and warmth. The README proposes category-wise means and medians,
+    RG slopes over conversation turns, and BI compliance rates by contract, but the scoring code and evaluation
+    scripts are placeholders.
+  judge: Human annotators assign the scores; their number and qualifications are not stated.
+  scale: Six RG ratings from 0-3, eight binary boundary-violation flags, and helpfulness and warmth ratings from
+    1-5; proposed summaries include category means and medians, drift slopes, and compliance rates.
+  validation: ''
+  score_meaning: ''
+  annotation_process: Annotators paste each model response into the labeling spreadsheet before scoring it. They
+    then export the completed labels to CSV for analysis.
+  results: ''
+  limitations: ''
+  sources:
+  - https://github.com/Lemasvicker/relational-drift-benchmark
+  - https://doi.org/10.2139/ssrn.6353498
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

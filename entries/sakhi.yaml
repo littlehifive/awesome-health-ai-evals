@@ -26,6 +26,36 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating, automatic_metric]
   modality: [text]
   size: 380 questions (149 expert, 231 non-expert) in three languages; 2,103 doctor rubric verdicts
+card:
+  task: Answer maternal and reproductive-health questions in English, Hindi, or Marathi.
+  items_built: Aya Expanse drafted questions from a public maternal-health knowledge corpus, and MedGemma validated
+    them, yielding 149 questions with doctor-edited answers and 231 with community-sourced answers. Eleven practising
+    Indian doctors edited the expert answers, while ASHA workers and healthcare-nonprofit staff reviewed language
+    and cultural fit; professional translators translated English into Hindi and Marathi, followed by ASHA review.
+  example: ''
+  scoring: GPT-4o-mini grades responses using a 14-criterion clinical rubric with binary pass/fail verdicts. MQS
+    weights Accuracy at 0.30, Completeness at 0.25, Context Awareness at 0.20, Communication at 0.15, and Terminology
+    Accessibility at 0.10, with response scores reported as a mean and standard deviation for each model, dataset
+    arm, and language.
+  judge: GPT-4o-mini assigns benchmark scores.
+  scale: Binary pass/fail per criterion; axis-weighted MQS, reported as a mean and standard deviation across responses.
+  validation: The release includes 2,103 binary criterion verdicts from 11 practising Indian doctors, comprising
+    2 OB/GYNs and 9 general practitioners, on 148 expert-track questions. Twenty-one questions received a second
+    independent review for assessing inter-rater agreement, but no agreement statistic or judge-versus-doctor calibration
+    result is given.
+  score_meaning: ''
+  annotation_process: Doctors were shown the question, an AI draft response and the rubric criterion text when assigning
+    verdicts, and they also edited the expert-track reference answers. Professional translators translated the English
+    reference answers into Hindi and Marathi; ASHA workers reviewed the translations for patient-voice fidelity,
+    while ASHA workers and healthcare-nonprofit staff provided sociolinguistic and cultural review.
+  results: ''
+  limitations: The authors exclude generalising results beyond South Asian populations or the three tested languages
+    and warn against patient-facing deployment without local clinical validation, regulatory clearance, and continuous
+    human oversight.
+  sources:
+  - https://huggingface.co/datasets/SimPPL/sakhi
+  - https://github.com/SwapneelM/sakhi
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

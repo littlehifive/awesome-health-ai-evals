@@ -26,6 +26,33 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 11,179 original and 55,895 perturbed questions
+card:
+  task: Choose the correct multiple-choice answer to each medical question, including versions with an added ethnicity
+    statement that should not change the answer.
+  items_built: The authors filtered MedQA by excluding questions with explicit ethnicity terms and using GPT-4o-mini
+    to exclude questions where changing ethnicity could change the correct answer, retaining 11,179 questions. They
+    prepended standardized statements for five ethnicity groups while keeping the choices and gold answers unchanged;
+    all three released JSONL files were checked for malformed lines.
+  example: ''
+  scoring: Predicted answers are compared with gold answers to calculate overall and ethnicity-group accuracy; DP
+    Gap is the highest minus lowest group accuracy, and Flip Rate measures originally correct predictions that become
+    incorrect after perturbation. Retrieval measures compare original and perturbed evidence sets using mean Jaccard
+    similarity and document-set changes, while deterministic demographic keyword matching measures BiasedEvidence
+    and AttrRate.
+  judge: Gold answers determine correctness, and deterministic keyword matching assigns the demographic evidence
+    measures.
+  scale: Correct or incorrect per answer; aggregate accuracy, group accuracy gap, flip rate, mean retrieval Jaccard
+    similarity, and evidence proportions.
+  validation: ''
+  results: RAG² had the highest reported accuracy at 61.47% on 5,575 perturbed test questions, compared with BAND
+    at 61.24%. BAND had a lower DP Gap (1.26 versus 1.35) and Flip Rate (10.69% versus 11.89%).
+  limitations: The authors state that ethnicity-only perturbations do not establish robustness across other demographic
+    attributes or cover all clinically relevant demographic information, and keyword-based evidence measures are
+    not human judgments of clinical irrelevance or fairness.
+  sources:
+  - https://huggingface.co/datasets/hrimlee/BAND-MedQA
+  - https://github.com/hrimlee/BAND
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

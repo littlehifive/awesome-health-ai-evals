@@ -24,6 +24,28 @@ facets:
   eval_methods: [simulated_multi_turn]
   modality: [text]
   size: 20 personas, 2,074 events, 120 trap events, 31,976 dialogue turns, 1,939 queries per language
+card:
+  task: Read a patient's dialogue sessions in order, then answer questions requiring recall of medical facts, tracking
+    of changes, identification of event timing, and deductions linking multiple facts.
+  items_built: Specialized patient and doctor LLM agents generated conversations from synthetic patient profiles
+    and causal event timelines, guided by clinical guidelines including the Chinese Diabetes Prevention Guidelines
+    2024, ADA Standards of Care, GOLD COPD Strategy, and ESC Heart Failure Guidelines. The dataset contains 1,939
+    queries per language, with expert-reviewed reference answers, human expert review of queries, and deduplication.
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: ''
+  validation: ''
+  score_meaning: ''
+  annotation_process: ''
+  results: ''
+  limitations: The authors state that LLM-generated dialogues do not capture the full variability of real interactions,
+    disease progression is simplified, and the benchmark does not evaluate empathy, communication style, or clinical
+    judgment quality.
+  sources:
+  - https://huggingface.co/datasets/AQ-MedAI/MedMemoryBench
+  - https://huggingface.co/datasets/CynthiaHo/MedMemoryBench
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

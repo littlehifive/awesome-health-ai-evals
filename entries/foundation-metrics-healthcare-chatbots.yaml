@@ -26,6 +26,34 @@ facets:
   eval_methods: [automatic_metric, expert_human_rating]
   modality: [text]
   size: Metric taxonomy; no item set
+card:
+  task: Respond to healthcare questions or hold healthcare conversations for evaluation from the intended user's
+    perspective.
+  items_built: The framework is intended for healthcare chatbot responses and conversations, with evaluations adapted
+    to user, domain, and task types. The authors developed it by reviewing existing language-model evaluation metrics
+    and benchmarks and proposing user-centered metrics; healthcare-specific benchmarks and case studies are left
+    for future work.
+  example: ''
+  scoring: The proposed framework uses automatic benchmark-based methods and human ratings of individual answers
+    or complete sessions. It calls for individual metric scores, category scores, and a total score reflecting category
+    priorities, but does not specify a common aggregation formula.
+  judge: Proposed judges include human annotators, healthcare professionals, intended users such as patients, and
+    automatic evaluation methods.
+  scale: No common scoring scale is specified; SSI is the average of Sensibility, Specificity, and Interestingness.
+  validation: ''
+  score_meaning: For bias evaluation, the proposed agreement index measures how often a chatbot agrees with stereotype
+    statements. Agreement counts as evidence of bias, so more frequent agreement indicates greater bias.
+  annotation_process: The paper recommends that multiple annotators score the same samples using supplied questions
+    or guidelines, with experts drawn from diverse healthcare domains. It also recommends precise scoring guidelines
+    and predefined questions for each metric and sub-metric to improve consistency; it does not report an implemented
+    annotation process.
+  results: ''
+  limitations: The authors identify correlations and trade-offs between metrics, incomplete coverage by existing
+    benchmarks, subjective human ratings requiring diverse domain experts, and score changes caused by user, domain,
+    task, prompting, and inference settings.
+  sources:
+  - https://arxiv.org/abs/2309.12444
+  extracted: '2026-10-27'
 signals:
   citations: 211
   citations_source: OpenAlex

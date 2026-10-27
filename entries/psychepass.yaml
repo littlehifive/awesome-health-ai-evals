@@ -26,6 +26,36 @@ facets:
   eval_methods: [simulated_multi_turn, rubric_llm_judge]
   modality: [text]
   size: 100 simulated client profiles; 12 competency dimensions; 12 LLMs evaluated
+card:
+  task: Conduct a 40-50-turn text counseling session with each simulated client, responding to concerns and competency
+    probes across five single-session therapy stages.
+  items_built: The authors ranked over 10,000 candidate client profiles by linguistic complexity, emotional intensity,
+    and counseling relevance, then selected 100 profiles that human experts checked for anonymity and harmlessness.
+    They scripted staged competency probes using criteria adapted from APA frameworks and refined through expert
+    review of feedback from approximately 200 participants in month-long counseling sessions.
+  example: '"I wish I could talk to my father face-to-face, but he passed away"'
+  scoring: DeepSeek-R1 compares paired models across all 12 dimensions, using whole sessions for global dimensions
+    and designated turns for local dimensions; Diversity also uses Distinct-N. Models compete in four Swiss-system
+    rounds with positions swapped in repeat matches, and battle outcomes are converted through a Bradley-Terry model
+    into dimension-specific Elo ratings.
+  judge: DeepSeek-R1 judges all 12 competency dimensions simultaneously.
+  scale: Pairwise win, loss, or tie per dimension; final dimension-specific Elo ratings.
+  validation: Two professional counselors with over 1,000 hours of experience assessed 30 cases on four randomly
+    selected dimensions each, yielding 120 comparisons. Agreement with the framework reached Cohen's kappa of 1.000
+    for strong-versus-weak matchups and approximately 0.75 for weak-versus-weak matchups, with lower agreement for
+    strong-versus-strong matchups.
+  score_meaning: Higher Elo ratings indicate stronger performance relative to competing models in the same competency
+    dimension, rather than attainment of an absolute clinical standard.
+  annotation_process: Each round pairs models with opponents that have similar win records, producing six matches
+    among the 12 models. Each paired comparison is graded in a single judge run, giving 4,800 pairwise session comparisons
+    and 57,600 dimension-level judgments across 100 clients.
+  results: ''
+  limitations: The authors state that text-only evaluation omits nonverbal cues, client-driven simulation limits
+    assessment of therapist leadership, the tournament lacks a direct human performance baseline, and the benchmark
+    excludes clinical activities beyond counseling dialogue.
+  sources:
+  - https://arxiv.org/abs/2601.20330
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

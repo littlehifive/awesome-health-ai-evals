@@ -25,6 +25,24 @@ facets:
   eval_methods: [automatic_metric, expert_human_rating]
   modality: [text]
   size: 100 queries (500 responses planned in English)
+card:
+  task: Answer orthodontic clinical queries, including adversarial questions about fabricated concepts.
+  items_built: The standardized benchmark contains 100 queries spanning clinical protocols, materials and appliances,
+    cephalometric and biomechanical concepts, case reports, and adversarial trap items.
+  example: ''
+  scoring: A rule-based pipeline combines query metadata with linguistic analysis of responses to code seven hallucination
+    categories, while PubMed E-utilities and CrossRef APIs verify citations. Reported outcomes include overall hallucination
+    rate, citation fabrication rate, and refusal rate on adversarial trap queries.
+  judge: A rule-based pipeline codes hallucinations, and PubMed E-utilities and CrossRef APIs verify citations.
+  scale: ''
+  validation: ''
+  score_meaning: ''
+  annotation_process: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://osf.io/dk2pm
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

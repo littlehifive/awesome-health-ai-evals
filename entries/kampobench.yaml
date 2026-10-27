@@ -26,6 +26,28 @@ facets:
   eval_methods: [rubric_llm_judge]
   modality: [text]
   size: "74 scenarios, 310 rubric criteria"
+card:
+  task: Respond in Japanese to a Kampo consultation scenario with advice suited to the patient's situation.
+  items_built: An LLM drafted 74 consultation scenarios, 310 conversation-specific rubric criteria and reference
+    answers, which several board-certified Kampo physicians reviewed and revised.
+  example: ''
+  scoring: Each response is assessed against conversation-specific criteria describing what a good answer should
+    and should not contain, with one model from each of three vendors grading every response. Overall percentage
+    scores are reported separately by grader, and aggregation excludes runs that do not cover all 74 scenarios.
+  judge: One LLM grader from each of three vendors assigns scores; the supplied text does not name the graders.
+  scale: Overall percentage scores reported separately by grader; the per-criterion scale is not stated.
+  validation: Rankings across graders had Spearman correlations of 0.952-0.976. Family-favoring deviation was 0.4-0.6
+    percentage points, below the bootstrap standard deviation of one measurement, while grader leniency varied by
+    14.3 points.
+  score_meaning: ''
+  annotation_process: ''
+  results: The unnamed best model scored 74.8-86.3% across graders. Physician-revised reference answers scored 87.9-92.4%.
+  limitations: Graders differed in strictness by 14.3 percentage points, so scores need to be reported alongside
+    the grader that produced them.
+  sources:
+  - https://github.com/medicalcloud/kampobench
+  - https://doi.org/10.64898/2026.10.07.26365005
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

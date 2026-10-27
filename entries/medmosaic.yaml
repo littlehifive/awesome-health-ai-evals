@@ -27,6 +27,38 @@ facets:
   eval_methods: [mcq_exact_match, rubric_llm_judge]
   modality: [voice]
   size: 46,701 QA pairs in the paper; 4,661 records on Hugging Face
+card:
+  task: Listen to medical audio and answer questions by choosing one of 10 options or generating a concise free-form
+    answer, including questions linked across three turns.
+  items_built: 'Gemini-3-Flash generated 46,701 QA pairs from public clinical dialogue and physiological sound datasets
+    and synthetic medical speech made with ElevenLabs v3. Two healthcare professionals reviewed 145 pairs sampled
+    across categories, modalities, and difficulty levels: 72.4% were accepted unchanged, 22.8% needed minor revisions,
+    and 4.8% were rejected.'
+  example: ''
+  scoring: Multiple-choice answers are extracted, normalized, and exact-matched against Gemini-3-Flash's answer
+    key; GPT-5.1 compares open-ended responses with reference answers and averages correctness, relevance, completeness,
+    and clarity scores. The reported overall metric weights category scores by their numbers of questions.
+  judge: Multiple-choice grading uses exact match with the answer key; GPT-5.1 grades open-ended responses.
+  scale: Multiple-choice items score 0 or 1; open-ended items average four 0-1 criteria; the final metric is a question-count-weighted
+    percentage.
+  validation: ''
+  score_meaning: For open-ended answers, correctness measures factual agreement with the reference, relevance measures
+    focus on the question without extraneous information, completeness measures coverage of key reference points,
+    and clarity measures coherence and organization. Any factual contradiction caps correctness at 0.5, and missing
+    key information reduces completeness proportionally.
+  annotation_process: Two healthcare professionals validated 145 generated question-answer pairs sampled across
+    categories, audio types, and difficulty levels, with each pair assigned to one professional without overlap.
+    They rated multiple dimensions on a 3-point scale and gave a final verdict of acceptance, minor revision, or
+    rejection. For open-ended model responses, GPT-5.1 returned scores and written justifications for each criterion
+    in JSON format.
+  results: Gemini-2.5-Pro led the 13 evaluated models with 68.1% weighted-average accuracy.
+  limitations: The authors identify answer parsing that can count guesses based on question wording rather than
+    audio, potential differences between synthetic and real clinical audio, and coverage limited to English.
+  sources:
+  - https://arxiv.org/abs/2605.00969
+  - https://huggingface.co/datasets/CentificAIResearch/MedMosaic
+  - https://huggingface.co/datasets/icml-anon-submission/medmosaic-dataset
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

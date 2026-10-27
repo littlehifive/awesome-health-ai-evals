@@ -26,6 +26,39 @@ facets:
   eval_methods: [mcq_exact_match, rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: Over 700,000 tasks (24 primary, 91 secondary specialties); 14 agent datasets and 10 multimodal datasets
+card:
+  task: Answer Chinese medical questions and complete clinical tasks such as structuring records, reasoning about
+    diagnoses, planning care, and responding to safety and ethics scenarios.
+  items_built: The team assembled over 700,000 items from de-identified questions, clinical vignettes, imaging studies,
+    and documentation templates supplied by Chinese tertiary hospitals, specialty societies, and academic partners.
+    At least two healthcare professionals created and labeled content, senior experts adjudicated disagreements,
+    and clinicians from more than 500 institutions conducted multiple rounds of review for guideline consistency
+    and scoring criteria.
+  example: ''
+  scoring: Objective outputs are compared with reference answers using task-specific metrics, including exact-match
+    accuracy and micro-F1; Qwen2.5-72B-Instruct scores open-ended answers against reference solutions, domain rules,
+    and safety constraints using task-specific rubrics. Task metrics are rescaled to 0-100 and averaged equally
+    within each capability dimension, then dimension scores are averaged for the overall score.
+  judge: Automated reference-answer checks and Qwen2.5-72B-Instruct assign scores, with calibration by 1,000 licensed
+    medical professionals.
+  scale: Open-ended rubric dimensions use five-point scales; task metrics are rescaled to 0-100 and macro-averaged.
+  validation: Approximately 20% of instances across all subtasks were sampled for independent ratings by multiple
+    experts from a panel of 1,000 licensed medical professionals. Agreement between aggregated human ratings and
+    the LLM judge exceeded Cohen's κ of 0.82 on key tasks.
+  score_meaning: The rubric anchors range from "dangerously incorrect" to "fully correct and safely actionable,"
+    with higher scores indicating better performance. Higher benchmark scores do not guarantee safety in real clinical
+    use.
+  annotation_process: Human raters use the same multidimensional rubric as the LLM judge, and their independent
+    ratings are combined by majority or mean rating to form a human reference label. Human review provides periodic
+    calibration, especially for ambiguous, contentious, or safety-critical cases.
+  results: Claude Sonnet 4.5 led the base LLM track with 62.5/100. A Claude Sonnet 4.5-based agent achieved the
+    highest overall score, 85.3/100, and scored 88.9/100 on safety tasks.
+  limitations: The authors state that scoring retains subjectivity and potential judge or rater bias, data mainly
+    represent tertiary hospitals and academic centers rather than underserved settings, and benchmark scores do
+    not establish real-world safety.
+  sources:
+  - https://arxiv.org/abs/2511.14439
+  extracted: '2026-10-27'
 signals:
   citations: 4
   citations_source: OpenAlex

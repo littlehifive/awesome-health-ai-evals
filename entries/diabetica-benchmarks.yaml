@@ -28,6 +28,34 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric, rubric_llm_judge]
   modality: [text]
   size: 312 multiple-choice, 35 fill-in-the-blank, 120 open-ended questions
+card:
+  task: Answer diabetes questions by selecting a multiple-choice answer, filling in missing text, or writing an
+    answer to an open-ended question.
+  items_built: The authors extracted 312 examination questions, comprising 235 A1 foundational-knowledge questions
+    and 77 A2 clinical-context questions, and manually created 35 fill-in-the-blank questions from guidelines and
+    textbooks. They also constructed 120 open-ended items, each containing a category, a question, and physician-annotated
+    rules for evaluating answers.
+  example: ''
+  scoring: Multiple-choice performance is the percentage of answers that are correct, while fill-in-the-blank responses
+    are evaluated using BERTScore, ROUGE-L, ROUGE-1, ROUGE-2, and BLEU. GPT-4 and Claude-3.5 separately rate each
+    open-ended answer from 1 to 10 against physician-written rules; the text does not specify how these ratings
+    are aggregated.
+  judge: Correct answers determine multiple-choice scores, automated metrics score fill-in-the-blank responses,
+    and GPT-4 and Claude-3.5 grade open-ended answers.
+  scale: Multiple-choice accuracy as a percentage; five fill-in-the-blank metrics; open-ended ratings from 1 to
+    10.
+  validation: ''
+  score_meaning: ''
+  annotation_process: ''
+  results: Diabetica-7B led the multiple-choice benchmark with 87.2% accuracy, answering 272 of 312 questions correctly,
+    and received open-ended scores of 7.81 from GPT-4 and 7.96 from Claude-3.5. In a separate comparison on 67 A2
+    questions, it scored 84.4%, versus 53.7% for medical students, 69.7% for junior physicians, 74.0% for intermediate
+    physicians, and 83.5% for senior physicians, with three participants in each human group.
+  limitations: ''
+  sources:
+  - https://arxiv.org/abs/2409.13191
+  - https://github.com/waltonfuture/Diabetica
+  extracted: '2026-10-27'
 signals:
   citations: 5
   citations_source: OpenAlex

@@ -27,6 +27,26 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: 30-item questionnaire in 7 domains; pilot of 5 scenarios x 3 LLMs (15 responses) rated by 5 ENT specialists
+card:
+  task: Answer a clinical question with a medical response that can be assessed for accuracy, reasoning, safety,
+    clarity, usefulness, and answer behavior.
+  items_built: The framework was developed to assess LLM-generated medical answers using a 30-item clinician-rated
+    questionnaire across seven domains, and was piloted on five otolaryngology scenarios. MELMA-W converts the questionnaire
+    into a web-based rubric workflow that accepts a clinical question, an LLM answer, and the model name.
+  example: ''
+  scoring: Answers undergo Tier A safety screening followed by Tier B weighted domain scoring. MELMA-W reports item-level
+    and domain-level scores with scoring explanations, visualizations, and a downloadable report.
+  judge: Clinicians rate MELMA-Q; the sources do not identify who or what assigns scores in MELMA-W.
+  scale: Tier A safety screening and Tier B weighted domain scores; per-item scale and final score range are not
+    stated.
+  validation: Inter-rater agreement was reported as an intraclass correlation coefficient of 0.89.
+  score_meaning: ''
+  annotation_process: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://github.com/draynuraliyeva86-a11y/MELMA-W-Web-Based-Auditing-of-LLM-Generated-Medical-Answers
+  extracted: '2026-10-27'
 signals:
   citations: 4
   citations_source: OpenAlex

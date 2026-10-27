@@ -24,6 +24,22 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 977 questions (52 with images)
+card:
+  task: Answer Spanish multiple-choice nursing specialty exam questions, using the accompanying image when one is
+    provided.
+  items_built: The dataset contains 977 questions taken from Spain's national nursing specialty (EIR) exam booklets,
+    including 52 questions with images and answer keys.
+  example: ''
+  scoring: The selected answer is compared with the answer key, and accuracy is the proportion of questions answered
+    correctly.
+  judge: Exact match with the answer key.
+  scale: Correct or incorrect per question; overall accuracy.
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://huggingface.co/datasets/amayuelas/aya-mm-exams-spanish-nursing
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

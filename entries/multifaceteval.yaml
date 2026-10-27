@@ -27,6 +27,31 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: MultiMedQA-style set of 800 MCQs, 1,600 revision questions, 1,600 multiple-answer questions, and 3,200 true-false questions; MultiDiseK size not extracted
+card:
+  task: Answer multiple-choice, answer-revision, multiple-answer, and true-false questions testing the same medical
+    knowledge point.
+  items_built: The authors used templates to create 31,670 MultiDiseK questions covering 3,167 knowledge points
+    from a disease knowledge base annotated by 20 medical experts over about three months. They also selected 800
+    of the 1,273 US MedQA questions using regular expressions and expanded them into 7,200 MultiMedQA items using
+    heuristic rules, synonym substitutions, and negated versions.
+  example: 'Question: A 25-year-old Hispanic male presents ...Which of the following would be consistent with this
+    patient''s disease? A: Sympathetic underactivity B: Anti-thyroglobin antibodies C: Exophthalmos D: Increased
+    TSH release E: Multinucleate giant cells present in the thyroid'
+  scoring: Answers extracted with regular expressions are compared with reference answers, requiring exact answer-set
+    matches for multiple-answer questions and both a correct correctness judgment and the correct original answer
+    for revision questions. The overall score is the proportion of knowledge points with every question correct
+    across all assessed facets; facet accuracy is also reported, with revision accuracy weighted by 1/N for supplied-correct
+    answers and (N−1)/N for supplied-incorrect answers, where N is the number of options.
+  judge: Automated comparison with reference answers after regular-expression answer extraction assigns the scores.
+  scale: Correct or incorrect per question; facet accuracy and proportion of knowledge points mastered across all
+    facets.
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://doi.org/10.24963/ijcai.2024/737
+  - https://github.com/THUMLP/MultifacetEval
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

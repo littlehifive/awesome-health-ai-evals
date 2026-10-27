@@ -26,6 +26,42 @@ facets:
   eval_methods: [automatic_metric, rubric_llm_judge]
   modality: [text]
   size: 13 datasets across 6 tasks (per-dataset sizes in the paper's Table 2)
+card:
+  task: Read a mental-health statement, case, question, research abstract, or video transcript and provide a reasoned
+    classification, answer, counseling strategy, evidence summary, or misinformation judgment.
+  items_built: The authors refined existing resources drawn from counseling dialogues, social-media posts, medical
+    exams, PubMed, and video transcripts, and manually curated 108 Cochrane Library systematic-review cases with
+    expert-written scoring points. Counseling cases were summarized using GPT-4o and checked by an expert counselor
+    with over ten years of clinical experience; psychiatric questions were manually selected from three existing
+    question banks.
+  example: '"Am I insane?"'
+  scoring: 'Outputs are compared with reference labels using micro-F1 for classification and psychiatry questions,
+    Jaccard similarity for counseling strategies, macro-F1 for misinformation, and recall of expert-annotated scoring
+    points for summaries. Human raters also score reasoning chains on five binary criteria, then average the five
+    scores, using four cases per dataset for each selected model: two all models answered correctly and two all
+    models answered incorrectly.'
+  judge: Reference labels and expert-written scoring points determine task scores; human annotators with unspecified
+    numbers and qualifications rate reasoning chains.
+  scale: Task scores use F1, Jaccard similarity, or scoring-point recall; reasoning criteria receive 0 or 1 and
+    are averaged.
+  validation: For reasoning ratings, reported overall agreement was Gwet AC1 of 0.9617, Cohen's kappa of 0.7986,
+    and consistency of 0.9714.
+  score_meaning: For each reasoning criterion, 1 means no errors were observed and 0 means at least one error was
+    observed. A higher overall reasoning score means a larger share of the assessed criteria were error-free, not
+    necessarily that the final answers were correct.
+  annotation_process: Reference cognitive-error labels came from 15 trained mental-health professionals for CognitiveReframing,
+    five independent raters for PatternReframe, and two clinical raters for Therapist Q&A. For counseling-strategy
+    items, GPT-4o compressed client utterances into case summaries, counselor utterances were annotated with reference
+    strategy labels, and an expert counselor with over ten years of clinical experience manually reviewed and verified
+    every constructed item.
+  results: MindoraCHORD had the highest average task score, but the supplied text gives no numeric overall task
+    score. DeepSeek-R1 had the highest reported reasoning-trajectory average at 0.9827, compared with 0.9731 for
+    MindoraCHORD.
+  limitations: ''
+  sources:
+  - https://arxiv.org/abs/2512.09636
+  - https://github.com/whunextgen/MentraSuite
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

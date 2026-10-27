@@ -26,6 +26,26 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: "6,099 questions (10 years of exam items plus 600 human-crafted dynamic items)"
+card:
+  task: Select the single correct answer to each Chinese multiple-choice question on traditional Chinese medicine
+    and related medical knowledge.
+  items_built: Medical experts manually collected and curated 6,099 questions from ten years of official licensing
+    examinations, and professional TCM practitioners created 600 additional questions for periodic refreshes. Independent
+    reviewers checked stems and answers over multiple rounds, excluding questions with ambiguous wording or multiple
+    plausible answers.
+  example: '人体作为一个有机整体，其"中心"是 Options: A. 脑 B. 心 C. 五脏 D. 经络 E. 脏腑 Correct Answer: C'
+  scoring: Selected answers are compared with the correct answers to calculate accuracy for each yearly examination
+    set and the human-crafted set. The Overall score is the average across these 11 subsets.
+  judge: Answers are checked against the answer key.
+  scale: Correct or incorrect per question; percentage accuracy per subset and an average Overall score.
+  validation: ''
+  results: ZMT-M1 ranked first, with 96.32% reported in the abstract and conclusion, while the main-results text
+    reports an Overall score of 96.17. The official human practitioner passing threshold is 60 points; no measured
+    human baseline is reported.
+  limitations: ''
+  sources:
+  - http://arxiv.org/abs/2511.07148
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

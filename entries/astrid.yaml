@@ -27,6 +27,38 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 238 question-answer-context triplets; subsets of 87 and 132 for individual claims
+card:
+  task: Answer a patient's clinical question using retrieved information, refusing to answer when no relevant information
+    is available.
+  items_built: A workshop with AI developers, a clinician, and a safety practitioner developed the framework through
+    hazard analysis of real patient questions. Validation data began with 102 unique questions from 120 patients
+    at two UK hospitals, added 45 clinician-selected HealthSearchQA questions, and produced 238 question-answer-context
+    triplets with consensus annotations; two ophthalmic surgeons rated a 132-example subset enriched with clinician-authored
+    unsafe or unhelpful responses.
+  example: ''
+  scoring: LLM graders assess retrieved context against the question, the response against its supplied context,
+    and whether the system appropriately refuses when relevant information is unavailable. Grader labels are compared
+    with human labels using accuracy and F1-scores; the text gives no combined ASTRID score.
+  judge: Eight LLM graders were tested, including GPT-4o, claude-3.5-sonnet, Gemini-2-Flash, and GPT-o3-mini.
+  scale: Refusal Accuracy uses binary labels; grader agreement is reported as accuracy and F1-scores for each metric.
+  validation: Human-annotated Conversational Faithfulness predicted perceived faithfulness with AUC 0.98, compared
+    with 0.83 for statement-level faithfulness. Using the triad and scope of practice to predict clinician assessments
+    yielded average F1-scores of 0.835 for harmfulness and 0.715 for helpfulness; inter-annotator agreement on inappropriateness
+    was 65% before resolution.
+  score_meaning: For clinical inappropriateness, "No" means appropriate, "Yes" means inappropriate, and "slightly"
+    identifies slightly inappropriate content.
+  annotation_process: Two independent annotators rated Perceived Faithfulness from answers and their context without
+    seeing the original question, then resolved disagreements by discussion and consensus. Independent annotators
+    also rated 238 answer-context pairs using statement-level Faithfulness and Conversational Faithfulness, reaching
+    consensus through discussion. Two ophthalmic surgeons labeled each triplet for the clinical assessments.
+  results: Among automated graders, Gemini-2-Flash achieved a Conversational Faithfulness F1-score of 0.77. GPT-o3-mini
+    had the highest Context Relevance accuracy, 0.87, and Refusal Accuracy accuracy, 0.95.
+  limitations: The authors evaluated single-turn safety in one clinical use case with limited data, without assessing
+    multi-turn continuity or usability dimensions such as mistranscription robustness, empathy, latency, brevity,
+    and user satisfaction.
+  sources:
+  - https://arxiv.org/abs/2501.08208
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

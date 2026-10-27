@@ -26,6 +26,23 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 992 questions in the released QA subset
+card:
+  task: Answer multiple-choice medical questions and make clinical predictions from patient data.
+  items_built: 'The released QA subset contains 992 processed questions: 658 from MedXpertQA-r, 129 from MedXpertQA-u,
+    93 from MedQA, 84 from Medbullets, 12 from MMLU-Pro, 11 from MMLU and 5 from MedMCQA, with gender and age annotations.
+    The clinical prediction task uses MIMIC-IV, which the repository excludes because of license restrictions.'
+  example: ''
+  scoring: Accuracy is reported overall and by demographic subgroup, including the accuracy of the worst-performing
+    subgroup.
+  judge: ''
+  scale: Overall, subgroup and worst-group accuracy.
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://github.com/xiye7lai/FairMed
+  - https://doi.org/10.1145/3770855.3818853
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

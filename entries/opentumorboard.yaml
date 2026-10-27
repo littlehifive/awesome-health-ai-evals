@@ -26,6 +26,26 @@ facets:
   eval_methods: [rubric_llm_judge, simulated_multi_turn, automatic_metric]
   modality: [text]
   size: 611 cases, 19,157 discussion turns
+card:
+  task: Respond as a specialist at a discussion turn or simulate a tumor board discussion and its consensus using
+    the patient case materials.
+  items_built: The benchmark contains 611 patient cases and 19,157 discussion turns across ten specialist roles,
+    transcribed from public YouTube recordings of multidisciplinary tumor boards. Case materials include presentation
+    slides with radiology and pathology images, and three M.D. experts audited 447 ground-truth question-answer
+    pairs.
+  example: ''
+  scoring: Qwen3.8-27B judges specialist responses and simulated board consensus against reference responses using
+    clinical-equivalence and conclusion-alignment rubrics; ROUGE-L and BERTScore are also reported.
+  judge: Qwen3.8-27B assigns the model-based scores.
+  scale: ''
+  validation: ''
+  score_meaning: ''
+  annotation_process: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://arxiv.org/abs/2609.32810
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

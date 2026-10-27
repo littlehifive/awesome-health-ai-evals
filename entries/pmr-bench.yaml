@@ -29,6 +29,38 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 1,569 unique messages; 2,000+ test pairs
+card:
+  task: Choose which of two patient messages is more medically urgent, using linked electronic health record data
+    when provided.
+  items_built: The researchers filtered r/AskDocs posts and hospital portal messages for acute symptoms, then used
+    GPT-5 for public data and GPT-OSS 20B for sensitive data to extract six-level urgency labels from clinician
+    responses and form comparison pairs. Study experts hand-wrote synthetic messages linked to de-identified real
+    patient records, additional clinical experts reviewed them, and triage nurses and physicians directly annotated
+    all pairs in two 30-message inboxes; the full benchmark contains 1,569 messages and over 2,000 test pairs.
+  example: ''
+  scoring: Pairwise predictions are compared with the reference urgency ordering, and accuracy is reported overall
+    and by difficulty, defined by the gap between urgency levels. For inbox sorting, each pairwise win adds 1 plus
+    the normalized probability or reward-score difference to a message's total, messages are sorted by that total,
+    and ranking quality is reported as T-NDCG@10 and T-NDCG@30.
+  judge: Predictions are scored against reference orderings derived from clinician responses using GPT-5 or GPT-OSS
+    20B, or directly annotated by triage nurses and physicians.
+  scale: Correct or incorrect per pair; percentage accuracy and inbox T-NDCG@10 and T-NDCG@30.
+  validation: ''
+  score_meaning: 'The reference urgency scale runs from Level 1, requiring emergency attention, to Level 6, requiring
+    no medical attention; Level 5 covers self-care advice. Higher T-NDCG scores mean better inbox ordering: T-NDCG@30
+    assesses the full inbox, while T-NDCG@10 emphasizes the top and bottom, rewarding correct placement and penalizing
+    misplacement of highly urgent messages.'
+  annotation_process: For PMR-Reddit, posts were retained only if an expert comment had at least five upvotes or
+    multiple expert comments agreed, and test sets underwent multiple rounds of filtering for clear urgency differences.
+    For PMR-Synth, clinical experts reviewed the expert-written messages, then triage nurses and physicians directly
+    annotated all 435 pairs in each of two 30-message inboxes, one for training and one for testing.
+  results: ''
+  limitations: Some labels were extracted by LLMs without full human review, PMR-Real cannot be released and its
+    secure computing environment restricted model comparisons, and urgency-only sorting can repeatedly delay low-urgency
+    messages.
+  sources:
+  - http://arxiv.org/abs/2601.13178
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

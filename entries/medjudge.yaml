@@ -26,6 +26,37 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 3 clinical risk tiers x 3 pillars (validity, safety, accountability)
+card:
+  task: Evaluate a healthcare LLM judge through risk-tiered checks of its scoring validity, bias, robustness, error
+    propagation, and human oversight.
+  items_built: The authors developed guidance for healthcare LLM-as-a-judge systems from a PRISMA-ScR scoping review
+    of six databases covering January 2020 to January 2026, screening 11,727 studies and including 49. The framework's
+    requirements were derived from gaps in those studies rather than a fixed set of test items.
+  example: ''
+  scoring: The framework proposes comparing judge scores across reordered, reformatted, and source-attributed versions
+    of the same content, and comparing judge ratings with expert ratings. It specifies separate checks and risk-tier
+    thresholds rather than a combined overall score.
+  judge: Domain-relevant experts validate judges, with board-certified specialists for Tier B and multi-institutional
+    subspecialty panels for Tier C.
+  scale: Separate check-specific metrics, including score variance, length-score correlation, expert agreement,
+    and system error rate; no overall scoring scale.
+  validation: ''
+  score_meaning: The proposed alignment pass criteria are less than 5% score variance after reordering, less than
+    5% normalized variance after changing scoring scales, and a length-score correlation below 0.2. Proposed system
+    error limits are below 30% for Tier A, 10% for Tier B, and 5% for Tier C; these and the alignment thresholds
+    are preliminary anchors requiring empirical calibration, not validated standards.
+  annotation_process: MedJUDGE recommends adding expert validators until agreement metrics change minimally with
+    each additional reviewer, for example by less than 0.05, rather than prescribing a fixed panel size. Panels
+    should establish expert-expert agreement before assessing judge-expert agreement and resolve disagreements through
+    structured deliberation rather than majority voting. Persistent disagreement should be represented through confidence
+    bounds rather than forced consensus.
+  results: ''
+  limitations: The authors state that MedJUDGE is an evidence-informed starting point rather than a finalized deployment
+    standard, and that its proposed thresholds and error-propagation bounds require empirical calibration across
+    clinical tasks and real pipelines.
+  sources:
+  - https://arxiv.org/abs/2604.25933
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

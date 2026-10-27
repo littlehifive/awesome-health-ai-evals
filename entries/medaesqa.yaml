@@ -28,6 +28,42 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: 40 questions, 40 expert answers, 1,200 machine-generated answers, 8,111 machine citations
+card:
+  task: Answer each health question with evidence-supported sentences, citing up to three PubMed references per
+    sentence and no more than 30 documents per answer.
+  items_built: The authors selected the 40 most popular, previously unseen questions submitted by self-identified
+    non-clinicians to MedlinePlus, and medical informatics experts added topics, narratives and structured question
+    frames. A medical information expert wrote reference answers from PubMed titles and abstracts; TREC 2024 participants
+    supplied 30 machine-generated answers per question, which clinicians assessed for answer acceptability, assertion
+    relevance and citation support.
+  example: ''
+  scoring: Clinicians judge whether each answer at least partially answers the question, classify each assertion's
+    relevance and assess each cited document's relationship to it; answer accuracy is the percentage of the 40 answers
+    judged acceptable for each method. Other metrics measure assertion and citation proportions, document retrieval
+    precision and recall, and completeness against required aspects pooled across systems and grouped into 10 clusters
+    using sentence embeddings.
+  judge: Clinicians employed by Centaur Labs assign labels by majority vote of at least three annotators per judgment.
+  scale: Binary answer acceptability and four-category assertion and evidence labels; reported metrics include accuracy,
+    precision, recall and citation rates.
+  validation: Agreement, defined as the percentage of annotators choosing the majority label, was 90.37% for acceptable
+    answers and 76.06% for unacceptable answers.
+  score_meaning: Required assertions are needed for a complete answer; unnecessary assertions are not needed; borderline
+    assertions are relevant but optional; inappropriate assertions could harm the patient if followed. A citation
+    supports an assertion when at least one sentence agrees and none contradicts it, contradicts it when at least
+    one sentence disagrees, is neutral when it is on topic but neither confirms nor refutes it, and is not relevant
+    when it is unrelated.
+  annotation_process: Experts supplied passages from cited documents to justify their evidence labels, assessing
+    only PubMed titles and abstracts rather than full texts. Automated comparisons measured generated answers against
+    expert-curated answers using BLEU, ROUGE and BERTScore, and calculated citation precision, recall and F-score
+    using the expert citation lists as the reference.
+  results: Eleven of the 30 methods achieved 100% answer accuracy, and M17 achieved the highest answer precision
+    at 90.23%. M24 achieved the best Sentence Transformer completeness scores, with 40.25 under the supported-and-required
+    setting and 42.75 under the required-plus-borderline setting.
+  limitations: The authors state that restricting supporting evidence to PubMed titles and abstracts may inhibit
+    real-world usability.
+  sources:
+  - https://doi.org/10.1038/s41597-025-05233-z
+  extracted: '2026-10-27'
 signals:
   citations: 4
   citations_source: OpenAlex

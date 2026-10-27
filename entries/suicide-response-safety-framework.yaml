@@ -35,6 +35,26 @@ facets:
   modality:
   - text
   size: 4 scenarios; 3 LLMs; repeated multi-turn runs coded by 3 raters (ICC 0.78)
+card:
+  task: Respond to an AI-simulated help-seeking individual in multi-turn conversations containing explicit or culturally
+    embedded suicide risk indicators.
+  items_built: The framework was developed from crisis intervention principles and applied to repeated multi-turn
+    interactions across four simulated scenarios enacted by an AI agent.
+  example: ''
+  scoring: Three trained raters coded responses using binary criteria for connection and listening, suicide risk
+    assessment, and coping strategy exploration.
+  judge: Three trained raters assigned the codes.
+  scale: Binary criteria for responses.
+  validation: Agreement among the three trained raters had an intraclass correlation coefficient of 0.78.
+  score_meaning: ''
+  annotation_process: ''
+  results: All three LLMs showed strong empathy and active listening, but suicide risk assessment was inconsistent
+    and often inadequate. Performance was stronger for explicit risk signals than for indirect or culturally embedded
+    signals.
+  limitations: ''
+  sources:
+  - https://doi.org/10.1016/j.psycom.2026.100263
+  extracted: '2026-10-27'
 signals:
   citations: 4
   citations_source: OpenAlex

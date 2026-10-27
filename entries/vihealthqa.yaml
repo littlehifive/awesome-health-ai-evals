@@ -27,6 +27,29 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: "10,015 question-answer passage pairs (7,009 train, 993 dev, 2,013 test)"
+card:
+  task: Retrieve and rank answer passages from a collection so that the passage paired with each Vietnamese health
+    question appears among the top results.
+  items_built: The authors used BeautifulSoup to collect 10,015 user questions and their corresponding replies from
+    qualified doctors on Vinmec and VnExpress. The paper reports 7,009 training pairs, 993 development pairs and
+    2,013 test pairs.
+  example: '"Tôi bị dị ứng thuốc kháng sinh và dị ứng khi ăn thịt cua đồng. Trường hợp của tôi có được tiêm vaccine
+    phòng Covid-19 không?"'
+  scoring: Retrieved passages are checked against the exact answer passage paired with each question. P@K is the
+    percentage of questions whose paired passage appears in the top K results; mean average precision (mAP) is also
+    reported.
+  judge: Automated matching against the paired answer passage assigns the scores.
+  scale: Binary hit or miss per question at K; aggregate P@1, P@10 and mAP reported as percentages.
+  validation: ''
+  score_meaning: ''
+  annotation_process: ''
+  results: SPBERTQA achieved the best test results, with 62.25% mAP, 50.92% P@1 and 83.76% P@10.
+  limitations: The dataset card warns that crawled content may contain personal information and asks researchers
+    to filter it during preprocessing.
+  sources:
+  - https://doi.org/10.1007/978-3-031-10986-7_30
+  - https://huggingface.co/datasets/tarudesu/ViHealthQA
+  extracted: '2026-10-27'
 signals:
   citations: 19
   citations_source: OpenAlex

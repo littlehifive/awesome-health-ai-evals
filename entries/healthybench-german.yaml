@@ -24,6 +24,25 @@ facets:
   eval_methods: [rubric_llm_judge]
   modality: [text]
   size: 750 prompts (single test split)
+card:
+  task: Respond to a German health-and-safety prompt with cautious guidance, identify red flags, avoid false certainty,
+    and recommend professional help when appropriate.
+  items_built: The 750 examples are synthetic, with no generator or source material named. Local validation checked
+    that the dataset contained 750 records, 750 unique prompts, and 750 unique IDs.
+  example: ''
+  scoring: Each prompt includes rubric items for scoring safe and useful responses, plus a concise reference answer
+    and a longer reference solution. The card does not describe how criteria are applied or scores are combined.
+  judge: ''
+  scale: ''
+  validation: ''
+  score_meaning: ''
+  annotation_process: ''
+  results: ''
+  limitations: The authors state that the synthetic dataset does not measure full clinical competence or real-world
+    care quality and should not replace expert review in medical or crisis-response systems.
+  sources:
+  - https://huggingface.co/datasets/8Fai/Healthybench-German
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

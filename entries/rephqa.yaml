@@ -26,6 +26,34 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric]
   modality: [text]
   size: 533 test QA pairs (plus a 36,060-question post-training corpus)
+card:
+  task: Answer patient education questions in plain language at a requested reading level while preserving the information
+    needed to answer related multiple-choice questions.
+  items_built: Professionals in nursing, public health, and clinical communication reviewed publicly available question-answer
+    pairs against evidence-based research and clinical guidelines, removing overly technical content to produce
+    533 pairs from 27 sources. GPT-4.1 generated associated multiple-choice questions, iteratively refined using
+    GPT-4o-mini feedback to make their answers depend on the supplied context.
+  example: ''
+  scoring: Responses receive a Flesch-Kincaid grade based on sentence length and syllables per word, plus a professional-term
+    proportion using 2,058 terms from the Harvard Medical Dictionary. GPT-4o-mini uses each generated response as
+    context to answer its associated multiple-choice question, and accuracy is the proportion of selected options
+    matching gold labels across the evaluation set.
+  judge: Readability is calculated automatically, and GPT-4o-mini answers the proxy multiple-choice questions for
+    accuracy scoring.
+  scale: Flesch-Kincaid reading grade and professional-term proportion per response; proxy QA accuracy averaged
+    across the evaluation set.
+  validation: ''
+  score_meaning: Higher Flesch-Kincaid grades indicate harder reading, and higher professional-term scores indicate
+    more technical language, with zero meaning no medical jargon. Higher proxy QA accuracy indicates that responses
+    preserve more essential information; the study maps grades 6, 9, 12, and 15 to fifth-grade, middle-school, high-school,
+    and college reading levels, respectively.
+  annotation_process: ''
+  results: ''
+  limitations: The evaluation primarily covers English-language content for lay users in the U.S. healthcare context,
+    limiting generalization to other languages, cultures, and health systems.
+  sources:
+  - http://arxiv.org/abs/2509.16360
+  extracted: '2026-10-27'
 signals:
   citations: 2
   citations_source: OpenAlex

@@ -27,6 +27,31 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric]
   modality: [text]
   size: "YakugakuQA 3,021 questions; NayoseQA 34,769; SogoCheck 200"
+card:
+  task: Select the correct exam answer or answers in YakugakuQA, choose the matching drug name or synonym in NayoseQA,
+    and determine whether two Japanese pharmaceutical statements are consistent in SogoCheck.
+  items_built: The authors manually processed 2012-2024 pharmacist licensing exam questions, answers and commentaries
+    from yakugaku lab, retaining 3,021 text-only questions for evaluation; NayoseQA contains 34,769 terminology
+    questions drawn from KEGG DRUG. They also synthesized 200 SogoCheck statement pairs with an LLM using the Japanese
+    Pharmacopoeia.
+  example: ''
+  scoring: For multiple-choice tasks, selected answers are extracted from model outputs, extra text is discarded,
+    and the selections are compared with the answer key by exact match. Results are reported as percentage accuracy
+    for each benchmark.
+  judge: Multiple-choice answers are scored by exact match with the answer key.
+  scale: Correct or incorrect per multiple-choice item; percentage accuracy reported separately for each benchmark.
+  validation: ''
+  score_meaning: ''
+  annotation_process: ''
+  results: o1-preview achieved the highest reported YakugakuQA accuracy at 87.9%. GPT-4o led the main comparison
+    with 86.0% on NayoseQA and 39.1% on SogoCheck.
+  limitations: The authors note that excluding images reduces chemistry coverage in YakugakuQA, multiple-choice
+    formats limit practical relevance in YakugakuQA and NayoseQA, and SogoCheck is small and contains generated
+    inconsistencies that can be too trivial or artificial.
+  sources:
+  - https://doi.org/10.48448/2fvc-hc14
+  - https://huggingface.co/datasets/EQUES/YakugakuQA
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

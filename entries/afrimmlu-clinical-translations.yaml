@@ -28,6 +28,27 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: about 1 million translated words across 8 languages (3 MMLU clinical sections plus Winogrande)
+card:
+  task: Choose the correct answer to each translated medical multiple-choice question or select one of two options
+    that resolves a reference in a Winogrande sentence.
+  items_built: Translated.com translated the three MMLU clinical sections, while Upwork recruits translated 3,674
+    Winogrande question-answer pairs into each target language. For Winogrande, an independent validator corrected
+    translations and two independent evaluators rated their quality; translators and validators could use machine
+    translation but had to manually check and correct it.
+  example: ''
+  scoring: Answers are compared with the benchmark's correct answers, and the percentage answered correctly is reported
+    as accuracy. Evaluations use five examples in the prompt, with results reported by language and benchmark and
+    averaged across languages.
+  judge: Answers are scored against the benchmark answer key.
+  scale: Correct or incorrect per item; percentage accuracy with five-shot prompting.
+  validation: ''
+  results: GPT-4o performed best overall, with accuracy gaps of 12.0 to 19.9 percentage points between English and
+    the average across 11 African languages, depending on the benchmark.
+  limitations: ''
+  sources:
+  - https://doi.org/10.1609/aaai.v39i27.34996
+  - https://github.com/InstituteforDiseaseModeling/Bridging-the-Gap-Low-Resource-African-Languages
+  extracted: '2026-10-27'
 signals:
   citations: 11
   citations_source: OpenAlex

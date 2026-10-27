@@ -27,6 +27,28 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 2,019 question-answer pairs over 147 articles
+card:
+  task: Extract the answer to each question from the supplied passage of a COVID-19 research article.
+  items_built: Fifteen volunteer biomedical experts, each required to hold at least a Master's degree in biomedical
+    sciences, annotated 2,019 question-answer pairs from 147 CORD-19 scientific articles using deepset's web-based
+    annotation tool. A medical doctor (G.A.R.) led the team, vetted volunteers' credentials, and manually verified
+    every question-answer pair.
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: ''
+  validation: ''
+  score_meaning: ''
+  annotation_process: The 15 volunteer annotators were required to have at least a Master's degree in biomedical
+    sciences. A medical doctor (G.A.R.) led the team, vetted the volunteers' credentials and manually verified every
+    question-answer pair they produced. Annotators used a web-based annotation tool created by deepset and available
+    through Haystack.
+  results: ''
+  limitations: ''
+  sources:
+  - https://huggingface.co/datasets/deepset/covid_qa_deepset
+  - https://github.com/deepset-ai/COVID-QA
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

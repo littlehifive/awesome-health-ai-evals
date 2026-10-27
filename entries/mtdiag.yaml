@@ -26,6 +26,26 @@ facets:
   eval_methods: [simulated_multi_turn, automatic_metric]
   modality: [text]
   size: dialogue count not found; sources of about 1.3 million DDXPlus cases (subsampled), 68K MIMIC-IV cases, and 415 AJCR cases
+card:
+  task: Conduct a multi-turn diagnostic conversation and propose a differential diagnosis from the clinical evidence
+    elicited.
+  items_built: Cases were drawn from DDX-Plus, MIMIC-IV and 415 published case reports, covering common emergency
+    department presentations and rare or atypical conditions. They were normalized into a PatientVector schema using
+    UMLS concept identifiers and ICD-10 diagnosis codes, then converted into natural-language utterances through
+    a UserLM-8B pipeline and validated by physicians.
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: ''
+  validation: ''
+  score_meaning: ''
+  annotation_process: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://github.com/piachouaifaty/MTDiag
+  - https://doi.org/10.18653/v1/2026.sigdial-1.58
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

@@ -26,6 +26,33 @@ facets:
   eval_methods: [automatic_metric, rubric_llm_judge, simulated_multi_turn]
   modality: [text]
   size: 591 patients; 5,935 dialogue samples
+card:
+  task: Answer each doctor's question in Chinese as a simulated patient, using the supplied patient persona, medical
+    information, and dialogue history.
+  items_built: The authors collected records and verbatim conversations from 150 gastroenterology outpatients and
+    used Qwen2.5-72B with few-shot prompting to generate additional cases by reshaping existing patient personas.
+    All data underwent two rounds of manual verification, with a third expert adjudicating 43 disputed cases; generated
+    dialogues also underwent rule-based filtering and expert review.
+  example: ''
+  scoring: BLEU, ROUGE, METEOR, and BERTScore compare generated answers with reference patient responses. An LLM
+    evaluator assigns separate scores for persona consistency, factual consistency, naturalness, and contextual
+    relevance; the text does not specify how item scores are aggregated.
+  judge: Qwen2.5-14B grades the four persona and communication dimensions, alongside automatic similarity metrics.
+  scale: Each judged dimension uses 1 to 5, from poor to excellent; BLEU, ROUGE, METEOR, and BERTScore are reported
+    separately.
+  validation: ''
+  score_meaning: Factual consistency measures medical correctness and the presence of hallucinations or contradictions.
+    Naturalness measures fluency, coherence, and how human-like the response sounds in clinical communication.
+  annotation_process: The LLM judge uses evaluation prompts and collected patient responses to assess generated
+    answers. For dataset annotation, all data undergo two rounds of manual verification for medical accuracy, naturalness,
+    and persona consistency. A third expert resolves disagreements between the two annotators; 43 of the 591 cases
+    required adjudication.
+  results: ''
+  limitations: ''
+  sources:
+  - https://arxiv.org/abs/2601.10951
+  - https://github.com/SerajJon/MSPRP
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

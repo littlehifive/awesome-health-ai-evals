@@ -24,6 +24,24 @@ facets:
   eval_methods: [rubric_llm_judge]
   modality: [text]
   size: 4 rubric dimensions; pilot notebooks with LLM responses and evaluation reports (case count not stated in the README)
+card:
+  task: Produce a diagnostic response to a clinical case.
+  items_built: The framework is intended to assess medical LLM diagnostic responses and was implemented as a proof-of-concept
+    pilot. The pilot uses public clinical question-answer datasets, including MedQA, as substitutes for real-world
+    diagnostic cases, with each case structured into summary, evidence_list, criteria and final_judgment fields.
+  example: ''
+  scoring: External evaluator agents and LLM self-critique assess diagnostic responses using a rubric covering accuracy,
+    explainability, consistency and safety, and their evaluations are compared.
+  judge: External evaluator agents and the responding LLM through self-critique assign the evaluations.
+  scale: ''
+  validation: ''
+  score_meaning: ''
+  annotation_process: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://github.com/belovelace/KCI_RV_Framework
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

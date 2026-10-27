@@ -25,6 +25,36 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: Framework with pseudocode for each metric; demonstrated on the Counsel Chat Q&A dataset (31 topics)
+card:
+  task: Answer mental health questions in text for comparison with verified therapists' responses.
+  items_built: The framework was developed from psychotherapy and counselling conversation-analysis literature for
+    use with question-and-answer datasets containing verified professional responses. The authors applied it to
+    an existing verified mental health dataset, using its therapist answers as the gold standard.
+  example: ''
+  scoring: Emotion Consistency measures overlap with the gold-standard response's emotions; the other metrics measure
+    sentiment changes, readability, word reuse, agreement and active listening separately for model and therapist
+    responses. Scores are averaged for each metric, selected metrics are normalized, and Pearson correlation across
+    the six non-emotion metrics measures similarity to the therapist baseline, with p-values reported.
+  judge: GPT3.5 Turbo scores agreement and active listening; computational metrics score the other properties.
+  scale: Emotion Consistency ranges from 0 to 1; agreement ranges from 0 to 10; other metrics use distinct scales,
+    with final similarity reported as Pearson correlation.
+  validation: ''
+  score_meaning: Agreement scores run from 0 for strong disagreement to 10 for strong agreement; higher agreement
+    is not necessarily better, since performance is judged by closeness to the therapist baseline. Emotion Consistency
+    is better nearer 1 and worse nearer 0, while Pearson correlation indicates directional similarity to the baseline
+    rather than the absolute distance between scores.
+  annotation_process: For agreement and active listening, the grading prompt combines a system message, instructions,
+    the question and its response, then extracts a numerical score from the grader's reply. The simplicity calculation
+    excludes responses with 100 or fewer elements.
+  results: GPT4 Preview had the highest correlation with the verified therapist baseline across the six non-emotion
+    metrics, at 0.830253 (p = 0.040775), the only statistically significant overall correlation. It also performed
+    best on Emotion Consistency.
+  limitations: The authors state that counselling-derived metrics may fit question-and-answer text poorly, short
+    responses limit readability and sentiment analysis, GPT3.5 grading may introduce bias or favor its own responses,
+    and Pearson correlation does not measure absolute distance from therapist scores.
+  sources:
+  - http://arxiv.org/abs/2403.09705
+  extracted: '2026-10-27'
 signals:
   citations: 2
   citations_source: OpenAlex

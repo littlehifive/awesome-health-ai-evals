@@ -29,6 +29,39 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric, expert_human_rating]
   modality: [text]
   size: about 15,000 questions (MCQ, short answer, consumer queries); 37,435 human ratings
+card:
+  task: Select the correct option for each medical multiple-choice question or write an answer to each short-answer
+    question or simulated consumer health query.
+  items_built: The 621 contributors produced 4,039 multiple-choice questions, 1,236 short-answer questions, and
+    10,000 consumer queries; clinicians used African medical sources, while clinicians and non-clinicians wrote
+    consumer queries from prompts covering 472 conditions, symptoms, and complaints. A clinician team checked questions,
+    answers, and rationales against authoritative clinical references, and only contributors with at least 80% positive
+    quality ratings could contribute.
+  example: What histopathological findings are associated with African cases of endemic angioedema affecting the
+    skin and mucous membranes?
+  scoring: Multiple-choice accuracy compares the model's single-letter choice with the reference answer, while BERTScore,
+    QuestEval, and ROUGE-Lsum compare free-text responses with reference answers. On 3,000 randomly sampled questions,
+    blinded human raters assessed response quality on separate criteria, reported as mean ratings with confidence
+    intervals.
+  judge: Automated reference comparisons and 379 human raters, comprising 58 credential-checked clinicians and 321
+    non-clinicians, assigned scores.
+  scale: Multiple-choice accuracy from 0 to 1; separate free-text similarity scores; human criteria rated from 1
+    (absent) to 5 (fully present) and reported as means.
+  validation: ''
+  score_meaning: Higher ratings for correctness, relevance, helpfulness, and local context indicate better answers,
+    while higher ratings for harm, omission, and hallucination indicate more problems.
+  annotation_process: Non-clinicians rated consumer-query answers for relevance, helpfulness, and local context,
+    but not correctness; clinicians rated answers across all three question types for correctness, local context,
+    omissions, hallucinations, and potential harm. Each rater evaluated answers from multiple models or humans in
+    a random sequence.
+  results: GPT-4o achieved the highest multiple-choice accuracy at 0.79. In blinded consumer-query evaluations,
+    LLM answers received higher ratings overall than clinician answers.
+  limitations: The authors note that over 60% of expert multiple-choice questions came from West Africa, the dataset
+    covers only English text, and automated metrics cannot reliably capture both correctness and completeness of
+    free-text medical answers.
+  sources:
+  - https://doi.org/10.18653/v1/2025.acl-long.96
+  extracted: '2026-10-27'
 signals:
   citations: 13
   citations_source: OpenAlex

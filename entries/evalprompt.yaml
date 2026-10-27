@@ -29,6 +29,37 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: "94 questions plus 152 sentence-dropout variants"
+card:
+  task: Answer an open-ended medical question, either with its full information or with one sentence removed.
+  items_built: The authors retained 94 text-only USMLE Step 1 questions, removed the answer options, and replaced
+    "which of the following" with "what." From the 29 questions whose answers all six assessors rated correct, they
+    created 152 variants by dropping one sentence at a time while retaining the final question sentence.
+  example: '"In a sample of 100 individuals, the mean leukocyte count is 7500/\text{mm}^3, with a standard deviation
+    of 1000/\text{mm}^3. If the leukocyte counts in this population follow a normal (gaussian) distribution, approximately
+    50% of individuals will have what total leukocyte counts?"'
+  scoring: Six assessors independently compare each response with the original correct answer and assign correct,
+    partially correct, incorrect, or ambiguous. Clarity is the percentage with unanimous categorization, correctness
+    is the percentage unanimously rated correct, and robustness is the percentage of sentence-dropout responses
+    unanimously rated correct; each metric is compared with a 60% passing threshold.
+  judge: Three medical experts and three nonexperts independently rate each response using supplied procedures,
+    guidelines, and category examples.
+  scale: Four categories per response; percentage unanimous agreement, percentage unanimously correct, and percentage
+    unanimously correct after sentence dropout.
+  validation: All six assessors agreed on the category for 34% (32/94) of original responses and 95/152 sentence-dropout
+    responses. Within-group unanimous agreement was 52/94 for nonexperts and 46/94 for experts on original responses,
+    and 119/152 and 104/152, respectively, on sentence-dropout responses.
+  score_meaning: Robustness applies only to questions the model initially answered correctly, so a high robustness
+    score does not mean it answers most medical questions correctly.
+  annotation_process: The assessors participated as volunteers. The same six assessors evaluated the sentence-dropout
+    responses after rating the original responses.
+  results: GPT-4.0 achieved 31% correctness (29/94), 34% clarity (32/94), and 61% robustness (92/152). Only robustness
+    met the 60% passing threshold.
+  limitations: The authors state that the prompts contain more detail and technical knowledge than ordinary self-diagnosis
+    queries, and that performance on niche problems and underrepresented groups was not examined.
+  sources:
+  - https://doi.org/10.2196/66207
+  - https://github.com/criticalml-uw/EvalPrompt
+  extracted: '2026-10-27'
 signals:
   citations: 33
   citations_source: OpenAlex

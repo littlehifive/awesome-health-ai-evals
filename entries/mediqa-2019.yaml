@@ -27,6 +27,26 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric]
   modality: [text]
   size: "Three tasks; test sets of 405 NLI pairs, 230 RQE pairs, and 150 QA questions with 1,107 answers"
+card:
+  task: Determine the inference relationship between two clinical sentences, recognize entailment between consumer
+    health questions, or re-rank answers to a consumer health question.
+  items_built: The clinical sentence pairs come from MIMIC-III, while the question-entailment and answer-ranking
+    items use consumer health questions.
+  example: ''
+  scoring: The tasks report accuracy, with mean reciprocal rank, precision and Spearman rank correlation also reported
+    for answer re-ranking.
+  judge: ''
+  scale: Accuracy for all three tasks; MRR, precision and Spearman rho for QA.
+  validation: ''
+  score_meaning: ''
+  annotation_process: ''
+  results: The abstract reports achieved accuracies of 98% for NLI, 74.9% for RQE and 78.3% for QA, without naming
+    the systems.
+  limitations: ''
+  sources:
+  - https://github.com/abachaa/MEDIQA2019
+  - https://doi.org/10.18653/v1/w19-5039
+  extracted: '2026-10-27'
 signals:
   citations: 116
   citations_source: OpenAlex

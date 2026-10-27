@@ -26,6 +26,39 @@ facets:
   eval_methods: [simulated_multi_turn, rubric_llm_judge]
   modality: [text]
   size: 366 AI patients, 7,097 conversations, 105 evaluation dimensions
+card:
+  task: Conduct a multi-turn consultation as a clinician with a simulated patient to address the assigned goal of
+    diagnosis, treatment advice, medication advice, lifestyle advice, or screening, within 50 total messages.
+  items_built: The Lumos authors constructed 366 fully synthetic patient records from a task matrix pairing encounter
+    reasons with visit objectives, then converted record events into memories for LLM-based patients. They targeted
+    up to three conversations per model-patient pair, with generation errors and operational issues reducing some
+    pairs to one or two.
+  example: ''
+  scoring: A committee-style LLM discussion reviews each transcript against the relevant category criteria, then
+    a separate scorer uses that discussion and dimension-specific behavioral anchors to assign scores. Scores are
+    linearly normalized, aggregated into categories and broader competency groups, and averaged over relevant conversations
+    for each model.
+  judge: LLM judges from the Gemini 2.5 family conduct the committee discussions and dimension-level scoring.
+  scale: Each applicable dimension receives 1 (clearly deficient) to 4 (exemplary); aggregate results are linearly
+    rescaled to 0-100%.
+  validation: ''
+  score_meaning: Scores of 3-4 indicate competent or better performance, while scores of 1-2 indicate weak performance.
+    The scale has no neutral midpoint.
+  annotation_process: For each relevant category, the judge is prompted to simulate multiple, potentially adversarial
+    viewpoints, citing supporting and opposing evidence and key transcript passages. All conversations are scored,
+    including truncated ones. The evaluation uses no human raters, and alignment between AI judges and medical experts
+    was not measured.
+  results: GPT-5 generally led core reasoning and safety categories, with mean scores in Core Medical Competence
+    and Patient Safety & Care remaining in the 60-70% range. o3 performed slightly better on several communication-oriented
+    categories.
+  limitations: The authors report an entirely LLM-based evaluation with unknown judge agreement with medical experts,
+    synthetic patients with some unrealistic demographic distributions, and possible judge-family bias and score
+    sensitivity to prompts and random seeds that were not quantified.
+  sources:
+  - http://arxiv.org/abs/2601.04195
+  - https://huggingface.co/datasets/TheLumos/MedPI-Dataset
+  - https://huggingface.co/datasets/yangyanglan/MedPI-Dataset
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

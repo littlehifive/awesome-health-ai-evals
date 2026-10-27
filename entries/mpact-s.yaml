@@ -25,6 +25,23 @@ facets:
   eval_methods: [expert_human_rating, simulated_multi_turn]
   modality: [text]
   size: 300 multi-turn roleplays
+card:
+  task: Respond in simulated multi-turn conversations involving suicide-related risk.
+  items_built: Licensed clinicians authored 300 multi-turn roleplays across four C-SSRS-informed risk levels.
+  example: ''
+  scoring: Licensed clinicians evaluated responses using multiple labels capturing helpful, less harmful, and more
+    harmful behaviors; results were reported as a severity-weighted mPACT-S score.
+  judge: Licensed clinicians assigned the labels.
+  scale: Multiple behavioral labels and a severity-weighted mPACT-S score; numerical range not stated.
+  validation: ''
+  score_meaning: ''
+  annotation_process: ''
+  results: Among six LLMs evaluated in default API configurations, Claude Sonnet 4.5 and GPT-5.2 achieved the highest
+    severity-weighted mPACT-S scores; numerical scores were not reported in the abstract.
+  limitations: ''
+  sources:
+  - https://doi.org/10.31234/osf.io/3ep4v_v1
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

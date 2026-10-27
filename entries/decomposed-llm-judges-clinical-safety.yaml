@@ -25,6 +25,30 @@ facets:
   eval_methods: [rubric_llm_judge, real_user_data]
   modality: [text]
   size: 25 hazard rubrics; 12,193 question-answer pairs
+card:
+  task: Answer a health question, with the response assessed against hazard-based clinical safety rubrics.
+  items_built: The framework was developed for clinical safety evaluation and tested on a women's health chatbot
+    using 12,193 real-world and synthetic question-answer pairs. Its rubrics were initially derived from a hazard
+    log, expanded from observed failures, and refined and evaluated using those pairs.
+  example: ''
+  scoring: Each of 25 LLM judges applies a hazard-based rubric to question-answer pairs, producing outputs used
+    to derive hazard-level ordinal risk estimates and acceptability classifications. Fail-class recall, precision,
+    and macro-F1 are measured against a reference standard.
+  judge: Twenty-five LLM judges apply the rubrics; their model names are not stated.
+  scale: Hazard-level ordinal risk estimates and acceptability classifications; fail-class recall, precision, and
+    macro-F1.
+  validation: The multi-judge and reference-standard risk estimates were identical and yielded the same acceptability
+    classifications for all four in-scope hazards.
+  score_meaning: ''
+  annotation_process: The rubrics were initially derived from a hazard log and expanded using observed failures.
+    The LLM judges were refined and evaluated using 12,193 real-world and synthetic question-answer pairs.
+  results: The multi-judge approach achieved 95.3% fail-class recall at 61.1% precision, compared with 24.9% recall
+    at 58.7% precision for human annotation and 69.1% recall at 47.3% precision for the combined judge. Calibration
+    increased multi-judge macro-F1 from 72.9% to 86.7%.
+  limitations: ''
+  sources:
+  - https://doi.org/10.2139/ssrn.7230054
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

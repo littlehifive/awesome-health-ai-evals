@@ -28,6 +28,35 @@ facets:
   eval_methods: [rubric_llm_judge, simulated_multi_turn, expert_human_rating]
   modality: [text]
   size: 200 paired cases (400 transcripts)
+card:
+  task: Assess a nurse-to-registrar escalation conversation for communication quality and safety against its ground-truth
+    clinical case card.
+  items_built: GPT-4o-mini, Claude Haiku and Gemini Flash generated conversations from synthetic case cards, with
+    agents assigned nurse, registrar and optional nurse-in-charge roles. The released set contains 400 transcripts
+    from 200 paired cases across 10 deterioration archetypes; experienced intensive care nurses independently reviewed
+    a subset.
+  example: ''
+  scoring: A GPT-5.5 automated judge evaluates each transcript against its case card using a structured rubric covering
+    communication quality, omissions, unsupported content, escalation, actionability and safety risk. The supplied
+    text does not specify how rubric scores are combined.
+  judge: GPT-5.5 assigns automated scores, and experienced intensive care nurses independently assess a subset.
+  scale: ''
+  validation: Human reviewers showed moderate agreement on omission detection and several communication measures.
+    Agreement between the automated evaluator and human consensus was limited across several domains, with high
+    sensitivity but low specificity for omission detection and systematic differences in actionability and overall
+    safety-risk assessments.
+  score_meaning: ''
+  annotation_process: ''
+  results: 'Across 200 paired cases, ISBAR handover reduced hallucination frequency from 26.5% to 10.0% and median
+    dialogue length from 9 to 7 turns. Safety-critical omissions were not reduced: 16.0% with ISBAR versus 11.5%
+    without it.'
+  limitations: The dataset contains synthetic, model-generated behaviour limited to defined deterioration archetypes
+    and is intended for research and evaluation, not clinical deployment.
+  sources:
+  - https://huggingface.co/datasets/2O24dpower2024/ESCALATE
+  - https://github.com/DavePower-cloud/ESCALATE-dataset
+  - https://doi.org/10.21203/rs.3.rs-10989591/v1
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

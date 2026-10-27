@@ -26,6 +26,31 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 58 cases; 3,208 question-answer pairs; 14 specialties
+card:
+  task: Answer each recorded physician question as a standardized patient, keeping responses consistent with the
+    supplied case and the ongoing conversation.
+  items_built: The authors extracted 3,208 question-and-answer pairs from 58 cases in the Manual for Writing Standardized
+    Patient Cases and A Practical Tutorial for Standardized Patients. Three fifth-year medical students proofread
+    the digitized transcripts, and experienced clinicians reviewed the anonymized records for accuracy and representativeness.
+  example: ''
+  scoring: GPT-4o rates responses on eight criteria covering fidelity to the case, appropriate disclosure, and conversational
+    quality, using the same physician questions and case profiles for human and model patients. Ratings are linearly
+    converted to a 100-point scale; the text does not specify how ratings are combined into the overall system score.
+  judge: GPT-4o scores all outputs, with two clinical experts independently reviewing 30 randomly selected samples.
+  scale: Each criterion is rated from 1 to 5 and linearly converted to a 100-point scale.
+  validation: On 30 samples reviewed blind by two clinical experts, GPT-4o scores correlated with their average
+    ratings at Pearson's r = 0.79. GPT-4o gave a mean score of 78.5, compared with the experts' mean of 83.9.
+  score_meaning: Higher scores indicate patient responses that more closely match the expected behavior of a standardized
+    patient.
+  annotation_process: Three clinical experts helped define the evaluation criteria. Automated scoring used an evaluation
+    prompt provided in Appendix I.4.
+  results: EasyMED was the highest-scoring tested system at 96.98 out of 100, compared with 93.33 for EvoPatient.
+    Human standardized patients scored 97.33.
+  limitations: The authors state that automated scoring may overlook subtle aspects of dialogue quality and learner
+    behavior, and that text-only interactions omit non-verbal and multimodal cues.
+  sources:
+  - https://arxiv.org/abs/2511.14783
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

@@ -26,6 +26,27 @@ facets:
   eval_methods: [automatic_metric, expert_human_rating]
   modality: [text]
   size: 60 scenarios; six LLMs compared against pharmacist responses
+card:
+  task: Respond to clinical pharmacology scenarios from UAE healthcare practice.
+  items_built: The evaluation used 60 authentic clinical pharmacology scenarios derived from UAE healthcare practice,
+    with board-certified clinical pharmacist responses as references.
+  example: ''
+  scoring: Model responses were benchmarked against board-certified clinical pharmacist responses across efficiency,
+    semantic similarity, safety, relevance, consistency, and conciseness. CVD quantifies clinical utility per unit
+    of cognitive resource consumed.
+  judge: ''
+  scale: Normalized CVD; the abstract does not specify the per-item scale.
+  validation: CVD correlated positively with task efficiency (r = 0.924) and negatively with clinician preference
+    (r = −0.845), which the authors attribute to a preference for verbose outputs.
+  score_meaning: ''
+  annotation_process: ''
+  results: GPT-4o achieved the highest normalized CVD (0.475), using 41 tokens versus 178 for pharmacists, but had
+    a safety score of 0.437. Grok-3 and Gemini-2.5 led on safety, scoring 0.605 and 0.542, respectively.
+  limitations: The authors call for evaluation across more specialties, larger validation datasets, and real-time
+    workflow trials to establish specialty-specific safety thresholds.
+  sources:
+  - https://doi.org/10.1101/2025.10.14.25338039
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

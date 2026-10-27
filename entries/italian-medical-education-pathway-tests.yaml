@@ -30,6 +30,22 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 3,301 admission-test questions; 6,696 licensing-exam questions
+card:
+  task: Answer five-choice questions in Italian from national medical school admission and medical licensing exams.
+  items_built: The datasets collect questions from national pre-university and postgraduate medical exams, including
+    6,696 licensing-exam questions split into clinical and preclinical areas. The clinical area contains 3,390 questions
+    across nine topics.
+  example: ''
+  scoring: Performance is reported as accuracy.
+  judge: ''
+  scale: Accuracy.
+  validation: ''
+  results: The best models achieved over 90% accuracy on postgraduate-level exams, but the abstract does not name
+    them. Large multilingual, general-purpose models consistently exceeded the pass threshold across all tests.
+  limitations: ''
+  sources:
+  - https://doi.org/10.1371/journal.pdig.0001363
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

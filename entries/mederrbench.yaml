@@ -29,6 +29,34 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: "2,506 instances (English 1,024; Chinese 1,000; Arabic 482)"
+card:
+  task: Read each clinical text, determine whether it contains a medical error, locate the error, and correct the
+    affected sentence.
+  items_built: The authors used LLMs to turn MedQA, MedArabiQ, and MedAraBench questions into paired clinical notes
+    containing either the correct answer or a plausible incorrect alternative, with clinicians contributing real-world
+    cases for missing error types. Three native-speaking NLP researchers performed initial annotation and verification,
+    and two independent clinicians reviewed all instances for medical validity and annotation quality.
+  example: ''
+  scoring: Detection and localization are evaluated with accuracy, while sentence correction is evaluated with ROUGE-1,
+    ROUGE-2, ROUGE-L, BLEU, BERTScore, and BLEURT. The evaluation assigns a score of 1 when both the predicted and
+    reference labels are NA.
+  judge: Automatic metrics compare model outputs with the reference annotations and corrections.
+  scale: Detection and localization accuracy; ROUGE, BLEU, BERTScore, and BLEURT for correction.
+  validation: One clinician evaluated 50 Chinese samples, giving average scores of 0.52 for Gemini 2.0 Flash and
+    0.17 for GPT-4o-mini; agreement with automatic scores was not reported.
+  score_meaning: Detection tests whether the model identifies the presence or absence of an error, while localization
+    requires identifying the precise error span. Detecting an error but identifying the wrong span counts as a localization
+    failure.
+  annotation_process: Three native-speaking NLP researchers covering English, Chinese, and Arabic studied the clinician-defined
+    error taxonomy, then performed initial annotation and manual verification. Two clinicians independently reviewed
+    all instances, validating error labels, clinical terms, difficulty levels, and reasoning types. Typos were corrected
+    directly, and other issues were revised if either clinician flagged them; no conflicting corrections were proposed.
+  results: ''
+  limitations: The dataset lacks explicit severity and equity annotations, and its Arabic subset is smaller and
+    less diverse because high-quality public medical data in Arabic are limited.
+  sources:
+  - https://doi.org/10.48448/mwkh-m722
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

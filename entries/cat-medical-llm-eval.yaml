@@ -27,6 +27,31 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 2,815 MCQs in a non-public item bank; 38 LLMs evaluated
+card:
+  task: Answer adaptively selected multiple-choice questions testing standardized medical knowledge.
+  items_built: The framework uses 2,815 non-public medical multiple-choice questions from China's National Center
+    for Health Professions Education Development, calibrated using responses from over 40,000 fourth- and fifth-year
+    medical students. Human calibration checks supported a dominant general factor and found no item pairs exceeding
+    the stated thresholds for local dependence.
+  example: ''
+  scoring: Responses are scored as correct or incorrect, and a two-parameter logistic item response model combines
+    these responses with calibrated item difficulty and discrimination to estimate proficiency. The estimate is
+    updated after each response using Expected A Posteriori estimation with a standard normal prior, and testing
+    stops when the standard error is at most 0.316.
+  judge: Objective correct-or-incorrect scoring and an item response theory estimator assign the scores.
+  scale: Each item is scored 0 or 1; the final score is proficiency theta on a human-calibrated scale with mean
+    0 and standard deviation 1.
+  validation: Across 38 LLMs, CAT and full-bank proficiency estimates had Pearson r = 0.988, rank correlation rho
+    = 1.0, RMSE = 0.150 and bias = -0.033. Across 34 models, CAT estimates correlated with open-ended LLMEval-Med
+    performance at r = 0.829 when graded by GPT-5.2 and r = 0.831 when graded by Baichuan-M3.
+  results: ''
+  limitations: The authors state that scores measure knowledge proficiency rather than clinical ability or safety,
+    that models can miss basic safety-critical knowledge despite answering difficult items correctly, and that other
+    examination systems require retuning and psychometric linking before scores can be compared across banks.
+  sources:
+  - https://arxiv.org/abs/2603.23506
+  - https://github.com/zjiang4/LLM-CAT
+  extracted: '2026-10-27'
 signals:
   citations: 2
   citations_source: OpenAlex

@@ -26,6 +26,31 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric, expert_human_rating]
   modality: [text]
   size: 40,041 questions (AAAI version); 300,901 questions (journal platform version)
+card:
+  task: Answer Chinese medical multiple-choice questions and propose examinations, diagnoses, and treatments for
+    clinical cases described in text.
+  items_built: The authors collected 27,248 licensing exam questions, 2,841 resident training exam questions, and
+    8,927 doctor in-charge qualification exam questions from recent validated examinations. Experts with professional
+    annotation training followed predefined standards to extract clinical information from over 2,000 electronic
+    health records, producing 701 selected reports and 1,025 question-answer pairs.
+  example: ''
+  scoring: Exam answers are compared with the correct answers and reported as accuracy for each exam and its subsets.
+    Clinical answers are evaluated against reference answers using BLEU and ROUGE F1 scores, and a human rater assesses
+    correctness, completeness, fluency, and friendliness.
+  judge: Automatic metrics score the answers, and one postgraduate medical scholar rates clinical outputs.
+  scale: Exam accuracy; clinical BLEU and ROUGE F1 scores plus four human-rated criteria with no stated rating scale.
+  validation: ''
+  score_meaning: ''
+  annotation_process: Experts created the clinical reference answers by identifying symptoms, diagnoses, treatments,
+    and examinations in electronic health records. These annotators completed professional training and followed
+    predefined annotation standards.
+  results: ChatGPT led the three-stage examinations, with accuracy around 50% on the licensing exam and approximately
+    60% on the other exams. GPT-4 led all four human-rated clinical criteria.
+  limitations: The authors state that full-dataset evaluation is costly and slow, question types do not reliably
+    indicate difficulty, and BLEU and ROUGE do not fully capture clinical answer quality.
+  sources:
+  - https://doi.org/10.1609/aaai.v38i16.29723
+  extracted: '2026-10-27'
 signals:
   citations: 42
   citations_source: OpenAlex

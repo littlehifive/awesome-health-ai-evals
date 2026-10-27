@@ -26,6 +26,36 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 50 cases
+card:
+  task: Read each clinical case and provide three ranked differential diagnoses, each paired with an ICD-10-CM code.
+  items_built: The authors selected 50 human clinical cases from 2,369 MultiCaRe cases published after August 2024,
+    excluding cases with multiple diseases or codes, unclear diagnoses, or ambiguous outcomes. Two clinicians independently
+    mapped diagnosis statements from case metadata to reference ICD-10-CM codes using different standardized mapping
+    tools.
+  example: ''
+  scoring: 'Each predicted code is compared with the reference at four levels: chapter, block, category before the
+    decimal, and first decimal digit, yielding 0 to 4 points; the highest score among the three diagnoses is retained.
+    Scores are averaged across two independent runs per case and summarized across 50 cases, with scores of 1 to
+    4 also counted as correct for binary accuracy.'
+  judge: A rule-based hierarchical ICD-10-CM comparison assigns scores against reference codes mapped by two clinicians.
+  scale: 0 to 4 per prediction; best of three per case, averaged across two runs; mean diagnostic score and percentage
+    scoring above zero.
+  validation: The two reference-code annotators agreed on full codes for 41 of 50 cases (82%; Cohen's κ = 0.817)
+    and agreed on all 50 codes at one-decimal precision.
+  score_meaning: A score of 0 means no overlap with the reference code; scores of 1 or 2 identify only the general
+    disease category, while scores of 3 or 4 identify the specific disease with increasing precision. A score of
+    4 means agreement at every evaluated level, rather than necessarily matching every digit of the full code.
+  annotation_process: Two annotators independently mapped diagnosis statements extracted from case metadata to reference
+    codes, each using a different standardized mapping tool. Full-code disagreements were confined to final digits
+    and disappeared at the one-decimal precision used for evaluation, so all cases were retained without further
+    adjudication. Two annotators also independently executed each model-case pair to collect its outputs.
+  results: DeepSeek-V3 had the highest overall numerical performance; it tied GPT-4o on binary accuracy at 82% (41
+    of 50 cases), where any hierarchical overlap counted as correct.
+  limitations: The authors note limited model coverage and warn that credit for broad or nearby ICD-10-CM categories
+    can overstate clinical reliability without grounded reasoning.
+  sources:
+  - https://doi.org/10.1186/s12911-026-03511-3
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

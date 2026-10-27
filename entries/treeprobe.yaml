@@ -28,6 +28,40 @@ facets:
   eval_methods: [mcq_exact_match, rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 4,719 items, 467 diseases, 10 subtasks
+card:
+  task: Answer four-option multiple-choice questions and open-ended questions in Tibetan using Tibetan medical knowledge
+    and reasoning.
+  items_built: 'Trained annotators with at least a bachelor''s degree in Tibetan medicine extracted evidence-linked
+    disease units from the Four Tantras using GB/T 46946-2025 disease codes; GPT-5.4 drafted evidence-constrained
+    questions and answers, annotators checked factual support and Tibetan language, and domain physicians wrote
+    distractors. The final 3,289 multiple-choice and 1,430 open-ended items required agreement from at least four
+    of five adjudicators: three Tibetan medicine physicians, one TCM physician, and one biomedical physician.'
+  example: ''
+  scoring: Multiple-choice selections are compared with the faithful answer key, with accuracy reported as an unweighted
+    mean across subtasks and incorrect choices counted by distractor category to calculate drift log-odds. GPT-5.4
+    rates open-ended responses on Accuracy, Helpfulness, Linguistic Quality, Ontology Fidelity, and Completeness;
+    reported QA scores are in [0, 1] and averaged across items.
+  judge: Multiple-choice scoring uses the expert-adjudicated answer key; GPT-5.4 grades open-ended responses.
+  scale: 'Multiple-choice: correct or incorrect, macro accuracy (%), and drift log-odds; open-ended: 1-100 rubric
+    ratings, reported as averages in [0, 1].'
+  validation: Three Tibetan medicine experts independently rated 882 model responses sampled evenly from the three
+    QA subtasks. Across the five dimensions, GPT-human Spearman correlations ranged from 0.268 to 0.451 and quadratic
+    weighted kappa from 0.182 to 0.321, compared with human-human ranges of 0.305-0.484 and 0.207-0.374.
+  score_meaning: Positive Ontology Drift Log-Odds (ODLO) indicates that errors favor TCM or biomedical substitutions
+    over confusion within Tibetan medicine. Positive Biomedical-TCM Drift Log-Odds (BTD-LO) indicates a biomedical
+    lean, negative values indicate a TCM lean, and values near zero indicate little preference between the two.
+  annotation_process: During label-blind adjudication, experts selected the faithful MCQ answer and classified each
+    distractor; for open-ended items, they checked reference answers against evidence spans for support and fidelity
+    to Tibetan medical reasoning. Items were retained only when at least four of the five experts agreed on the
+    adjudication criteria.
+  results: GPT-5.4 had the highest one-shot open-ended QA average at 0.55; Gemini 3.1 Flash-Lite led zero-shot QA
+    at 0.47.
+  limitations: Coverage is limited to disease-centered knowledge traceable to source evidence and expert adjudication,
+    leaving broader regional practices, lineages, textual traditions, and multimodal diagnostic evidence such as
+    pulse and urine diagnosis for future work.
+  sources:
+  - https://arxiv.org/abs/2608.00640
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

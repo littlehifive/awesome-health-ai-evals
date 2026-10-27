@@ -26,6 +26,39 @@ facets:
   eval_methods: [automatic_metric, rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 2,000 reports (mean 12.96 pages)
+card:
+  task: Convert each complete check-up report into patient-facing Action Cards that give each relevant issue a priority,
+    recommended department, follow-up window, explanation and questions for clinicians, without unsupported diagnoses
+    or treatment claims.
+  items_built: The authors collected 2,000 de-identified real-world reports through medical and research partners
+    across Asia and Europe. Reference cards were drafted from summaries written by one physician and checked by
+    a second, then refined by a third physician experienced in clinical check-ups; model outputs played no role.
+  example: ''
+  scoring: BiomedBERT cosine similarity matches generated issues to physician-reviewed reference issues to calculate
+    problem recall, precision and F1; matched cards are compared for priority, department and timing, and card-count
+    differences measure action complexity bias. Blinded LLM judges score patient-facing quality, with scores averaged
+    within each dimension, and separately assess structured consistency against reference cards and source reports.
+  judge: BiomedBERT-based matching and LLM judges from the Gemini, GPT and Claude families provide automatic evaluation,
+    supplemented by three physicians.
+  scale: Priority matches receive 1, 0.5 or 0; reported metrics include recall, precision, F1, attribute accuracy,
+    signed card-count bias and averaged quality ratings.
+  validation: 'Three physicians assessed outputs on 500 reports: 84% were fully reasonable and effective, 13% were
+    generally reasonable with minor timing differences, and 3% were less appropriate. Numerical agreement between
+    physicians and automatic judges was not reported.'
+  score_meaning: Priority scores give 1 for an exact match, 0.5 for a predefined near match and 0 otherwise. Positive
+    action complexity bias means too many cards and negative bias means too few, with values closer to zero preferred;
+    higher patient-facing quality ratings mean better quality.
+  annotation_process: Each LLM judge receives the same Action Card JSON and evaluation instructions without knowing
+    which model or workflow produced it. For reference preparation, one physician writes the report summary, a second
+    checks it, and a third physician with clinical check-up experience reviews and refines the candidate Action
+    Cards derived from that summary.
+  results: 'No model led every dimension: Gemini-3-pro-preview had the highest problem recall at 0.602. GPT-5.1
+    achieved problem F1 of 0.614 and led the subjective ratings for problem relevance, safety, usefulness and tone.'
+  limitations: Physician-written references can use diagnostic labels that generated cards are instructed to avoid,
+    so conservative wording can lower measured recall without representing a genuine omission.
+  sources:
+  - https://arxiv.org/abs/2605.11533
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

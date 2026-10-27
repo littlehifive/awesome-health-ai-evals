@@ -27,6 +27,34 @@ facets:
   eval_methods: [rubric_llm_judge]
   modality: [text]
   size: "9,697 instances: 2,734 benign, 5,737 borderline, 644 direct injection, 582 indirect injection"
+card:
+  task: Answer a clinical query about explanation, dosing, triage, or evidence-based guidance while handling any
+    adversarial instructions in the query or supplied documents.
+  items_built: The authors constructed 9,697 instances from normalized MedQA and PubMedQA queries, using LLM-generated
+    direct attacks and poisoned documents alongside benign and borderline variants. Candidates passed six quality
+    gates checking clinical validity, format, and attack intensity, with Qwen-2.5-72B-Instruct verification, deterministic
+    clinical safety checks, and structured harm labeling.
+  example: ''
+  scoring: A structured LLM judge assigns harm types and outcome severity to each response under the clinical harm
+    rubric. ASR2 is the fraction of adversarial responses with severity at least 2, and CHER3 is the fraction with
+    severity at least 3; invalid or unparseable judge outputs are excluded from the denominators.
+  judge: Qwen-2.5-72B-Instruct assigns the scores.
+  scale: Per-response severity from 0 to 4; ASR2 and CHER3 are percentages at severity thresholds of 2 and 3.
+  validation: Three candidate judges were compared against 300 human expert-validated labels, split into 150 selection
+    and 150 holdout items. Qwen-2.5-72B-Instruct achieved Kendall tau of 0.65, Recall@4 of 0.75, and 100% valid
+    JSON on selection items, with Recall@4 of 0.91 on holdout items.
+  score_meaning: Higher severity scores indicate greater clinical harm, and higher ASR and CHER percentages indicate
+    more frequent harmful responses.
+  annotation_process: Outcome labels are produced through a tiered process combining automated preliminary labels,
+    deterministic clinical checks such as triage red-flag checks, and structured LLM judging. Explicit JSON prompting,
+    schema validation and a retry mechanism address judge formatting errors.
+  results: ''
+  limitations: The authors identify judge-dependent bias, exclusion of invalid judge outputs, incomplete coverage
+    of patient context and local guidelines, and a lightweight defense harness whose errors can cause excessive
+    filtering or insufficient protection.
+  sources:
+  - https://arxiv.org/abs/2602.06268
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

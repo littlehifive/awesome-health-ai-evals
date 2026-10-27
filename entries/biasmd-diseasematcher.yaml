@@ -30,6 +30,33 @@ facets:
   eval_methods: [automatic_metric, mcq_exact_match]
   modality: [text]
   size: BiasMD 6,007 question-answer pairs; DiseaseMatcher 32,000 question-answer pairs over 700 diseases
+card:
+  task: Refuse to answer demographic-bias questions in BiasMD, and identify which of two patients is more likely
+    to have a named disease from their symptoms in DiseaseMatcher.
+  items_built: The authors used few-shot prompting with Mixtral-8x7B-Instruct, GPT-3.5 Turbo, and GPT-4 to create
+    6,007 BiasMD pronoun-disambiguation items, then manually reviewed them for demographic diversity and quality.
+    They built 32,000 DiseaseMatcher items from the ChatDoctor Autonomous dataset's 700 diseases and associated
+    symptoms, giving each patient 3-6 symptoms, randomly combining names and demographic attributes, and balancing
+    which patient was correct.
+  example: '"Question: Which person is more likely to have gastroparesis (D)? Answer: Caroline (T)"'
+  scoring: 'Outputs are automatically scored against the designated correct response: refusal to answer for BiasMD
+    and identification of the correct patient for DiseaseMatcher. Accuracy is the proportion of correct responses,
+    with indecisive, incorrect, and demographic-based refusals counted as unsuccessful on DiseaseMatcher.'
+  judge: Automatic comparison with the designated correct response.
+  scale: Binary correctness per item; percentage correct overall.
+  validation: ''
+  score_meaning: On DiseaseMatcher, the paper interprets 51.44% accuracy as only slightly better than random guessing.
+    Reported "First" and "Second" scores separate cases where the correct answer is the first or second patient,
+    while demographic-specific scores cover cases with the named attribute in the patient profiles.
+  annotation_process: ''
+  results: EthiClinician achieved near-perfect accuracy on BiasMD and 92.47% on DiseaseMatcher, the best reported
+    results. GPT-4 scored 90.1% and 82.84%, respectively.
+  limitations: The authors note limited dataset sizes and a limited set of evaluated models, and warn that domain-specific
+    fine-tuning may reduce generalization to other tasks.
+  sources:
+  - http://arxiv.org/abs/2410.06566
+  - https://github.com/HIVE-UofT/Detecting-Bias-and-Enhancing-Diagnostic-Accuracy
+  extracted: '2026-10-27'
 signals:
   citations: 4
   citations_source: OpenAlex

@@ -27,6 +27,36 @@ facets:
   eval_methods: [automatic_metric, rubric_llm_judge]
   modality: [voice]
   size: 5,805 annotated sessions (abstract); 136.9 hours, 1,805 dialogs, 10,814 turns (paper results section)
+card:
+  task: Transcribe Chinese healthcare dialogue audio or generate an agent reply to a healthcare query from its transcript.
+  items_built: The authors collected interactions during internal beta testing of a full-duplex healthcare assistant,
+    using de-identified data supplied by Ant Group; the methods report 5,805 dialogues with 1,161 held out, while
+    the results describe 1,805 dialogues. LLM screening and manual checks covered privacy, healthcare relevance,
+    transcript accuracy and speaker roles, with human and LLM validation.
+  example: ''
+  scoring: ASR transcripts are compared with references using word and character edit-error rates and HC-WER, which
+    averages concept-sequence error rates across four healthcare categories; combined-role results average user
+    and agent scores equally. GPT-5 compares replies pairwise, counting wins as 1 and ties as 0.5, and scores replies
+    against references with G-Eval; reported results include mean rubric scores, win, tie and failure percentages,
+    and conversation-bootstrap 95% confidence intervals.
+  judge: ASR uses edit-distance comparisons with reference transcripts, and GPT-5 judges response quality.
+  scale: ASR error percentages; G-Eval ratings from 1 to 5 averaged across replies; PairEval win, tie and any-failure
+    percentages.
+  validation: ''
+  score_meaning: Any-Failure is the share of responses with repetition, off-topic content, role confusion, or contradiction.
+    Overall measures usefulness and coherence, Correctness measures agreement with references and medical facts,
+    and Safety measures avoidance of harmful or inappropriate advice.
+  annotation_process: The fixed GPT-5 judge used consistent prompts and decoding parameters across all outputs.
+    Response generation settings were tuned on the development set and fixed during testing.
+  results: Claude-Opus-4.1 and Qwen3-30B-A3B tied for the highest G-Eval overall mean at 4.1/5, both with 95% confidence
+    intervals of 3.9-4.2. Gemini-2.5-Pro had the highest PairEval win score at 52.3% (95% CI 49.5-55.0).
+  limitations: The dataset card states that the public subset differs in size and coverage from the internal benchmark,
+    lacks full validation and test coverage, and contains TTS-resynthesized audio rather than original recordings.
+  sources:
+  - https://arxiv.org/abs/2509.19817
+  - https://huggingface.co/datasets/HanselZz/MMedFD
+  - https://github.com/Kinetics-JOJO/MMedFD
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

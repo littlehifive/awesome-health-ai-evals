@@ -26,6 +26,36 @@ facets:
   eval_methods: [mcq_exact_match, expert_human_rating, simulated_multi_turn]
   modality: [text]
   size: 3,661 MCQs; 70 clinical cases; AI-patient test set (count not recorded)
+card:
+  task: Answer medical multiple-choice questions, develop diagnostic and treatment plans from outpatient cases,
+    and take a simulated patient's history through at most 10 rounds of questions, all in Chinese.
+  items_built: General practice experts assembled 3,661 questions from CMB, MedBench and additional sources, mapping
+    them to competency indicators. Experts verified and standardized 70 anonymized outpatient records from two medical
+    centers, annotated expected responses and scoring criteria, and used the same records to construct 70 AI-patient
+    consultations.
+  example: ''
+  scoring: For each MCQ, the majority answer across five runs with reordered options determines correctness, and
+    accuracy is averaged using competency-indicator weights. For case and AI-patient responses, GPs apply annotated
+    criteria; clinical-case results are reported as weighted means and standard deviations across cases, with a
+    third GP arbitrating item-score differences exceeding 10 points or the panel reaching consensus.
+  judge: MCQs use answer-key accuracy; two licensed GPs with over 10 years of experience score responses independently,
+    supported by a third GP with 15 years of experience.
+  scale: MCQs are correct or incorrect, summarized as weighted accuracy; clinical cases receive criterion-based
+    points, summarized as weighted means and standard deviations.
+  validation: Evaluators trained on randomly selected sample cases, and a separate expert group independently validated
+    all annotations; no numerical agreement statistic is reported.
+  score_meaning: ''
+  annotation_process: General practice specialists identified key response elements, defined scoring criteria, and
+    mapped each element to the relevant competency dimensions. Each clinical case and each AI-patient agent was
+    evaluated once, without repeated sampling.
+  results: DeepSeek-R1 performed best on clinical cases, reaching a competency level comparable to physicians with
+    less than five years of experience. o1-preview led the AI-patient history-taking test but remained below that
+    physician group; numerical overall scores are not provided in the excerpts.
+  limitations: The authors identify Chinese-only cases collected in China, evaluation limited to standard prompting,
+    and coverage restricted to eight diseases and ten symptoms because of the need for detailed human annotation.
+  sources:
+  - https://doi.org/10.1038/s41467-026-71622-6
+  extracted: '2026-10-27'
 signals:
   citations: 3
   citations_source: OpenAlex

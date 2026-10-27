@@ -27,6 +27,38 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric]
   modality: [text]
   size: 22 datasets; multiple-choice test total 12,219 and abstractive test total 6,164 questions
+card:
+  task: Answer clinical and biomedical questions by selecting the correct option or generating a free-text answer,
+    using any context supplied with the question.
+  items_built: The authors collected 22 existing datasets through a literature and resource search, including medical
+    licensing exams from India and Spain and specialist topics such as ophthalmology and Alzheimer's disease. Inclusion
+    required English questions, openly available resources without restrictive licensing or data agreements, and
+    ground-truth answers collected or reviewed by domain experts.
+  example: ''
+  scoring: Multiple-choice answers are compared with the answer key using exact match to calculate accuracy; free-text
+    answers are compared with reference answers using ROUGE-L, BERTScore based on deberta-xlarge-mnli, and METEOR.
+    Headline scores average dataset scores with equal weight for each dataset, and micro-averaged multiple-choice
+    accuracy is also reported.
+  judge: Automated exact-match scoring and ROUGE-L, BERTScore based on deberta-xlarge-mnli, and METEOR assign the
+    scores.
+  scale: Multiple-choice items are correct or incorrect; dataset accuracy and free-text similarity scores are averaged
+    equally across datasets.
+  validation: Across experiments, only ROUGE-L had a statistically significant Spearman rank correlation with multiple-choice
+    accuracy (r = 0.616, p = 0.008).
+  score_meaning: The USMLE passing score is 60%; the best zero-shot USMLE scores reported for LLaMA 2 (43%) and
+    PMC-LLama (54%) fall below that threshold.
+  annotation_process: The benchmark includes only datasets whose ground-truth answers were collected or reviewed
+    by domain experts.
+  results: On USMLE, the best reported zero-shot score among the evaluated open-source models was PMC-LLama's 54%,
+    below the 60% passing threshold. On PubMedQA, Flan-T5 scored 72.4%, compared with the reported human baseline
+    of 78%.
+  limitations: The authors state that question-answering correctness is insufficient to assess real-world use without
+    evaluating completeness, harmlessness and usefulness, and that the English-only datasets do not support conclusions
+    about other languages.
+  sources:
+  - https://doi.org/10.18653/v1/2024.findings-acl.238
+  - https://github.com/anand-subu/m-qalm
+  extracted: '2026-10-27'
 signals:
   citations: 3
   citations_source: OpenAlex

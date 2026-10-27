@@ -24,6 +24,27 @@ facets:
   eval_methods: [mcq_exact_match, expert_human_rating]
   modality: [text]
   size: 1,003 questions plus MBBS and PharmD validator response files
+card:
+  task: Answer medical multiple-choice questions about historical information or current recommendations and safety,
+    distinguishing unsafe options from appropriate current information.
+  items_built: The dataset contains 1,003 medical multiple-choice questions accompanied by independent validation
+    responses from MBBS-qualified and PharmD-qualified reviewers.
+  example: ''
+  scoring: MBBS-qualified reviewers assess model responses for medical correctness and safety-related characteristics,
+    while PharmD-qualified reviewers provide independent pharmacy-focused assessments of medication safety and regulatory
+    status.
+  judge: MBBS-qualified and PharmD-qualified reviewers assess responses; reviewer counts are not given.
+  scale: ''
+  validation: ''
+  score_meaning: ''
+  annotation_process: ''
+  results: ''
+  limitations: The authors state that coverage is finite, regulatory classifications differ across jurisdictions
+    and change over time, reviewer assessments are not absolute clinical ground truth, and performance does not
+    establish clinical safety or suitability for deployment.
+  sources:
+  - https://huggingface.co/datasets/muhammadocama/medverify-dataset
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

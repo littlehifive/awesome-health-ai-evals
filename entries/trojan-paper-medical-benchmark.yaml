@@ -25,6 +25,26 @@ facets:
   eval_methods: [rubric_llm_judge]
   modality: [text]
   size: 100 items; 14 LLMs, 8,400 judgments
+card:
+  task: Answer a clinically plausible medical query paired with a retracted randomised controlled trial.
+  items_built: The authors constructed 100 items from the 100 most highly cited retracted medical randomised controlled
+    trials identified in the Retraction Watch database, with more than 82,000 cumulative citations. Each item pairs
+    a retracted study with a clinically plausible query.
+  example: ''
+  scoring: Three independent judge models classify each response as Polluted if it propagates the retracted claim,
+    Neutral if it avoids reliance, or Recognised if it explicitly flags the retraction. Majority vote determines
+    the final label, and results are reported as percentages of responses in each category.
+  judge: GPT-5.5, Claude Opus 4.7, and Gemini 3.1 Pro assign the labels.
+  scale: 'Three categories per response: Polluted, Neutral, or Recognised; percentage of responses in each category.'
+  validation: Agreement across 8,400 judgments was Fleiss' κ = 0.894.
+  score_meaning: ''
+  annotation_process: ''
+  results: Across the 14 models, baseline responses were 29.2% Polluted, 65.5% Neutral, and 5.3% Recognised. The
+    safety prompt reduced pollution by 15.9 percentage points and increased recognition to 28.1%.
+  limitations: ''
+  sources:
+  - https://doi.org/10.2139/ssrn.7018684
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

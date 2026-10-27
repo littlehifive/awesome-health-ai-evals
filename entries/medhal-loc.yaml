@@ -26,6 +26,41 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 300 controlled items (75 per error type); natural subset with 18 candidate spans audited
+card:
+  task: Rank candidate erroneous clauses, sentences, triples, or spans in each medical statement so that the highest-ranked
+    units overlap the true error span.
+  items_built: The authors used LLMs to inject one error into each of 300 MedHallu statements derived from PubMedQA,
+    with 75 each for entity substitution, relation error, mechanism misattribution, and invention; gold spans were
+    fixed by construction and spot-checked as clean. A separate set of 40 natural MedHallu hallucinations received
+    annotations from three LLMs, but a human expert's audit led the authors to exclude it from localization gold.
+  example: '"tibial-component type has no significant effect on alignment; instead, femoral-component design is
+    decisive"'
+  scoring: Automated scoring checks whether the top-ranked unit or any of the top three units overlaps the gold
+    span, then reports hit rates across 295 items with valid gold spans. It also reports lift above a per-method
+    uniformly random-unit baseline that controls for unit size, significance using binomial standard errors, and
+    a score margin between flagged and non-flagged units.
+  judge: Automated token-overlap comparison with the gold error span assigns localization scores.
+  scale: Binary overlap hits per item; aggregate hit@1 and hit@3 percentages, lift in percentage points, and score
+    margin.
+  validation: On the natural subset, three LLM annotators had mean pairwise span-level F1 of 0.87 and Fleiss' kappa
+    of 0.88 for error type, but a human expert accepted only 1 of 18 audited spans, plus one partial span; this
+    subset was excluded from localization gold.
+  score_meaning: A positive score margin means the detector assigns higher error scores to units overlapping the
+    true error than to other units; localization lift is significant when it exceeds twice the binomial standard
+    error. Detectors that emit only a document-level verdict receive 0% localization by construction.
+  annotation_process: The controlled subset's reference spans come from the known locations of injected errors and
+    were spot-checked by humans. Automated comparison lowercases text, keeps alphabetic tokens of at least four
+    letters, removes stopwords, and checks for shared tokens between each candidate unit and the reference span.
+  results: SelfCheckGPT-NLI had the highest reported hit@1 at 81.4%, a lift of 12.6 percentage points above its
+    random baseline; NLI-per-clause achieved 62.0% hit@1 and a 20.3-point lift. ADATRIPLE achieved 39.3% hit@1,
+    only 3.3 points above chance and not statistically significant.
+  limitations: The authors note that synthetic single-error gold covers only localizable errors, only one KG-triple
+    pipeline was tested, LLM injection and annotation may introduce same-model artifacts, only 18 of 40 natural
+    items were human-checked, and generalization beyond English biomedical abstracts is untested.
+  sources:
+  - https://arxiv.org/abs/2606.21517
+  - https://github.com/green-leo-1/MedHal-Loc
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

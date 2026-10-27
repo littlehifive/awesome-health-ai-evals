@@ -25,6 +25,24 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 1,000 questions x 3 personas = 3,000 encounters
+card:
+  task: Choose one of four answers to a diagnosis or treatment question presented in a patient vignette rewritten
+    in one of three sociolinguistic voices.
+  items_built: Of 11,451 MedQA-USMLE-4-options questions, 2,921 passed six filters, and 1,000 were randomly sampled
+    with stratification by answer letter and exam step. gemini-3.1-flash-lite generated three rewrites per question;
+    all 3,000 passed automated fact-preservation checks, and two independent annotators rated 150 randomly sampled
+    triples for fact preservation and narrative realism.
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: ''
+  validation: ''
+  results: ''
+  limitations: The personas are research constructs, and the dataset should not be used to draw conclusions about
+    real patients from any demographic group.
+  sources:
+  - https://huggingface.co/datasets/Prabhjotschugh/narrativeshield-sdoh-medqa
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

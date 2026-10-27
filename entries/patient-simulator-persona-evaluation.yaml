@@ -26,6 +26,44 @@ facets:
   eval_methods: [simulated_multi_turn, rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: "20 simulator parameters; 1,164 clinical cases simulated under 5 personas"
+card:
+  task: 'Interview a simulated patient and assign one of three urgency levels: self-care, follow-up with a clinician,
+    or emergency care.'
+  items_built: The triage evaluation uses 770 synthetic vignettes manually curated with clinicians from Telephone
+    Triage Protocols for Nurses and 394 additional vignettes, each presented under five patient personae. Five US
+    board-certified emergency or internal medicine physicians annotated each protocol-based case, and two to three
+    US internal medicine physicians annotated each additional case; the paper inconsistently describes the latter
+    cases as EHR-derived and as synthetic without EHR sources.
+  example: '"58-year-old woman with a headache and fever (39°C), chills, and malaise. Reported pain at 8/10. She
+    explicitly denies neck stiffness and cardiopulmonary symptoms. High hypertension. Daily Isoprost. No allergies."'
+  scoring: Triage predictions are compared with clinician labels to calculate accuracy and over-triage and under-triage
+    proportions across cases for each model and persona. Simulator checks report the fraction of paired conversations
+    correctly identified by activated parameter, mean accuracy and plausibility ratings for clinical claims, and
+    graders' accuracy in distinguishing real from simulated conversations.
+  judge: Claude Opus 4.6 grades parameter adherence and clinical fidelity; Claude Opus 4.6, GPT-5.4 and 15 human
+    graders assess realism, while triage uses clinician-assigned reference labels.
+  scale: Three ordered triage classes; accuracy and error proportions; adherence from 0 to 1; clinical claims rated
+    1 to 4; realism measured by classification accuracy, with 50% indicating chance.
+  validation: Reference-label agreement was Fleiss' κ = 0.580 for the five-physician dataset and Cohen's κ = 0.536
+    for the dataset rated by two to three physicians.
+  score_meaning: Clinical fidelity scores run from 1 for contradicted claims to 4 for accurate claims, and from
+    1 for implausible unsupported claims to 4 for expected ones. The realism evaluation tests whether classification
+    accuracy is below 65% at the 95% confidence level, with lower accuracy indicating that real and simulated conversations
+    are harder to distinguish.
+  annotation_process: For clinical fidelity, Claude Opus 4.6 first extracts factual claims from the vignette and
+    patient utterances, then classifies patient claims as supported or unsupported before rating them. Each human
+    realism rater saw 10 conversations sequentially, five real and five simulated; the LLM judges used independent,
+    side-by-side and sequential classification protocols. Reference urgency labels came from blinded reviews by
+    five US board-certified emergency or internal medicine physicians per case in Dataset 1, with labels assigned
+    by plurality vote, and two to three US-based internal medicine physicians per case in Dataset 2.
+  results: ''
+  limitations: The authors identify the single urgency-assessment task and three-level outcome, possible new clinical
+    facts weakening reference labels, reliance on LLM judges, and the narrower range of behaviour produced by a
+    single simulator as limitations.
+  sources:
+  - https://arxiv.org/abs/2607.08625
+  - https://github.com/joamats/conversational_ai
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

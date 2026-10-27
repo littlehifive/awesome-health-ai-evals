@@ -28,6 +28,35 @@ facets:
   eval_methods: [mcq_exact_match, rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 2,259 items (1,150 single-choice, 230 multiple-choice, 879 short-answer)
+card:
+  task: Answer single-choice and multiple-choice prescription-review questions, or review patient and prescription
+    details to classify errors and recommend interventions.
+  items_built: The authors selected content from prescription-review training textbooks for clinical pharmacists
+    and mapped items to 14 error categories defined using guidelines, clinical practice standards and regulatory
+    documents. Three senior pharmacists with over five years of prescription-review experience and one principal
+    pharmacist with over ten years independently checked items and reference answers, resolved discrepancies through
+    discussion, and excluded incomplete, outdated, duplicate or clinically irrelevant items.
+  example: ''
+  scoring: Choice answers are compared with reference answers to calculate accuracy and, for multiple-choice items,
+    precision, recall and F1. Short answers receive error-type classification F1, Python-calculated Macro Recall
+    of pharmacist-defined intervention points and BERTScore against reference interventions, combined into a weighted
+    total whose weights are not given in the excerpts; incorrect error-type classification makes the total zero.
+  judge: Automated reference-answer scoring uses Python for intervention-point recall and BERTScore for semantic
+    similarity.
+  scale: Accuracy and F1 for choice tasks; weighted short-answer total, with zero for incorrect error-type classification.
+  validation: ''
+  score_meaning: Accuracy of 0.881 means 88.1% of answers were correct. Higher F1 scores indicate a better balance
+    between detecting prescription errors and avoiding incorrect error predictions.
+  annotation_process: The review committee consisted of three senior pharmacists with over five years of prescription-review
+    experience and one principal pharmacist with more than ten years of experience. Each item was independently
+    reviewed and cross-checked against its reference answer, followed by group discussion to resolve discrepancies.
+  results: Gemini-2.5-pro-preview-05-06 led multiple-choice accuracy at 0.639 and short-answer error-type F1 at
+    0.487. Pharmacist short-answer F1 scores were 0.312 for principal pharmacists, 0.321 for senior pharmacists
+    and 0.240 for pharmacists.
+  limitations: ''
+  sources:
+  - http://arxiv.org/abs/2512.02024
+  extracted: '2026-10-27'
 signals:
   citations: 2
   citations_source: OpenAlex

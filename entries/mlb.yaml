@@ -26,6 +26,35 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric, rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 22 datasets (17 proprietary, 5 public); 4,250 sampled items; 64 specialties
+card:
+  task: Answer Chinese medical questions and clinical scenarios, interpret patient records, or extract medical entities,
+    as required by each item.
+  items_built: Gemini-2.5-pro, Qwen3-235B-A22B and DeepSeekR1-0528-671B helped generate items from guidelines, textbooks,
+    anonymized clinical records and physician-patient dialogues; medical and legal experts curated safety and ethics
+    scenarios. The authors sampled 4,250 items from over 350,000 questions, with two independent physician reviews
+    per item drawn from a panel of 300 licensed physicians at Chinese Grade-A tertiary hospitals, revising or discarding
+    failed items.
+  example: ''
+  scoring: Multiple-choice answers count as correct only when they match the answer key in all three shuffled-option
+    trials; extraction tasks use micro-F1 aggregated across entity classes. Open-ended responses receive rubric
+    scores from two GPT-4o-1120 assessors, with disagreements greater than 0.25 escalated to a physician and an
+    SFT-trained judge developed to automate disputed cases; reported scores represent mean performance.
+  judge: Automated answer checks, two GPT-4o-1120 instances, physician adjudicators and a Qwen3-14B-based judge
+    fine-tuned on 19,000 expert-annotated scoring points assign scores.
+  scale: Multiple-choice correctness, extraction micro-F1 and 0-1 rubric scores; mean performance reported as percentages.
+  validation: On 596 held-out disputed questions, the SFT judge achieved 92.13% accuracy and 81.32% Cohen's kappa
+    against human expert judgments, compared with 71.02% accuracy for the base Qwen3-14B.
+  score_meaning: ''
+  annotation_process: The review panel comprised 300 licensed physicians from Grade-A tertiary hospitals in China,
+    including experts with web-based medical service experience. Two physicians independently reviewed each benchmark
+    item for plausibility, clinical validity, answer correctness, distractor plausibility where applicable, and
+    whether the rubric matched the question. Items that failed review were discarded or revised and revalidated.
+  results: Kimi-K2-Instruct ranked first with 77.3% overall accuracy, scoring 87.8% in medical record understanding
+    and 61.3% in patient-facing services.
+  limitations: ''
+  sources:
+  - https://doi.org/10.48550/arxiv.2601.06193
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

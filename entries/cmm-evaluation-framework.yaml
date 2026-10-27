@@ -26,6 +26,34 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: 50 pneumonia cases (17 CAP, 19 HAP, 14 VAP), run in triplicate
+card:
+  task: Identify relevant patient information, analyze therapeutic goals and medication problems, and propose a
+    medication regimen with monitoring parameters and treatment duration for each case.
+  items_built: Five board-certified pharmacists developed the framework through literature review, panel discussions,
+    and iterative case testing, drawing on ASHP critical care pharmacy residency competencies, previous studies,
+    and HAMEC. Pilot testing used 50 standardized pneumonia cases designed to cover every framework component, following
+    antibiotic selection, renal dosing, and aminoglycoside dosing guidelines.
+  example: ''
+  scoring: Clinicians apply subtask-specific criteria to rate responses across safety, factuality, completeness,
+    and preference; the source reports descriptive summaries but does not specify an overall score calculation.
+    Any hallucinated information or proposed treatment with HAMEC harm level 3 or 4 triggers automatic failure regardless
+    of the overall score.
+  judge: Three board-certified pharmacists with postgraduate year 1 and year 2 critical care pharmacy residency
+    training graded the pilot outputs.
+  scale: Ratings from 1 to 5, plus automatic-failure flags; no combined metric specified.
+  validation: Across 50 pneumonia cases run in triplicate, Krippendorff's α was 1.00 for medication therapy problems
+    and format, 0.60 for regimen accuracy, 0.58 for clinician preference, 0.44 for duration, approximately 0.21
+    each for relevant information and therapeutic goals, and −0.21 for monitoring parameters. Agreement on automatic
+    failure was 0.03 for serious or severe harm and 0.15 for hallucinated information.
+  score_meaning: ''
+  annotation_process: Five panelists developed the grading framework using a literature review of comprehensive
+    medication management standards and best practices and panel discussions. They iteratively applied the framework
+    to cases during development.
+  results: ''
+  limitations: The authors identify the small number of similarly trained graders and limited case types as limitations,
+    and call for further reliability testing of the minimum required scoring components when used alone.
+  sources: []
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

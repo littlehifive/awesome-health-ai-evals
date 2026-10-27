@@ -26,6 +26,39 @@ facets:
   eval_methods: [expert_human_rating, rubric_llm_judge]
   modality: [text]
   size: "269 curated questions; 490 answers; 3,395 rating rows on the dataset card"
+card:
+  task: Answer open-ended questions about clinical practice and research in cardiology.
+  items_built: A Llama 3.1 8B retrieval system using 650,000 PubMed cardiology abstracts generated 500 questions
+    with answers and bibliographic references; the same model scored groundedness, biomedical relevance and context
+    independence from 1 to 5, retaining questions scoring at least 4 on every criterion before manual filtering
+    left 269 questions. Seventy-one biomedical researchers and cardiologists supplied 236 answers to 129 questions,
+    and Qwen2-7B and DeepSeek-R1-7B generated additional answers for expert-answered questions.
+  example: ''
+  scoring: Human experts and six LLM judges independently rate factual accuracy, completeness against reference
+    documents, and clarity, with answer sources initially concealed; the study compares score distributions by evaluator
+    and response source, primarily for accuracy. Evaluators also predict human or AI authorship, which is compared
+    with actual origin to calculate accuracy, precision, recall and F1, with their unweighted mean reported as an
+    overall classification score.
+  judge: 'Fifty-three biomedical researchers and cardiologists and six LLMs assign ratings: Llama3.1:8b, Llama3.3:70b,
+    DeepSeek-R1:7b, DeepSeek-R1:70b, phi4:14b and Qwen2.5:7b.'
+  scale: Each quality criterion is rated 1 to 7; authorship classification uses accuracy, precision, recall, F1
+    and their unweighted mean.
+  validation: When question-response pairs were shuffled within length groups, Llama3.1:8b still assigned accuracy
+    scores of at least 4 to 72% of unrelated long responses, compared with 21% of short responses and 24% of medium
+    responses.
+  score_meaning: In the question-response shuffling experiments, an accuracy score of 4 or higher counts as passing.
+  annotation_process: Human evaluators received random batches of 6-9 responses, approximately balanced across the
+    three answer sources, and could complete as many sessions as they wished; this produced 455 assessments with
+    uneven coverage, and no participant rated the same response twice. Each of the 490 answers received one evaluation
+    from each of the six LLM judges, giving 2,940 model evaluations. After the concealed-source stage, humans and
+    AI were told the answer source for 111 responses covering 63 questions, producing 149 additional evaluations.
+  results: For authorship classification, Llama3.1:8b had the highest reported AI F1 of 0.324, compared with human
+    evaluators' F1 of 0.558 and accuracy of 0.512.
+  limitations: The authors report that AI judges favor AI-generated answers and verbosity, while API-based and batch
+    inference increase scoring variability.
+  sources:
+  - https://github.com/juanjuanignacio/cardio_evals
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

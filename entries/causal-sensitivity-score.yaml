@@ -26,6 +26,38 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 12 interventions in 5 families; 224 oncology cases (about 790 case-intervention tuples)
+card:
+  task: Recommend treatments for an oncology patient from both an original case packet and a clinically modified
+    version, updating the recommendations to reflect the changed patient facts.
+  items_built: The author created 12 regex-based interventions and committed their applicability filters, mutation
+    rules, expected recommendation changes, and scoring rules before evaluation; the catalog has not undergone independent
+    clinical vetting. These were applied to 224 oncology tumor-board cases with chronological patient packets and
+    treatment labels established through two rounds of expert-oncologist consensus.
+  example: ''
+  scoring: An LLM judge compares the original and modified recommendations against the pre-registered expected change,
+    assigning 0 for no change, 0.5 for acknowledging the change without updating treatment, or 1 for updating correctly.
+    CSS is the mean across case-intervention pairs, reported overall and by intervention family.
+  judge: gpt-5.4 grades outputs, except that claude-opus-4-7 grades gpt-5.4 outputs.
+  scale: Each case-intervention pair receives 0, 0.5, or 1; overall and family CSS are means from 0 to 1.
+  validation: 'Three medical-professional annotators independently rated 100 stratified tuples while blinded to
+    model identity and judge scores: human-human Cohen''s κ was 0.40-0.72, and LLM-versus-human-majority κ was 0.46
+    with 69/100 exact agreement. Regrading all 4,727 tuples with claude-opus-4-7 preserved model rankings (Spearman
+    ρ = 1.00), with inter-judge κ of 0.61-0.69 for the five cross-judged models.'
+  score_meaning: Higher CSS indicates greater responsiveness to changed clinical inputs, rather than greater overlap
+    with expert treatment recommendations. The pre-registered rule can assign 0 even to a medically appropriate
+    refusal when a mutation leaves the clinical meaning unchanged, creates conflicting chart information, or makes
+    the case medically incoherent.
+  annotation_process: Each tuple passes through two generation stages, case summary and then recommendations; the
+    judge sees only the recommendations. Ground-truth treatment recommendations come from a two-round expert-oncologist
+    consensus protocol. Human validation scores were compared with the LLM judge using the majority rating.
+  results: grok-4.20-reasoning ranked first with CSS 0.473, despite ranking last on consensus coverage. All six
+    models scored at most 0.172 on surgery-status interventions.
+  limitations: The authors note low case-level judge agreement for some families, regex mutations that can create
+    incoherent or incompletely changed cases and penalize correct refusals, small model and validation samples,
+    oncology-only findings, and agent experiments that do not isolate tool use from other setup changes.
+  sources:
+  - https://arxiv.org/abs/2605.30590
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

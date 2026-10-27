@@ -27,6 +27,35 @@ facets:
   eval_methods: [automatic_metric, rubric_llm_judge]
   modality: [text]
   size: "243 vignettes used in experiments from 10 PubMed documents; the repo has a 683-item controlled-variant set"
+card:
+  task: Answer a yes-or-no clinical question for each version of a vignette in which the patient's sensitive attributes
+    are changed.
+  items_built: The authors used an LLM to generate evidence-referenced clinical vignettes from biomedical knowledge
+    bases, requesting balanced yes and no answers. They filtered vignettes for hallucinations using G-Eval and RefChecker
+    and for independence between sensitive attributes and health outcomes, then added sensitive-attribute variants.
+  example: ''
+  scoring: Answers to the same vignette are compared across demographic groups, with different answers counted as
+    unfair responses. The study reports demographic parity and equal opportunity to assess these differences.
+  judge: The fairness evaluation compares the tested model's answers across sensitive-attribute variants.
+  scale: Same or different answers across variants; demographic parity and equal opportunity.
+  validation: In blinded comparisons, 22 adults with postgraduate degrees and familiarity with LLMs preferred the
+    generated vignettes over the LLM-only baseline in 58% of comparisons and over EquityMedQA in 57%, judging suitability
+    for bias testing.
+  score_meaning: G-Eval scores range from 0 to 1, with lower scores indicating more hallucination; RefChecker reports
+    average counts of predicates classified as entailment, neutral or contradictory, with higher entailment and
+    neutral counts and lower contradictory counts treated as better. Lower semantic entropy indicates closer alignment
+    with the reference, while higher diversity and domain-specificity scores indicate more varied wording and closer
+    similarity to the medical reference and health outcome, respectively.
+  annotation_process: GPT-4 graded faithfulness using G-Eval, and RefChecker automatically checked statements extracted
+    by an LLM against the cited reference evidence. Each survey participant compared five vignette pairs against
+    the LLM-only baseline for obesity and five against EquityMedQA for breast cancer. Participants received instructions
+    on the criteria for choosing the preferred vignette.
+  results: ''
+  limitations: ''
+  sources:
+  - http://arxiv.org/abs/2410.14763
+  - https://github.com/healthylaife/autofair
+  extracted: '2026-10-27'
 signals:
   citations: 2
   citations_source: OpenAlex

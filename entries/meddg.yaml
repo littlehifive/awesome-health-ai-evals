@@ -27,6 +27,40 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 17,864 dialogues; 12 types of gastrointestinal disease
+card:
+  task: Generate the next doctor's response from a Chinese medical consultation history, with a separate task of
+    predicting which medical entities the response will mention.
+  items_built: The authors collected consultations from Doctor Chunyu and defined 160 normalized medical entities
+    using CMeKG terminology and entity frequency. Eight annotators with more than one year of consultation experience
+    labeled 1,000 test dialogues, with two independent labels and third-person adjudication per dialogue; a rule-based
+    program labeled the remaining 14,864 training and 2,000 development dialogues and achieved 96.75% annotation
+    accuracy on 2,000 expert-checked utterances.
+  example: ''
+  scoring: Automatic evaluation compares generated responses with reference responses using BLEU-1 and BLEU-4, measures
+    diversity with Distinct-1 and Distinct-2, and compares automatically extracted entities with gold entities using
+    precision, recall and F1. For human evaluation, three annotators independently rate responses from 100 randomly
+    selected test dialogues for fluency, relevance and expertise.
+  judge: Automatic metrics and the rule-based entity annotation program assign automatic scores; three dataset annotators
+    with more than one year of consultation experience assign human ratings.
+  scale: Automatic generation metrics normalized to 0-100; human ratings from 1 (poor) to 5 (good) for each dimension.
+  validation: Average Cohen's kappa between human response raters was 0.41 for fluency, 0.52 for relevance and 0.59
+    for expertise.
+  score_meaning: Fluency measures grammatical and semantic correctness, expertise measures whether the content is
+    medically appropriate, and relevance measures whether the response fits the dialogue history. BLEU measures
+    similarity in word sequences to reference responses, so a higher BLEU score does not necessarily mean a response
+    is more medically appropriate.
+  annotation_process: To create the gold entity annotations, eight annotators first completed trial annotations,
+    reported problems with the annotation manual, and received a revised manual before formal annotation. Each of
+    the 1,000 manually annotated dialogues was labeled independently by two annotators, with disagreements judged
+    by a third; these dialogues formed the test set. The automatic entity annotation program was refined through
+    four rounds of comparison with expert annotations on 2,000 randomly selected utterances.
+  results: ''
+  limitations: The authors report that BLEU measures only reference n-gram similarity and ranks retrieval below
+    generation, whereas human raters rank retrieval above the generative models on all three dimensions.
+  sources:
+  - https://arxiv.org/abs/2010.07497
+  - https://github.com/lwgkzl/MedDG
+  extracted: '2026-10-27'
 signals:
   citations: 3
   citations_source: OpenAlex

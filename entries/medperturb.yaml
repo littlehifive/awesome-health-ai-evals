@@ -28,6 +28,40 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: 800 clinical contexts, 7,200 clinician reads, 28,800 LLM reads
+card:
+  task: Read each clinical context and answer three yes-or-no questions about self-management at home, a clinical
+    visit, and allocation of medical resources.
+  items_built: The MIT-led team used 50 OncQA contexts, 50 r/AskaDocs contexts, and 100 USMLE and Derm vignettes
+    to produce 800 baseline and perturbed contexts. Gender and style variants were generated with Llama-3-8B, while
+    GPT-4 patient and doctor agents generated conversations and GPT-4 generated their summaries.
+  example: '"Answer the following treatment question with only ''yes'' or ''no'': Do you recommend the patient to
+    self-manage at home?"'
+  scoring: Llama-3-8B extracts yes-or-no answers from model outputs, encoded as 1 or 0; Average Treatment Rate averages
+    these decisions for each question, while Mutual Information and Percent Change measure stability between baseline
+    and perturbed contexts. Overall consensus ratio measures unanimous decisions, Fleiss' kappa measures agreement
+    beyond chance, and majority human and model decisions are compared without treating clinician answers as a correctness
+    key.
+  judge: Llama-3-8B extracts model answers; 36 U.S.-based medical students recruited through Centaur Labs independently
+    provide three human reads per context.
+  scale: Binary decisions, 1 for yes and 0 for no; aggregate treatment rates, mutual information, percent change,
+    consensus ratios, and Fleiss' kappa.
+  validation: Human annotator agreement had Fleiss' kappa values of 0.2 to 0.4 across baseline and perturbed contexts.
+    Majority human and model decisions agreed on 65% of self-management recommendations and 75% of resource-allocation
+    recommendations.
+  score_meaning: Higher mutual information indicates more stable and internally consistent treatment decisions when
+    a case's wording changes. Fleiss' kappa below 0.21 is described as slight agreement.
+  annotation_process: Centaur Labs trained annotators before recruitment using three examples, one each from USMLE,
+    r/AskaDocs, and OncQA, that were excluded from the study. Annotators answered the triage questions without seeing
+    model outputs and were paid $60 per hour; each clinical context took approximately five minutes.
+  results: ''
+  limitations: The authors state that U.S.-based medical students may lack demographic diversity and attending clinicians'
+    expertise, that English-only contexts exclude multilingual and cultural variation, and that the dataset does
+    not establish treatment correctness or support clinical deployment.
+  sources:
+  - https://arxiv.org/abs/2506.17163
+  - https://huggingface.co/datasets/abinitha/MedPerturb
+  - https://github.com/abinithago/MedPerturb
+  extracted: '2026-10-27'
 signals:
   citations: 2
   citations_source: OpenAlex

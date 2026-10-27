@@ -27,6 +27,33 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: "about 23,000 items per pronoun dataset; 69,000 total"
+card:
+  task: Answer each medical question and explain the clinical reasoning, including versions with changed patient
+    pronouns and one critical symptom or condition removed.
+  items_built: The authors sampled 2,000 U.S./English medical questions from EquityGuard, hand-curated by human
+    annotators, and board-certified physicians marked clinically decisive symptom and condition spans. They used
+    Llama 3.1 405B for gender-swapped rewrites, Neutral Rewriter for they/them versions, and GEC-ToR RoBERTa to
+    repair grammar after single-span deletions, producing about 69,000 items.
+  example: ''
+  scoring: Sentence-transformer encoders embed reasoning traces, and cosine similarity compares pairs with identical
+    clinical content but different pronouns; reported statistics include the mean and the 5th and 95th percentiles.
+    For each pronoun comparison, 200 pairs near the 5th percentile were manually categorized as factor shifts, differential
+    reordering, management rationale changes, or tonal shifts.
+  judge: Sentence-transformer encoders and cosine similarity assign numerical scores; unspecified human reviewers
+    categorize divergences.
+  scale: Pairwise cosine similarity, with values near 1 indicating semantic alignment; mean STS and 5th and 95th
+    percentiles are reported.
+  validation: ''
+  score_meaning: The paper defines scores below 0.73 as the reasoning instability region, where pronoun changes
+    produce differences in interpretation or reasoning even when final diagnoses remain unchanged.
+  annotation_process: ''
+  results: GPT-4.1, the only model tested, had a reported overall mean STS of 0.82 ± 0.03, with about 90% of pairs
+    exceeding 0.75.
+  limitations: The authors note that pronoun-only changes exclude other demographic factors, testing one model limits
+    generalization, and STS can miss nuances in clinical argumentation and logical flow.
+  sources:
+  - http://arxiv.org/abs/2510.12818
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

@@ -27,6 +27,35 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: "130 questions in the arXiv version (5 specialties); 314 questions across nine specialties in the later Research Square version"
+card:
+  task: Answer open-ended clinical questions about patient care, treatment recommendations and clinical calculations.
+  items_built: 'Five board-certified physicians created 130 questions from their day-to-day practice: 25 each in
+    cardiothoracic surgery, cardiology, neurology, infectious diseases and pediatrics, plus 5 clinical calculation
+    vignettes. J.K. and A.D. reviewed the dataset; 25 questions are published in Appendix A and the remainder are
+    available on request.'
+  example: '"What is the oral torsemide dose equivalent for oral furosemide 80 mg?"'
+  scoring: Physicians independently assess answers within their specialties using a rubric covering agreement with
+    medical consensus, reasoning, citations, coverage, omissions, irrelevant content and potential patient harm,
+    and report answer preferences. Results are reported as percentages by specialty and safety test, but the text
+    does not specify the per-item scoring rules or aggregation formula.
+  judge: Five board-certified and resident physicians grade outputs; the board-certified clinicians average more
+    than 14 years of experience.
+  scale: Per-item scale unspecified; percentage results for factuality, completeness, safety and answer preference.
+  validation: ''
+  score_meaning: ''
+  annotation_process: Answer formatting was varied and answer order was shuffled to hide which system produced each
+    answer, although differences in writing style prevented complete blinding. Adversarial testing used 25 questions
+    with five common adversarial prompts of varying length; omission testing randomly withheld key words from five
+    clinical vignettes.
+  results: Almanac exceeded ChatGPT in factuality by an average of 18 percentage points across specialties, with
+    cardiology scores of 91% versus 69% (p = 0.018856). Adversarial safety scores were 95% versus 0%, but physicians
+    preferred ChatGPT answers 57% of the time.
+  limitations: The authors state that complete blinding of physician graders was impossible because the systems
+    used different prose styles, and that grounded models remained vulnerable to omissions and questions without
+    clear extractive answers in their sources.
+  sources:
+  - https://doi.org/10.21203/rs.3.rs-2883198/v1
+  extracted: '2026-10-27'
 signals:
   citations: 37
   citations_source: OpenAlex

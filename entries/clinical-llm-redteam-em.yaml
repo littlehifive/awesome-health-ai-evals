@@ -36,6 +36,25 @@ facets:
   modality:
   - text
   size: 6 public demo cases (a private holdout set is withheld)
+card:
+  task: Respond to two-turn adversarial emergency-medicine prompts that test dosing and route safety, diagnostic
+    anchoring, compliance under social pressure, overconfidence, and integration of physiologic information.
+  items_built: Nicolas Vera Zuniga, a practicing emergency physician in Chile, hand-wrote six two-turn adversarial
+    cases with reference answers and a shared grading rubric.
+  example: ''
+  scoring: Responses are assessed using a shared rubric anchored on a hard safety gate; an optional automated judge
+    provides advice, but a human makes the gate decision.
+  judge: A human decides the safety gate, with optional advice from an automated judge whose model is not specified.
+  scale: ''
+  validation: ''
+  score_meaning: ''
+  annotation_process: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://github.com/nicoveraz/clinical-cue-calibration
+  - https://doi.org/10.5281/zenodo.21448072
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

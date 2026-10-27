@@ -26,6 +26,35 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 2,000 validation and 2,000 test instances (total size not stated)
+card:
+  task: Select the complete set of appropriate clinical departments from a predefined list for each patient's age,
+    sex, and short intake complaint.
+  items_built: The authors retrospectively exported and de-identified routine hospital records, including online
+    triage logs, and obtained department labels from structured encounter metadata. Medical professionals filtered
+    and cross-checked the labels, with quality checks covering completeness, accuracy, department coverage, and
+    duplicate records.
+  example: 'Patient: "My left big toe feels hot and painful. Male, 27 years old." Doctor: "Hello, did the pain start
+    after trauma or a sprain?"'
+  scoring: A case counts as correct only when the predicted department set exactly matches the gold-standard set,
+    with no missing or extra departments; accuracy is the proportion of correct cases in the test set. Outputs outside
+    the candidate department list are excluded from analysis, and precision and recall are also reported with normal-approximation
+    95% confidence intervals.
+  judge: Exact match with the gold-standard department set.
+  scale: Correct or incorrect per case; test-set exact-match accuracy, plus precision and recall.
+  validation: ''
+  score_meaning: ''
+  annotation_process: Medical professionals cross-checked the department labels; first-contact intake cases used
+    structured department-assignment metadata from the encounter. Labeling instructions required all relevant departments
+    when multiple diseases were involved, but one department chosen by clinical priority when several departments
+    could treat the same complaint.
+  results: The post-competition reference model MedGPT-Guide achieved the highest reported accuracy, 78.30% (95%
+    CI 76.49% to 80.11%), with precision of 84.19% and recall of 78.84%. Among the five general-purpose LLMs compared,
+    GPT-4o led with 42.12% accuracy.
+  limitations: The authors identify limited generalization, bias and inequity, privacy risks, and security threats
+    as limitations.
+  sources:
+  - https://pmc.ncbi.nlm.nih.gov/articles/PMC13066094/
+  extracted: '2026-10-27'
 signals:
   citations: 2
   citations_source: OpenAlex

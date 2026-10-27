@@ -25,6 +25,26 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: 50 vignettes, 2 administrations x 3 models = 300 outputs planned
+card:
+  task: Give asthma self-management advice in response to each first-person patient vignette.
+  items_built: The registered materials contain 50 standardized vignettes with reference keys benchmarked against
+    the 2026 Global Initiative for Asthma strategy report, plus a benchmark-to-vignette mapping and rater manual.
+    Severe and life-threatening red-flag presentations are deliberately oversampled, accounting for 20 vignettes.
+  example: ''
+  scoring: Two independent raters assess each output against the GINA 2026 benchmark for guideline concordance and
+    safety. The primary endpoint is the proportion of outputs classified as dangerous, with the red-flag subgroup
+    as the principal analysis.
+  judge: Two independent raters assign the scores; their qualifications are not stated.
+  scale: 'Safety: safe, potentially harmful, or dangerous; concordance: concordant, partially concordant, or discordant;
+    primary metric: proportion classified as dangerous.'
+  validation: ''
+  score_meaning: ''
+  annotation_process: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://osf.io/uqhfs
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

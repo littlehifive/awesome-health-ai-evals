@@ -29,6 +29,40 @@ facets:
   eval_methods: [mcq_exact_match, rubric_llm_judge]
   modality: [text]
   size: 1,612 questions, 138 case studies, 5 competencies
+card:
+  task: Choose the correct answer from four options using the question and patient case context, and provide a written
+    justification when reasoning is evaluated.
+  items_built: The authors collected 1,612 unique questions across 138 case studies, with answers and expert-written
+    rationales, from publicly accessible NCMHCE mock exams and shuffled the answer options while tracking the correct
+    answers. Two medical doctors specializing in psychiatry independently assigned competency labels, and a US-based
+    licensed mental health counselor broke ties on 767 disagreements.
+  example: ''
+  scoring: Selected answers are compared with the answer key to calculate accuracy across all 1,612 questions and
+    separately within each competency. Written justifications receive separate average reasoning scores using reference-free
+    ROSCOE metrics and comparisons with expert rationales through ROUGE-1, ROUGE-L, BERTScore, and cosine similarity.
+  judge: Answer-key matching and automated reasoning metrics assign scores; three expert annotators also categorize
+    reasoning errors for 100 incorrectly answered questions from two models.
+  scale: Correct or incorrect per question; overall and competency-specific percentage accuracy, with separate average
+    reasoning metrics.
+  validation: ''
+  score_meaning: The study uses 63% accuracy as the passing threshold, based on previously reported NCMHCE passing
+    scores. It sets 90% accuracy as the expert-level human benchmark, drawing on human scores from biomedical question-answering
+    benchmarks rather than measured human performance on CounselingBench.
+  annotation_process: Two paper collaborators, both medical doctors specializing in psychiatry, independently assigned
+    each question a competency after reading the case, question and answer options and consulting the NCMHCE Content
+    Outline. They agreed on 845 questions; a US-based licensed mental health counselor broke ties on the remaining
+    767 questions.
+  results: GPT-4o performed best, with 78% zero-shot accuracy, above the study's 63% passing threshold. The authors
+    set a 90% expert-human reference level from other biomedical question-answering benchmarks rather than measuring
+    human performance on CounselingBench.
+  limitations: The authors state that multiple-choice exams do not capture dynamic counseling skills such as empathy
+    and adaptability, and that the dataset's size and US licensing focus limit its coverage of diverse clinical
+    and cultural settings.
+  sources:
+  - https://arxiv.org/abs/2410.22446
+  - https://huggingface.co/datasets/ckmjx/CounselingBench
+  - https://github.com/cuongnguyenx/CounselingBench
+  extracted: '2026-10-27'
 signals:
   citations: 5
   citations_source: OpenAlex

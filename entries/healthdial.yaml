@@ -28,6 +28,39 @@ facets:
   eval_methods: [automatic_metric]
   modality: [voice, text]
   size: 6,000 dialogues, 41,988 turns, 163 hours of user speech
+card:
+  task: For each dialogue turn, transcribe user speech, decide whether knowledge retrieval is needed, retrieve and
+    filter supporting WHO snippets, or convert a textual response into speech, depending on the component being
+    tested.
+  items_built: The authors used 20 pilot dialogues to design 1,500 dialogue schemata, then used gpt-4o and WHO Questions
+    and Answers and Fact Sheets to generate hypothetical dialogues and prompts from which native-speaker annotators
+    created user utterances in four languages. Annotators recorded speech and corrected automatic transcripts; the
+    research team reviewed qualification submissions and 10% of the collected dataset, and removed or recollected
+    dialogues from two annotators.
+  example: ''
+  scoring: ASR is scored using word and character error rates, TTS using Mel Cepstral Distortion and ASR-based character
+    error rate, retrieval-turn classification using accuracy, and retrieval using recall, precision and F1. Knowledge
+    filtering compares the selected snippet set with the ground-truth set using exact match, with separate recall
+    for queries that require an empty set because the knowledge base cannot answer them.
+  judge: Automatic metrics compare outputs with reference transcripts, audio, retrieval labels and ground-truth
+    snippet sets.
+  scale: Task-specific error rates, distortion, accuracy, recall, precision, F1 and exact-match scores; no single
+    combined score.
+  validation: ''
+  score_meaning: In the prototype user study, ratings range from 1, meaning strongly disagree or very dissatisfied,
+    to 7, meaning strongly agree or very satisfied. Higher average ratings indicate greater agreement or satisfaction
+    with the construct being assessed, such as usefulness, ease of use or trust.
+  annotation_process: The prototype user study used a Technology Acceptance Model 2 (TAM2) questionnaire completed
+    by 25 fluent English speakers who received no additional training. Participants assessed the dialogue system
+    in comparison with the WHO website, and the reported human scores are averages across those participants.
+  results: ''
+  limitations: The authors state that LLM-generated content lacks healthcare-professional validation, multilingual
+    comparisons are confounded by language and task choices, and the reported component-level evaluation does not
+    test end-to-end spoken dialogue systems.
+  sources:
+  - https://arxiv.org/abs/2605.30107
+  - https://github.com/cambridgeltl/healthdial
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

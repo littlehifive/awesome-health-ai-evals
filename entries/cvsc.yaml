@@ -25,6 +25,36 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: 21 open-ended questions; criteria in Table 1
+card:
+  task: Answer open-ended, short-answer questions from an otolaryngology-head and neck surgery certification examination.
+  items_built: The framework was developed from established assessment tools, including Kung et al.'s ACI tool,
+    for evaluating open-ended medical examination answers. It was applied to 21 previous official examination questions
+    with model answers from the RCPSC sample examination, reviewed by specialty educational leads; Google searches
+    of every fifth question checked that the content was not indexed.
+  example: ''
+  scoring: Physicians assess whether each answer is coherent and relevant, classify its factual validity, flag potentially
+    unsafe information, and assign competency points against an answer key with question-specific weights based
+    on topic importance. Competency points are summed out of 34 and reported as a percentage, with concordance and
+    validity reported separately.
+  judge: Two physicians, Cai Long and Alaa Alanazi, scored independently, with major disagreements resolved by a
+    third physician, David Cote.
+  scale: Binary concordance; six validity categories; safety flags; question-specific competency points summed out
+    of 34 and converted to a percentage.
+  validation: ''
+  score_meaning: The examination pass mark is 70%; validity labels mean all information is valid, more than half
+    but not all is valid, equal amounts are valid and invalid, more than half but not all is invalid, all is invalid,
+    or the answer is indeterminate because it is generic, inapplicable or does not answer the question. Any self-contradictory
+    or unrelated passage makes an answer discordant.
+  annotation_process: Each answer was regenerated twice, and the regenerated answers were scored independently to
+    assess consistency. For answers rated anything other than valid, evaluators checked whether misleading, faulty
+    or unproven information could compromise patient safety and recorded details in a comment box.
+  results: 'GPT-4 achieved its highest score with an OHNS-specific prompt: 25.5/34 (75%), compared with 23.5/34
+    (69.1%) without a prompt and 24.5/34 (72%) on regeneration.'
+  limitations: The authors identify the exclusion of image-based questions, the small set of 21 questions, and limited
+    time and resources for exploring alternative prompts as limitations.
+  sources:
+  - https://pmc.ncbi.nlm.nih.gov/articles/PMC10828939/
+  extracted: '2026-10-27'
 signals:
   citations: 46
   citations_source: OpenAlex

@@ -25,6 +25,24 @@ facets:
   eval_methods: [automatic_metric, expert_human_rating]
   modality: [text]
   size: 13,344 labeled tuples (6,660 machine-generated and 6,684 human answers); 100 clusters with human-authored questions; 12,596 criteria in 425 clusters
+card:
+  task: Group clinical-trial eligibility criteria, turn criteria into patient-facing questions, or classify eligibility
+    from a patient's answer to a question.
+  items_built: The authors manually annotated paired criteria to create a gold standard used to group 12,596 criteria,
+    and curated human-authored reference questions. They also constructed a human-validated corpus of criterion-question-answer
+    tuples with human-labeled outcomes.
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: ''
+  validation: ''
+  score_meaning: ''
+  annotation_process: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://doi.org/10.63317/3pk9cracmxy7
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

@@ -27,6 +27,35 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: "26 million QA pairs; 1% (about 260,000) test split"
+card:
+  task: For each Chinese medical question, rank the top 1,000 answers from the dataset's answer pool or generate
+    an answer.
+  items_built: The authors produced 26,504,088 QA pairs by crawling patient questions and doctors' answers, applying
+    manually designed question templates to Chinese Wikipedia and Qianwen Health articles, and extracting facts
+    from CPubMed-KG, 39Health-KG and Xywy-KG. They cleaned and deduplicated the data, but its size prevented manual
+    checking by medical experts.
+  example: ''
+  scoring: Retrieval is scored against the paired answer using Recall@k and MRR@10, which averages the reciprocal
+    rank of the first relevant result within the top 10. Generated answers are compared with reference answers using
+    BLEU, ROUGE and GLEU, with Distinct-1/2 measuring response diversity.
+  judge: Automatic retrieval and text-generation metrics assign the scores.
+  scale: Recall@k and MRR@10 for retrieval; BLEU, ROUGE, GLEU and Distinct-1/2 for generation, with no combined
+    score.
+  validation: ''
+  score_meaning: BLEU and ROUGE-N measure overlap in sequences of words between generated and reference answers,
+    while ROUGE-L measures the longest shared sequence of words. Distinct-1/2 counts distinct one-word and two-word
+    sequences in generated responses.
+  annotation_process: For each retrieval question, the models rank the top 1,000 answers from a pool containing
+    both training and test answers. Evaluation uses 10% of encyclopedia and knowledge-base questions, and 1% of
+    consultation questions or questions from all sources combined.
+  results: ''
+  limitations: The authors state that the data can contain errors from doctors or automatic extraction, expert checking
+    at this scale is infeasible, and single-turn QA cannot capture all patient-specific information needed for medical
+    advice.
+  sources:
+  - https://arxiv.org/abs/2305.01526
+  - https://github.com/FreedomIntelligence/Huatuo-26M
+  extracted: '2026-10-27'
 signals:
   citations: 14
   citations_source: OpenAlex

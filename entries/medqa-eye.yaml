@@ -26,6 +26,24 @@ facets:
   eval_methods: [mcq_exact_match, expert_human_rating]
   modality: [text]
   size: 967 questions across 10 subspecialties
+card:
+  task: Answer multiple-choice ophthalmology questions in English, Simplified Chinese, and Traditional Chinese.
+  items_built: MedQA-Eye contains 967 ophthalmology questions selected from MedQA and annotated by three experts
+    for subspecialty, scenario, and medical entity. The questions cover 10 subspecialties, 3 scenarios, and 5 medical
+    entities.
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: ''
+  validation: ''
+  score_meaning: ''
+  annotation_process: ''
+  results: DeepSeek-R1 achieved the highest answer accuracy at 90.59% (95% CI 88.59% to 92.27%), compared with 87.90%
+    for LLaMA-3.3-70B-Instruct and 84.28% for QwQ-32B.
+  limitations: ''
+  sources:
+  - https://doi.org/10.1136/bmjophth-2025-002615
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

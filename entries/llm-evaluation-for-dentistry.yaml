@@ -26,6 +26,32 @@ facets:
   eval_methods: [rubric_llm_judge]
   modality: [text]
   size: 30 questions
+card:
+  task: Answer open-ended clinical dental questions while meeting each question's required criteria and avoiding
+    specified clinical errors.
+  items_built: 'A periodontist authored 30 questions across six clinical domains, each with a difficulty level and
+    a rubric. Ten factual claims were checked against primary guidelines: nine were confirmed, the periodontitis-diabetes
+    HbA1c figure was corrected, two rubrics were tightened, flagged wording was resolved, and 20 conceptual items
+    were reviewed.'
+  example: How should a routine dental extraction be managed in a patient taking warfarin, and in a patient taking
+    a DOAC?
+  scoring: An LLM judge checks each answer against its rubric; an answer is correct only if it meets every required
+    criterion and has no prohibited errors. Accuracy is the proportion scored correct, with refusals counted as
+    incorrect; answer rate and accuracy among answered questions are reported separately.
+  judge: A configurable LLM judge assigns scores, and an independent judge from a different vendor re-scores stored
+    answers.
+  scale: Correct or incorrect per answer; overall accuracy, answer rate, accuracy among answered questions, repeated-answer
+    consistency, and call latency.
+  validation: Stored answers are re-scored by a second-vendor judge, with verdict agreement, Cohen's kappa, and
+    per-model score differences reported; the supplied text gives no numerical values.
+  score_meaning: ''
+  annotation_process: Every model answers every question through OpenRouter before judging. Each question is asked
+    N times to measure answer drift, but the supplied text does not specify N.
+  results: ''
+  limitations: ''
+  sources:
+  - https://github.com/Tuminha/llm-evaluation-for-dentistry
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

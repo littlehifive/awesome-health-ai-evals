@@ -27,6 +27,32 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: 10 Likert items; 40 case scenarios for validation
+card:
+  task: Recommend treatment for a patient with urological cancer based on the supplied case information.
+  items_built: The framework evaluates treatment recommendations from LLMs and multidisciplinary tumor boards for
+    urological cancer cases. Two uro-oncology experts, Matthias May and Christopher Goßler, revised the original
+    SCS items to assess therapeutic recommendations, and the modified scale was validated using 40 fictitious cases.
+  example: ''
+  scoring: Blinded human raters score each recommendation on 10 items from 1 (strongly disagree) to 5 (strongly
+    agree). The 10 ratings are summed and divided by 50 to produce the recommendation's mSCS total.
+  judge: Four raters, Emily Rinderknecht, Maximilian Haas, Dominik von Winning, and Anton Kravchuk, conducted the
+    assessments, with reliability calculated between two independent raters.
+  scale: Each item is rated 1 to 5; the normalized total ranges from 0.2 to 1.0, with higher scores better.
+  validation: Pooled interrater agreement for mSCS was Cohen's kappa 0.95 and ICC 0.97 for tumor-board recommendations,
+    and kappa 0.81 and ICC 0.89 for LLM recommendations. Agreement between SCS and mSCS was kappa 0.93 across all
+    ratings, and all reported Cronbach's alpha values exceeded 0.9.
+  score_meaning: The intermediate item ratings are 2 = disagree, 3 = neutral, and 4 = agree. For the planned comparison
+    with the tumor board, the authors selected a maximum mSCS difference of 0.15 as the acceptable non-inferiority
+    margin for LLM recommendations.
+  annotation_process: Recommendation content was manually placed into a common bullet-point matrix to conceal source-specific
+    phrasing, with guidance on unrelated conditions excluded. Ratings were collected in two rounds, and consensus
+    ratings were used to compare SCS with mSCS; the text does not describe how disagreements were resolved.
+  results: ''
+  limitations: The authors state that mSCS can face difficulties when LLM recommendations lack specificity or clinical
+    nuance, especially in complex or ambiguous cases.
+  sources:
+  - https://pmc.ncbi.nlm.nih.gov/articles/PMC11593082/
+  extracted: '2026-10-27'
 signals:
   citations: 10
   citations_source: OpenAlex

@@ -28,6 +28,36 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 211 expert-validated items (299 reviewed); 3,390 reproduced mistakes in MedMistake-All
+card:
+  task: Answer an open-ended clinical question about a patient scenario in a single response.
+  items_built: Gemini 2.5 Flash extracted mistakes from simulated patient-doctor conversations and converted them
+    into clinical questions; 3,390 of 7,010 mistakes were reproduced by either Gemini 2.5 Pro or GPT-5. Medical
+    experts reviewed 299 mistakes and their scenarios for clinical accuracy and realism, confirming 211 unique mistakes
+    for the benchmark.
+  example: ''
+  scoring: A binary LLM judge checks whether each response handles the scenario correctly rather than repeating
+    the targeted mistake. Correct answers are counted and reported as percentages overall and by category.
+  judge: An LLM judge assigns the final correct-or-incorrect scores; its model name is not specified in the provided
+    text.
+  scale: Correct or incorrect per item; percentage of correct answers overall and by category.
+  validation: ''
+  score_meaning: The judge sets the threshold for correctness without awarding partial credit, even when an answer
+    is partly correct.
+  annotation_process: Two Gemini 2.5 Flash judges evaluated the original conversations to identify mistakes. During
+    scenario testing, Gemini 2.5 Flash checked responses from Gemini 2.5 Pro and GPT-5; if neither repeated the
+    mistake, a harder scenario was generated and retested on both models. Medical experts then reviewed each mistake
+    and scenario for clinical accuracy and realism, using the mistake category, risk level and original conversation
+    excerpt, and provided a justification when either was invalid.
+  results: GPT-5.2 led the 12 models with 53% correct answers, reported as 114/215 in Table 2, although the benchmark
+    is described as containing 211 unique items.
+  limitations: The authors report redundant dimensions, selection bias toward failures by Gemini 2.5 Pro or GPT-5,
+    inconsistent category schemes, limited specialty coverage, and reliance on binary LLM judgments that can be
+    inaccurate and miss partial correctness.
+  sources:
+  - https://arxiv.org/abs/2512.20983
+  - https://huggingface.co/datasets/TheLumos/MedicalMistakeBenchmark
+  - https://github.com/TheLumos/MMB
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

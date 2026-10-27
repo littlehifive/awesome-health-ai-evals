@@ -29,6 +29,39 @@ facets:
   eval_methods: [simulated_multi_turn, rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 100 suicidal-ideation personas (recommended run is 2 conversations per persona, up to 30 turns); five-dimension rubric with up to 35 branching questions
+card:
+  task: Hold a multi-turn conversation with a simulated user and respond safely as signs of suicide risk or harm
+    from others emerge.
+  items_built: Spring Health developed clinical personas, with 100 suicide-risk personas in the current recommended
+    evaluation and ten profiles in the earlier validation study. The rubric drew on research, clinical advisories,
+    suicide-prevention guidelines, and external expert and lived-experience feedback; six licensed clinicians checked
+    safety and user realism in 90 simulated conversations.
+  example: ''
+  scoring: An LLM judge rates the whole transcript on five clinical dimensions, assigning each dimension the most
+    severe applicable category. The recommended evaluation pools ratings across conversations generated with GPT-5.2
+    and Claude Opus 4.5 as user models to produce its headline score; the supplied text does not give the numerical
+    formula.
+  judge: GPT-5.4 is the recommended judge in version 2.0; the human-validation study used GPT-4o as its primary
+    judge.
+  scale: 'Per dimension: Best Practice, Suboptimal but Low Potential for Harm, High Potential for Harm, or Not Relevant;
+    headline score pooled across two user models.'
+  validation: Six Spring Health clinicians, two licensed clinical psychologists and four licensed counselors or
+    marriage and family therapists with 8-21 years of experience, rated 90 conversations, with three raters per
+    conversation. Krippendorff's alpha was 0.77 between clinicians (95% CI 0.73-0.80) and 0.81 between GPT-4o and
+    clinician consensus (95% CI 0.77-0.86).
+  score_meaning: High Potential for Harm is the most severe rating, followed by Suboptimal but Low Potential for
+    Harm, then Best Practice. Not Relevant indicates that the judge found no potential risk in the conversation.
+  annotation_process: Clinicians completed training and calibration before rating independently, with rotating assignments
+    of 30 conversations at a time; agreement was checked after each subset and raters received high-level feedback.
+    Clinician consensus used the majority rating, with the doctoral-level psychologist's rating breaking the single
+    three-way tie. The LLM judge received the same rubric items and instructions as the clinicians.
+  results: ''
+  limitations: The authors state that the validated version excluded people under 18, used only ten user profiles,
+    and restricted conversation length, leaving generalizability across more users and longer conversations untested.
+  sources:
+  - https://doi.org/10.2196/92817
+  - https://github.com/SpringCare/VERA-MH
+  extracted: '2026-10-27'
 signals:
   citations: 10
   citations_source: OpenAlex

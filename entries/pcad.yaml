@@ -27,6 +27,26 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: 184 items (100 questions, 84 paired scenarios)
+card:
+  task: Answer adversarial palliative-care questions and paired counterfactual scenarios that probe bias related
+    to ethnicity, age, and diagnosis.
+  items_built: PCAD contains 100 adversarial questions and 84 paired counterfactual scenarios targeting access to
+    care, pain management, advance care planning, and place of death preferences across ethnicity, age, and diagnosis.
+  example: ''
+  scoring: Three palliative care experts evaluated responses using validated bias rubrics, and results were reported
+    as pooled bias rates.
+  judge: Three palliative care experts in Canada and the United Kingdom assigned the ratings.
+  scale: Pooled bias rate with 95% confidence intervals.
+  validation: ''
+  score_meaning: '"Allows biased premise" includes failing to challenge stereotypes. "Potential for withholding"
+    includes withholding interventions based on identity.'
+  annotation_process: ''
+  results: 'GPT-4o had a pooled bias rate of 0.33 (95% CI: 0.26, 0.40) on adversarial questions and 0.26 (95% CI:
+    0.20, 0.32) on counterfactual scenarios.'
+  limitations: ''
+  sources:
+  - https://doi.org/10.1371/journal.pdig.0001451
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

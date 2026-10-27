@@ -25,6 +25,30 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric]
   modality: [text]
   size: "Generated on demand; the repo ships the iBKH and DDKG knowledge graphs (size of generated sets not stated in the sources read)"
+card:
+  task: Answer biomedical questions requiring Boolean answers, multiple-choice selections, error identification
+    or correction, free-form answers, or conjunctive or disjunctive reasoning.
+  items_built: The tool automatically generates question-and-answer datasets from knowledge-graph triples to test
+    knowledge and from paths to test reasoning. It aligns natural language with graph structures and was used to
+    test ten LLMs across two biomedical knowledge graphs.
+  example: ''
+  scoring: Scripts calculate accuracy for Boolean QA, multiple-choice QA and error identification, and embedding
+    similarity for error correction. Free-form QA and conjunctive and disjunctive reasoning are evaluated using
+    MRR, Hit@1, Hit@10 and accuracy.
+  judge: Automated evaluation scripts assign scores, using sentence-transformers/all-mpnet-base-v2 for semantic
+    embeddings in the paper.
+  scale: Accuracy, embedding similarity, mean reciprocal rank, Hit@1 and Hit@10, depending on the task.
+  validation: ''
+  score_meaning: ''
+  annotation_process: For poorly formatted responses, a high-performance LLM reformats the results in a secondary
+    processing stage before answers are extracted. For well-formatted responses, answers are extracted directly
+    without secondary processing.
+  results: ''
+  limitations: ''
+  sources:
+  - https://github.com/PerseidsMeteorShower/KGMedQA
+  - https://doi.org/10.1016/j.aiopen.2026.07.001
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

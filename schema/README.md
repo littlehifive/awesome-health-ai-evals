@@ -88,6 +88,8 @@ provenance:
 - `modality`: `text` and/or `voice`.
 - `size`: free text, e.g. `12,723 questions`.
 
+**card**: filled by `scripts/build_cards.py` from the paper, dataset card or README: `task` (what the model has to do), `items_built` (how the items were made), `example` (one item quoted from the source), `scoring` (how an output becomes a score), `judge` (who or what scores), `scale`, `validation` (how the judging was checked against people), `results` (the headline result at release) and `limitations` (the authors' own), plus the `sources` read and the `extracted` date. A second pass (`build_cards.py --pass scoring`) adds `score_meaning` (what the scale levels and the final number mean) and `annotation_process` (how many raters or grader runs scored each item, their training, the stages, and how disagreements were settled) to entries that aren't scored by multiple choice alone. An empty string means the sources don't say. The site shows these on the entry page in the same order for every entry.
+
 **signals**: filled by `scripts/fill_signals.py` (citations from OpenAlex, Hugging Face downloads, GitHub stars). `uptake` lists model reports or leaderboards that use the benchmark, recorded only where a source says so.
 
 **provenance**: the screening record IDs this entry came from, the extraction date, whether the full text was read, and confidence (`high`: facts checked in the full text; `medium`: abstract plus dataset card; `low`: thin sources, some fields guessed or unknown). Put anything uncertain in `notes`.

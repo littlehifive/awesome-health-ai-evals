@@ -26,6 +26,27 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 3,190 questions (22.0% easy, 51.8% medium, 26.3% hard)
+card:
+  task: Answer each Vietnamese Traditional Medicine question by choosing one of four options and returning its letter.
+  items_built: Llama-3.1-70B-Instruct-AWQ generated 3,459 candidate questions from medical textbook contexts; 3,190
+    remained after Qwen2.5-32B-Instruct-AWQ independently agreed with the answer and quoted evidence was checked
+    for presence in the source. One licensed Vietnamese Traditional Medicine specialist and four students pursuing
+    advanced studies in medicine and traditional medicine assessed a stratified sample of 500 questions after filtering,
+    without removing questions based on their ratings.
+  example: ''
+  scoring: Predicted answer letters are compared with the answer key to report accuracy across questions. Options
+    are randomly shuffled for each question and the answer key is updated before evaluation.
+  judge: Answers are scored against the answer key.
+  scale: Correct or incorrect per question; percentage accuracy overall.
+  validation: 'Item quality, rather than answer scoring, was checked by five evaluators on 500 questions: 94.2%
+    were accepted without modification, with final Fleiss'' kappa of 0.82.'
+  results: Qwen2.5-32B achieved the highest reported accuracy at 64.58%, followed by Llama-3.1-70B at 63.95%.
+  limitations: The authors state that substring evidence checks cannot establish logical support, reasoning correctness,
+    or evidence sufficiency; answer positions are biased, multiple-choice questions can overestimate reasoning,
+    and text-only items omit clinical diagnostic cues.
+  sources:
+  - https://arxiv.org/abs/2601.03792
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

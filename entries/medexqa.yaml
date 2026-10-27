@@ -27,6 +27,40 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric, expert_human_rating]
   modality: [text]
   size: five specialty subsets with dev and test splits (exact counts not recorded)
+card:
+  task: Answer each four-option medical multiple-choice question and explain why the selected answer is correct.
+  items_built: The University College London authors manually collected questions from freely accessible online
+    mock tests and exams, producing 965 items split into 25 development questions and 940 test questions. They removed
+    duplicates and similar questions using BERT cosine similarity, filtered questions about laws or regulations,
+    shuffled answer options, and had humans validate the questions and explanation pairs for clear reasoning and
+    distinct writing styles.
+  example: ''
+  scoring: Answers are checked against the answer key using the highest-logit choice or text matching with regular
+    expressions and thefuzz, with accuracy macro-averaged across five specialties. Generated explanations are compared
+    with both references using BLEU, ROUGE-L, METEOR and SciBERT-based BERTScore, with incorrect answers receiving
+    zero; scores are averaged across specialties and the four metrics, while human ratings are reported separately.
+  judge: Automated answer matching and reference-based metrics assign scores, and three authors with MSc degrees
+    in health-related subjects rate explanation-answer pairs.
+  scale: Accuracy is a percentage; explanation metrics are averaged; human ratings are 0, 0.5 or 1 per item, reported
+    on a 0 to 5 scale per specialty.
+  validation: Pearson correlation between automated explanation scores and human evaluation increased from 0.9347
+    with one reference explanation to 0.9385 with two.
+  score_meaning: Human raters assign 0 for an incorrect answer, a missing explanation or a fully irrelevant explanation;
+    0.5 for a correct answer with incorrect reasoning or an explanation ending in an incomplete sentence; and 1
+    for a correct answer and explanation. The pass mark is 60% for answer accuracy and 3 out of 5 for human evaluation
+    within a specialty.
+  annotation_process: Human evaluation used the development sets, with 5 samples per specialty, while automated
+    evaluation used the test sets. All evaluations used zero-shot prompting, a batch size of 1 and a temperature
+    of 0.
+  results: GPT4_0125 achieved the highest macro-average chat accuracy at 78.8% and the highest average explanation
+    score at 32.79. Med42 led logit-based accuracy at 72.0%.
+  limitations: The authors state that testing only question answering limits applicability to real-world clinical
+    scenarios, and that human evaluation covered only five samples per specialty with three annotators.
+  sources:
+  - https://doi.org/10.18653/v1/2024.bionlp-1.14
+  - https://huggingface.co/datasets/bluesky333/MedExQA
+  - https://huggingface.co/datasets/rob28/MedExQA
+  extracted: '2026-10-27'
 signals:
   citations: 38
   citations_source: OpenAlex

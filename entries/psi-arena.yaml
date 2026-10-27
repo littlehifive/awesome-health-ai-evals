@@ -25,6 +25,36 @@ facets:
   eval_methods: [simulated_multi_turn, rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 100 virtual clients per model; 3 scales (16, 8, and 9 scored dimensions); 8 LLMs evaluated
+card:
+  task: Conduct a 25-round psychological counseling conversation with each simulated client.
+  items_built: The authors used GPT-4o to extract psychological profiles from real client conversations in PsyQA,
+    generating 10,000 profiles across 100 topics under nine themes. They manually selected one high-quality profile
+    per topic to construct 100 simulated clients.
+  example: ''
+  scoring: GPT-4o scores each dialogue from client, supervisor, and counselor perspectives using three scales; scores
+    are averaged across sessions for each scale and combined into an overall mean. Scale-specific pass rates use
+    totals above 42, 24, and 35 respectively, and the overall pass rate counts only sessions that pass all three
+    scales.
+  judge: GPT-4o assigns scores in the roles of client, supervisor, and counselor.
+  scale: 'Client: 16 dimensions scored 0-4, total 64; supervisor: 8 scored 0-4, total 32; counselor: 9 scored 0-5,
+    total 45; reported metrics are mean scores and pass rates.'
+  validation: Two psychology graduate students ranked 30 dialogues from four models on all three scales and reached
+    consensus after discussion. The authors report high consistency with automated rankings, especially on the client
+    scale, but provide no numerical agreement statistic in the supplied text.
+  score_meaning: Higher client scores reflect better client experience and satisfaction; higher supervisor scores
+    reflect stronger professional competence and ethical practice; higher counselor scores reflect stronger self-assessed
+    practical counseling abilities. A model can have the highest average score without having the highest pass rate.
+  annotation_process: 'The human evaluators were familiar with the research and received the complete tripartite
+    scales and instructions; each was paid $13.78 per hour. For comparison with automated evaluations, rankings
+    were converted to points: first place received 4 points, second place 3 points, and so on.'
+  results: Claude-3.5-Sonnet achieved the highest overall pass rate, 84%, with the psychological counselor prompt,
+    compared with 37% using the default prompt.
+  limitations: The authors state that simulated clients cannot fully capture human emotional dynamics or cultural
+    diversity, biases may arise, accountability for harmful advice remains unclear, and AI cannot replace human
+    therapists' empathy, intuition, and ethical judgment.
+  sources:
+  - https://arxiv.org/abs/2505.03293
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

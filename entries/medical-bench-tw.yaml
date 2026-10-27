@@ -24,6 +24,23 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: about 170,000 single-answer MCQs with train, validation, and test splits
+card:
+  task: Answer Traditional Chinese multiple-choice questions from Taiwanese health-professional licensing, specialist
+    nurse and school entrance exams, choosing one answer in the main track or multiple answers in the advanced track.
+  items_built: The dataset was curated from public official Taiwanese sources and contains about 170,000 single-answer
+    questions, split into train, validation and test sets by whole exam paper, plus an advanced multiple-answer
+    track. It also includes document corpora from national health insurance, food and drug, disease control and
+    professional society sources.
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: ''
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://huggingface.co/datasets/Erichuang777777/medical-bench-tw
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

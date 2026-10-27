@@ -31,6 +31,29 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 600 questions (282 lower-difficulty, 318 higher-difficulty)
+card:
+  task: Choose the correct answer from four options for each medication-reasoning question, with or without access
+    to drug reference information.
+  items_built: Gemini 1.5 Flash drafted questions from sampled OpenFDA and British National Formulary labels, checked
+    that each question was adequately specified with one unambiguously correct answer, and selected 100 short and
+    200 long questions per jurisdiction that required medication context to answer correctly. Four board-certified
+    pharmacists per jurisdiction revised question wording, answer options and keys, with each question reviewed
+    by one pharmacist, and rated difficulty.
+  example: ''
+  scoring: Selected answers are compared with the pharmacist-revised answer key, and accuracy is the proportion
+    answered correctly. Results are reported separately for lower- and higher-difficulty questions in open-book
+    and closed-book settings.
+  judge: Exact match with the pharmacist-revised answer key.
+  scale: Correct or incorrect per question; percentage accuracy by difficulty and reference-access setting.
+  validation: ''
+  results: AMIE outperformed PCPs on higher-difficulty questions in both open-book and closed-book settings, with
+    equivalent performance on lower-difficulty questions. The human baseline comprised three PCPs per jurisdiction.
+  limitations: Selecting questions that Gemini needed medication labels to answer skewed the benchmark toward harder
+    questions unrepresentative of typical practice, pharmacist reviews could vary, and PCP baselines omit the pharmacist
+    guidance often used in real medication decisions.
+  sources:
+  - https://arxiv.org/abs/2503.06074
+  extracted: '2026-10-27'
 signals:
   citations: 13
   citations_source: OpenAlex

@@ -26,6 +26,37 @@ facets:
   eval_methods: [automatic_metric, rubric_llm_judge]
   modality: [text]
   size: Task suite on PubMedQA-Labelled with shortform and freeform tasks
+card:
+  task: Answer biomedical questions with specified keywords or free text, generate conclusions or questions from
+    supplied text, and decline to answer when the supplied context lacks the needed information.
+  items_built: The authors adapted PubMedQA-Labelled article questions, abstracts and answers, excluding entries
+    labelled Maybe, and used BioASQ questions with human-curated contexts and verified answers. They used GPT-4
+    to paraphrase questions and reverse context meanings, randomly replaced characters to create spelling errors,
+    and added irrelevant passages drawn from the same dataset.
+  example: ''
+  scoring: Short answers are compared with reference answers using F1; GPT-4 judges semantic equivalence to reference
+    answers or questions for freeform accuracy, while generated conclusions are scored by F1 on GPT-4's answers
+    using those conclusions as context. Refusal accuracy is the proportion of responses saying "Unknown", and few-shot
+    bias is the proportion of excess Yes answers on balanced data, averaged across sampled four-shot example combinations.
+  judge: GPT-4 grades semantic equivalence and answers questions from generated conclusions; other scores use reference
+    answers or the required refusal keyword.
+  scale: Binary semantic-equivalence decisions; task-level F1, accuracy, refusal proportion and excess-Yes bias,
+    with no overall score reported.
+  validation: The authors compared several semantic-similarity methods and selected GPT-4 as the best performer;
+    the supplied text gives no agreement figures.
+  score_meaning: For freeform QA and question formation, responses that are not semantically similar to the reference
+    are counted as incorrect. Higher F1 and accuracy indicate better performance, while a larger excess-Yes bias
+    indicates a stronger tendency to answer Yes on balanced data.
+  annotation_process: ''
+  results: GPT-4 led all reported freeform tasks, with accuracy of 0.952 on PubMedQA and 0.948 on BioASQ, while
+    GPT-3.5 led shortform baseline QA with F1 of 0.848. GPT-4 and GPT-3.5 both achieved 1.0 accuracy on the refusal
+    task.
+  limitations: The authors state that prompt coverage was limited, possible training-data overlap could inflate
+    recall results, and complex instruction-following requirements penalise smaller models.
+  sources:
+  - https://arxiv.org/abs/2403.14578
+  - https://github.com/GSK-AI/rambla
+  extracted: '2026-10-27'
 signals:
   citations: 2
   citations_source: OpenAlex

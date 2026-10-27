@@ -26,6 +26,41 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: 200 questions, 800 responses, 1,925 must-have statements, 80,502 expert annotations
+card:
+  task: Answer a patient's medical question or a USMLE-style clinical question, with evidence citations when retrieved
+    passages are used.
+  items_built: The authors randomly sampled 100 K-QA patient questions with physician-written answers and 100 MedBullets
+    USMLE Step 2/3 questions with expert-authored explanations. K-QA supplied human-verified essential statements;
+    GPT-4o extracted and identified essential statements from the MedBullets explanations for retrieval and completeness
+    assessment.
+  example: '"How long does this year''s flu usually last?"'
+  scoring: Experts label passage support, match citations to retrieved passages, judge statement correctness against
+    reference answers and medical knowledge, and assess coverage of essential reference statements. Retrieval metrics,
+    statement factuality and completeness are calculated per question and averaged; citation-selection precision
+    and recall pool passage counts across questions, excluding references outside the supplied top-16 passages.
+  judge: 'Eighteen annotators scored outputs: nine assessed retrieval and selection, and nine medical residents
+    or clinical fellows assessed factuality and completeness.'
+  scale: 'Factuality: true or false; completeness: full=1, partial=0.5, none=0; final metrics are proportions, with
+    no combined overall score.'
+  validation: Two annotators independently labeled reliability samples. Krippendorff's alpha was 0.757 for retrieval
+    (1,280 pairs; 95% CI 0.638-0.852), 0.926 for selection (416 pairs; 0.906-0.944), 0.512 for factuality (972 statements;
+    0.372-0.636), and 0.742 for completeness (328 pairs; 0.666-0.812), with confidence intervals estimated using
+    10,000 bootstrap samples.
+  score_meaning: Miss@k is the fraction of questions with no relevant passage among the top k results, so lower
+    values are better; coverage@k is the fraction of essential reference statements supported by at least one of
+    those passages, counting either full or partial support. Response-level factuality is 1 only when the entire
+    answer is correct and 0 if any part contains a factual error.
+  annotation_process: Annotators used a custom Label Studio interface after receiving written task guidelines and
+    examples and attending meetings to clarify definitions and ambiguities. Each annotator assessed all model outputs
+    for a given query. For MedBullets reference answers, GPT-4o extracted statements and classified them as essential
+    or non-essential; only essential statements were used for retrieval and completeness evaluation.
+  results: ''
+  limitations: Selection scoring excludes self-generated references because only the top-16 retrieved passages have
+    relevance annotations, and factuality judgments vary with clinicians' background knowledge and experience.
+  sources:
+  - https://arxiv.org/abs/2511.06738
+  - https://huggingface.co/datasets/Yale-BIDS-Chen/medical-rag-expert-evaluation-200
+  extracted: '2026-10-27'
 signals:
   citations: 2
   citations_source: OpenAlex

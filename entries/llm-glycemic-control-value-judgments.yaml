@@ -26,6 +26,28 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 100 simulated adult profiles x 3 insulin modalities; five commercial LLMs; perturbation experiments against 100 CSII profiles
+card:
+  task: Compare two synthetic type 1 diabetes profiles using their continuous glucose monitoring summary statistics
+    and decide which has better glycemic control.
+  items_built: The framework was developed using synthetic type 1 diabetes profiles across three insulin therapy
+    modalities to probe how LLMs weigh competing glycemic risks.
+  example: ''
+  scoring: Pairwise judgments are used to derive a percentile ranking for each profile, and alignment is quantified
+    against time in range and the clinician-derived Glycemia Risk Index. Perturbation analysis tests how models
+    weight mild hypoglycemia and mild hyperglycemia relative to the Glycemia Risk Index.
+  judge: Time in range and the clinician-derived Glycemia Risk Index provide the reference metrics.
+  scale: Percentile rankings per profile; correlation with time in range and the Glycemia Risk Index.
+  validation: ''
+  score_meaning: ''
+  annotation_process: ''
+  results: Across five commercial LLMs and three insulin therapy modalities, newer models showed stronger correlation
+    with the Glycemia Risk Index than older models. Perturbation analysis found disagreements with the index over
+    the weighting of mild hypoglycemia and mild hyperglycemia.
+  limitations: ''
+  sources:
+  - https://github.com/lizhealey/LLMGRI
+  - https://pubmed.ncbi.nlm.nih.gov/42389650
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

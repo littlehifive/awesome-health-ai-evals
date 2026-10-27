@@ -28,6 +28,41 @@ facets:
   eval_methods: [rubric_llm_judge]
   modality: [text]
   size: 525 conversations selected from 15,079 candidates
+card:
+  task: Write the next assistant response to the final clinician message in a single-turn or multi-turn conversation
+    about a care consult, writing and documentation, or medical research.
+  items_built: Physicians created 15,079 candidate conversations through daily-use testing and deliberate adversarial
+    testing of ChatGPT for Clinicians; 525 were selected for quality, representativeness, and difficulty, enriching
+    difficult examples roughly 3.5-fold. Each conversation and rubric underwent three stages of authorship, review,
+    and adjudication involving at least three physicians, with two independent physicians checking meaningful errors
+    and realism in difficult examples.
+  example: ''
+  scoring: GPT-5.4 independently checks whether each response meets each rubric criterion, awarding its full point
+    value or zero, including negative points for undesirable behavior; the sum is divided by the example's maximum
+    possible score. Scores are adjusted for response length, averaged across examples, clipped to [0, 1], and multiplied
+    by 100.
+  judge: GPT-5.4 at low reasoning effort grades the responses.
+  scale: Criteria carry nonzero weights from -10 to 10 and are met or not; normalized item scores can be negative,
+    and the final length-adjusted score ranges from 0 to 100.
+  validation: ''
+  score_meaning: 'Higher benchmark scores indicate better performance on clinician tasks, not the percentage of
+    answers that are correct. The physician''s initial 1-7 Likert rating describes response quality: 6-7 means highly
+    accurate, complete, well-calibrated and tailored to the user; 3-5 means acceptable with limitations; and 1-2
+    means serious deficiencies, with lower ratings indicating greater problems.'
+  annotation_process: 'Each example and rubric underwent three stages involving at least three physicians: an author
+    wrote the rubric and assigned the initial Likert rating, reviewers checked quality and revised or excluded examples,
+    and final reviewers resolved ambiguities and edited or removed rubric items. For examples rated 1-2, two physicians
+    independently checked that the response had meaningful flaws and that the scenario was realistic and relevant.
+    Contributors were selected through application materials and paid introductory tasks, including rubric writing,
+    and received training materials and individualized feedback from physician reviewers.'
+  results: GPT-5.4 in ChatGPT for Clinicians scored highest at 59.0, compared with 48.1 for base GPT-5.4. Specialty-matched
+    physicians writing without AI assistance, with internet access and no time limit, scored 43.7.
+  limitations: Enrichment for difficult examples means absolute benchmark scores are not directly comparable to
+    real-world performance rates.
+  sources:
+  - https://arxiv.org/abs/2604.27470
+  - https://huggingface.co/datasets/openai/healthbench-professional
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

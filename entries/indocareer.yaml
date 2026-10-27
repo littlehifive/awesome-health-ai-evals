@@ -29,6 +29,30 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 8,834 questions in total (2,675 healthcare)
+card:
+  task: Choose the single correct answer from up to five options for each Indonesian healthcare exam question.
+  items_built: Three professional teachers with Bachelor's degrees in Education extracted text-only questions from
+    publicly available exams, mainly on Scribd, plus local government websites and shared Google Drive folders.
+    The author checked sources, automated filtering removed duplicates and entries without answer keys, and a manual
+    review of 300 randomly selected questions across the full dataset found 99% accuracy in questions, options and
+    keys.
+  example: ''
+  scoring: 'The selected answer is compared with the answer key, using the highest-probability first option token
+    for open-weight models and the first generated letter for GPT-4o. Accuracy across questions is averaged over
+    three evaluations: the original option order and two shuffled orders.'
+  judge: Automated comparison with the answer key using LM-Harness, with first-letter extraction for GPT-4o.
+  scale: Each answer is correct or incorrect; percentage accuracy is averaged across three option orders.
+  validation: Across 27 models, Clinical Psychology had a score standard deviation of 3.00 percentage points and
+    an average rank correlation of 0.93 across three option orders; the corresponding full-dataset figures were
+    1.57 and 0.98.
+  results: GPT-4o achieved the highest healthcare accuracy at 68.3%. Mean healthcare accuracy across all evaluated
+    models was 37.2%, making it the hardest sector.
+  limitations: The benchmark excludes multimodal material and engineering professions and tests only multiple-choice
+    answering, not text generation.
+  sources:
+  - https://arxiv.org/abs/2409.08564
+  - https://huggingface.co/datasets/indolem/IndoCareer
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

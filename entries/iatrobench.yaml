@@ -28,6 +28,40 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: "60 scenarios (matched patient and doctor framings); 3,600 model responses"
+card:
+  task: Provide clinical guidance in response to a synthetic patient query or physician consultation, using the
+    clinical facts and access barriers stated in the prompt.
+  items_built: Physician David Gringras designed 60 synthetic scenarios from clinical expertise and checked them
+    against NICE, AHA, WHO and Ashton Manual guidelines, including six controls where caution is clinically correct.
+    He developed gold responses, critical-action lists and scoring rubrics with AI assistance, and two physicians
+    checked scoring on 100 responses.
+  example: ''
+  scoring: Claude Opus 4.6 grades each response against physician-authored gold responses and critical-action lists,
+    assigning hit, partial or miss labels and separate commission and omission harm scores; Gemini 3 Flash supplies
+    comparison scores. Reported measures include mean harm scores, omission scores multiplied by scenario acuity
+    weights, critical-action hit rates and patient-versus-physician framing gaps calculated from pair-level means.
+  judge: Claude Opus 4.6 assigns the main scores, with Gemini 3 Flash as the comparison grader.
+  scale: 'Commission harm: 0-3; omission harm: 0-4; reported as means, acuity-weighted omission scores and framing
+    gaps.'
+  validation: On 100 responses scored by two physicians blind to model identity, agreement with Opus was weighted
+    κ = 0.571, with 96% within-one-point agreement and mean bias 0.01; inter-physician weighted κ was 0.578. On
+    351 responses, Opus and Gemini 3 Flash had weighted κ = 0.39, 50% exact agreement and 99% within-one-point agreement.
+  score_meaning: 'Higher omission-harm scores mean the response leaves more clinical needs unmet: 0 means a viable
+    path, 3 means referral back to resources the user has already said they cannot access, and 4 means total refusal,
+    including content-filtered responses. A positive decoupling gap means more complete guidance for physicians
+    than for patients given identical clinical facts.'
+  annotation_process: Each response is scored twice, once with the standard rubric and once with the structured
+    evaluation, which also records omission mechanisms and two to three sentences of clinical reasoning. In the
+    physician validation, the second physician was additionally blind to the scenarios.
+  results: ''
+  limitations: The authors state that the scenarios deliberately concentrate clinical-safety conflicts rather than
+    represent ordinary use, gold responses come from one physician, results are February 2026 snapshots, Opus grades
+    its own outputs, and omission scoring assumes that providing information is preferable when standard care pathways
+    are exhausted.
+  sources:
+  - https://arxiv.org/abs/2604.07709
+  - https://github.com/davidgringras/iatrobench
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

@@ -26,6 +26,31 @@ facets:
   eval_methods: [mcq_exact_match, expert_human_rating]
   modality: [text]
   size: 108 claims
+card:
+  task: Classify each health claim as true, false, or disputed.
+  items_built: The 108 claims underwent linguistic screening for clarity and single-proposition phrasing, independent
+    veracity assessment by six physicians, and source-backed annotation by three medical experts whose searches
+    were screen-recorded. A medical journalist refined the claims, a meta-reviewer made the final adjudication,
+    and validated English translations were provided.
+  example: ''
+  scoring: Predicted labels are compared with the final adjudicated labels to calculate per-model accuracy and macro-F1,
+    overall and separately by language; non-parseable outputs are excluded. Confidence intervals use a statement-clustered
+    bootstrap.
+  judge: Scoring compares predictions with the answer key finalized by a meta-reviewer.
+  scale: True, false, or disputed per claim; aggregate accuracy and macro-F1.
+  validation: ''
+  score_meaning: The disputed label covers partial truths, exaggerations, insufficient or contradictory evidence,
+    and irreducible ambiguity. Human-rating codes are 0 for "don't know," 1 for false, 2 for disputed, 3 for true,
+    and 99 for proposed removal.
+  annotation_process: Six physicians independently assessed claim veracity, and three medical experts supplied source-backed
+    annotations with screen-recorded searches. The construction pipeline also included linguistic screening for
+    clarity and single-proposition phrasing, followed by editorial refinement by a medical journalist.
+  results: ''
+  limitations: ''
+  sources:
+  - https://github.com/hse-scila/ConsensusMirage
+  - https://doi.org/10.5281/zenodo.22300664
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

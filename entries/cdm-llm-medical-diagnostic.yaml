@@ -26,6 +26,32 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 2,809 multiple-choice questions across 22 subdomains; 41 LLMs
+card:
+  task: Choose the single correct answer from five options for each text-only medical multiple-choice question.
+  items_built: The authors selected items from a 2,856-question test bank administered by the National Center for
+    Health Professions Education Development, designed for students at the end of fourth-year academic programs
+    in China; experts reviewed the items against national physician licensing examination standards and annotated
+    their subject domains. Excluding attributes tested fewer than three times and their corresponding questions
+    left 2,809 items, each mapped to one to three of 22 domains in a Q-matrix.
+  example: ''
+  scoring: Each answer is scored against the correct option, with one point per correct answer summed for the total
+    score. WGNPC compares the model's binary response pattern with ideal response patterns using distances weighted
+    by item response variability, assigns the closest mastery pattern, and sums mastered domains to obtain the overall
+    mastery level.
+  judge: The answer key determines correctness, and the weighted general nonparametric classification method assigns
+    domain mastery.
+  scale: Each item scores 0 or 1; total score ranges from 0 to 2,809, with binary mastery across 22 domains and
+    a mastery count from 0 to 22.
+  validation: Cronbach's alpha was 0.99, and attribute retest consistency and pattern retest consistency were both
+    1. Overall attribute mastery correlated with total test score at r = 0.69 (p < 0.01).
+  results: OpenAI-o1 had the highest total score, 2,548 out of 2,809, followed by Gemini-1.5-Pro with 2,546 and
+    Gemini-2.5-Pro with 2,530. Across the 41 models, the number of mastered domains ranged from 17 to 20.
+  limitations: The authors identify limitations in the 22 subject-only attributes, the use of multiple-choice rather
+    than complex clinical tasks, reliance on one zero-shot prompt, weighting that does not reflect clinical consequences,
+    and model performance changing over time.
+  sources:
+  - https://doi.org/10.1038/s41598-026-36627-7
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

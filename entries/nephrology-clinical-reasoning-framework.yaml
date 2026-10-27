@@ -25,6 +25,34 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: 9 cases x 9 questions; 4 LLMs rated blind by 4 nephrologists
+card:
+  task: Answer nine clinical reasoning questions for each nephrology case as patient history, test results, and
+    the subsequent treatment course are revealed in sequence.
+  items_built: Four nephrologists used a Delphi process and a final consensus meeting to select 10 cases from 104
+    case reports published between April 6 and May 6, 2025; nine remained after journal permission could not be
+    obtained for one case. Clinical experts and software engineering specialists developed and repeatedly pilot-tested
+    the prompts, with nine questions and evaluation criteria covering three phases per case.
+  example: '"Hearing this chief complaint, what differential diagnoses do you consider? Please list three. What
+    is the most likely? What must not be missed? Please also explain your reasoning."'
+  scoring: Four nephrologists independently scored each answer against question-specific clinical reasoning criteria
+    while blinded to model identity. A single blinded researcher aggregated the ratings, and performance was reported
+    as average scores across cases and questions.
+  judge: Four nephrologists independently rated the outputs without knowing the model names.
+  scale: Each rater assigns 0 for incorrect, 1 for reasonable but not optimal, or 2 for correct; aggregated scores
+    are reported as model averages.
+  validation: ''
+  score_meaning: The criteria assess whether answers explain clinically appropriate reasoning, such as prioritizing
+    diagnoses by frequency and severity and interpreting test results in the patient's clinical context. Treatment
+    answers are judged on evidence, patient-specific factors, justification and alternatives, while monitoring answers
+    must identify response indicators, risks and concrete countermeasures.
+  annotation_process: 'Scoring covered outputs from three sequential phases: patient history (Q1-Q4), test results
+    (Q5-Q7), and treatment course (Q8-Q9). Information from later phases was withheld until the model completed
+    the preceding phase. The evaluation took place on July 20, 2025 (JST).'
+  results: Gemini 2.5 Pro achieved the highest reported average score of 7.57, followed by OpenAI o3 at 7.39, DeepSeek-R1
+    at 7.13, and Llama 4 Maverick at 6.23.
+  limitations: ''
+  sources: []
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

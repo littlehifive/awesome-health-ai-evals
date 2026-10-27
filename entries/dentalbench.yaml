@@ -29,6 +29,32 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric]
   modality: [text]
   size: 36,597 questions (4 task types, 16 subfields), 4:1 train/test split; plus a 337.35M-token corpus
+card:
+  task: Answer a dentistry question by selecting one or more options, writing an open-ended response, or defining
+    a dental term.
+  items_built: The authors assembled 36,597 questions from public English medical QA datasets, textbook-derived
+    terms with UMLS definitions, Chinese dental licensing exams from 1999-2021, 34 Chinese dental textbooks and
+    auxiliary materials, and 181 questions from orthodontist-patient interactions. They standardized option counts,
+    generated definitions using 50 templates per language, retained original open-ended questions, and used GPT-4o
+    to filter for dental relevance, with manual checks of 300 samples.
+  example: ''
+  scoring: Selected options are compared with reference answers using accuracy for single-answer questions and accuracy,
+    precision, recall, and F1 for multi-answer questions; generated answers and definitions are compared with reference
+    text using BERTScore F1. Results are reported separately by task and language on a held-out 20% test split that
+    preserves subfield proportions, with no combined overall score.
+  judge: Automated answer-key comparisons and BERTScore F1 assign the scores.
+  scale: Choice accuracy and multi-answer precision, recall, and F1; BERTScore F1 for generated text, reported on
+    a percentage scale.
+  validation: ''
+  score_meaning: ''
+  annotation_process: ''
+  results: DeepSeek-R1 led Chinese single-answer and multi-answer accuracy at 76.06% and 43.51%, respectively. GPT-4o
+    led English single-answer accuracy at 73.98%; no human baseline was reported.
+  limitations: The authors state that Chinese and English sources differ in distribution, diversity, and coverage
+    depth, and that multi-answer questions are available only in Chinese.
+  sources:
+  - http://arxiv.org/abs/2508.20416
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

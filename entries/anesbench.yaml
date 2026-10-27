@@ -26,6 +26,25 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 4,427 multiple-choice questions
+card:
+  task: Choose the correct answer to each anesthesiology multiple-choice question.
+  items_built: The authors collected 4,427 English questions from American Board of Anesthesiology examination materials,
+    standardized textbooks, and validated online assessment tools, then used DeepSeek-R1 to label their reasoning
+    levels. GPT-4o translated the questions into Chinese, with expert review and consistency checks against standardized
+    anesthesiology references; the later repository README reports an expanded set of 7,972 questions.
+  example: ''
+  scoring: Accuracy measures the proportion of questions answered correctly, reported separately for each reasoning
+    level and for the benchmark as a whole.
+  judge: ''
+  scale: Correct or incorrect per question; accuracy reported as a proportion or percentage.
+  validation: ''
+  results: DeepSeek-R1 achieved the highest reported AnesBench accuracy at 0.82, with scores of 0.85 for factual
+    retrieval, 0.78 for hybrid reasoning, and 0.70 for complex decision-making.
+  limitations: Resource constraints limited evaluation to one run per model.
+  sources:
+  - https://arxiv.org/abs/2504.02404
+  - https://github.com/MiliLab/AnesBench
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

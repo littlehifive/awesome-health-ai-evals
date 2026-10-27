@@ -26,6 +26,27 @@ facets:
   eval_methods: [automatic_metric, expert_human_rating]
   modality: [text]
   size: 400 queries; 2,467 relevant and 1,854 irrelevant references
+card:
+  task: Answer each biomedical question using the supplied references, citing relevant evidence and ignoring irrelevant
+    references.
+  items_built: Experts collected 400 biomedical queries, with 100 each in English, French, German and Chinese, paired
+    with 2,467 relevant and 1,854 irrelevant references. The queries cover basic biology, drug development and design,
+    clinical translation and application, ethics and regulation, and public health and infectious disease.
+  example: ''
+  scoring: Citations in model answers are compared with the references labeled relevant or irrelevant, rather than
+    scored for answer correctness. Results are reported as Relevance Precision, Irrelevance Suppression and Curation
+    Efficiency F1.
+  judge: Citation-based scoring uses the relevant and irrelevant reference labels.
+  scale: Relevance Precision, Irrelevance Suppression and Curation Efficiency F1.
+  validation: Human evaluation of citations on the English portion was used to validate the metric.
+  score_meaning: ''
+  annotation_process: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://huggingface.co/datasets/zhm0/CRAB
+  - https://huggingface.co/datasets/PatSnap/Hiro-Pharma-RAG-Benchmark
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

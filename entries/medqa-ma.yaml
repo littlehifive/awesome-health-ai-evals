@@ -27,6 +27,29 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 108,943 QA pairs
+card:
+  task: Answer medical questions written in Moroccan Arabic (Darija).
+  items_built: The authors compiled 108,943 question-answer pairs from medical websites, books, articles, and transcribed
+    health videos and radio programs, translating non-Darija content into Moroccan Arabic. Three native Moroccan
+    Arabic speakers reviewed transcriptions and translations, and five medical doctors each reviewed every pair
+    for medical accuracy and specialty labels, resolving ambiguous categories by consensus.
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: ''
+  validation: ''
+  score_meaning: ''
+  annotation_process: Automated keyword matching assigned each question-answer pair a provisional label from 23
+    medical specialties. Five medical doctors with diverse specializations each reviewed every pair for medical
+    accuracy, confirmed or corrected its label, and removed noisy, irrelevant, or medically incoherent entries.
+    The doctors reached consensus on cases with ambiguity or overlap between specialties.
+  results: ''
+  limitations: The authors report that multilingual code-mixing and Latin-script Arabic required individual review
+    and manual normalization because available models did not adequately handle these non-standard Moroccan Arabic
+    inputs.
+  sources:
+  - https://doi.org/10.1016/j.dib.2026.112537
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

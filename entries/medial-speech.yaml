@@ -27,6 +27,35 @@ facets:
   eval_methods: [automatic_metric]
   modality: [voice]
   size: 581 dialogues, 11,197 turns, 111.4 hours; three LLMs evaluated
+card:
+  task: Select the next doctor response from 20 options given a consultation context, and assign a probability to
+    each option.
+  items_built: Fourteen BMedSci students conducted consultations with 325 unpaid actor-patients, and 20 annotators
+    produced annotations checked for agreement between transcript turn counts and speech segments. A subset of doctor-patient
+    dialogues yielded 1,062 prompts with manual transcripts and 1,104 with Faster-Whisper patient transcripts, using
+    5, 9, 13 or 17 context turns and 19 distractors randomly drawn from unique doctor sentences.
+  example: ''
+  scoring: Selected responses and predicted probabilities are compared with the recorded next doctor response. Results
+    are reported separately for manual and ASR transcripts using balanced accuracy, F1, AUC, Brier score, total
+    KL divergence, binary cross entropy and expected calibration error with 20 bins.
+  judge: Automated comparison with the recorded next doctor response.
+  scale: Correct or incorrect selection plus option probabilities; aggregate classification and probability metrics.
+  validation: ''
+  score_meaning: Higher balanced accuracy, F1 and AUC are better; lower Brier score, total KL divergence, binary
+    cross entropy and expected calibration error are better. Random selection among the 20 options has a 5% chance
+    of choosing the correct response.
+  annotation_process: Each prompt contained one correct response and 19 alternatives randomly drawn from all unique
+    doctor sentences in the dataset. GPT-5 mini, DeepSeek V3 and Claude Sonnet 4 received the same prompts and template,
+    covering 1,062 prompts with manual transcripts and 1,104 with ASR transcripts. ASR was applied only to patient
+    utterances.
+  results: Claude Sonnet 4 led with balanced accuracy of 0.7119 on manual transcripts and 0.7473 on ASR transcripts.
+    All three tested models were overconfident, with confidence-distribution overlap coefficients above 0.7 between
+    correct and incorrect selections.
+  limitations: About 70% of dialogues have manual transcriptions and speaker-role annotations, and the dataset uses
+    simulated rather than real patients.
+  sources:
+  - https://doi.org/10.1109/icassp55912.2026.11461707
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

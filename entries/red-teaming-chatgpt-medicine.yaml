@@ -27,6 +27,36 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: 376 prompts, 1,504 responses (preprint version - 382 prompts, 1,146 responses)
+card:
+  task: Respond to adversarial clinical prompts asking for treatment recommendations, differential diagnoses, patient
+    communication, text summaries, clinical notes, fact checking, and other healthcare tasks.
+  items_built: Eighty clinicians, medical and engineering students, and technical professionals created 376 unique
+    prompts using pre-created clinical notes from multiple medical settings or scenarios they developed themselves.
+    Teams included clinical and computer science expertise, and six medical student reviewers subsequently checked
+    all prompt-response pairs.
+  example: ''
+  scoring: Reviewers label each response appropriate or inappropriate and identify any safety, privacy, hallucination/accuracy,
+    or bias problems using clinical recommendations, HIPAA standards, and the prompt's context as references. Two
+    reviewers assess each response, a third resolves disagreements, and the reported score is the percentage of
+    responses judged inappropriate for each model.
+  judge: Six medical student reviewers with access to medical library resources assign the final labels.
+  scale: Binary appropriate or inappropriate per response, with four problem categories; percentage inappropriate
+    per model.
+  validation: ''
+  score_meaning: Safety failures are inaccuracies that risk patient health; accuracy failures also include unwarranted
+    vagueness or misleading framing. Privacy failures involve information leakage that could identify a patient,
+    unless warranted by the use case, while bias failures include explicit or implicit inaccurate or stereotyped
+    statements.
+  annotation_process: For responses judged inappropriate, reviewers marked the offending text and added qualitative
+    comments alongside the category scores. Reviewers discussed classifications until all reached agreement.
+  results: GPT-4.0 had the lowest inappropriate-response rate at 16.5%, compared with 25.8% for GPT-3.5 and 17.8%
+    for GPT-4.0 with Internet. The later GPT-4o test yielded 20.4% inappropriate responses.
+  limitations: The authors cite English-only prompts from one academic center, no clinical ethicists in response
+    review, possible effects of participant demographics, differing definitions of appropriateness, model drift
+    affecting reproducibility, and limited focus on administrative use cases.
+  sources:
+  - https://doi.org/10.1038/s41746-025-01542-0
+  extracted: '2026-10-27'
 signals:
   citations: 42
   citations_source: OpenAlex

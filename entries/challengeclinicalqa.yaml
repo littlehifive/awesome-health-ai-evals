@@ -27,6 +27,37 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric, expert_human_rating]
   modality: [text]
   size: 1,524 JAMA Clinical Challenge questions and 308 Medbullets questions
+card:
+  task: Choose the correct answer to a clinical case question with four or five options and explain why it is preferred
+    over the alternatives.
+  items_built: The authors collected 1,524 cases from the JAMA Network Clinical Challenge archive and 308 Medbullets
+    Step 2/3 questions linked in public X posts from April 2022 to December 2023, retaining expert-written answer
+    explanations and excluding images. They also created a four-option Medbullets version by randomly removing one
+    incorrect option from each five-option question.
+  example: ''
+  scoring: Answer accuracy compares predictions with the answer key, while automatic explanation metrics measure
+    similarity to reference explanations, information alignment, and explanation quality. For human evaluation,
+    three annotations per instance were averaged separately for completeness, correctness, and relevance on 30 randomly
+    sampled Medbullets-5 questions with GPT-4 and PaLM 2 explanations.
+  judge: Automatic metrics and Prolific crowdworkers with a Master's or Doctorate degree in Medicine/Healthcare
+    assign scores, with three human annotations per instance.
+  scale: Answers are correct or incorrect, reported as percentage accuracy; explanations receive separate automatic
+    metric scores and mean human ratings for three properties.
+  validation: 'On GPT-4 explanations from 30 Medbullets-5 questions, Pearson correlations between automatic and
+    human scores were weak: G-Eval coherence correlated 0.32 with human correctness, G-Eval consistency 0.26, and
+    G-Eval relevance 0.22.'
+  score_meaning: Human completeness ratings assess whether an explanation sufficiently and convincingly justifies
+    each answer choice as correct or incorrect. Correctness assesses whether the information is correct, while relevance
+    assesses whether the explanation relates to the question.
+  annotation_process: ''
+  results: GPT-4 outperformed PaLM 2 in human explanation ratings, with mean scores of 3.35 for completeness, 4.45
+    for correctness, and 4.61 for relevance, compared with 2.67, 4.35, and 4.53 respectively.
+  limitations: The authors excluded figures that could contain important clinical information and did not test more
+    complex prompting strategies or few-shot chain-of-thought prompting with reference explanations.
+  sources:
+  - https://doi.org/10.18653/v1/2025.naacl-long.182
+  - https://github.com/HanjieChen/ChallengeClinicalQA
+  extracted: '2026-10-27'
 signals:
   citations: 31
   citations_source: OpenAlex

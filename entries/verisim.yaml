@@ -26,6 +26,37 @@ facets:
   eval_methods: [simulated_multi_turn, automatic_metric, rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 300 patient cases x 7 doctor models = 2,100 conversations; six noise categories at severity levels 0-4
+card:
+  task: Conduct a diagnostic conversation with a simulated patient under clean or noisy communication conditions
+    and give one final diagnosis.
+  items_built: The authors extracted and harmonized 300 patient cases from DDXPlus and MIMIC-IV-ED, recording age,
+    sex, presenting symptoms, and the ground-truth diagnosis with its ICD-10 code in a shared JSON format. Six independently
+    configurable communication-noise dimensions were developed from peer-reviewed medical communication literature.
+  example: ''
+  scoring: Top-1 accuracy is the percentage of final diagnoses that exactly match the ground-truth diagnosis; conversation
+    efficiency is reported as average exchanges before diagnosis and the relative increase from clean to noisy conditions.
+    Human evaluators and Claude Opus-4.5 also use a shared rubric to assess truth preservation, realism, clinical
+    utility, and fidelity to the assigned noise profile.
+  judge: Diagnosis scoring uses exact match with the answer key; simulation quality is rated by Claude Opus-4.5,
+    one board-certified obstetrician-gynecologist, and one licensed nurse, both trained in health informatics.
+  scale: 'Diagnosis: correct or incorrect, reported as percentage accuracy; conversation length: average turns and
+    relative increase; realism: 1 to 5.'
+  validation: On 300 independently human-rated conversations, human-human agreement was κ = 0.90 for truth preservation,
+    r = 0.84 for realism, r = 0.80 for clinical utility, and κ = 0.83 for noise fidelity. Claude-human agreement,
+    averaged over both raters, was κ = 0.85, r = 0.78, r = 0.74, and κ = 0.77, respectively.
+  score_meaning: Truth preservation measures whether responses contain hallucinated symptoms or violate the ground
+    truth. A realism score of 4.04 out of 5 was interpreted as indicating behaviorally convincing simulated patients.
+  annotation_process: The two human evaluators independently scored a stratified sample of 300 conversations using
+    transcripts, ground-truth symptoms, assigned noise profiles, and a detailed rubric with anchor examples for
+    each score level. Claude Opus-4.5 received the full context, including noise profiles, and was prompted to generate
+    reasoning before scoring.
+  results: Qwen-2.5-72B was the strongest model, with a reported 15.3% drop in diagnostic accuracy under noise and
+    a 34.5% increase in conversation length. All seven tested models lost diagnostic accuracy under noise.
+  limitations: The authors state that evaluation is English-only and that using two clinical experts to assess 300
+    conversations limits generalizability.
+  sources:
+  - https://arxiv.org/abs/2604.10441
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

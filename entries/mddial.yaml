@@ -26,6 +26,37 @@ facets:
   eval_methods: [automatic_metric, simulated_multi_turn]
   modality: [text]
   size: 12 diseases and 118 symptoms; train and test dialogue files (dialogue counts not recorded)
+card:
+  task: Ask a simulated patient about symptoms over multiple turns and give a diagnosis based on the conversation.
+  items_built: The authors generated dialogues by combining symptoms and diseases from MDD with templates written
+    by annotators who studied MedDialogue; different annotators checked fluency, grammar, typographic errors and
+    ambiguity. For generalization tests, they created unseen templates using T5 paraphrases and new templates written
+    independently by two additional annotators.
+  example: ''
+  scoring: Automated scoring credits questions about symptoms associated with the reference disease, then normalizes
+    by generated dialogue length and applies a penalty for differing from the reference length. Diagnosis accuracy
+    measures correct diagnoses, while reliability is the fraction of dialogues with both a correct diagnosis and
+    a symptom score meeting a chosen threshold.
+  judge: Automated rules compare queried symptoms and predicted diagnoses with the dataset's symptom and disease
+    references.
+  scale: Symptom score and diagnosis accuracy range from 0 to 1; reliability is binary per dialogue and reported
+    as a fraction at each threshold.
+  validation: ''
+  score_meaning: A higher symptom-score threshold makes the reliability requirement stricter. At a threshold of
+    0.5, reliability below 0.2 means that fewer than 20% of dialogues meet that symptom-score requirement while
+    also giving the correct diagnosis.
+  annotation_process: During automated testing, the model starts with the patient's opening utterance, and each
+    generated doctor question is checked against the reference symptoms to choose the next patient response. Questions
+    about unrelated symptoms receive a negative response rather than the next patient utterance from the reference
+    dialogue.
+  results: DialoGPT achieved a disease-wise symptom score of 0.309 and diagnosis accuracy of 0.475, ahead of GPT-2
+    on both measures. At a symptom-score threshold of 0.5, both models had reliability below 0.2.
+  limitations: The authors state that template-generated language has limited diversity and complexity compared
+    with real consultations, only moderate-size models were tested, and human evaluation was left for future work.
+  sources:
+  - https://arxiv.org/abs/2308.08147
+  - https://github.com/srijamacherla24/MDDial
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

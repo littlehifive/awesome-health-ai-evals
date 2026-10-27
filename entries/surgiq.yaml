@@ -25,6 +25,29 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 13,055 questions; 35 open-weight LLMs evaluated
+card:
+  task: Select the single correct answer to each text-only surgical question from four options.
+  items_built: Gemini 2.5 Flash generated 17,068 candidate questions from 7,216 textbook segments and 659 research
+    papers, with surgical examination material also included among the sources. Answer verification, quality filtering,
+    rule-based checks, deduplication, and manual cleanup retained 13,055 questions, and three physicians independently
+    audited 300 randomly sampled questions.
+  example: ''
+  scoring: For each answer label, the evaluator takes the higher next-token log-probability of its plain and space-prefixed
+    forms, then selects the label with the highest score. The selected label is compared with the answer key, and
+    overall accuracy is the percentage of questions answered correctly.
+  judge: Exact match with the answer key.
+  scale: Correct or incorrect per question; overall percentage accuracy.
+  validation: Three physicians independently reviewed 300 randomly sampled questions; majority consensus found 92%
+    had correct answers and 90% were clear and unambiguous. Fleiss' kappa was 0.84 for answer correctness and 0.72
+    for clarity.
+  results: Qwen2.5-72B achieved the highest overall accuracy at 68.1%. On a manually audited 300-question subset,
+    surgeons achieved 89.1% accuracy, compared with 51.3% for the best evaluated open-weight model on that subset.
+  limitations: The authors identify possible errors and stylistic biases from LLM generation, text-only multiple-choice
+    coverage, imbalanced domains and question types, evaluation with a single answer order and log-likelihood scoring,
+    and possible overlap with model pretraining data.
+  sources:
+  - https://arxiv.org/abs/2606.08071
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

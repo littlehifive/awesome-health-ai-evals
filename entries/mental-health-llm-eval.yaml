@@ -24,6 +24,34 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric]
   modality: [text]
   size: 8 datasets, 19 tasks; default samples of 79 to 3,902 items per task
+card:
+  task: Answer psychiatric exam questions or assign the required emotion, diagnosis, suicide-risk, manipulation,
+    depression or CBT labels to each item.
+  items_built: The framework uses existing benchmark items rather than creating new ones, with full-set evaluation
+    for some tasks and deterministic sampling with seed 42 for others. The suite defines its own ICD grouping for
+    MDD-5k and top-1 scoring protocol for CBT-Bench.
+  example: ''
+  scoring: Outputs are strictly parsed against the required labels and compared with gold answers; synonyms are
+    not mapped, and parsing failures count as incorrect. Item results are aggregated into task-level accuracy with
+    Wilson 95% confidence intervals, weighted and macro F1, per-class accuracy and confusion pairs; EmoBench EU
+    requires both emotion and cause to be correct, while CBT-Bench counts a top-1 prediction as correct if it matches
+    a gold label.
+  judge: Code parses model outputs and compares them with benchmark gold labels.
+  scale: Correct or incorrect per item; task-level accuracy, F1 and top-1 hit rate.
+  validation: In the full rerun, 16 of the 17 non-EmoBench tasks matched the first run exactly; CBT-FC fell by 0.89
+    percentage points because one answer changed.
+  score_meaning: ''
+  annotation_process: Models answer in a zero-shot setting with temperature set to 0; sampled items are selected
+    by deterministic shuffling with seed 42 by default. Reported EmoBench results use a separate harness that reproduces
+    the official repository's prompts word for word, rather than the suite's simplified prompts. An audit script
+    recomputes metrics from saved item-level records and checks them against the summaries.
+  results: ''
+  limitations: The authors warn that the simplified EmoBench EU prompts yield 39.3 versus 57.8 under the official
+    protocol and cannot be compared with the paper, that zero-shot results differ in setting from fine-tuned baselines,
+    and that resumed-run summaries omit earlier records unless recomputed.
+  sources:
+  - https://github.com/AllenLi441/mental-health-llm-eval
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

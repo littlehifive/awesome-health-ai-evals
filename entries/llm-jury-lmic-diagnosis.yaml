@@ -27,6 +27,35 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: "3,334 diagnoses on 300 cases; judged by 3 LLMs and compared with primary and re-score expert panels"
+card:
+  task: Given a hospital case, provide diagnoses, differential diagnoses and clinical reasoning for comparison with
+    expert-panel diagnoses.
+  items_built: Medical officers in the VALID study collected 539 complete cases with treating physicians' diagnoses,
+    admission records, clinical reports, laboratory results and medical images. Panels of two internal medicine
+    physicians or two paediatricians independently reviewed 300 relevant cases, then met to agree on reference diagnoses
+    and reasoning; calibration used 300 LLM diagnoses and 30 ward diagnoses.
+  example: ''
+  scoring: The three judges score outputs against expert-panel references, and each judge's scores are calibrated
+    to panel scores using isotonic regression before being averaged. S3 weights diagnosis, differential diagnosis
+    and safety by 0.4, 0.2 and 0.4; S4 weights diagnosis, differential diagnosis, reasoning and safety by 0.3, 0.1,
+    0.3 and 0.3, with diagnosing agents ranked by mean S3.
+  judge: Opus 4.1, Gemini 2.5 Pro and o3 assign the automated scores.
+  scale: Four 1-5 ratings; safety equals 6 minus negative treatment risk; calibrated weighted S3 and S4 quality
+    scores.
+  validation: Five-fold cross-validation checked calibration against expert-panel scores, with independent human
+    re-scoring available for 30 diagnoses. Judge rankings agreed with primary-panel rankings at Kendall's tau ≥0.86
+    before and ≥0.79 after calibration; after calibration, offset and RMSE comparisons favoured the jury with bootstrap
+    win rates of 78%-100%, except for safety offset, where it matched the re-score panels.
+  score_meaning: Patient safety scores of 1 or 2 indicate high risk to the patient. A severe-risk error occurs when
+    the primary panel assigns one of these scores but another evaluator assigns a safety score at least 3 points
+    higher.
+  annotation_process: ''
+  results: ''
+  limitations: The independent human re-scoring covered only 30 diagnoses, and the authors identify validation in
+    other clinical contexts as future work.
+  sources:
+  - https://arxiv.org/abs/2604.14892
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

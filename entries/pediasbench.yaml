@@ -26,6 +26,36 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric]
   modality: [text]
   size: not stated in the text read; over 200 real cases, 19 departments, 211 diseases
+card:
+  task: Select the correct answer options for pediatric knowledge and ethics questions, and give concise diagnostic
+    reasoning and treatment answers for cases presented in two stages as new patient information becomes available.
+  items_built: Knowledge questions came from Resident, Junior, Intermediate, and Senior Pediatrician examination
+    banks; GPT-4o split over 200 anonymized real cases into two stages and generated ethics and safety questions
+    from textbooks, regulations, guidelines, and policy documents. Every item was independently reviewed by at least
+    two pediatricians with at least five years of experience, with disagreements adjudicated by a senior reviewer
+    with at least ten years of experience.
+  example: ''
+  scoring: Selected options are compared with reference answers to calculate single-choice accuracy and multiple-choice
+    accuracy and F1. Open-ended answers receive a weighted score of 70% Macro Recall of expert-labeled answer points
+    and 30% BERTScore, with mean scores reported across questions.
+  judge: Answer-key comparison and custom Python key-point matching scripts with BERTScore assistance assign scores
+    using references labeled by clinical experts.
+  scale: Choice accuracy and F1; open-ended weighted Macro Recall and BERTScore, reported as mean scores.
+  validation: ''
+  score_meaning: Higher open-ended scores indicate greater coverage of essential diagnosis, treatment, and care
+    points in the reference answers. BERTScore helps recognize paraphrased points rather than directly judging whether
+    an expression is correct.
+  annotation_process: At least two pediatricians with five or more years of experience independently reviewed each
+    item, and a senior reviewer with ten or more years of experience adjudicated disagreements. Each model produced
+    one response per prompt through a single non-streaming API call, with multi-step reasoning modes disabled.
+  results: DeepSeek-R1 led dynamic case reasoning with a mean score of 0.58, while Qwen2.5-72B led ethics and safety
+    with 92.05% accuracy. Gemini-2.5-Flash led multiple-choice knowledge tasks with 44% accuracy and F1 of 0.87.
+  limitations: The authors evaluated text-only models, underrepresented neonatal intensive care, pediatric oncology,
+    and rare genetic disorders, and tested only zero-shot performance without domain-specific fine-tuning or clinician-in-the-loop
+    validation.
+  sources:
+  - https://arxiv.org/abs/2511.13381
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

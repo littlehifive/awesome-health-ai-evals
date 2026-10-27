@@ -27,6 +27,40 @@ facets:
   eval_methods: [simulated_multi_turn, rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: Framework applied to six medical QA benchmarks; 30 simulations rated by four licensed medical professionals for validation
+card:
+  task: Gather information by talking with a virtual patient and requesting test results from a clinical staff agent,
+    then answer a multiple-choice medical question using the information collected.
+  items_built: A profile-generator agent filters medical QA items for suitability and converts accepted items into
+    patient profiles, adding plausible missing basic information without changing the correct answer and leaving
+    absent optional information unfilled. The source pools contain 308 MedBullets, 1,273 MedQA, 2,450 text-only
+    MedXpertQA, 2,816 single-choice MedMCQA, 2,742 English HEAD-QA, and 1,535 health and biology MMLU-Pro questions;
+    four licensed medical professionals checked 24 filtering decisions and 21 generated profiles.
+  example: ''
+  scoring: Accuracy uses correct-answer counts in conversational and static QA settings; efficiency assigns the
+    reciprocal of average doctor words per turn for correct answers and zero otherwise, then takes a scaled mean;
+    empathy averages and normalizes patient-agent ratings; robustness is the proportion of conversations without
+    role-breaking, abrupt termination, or an invalid answer. Each dimension is min-max normalized within each dataset
+    and then averaged across datasets for cross-dataset comparisons.
+  judge: Automated scoring uses answer correctness, conversation statistics, failure checks, and empathy ratings
+    from the patient agent.
+  scale: 'Empathy: 1 to 5 per conversation; efficiency: reciprocal words per turn or zero; robustness: success proportion;
+    cross-dataset results: mean of per-dataset 0 to 1 normalized scores for each dimension.'
+  validation: Four licensed medical professionals rated 30 conversations from Claude Sonnet 4 and Llama 3-70B on
+    a 3-point scale, and human and CARE scores ranked the models in the same order on all four dimensions. Human
+    inter-rater Gwet's AC2 was 0.9460 for accuracy, 0.6002 for efficiency and strategy, 0.8571 for empathy, and
+    0.6209 for robustness. Profile filtering agreed with the experts' majority vote at Cohen's kappa 0.8197, excluding
+    two tied cases; generated profiles averaged 3.464 out of 4.
+  score_meaning: On the empathy scale, 1 means low empathy and 5 means high empathy. For each metric normalized
+    within a dataset, 1 denotes the highest model score and 0 the lowest, rather than an absolute standard of clinical
+    performance.
+  annotation_process: After each conversation, the patient agent is prompted to rate the doctor agent's empathy.
+    In the human validation, experts rated each conversation in a blinded setup, and their average scores were compared
+    with the automated CARE scores.
+  results: ''
+  limitations: The evaluation is limited to text-based interactions.
+  sources:
+  - https://doi.org/10.1109/jbhi.2026.3703097
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

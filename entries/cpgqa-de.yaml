@@ -27,6 +27,29 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 200 multiple-choice questions
+card:
+  task: Choose the correct answer from four options for each German clinical guideline question, presented as a
+    short clinical vignette or a direct question.
+  items_built: Physician Johannes Schwietering authored 206 questions from 10 German clinical practice guidelines
+    across five specialties, occasionally using Llama 3 8B to refine wording without changing medical content. Physicians
+    with at least three years of experience in the relevant specialty reviewed eligible questions for accuracy,
+    difficulty and clinical relevance; six questions were removed, leaving 200 items, including 164 clinically validated
+    items.
+  example: ''
+  scoring: Selected answers are compared with the correct answers, and accuracy is the proportion answered correctly
+    across all 200 questions. Results include 95% confidence intervals calculated using Wilson binomial intervals
+    and breakdowns by question type and specialty.
+  judge: Answers are scored against the answer key.
+  scale: Correct or incorrect per item; overall percentage accuracy with a 95% Wilson confidence interval.
+  validation: ''
+  results: GPT-5 with the multilingual-e5-large retriever achieved the best accuracy, 95% (95% CI 91% to 97%). The
+    open-weight model gpt-oss-120b achieved 90% with retrieval.
+  limitations: The authors state that multiple-choice accuracy measures only one dimension of clinical decision
+    support, coverage is limited to 10 guidelines across five specialties, and offline expert-written questions
+    do not establish performance on real clinical queries or interactive decision support.
+  sources:
+  - https://doi.org/10.1136/bmjhci-2026-102207
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

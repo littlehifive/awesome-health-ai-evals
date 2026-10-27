@@ -25,6 +25,34 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 434,543 questions in 20 specializations
+card:
+  task: Generate an Arabic answer to each healthcare question.
+  items_built: The authors scraped 649,128 raw questions and their answers from three Arabic medical Q&A websites,
+    then manually selected, cleaned, corrected and categorized 434,543 questions, retaining source specialization
+    labels and merging some categories. For the experiments, they selected 254,588 distinct pairs with no more than
+    30 words in either question or answer and split them into 70% training, 20% validation and 10% test sets while
+    preserving category proportions.
+  example: ''
+  scoring: Generated answers are compared with the collected reference answers using cosine similarity and BLEU.
+    The paper reports average cosine similarity and average BLEU scores on the test set.
+  judge: Automatic cosine similarity and BLEU calculations assign the scores.
+  scale: Average cosine similarity and average BLEU, reported as percentages.
+  validation: ''
+  score_meaning: 'Cosine similarity measures similarity between sentence vectors, while BLEU measures overlap in
+    words and word sequences with the reference answer. These scores are sensitive to synonyms: the paper shows
+    relevant generated answers with cosine similarity below 20%, so a low score does not necessarily mean an irrelevant
+    answer.'
+  annotation_process: For cosine similarity, the automatic calculation averages the word embedding vectors in each
+    answer and compares the resulting sentence vectors. BLEU compares each generated answer with one reference answer
+    using normalized word-sequence counts.
+  results: The Transformer model performed best, with an average cosine similarity of 80.81% and a BLEU score of
+    58%.
+  limitations: The authors state that the source data may not represent broader Arabic usage, only three model architectures
+    were tested, the metrics are sensitive to outliers and synonyms, and the corpus may lack sufficient specific
+    knowledge or rare categories for some chatbot applications.
+  sources:
+  - https://pmc.ncbi.nlm.nih.gov/articles/PMC10111076/
+  extracted: '2026-10-27'
 signals:
   citations: 55
   citations_source: OpenAlex

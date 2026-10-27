@@ -24,6 +24,26 @@ facets:
   eval_methods: [rubric_llm_judge, simulated_multi_turn]
   modality: [text]
   size: 42,842 consultations; 12 models; 9 domains
+card:
+  task: Respond to simulated ICU consultations as a Clinician proposing a care plan or a Guardian assessing the
+    plan, including under authority pressure and conflicting clinical data.
+  items_built: The authors generated 42,842 clinical consultations across 9 clinical domains, 3 ethical profiles
+    and 4 case types.
+  example: ''
+  scoring: Two independent LLM judges assessed consultation quality, covering 41,384 consultations (96.6%), including
+    17,064 assessed by both.
+  judge: A local GPT-OSS model and Gemini 2.5 Flash via API assigned the scores.
+  scale: ''
+  validation: Across 17,064 jointly assessed consultations, the judges' agreement was Cohen's κ = 0.929 for verdict
+    correctness and κ = 0.029 for memory failure.
+  score_meaning: ''
+  annotation_process: ''
+  results: Accuracy ranged from 11.1% to 77.0% across 12 models, but the abstract does not name the highest-scoring
+    model. medgemma-27b-it achieved 74.8% accuracy and 7.9% sycophancy.
+  limitations: ''
+  sources:
+  - https://doi.org/10.5281/zenodo.19828812
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

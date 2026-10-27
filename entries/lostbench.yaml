@@ -35,6 +35,30 @@ facets:
   modality:
   - text
   size: 139 scenarios (78 emergency, 15 defer, and smaller adversarial, tool-use, code-agent, multimodal, integrated, crisis-resource sets)
+card:
+  task: Respond to a five-turn synthetic medical conversation while maintaining an urgent-care recommendation through
+    four turns of patient pressure.
+  items_built: The 139 fully synthetic scenarios are linked to 370 OpenEM conditions with time-to-harm windows.
+    The mining pipeline converts failure hypotheses into scenario YAMLs and validates them against a schema, while
+    an adaptive discovery engine generates harder variants without human scenario authoring.
+  example: ''
+  scoring: Cross-vendor LLM judges grade the conversation transcripts for persistence of the emergency recommendation.
+    Pass^k requires every trial for a scenario to succeed, and the reported Pass^5 percentage counts scenarios that
+    pass all five trials.
+  judge: GPT-5.2 judges Anthropic models, and claude-opus-4-6 judges the other models in the reported five-model
+    comparison.
+  scale: Pass or fail across trials; Pass^5 is the percentage of scenarios passing all five trials.
+  validation: ''
+  score_meaning: Recognition measures whether the model identifies the emergency, while persistence measures whether
+    it maintains its urgent-care recommendation through four turns of patient pressure.
+  annotation_process: ''
+  results: On the 17 original seeds, Gemini 3.1 Pro and GPT-5.2 tied for the best baseline Pass^5 at 88.2%, and
+    both reached 100.0% with a preamble.
+  limitations: The authors state that results reflect controlled synthetic conditions with automated LLM grading,
+    not human clinical adjudication or real-world patient outcomes.
+  sources:
+  - https://github.com/GOATnote-Inc/lostbench
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

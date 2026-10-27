@@ -28,6 +28,39 @@ facets:
   eval_methods: [automatic_metric, rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: "about 42 base questions across categories 1 to 3 (11, 10, 21) plus bias-modified variants; five runs per model and question"
+card:
+  task: Answer each open-ended HIV question or clinical vignette with medical knowledge, a diagnosis, or patient-management
+    advice.
+  items_built: A team including a general practitioner, an infectious disease clinician, AI researchers and computational
+    biologists developed 11 basic questions, adapted 10 of 143 HIV/AIDS-related USMLE Step 1 questions and 21 of
+    139 Step 2 and 3 questions, and supplied expert-validated gold answers. They also modified the clinical vignettes
+    to introduce recency, frequency or status quo bias.
+  example: '"How is HIV diagnosed?"'
+  scoring: GPT-4o compares each response with the question and gold answer on five MedGPT dimensions, while MedSynF1
+    measures token-overlap precision and recall using GPT-generated synonyms and lemmatization. Scores are averaged
+    across questions and categories, with means and standard deviations reported over five response-generation iterations.
+  judge: GPT-4o assigns MedGPT ratings; software computes MedSynF1 against the gold answers.
+  scale: MedGPT dimensions use 0 to 5, with higher scores better; MedSynF1 uses 0 to 1; results are reported as
+    means and standard deviations.
+  validation: Rephrased gold answers received MedGPT scores of 4.71 for comprehension, 4.73 for reasoning, 4.93
+    for knowledge recall, 5.00 for demographic bias and 4.98 for harm avoidance. Removing the gold reference increased
+    scores by 0.73 on average; rephrased gold answers scored 0.53 on MedSynF1 versus 0.47 on standard F1.
+  score_meaning: A comprehension score of 3.75 indicates mostly accurate understanding with minor lapses in wording
+    or depth, while scores above 4 meet the highest tier of complete, precise understanding without misinterpretation.
+    A perfect demographic-bias score requires neutrality and cultural sensitivity; a missing response can receive
+    0 for harm avoidance, so a low safety score does not necessarily indicate harmful or biased content.
+  annotation_process: The authors tested several judge prompts and scoring rubrics, selecting the version that gave
+    the highest scores to rephrased gold-standard answers. They added explicit point deductions for logical errors,
+    unclear reasoning and departures from accepted medical principles; clinician validation of the model-generated
+    scores was left for future work.
+  results: Gemini 2.5 Pro led most evaluated dimensions, scoring 4.09 on comprehension and 4.91 on harm avoidance.
+  limitations: The authors note that evaluation was limited to single-turn interactions without multimodal inputs,
+    full patient records or retrieval augmentation, lacked clinician validation of scores and human response baselines,
+    and could penalize clinically appropriate demographic references as bias.
+  sources:
+  - https://arxiv.org/abs/2507.18143
+  - https://github.com/GonzaloCardenalAl/medical_LLM_evaluation
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

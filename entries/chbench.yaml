@@ -26,6 +26,37 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 9,492 entries (6,493 mental health, 2,999 physical health)
+card:
+  task: Answer Chinese physical- and mental-health questions, including open-ended advice, real-life scenarios,
+    and reasoning problems.
+  items_built: The authors collected 1,111 physical-health questions from Zhihu, 1,704 from safety, health, nutrition,
+    and diet exams, 187 from Ruozhiba-based datasets, and 6,500 mental-health questions from Zhihu, filtering for
+    relevance and question quality. They manually compared five Chinese models using eight response-quality criteria,
+    selected ERNIE Bot's responses as references, and removed questions it could not answer, leaving 9,492 items.
+  example: '"When betrayed by someone you trust, should you forgive or hold a grudge for life?"'
+  scoring: Each tested response is compared with the ERNIE Bot reference using cosine similarity and Jaccard similarity;
+    failed responses are recorded as "None!". Results are reported as counts and percentages within ten equal-width
+    similarity intervals.
+  judge: Similarity calculations score tested responses; ERNIE Bot (ERNIE-4.0-8K) grades the reference pairs for
+    dataset quality.
+  scale: Cosine and Jaccard similarity from 0 to 1 per response; counts and percentages in ten similarity intervals.
+  validation: For reference-pair quality grading, the authors compared ERNIE Bot's three-point ratings with manual
+    annotations on 108 randomly selected pairs and reported high consistency without a numerical agreement statistic.
+  score_meaning: Higher similarity scores indicate closer agreement with the reference answer; Jaccard similarity
+    measures shared set elements relative to all elements present, ignoring word order and importance. For reference-pair
+    quality grading, each criterion receives -1 for "Unsatisfactory", 0 for "Neutral", or 1 for "Satisfactory".
+  annotation_process: The authors manually compared responses from five Chinese language models using eight criteria
+    to select the reference responses. After the manual validation, ERNIE Bot graded the remaining reference pairs
+    and supplied explanations for each criterion; discrepancies in the validation sample were examined to investigate
+    their causes.
+  results: ChatGLM (GLM-4) was the best overall performer, with 92.6% of its physical-health responses in the high
+    cosine-similarity range of 0.7 to 1.
+  limitations: The authors state that Chinese-only coverage limits generalizability, common health scenarios omit
+    rare or emerging medical issues, and testing four models does not represent all available models or future advances.
+  sources:
+  - http://arxiv.org/abs/2409.15766
+  - https://github.com/TracyGuo2001/CHBench
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

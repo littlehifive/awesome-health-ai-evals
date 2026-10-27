@@ -25,6 +25,21 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 12,722 questions (10,177 train, plus validation and test splits)
+card:
+  task: Choose the correct answer to each medical board exam multiple-choice question in Brazilian Portuguese.
+  items_built: The 12,722 items were translated from English MedQA questions and answer options, originally sourced
+    from professional medical board exams, using gpt-4.1-mini. No translation quality checks are described.
+  example: ''
+  scoring: Accuracy is the proportion of questions for which the model selects the correct answer.
+  judge: Exact match with the answer key.
+  scale: Correct or incorrect per question; overall accuracy.
+  validation: ''
+  results: ''
+  limitations: The dataset card warns that the questions and options translated by a large language model may contain
+    inaccuracies.
+  sources:
+  - https://huggingface.co/datasets/cabralski/MedQA-ptBR
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

@@ -27,6 +27,27 @@ facets:
   eval_methods: [expert_human_rating, rubric_llm_judge]
   modality: [text]
   size: "13 subdomains; 5 vignettes in phase 1 (180 AI outputs), 3,600 outputs in phase 2"
+card:
+  task: Answer standardized urgent-care vignettes and make the clinical reasoning explicit.
+  items_built: The framework is intended to assess the quality of externalized clinical reasoning using a behaviorally
+    anchored rating scale with 13 subdomains. The protocol specifies 5 standardized urgent-care vignettes for phase
+    1 but does not describe how they were created or checked.
+  example: ''
+  scoring: The protocol specifies that every phase 1 output will be scored by dual-blind human raters and, in parallel,
+    by LLM judges, with no model judging its own family.
+  judge: Dual-blind human raters and LLM judges whose model names are not given will assign scores.
+  scale: ''
+  validation: Validation is planned, with acceptance criteria of weighted κ of at least 0.60 and an intraclass correlation
+    coefficient above 0.75 before deploying the LLM judge at scale; no agreement results are reported.
+  score_meaning: ''
+  annotation_process: Phase 1 calibration of the LLM judges against human experts is planned for September through
+    December 2026. The validated pipeline will then score 3600 AI outputs in phase 2, planned for January through
+    April 2027.
+  results: ''
+  limitations: ''
+  sources:
+  - https://doi.org/10.2196/103220
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

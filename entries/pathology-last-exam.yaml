@@ -25,6 +25,36 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: 100 complex cases plus 20 adversarial safety cases and 5 control cases
+card:
+  task: Give an updated pathology diagnosis as successive layers of case information are revealed, or withhold a
+    diagnosis when the findings are insufficient or contradictory.
+  items_built: The authors curated 100 cases inspired by their clinical practice, conference sessions, and journals
+    including American Journal of Surgical Pathology and Modern Pathology, with case selection supervised by a board-certified
+    pathologist with over 20 years of experience. They also designed five conventional controls and ten biologically
+    contradictory cases, and generated ten cases by randomly recombining information from different cases, each
+    human-screened to confirm that no coherent single diagnosis was possible.
+  example: '"Immunohistochemistry revealed CD3+ T-cells. CD138 highlighted plasma cells, >110/HPF of which were
+    IgG4+, with an IgG4/IgG ratio of ca. 45%. Kappa/lambda ISH was polytypic. HHV8, ALK, CD1a, and EBER were not
+    expressed. BCL2 showed some weak but non-specific reactivity."'
+  scoring: 'Two pathologists independently rated diagnoses against the reference diagnosis: matching ratings became
+    consensus, any pair containing a partly correct rating became partly correct, and wrong-versus-correct disagreements
+    underwent joint review. Diagnostic accuracy was the proportion of cases rated correct at each information stage,
+    while refusal rates were the proportion returning no diagnosis, which was the expected response for contradictory
+    cases.'
+  judge: A fourth-year pathology resident and a board-certified pathologist with over six years of experience rated
+    outputs, supervised by a third board-certified pathologist with over 20 years of experience.
+  scale: 0 = wrong, 1 = partly correct, 2 = correct, plus a separate no-diagnosis category; final metrics are percentages
+    correct and percentages refusing diagnosis.
+  validation: ''
+  score_meaning: A partly correct diagnosis can be broad and nonspecific, such as "soft tissue tumor" without further
+    specification. The no-diagnosis category includes the response "Insufficient information for a definitive diagnosis."
+  annotation_process: ''
+  results: GPT-5 performed best, reaching 70% diagnostic accuracy across the 100 cases with full information and
+    the basic prompt.
+  limitations: The authors identify reliance on human expert ratings as a bottleneck for scaling evaluation.
+  sources:
+  - https://doi.org/10.64898/2025.12.11.25342081
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

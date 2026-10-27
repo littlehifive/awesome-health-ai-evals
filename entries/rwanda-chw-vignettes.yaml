@@ -29,6 +29,36 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: 524 questions released (5,609 vignettes available on request)
+card:
+  task: Answer a clinical vignette question from a Rwandan community health worker in English or Kinyarwanda.
+  items_built: After training, 101 community health workers across four Rwandan districts submitted 7,143 recorded
+    vignettes about cases encountered in their communities; six bilingual nurses checked their quality and retained
+    5,609. Linguists verified transcriptions and translations, clinicians answered 5,422 questions, and 524 cases
+    were randomly selected for evaluation, comprising 416 in English and 108 in Kinyarwanda.
+  example: ''
+  scoring: Two clinician evaluators rated each response against an adapted Med-PaLM-2 rubric covering 11 dimensions,
+    including medical accuracy, safety, communication and local context. Reported model scores are means across
+    the 11 dimensions and evaluated responses.
+  judge: Six local clinicians recruited as senior doctors with at least three years of clinical experience worked
+    in two groups, each with two evaluators and one supervisor.
+  scale: Each dimension is rated from 1 to 5, with higher scores better; overall performance is reported as a mean
+    out of 5.
+  validation: Evaluators independently scored responses, then discussed differences greater than one Likert point
+    until paired scores were within one point. They could not resolve disagreements for 15 English and 3 Kinyarwanda
+    cases, which were excluded from subsequent analyses.
+  score_meaning: The scale labels are 1 (Poor), 2 (Fair), 3 (Average), 4 (Good), and 5 (Excellent). For alignment
+    with medical consensus, 1 means the response contradicts or significantly deviates from medical guidance, 3
+    means partial alignment without sufficient evidence or depth, and 5 means full consistency with current guidance
+    and expert-level understanding.
+  annotation_process: The Director of Clinical Services at Butaro District Hospital recruited the evaluators. Each
+    group assessed 262 questions, scoring five model responses and one human response for each question.
+  results: Gemini-2-Flash scored highest at 4.49 out of 5 across all 11 metrics, followed by GPT-4o at 4.48. All
+    five models outperformed local clinicians across all metrics (p < 0.001), with Gemini-2 exceeding local GPs
+    by an average of 0.83 points per metric.
+  limitations: ''
+  sources:
+  - https://doi.org/10.1101/2025.08.26.25333975
+  extracted: '2026-10-27'
 signals:
   citations: 12
   citations_source: OpenAlex
