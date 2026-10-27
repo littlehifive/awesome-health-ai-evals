@@ -45,6 +45,13 @@ card:
     six runtime dimensions, including evaluator correctness. Across these dimensions, 97.7% of ratings were 4 or
     5 on a five-point scale, paired ratings agreed exactly in 83.3% of cases, and 96.2% differed by no more than
     one point.
+  score_meaning: Higher scores indicate that the model completed more of the expert-defined clinical criteria. In
+    the competency results, the micro rate gives each rubric item equal weight, while the macro rate gives each
+    of the six competencies equal weight.
+  annotation_process: The clinician reviewers came from affiliated hospitals of Shanghai Jiao Tong University and
+    rated cases and completed runs independently. During case validation, they corrected identified errors to create
+    the 100-case MedSP1000-Verified subset. Each case's rubric was constructed once and applied unchanged to every
+    model evaluated on that case.
   results: GPT-5.5 achieved the highest overall rubric completion rate at 60.4%. The strongest medically specialized
     model reached 40.0%.
   limitations: ''

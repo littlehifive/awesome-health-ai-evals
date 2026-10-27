@@ -42,6 +42,12 @@ card:
   scale: Five categorical labels per claim; final macro-F1 across the five classes.
   validation: A third annotator reviewed 200 randomly selected samples from each of the two annotators, yielding
     Cohen's kappa of 81.54%. Human checks of decomposition and claim extraction on 100 questions reported 100% accuracy.
+  score_meaning: Supported means the evidence fully supports the claim; Partially Supported means it supports only
+    part, with uncertainty or uncovered details; Refuted means the evidence contradicts the claim. Uncertain means
+    the evidence is related but cannot confirm or refute the claim, while Not Applicable means the evidence is completely
+    unrelated.
+  annotation_process: Annotators reviewed and refined the preliminary labels using a platform based on Label Studio.
+    The student annotators were hired and paid according to agreed salaries and workloads.
   results: GLM-4-32B achieved the highest model macro-F1 of 46.81%, while Qwen3-4B led the fine-tuned models at
     44.65%. Human performance was 77.02% macro-F1 on a sample of 2,000 claims.
   limitations: The authors identify the restriction to Chinese questions from webMedQA and the imbalanced label

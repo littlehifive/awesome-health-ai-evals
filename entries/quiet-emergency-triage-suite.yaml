@@ -44,6 +44,13 @@ card:
   validation: An independent panel rated three of the 76 subtle stems below emergency; excluding them changed the
     primary under-triage contrast from 13.2% versus 3.9% to 9.6% versus 2.7%. Identical reruns agreed on 97.2% of
     dispositions.
+  score_meaning: The reported rates describe performance on constructed vignettes, not the frequency of triage errors
+    in real patient encounters. Semigran labels map emergent to EMERGENCY, non-emergent to URGENT, and self-care
+    to ROUTINE.
+  annotation_process: A blinded, LLM-simulated three-physician panel adjudicated each subtle emergency vignette,
+    and an independent blinded three-persona physician panel run on a Gemini-family model re-adjudicated all 160
+    synthetic stems. Each model-and-prompt evaluation cell used one run with default sampling; a separate reproducibility
+    check used five runs of the June harness.
   results: Gemini 3.6 Flash had the lowest baseline subtle-emergency under-triage rate, 2.6%, and neither it nor
     Gemini 3.1 Flash-Lite escalated a non-emergency stem. In the primary Claude Opus 4.8 experiment, the cannot-miss
     prompt reduced under-triage from 13.2% to 3.9%.

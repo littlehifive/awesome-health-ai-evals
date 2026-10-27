@@ -44,6 +44,13 @@ card:
     expected calibration error, and Brier score.
   validation: Mean annotator agreement was 82.97% for accuracy and 86.91% for harmfulness; Randolph's kappa was
     reported as 75.22% and 80.76%, respectively.
+  score_meaning: Lower expected calibration error and Brier scores mean that the model's confidence estimates better
+    match the clinician labels. Expected calibration error groups predictions into confidence bins, while the Brier
+    score measures the mean squared difference between predicted probabilities and reference labels.
+  annotation_process: Gemini-2.0-Flash transcribed the videos, and clinicians independently selected medically relevant
+    sentences or paragraphs and recorded accuracy, harmfulness, and a reason. Each expert spent 5-15 minutes reviewing
+    each query. Commonly selected passages were aggregated, and only data with at least two experts agreeing on
+    the final label were retained.
   results: ''
   limitations: The authors restrict their findings to English-language US TikTok search results collected in January
     2025, excluding recommendation feeds and limiting transfer to other countries, languages, platforms, and times.

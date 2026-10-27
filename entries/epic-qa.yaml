@@ -43,6 +43,13 @@ card:
     medical indexers.
   scale: Normalized Discount Novelty Score (NDNS).
   validation: ''
+  score_meaning: Higher NDNS values reward rankings that present previously unseen answer nuggets earlier and concisely,
+    relative to an ideal ranking. Nuggets include any statement that answers the question, whether factually correct
+    or incorrect, so the score measures answer coverage and novelty rather than factual accuracy.
+  annotation_process: 'Assessors worked in two rounds: first generating an answer key, then using the fixed key
+    to mark which nuggets each sentence contained in the same pooled passages. These pools contained roughly 45-60
+    passages per question, drawn from the top five results for expert questions and the top eight for general-public
+    questions.'
   results: ''
   limitations: Because of time and budget restrictions, only 21 expert and 17 general-public answer-extraction questions
     were fully annotated with answers, and the answer keys were not intended to exhaustively cover every possible

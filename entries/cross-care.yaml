@@ -42,6 +42,10 @@ card:
   judge: The scores are calculated from model logits and reference rankings without human or model graders.
   scale: Average logits per disease-subgroup-language combination; ranking agreement measured by Kendall's tau.
   validation: ''
+  score_meaning: Higher logits indicate a stronger model preference for the sentence associating a disease with
+    a demographic subgroup; they are raw scores, not normalized probabilities. Kendall's tau values near zero indicate
+    no correlation between the model's subgroup rankings and real-world prevalence rankings.
+  annotation_process: ''
   results: Across the tested models, sizes, alignment methods and languages, the highest reported Kendall's tau
     against real-world prevalence was 0.33, with a mean of -0.06; the source does not identify the model with the
     highest score.

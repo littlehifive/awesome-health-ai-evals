@@ -40,6 +40,14 @@ card:
   judge: Automated F1 comparison with expert-reviewed reference answers assigns the scores.
   scale: F1 from 0 to 1; separate and combined scores by question type and document source.
   validation: ''
+  score_meaning: Higher F1 indicates closer agreement with reference answers, but semantically close or factually
+    correct answers can lose points for using different wording. In the manual error analysis, factual incorrectness
+    means a mismatch with the reference in content and format, while incompleteness means missing essential answer
+    details.
+  annotation_process: Two co-authors reviewed extractive reference answers for accuracy, grounding in the source
+    text, and alignment with the question; incorrect or incomplete answers were flagged and revised. Two domain
+    experts with clinical training independently reviewed abstractive questions for clarity and relevance, answer
+    accuracy, and correctness of the required reasoning.
   results: GPT-o1 had the strongest combined performance across question types, scoring 0.92 on drug labels and
     0.85 on clinical guidelines. Llama-3.1-8B achieved the best combined clinical-trial score, 0.57.
   limitations: The authors state that token-level F1 can penalize semantically correct wording, pretraining biases

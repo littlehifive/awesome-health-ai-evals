@@ -45,6 +45,13 @@ card:
     on a 0 to 5 scale per specialty.
   validation: Pearson correlation between automated explanation scores and human evaluation increased from 0.9347
     with one reference explanation to 0.9385 with two.
+  score_meaning: Human raters assign 0 for an incorrect answer, a missing explanation or a fully irrelevant explanation;
+    0.5 for a correct answer with incorrect reasoning or an explanation ending in an incomplete sentence; and 1
+    for a correct answer and explanation. The pass mark is 60% for answer accuracy and 3 out of 5 for human evaluation
+    within a specialty.
+  annotation_process: Human evaluation used the development sets, with 5 samples per specialty, while automated
+    evaluation used the test sets. All evaluations used zero-shot prompting, a batch size of 1 and a temperature
+    of 0.
   results: GPT4_0125 achieved the highest macro-average chat accuracy at 78.8% and the highest average explanation
     score at 32.79. Med42 led logit-based accuracy at 72.0%.
   limitations: The authors state that testing only question answering limits applicability to real-world clinical

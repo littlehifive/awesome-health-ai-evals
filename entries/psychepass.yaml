@@ -44,6 +44,11 @@ card:
     selected dimensions each, yielding 120 comparisons. Agreement with the framework reached Cohen's kappa of 1.000
     for strong-versus-weak matchups and approximately 0.75 for weak-versus-weak matchups, with lower agreement for
     strong-versus-strong matchups.
+  score_meaning: Higher Elo ratings indicate stronger performance relative to competing models in the same competency
+    dimension, rather than attainment of an absolute clinical standard.
+  annotation_process: Each round pairs models with opponents that have similar win records, producing six matches
+    among the 12 models. Each paired comparison is graded in a single judge run, giving 4,800 pairwise session comparisons
+    and 57,600 dimension-level judgments across 100 clients.
   results: ''
   limitations: The authors state that text-only evaluation omits nonverbal cues, client-driven simulation limits
     assessment of therapist leadership, the tournament lacks a direct human performance baseline, and the benchmark

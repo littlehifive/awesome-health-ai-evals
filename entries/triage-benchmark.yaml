@@ -43,6 +43,10 @@ card:
   judge: Exact match with the gold-standard triage category from the training materials.
   scale: Correct or incorrect per response; proportion of correct answers.
   validation: ''
+  score_meaning: Random guessing among the four triage categories corresponds to 25% correct answers.
+  annotation_process: The evaluation uses solutions from medical triage training materials rather than human or
+    AI annotations. Each model generated 3 × 5 × 87 answers across three category-description styles and five prompt
+    conditions, with temperature set to zero.
   results: ''
   limitations: The authors state that TRIAGE lacks open-ended scenarios and covers only medical ethics.
   sources:

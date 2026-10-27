@@ -46,6 +46,12 @@ card:
     nephrologist confirmed 98% completeness on 50 outputs. Blinded scoring by two nephrologists achieved 96.7% agreement
     and κ = 0.934 on 92 problems across 15 cases; exploratory false-positive reclassification had 71% agreement
     and κ = 0.21.
+  score_meaning: The safety-critical omission rate is the proportion of cases with at least one missed Level 3 problem
+    (could cause harm) or Level 4 problem (contraindicated). The hallucination rate is the proportion of cases with
+    a confirmed hallucination, so 54% means 27 of 50 cases contained one.
+  annotation_process: The principal investigator could see model identities during Stage 2 adjudication. For the
+    exploratory false-positive analysis, the investigator classified 162 unique drug-and-issue patterns by clinical
+    validity, and an independent second nephrologist classified a 30% stratified sample.
   results: Grok 4.1 Fast had the highest strict macro F1 at 0.49, but a 52% hallucination rate. GPT-5.4 had zero
     hallucinations and the lowest safety-critical omission rate; no human-performance baseline was included.
   limitations: The authors identify synthetic cases with limited real-world complexity, no human comparator, model-visible

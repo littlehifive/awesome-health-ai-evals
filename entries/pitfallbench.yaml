@@ -47,6 +47,15 @@ card:
   validation: Item-screening reviewer-clinician agreement reached 95% on 50 stratified items, five per pitfall.
     DialogueBench judges were calibrated against ratings from 11 pediatric clinicians, and three non-Claude judges
     preserved the ranking of the key PitfallBench conditions.
+  score_meaning: Conversational Grounding measures responsiveness to the clinician's latest turn, while Topic Consistency
+    measures whether the parent maintains a coherent concern. A simulator that always escalates or always cooperates
+    fails one half of the PitfallBench pair.
+  annotation_process: For PitfallBench item screening, an independent LLM reviewer from a different model family
+    than the generator applied a written acceptance criterion, and pediatric SIC clinicians inspected a stratified
+    sample of its decisions. Disagreements led to revisions of the criterion and generation prompts; failed items
+    were regenerated and screened again, and the final criterion was applied to all released items. DialogueBench
+    selection began with automated threshold screening on the two scoring dimensions, followed by pediatric SIC
+    clinician review of surviving dialogues for clinical realism using the same acceptance criterion.
   results: SIC-Agents performed best, with PitfallBench accuracy of 0.78 ± 0.03 and DialogueBench grounding of 2.96
     ± 0.02 over three independent seeds, and a reported composite of 0.88.
   limitations: The authors report criterion-level rather than exhaustive per-item expert validation, synthetic dialogues

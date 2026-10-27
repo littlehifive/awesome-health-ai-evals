@@ -46,6 +46,12 @@ card:
   validation: The judge ensemble was compared with clinical-expert judgments on 300 cases using Macro F1. Majority
     voting achieved approximately 75%-79% F1 across evaluated doctor models; liberal aggregation reached approximately
     79.6% for GPT-5.
+  score_meaning: Satisfied means the consultation adequately elicited or addressed the criterion; Not Satisfied
+    means it did not. A higher case score means more complete coverage of the weighted inquiry criteria, with 100%
+    representing the maximum achievable score.
+  annotation_process: Three domain experts independently reviewed each candidate rubric, voted Keep or Delete, and
+    supplied revision feedback. Rubrics with fewer than two Keep votes were discarded; retained rubrics were merged
+    where redundant and revised using the experts' feedback.
   results: Gemini-2.5-Pro performed best at approximately 52% rubric coverage.
   limitations: The authors state that synthetic cases do not capture the full variability of clinical practice,
     patient simulation retains errors, scores depend on judge settings, source biases can carry into the cases and

@@ -45,6 +45,14 @@ card:
     clinical social worker.
   scale: Label-set matching; exact match, Jaccard, micro/macro F1 and recall, with reported scores on a 0-100 scale.
   validation: Before adjudication, Cohen's kappa ranged from 0.51 to 0.75 on crisis-labeled turns.
+  score_meaning: Alert marks the earliest ambiguous signal of a possible crisis without specifying its type, while
+    Confirm marks the turn where a specific crisis becomes explicitly identifiable; both distinguish ongoing from
+    past risk. Each crisis event receives at most one Alert and one Confirm per dialogue, and an empty label means
+    no crisis.
+  annotation_process: The four experts annotated in independent rounds organized into two disjoint teams. For conflicting
+    turns, an expert from the alternate team who had not participated in the initial annotation independently re-annotated
+    them without seeing the original labels. Majority vote among the three annotators determined the final label;
+    if all three differed, the label from the most senior expert, a licensed psychologist and professor, prevailed.
   results: Claude-4.5-Sonnet led turn-level evaluation with micro F1 of 56.85 and achieved dialogue-level micro
     F1 of 70.11. The authors' Qwen3-32B fine-tuned model led Confirm-only dialogue-level evaluation with micro F1
     of 76.03.

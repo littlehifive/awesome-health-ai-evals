@@ -46,6 +46,13 @@ card:
     in 86%, 92%, and 94% of cases; all three agreed on 84%, and majority vote matched the labels on 96%. PRMB rankings
     correlated with downstream response-quality rankings at Spearman's ρ = 0.700 (p ≈ 0.036), using average BERTScore
     across four policy models.
+  score_meaning: Higher accuracy indicates better recovery of preferences anchored in original CBT counselor utterances
+    over responses with deliberately introduced negative counseling behaviors. It does not measure whether a model
+    can identify every possible high-quality counseling response.
+  annotation_process: Preferred responses were taken from the original counseling cases, while ten LLMs generated
+    negative alternatives through targeted prompting based on 21 client-reported negative experience categories.
+    In the human validation sample, practitioners selected their preferred responses independently, with no ties
+    allowed; their majority vote was compared with the benchmark labels.
   results: ''
   limitations: The authors acknowledge that reference-based choices do not capture all valid therapeutic strategies
     and that BERTScore, used for downstream validation, does not fully capture therapeutic appropriateness.

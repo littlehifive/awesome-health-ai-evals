@@ -43,6 +43,12 @@ card:
   scale: Binary crisis and category labels; sensitivity, specificity, and macro-averaged F1 range from 0 to 1.
   validation: The two clinicians' independent crisis versus non-crisis annotations had Cohen's κ = 0.99 before disagreements
     were resolved by consensus.
+  score_meaning: Higher sensitivity means fewer crisis messages are missed, while higher specificity means fewer
+    non-crisis messages are incorrectly flagged as crises.
+  annotation_process: The internal evaluation assessed crisis-category classification only on the 898 messages flagged
+    as crises by the first-stage classifier. For comparisons with other guardrails, category predictions were evaluated
+    across all 1,800 messages, and each comparison guardrail's overall crisis flag was checked against each specific
+    crisis category's reference labels.
   results: The Verily Mental Health Guardrail achieved sensitivity of 0.990 and specificity of 0.992 on the Verily
     dataset, with a category macro-averaged F1 of 0.939.
   limitations: The authors state that messages were simulated, English-only, single-turn, and predominantly explicit

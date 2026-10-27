@@ -42,6 +42,12 @@ card:
   scale: Binary factual/non-factual labels; aggregate precision, recall and F1, plus ROUGE-1, ROUGE-2 and BLEU for
     explanations.
   validation: ''
+  score_meaning: A statement is factual only if every piece of information it contains is supported by the provided
+    context or established medical knowledge.
+  annotation_process: 'Llama-3-70B generated dataset content using one example in each prompt, while NLI labels
+    were taken directly from the source datasets: entailment became factual, contradiction became non-factual, and
+    neutral examples were excluded. The validity of generated hallucinations was assessed primarily by visual inspection
+    of a sample of the generated data.'
   results: ''
   limitations: The authors identify reliance on generated content without comprehensive medical-professional validation,
     possible label inaccuracies in synthetic information-extraction data, task imbalance and possible memorization

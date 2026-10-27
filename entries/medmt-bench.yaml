@@ -41,6 +41,12 @@ card:
   scale: Binary yes/no per test point; reported accuracy as a percentage.
   validation: Across six frontier models, the best agreement between automatic and human evaluation was 91.94% with
     atomic test points, compared with 41.09% without them.
+  score_meaning: A criterion that requires responses to several user needs is marked correct only if all those needs
+    are addressed; missing any makes it incorrect.
+  annotation_process: Approximately 20 full-time medical data staff with Master's or PhD degrees from specialized
+    medical institutions reviewed and edited samples and checked whether frontier-model performance was reasonable.
+    Manual review used a two-layer cross-review process in which different reviewers received the same task, with
+    disagreements resolved by a third reviewer.
   results: GPT-5 achieved the best overall accuracy at 59.75%; all 17 tested models scored below 60%.
   limitations: The benchmark emphasizes instruction following rather than depth of medical knowledge and covers
     text and images but excludes speech, video, and other interaction modalities.

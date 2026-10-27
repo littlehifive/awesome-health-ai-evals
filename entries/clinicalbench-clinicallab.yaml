@@ -44,6 +44,10 @@ card:
   judge: Automatic metrics assign the main scores; human experts and GPT-4o provide additional evaluations.
   scale: Correctness indicators are 0 or 1; the overall score averages nine task scores.
   validation: ''
+  score_meaning: A Comprehensive Diagnostic Rate of 33.27 means the model correctly predicted both the department
+    and the disease diagnosis in 33.27% of cases.
+  annotation_process: Human experts graded 20 sampled cases in a double-blind evaluation. Human and GPT-4o evaluations
+    assessed fluency, relevance, completeness, and proficiency in medicine.
   results: InternLM2 led standalone LLMs with an overall average of 51.98 and Department Win Rate of 14.91; GPT-4
     led joint department-and-diagnosis accuracy at 33.27% and acceptability at 11.37. ClinicalAgent's Agent#3@1
     configuration achieved an overall average of 54.46, while Agent#1@3 achieved joint accuracy of 54.00% and acceptability

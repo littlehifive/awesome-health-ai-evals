@@ -44,6 +44,13 @@ card:
     percentage of proper conversations.
   validation: Two experts independently labeled 100 queries for accuracy, yielding Cohen's kappa of 0.764. A separate
     binary accuracy check on 500 responses yielded kappa of 0.873.
+  score_meaning: An accurate response has all major facts correct, a partially accurate response has one or more
+    incorrect components, and an inaccurate response has mostly wrong information. An inadequate response misses
+    critical components, while a response is too long when its length harms ease of use, with no fixed word limit.
+  annotation_process: The hired experts developed the framework using literature, their expertise and repeated testing
+    on sampled conversations. Each conversation was assigned to one expert through a labeling interface; routine
+    cross-review was not feasible because of the workload, and conversations with missing labels were omitted from
+    analysis.
   results: In the sampled comparison, GPT-4 reached 50% accuracy versus 26% for GPT-3.5, with 12 GPT-4 responses
     meeting the good-conversation criteria versus one GPT-3.5 response.
   limitations: The authors report facilitated rather than private conversations, underrepresentation of vulnerable

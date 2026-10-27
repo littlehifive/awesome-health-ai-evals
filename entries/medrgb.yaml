@@ -43,6 +43,9 @@ card:
   scale: Main-answer and detection accuracy rates; sub-answer exact match and GPT-based scores of 0, 0.5, or 1 in
     the paper, with token F1 listed in the dataset card.
   validation: ''
+  score_meaning: The "Insufficient Information" response means the model declines to answer because it does not
+    have enough information to determine the correct answer.
+  annotation_process: ''
   results: ''
   limitations: The authors state that evaluation covers a limited set of model architectures, only question answering,
     and only single-turn prompts rather than multi-turn clinical interactions.

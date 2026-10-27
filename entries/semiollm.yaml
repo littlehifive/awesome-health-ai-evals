@@ -62,6 +62,12 @@ card:
   scale: Aggregate F1 as a percentage; confidence from 0 to 1; Brier score loss, lower is better; three-category
     reasoning ratings and percentage citation accuracy.
   validation: Citation raters achieved Cohen's kappa of 0.73 for GPT-4 and 0.74 for Mixtral-8 × 7B.
+  score_meaning: Reasoning correctness and completeness are each rated as correct/complete, somewhat correct/complete,
+    or incorrect/incomplete. Confidence of 0 means the lowest certainty and 1 means the highest certainty in the
+    predicted seizure onset zone, but high confidence does not guarantee a correct prediction.
+  annotation_process: The reasoning review used randomly selected chain-of-thought responses from GPT-4 and Mixtral-8
+    × 7B, with model identifiers hidden from the clinician to prevent bias. The review followed protocols adapted
+    from Med-PaLM and Liévin et al.
   results: GPT-4 achieved 53.44% F1 with self-consistency prompting. Two German neurologists trained in epilepsy
     care achieved 48.77% and 46.75% F1 on 81 descriptions.
   limitations: The authors identify limits from a single adult focal epilepsy dataset, missing demographic and cultural

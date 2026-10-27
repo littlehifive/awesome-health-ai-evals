@@ -40,6 +40,10 @@ card:
   scale: Components and weighted VB-Score range from 0 to 1; mean VB-Scores are also reported as percentages.
   validation: On 20 samples containing 127 manually identified key medical entities, the extraction pipeline detected
     78, giving 61% recall.
+  score_meaning: Higher VB-Scores indicate better medical answer quality across accuracy, relevance, safety and
+    completeness. The paper treats Entity F1 below 0.10 as falling below its clinical utility threshold.
+  annotation_process: Answers were scored automatically against authoritative reference texts, without clinician
+    annotation. Entity matching did not recognize medical synonyms or paraphrases as equivalent.
   results: Gemini 2.5 Flash ranked highest, with a reported average VB-Score of about 34%.
   limitations: The authors report no clinician annotation, limited coverage of 48 topics, possible NLI scoring bias
     and entity matching that misses synonyms or paraphrases, limiting generalization and potentially underestimating

@@ -45,6 +45,10 @@ card:
   judge: Automatic comparison with the designated correct response.
   scale: Binary correctness per item; percentage correct overall.
   validation: ''
+  score_meaning: On DiseaseMatcher, the paper interprets 51.44% accuracy as only slightly better than random guessing.
+    Reported "First" and "Second" scores separate cases where the correct answer is the first or second patient,
+    while demographic-specific scores cover cases with the named attribute in the patient profiles.
+  annotation_process: ''
   results: EthiClinician achieved near-perfect accuracy on BiasMD and 92.47% on DiseaseMatcher, the best reported
     results. GPT-4 scored 90.1% and 82.84%, respectively.
   limitations: The authors note limited dataset sizes and a limited set of evaluated models, and warn that domain-specific

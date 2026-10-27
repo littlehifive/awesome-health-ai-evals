@@ -46,6 +46,15 @@ card:
   validation: On the 200-item core, mean pairwise physician Cohen's kappa was 0.61 and mean Krippendorff's alpha
     was approximately 0.60. The leave-one-out physician ceiling was kappa 0.709; Gemini 3 Flash reached 0.694 with
     a bootstrapped 95% confidence interval of 0.619 to 0.754.
+  score_meaning: Percent agreement measures absolute agreement, Cohen's kappa adjusts for chance agreement, and
+    PABAK corrects distortions caused by class imbalance; kappa values of 0.61-0.80 are interpreted as substantial
+    agreement. Subjective difficulty is coded as Easy = 0, Medium = 1 and Hard = 2, then averaged across physicians,
+    so higher scores indicate greater perceived difficulty.
+  annotation_process: All nine primary physicians independently rated the five answers for each of the 200 core
+    items, while two physicians rated each of the remaining 3,600 items; no discussion or calibration occurred between
+    raters. For conflicting Correct-Incorrect ratings without abstentions, the tenth physician independently re-evaluated
+    all five answers for that item and also rated the entire core set. Each of the nine LLM evaluators assessed
+    all 3,800 items; physicians received a reference answer for orientation, not as an absolute grading key.
   results: Gemini 3 Flash was the best evaluator, with Cohen's kappa of 0.694 against physician consensus, compared
     with the leave-one-out physician ceiling of 0.709. Frontier evaluators issued definitive correctness labels
     in every case despite having an abstention option.

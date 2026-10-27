@@ -49,6 +49,12 @@ card:
   scale: 'Diagnosis: 0 or 1, averaged as accuracy; differential diagnoses and exams: precision, recall, and F1;
     treatment: 1-5 per dimension, with the composite divided by 5.'
   validation: ''
+  score_meaning: Treatment accuracy measures whether the recommended interventions are clinically correct, completeness
+    measures coverage of the reference treatment, and clarity measures whether the plan is organized and usable
+    in clinical practice. Low clarity scores were associated with vague medical jargon and disorganized formatting.
+  annotation_process: The diagnosis judge supplied a short justification for each verdict, and diagnosis evaluation
+    covered 2,135 cases paired across Portuguese and English. The treatment judges were selected to represent different
+    model architectures and training backgrounds to reduce judge-specific bias, and the panel generated 16,300 scores.
   results: o3-mini achieved the highest treatment accuracy, with a consensus mean of 0.766. DeepSeek-R1 and o3-mini
     both reached approximately 0.45 Recall@5 including the correct diagnosis in Portuguese and English.
   limitations: The authors identify possible memorization of published cases during pretraining and judge-dependent

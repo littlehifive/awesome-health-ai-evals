@@ -44,6 +44,15 @@ card:
   scale: Indicators score 0-1 or 0-2; total scores reach 16 for dialogues and 13 for case reports; robustness is
     reported as R1, R2, and R3 percentages.
   validation: ''
+  score_meaning: 'Higher scores indicate better performance: informativeness scores of 0, 1 and 2 mean incomplete,
+    adequate and comprehensive answers, while logic scores mean irrelevant, indirectly relevant and directly on
+    topic. Readability scores of 0 and 1 mean professional language without explanation and easy-to-understand language;
+    social decorum scores of 0, 1 and 2 mean rude or lacking friendly keywords, matching 1-2 friendly keywords and
+    matching at least 3 friendly keywords.'
+  annotation_process: An impartial programmer recorded the chatbot responses for evaluation. A separate panel of
+    5 experts developed the scoring standards through repeated Delphi cycles of comments, revisions and anonymous
+    feedback until unanimous agreement. Five medical experts also comprehensively reviewed a randomly selected subset
+    of case reports.
   results: Dr PJ scored highest, with 13.95 out of 16 for multi-turn dialogues and 10.14 out of 13 for case reports,
     ahead of ChatGPT and ERNIE Bot.
   limitations: The authors identify subjective, resource-intensive human scoring, a small Chinese-language dataset

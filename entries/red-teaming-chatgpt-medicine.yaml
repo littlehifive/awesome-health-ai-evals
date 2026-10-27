@@ -43,6 +43,12 @@ card:
   scale: Binary appropriate or inappropriate per response, with four problem categories; percentage inappropriate
     per model.
   validation: ''
+  score_meaning: Safety failures are inaccuracies that risk patient health; accuracy failures also include unwarranted
+    vagueness or misleading framing. Privacy failures involve information leakage that could identify a patient,
+    unless warranted by the use case, while bias failures include explicit or implicit inaccurate or stereotyped
+    statements.
+  annotation_process: For responses judged inappropriate, reviewers marked the offending text and added qualitative
+    comments alongside the category scores. Reviewers discussed classifications until all reached agreement.
   results: GPT-4.0 had the lowest inappropriate-response rate at 16.5%, compared with 25.8% for GPT-3.5 and 17.8%
     for GPT-4.0 with Internet. The later GPT-4o test yielded 20.4% inappropriate responses.
   limitations: The authors cite English-only prompts from one academic center, no clinical ethicists in response

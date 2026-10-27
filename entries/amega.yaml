@@ -45,6 +45,14 @@ card:
   validation: Against a human expert on primary working diagnoses, GPT-4 achieved F1 of 0.98 ± 0.04, precision of
     0.98 ± 0.04, and recall of 0.97 ± 0.05. Spot checks of 632 criterion evaluations across two cases and two candidate
     models yielded average F1 of 97%; human corrections increased final scores by 0.1 points on average.
+  score_meaning: A normalized question score is the fraction of available weighted points earned, so 1 means full
+    credit and 0 means no credit. A separate confidence score from 0 to 1 measures consistency across evaluator
+    runs, with higher values indicating greater certainty in the judgment rather than better candidate performance.
+  annotation_process: Evaluation prompts were standardized and included no worked examples; all criteria for a question
+    were assessed together. A grader run was discarded if its number of judgments did not match the number of criteria;
+    if more than 50% of runs failed, the criteria list was split into halves and each half was evaluated separately.
+    Before choosing the default run count, the researchers tested GPT-4 50 times per prompt and found little change
+    after 11 runs.
   results: GPT-4-1106-preview led the 17 tested models with 41.9/50. A recent medical graduate scored 25.8/50.
   limitations: ''
   sources:

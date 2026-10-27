@@ -40,6 +40,13 @@ card:
   judge: A single investigator assigned all labels using explicit rules; no independent clinical raters participated.
   scale: Six binary signals per response; signal rates reported as percentages with Wilson 95% confidence intervals.
   validation: ''
+  score_meaning: Uppercase letters mark a signal as present (1), and lowercase letters mark it as absent (0); correctness
+    is 0 for answers missing clinically required qualifiers, and numeric concordance is 0 for any wrong or unsupported
+    number or omitted required number. These labels flag errors, not their severity, so a minor interval discrepancy
+    and a life-threatening dosing error can receive the same label.
+  annotation_process: Gold answers for synthetic questions were created directly from the source evidence sentences,
+    while gold answers for the 12 public cases came from the listed public source pages. Inter-rater reliability
+    was not calculated.
   results: No live model or human baseline was evaluated. In the scripted RUSH condition, correctness was 73.3%,
     evidential support was 93.3%, and citation veneer was 25.8%; in the public check, veneer was 66.7% for RUSH
     and 0% for VERIFY and POSTER.

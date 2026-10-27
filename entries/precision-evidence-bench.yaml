@@ -40,6 +40,10 @@ card:
   scale: Fraction of jurors agreeing on each criterion; five answer ratings from Precision match to Unsupported
     claim, with Precision match rates reported across questions.
   validation: ''
+  score_meaning: Faithfulness means that the answer does not misrepresent its cited sources when judged by a clinician
+    deciding whether to act on it, rather than requiring word-for-word traceability.
+  annotation_process: The jurors receive the exact grading prompts supplied in rubric.json. These prompts include
+    rules for what counts as a single source and how to check follow-up-window labels.
   results: Across four frontier LLMs, Precision match rates were 13-18% with web search alone, 17-28% with access
     to 100 million precision evidence-based findings, and 41-56% with 500 million findings. The abstract does not
     identify the highest-scoring model.

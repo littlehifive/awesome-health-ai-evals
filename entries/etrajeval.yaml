@@ -45,6 +45,12 @@ card:
   validation: Three expert annotators assigned binary sentiment labels to turns in nearly 2,000 English and Chinese
     dialogues from Daily Dialog and CPED. The causally adjusted Skywork estimator achieved 74.92% accuracy in Chinese
     and 89.83% in English, compared with 72.18% and 89.59% without adjustment.
+  score_meaning: Higher BEL scores indicate more positive user emotions overall, while higher ETV scores indicate
+    better recovery from negative emotions and resistance to emotional decline. For ECP, higher C_x and C_y − C_x
+    values indicate stronger progress toward positive, stable emotional states.
+  annotation_process: The evaluation used 118 background environments, with an initial exchange followed by 40 additional
+    turns for each model. Each environment included 0, 1 or 3 disturbance events, gradually revealed to the simulated
+    user during the dialogue.
   results: Kimi-K2-Preview had the highest English BEL at 49.00, while DeepSeek-R1 had the highest Chinese BEL at
     45.32. Kimi-K2-Preview led ETV in both languages, scoring 22.92 in English and 16.74 in Chinese.
   limitations: ''

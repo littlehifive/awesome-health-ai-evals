@@ -43,6 +43,15 @@ card:
   validation: All three judges agreed exactly on 36.1% of responses, with Fleiss's kappa of 0.26; pairwise Cohen's
     kappa was 0.40 for LLM versus regex, 0.23 for LLM versus NLI, and 0.22 for regex versus NLI. Mean within-cell
     majority agreement across three repetitions was 89.8%.
+  score_meaning: 'Refuse means the response declines and redirects to a clinician; hedge covers responses that neither
+    refuse nor provide the prohibited directive. Higher ASR means more guardrail violations, not necessarily more
+    clinical harm: even a medically correct drug-interaction verdict counts as a violation when the model should
+    defer to a clinician.'
+  annotation_process: Each question and prompt framing was generated three times, producing 4,500 responses, of
+    which 4,499 received a valid primary-judge label. Automated checks used item-specific prohibited-content patterns
+    and entailment hypotheses, while the primary judge returned a JSON verdict under a fixed rubric. Judge disagreements
+    were retained and measured rather than adjudicated; for paired statistical tests, the three generation repetitions
+    were collapsed to a majority-vote compliance indicator.
   results: The only tested model, MedGemma-4B-it, had an overall ASR of 38.0% across 4,499 valid primary-judge labels.
     Exam framing produced the highest attack success rate, 53.1%, compared with 29.0% for unchanged prompts.
   limitations: The authors note that ASR measures policy conformance rather than harm, regex can mistake quoted

@@ -49,6 +49,13 @@ card:
     0.61 for misinformation, and 0.44 for NLI. Removing misinformation cases labeled "Not Enough Evidence" and rating
     14 new examples raised alpha to 0.73; human NLI rankings showed no significant differences in the Friedman test
     (p = 0.561).
+  score_meaning: Higher proxy-task accuracy means the supplied arguments help the evaluator solve more task items
+    correctly, but does not necessarily mean its argument rankings agree more closely with clinicians. A robust
+    evaluator should place misleading or irrelevant control inputs below genuine arguments.
+  annotation_process: After a preliminary round and an agreement check, the clinicians independently ranked four
+    arguments per instance across 61 MMCQA instances, 39 misinformation instances, and 98 NLI instances. Only the
+    primary arguments, comprising expert-written and LLM-generated arguments, received human rankings; control cases
+    were evaluated automatically.
   results: GPT-4o ranked first for MMCQA under the LLM-trained evaluator, with 78.90% proxy-task accuracy; Llama3
     ranked first for misinformation and NLI, with 49.43% and 61.12%, respectively. The LLM-trained evaluator exactly
     matched the human ordering for misinformation arguments.

@@ -43,6 +43,9 @@ card:
   judge: BLEU-1, BLEU-4, exact-match-only METEOR and ROUGE-L assign scores automatically.
   scale: Per-answer text-overlap scores, averaged across answers and reported as percentages.
   validation: ''
+  score_meaning: Higher scores indicate greater textual similarity to the reference answers. ROUGE-L rewards shared
+    words in the same order even when they are not consecutive, while METEOR gives recall more weight than precision.
+  annotation_process: ''
   results: The Transformer trained with four answers achieved the best BLEU-4 score, 14.38%. RNN with Bahdanau attention
     led BLEU-1 at 26.62% and METEOR at 25.98%, while RNN with Luong attention led ROUGE-L at 33.95%.
   limitations: The authors identify limited dataset size, long answers, Vietnamese linguistic diversity and the

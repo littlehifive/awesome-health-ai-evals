@@ -38,6 +38,9 @@ card:
   judge: An LLM judge selected by the evaluator assigns the scores; no specific judge model is named.
   scale: Each rubric is met or unmet; the final metric is the proportion of rubrics unmet, with lower scores better.
   validation: ''
+  score_meaning: ''
+  annotation_process: A panel of 60 licensed physicians from top-tier hospitals validated the benchmark in two stages.
+    The evaluation command runs the LLM judge at temperature 0.
   results: Claude-4-Sonnet performed best with a hallucination rate of 29.1%; some open-source models exceeded 57.0%.
   limitations: ''
   sources:

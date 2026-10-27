@@ -41,6 +41,12 @@ card:
   scale: Per-answer BERTScore and embedding cosine similarity; reported Pearson correlations with pretraining frequency
     and co-occurrence probability.
   validation: ''
+  score_meaning: Higher BERTScore values indicate greater relevance to the reference answer, but a high score can
+    be misleading for denomination questions if the model merely repeats the medical term. A Pearson correlation
+    of 0.27 between BERTScore and term frequency is described as slightly moderate, indicating that answers for
+    more frequent terms tend to be more similar to the reference answers.
+  annotation_process: The manual review covered answers from four models to a set of 100 head and tail terms. Reviewers
+    examined task performance, linguistic diversity and hallucinations directly in the generated answers.
   results: OLMo-1b had the lowest reported hallucination rate, 33%, in a manual analysis of 400 answers from four
     models on 100 head and tail terms. OLMo-7b-Instruct followed at 39%.
   limitations: The authors evaluated only small models without domain fine-tuning or retrieval, and noted that BERTScore

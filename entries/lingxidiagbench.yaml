@@ -48,6 +48,11 @@ card:
   scale: 'Doctor dimensions: 1-6; patient dimensions: 1-5, averaged for Overall; diagnosis: accuracy and F1, with
     Top-1/Top-3 accuracy; question prediction: BLEU, ROUGE-L and BERTScore.'
   validation: ''
+  score_meaning: Higher judge scores mean better doctor consultation quality or patient response quality. For patient
+    responses, accuracy reflects adherence to the supplied patient profile, while honesty includes refusing to answer
+    when the background context lacks the required information.
+  annotation_process: Patient agents answer the same doctor questions with identical prompting conditions based
+    on LingxiDiag-16K. Static LLM evaluation uses zero-shot inference on the same 1,000 samples for every model.
   results: In static synthetic-data diagnosis, Gemini-3-Flash led binary accuracy at 85.4%, while GPT-5-Mini led
     12-category accuracy at 40.9%. In dynamic consultation with APA-Guided + MRD-RAG, DeepSeek-V3.2 reached 92.3%
     binary accuracy, and Grok-4.1-Fast led four-category and 12-category accuracy at 43.0% and 28.5%, respectively.

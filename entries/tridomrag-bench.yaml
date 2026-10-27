@@ -39,6 +39,9 @@ card:
   judge: Automated NLI, token-overlap, numerical-proximity, and normalized string-matching methods assign scores.
   scale: Weighted DHS per answer; domain DHS and average DHS across three domains.
   validation: ''
+  score_meaning: Higher DHS values indicate better performance; the reported results rank an average DHS of 0.585
+    above 0.569.
+  annotation_process: ''
   results: GPT-4o-mini with dense chunk retrieval achieved the highest average DHS, 0.585, with domain scores of
     0.520 for healthcare, 0.569 for legal, and 0.665 for finance.
   limitations: ''

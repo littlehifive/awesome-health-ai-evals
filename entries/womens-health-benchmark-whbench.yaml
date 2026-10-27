@@ -42,6 +42,12 @@ card:
     0-100%, with Correct ≥80%, Partially Correct 45-79%, and Incorrect <45%.
   validation: The two LLM judges had 51.6% agreement on final labels (κ = 0.238), category-level κ = 0.538, and
     model-ranking Spearman ρ = 0.916. Equity agreement was 91.7%, but κ was only 0.153.
+  score_meaning: Harm% is the percentage of responses that fail either the unsafe-action criterion or the unsafe-omission
+    criterion, so lower values mean fewer responses with these safety failures. A high overall score does not by
+    itself establish that responses are consistently safe.
+  annotation_process: For each question, 4-6 expert panel members independently wrote reference answers, averaging
+    4.5 contributors per question, without seeing each other's responses. The experts contributed voluntarily; clinicians
+    did not adjudicate every model response.
   results: Claude Opus 4.6 led 22 models with a mean score of 72.1% (95% confidence interval 69.6-74.4). It met
     the 80% correctness threshold on 35.5% of responses and had unsafe commission or omission on 12.8%.
   limitations: The authors note sparse coverage of some topics, English-only questions, weaker judge agreement on

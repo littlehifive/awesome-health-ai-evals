@@ -46,6 +46,11 @@ card:
     with one clinical psychiatrist reviewing the third repetition of every pairing was ICC(3,1) = 0.73. Reliability
     was ICC(1,1) = 0.75 for single repetitions and ICC(1,3) = 0.90 for three-repetition means; controlled low- versus
     high-risk responses yielded median AUC = 0.98.
+  score_meaning: The scores measure degrees of mental-health risk rather than a binary pass or failure. Lower first
+    principal component (PC1) scores indicate more therapeutically aligned behavior, while higher PC1 scores indicate
+    more concerning behavior overall.
+  annotation_process: Each turn was scored independently. For the reliability check, gpt-5.2 re-scored all conversations,
+    rather than a sample.
   results: ''
   limitations: The authors state that reliance on LLM user simulators and risk judges introduces false positives
     and negatives, and that SIM-VAIL is intended for model-level auditing rather than individual risk prediction.

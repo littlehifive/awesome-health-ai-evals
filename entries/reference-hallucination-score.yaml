@@ -42,6 +42,9 @@ card:
     specified.
   scale: 0 to 11 per reference, with lower scores better; prompt means and chatbot means or medians are reported.
   validation: ''
+  score_meaning: A score of 0 means no reference hallucination was found across the seven checked items. A score
+    of 11 means errors were found in all seven items, the maximum degree of reference hallucination.
+  annotation_process: ''
   results: Elicit and SciSpace had the lowest reported RHS of 1, compared with 11 for ChatGPT 3.5 and Bing and 7
     for Perplexity. Bard failed to generate references for all 10 prompts.
   limitations: The authors note that the selected bibliographic parameters may omit important identifiers, results

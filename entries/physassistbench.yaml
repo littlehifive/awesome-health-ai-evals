@@ -44,6 +44,11 @@ card:
   scale: Binary rubric items; turn scores range from 0 to 1, with mRS, Pass@Turn, and Pass@Session reported as percentages.
   validation: One human expert and the GPT-5.4-mini judge independently scored 128 turns from 32 sessions spanning
     all four scenarios on the same rubric items; the judge agreed with the expert on 94% of items.
+  score_meaning: The reported pass thresholds require a turn to pass at least 60% or 75% of its rubric items. Tool
+    use is judged through answer correctness, so a clinically correct answer can receive credit even when the model
+    follows a different tool sequence from the reference.
+  annotation_process: The same GPT-5.4-mini judge was used for all evaluated models. It provided a reason for each
+    rubric item's score.
   results: ''
   limitations: The authors report limited full turn-level physician validation and acknowledge source-record, synthetic-dialogue,
     and cohort-selection biases that limit how well the benchmark represents real patient experience.

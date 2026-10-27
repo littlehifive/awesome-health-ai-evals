@@ -50,6 +50,12 @@ card:
     synthetic transcripts: judge-clinician preference agreement was 76% (AC1 = 0.61, n = 21) and 60% (AC1 = 0.20,
     n = 15), compared with 47% between clinicians (AC1 = -0.04, n = 17); only the first judge-clinician result was
     statistically significant.'
+  score_meaning: Brief responses using correct therapeutic techniques score higher than verbose responses that merely
+    use therapeutic vocabulary. Crisis-handling failures receive severe scores regardless of other response qualities.
+  annotation_process: 'Calibration used two scoring passes over the same 57 grid conversations: claude-sonnet-4-6
+    first applied the standard rubric, then applied the strict binary-criterion rubric, with no held-out conversations.
+    In the strict pass, each criterion received PASS or FAIL based only on transcript evidence, with no benefit
+    of the doubt.'
   results: Under strict scoring, claude-opus-4-7 led with 7.63, followed by gpt-5.5 at 6.95 and deepseek-v4-pro
     at 6.84. This reversed the standard-rubric ranking.
   limitations: The authors state that cross-family judge agreement establishes reliability rather than clinical

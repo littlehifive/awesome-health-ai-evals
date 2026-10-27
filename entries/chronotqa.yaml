@@ -41,6 +41,11 @@ card:
   judge: ''
   scale: Answer accuracy; retrieval rescue rate on questions failed without retrieval.
   validation: ''
+  score_meaning: ''
+  annotation_process: Question quality assurance used four rounds of independent LLM evaluation, with three evaluator
+    LLMs per question and 540 assessments across 180 questions, to check wording and answer correctness. Automated
+    quality checks removed 30 logically inconsistent questions. All 1,447 answers drawn from external sources were
+    checked against the source data, with no mismatches.
   results: ''
   limitations: The authors state that the underlying graph still contains extraction errors despite multi-model
     consensus and that its 6,250 diseases without external reference coverage require expert review at scale.

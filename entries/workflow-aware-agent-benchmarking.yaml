@@ -44,6 +44,12 @@ card:
   scale: Fractions of required facts, sourced claims, and correct handoff fields, with penalties; escalation sensitivity,
     specificity, and cost-weighted utility; separate scores rather than one overall metric.
   validation: ''
+  score_meaning: The utility score assigns a larger penalty to missed escalation than to unnecessary escalation
+    when missed escalation is judged more harmful. Strong simulated-workflow scores support claims only about the
+    defined episodes, not clinical outcomes, time saved, or deployment value.
+  annotation_process: The reference annotators work independently using an episode guide, and the protocol calls
+    for retaining both the final label and the disagreement type. The escalation cost matrix must be declared before
+    evaluation and reviewed by the task's clinical governance group.
   results: ''
   limitations: The protocol does not reproduce institutional implementation or measure clinical outcomes, time saved,
     clinician workload, patient safety, or adoption, which require prospective workflow studies.

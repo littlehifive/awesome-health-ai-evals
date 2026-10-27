@@ -42,6 +42,9 @@ card:
   scale: Each diagnosis is correct or incorrect; final metrics are Top-1, Top-3, and Top-10 accuracy as percentages
     of cases.
   validation: ''
+  score_meaning: ''
+  annotation_process: Outputs were compared automatically with the gold-standard diagnosis recorded in each case's
+    phenopacket.
   results: The best LLM, o1-preview, achieved 23.6% Top-1, 31.2% Top-3, and 36.8% Top-10 accuracy. Exomiser in phenotype-only
     mode achieved 35.5%, 46.3%, and 58.5%, respectively.
   limitations: The study did not test whether providing genomic information improves LLM diagnosis.

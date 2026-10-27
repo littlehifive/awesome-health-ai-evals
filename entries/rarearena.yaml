@@ -41,6 +41,11 @@ card:
   judge: GPT-4o assigns the diagnostic match scores.
   scale: Matches receive 0, 1, or 2; top-1 and top-5 recall count both 1 and 2 as matches and are reported as percentages.
   validation: ''
+  score_meaning: The March 2026 revision uses an Orphanet-based rare-disease hierarchy to apply stricter criteria
+    for awarding score 1 to broader disease terms, because the earlier evaluation method awarded that score too
+    readily.
+  annotation_process: Each model first generates five diagnoses using the provided prompt and generation script.
+    After grading, a separate script parses the evaluation outputs and calculates recall.
   results: GPT-4o performed best, with top-1 and top-5 recall of 33.05% and 56.86% for screening and 64.24% and
     85.92% for confirmation.
   limitations: The authors reported that the original evaluation overcredited broader disease terms and introduced

@@ -45,6 +45,13 @@ card:
   validation: On 285 physician-labeled cases with responses from 15 models, mean rubric-level Macro-F1 across task
     themes was 0.815 for GPT-4.1, 0.775 for GPT-5.1 and 0.765 for the distilled 8B judge. The CACS threshold of
     7 was calibrated to the mean rubric-hit score of attending physicians' responses to 250 cases.
+  score_meaning: CACS gives no credit below the threshold; a higher value reflects both more responses reaching
+    the threshold and greater rubric coverage above it, rather than a simple pass rate. In the physician-agreement
+    evaluation, missing grader outputs or outputs without a valid Boolean decision count as incorrect predictions.
+  annotation_process: The automated grader receives the conversation, candidate response and one rubric criterion
+    through a fixed prompt, evaluates only the last assistant turn, and returns a decision with a brief evidence-based
+    explanation. For judge training, HealthBench items labeled by two physicians were retained only when both agreed;
+    a separate set of difficult responses was labeled by an LLM judge.
   results: GPT-5.2 led the 22 evaluated models with CACS@7 of 34.7% and Rubric Accuracy of 47.2%, followed by Qwen3-Max
     at 33.3% CACS@7.
   limitations: The dataset card states that ClinConsensus is a research benchmark rather than a clinical decision-support

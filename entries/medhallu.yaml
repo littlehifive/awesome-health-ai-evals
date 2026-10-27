@@ -40,6 +40,14 @@ card:
   judge: The dataset's hallucinated and ground-truth answer labels provide the reference for scoring.
   scale: Binary classification per answer; precision, recall and F1 overall and by difficulty.
   validation: ''
+  score_meaning: 'Difficulty labels describe how many filtering models were fooled into choosing the hallucinated
+    answer as more accurate than the ground truth: "easy" means one, "medium" means multiple but not all, and "hard"
+    means all three.'
+  annotation_process: GPT-4o mini, Gemma2-9B and Qwen2.5-7B independently compared each generated answer with the
+    ground-truth answer without access to the supporting context. Correctness was checked automatically against
+    the ground truth using microsoft/deberta-large-mnli for bidirectional entailment with a confidence threshold
+    of 0.75. Failed samples received TextGrad feedback using GPT-4o mini, with at most five generation attempts;
+    if none passed, the generated answer most semantically similar to the ground truth was selected.
   results: GPT-4o achieved the best reported F1 on hard hallucinations without supplied knowledge, at 0.625. With
     domain knowledge supplied, Qwen2.5-14B reached an overall F1 of 0.852.
   limitations: The authors cite resource constraints that excluded advanced reasoning models from generation and

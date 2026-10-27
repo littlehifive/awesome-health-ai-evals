@@ -39,6 +39,10 @@ card:
   judge: Claude Sonnet 4.6 assigns the diagnostic-equivalence scores.
   scale: Correct or incorrect per case; percentage diagnostic accuracy averaged over three runs.
   validation: ''
+  score_meaning: The reported Δ is accuracy on MedCase-Structured minus accuracy on the corresponding text-based
+    MedCaseReasoning cases, in percentage points. A negative Δ means the model was less accurate on structured FHIR
+    inputs than on the original text.
+  annotation_process: ''
   results: GPT-5.4 with five examples achieved the highest structured-input accuracy, 58.18%, compared with 70.91%
     on the corresponding plain-text cases.
   limitations: The authors note limited FHIR resource coverage, no full longitudinal trajectories or imaging support,

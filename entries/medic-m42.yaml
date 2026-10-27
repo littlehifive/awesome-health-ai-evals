@@ -45,6 +45,12 @@ card:
   validation: Clinicians and the model judge independently scored 50 questions on patient safety, risk mitigation,
     and practicality; the model assigned slightly higher scores, but numerical differences are not provided in the
     excerpts. Cross-examination coverage correlated with ROUGE-L at 0.84, BLEU at 0.79, and BERTScore at 0.62.
+  score_meaning: Coverage is the percentage of source-derived questions the summary can answer without saying "I
+    don't know"; consistency is the percentage of summary-derived questions the source can answer without saying
+    "I don't know." Conformity is 100 minus the percentage of contradictory answers, so higher scores mean fewer
+    contradictions, while higher conciseness means a greater reduction in word count.
+  annotation_process: Cross-examination automatically compares predicted answers with generated answer keys constrained
+    to "YES," allowing "YES," "NO," or "I don't know" as predicted answers.
   results: ''
   limitations: The authors note that automated judges can favor their own language patterns and miss clinical nuance,
     specialized medical judges are unavailable, and Med-Safety's physician-centric focus does not cover the different

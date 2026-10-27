@@ -46,6 +46,14 @@ card:
     20B, or directly annotated by triage nurses and physicians.
   scale: Correct or incorrect per pair; percentage accuracy and inbox T-NDCG@10 and T-NDCG@30.
   validation: ''
+  score_meaning: 'The reference urgency scale runs from Level 1, requiring emergency attention, to Level 6, requiring
+    no medical attention; Level 5 covers self-care advice. Higher T-NDCG scores mean better inbox ordering: T-NDCG@30
+    assesses the full inbox, while T-NDCG@10 emphasizes the top and bottom, rewarding correct placement and penalizing
+    misplacement of highly urgent messages.'
+  annotation_process: For PMR-Reddit, posts were retained only if an expert comment had at least five upvotes or
+    multiple expert comments agreed, and test sets underwent multiple rounds of filtering for clear urgency differences.
+    For PMR-Synth, clinical experts reviewed the expert-written messages, then triage nurses and physicians directly
+    annotated all 435 pairs in each of two 30-message inboxes, one for training and one for testing.
   results: ''
   limitations: Some labels were extracted by LLMs without full human review, PMR-Real cannot be released and its
     secure computing environment restricted model comparisons, and urgency-only sorting can repeatedly delay low-urgency

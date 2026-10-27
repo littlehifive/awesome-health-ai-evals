@@ -38,6 +38,10 @@ card:
   scale: Separate ROUGE-L, BERTScore, MoverScore, and BLEURT scores; BERTScore is described as normalized to 0-1
     but reported on a 100-point scale.
   validation: ''
+  score_meaning: Higher scores indicate better performance against the reference answers. BERTScore recall measures
+    how much important reference information is retained, precision measures how much generated content is useful,
+    and F1 balances the two.
+  annotation_process: ''
   results: BioPars led the tested models on BioParsQA, with maximum scores of 29.99 ROUGE-L, 90.87 BERTScore, 60.43
     MoverScore, and 50.78 BLEURT across evaluation settings. GPT-4's best ROUGE-L was 28.99.
   limitations: The authors state that BioPars cannot guarantee accurate answers and advise users to seek expert

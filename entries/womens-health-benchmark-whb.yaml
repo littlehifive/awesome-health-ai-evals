@@ -40,6 +40,13 @@ card:
   judge: One human evaluator with a PhD in clinical sciences assigns the scores.
   scale: Each response is approved or rejected; final approval and failure rates range from 0% to 100%.
   validation: ''
+  score_meaning: An approved answer can still contain other errors, so a high approval rate does not establish that
+    responses are error-free.
+  annotation_process: The experts completed an educational webinar and received standardized instructions before
+    assessing initial model outputs for accuracy, safety and completeness. They supplied 1-3 sentence justifications
+    for identified errors and supporting sources whenever possible. Lumos AI personnel reviewed submissions and
+    removed duplicates, prompts that were not specific to women, and cases with unsupported or clinically insufficient
+    errors before final evaluation.
   results: GPT-5 performed best among 13 models, with a 53.1% approval rate, followed by Gemini 3 Pro at 47.9% and
     OpenAI o3 at 46.9%.
   limitations: The authors identify the small dataset, limited specialty coverage, unbalanced query types, and use

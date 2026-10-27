@@ -39,6 +39,10 @@ card:
     embeddings in the paper.
   scale: Accuracy, embedding similarity, mean reciprocal rank, Hit@1 and Hit@10, depending on the task.
   validation: ''
+  score_meaning: ''
+  annotation_process: For poorly formatted responses, a high-performance LLM reformats the results in a secondary
+    processing stage before answers are extracted. For well-formatted responses, answers are extracted directly
+    without secondary processing.
   results: ''
   limitations: ''
   sources:

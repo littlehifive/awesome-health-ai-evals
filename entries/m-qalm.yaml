@@ -45,6 +45,10 @@ card:
     equally across datasets.
   validation: Across experiments, only ROUGE-L had a statistically significant Spearman rank correlation with multiple-choice
     accuracy (r = 0.616, p = 0.008).
+  score_meaning: The USMLE passing score is 60%; the best zero-shot USMLE scores reported for LLaMA 2 (43%) and
+    PMC-LLama (54%) fall below that threshold.
+  annotation_process: The benchmark includes only datasets whose ground-truth answers were collected or reviewed
+    by domain experts.
   results: On USMLE, the best reported zero-shot score among the evaluated open-source models was PMC-LLama's 54%,
     below the 60% passing threshold. On PubMedQA, Flan-T5 scored 72.4%, compared with the reported human baseline
     of 78%.

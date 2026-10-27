@@ -43,6 +43,13 @@ card:
   scale: Accuracy for diagnosis, treatment, and test and examination recommendations; six clinical capability measures
     for dialogue.
   validation: ''
+  score_meaning: 'More consultation rounds do not necessarily mean better performance: ChatGLM3 took more rounds
+    because it asked many ineffective questions. Clinicians averaged 8.39 consultation rounds, providing a reference
+    for interpreting the models'' dialogue lengths.'
+  annotation_process: Each standardized patient record underwent at least three rounds of manual calibration and
+    validation. One urology expert first calibrated the medical logic, algorithm engineers then tuned the model,
+    and a team of medical experts performed a second validation. These checks covered clinical authenticity, specialist
+    terminology, question-and-answer exchanges, reasoning, and diagnostic correctness.
   results: GPT-4 achieved the highest reported diagnostic reasoning accuracy for test and examination recommendations
     at 20.15%; the other evaluated models scored below 20%.
   limitations: ''

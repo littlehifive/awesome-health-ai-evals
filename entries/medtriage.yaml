@@ -42,6 +42,11 @@ card:
   judge: Exact match with the gold-standard department set.
   scale: Correct or incorrect per case; test-set exact-match accuracy, plus precision and recall.
   validation: ''
+  score_meaning: ''
+  annotation_process: Medical professionals cross-checked the department labels; first-contact intake cases used
+    structured department-assignment metadata from the encounter. Labeling instructions required all relevant departments
+    when multiple diseases were involved, but one department chosen by clinical priority when several departments
+    could treat the same complaint.
   results: The post-competition reference model MedGPT-Guide achieved the highest reported accuracy, 78.30% (95%
     CI 76.49% to 80.11%), with precision of 84.19% and recall of 78.84%. Among the five general-purpose LLMs compared,
     GPT-4o led with 42.12% accuracy.

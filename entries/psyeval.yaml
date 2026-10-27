@@ -53,6 +53,11 @@ card:
     eight human evaluators and by GPT-4. Fleiss' kappa between GPT-4 and human scores was 0.84 for fluency, 0.80
     for coherence, 0.71 for relevance, 0.72 for helpfulness, 0.75 for emotional reactions, 0.74 for interpretations,
     and 0.77 for explorations.
+  score_meaning: Higher BLEU scores indicate closer alignment with responses from mental health professionals, while
+    higher Distinct-1 and Distinct-2 scores indicate greater text diversity. The reported automatic evaluation values
+    are multiplied by 100.
+  annotation_process: The authors first checked agreement between human and GPT-4 ratings on a small sample, then
+    used GPT-4 to score subsequent model outputs.
   results: GPT-4 led mental-health question answering and was the only model with average accuracy above 60%. Human-rated
     empathy scores for GPT-4 were 1.70 for emotional reactions, 1.69 for interpretations, and 1.29 for explorations,
     compared with human counselor scores of 2.12, 1.96, and 1.53.

@@ -46,6 +46,14 @@ card:
     are averaged.
   validation: For reasoning ratings, reported overall agreement was Gwet AC1 of 0.9617, Cohen's kappa of 0.7986,
     and consistency of 0.9714.
+  score_meaning: For each reasoning criterion, 1 means no errors were observed and 0 means at least one error was
+    observed. A higher overall reasoning score means a larger share of the assessed criteria were error-free, not
+    necessarily that the final answers were correct.
+  annotation_process: Reference cognitive-error labels came from 15 trained mental-health professionals for CognitiveReframing,
+    five independent raters for PatternReframe, and two clinical raters for Therapist Q&A. For counseling-strategy
+    items, GPT-4o compressed client utterances into case summaries, counselor utterances were annotated with reference
+    strategy labels, and an expert counselor with over ten years of clinical experience manually reviewed and verified
+    every constructed item.
   results: MindoraCHORD had the highest average task score, but the supplied text gives no numeric overall task
     score. DeepSeek-R1 had the highest reported reasoning-trajectory average at 0.9827, compared with 0.9731 for
     MindoraCHORD.

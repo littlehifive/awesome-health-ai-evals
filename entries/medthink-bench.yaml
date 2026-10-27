@@ -43,6 +43,13 @@ card:
     1.
   validation: Across the tested models, Pearson correlations with expert reasoning scores were 0.68 to 0.87 for
     LLM-w-Ref, compared with 0.01 to 0.27 for the reference-free judge and -0.17 to 0.45 for text-similarity metrics.
+  score_meaning: A reasoning score of 2/3 can reflect partially correct reasoning even when the final answer is
+    wrong, as shown in the paper's case study. In human evaluation, the score is the fraction of steps judged present
+    out of those the expert deems necessary.
+  annotation_process: Two physicians independently annotated each question's reference reasoning, and a third physician
+    made the final annotation when they disagreed. For human scoring, a domain expert received the question and
+    model-generated rationale and judged which required reasoning steps were present. Automated judging used zero-shot
+    Chain-of-Thought prompting, temperature 0.1, a maximum of 4096 decoding tokens, and random seed 42.
   results: 'MedGemma-27B had the highest expert-rated reasoning score, 0.759 (95% CI: 0.730-0.789). OpenAI-o3 had
     the highest final-answer accuracy, 0.692 (95% CI: 0.652-0.732).'
   limitations: The authors note that prior exposure to source questions during pretraining could inflate answer

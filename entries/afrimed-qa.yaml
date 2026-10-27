@@ -48,6 +48,12 @@ card:
   scale: Multiple-choice accuracy from 0 to 1; separate free-text similarity scores; human criteria rated from 1
     (absent) to 5 (fully present) and reported as means.
   validation: ''
+  score_meaning: Higher ratings for correctness, relevance, helpfulness, and local context indicate better answers,
+    while higher ratings for harm, omission, and hallucination indicate more problems.
+  annotation_process: Non-clinicians rated consumer-query answers for relevance, helpfulness, and local context,
+    but not correctness; clinicians rated answers across all three question types for correctness, local context,
+    omissions, hallucinations, and potential harm. Each rater evaluated answers from multiple models or humans in
+    a random sequence.
   results: GPT-4o achieved the highest multiple-choice accuracy at 0.79. In blinded consumer-query evaluations,
     LLM answers received higher ratings overall than clinician answers.
   limitations: The authors note that over 60% of expert multiple-choice questions came from West Africa, the dataset

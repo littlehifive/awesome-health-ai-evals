@@ -47,6 +47,13 @@ card:
     using a 1-to-10 scale. Pearson and Spearman correlations with automated scores were moderate for record generation
     and diagnosis and strong for treatment generation, with p < 0.01 for all; exact coefficients and the number
     of experts are not reported in the excerpts.
+  score_meaning: The expert rating scale runs from 1 (Poor) to 10 (Excellent), judging diagnostic accuracy, relevance
+    to TCM principles, and clinical practicality. High safety scores did not rule out missed rare contraindications
+    or context-specific restrictions.
+  annotation_process: Model outputs were processed with regular expressions to extract final answers before scoring.
+    For the expert comparison, scores across model responses to each question were aggregated separately for automatic
+    and human evaluations using a trimmed mean that excluded the highest and lowest scores, producing 20 paired
+    values per dataset.
   results: Dimension leaders were Doubao for knowledge QA (91.8), DeepSeek-V3 CoT for language understanding (66.7),
     Qwen3-235B FS for diagnosis (50.0), and DeepSeek-r1 FS for safety (87.9). Doubao FS, DeepSeek-V3 FS and Doubao
     CoT tied for prescription recommendation at 48.5.

@@ -37,6 +37,10 @@ card:
   judge: GPT-4o assigns the ratings; no human or clinician evaluation was conducted.
   scale: 'General criteria: 1 to 10; BLRI criteria: -3 to +3; reported General and BLRI scores.'
   validation: ''
+  score_meaning: Higher general scores indicate better conversational quality. For each mini-BLRI item, +3 means
+    the attribute is strongly present and -3 means it is absent; a higher cumulative BLRI score indicates a more
+    effective therapeutic relationship.
+  annotation_process: ''
   results: LLaMA 3.1 8B fine-tuned on HamRaz achieved a BLRI score of 2.85 in both comparisons, with General scores
     of 9.31 against Script Mode and 9.55 against Two-Agent Mode.
   limitations: The authors cite reliance on LLM judges without clinician validation, limited applicability beyond

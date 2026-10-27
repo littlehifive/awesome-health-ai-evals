@@ -50,6 +50,12 @@ card:
     inter-rater Gwet's AC2 was 0.9460 for accuracy, 0.6002 for efficiency and strategy, 0.8571 for empathy, and
     0.6209 for robustness. Profile filtering agreed with the experts' majority vote at Cohen's kappa 0.8197, excluding
     two tied cases; generated profiles averaged 3.464 out of 4.
+  score_meaning: On the empathy scale, 1 means low empathy and 5 means high empathy. For each metric normalized
+    within a dataset, 1 denotes the highest model score and 0 the lowest, rather than an absolute standard of clinical
+    performance.
+  annotation_process: After each conversation, the patient agent is prompted to rate the doctor agent's empathy.
+    In the human validation, experts rated each conversation in a blinded setup, and their average scores were compared
+    with the automated CARE scores.
   results: ''
   limitations: The evaluation is limited to text-based interactions.
   sources:

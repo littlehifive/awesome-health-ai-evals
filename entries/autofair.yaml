@@ -41,6 +41,15 @@ card:
   validation: In blinded comparisons, 22 adults with postgraduate degrees and familiarity with LLMs preferred the
     generated vignettes over the LLM-only baseline in 58% of comparisons and over EquityMedQA in 57%, judging suitability
     for bias testing.
+  score_meaning: G-Eval scores range from 0 to 1, with lower scores indicating more hallucination; RefChecker reports
+    average counts of predicates classified as entailment, neutral or contradictory, with higher entailment and
+    neutral counts and lower contradictory counts treated as better. Lower semantic entropy indicates closer alignment
+    with the reference, while higher diversity and domain-specificity scores indicate more varied wording and closer
+    similarity to the medical reference and health outcome, respectively.
+  annotation_process: GPT-4 graded faithfulness using G-Eval, and RefChecker automatically checked statements extracted
+    by an LLM against the cited reference evidence. Each survey participant compared five vignette pairs against
+    the LLM-only baseline for obesity and five against EquityMedQA for breast cancer. Participants received instructions
+    on the criteria for choosing the preferred vignette.
   results: ''
   limitations: ''
   sources:

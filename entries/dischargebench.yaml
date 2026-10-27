@@ -62,6 +62,13 @@ card:
     was Spearman ρ = 0.276 and weighted κ = 0.238 for conversation quality, κ = 0.249 for topic coverage, and κ
     = 0.171 for comprehension; inter-physician agreement was respectively ρ = 0.213 and κ = 0.223, κ = 0.572, and
     κ = 0.562.
+  score_meaning: For comprehension, 1 means correct, 0.5 means partially correct, and 0 means incorrect; lower readability
+    grade levels indicate language that is more accessible to lay readers. Factual consistency measures agreement
+    with the source note, not clinical safety, and cannot identify unsafe advice merely from wording overlap or
+    embedding similarity.
+  annotation_process: Results come from a single run per case, and the judge provides a written justification for
+    each conversation-quality rating. For physician validation, cases were sampled by educator model, with 25 assigned
+    exclusively to each physician and 20 shared; physicians used the same rubric as the judge.
   results: GPT-5.5 led comprehension with 0.599, followed by GPT-5.4-mini at 0.566 and GPT-5.4-nano at 0.536. GPT-5.5
     and GPT-5.4-nano tied for the highest naturalness score at 4.616.
   limitations: The authors note English-only scenarios, limited population diversity with psychiatric and cognitive

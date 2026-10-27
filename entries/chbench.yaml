@@ -42,6 +42,13 @@ card:
   scale: Cosine and Jaccard similarity from 0 to 1 per response; counts and percentages in ten similarity intervals.
   validation: For reference-pair quality grading, the authors compared ERNIE Bot's three-point ratings with manual
     annotations on 108 randomly selected pairs and reported high consistency without a numerical agreement statistic.
+  score_meaning: Higher similarity scores indicate closer agreement with the reference answer; Jaccard similarity
+    measures shared set elements relative to all elements present, ignoring word order and importance. For reference-pair
+    quality grading, each criterion receives -1 for "Unsatisfactory", 0 for "Neutral", or 1 for "Satisfactory".
+  annotation_process: The authors manually compared responses from five Chinese language models using eight criteria
+    to select the reference responses. After the manual validation, ERNIE Bot graded the remaining reference pairs
+    and supplied explanations for each criterion; discrepancies in the validation sample were examined to investigate
+    their causes.
   results: ChatGLM (GLM-4) was the best overall performer, with 92.6% of its physical-health responses in the high
     cosine-similarity range of 0.7 to 1.
   limitations: The authors state that Chinese-only coverage limits generalizability, common health scenarios omit

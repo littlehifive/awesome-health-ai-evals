@@ -45,6 +45,14 @@ card:
   scale: Numerical correctness is binary and reported as accuracy; human criteria are yes/no proportions, with overall
     1-5 ratings mapped to 0-100; code error rate is a proportion.
   validation: ''
+  score_meaning: The overall reasoning scale runs from 1 ("Poor") to 5 ("Excellent"), with 3 meaning "Acceptable";
+    higher scores indicate better reasoning. The reported 83% acceptable-or-better result counts responses rated
+    3 or above.
+  annotation_process: Raters were blinded to which method generated each response. For reasoning assessment, they
+    received final answers and English explanations of Python code produced through a Gemini Ultra translation pipeline
+    developed by two domain experts; code assessors independently reviewed complete responses, including Python
+    code, reasoning steps and error messages. Two experts also independently reviewed all open-ended responses for
+    errors and grouped them into error categories.
   results: PHIA achieved 84% numerical accuracy, compared with 74% for Code Generation and 22% for Numerical Reasoning.
     Its overall open-ended reasoning score was 68/100 versus 52/100 for Code Generation, and 83% of its responses
     were rated acceptable or better.

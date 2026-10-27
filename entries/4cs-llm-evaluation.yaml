@@ -40,6 +40,13 @@ card:
   scale: Each criterion is rated from 1 to 5; criterion averages and score distributions are reported.
   validation: At least two authors reviewed each score and reached consensus to ensure inter-rater reliability;
     no numerical agreement statistic is reported.
+  score_meaning: Higher scores indicate better responses. For correctness, 5 means nothing is wrong and the answer
+    meets textbook standards; 4 allows a few minor simplifications to aid understanding; 3 indicates oversimplifications
+    that affect truth; 2 indicates serious mistakes alongside several true statements; and 1 means nearly everything
+    is wrong and little makes sense.
+  annotation_process: The author team recorded reflections on the responses, drawing on expertise in cardiovascular
+    disease and nursing, machine learning, communication and patient perspectives. Patients did not participate
+    in assessing the prompt-response pairs.
   results: ChatGPT using GPT-4 received scores generally between 3 and 4 out of 5 across the 123 responses, with
     conciseness generally the weakest criterion. Higher-health-literacy prompts generally produced better responses,
     and Danish responses scored better on all four criteria.

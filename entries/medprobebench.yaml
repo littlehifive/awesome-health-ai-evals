@@ -46,6 +46,14 @@ card:
     was Spearman rho = 0.754 (p = 0.012), with human overall scores exceeding automated scores by 1.6 points for
     higher-performing systems and 1.8 for lower-performing systems. On 200 stratified claim-reference pairs, automated
     factual-consistency judgments achieved F1 = 86.4% and Cohen's kappa = 0.79 against expert annotations.
+  score_meaning: Task Success Rate measures coverage of essential medical claims in the gold guideline, while Search
+    Effectiveness measures retrieval of the guideline's reference sources. Factual Consistency measures the proportion
+    of generated claims supported by accessible, topically consistent evidence and penalizes missing, inaccessible
+    or irrelevant citations.
+  annotation_process: Each system is evaluated once per task. Gold-standard guidelines and generated reports undergo
+    the same normalization and claim-extraction pipeline before scoring. In the human validation study, experts
+    score multiple fine-grained criteria within each dimension using the same task-level weights as the automated
+    evaluator.
   results: MiroThinker v1.5 (Pro) ranked highest among 17 systems, with an overall score of 0.631.
   limitations: The benchmark is limited to oncology and is not intended for clinical deployment, since fluent outputs
     can lack reliable evidence grounding and medical use still requires human expert review.

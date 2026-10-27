@@ -46,6 +46,14 @@ card:
   validation: Rankings of 30 answer-generation systems were compared with human-assessed rankings using Spearman
     and Kendall tau correlations. With expert-supported citations, the correctness models achieved Supp(CS) scores
     of 92-93, while citation-based system rankings showed low correlation with medical informatics experts' rankings.
+  score_meaning: An answer sentence counts as correct if the classifier labels it correct against at least one three-sentence
+    window from an evidence document. For nugget matching with all-MiniLM-L6-v2, the tuned probability threshold
+    for treating two nuggets as semantically similar is 0.6267.
+  annotation_process: A Bayesian Gaussian mixture model was fitted on BioGen2024-train nugget similarities, and
+    Optuna tuned the matching threshold to optimize average F1-score, average nugget similarity, and average number
+    of alignments. The supervised classifiers were trained on BioGen2024-train, with model parameters selected using
+    BioGen2024-val; correctness training used human-annotated evidence spans as correct examples and high-ranking
+    BM25 fragments outside those spans as incorrect examples.
   results: For the framework's grading tasks, zero-shot Llama-3.3-70B-Instruct achieved the highest completeness
     weighted F1-score of 76.20. RoBERTaLarge achieved the highest reported correctness macro F1-score of 97.65.
   limitations: The authors report low agreement with expert-based system rankings for citation evaluation, an excess

@@ -39,6 +39,10 @@ card:
   judge: ''
   scale: Binary true or false labels in general and in patient context; primary metric is false-class F1.
   validation: ''
+  score_meaning: ''
+  annotation_process: Trained annotators segmented responses into snippets and judged each snippet in general and
+    for the patient, recording shared context and, where provided, a rationale. All 37 snippets flagged as ambiguous
+    were adjudicated to binary labels.
   results: ''
   limitations: Automated verification can accept false claims, reject correct claims, or abstain on clinically important
     cases, and the dataset should not be used for autonomous clinical decision support.

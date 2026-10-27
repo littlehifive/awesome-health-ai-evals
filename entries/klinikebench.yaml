@@ -44,6 +44,8 @@ card:
     evaluation.
   scale: Four pass-or-fail gates per encounter; strict pass@1 is the fraction passing all four.
   validation: Substituting judges broadly preserved model rankings but could change the leader.
+  score_meaning: On the 50 held-out tasks, score differences below about 0.07 are within noise.
+  annotation_process: ''
   results: Among the three reported Qwen3-4B variants on 50 held-out tasks, SFT + GRPO at step 50 achieved the highest
     strict pass@1 of 0.12, compared with 0.08 for SFT and 0.00 for zero-shot Qwen3-4B.
   limitations: Passing all gates does not guarantee a coherent encounter, and with 50 held-out tasks, score differences

@@ -61,6 +61,10 @@ card:
   scale: 'Closed-QA: accuracy and MCC; open-QA: F1-RadGraph, F1-BioBERT, BLEU and ROUGE-L; expert ratings: 1 to
     6, with 1 best.'
   validation: ''
+  score_meaning: For expert ratings, conciseness means giving direct, succinct answers for non-expert readers without
+    unnecessary detail; correctness means factual accuracy; and relevance means avoiding irrelevant content. A rating
+    of 6 is the worst.
+  annotation_process: ''
   results: DIYHealthGPT performed best across all tasks, with reported average improvements of 22.7% in closed-QA
     accuracy and 16.7% in open-QA F1-BioBERT over baselines. It was also the clinical experts' first preference.
   limitations: ''

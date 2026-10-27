@@ -50,6 +50,12 @@ card:
     to 0.90, and Kendall's W from 0.78 to 0.91. GPT-4's Pearson correlations with average expert scores were 0.90
     for information gathering, 0.92 for physical examination, 0.78 for diagnosis and 0.47 for closure; corresponding
     Kendall's tau values were 0.78, 0.53, 0.69 and 0.47.
+  score_meaning: Closure assigns up to 20 points for diagnostic impressions, 30 for management plans, 30 for compassionate
+    answers to challenging questions, 10 for accessible language and 10 for warmth and empathy. A dash in the results
+    table means the model could not follow instructions to produce a valid output.
+  annotation_process: For human validation, the experts scored GPT-4 student outputs across all four sections using
+    annotation guidelines derived from the examiner prompts. A domain expert helped design the task instructions,
+    evaluation criteria and scoring weights based on examination guidelines.
   results: ''
   limitations: The authors identify a small case sample, evaluation that excludes student reasoning and treatment
     plans, coverage limited to medical visits, only three expert raters, and assessment of instruction-following

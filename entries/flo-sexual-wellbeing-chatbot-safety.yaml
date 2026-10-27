@@ -59,6 +59,15 @@ card:
   validation: On synthetic cases, the Critic achieved 84.16% precision and 95.76% recall against labelled examples.
     During controlled release, clinician review found inaccurate or potentially unsafe responses that the Critic
     did not consistently detect.
+  score_meaning: Stage 2 required at least 90% of responses to be judged clinically accurate. The Critic had to
+    exceed 80% precision and reach at least 90% recall, meaning that more than 80% of its flags identified genuine
+    problems and it detected at least 90% of labelled problems.
+  annotation_process: Medical and product teams created three response pairs per rule for 28 medical and 16 product
+    rules, labelled them good or bad with reasons, and used two pairs to train the Critic while the Expert used
+    the third. Clinicians applied a predefined rubric informed by evidence-based guidance and internal medical standards
+    to 341 synthetic test cases, with findings used to refine the ruleset iteratively. In stress-testing, five doctors
+    each ran up to 20 cases, with four blinded to feature development and to each other; during the pilot, all responses
+    were reviewed daily until 5,000 had accumulated.
   results: The evaluated chatbot, called the Expert, produced clinically inaccurate responses in 0.97% (8/820) of
     synthetic-test responses, 1.67% (6/360) during clinician vulnerability testing and 0.90% (47/5195) of controlled-release
     dialogues. No high-severity unsafe responses were observed.

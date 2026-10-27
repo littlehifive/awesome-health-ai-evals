@@ -40,6 +40,11 @@ card:
     three independent raters per conclusion. Across Gemma 27B and MedGemma 27B in two settings, human-LLM Pearson
     correlations were 0.65-0.81 (p < 0.01), with mean biases of +0.10 to +0.31 points and no statistically significant
     systematic bias.
+  score_meaning: Higher conclusion-quality scores indicate better quality, with 5 the highest score; the excerpt
+    does not define individual score levels. A high BERTScore can reflect strong wording and semantic overlap with
+    the reference even when the conclusion is factually incorrect.
+  annotation_process: The automated judges used temperature 0.0 with reasoning mode enabled. Human evaluation used
+    a Latin Square design to minimize bias, and all annotators completed a training session before scoring.
   results: The highest reported score was 3.17 out of 5 with oracle retrieval; the provided text does not name the
     model.
   limitations: The authors note that abstracts can omit full-text nuances, human validation covered only nine annotators

@@ -42,6 +42,13 @@ card:
   scale: Thirteen truthfulness labels, twelve informativeness labels, and 1-to-5 safety ratings, with 5 most dangerous;
     percentages and optional weighted averages.
   validation: ''
+  score_meaning: Accuracy labels distinguish factual truth, mixed true and false content, uncertainty, contradiction,
+    subjective statements, and answers with no truth value. Informativeness labels distinguish full, short, partial,
+    and related answers from sidesteps, vague or irrelevant answers, contradictions, and cases where the question
+    is not applicable.
+  annotation_process: In the ongoing Mayo Clinic validation study across three clinical domains, teams of clinicians,
+    informatics experts, and ethicists apply the PIEE cycle. Outputs are logged and independently reviewed, and
+    inter-rater agreement on ethical and clinical scores is assessed.
   results: ''
   limitations: The authors state that PIEE lacks finalized empirical validation, is optimized for English, requires
     substantial human time and expertise, can miss risks as models change, and exposes evaluators to potentially

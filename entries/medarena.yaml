@@ -41,6 +41,13 @@ card:
     with the remainder including PAs, NPs, and other professions.
   scale: Four preference choices per comparison; aggregate Bradley-Terry ratings, rankings, and win rates.
   validation: ''
+  score_meaning: A higher Bradley-Terry rating means a model is more likely to be preferred by clinicians, rather
+    than more likely to be clinically correct. In the pairwise win-rate table, a value above 0.5 means clinicians
+    preferred the row model over the column model more often.
+  annotation_process: US clinicians authenticated through a Doximity account or an NPI number verified by API at
+    sign-up; international clinicians supplied credentials that were not verified. Clinicians spent an average of
+    2.5 minutes evaluating each response pair, with a median of 55 seconds. Free-text reasons accompanied 153 of
+    the 1,571 preferences.
   results: Gemini 2.0 Flash Thinking ranked first, followed by Gemini 2.5 Pro and GPT-4o; the supplied text gives
     no numerical ratings. The leaderboard ranked ten models, excluding two with insufficient samples.
   limitations: The authors cite small matchup samples, limited coverage of commercial and newer models, exclusion

@@ -42,6 +42,10 @@ card:
   scale: Semantic reproducibility is rescaled to 0 to 1; higher values on all four metrics indicate greater consistency
     or certainty.
   validation: ''
+  score_meaning: The scores support relative comparisons, with no universal pass or failure thresholds defined.
+    A high consistency score does not establish diagnostic correctness, since a model can consistently produce incorrect
+    answers.
+  annotation_process: ''
   results: ''
   limitations: The authors state that computational cost limited the configurations evaluated and that internal
     metrics require access to token-level probabilities, restricting their applicability primarily to autoregressive

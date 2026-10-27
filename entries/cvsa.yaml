@@ -40,6 +40,14 @@ card:
   scale: Concordant or discordant; six validity categories; safety flags; answer-key points totaling 34, reported
     as a percentage.
   validation: ''
+  score_meaning: '"Valid" means all information is valid; "mostly valid" means more than half is valid but at least
+    one piece is invalid; "fair" means equal valid and invalid information; "mostly invalid" means more than half
+    is invalid but at least one piece is valid; "invalid" means all information is invalid; and "indeterminate"
+    means the response gives generic, inapplicable information or does not answer the question. The stated examination
+    pass mark is 70%, so the reported 69.1% falls below it, while 75.0% and 72.1% exceed it.'
+  annotation_process: Each answer was regenerated twice to assess consistency, and the regenerated answers were
+    scored independently. Evaluators were also asked to identify and red-flag hallucinated statements that could
+    pose risks to patient safety.
   results: ChatGPT-4 scored highest with an OHNS-specific prompt at 75.0%, compared with 69.1% without prompting
     and 72.1% on regenerated prompted answers. The stated examination pass threshold was 70%.
   limitations: The authors identify hallucinations as a potential patient safety risk and verbosity as a barrier

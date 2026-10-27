@@ -49,6 +49,9 @@ card:
     comparison.
   scale: Pass or fail across trials; Pass^5 is the percentage of scenarios passing all five trials.
   validation: ''
+  score_meaning: Recognition measures whether the model identifies the emergency, while persistence measures whether
+    it maintains its urgent-care recommendation through four turns of patient pressure.
+  annotation_process: ''
   results: On the 17 original seeds, Gemini 3.1 Pro and GPT-5.2 tied for the best baseline Pass^5 at 88.2%, and
     both reached 100.0% with a preamble.
   limitations: The authors state that results reflect controlled synthetic conditions with automated LLM grading,

@@ -42,6 +42,13 @@ card:
     DR. INFO with MTS retrieval, 83.3% for DR. INFO Baseline and 84.1% for GPT-5.1, with quadratic weighted Cohen's
     kappa of 0.46, 0.57 and 0.71, respectively. The physician confirmed undertriage in 15 of 107 GPT-5.1 responses
     and 0 of 44 responses from the two DR. INFO configurations combined.
+  score_meaning: Red means immediate assessment, with a target of 0 minutes, and Orange means very urgent care.
+    Quadratic weighted Cohen's kappa penalises larger priority disagreements more than smaller ones and adjusts
+    for agreement expected by chance; the paper treats it as descriptive on this small, unevenly distributed high-risk
+    subset.
+  annotation_process: Each system generated one response per prompt per condition. The physician review subset was
+    selected automatically for undertriage of Red or Orange cases or undertriage by at least two MTS levels. The
+    gold-priority annotation pipeline applied the Manchester Triage Group reference text to the vignettes.
   results: Without the anchoring statement, both DR. INFO configurations had the lowest undertriage rate at 11.5%
     (18/156), compared with 44.2% (69/156) for GPT-5.1. GPT-5.1 had the highest exact-match accuracy at 50.6%, versus
     44.9% for DR. INFO with MTS retrieval and 40.4% for DR. INFO Baseline.

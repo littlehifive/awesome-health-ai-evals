@@ -42,6 +42,13 @@ card:
   scale: Acceptable or problematic, issue tags, and quality from 1 (poor) to 5 (excellent); percentage problematic
     and mean quality rating.
   validation: ''
+  score_meaning: The Missing History Taking tag applies only when omitted critical questions make the response problematic,
+    not whenever a chatbot answers without asking follow-up questions. Problematic responses include unsafe advice
+    but also other quality problems, so the problematic-response rate is not the same as the unsafe-response rate.
+  annotation_process: The evaluation system was developed through group discussion and iterative refinement. R.L.D.
+    assigned questions according to physicians' specialties and interests, and each physician assessed all four
+    chatbot responses to an assigned question in randomized order. Ratings were collected in an Excel survey with
+    an optional free-text comments column; the authors who collected chatbot responses did not evaluate them.
   results: Claude 3.5 Sonnet performed best, with 21.6% problematic responses, 5% unsafe responses, and a mean quality
     rating of 4.02 out of 5.
   limitations: Each response had only one physician evaluator, questions came from search-engine recommendations

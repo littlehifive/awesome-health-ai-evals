@@ -43,6 +43,11 @@ card:
   scale: 'Principal diagnosis: 0, 0.5 or 1 for ICD-10 agreement; other task-specific similarity, coverage and accuracy
     metrics; final score is the mean of five normalized task scores.'
   validation: ''
+  score_meaning: 'For principal diagnosis, 1 means an exact ICD-10 code match, 0.5 means the first three digits
+    match but the subtype differs, and 0 means the disease category is wrong. A DCCI of 100% means every generated
+    answer includes all four required criteria: symptoms, disease course, severity and exclusions.'
+  annotation_process: The reader study's scoring standards were based on ICD-10 diagnostic guidelines and the SaferDx
+    framework, then reviewed and revised by an independent expert committee.
   results: Doubao-pro-32k achieved the highest principal diagnosis accuracy at 53.33 ± 48.36%. Qwen-max achieved
     the highest differential diagnosis accuracy at 34.56 ± 40.92%.
   limitations: ''

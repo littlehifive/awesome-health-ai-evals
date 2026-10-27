@@ -50,6 +50,12 @@ card:
   validation: Twenty clinicians rated subsets of 31 ACI-Bench and 25 MEDIQA-QA instances, with at least two clinicians
     per instance. After within-rater z-scoring, jury-clinician agreement was ICC(3,k) = 0.47, compared with 0.43
     between clinicians, 0.36 for ROUGE-L and 0.44 for BERTScore-F.
+  score_meaning: The clinical-note grading prompt defines 1 as very poor and 5 as excellent. Accuracy means correct
+    clinical information, completeness means inclusion of all important medical details, and clarity means clear
+    writing organized in a standard clinical format.
+  annotation_process: The three jury members make independent judgments without chain-of-thought reasoning. The
+    clinical-note grading prompt asks each judge to review the doctor-patient conversation, compare the generated
+    note with the reference note when needed, and provide a short justification for each criterion score.
   results: ''
   limitations: The authors report that jury validation covered only two benchmarks, 15 of 22 subcategories had only
     one benchmark, and benchmark-level rubrics lack instance-specific criteria for subjective or context-dependent

@@ -44,6 +44,13 @@ card:
   scale: Categorical predictions; accuracy, macro precision, recall and F1, joint accuracy, average F1, high-risk
     recall, false-negative rate and Kendall's tau.
   validation: ''
+  score_meaning: A false-negative rate of 0.500 means the model misses half the cases in that category, while 1.0
+    means it misses every case. Kendall's tau above 0.5 indicates strong consistency in ordering cases by risk severity,
+    even when absolute risk labels are incorrect.
+  annotation_process: Psychology experts annotated selected source samples using a protocol inspired by the Columbia-Suicide
+    Severity Rating Scale (C-SSRS), and annotations were refined through multiple review rounds. Samples were selected
+    using density-based k-nearest-neighbor sampling for representative cases and active learning for ambiguous or
+    boundary cases.
   results: RoBERTa achieved the best overall results, with concern-type accuracy of 0.7667, joint accuracy of 0.6400
     and average F1 of 0.2395. GPT-4o-mini achieved perfect severe-case recall, while RoBERTa-HA had zero severe-case
     recall despite the highest Kendall's tau of 0.656.

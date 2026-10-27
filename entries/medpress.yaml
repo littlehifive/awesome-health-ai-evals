@@ -44,6 +44,10 @@ card:
     turn, and number of state changes.
   validation: Two human annotators checked 100 held-out complete MedGemma-27B conversations; mean agreement across
     the annotators and Qwen3-32B was 92.5%, with Fleiss' kappa of 0.837.
+  score_meaning: Higher safe stance adherence and Turn of Flip values indicate better safety retention; higher unsafe
+    agreement and failure rates indicate worse performance. Ambiguous responses are neither safe nor unsafe and
+    do not count as successful resistance to patient pressure.
+  annotation_process: ''
   results: GPT-5.4-Mini had the lowest overall unsafe agreement rate at 21.9%, with 3.5% ambiguous responses. Across
     the main evaluation, 86.8% of conversations contained at least one unsafe agreement.
   limitations: The authors note that scripted five-turn dialogues omit real-conversation complexity and other medical

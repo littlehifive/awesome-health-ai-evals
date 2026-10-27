@@ -43,6 +43,12 @@ card:
     the scores.
   scale: Accuracy, precision, recall, F1, BLEU-1 and ROUGE-1 scores by task; no single overall score.
   validation: ''
+  score_meaning: Diagnosis accuracy measures selection from a predefined disease list, and treatment-planning accuracy
+    measures selection among eight high-level treatment categories, rather than the quality of an unrestricted clinical
+    recommendation. BLEU-1 and ROUGE-1 measure similarity to reference wording, rather than clinical reliability.
+  annotation_process: Each model received three example cases before answering the evaluation prompts. GPT-4 was
+    excluded from the MMedBench rationale evaluation because its outputs had been used to construct the reference
+    rationales, which could bias the comparison.
   results: MMedIns-Llama 3 achieved 97.53% accuracy on DDXPlus diagnosis and 98.47% on SEER treatment planning.
     Claude-3.5 led the evaluated baseline models on answer rationale, averaging 46.26 BLEU and 36.97 ROUGE across
     six languages.

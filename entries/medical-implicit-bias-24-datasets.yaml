@@ -45,6 +45,11 @@ card:
     reported as means and standard deviations.
   validation: Chinese-prompt validation produced correlated bias patterns with r > 0.84. In supplementary MIMIC-IV
     case-report tests with altered demographic labels, ChatGPT-4o showed a 90% bias rate (p < 0.001).
+  score_meaning: An association score near 1 indicates almost exclusive assignment of attributes in the stereotypical
+    direction, such as linking disabled people with negative traits. Odds ratios below 1 mean that higher association
+    bias scores predict a lower probability of discriminatory decisions, a statistical relationship rather than
+    evidence of causation.
+  annotation_process: ''
   results: ''
   limitations: The authors state that synthetic prompts and simplified decision vignettes do not capture real clinical
     complexity or directly predict clinical errors, model updates may change findings, the main experiments were

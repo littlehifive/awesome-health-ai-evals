@@ -48,6 +48,14 @@ card:
   validation: Two physicians independently assessed 120 randomly sampled open-ended items, 30 each from diagnosis
     generation, diagnostic reasoning, treatment planning, and treatment reasoning, with model identities concealed.
     Their Cohen's kappa was 0.95, and disagreements were resolved through discussion chaired by a third expert.
+  score_meaning: Accuracy is the number of correct answers divided by the total number of questions, multiplied
+    by 100; higher values mean more answers were correct. For the five-option multiple-choice tasks, random guessing
+    has a 20% accuracy baseline.
+  annotation_process: Reference answers were prepared by seven senior experts with over ten years of clinical experience
+    from Peking University Third Hospital and Beijing Jishuitan Hospital. For every case annotation, one expert
+    produced the initial annotation and another independently reviewed it, with disagreements resolved through discussion.
+    The experts also reviewed and revised exam-bank answers against current clinical practice guidelines and expert
+    consensus.
   results: MedGPT reached 96.0% accuracy on clinical note interpretation and 83.3% on diagnosis generation when
     images were replaced with clinician-written radiology reports. The best-performing VLMs, including GPT-4o and
     Claude 3.5 Sonnet, remained below 60% on open-ended multimodal tasks.

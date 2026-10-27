@@ -41,6 +41,13 @@ card:
   validation: Human reviewers independently assessed responses from 300 MedGPTs, comprising 200 top-tier and 50
     each middle- and bottom-tier models, and resolved discrepancies by consensus. Agreement with automated scoring
     was 90.5-94.0%, with Cohen's kappa of 0.8163.
+  score_meaning: Cosine similarity of 0 means no similarity to the clinical input, while 1 means perfect alignment.
+    BARTScore below -4 indicates weak alignment and scores of -3.5 or higher indicate stronger alignment; semantic
+    entropy below 2 indicates moderate response stability.
+  annotation_process: Each model received the same MedQA clinical question five times to capture variation across
+    answers. G-Eval checked factual consistency, cited sources and logical coherence, incorporating token-level
+    confidence to reduce verbosity bias. Human reviewers assessed responses against the ground truth using the same
+    metrics as the automated system.
   results: Among the 10 open-source models, Galactica had the highest G-Eval score at 0.6480. MedAlpaca and Apollo
     tied for the highest reported cosine similarity at 0.4863 and BARTScore at -1.6549.
   limitations: ''

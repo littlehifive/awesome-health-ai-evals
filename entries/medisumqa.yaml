@@ -42,6 +42,12 @@ card:
   validation: 'Physician ratings generally increased across five automatic-score bins: Mistral-7B-Instruct-v0.1
     factuality rose from 2.5 in the lowest bin to 4.3 in the highest, while Meta-Llama-3.1-8B-Instruct remained
     above 4.0 across all bins.'
+  score_meaning: Factuality measures medical accuracy, brevity measures conciseness, patient-friendliness measures
+    clarity for lay readers, and relevance measures alignment with the question; higher ratings indicate better
+    performance. Safety is 0 for unsafe answers and 1 for safe answers, based on potential harm or misleading information.
+  annotation_process: For each model, answers were sorted by their average automatic score and divided into five
+    equal-sized groups, then ten answers were sampled from each group for physician rating. The same sampling procedure
+    selected the additional answers used in the blinded preference comparison.
   results: Meta-Llama-3.1-8B-Instruct led all seven tested models with an average automatic score of 31.43, including
     BERTScore F1 of 69.35 and UMLS F1 of 23.55.
   limitations: The authors identify English-only coverage, underrepresentation of post-discharge care and follow-up,

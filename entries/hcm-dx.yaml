@@ -44,6 +44,10 @@ card:
   validation: 'Two clinicians independently checked reference sets for 50 questions: both requested removals in
     2% of safety-critical sets and 8% of highly likely sets, and additions in 18% of plausible sets and 20% of safety-critical
     sets. Error rates rose substantially when either clinician''s objection counted, indicating expert disagreement.'
+  score_meaning: ''
+  annotation_process: 'In a separate check of semantic matching, two clinicians reviewed sampled diagnosis pairs
+    using four labels: match, close match, vague match, and no match. Their judgments were analyzed separately for
+    pairs where the two LLM judges agreed and pairs where they disagreed.'
   results: ''
   limitations: The authors state that the framework omits questioning strategy, explanation quality, conversational
     appropriateness, and actionability, while synthetic reference construction and semantic matching reduce real-world

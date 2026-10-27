@@ -41,6 +41,12 @@ card:
   judge: Exact match with the expert-annotated answer key.
   scale: Correct or incorrect per item; accuracy and macro F1 reported as percentages.
   validation: ''
+  score_meaning: Over-reliance on parametric knowledge measures failure to correct an initially wrong answer after
+    receiving correct context. Vulnerability to misleading context measures changing an initially correct answer
+    to a wrong one after receiving incorrect context; higher values on either measure indicate more failures.
+  annotation_process: The authors reused existing TREC annotations rather than collecting new judgments. NIST assessors
+    judged the documents under official guidelines, but NIST does not disclose the number of assessors used in the
+    TREC Health Misinformation track.
   results: GPT-4O performed best across the contextual prompts, but its scores are not given in the supplied text.
     MEDITRON3-8B achieved 91.1% accuracy with correct context, an 8.7 percentage-point improvement over its no-context
     performance.

@@ -47,6 +47,10 @@ card:
     the judging prompt was finalized on 100 dialogues and frozen for 200 held-out dialogues. GPT-4o achieved approximately
     88-90% agreement with physician-majority diagnosis labels, with κ approximately 0.70-0.80. Difficulty labels
     had 88.9% exact agreement with blinded physician-majority labels and weighted κ of 0.88.
+  score_meaning: Judge failures count as incorrect and are reported explicitly.
+  annotation_process: Physician annotators were recruited through the authors' academic and clinical networks based
+    on medical training and relevant clinical expertise. They provided informed consent and were paid 5 USD per
+    hour; no crowdsourcing platforms or members of the general public were involved.
   results: Kimi-K2.5 achieved the best multi-turn diagnostic accuracy, 41.9%, under a 20-turn budget. On a separate
     set of 60 difficult cases, three resident physicians averaged 48.33% accuracy versus 26.67% for the five tested
     models, using 7.26 versus 12.32 turns on average.

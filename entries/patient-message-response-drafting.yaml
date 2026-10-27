@@ -44,6 +44,14 @@ card:
   scale: Content-level and theme-level edit-F1 from 0 to 1, reported with micro-averaged precision and recall.
   validation: The content judge achieved 96% agreement with expert human annotators, including 92% overlap with
     expert-annotated matching-content decisions. The theme classifier achieved F1 of 0.82 on expert-annotated data.
+  score_meaning: Higher edit-F1 scores indicate closer alignment with the reference clinician's response and fewer
+    expected edits, rather than higher quality on a general clinical rubric. The paper interprets content-level
+    scores of 0.25-0.26 as a 25-26% reduction in clinician edits; theme-level scores measure alignment in response
+    themes rather than exact content.
+  annotation_process: Each reference response was written by one MD with more than 15 years of primary-care experience,
+    using the patient message and EHR and following clinician response themes. Drafts were scored automatically
+    against these reference responses. For a separate comparison of clinician agreement, three expert responses
+    were collected for each of 40 SyPPM samples and compared using EditJudge.
   results: Gemini 2.5 Pro with thematic prompting was the best frontier model, with content-level edit-F1 of 0.26.
     Comparing three expert replies to each of 40 SyPPM items yielded average human-to-human content-level edit-F1
     of 0.24.

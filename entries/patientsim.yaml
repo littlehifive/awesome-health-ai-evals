@@ -46,6 +46,14 @@ card:
   validation: For unsupported-statement plausibility, three clinicians rated each sentence, with pairwise Gwet's
     AC1 values ranging from 0.853 to 0.968. The sentence classifier was also checked against author annotations
     of 411 sentences from 10 dialogues, but the excerpt gives no accuracy results.
+  score_meaning: For persona fidelity and realism, 1 means "Strongly disagree" and 4 means "Strongly agree," so
+    higher scores indicate stronger agreement that the simulator meets the criterion. Clinicians also rated agreement
+    with "This chatbot would be useful in education for practicing consultation skills," with the same endpoints.
+  annotation_process: Clinicians were recruited through Ingedata, an AI data annotation company, and evaluated Llama
+    3.3 after the automated evaluation identified it as the best-performing model. For persona evaluation, they
+    conversed with the simulator for approximately 10-15 minutes per case before rating six criteria. For plausibility
+    evaluation, each clinician reviewed 39 dialogues, about 616 sentences, alongside patient profiles and conversation
+    histories, spending approximately six minutes per dialogue.
   results: Llama 3.3 was selected as the best-performing open-source simulator and received an overall clinician
     rating of 3.89 out of 4. Clinicians rated its educational usefulness at 3.75 out of 4 and the plausibility of
     unsupported statements at an average of 3.91 out of 4.

@@ -46,6 +46,14 @@ card:
   validation: Krippendorff's alpha for expert annotations ranged from slightly negative to 0.8, reflecting intended
     disagreement on ambiguous questions. The creator's intended answer was always among the top three options ranked
     by the hierarchical Bradley-Terry model.
+  score_meaning: Experts rated each answer option from 0 to 100 for how valid they considered it, allowing multiple
+    options to be valid. Higher free-form inconsistency scores mean greater deviation from the expert answer, but
+    valid answers absent from the predefined options can also receive higher scores.
+  annotation_process: Eight psychiatric practitioners independently rated all five options for randomly presented
+    questions in batches of 20, producing 657 annotations across 57 questions, averaging 11.5 annotations per question.
+    Expert disagreements were retained to capture ambiguity rather than resolved by consensus. One expert identified
+    objectively incorrect options, whose preference probabilities were then set to zero before the remaining probabilities
+    were recalibrated.
   results: ''
   limitations: The authors state that the dataset is small and U.S.-centric, can retain annotation biases or errors,
     does not fully capture dynamic psychiatric interactions, and risks encouraging premature clinical deployment.

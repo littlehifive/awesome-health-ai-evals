@@ -42,6 +42,11 @@ card:
   judge: Evaluation code compares predictions with the reference labels.
   scale: One of four labels per case; overall accuracy, macro F1, a 0-100 Safety Score, and error rates.
   validation: ''
+  score_meaning: Supported means the therapy is evidence-based and clinical information is complete; Partially Supported
+    means the therapy is appropriate but caveats require oncologist review. Unsupported means the therapy lacks
+    adequate evidence for the presented context; Insufficient Information means critical fields are missing, so
+    safety cannot be determined.
+  annotation_process: Two oncologists labeled a 50-case subset for a concordance study.
   results: MTB-AuditAgent, a deterministic pipeline with no inference-time LLM calls, achieved 91.2% accuracy, 0.898
     macro F1, and a Safety Score of 92.4 on 500 cases, with 6.7% over-refusal and 0.0% false approvals. All eight
     LLM configurations failed to retain the Partially Supported label in 83.3-100% of cases with that reference

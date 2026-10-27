@@ -43,6 +43,10 @@ card:
   scale: Correct or incorrect per case for top-one diagnosis, top-two diagnoses, and specialty referral; aggregate
     percentage accuracy and mean questions asked.
   validation: ''
+  score_meaning: ''
+  annotation_process: Judges first reviewed the conversations and flagged messages in which the health AI explicitly
+    mentioned a diagnosis before evaluating accuracy. During the final evaluation, patient-actor messages were also
+    reviewed throughout each conversation to check that they followed the actor guidelines.
   results: August achieved 81.8% top-one accuracy (327/400), 85.0% top-two accuracy (340/400), and 95.8% specialty
     referral accuracy, with a mean of 16 questions. Three family medicine doctors achieved top-one accuracies of
     49.7%, 61.3%, and 72.5%; one had more than 30 years of experience and two had more than 10 years.

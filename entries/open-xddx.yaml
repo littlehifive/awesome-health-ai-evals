@@ -45,6 +45,12 @@ card:
     of three dimensions.
   validation: Annotation agreement was 0.885 for diagnoses and 0.859 for interpretations using Jaccard scores, and
     0.914 for specialty using Cohen's kappa.
+  score_meaning: In physician review, a predicted diagnosis counted as correct if it was a synonym or subtype of
+    the reference diagnosis. For interpretations, correctness measures medical accuracy, completeness measures coverage
+    of the symptom descriptions, and usefulness measures the interpretation's overall value for diagnosis.
+  annotation_process: Three clinical physicians from the University of Minnesota created the reference annotations.
+    Two independently annotated each source exercise, and the third examined cases with disagreements and made the
+    final annotation.
   results: Dual-Inf with GPT-4o achieved interpretation accuracy of 0.488, compared with 0.408 for SC-CoT. Dual-Inf
     with GPT-4 achieved diagnostic accuracy of 0.533 and interpretation accuracy of 0.446.
   limitations: The authors state that the nine specialties do not cover the full breadth of real-world scenarios

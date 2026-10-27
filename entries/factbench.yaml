@@ -45,6 +45,11 @@ card:
   validation: Two annotators rated each of 80 randomly selected generations, 20 per task, with Cohen's kappa of
     0.75. Unanimous voting aligned best with human ratings for summarization, lay summarization and RAG, while baseline
     FActScore aligned best for open-ended generation.
+  score_meaning: NLI treats entailment as support for an atomic fact and contradiction as a hallucination. Human
+    scores estimate the factual correctness of the whole generated text.
+  annotation_process: Human annotators were instructed to use both the original article and Wikipedia when checking
+    factual correctness. They were salaried in-house employees, were informed about the task and the research use
+    of their data, and had their annotations stored anonymously.
   results: With source-document and Wikipedia checks, Mixtral 8x7b led unanimous-voting scores for scientific summarization
     at 86.24 and lay summarization at 95.1. GPT-4o mini led RAG at 76.4 and open-ended generation at 50.3.
   limitations: The authors note that computational costs restricted each judging method to one backbone model, the

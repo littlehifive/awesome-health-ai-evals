@@ -43,6 +43,11 @@ card:
   judge: ''
   scale: Correct or incorrect per item; percentage accuracy and mean pointwise score using +1 and −0.25.
   validation: ''
+  score_meaning: Higher scores indicate better selection of appropriate answers in reasoning tests or more accurate
+    retrieval of biomedical information in memory tests. Success on the None of the Above test means recognizing
+    that the correct answer is absent, while success on the Fake Questions test means identifying and handling a
+    fake or nonsensical question.
+  annotation_process: ''
   results: Llama-2 70B had the highest average reasoning accuracy at 72.33%. Falcon 40B and Falcon 40B-instruct
     tied for the highest average memory-test accuracy at 30.36%.
   limitations: The authors report that models are sensitive to prompt framing and decoding parameters, with even

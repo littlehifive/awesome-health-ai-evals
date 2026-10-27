@@ -46,6 +46,13 @@ card:
   scale: Exact label-set match or mismatch per post; aggregate Exact Match, Jaccard, F1, and recall range from 0
     to 1.
   validation: ''
+  score_meaning: Higher recall means more complete coverage of the crisis labels identified by clinicians. Fine-tuned
+    model results are reported as percentages, with changes from the base model expressed in percentage points.
+  annotation_process: 'Annotation ran for ten rounds: in the first three, two annotators independently labeled each
+    post, tracked agreement and resolved disagreements through expert consultation to refine the guidelines. Later
+    posts received one annotation from a trained, qualified expert, followed by a senior faculty psychologist''s
+    quality-control review. A board-certified psychologist also reviewed 131 of the 600 test posts whose original
+    labels differed from GPT and Claude outputs, deciding whether to retain or revise the labels.'
   results: Claude-4-Sonnet had the highest individual-model Exact Match at 0.8217, while GPT-5 had the highest macro
     F1 at 0.8163. A majority-vote ensemble of GPT-5, Claude-4-Sonnet, and Gemini-2.5-Pro achieved Exact Match of
     0.8450 and Jaccard of 0.8794.

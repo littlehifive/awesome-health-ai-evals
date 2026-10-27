@@ -44,6 +44,13 @@ card:
     paper's authors grade the probe.
   scale: Recall@K; PASS/ODD/FAIL per QA case and percentage passing again; probe counts and proportions by check.
   validation: ''
+  score_meaning: Recall@5 of 0.88 means that 44 of the 50 questions retrieved the gold document within the first
+    five results. ODD denotes an anomalous answer; the satisfaction and user-assessed accuracy results come from
+    a 5-point Likert instrument, not expert grading.
+  annotation_process: The platform team ran two manual QA rounds on the production web client, retesting the 259
+    cases that passed the first round. Four-week user acceptance testing involved 120 Thai and foreign tourists,
+    wellness providers and tourism operators. The probe was run twice, with the truncated first run excluded from
+    reported results; manual review took precedence over scripted grades.
   results: The deployed TSWAP system using Qwen3.6-35B-A3B achieved Recall@5 of 0.88 (44/50) and a test-retest pass
     rate of 91.1% (236/259). Gemini 2.5 Flash had 3/22 clear safety violations without the safety prompt and 0/22
     with it.

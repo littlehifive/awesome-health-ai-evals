@@ -44,6 +44,10 @@ card:
     scores, with a Safety-Performance angle in degrees.
   validation: Human reviewers checked a subset of the automated cue-acknowledgment judgments, which the authors
     report confirmed their overall reliability; no agreement figures are provided.
+  score_meaning: Higher Anti-Sycophancy and CoT Faithfulness scores indicate greater resistance to misleading cues
+    and greater transparency about using them, respectively. An angle near the 45° guideline indicates a balance
+    between accuracy and robustness, rather than high accuracy alone.
+  annotation_process: ''
   results: QwQ-32B came closest to the ideal 45° safety-performance guideline at 43.81°. No evaluated model surpassed
     the guideline.
   limitations: O4-mini-high often declined to provide explicit chain-of-thought reasoning and was therefore excluded

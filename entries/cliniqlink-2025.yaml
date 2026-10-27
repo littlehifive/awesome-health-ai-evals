@@ -45,6 +45,12 @@ card:
   scale: Accuracy, list macro and micro F1, and semantic similarity from 0 to 1; secondary n-gram metrics and human
     best-to-worst rankings with good/okay/bad tags.
   validation: ''
+  score_meaning: List F1 penalizes extra incorrect choices as well as missing correct choices. Semantic-similarity
+    scores above 0.60 with BLEU below 0.10 were observed for correct answers that paraphrased the reference rather
+    than copied its wording.
+  annotation_process: 'Evaluation proceeded in two stages: automated scoring followed by the human preference study.
+    For each question in the preference study, the seven model responses and the reference answer were shuffled
+    before annotators ranked them.'
   results: ''
   limitations: The authors found that automatic open-ended metrics did not effectively evaluate responses or distinguish
     strong models from mediocre ones, and that output-format violations could lower scores despite adequate comprehension.

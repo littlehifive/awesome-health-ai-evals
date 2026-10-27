@@ -44,6 +44,12 @@ card:
   scale: Cosine similarity averaged per demographic group; Percent Win and human alignment reported as percentages.
   validation: Cohen's kappa between researchers was 0.78 for LLaMA location ratings, 0.64 for GPT location ratings,
     0.37 for GPT age ratings, and 0.48 for LLaMA age ratings.
+  score_meaning: Higher similarity scores and Percent Win values indicate that answers without demographic context
+    more closely align with a particular group's answers, rather than indicating better overall answer quality.
+  annotation_process: Prolific workers were paid $14 per hour and told they were evaluating AI-generated responses.
+    Age ratings were handled internally after healthcare annotators showed biases such as not associating pregnancy
+    with people over 40; location ratings required knowledge of current U.S. laws. Location judgments used laws
+    in effect at the end of 2023.
   results: Both gpt-3.5-turbo and llama-2-70b-chat favored female users, ages 18-30, and Massachusetts residents
     rather than producing an overall best-model ranking. For female users, gpt-3.5-turbo had average similarity
     0.91, Percent Win 60.9%, and human alignment 98.4%; llama-2-70b-chat had 0.88, 57.8%, and 93.5%, respectively.

@@ -46,6 +46,15 @@ card:
   validation: Physician inter-rater reliability was 0.985 for status, 0.980 for problems, 0.826 for recommendations
     and 0.916 for red flags; Oracle F1 against physician consensus was 0.987, 0.987, 0.895 and 0.964, respectively.
     The PubMedBERT matching threshold achieved 0.96 F1 on 100 expert-annotated pairs.
+  score_meaning: Higher accuracy, macro-F1, Hit@5 and Recall@5 indicate better agreement with the hindsight clinical
+    labels, while lower HRR indicates fewer potentially harmful recommendations. Macro-F1 gives equal weight to
+    patient-status classes so that the majority class, stable, does not dominate the score.
+  annotation_process: Each Gold window was independently labeled by at least two of five senior ICU physicians after
+    reviewing the full patient trajectory; windows without physician agreement were dropped. For action labels,
+    annotators classified interventions as best-practice, acceptable or potentially harmful and could add actions
+    that should have been taken; recommended-action references combined best-practice, acceptable and added actions,
+    while red flags were annotated separately. Gemini-3.1-pro, acting as Oracle under the same hindsight conditions,
+    labeled every window for Scale.
   results: On RealICU-Gold, ICU-Evo with Gemini-3.1-pro achieved the highest patient-status accuracy, 0.459, and
     tied for the highest action Recall@5, 0.534, with a harmful recommendation rate of 0.300. ICU-Evo with GPT-5.4
     led acute-problem Recall@5 at 0.570 but had a harmful recommendation rate of 0.473.

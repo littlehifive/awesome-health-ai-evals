@@ -42,6 +42,12 @@ card:
   validation: On a subset of LLaMA outputs, GPT-4o versus human ratings had mean absolute errors of 0.64 before
     DPO and 0.35 after DPO, with hallucination-classification agreement of 0.86 and 0.96. Across both settings,
     Pearson correlation was 0.85 for GPT-4o versus humans and 0.95 between human raters.
+  score_meaning: Small score differences, such as one point, reflect differences in evaluative confidence rather
+    than necessarily indicating disagreement about whether affective hallucination occurred. Human raters used intermediate
+    scores such as 2-3 to express uncertainty.
+  annotation_process: Multiple candidate responses were presented together in the same context for joint evaluation,
+    with a rationale required for each rating and decoding temperature fixed at 0.0. The authors conducted response
+    annotation themselves rather than outsourcing it, and all outputs underwent human verification.
   results: ''
   limitations: The authors identify culturally and situationally subjective emotional boundaries, limited demographic
     representativeness, and possible model-induced bias from using GPT-4o for both prompt augmentation and evaluation.

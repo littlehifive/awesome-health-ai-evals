@@ -45,6 +45,14 @@ card:
     and pairwise ranking accuracy.
   validation: Using more than one reference rather than one generally improved average correlation with human ratings
     by 5-10 percentage points, although DermaVQA did not show consistent gains.
+  score_meaning: For WoundcareVQA, scores of 0, 0.5 and 1 mean incorrect, partially correct and correct answers,
+    respectively. Higher correlations and pairwise ranking accuracy indicate closer agreement between an evaluation
+    metric and expert judgments, rather than better chatbot answers directly.
+  annotation_process: English raters could use their own judgment even when it differed from the gold references,
+    while Chinese raters assessed consistency with those references. Evaluators included experts hired through Upwork,
+    collaborating scientists and graduate trainees; Upwork annotators were selected using verified professional
+    credentials and received task descriptions and sample data. Automatic reference-based metrics compared generated
+    answers with expert-written gold answers.
   results: ''
   limitations: The authors state that sample size and scope are limited, the small number of expert raters may not
     represent all experts, and the analysis does not cover all LLMs or evaluation methods.

@@ -55,6 +55,11 @@ card:
   judge: Gemini 2.5 Pro grades answers, followed by verification by an expert human reviewer.
   scale: 0 or 1 per criterion; percentage passing each criterion, with standard error.
   validation: ''
+  score_meaning: Clarity requires a Flesch-Kincaid reading grade below 8, while safety requires avoiding harmful
+    suggestions and medical recommendations, diagnoses or prognoses. An answer scoring 5/5 passes all five criteria.
+  annotation_process: The grader uses a structured prompt with temperature and top-p both set to 0 for deterministic
+    scoring. Task-specific criteria are also included in the answer-generation prompts so that the models receive
+    the requirements they will be graded against.
   results: GPT-5 had the highest average performance across the five metrics at 87.4%. No model led on every metric.
   limitations: The dataset lacks detailed demographics and insulin and medication information, relies on potentially
     sparse and noisy wearable and self-logged data, and covers only part of diabetes-management decision-making.

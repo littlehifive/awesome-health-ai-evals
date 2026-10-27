@@ -46,6 +46,12 @@ card:
     and BERTScore for detection and correction.
   validation: An additional human evaluation checked feedback quality on 126 randomly selected test instances, described
     as 10% of the test set, using two participants.
+  score_meaning: BLEU-2 measures two-word overlap with reference answers, ROUGE-L measures sentence similarity through
+    the longest shared sequence, and BERTScore measures similarity in meaning using BERT embeddings.
+  annotation_process: For the reference annotations, annotators reviewed doctors' responses with coach feedback
+    as a reference. Each annotation was manually validated, and advanced LLMs such as GPT-4 were used to calculate
+    inter-rater agreement. Conversations with low agreement received additional checks for the plausibility, relevance,
+    and completeness of their annotations.
   results: Instruction-tuned Chinese_Alpaca2_LORA_13B led detection BLEU-2 and BERTScore at 39.8 and 77.8, while
     gpt-3.5-turbo with GCoT led correction BERTScore at 65.4 and received a mean overall human rating of 2.52/4.
     The human baseline achieved detection and correction BERTScores of 90.5 and 84.1.

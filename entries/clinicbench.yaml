@@ -45,6 +45,11 @@ card:
   scale: Task-specific accuracy, F1, and ROUGE-L; human comparisons use wins, ties, and losses, reported as win-plus-tie
     percentages.
   validation: ''
+  score_meaning: Factuality concerns avoiding incorrect content, completeness concerns retaining important information,
+    preference concerns outputs users prefer, and safety concerns avoiding harmful results such as harmful drug
+    recommendations. A higher win-plus-tie percentage means the model more often matches or exceeds GPT-4 on the
+    assessed criterion.
+  annotation_process: ''
   results: GPT-4 outperformed the other evaluated LLMs on every dataset, including a reported 71.3 F1 on BC5-Disease
     versus 90.0 for the task-specific state of the art. All evaluated LLMs scored below 20% F1 on treatment recommendation.
   limitations: The authors did not evaluate newer models such as GPT-4o, Claude-3.5, and Qwen, and limited computing

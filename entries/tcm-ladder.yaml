@@ -44,6 +44,10 @@ card:
   scale: Top-1 or exact match accuracy; Ladder-Score = 0.4 × TermScore + 0.6 × SemanticScore, with component ranges
     and aggregation unspecified.
   validation: ''
+  score_meaning: ''
+  annotation_process: For the human comparison on 20% of the test set, two licensed clinical TCM physicians who
+    had not participated in the original data annotation answered questions and identified herbal medicine and tongue
+    images.
   results: Tongyi Qwen achieved the highest diagnostic-dialogue Ladder-Score of 0.861, while Bencao led fill-in-the-blank
     exact match accuracy at 0.9034. Two licensed clinical TCM physicians answering 20% of the test set achieved
     64% top-1 answer-retrieval accuracy, approximately four percentage points below Bencao.

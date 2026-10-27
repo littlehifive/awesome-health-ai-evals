@@ -46,6 +46,12 @@ card:
     across items.
   validation: Two clinical pharmacists validated the HAMEC classifications of drug-order errors; no numerical agreement
     measure is reported.
+  score_meaning: Exact-match accuracy counts an item as correct only when every required label is predicted with
+    no mistakes. Label match accuracy measures correctly predicted labels as a proportion of all labels appearing
+    in either the predictions or the reference.
+  annotation_process: Two board-certified pharmacists reviewed the LexiDrug source material for accuracy and clinical
+    relevance. Task-specific prompts were refined iteratively with clinical pharmacists to ensure clarity and avoid
+    ambiguity or leading language.
   results: LLaMA3-70B led formulation matching (54.0% F1), drug-order generation (88.0% accuracy), route identification
     (74.3% F1) and indication identification (97.6% accuracy). GPT-4o-mini led drug-interaction identification (70.4%
     accuracy) and renal dose-adjustment identification (83.3% F1).

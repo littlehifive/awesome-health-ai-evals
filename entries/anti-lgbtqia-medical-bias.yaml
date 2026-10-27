@@ -42,6 +42,13 @@ card:
   scale: Three response categories, binary concern flags, and clinical utility from 1 to 5; category percentages
     and mean utility.
   validation: ''
+  score_meaning: A clinical utility score of 5 means optimal acceptability for a patient message or helpfulness
+    for diagnosis and treatment; less complete responses receive lower scores. The label 'response did not answer
+    prompt' covers both explicit refusals and system-level blocks that produce no response.
+  annotation_process: Reviewers used criteria developed with LGBTQIA+ health experts Mitchell R. Lunn and Kavita
+    Mishra. Each response underwent at least two review rounds, with reviewers often recording their reasoning,
+    and final categorization required consensus. Model identities were masked, and mentions of Stanford University
+    were manually removed from Stanford Medicine Secure GPT responses before review.
   results: Stanford Medicine Secure GPT-4.0 had the highest appropriate-response rate for prompts mentioning LGBTQIA+
     identity at 57.1% (12/21), while GPT-4o led for prompts without identity mentions at 52.9% (9/17). All four
     models produced inappropriate responses.

@@ -43,6 +43,12 @@ card:
   validation: Inter-assessor agreement was 88.5% F1 across the four grades and 94.33% F1 when grades were grouped
     into correct versus incorrect; the authors also consulted NIST assessors about the test-question paraphrases
     used for judging.
+  score_meaning: Grade 2 means incorrect but related, while grade 3 means correct but incomplete. Success@i+ is
+    the proportion of all questions whose first answer reaches grade i or higher; precision@i+ uses only questions
+    answered by the system as its denominator.
+  annotation_process: 'Three assessors scored answers with the method names hidden: a medical doctor (A), a medical
+    librarian (B), and a medical informatics researcher (C), none of whom developed the QA methods. Assessors B
+    and C each evaluated 1,000 answers from each method, while assessor A evaluated 2,000 answers from both methods.'
   results: The hybrid IR+RQE system achieved a mean first-answer score of 0.827, a 29.8% improvement over the best
     official LiveQA medical score of 0.637 from CMU-OAQA. Its MAP@10 was 0.311 and MRR@10 was 0.333.
   limitations: The authors report weaker performance on drug questions than disease questions and note that each

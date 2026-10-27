@@ -44,6 +44,12 @@ card:
   scale: Each MCQ answer is correct or incorrect; aggregate metrics include accuracy, demographic accuracy gaps
     and separate bias and explanation-similarity scores.
   validation: ''
+  score_meaning: An accuracy delta is the first group's accuracy minus the comparison group's accuracy, so positive
+    values indicate better performance for the first group and negative values indicate worse performance. GenderBias
+    values below zero indicate masculine-leaning language, while values above zero indicate feminine-leaning language.
+  annotation_process: The released datasets are evaluated at creation time using a gender direction derived by principal
+    component analysis of SBERT embeddings of about 600 gendered sentence pairs. GenderBias results are reported
+    for each gender and ethnicity combination in cpv_report.md.
   results: ''
   limitations: The authors identify absent healthcare-professional input, limited original case coverage, simplified
     demographic categories, potentially biasing nonclinical details and a need for multilingual and multimodal evaluation

@@ -45,6 +45,10 @@ card:
   validation: Four human evaluators ranked seven models' responses to 30 randomly selected questions, yielding a
     reported Cohen's kappa of 0.441. The authors report that human preferences were consistent with the LLM evaluations,
     without a numerical human-LLM agreement measure.
+  score_meaning: Higher LLM ratings indicate better response quality on the counseling criteria.
+  annotation_process: For statistical testing, the authors randomly selected 50 questions and ran five rounds of
+    response generation for both base and fine-tuned models, with GPT-4 Turbo and Gemini Pro evaluating the outputs.
+    The 50 questions used for human rankings were sampled with a fixed random seed of 42.
   results: ''
   limitations: The authors state that anonymization and splitting interviews into question-answer pairs can remove
     context, paraphrasing can introduce deviations or hallucinations, and automated ratings and subjective human

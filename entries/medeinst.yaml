@@ -45,6 +45,14 @@ card:
   scale: Correct or incorrect diagnosis per case; Baseline Accuracy, Robust Accuracy, and conditional Bias Trap
     Rate are reported as percentages.
   validation: ''
+  score_meaning: Higher Baseline Accuracy indicates stronger diagnostic ability on typical cases, while higher Robust
+    Accuracy indicates better performance when discriminative evidence changes. A higher Bias Trap Rate indicates
+    greater susceptibility to favoring familiar diagnoses over patient-specific evidence.
+  annotation_process: During dataset construction, GPT-5, DeepSeek-R1 and Gemini-2.5-Pro judged each pair for diagnostic
+    correctness, medical plausibility and narrative fluency; inclusion required positive diagnostic-correctness
+    votes from at least two judges. Four board-certified physicians with over 8 years of clinical experience assessed
+    a stratified random sample of 1,500 pairs using seven yes/no quality dimensions, with all dimensions required
+    for validity. Of the sampled pairs, 2.1% were revised and 1.8% were excluded after failing the quality thresholds.
   results: ECR-Agent using Qwen3-32B achieved the highest Baseline Accuracy at 69.49%, the highest Robust Accuracy
     at 24.21%, and the lowest Bias Trap Rate at 33.75%. Among standalone LLMs, GPT-5 led Baseline Accuracy at 54.30%
     and Robust Accuracy at 15.78%, with a Bias Trap Rate of 51.87%.

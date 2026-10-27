@@ -43,6 +43,13 @@ card:
   scale: Each report section receives 1 to 4, from poorest to excellent; reported metrics are normalized to 0 to
     100, with separate disease-entity precision, recall, and F1.
   validation: ''
+  score_meaning: Symptom scores reflect how completely the doctor collected symptoms, while examination scores reflect
+    how appropriate the recommended examinations were. In the separate human evaluation of report consistency with
+    the dialogue, 1 means significantly inconsistent, 2 means slightly inconsistent, and 3 means mostly consistent.
+  annotation_process: 'After the consultation, the Doctor agent was asked to produce a summary report for evaluation.
+    For the separate human evaluation of agent behavior, researchers randomly selected 50 medical records and manually
+    rated all metrics across 50 dialogue trajectories from each of four Doctor agents: GPT-3.5, GPT-4, Wenxin-4.0,
+    and Qwen-Max.'
   results: ''
   limitations: The authors identify limited generalizability beyond Chinese healthcare, incomplete coverage of real-world
     complexity and rare diseases, differences between simulated and human interactions, treatment scoring that overlooks

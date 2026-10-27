@@ -46,6 +46,12 @@ card:
   validation: When question-response pairs were shuffled within length groups, Llama3.1:8b still assigned accuracy
     scores of at least 4 to 72% of unrelated long responses, compared with 21% of short responses and 24% of medium
     responses.
+  score_meaning: In the question-response shuffling experiments, an accuracy score of 4 or higher counts as passing.
+  annotation_process: Human evaluators received random batches of 6-9 responses, approximately balanced across the
+    three answer sources, and could complete as many sessions as they wished; this produced 455 assessments with
+    uneven coverage, and no participant rated the same response twice. Each of the 490 answers received one evaluation
+    from each of the six LLM judges, giving 2,940 model evaluations. After the concealed-source stage, humans and
+    AI were told the answer source for 111 responses covering 63 questions, producing 149 additional evaluations.
   results: For authorship classification, Llama3.1:8b had the highest reported AI F1 of 0.324, compared with human
     evaluators' F1 of 0.558 and accuracy of 0.512.
   limitations: The authors report that AI judges favor AI-generated answers and verbosity, while API-based and batch

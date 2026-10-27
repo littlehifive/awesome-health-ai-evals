@@ -46,6 +46,9 @@ card:
   scale: 0 = wrong, 1 = partly correct, 2 = correct, plus a separate no-diagnosis category; final metrics are percentages
     correct and percentages refusing diagnosis.
   validation: ''
+  score_meaning: A partly correct diagnosis can be broad and nonspecific, such as "soft tissue tumor" without further
+    specification. The no-diagnosis category includes the response "Insufficient information for a definitive diagnosis."
+  annotation_process: ''
   results: GPT-5 performed best, reaching 70% diagnostic accuracy across the 100 cases with full information and
     the basic prompt.
   limitations: The authors identify reliance on human expert ratings as a bottleneck for scaling evaluation.

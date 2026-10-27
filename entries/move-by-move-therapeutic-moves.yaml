@@ -45,6 +45,13 @@ card:
     pass@k percentages.
   validation: On human transcripts, mean pairwise psychologist agreement was 0.627 using Krippendorff's alpha with
     Jaccard distance, and mean judge-psychologist agreement was 0.592.
+  score_meaning: Labels describe a turn's therapeutic function rather than its wording; no_defined_move covers administrative,
+    social, or procedural turns. Closer agreement with human move distributions does not establish clinical competence
+    or safety, and crisis management is outside the evaluation's scope.
+  annotation_process: The psychologists independently labeled every therapist turn across 19 human transcripts and
+    18 synthetic transcripts generated with and without the framework. They received training material containing
+    operational definitions, positive examples, contraindications, and guidance for distinguishing commonly confused
+    moves. They were contracted, informed of the study's purpose, and paid at professional clinical consulting rates.
   results: Across Claude Sonnet 4.6, GLM 5.2 and GPT 5.6 Terra, the framework raised pass@4 from 53% to 62% against
     majority human labels and from 65% to 72% against union human labels. It roughly halved the mean deviation from
     the human move distribution.

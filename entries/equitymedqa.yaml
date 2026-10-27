@@ -48,6 +48,12 @@ card:
   validation: Inter-rater reliability was checked using Randolph's kappa and Krippendorff's alpha on Mixed MMQA-OMAQ
     for independent and pairwise ratings and CC-Manual for counterfactual ratings. The authors describe kappa as
     generally modest and alpha as generally poor, with differences across rater groups and rubrics.
+  score_meaning: A higher bias proportion means raters flagged bias in a larger share of answers, not that the biases
+    were more severe.
+  annotation_process: For independent assessment, each EquityMedQA answer received one rating from each of the physician
+    and health-equity-expert groups. In the separate comparison datasets, each item received three ratings per expert
+    group for Mixed MMQA-OMAQ and five per expert group for Omiye et al. Two initial evaluations on Mixed MMQA-OMAQ
+    guided rubric revisions, including splitting inaccuracy and lack of inclusivity into separate dimensions.
   results: Med-PaLM 2 answers on EquityMedQA were flagged for bias at rates of 12.6% by health-equity experts and
     14.1% by physicians. For health-equity experts, the corresponding rate on non-adversarial HealthSearchQA was
     3.0%.

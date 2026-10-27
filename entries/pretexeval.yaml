@@ -40,6 +40,12 @@ card:
   scale: 0 or 1 per statement; average accuracy and joint accuracy, with average accuracy also reported as gain
     above 50% random guessing.
   validation: ''
+  score_meaning: Higher joint accuracy indicates more consistent answers across different expressions of the same
+    medical fact, which average accuracy alone does not measure.
+  annotation_process: Models received five examples before each test statement to guide their answer format. In
+    a separate check of sample quality, two experienced doctors scored samples from 50 randomly selected MedLAMA
+    knowledge triplets for lexical diversity, structural diversity and reliability by comparing them with the original
+    triplets.
   results: GPT-4o performed best, with average-accuracy gains above 50% random guessing of 31.7 percentage points
     on MedLAMA and 26.7 percentage points on DiseK.
   limitations: ''

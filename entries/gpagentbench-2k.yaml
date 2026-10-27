@@ -46,6 +46,12 @@ card:
   validation: On randomly sampled outputs across evaluated models, agreement with two senior physicians was Cohen's
     κ = 0.92 for diagnosis accuracy and 0.89 for treatment score. Re-scoring frontier models with a different LLM
     judge preserved rankings and changed scores within the reported standard errors.
+  score_meaning: Miss Refer is the percentage of required referrals the model misses, while Miss GP measures failure
+    to manage locally cases suitable for primary care, including unnecessary referrals. Lower values mean fewer
+    of these failures; higher diagnosis accuracy, treatment score and management accuracy indicate better clinical
+    quality.
+  annotation_process: Two senior physicians independently audited randomly sampled complete interaction trajectories
+    for factual consistency, clinical realism and persona adherence.
   results: Claude Opus 4.7 led diagnosis accuracy at 70.0%, while GPT-5.4 led treatment score at 53.2%. Claude Opus
     4.7 missed 67.2% of required referrals, and no model led across all dimensions.
   limitations: The authors note that English-only records, simulated patients, institution-specific referral norms,

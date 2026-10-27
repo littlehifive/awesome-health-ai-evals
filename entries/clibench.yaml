@@ -43,6 +43,13 @@ card:
   scale: Set overlap at each code hierarchy level; micro precision, recall, and F1, with F1 reported as a percentage
     and averaged across levels.
   validation: ''
+  score_meaning: Higher scores indicate closer agreement with recorded clinical decisions. Coarse-level scores measure
+    broad choices, such as selecting among 21 disease chapters, while finer-level scores test distinctions such
+    as selecting among 283 disease category groups.
+  annotation_process: The reference labels use billing diagnoses as estimates of discharge diagnoses and clinician-ordered
+    procedures, lab tests and prescriptions at the first timestamp after admission. A clinical NLP expert manually
+    verified all admission records in the evaluation set after manual screening of 1,000 sampled records was used
+    to refine the extraction rules.
   results: ''
   limitations: ''
   sources:

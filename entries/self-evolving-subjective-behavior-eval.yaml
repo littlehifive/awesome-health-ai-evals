@@ -44,6 +44,13 @@ card:
     and an ensemble correlation of about 0.84. On 74 held-out human ESConv conversations, canonical-to-other-judge
     correlations were 0.749-0.850; agreement with participant self-ratings was Spearman rho about 0.40 on 64 conversations
     and tie-robust Kendall tau 0.15.
+  score_meaning: Higher advice_restraint scores indicate better restraint from offering unsolicited advice when
+    the user needs listening rather than solutions. A high overall score can hide poor performance on an individual
+    dimension.
+  annotation_process: Each scored conversation has three turns with gpt-5.5 acting as the user, distinct from every
+    model being evaluated. Judges receive fixed prompts with written dimension definitions; during rubric evolution,
+    candidate rubrics are scored in three judge runs on held-out scenarios. No human ratings are used in the instrument's
+    three trust-certificate checks.
   results: GLM-5 scored 9.58 across nine dimensions at $0.004 per call, matching the top closed flagships at about
     15 times lower cost. Advice restraint was the frontier models' lowest-scoring dimension, and gpt-5 fell 2.44
     points below gpt-4.1 on 30 matched scenarios despite a nearly unchanged overall mean.

@@ -40,6 +40,14 @@ card:
   judge: A rubric or LLM judge is recommended, but no output grader is named.
   scale: ''
   validation: ''
+  score_meaning: A positive label means a documented interaction; a negative label means no interaction is recorded
+    in DrugBank, not that the combination is safe or that no interaction can exist. Gold answers specify the direction
+    of an effect, not its magnitude.
+  annotation_process: For evidence validation, Claude checked each gold abstract against a fixed rubric requiring
+    an explicit statement of the drug's claimed role at the shared protein. When the first-choice abstract was judged
+    weak, other papers on the drug's DrugBank protein card that mentioned both the drug and protein were reviewed,
+    and the first strong paper replaced it on 39 of 316 sides. A supporting quote and a one-line reason were recorded
+    for every side.
   results: ''
   limitations: The authors note the small set of 109 positive pairs, evidence without expert review, some minor-pathway
     bridges, uniform templated answers, and bridge questions that can be answered from prior knowledge.

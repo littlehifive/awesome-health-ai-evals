@@ -38,6 +38,11 @@ card:
   judge: Exact match with the authors' expected-route labels.
   scale: Correct or incorrect per prompt; percentage route accuracy per split and overall.
   validation: ''
+  score_meaning: The expected labels distinguish a medical answer, an out-of-scope refusal and an identity answer.
+    The score measures routing decisions, not the quality of the answer text, which came from a stand-in generator
+    in the recorded run.
+  annotation_process: The authors assigned the expected-route labels, including labels for borderline prompts such
+    as general wellbeing questions. MedAssist's routing decisions were recorded from the running app.
   results: MedAssist recorded 3,429 correct routes out of 3,492 prompts (98.2%) overall. It scored 54/60 (90.0%)
     on set3_fresh, which the authors call the fairest estimate for hand-written prompts because it was written after
     all fixes.

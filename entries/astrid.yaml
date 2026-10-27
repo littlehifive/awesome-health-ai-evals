@@ -45,6 +45,12 @@ card:
     with 0.83 for statement-level faithfulness. Using the triad and scope of practice to predict clinician assessments
     yielded average F1-scores of 0.835 for harmfulness and 0.715 for helpfulness; inter-annotator agreement on inappropriateness
     was 65% before resolution.
+  score_meaning: For clinical inappropriateness, "No" means appropriate, "Yes" means inappropriate, and "slightly"
+    identifies slightly inappropriate content.
+  annotation_process: Two independent annotators rated Perceived Faithfulness from answers and their context without
+    seeing the original question, then resolved disagreements by discussion and consensus. Independent annotators
+    also rated 238 answer-context pairs using statement-level Faithfulness and Conversational Faithfulness, reaching
+    consensus through discussion. Two ophthalmic surgeons labeled each triplet for the clinical assessments.
   results: Among automated graders, Gemini-2-Flash achieved a Conversational Faithfulness F1-score of 0.77. GPT-o3-mini
     had the highest Context Relevance accuracy, 0.87, and Refusal Accuracy accuracy, 0.95.
   limitations: The authors evaluated single-turn safety in one clinical use case with limited data, without assessing

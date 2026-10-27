@@ -44,6 +44,11 @@ card:
   scale: 'MCQs: correct or incorrect, with fractional elastic credit for multiple-answer items; final accuracy averages
     and separate ROUGE, BLEU, and BERTScore metrics.'
   validation: ''
+  score_meaning: The paper treats an average MCQ accuracy above 60% as passing the examination questions. For open
+    responses, ROUGE-1 measures word overlap as an indicator of informativeness, ROUGE-L measures longest common
+    subsequence overlap as an indicator of fluency, and BERTScore measures similarity in meaning and context to
+    the reference answer.
+  annotation_process: ''
   results: PsycoLLM achieved average MCQ accuracy above 60%. It led the case-based evaluation on ROUGE-1, BLEU-4,
     and BERTScore, while Emollim led on ROUGE-L.
   limitations: The authors note that ROUGE and BLEU focus on surface-level word overlap and fail to capture semantic

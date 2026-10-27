@@ -40,6 +40,9 @@ card:
   judge: Answers are scored against the dataset's yes-or-no answer key.
   scale: Correct or incorrect per question; overall accuracy from 0 to 1.
   validation: ''
+  score_meaning: An accuracy of 0.5 represents chance performance on this balanced dataset, which contains 50 yes
+    answers and 50 no answers.
+  annotation_process: Two senior medical students reviewed the dataset in May 2024.
   results: GPT-3.5 achieved the best reported accuracy, 0.83, on the original dataset with raw blood pressure readings.
   limitations: The authors describe the study as preliminary, using only 100 synthetic QA pairs and four models,
     with blood pressure alone failing to capture the diversity of clinical measurements and scenarios.

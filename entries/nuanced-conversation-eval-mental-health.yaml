@@ -39,6 +39,13 @@ card:
   scale: Emotion Consistency ranges from 0 to 1; agreement ranges from 0 to 10; other metrics use distinct scales,
     with final similarity reported as Pearson correlation.
   validation: ''
+  score_meaning: Agreement scores run from 0 for strong disagreement to 10 for strong agreement; higher agreement
+    is not necessarily better, since performance is judged by closeness to the therapist baseline. Emotion Consistency
+    is better nearer 1 and worse nearer 0, while Pearson correlation indicates directional similarity to the baseline
+    rather than the absolute distance between scores.
+  annotation_process: For agreement and active listening, the grading prompt combines a system message, instructions,
+    the question and its response, then extracts a numerical score from the grader's reply. The simplicity calculation
+    excludes responses with 100 or fewer elements.
   results: GPT4 Preview had the highest correlation with the verified therapist baseline across the six non-emotion
     metrics, at 0.830253 (p = 0.040775), the only statistically significant overall correlation. It also performed
     best on Emotion Consistency.

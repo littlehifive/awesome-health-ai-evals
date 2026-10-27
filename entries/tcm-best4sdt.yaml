@@ -46,6 +46,11 @@ card:
   scale: 'Single-selection: correct or incorrect; multiple-selection: 0 to 1, averaged over three rounds; judge
     and reward scales and overall aggregation are not specified.'
   validation: ''
+  score_meaning: Chain-of-thought completeness measures coverage of key patient information in the model's reasoning.
+    Chain-of-thought accuracy measures whether details cited in that reasoning agree with the original clinical
+    case, identifying hallucinations or reasoning deviations.
+  annotation_process: TCM experts annotated the standard answers and options, then cross-validated one another's
+    annotations. The annotations then underwent independent third-party review.
   results: ''
   limitations: ''
   sources:

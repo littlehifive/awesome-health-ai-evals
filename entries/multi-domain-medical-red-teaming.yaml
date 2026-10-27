@@ -44,6 +44,11 @@ card:
   validation: Clinicians reviewed 760 responses, reported as 10% of all outputs, including high-risk cases, disagreements,
     and sampled routine cases. They corrected missed safety and fairness failures, but no numerical agreement rate
     was reported.
+  score_meaning: Higher composite scores indicate better performance against the rubric, while a minimum score of
+    0 indicates a complete failure on at least one safety-critical scenario. A high mean does not rule out such
+    failures; lower standard deviation indicates more consistent performance across scenarios.
+  annotation_process: GPT-5 followed explicit evaluation instructions when producing its initial assessments. Final
+    scores were assigned only after human confirmation.
   results: X-BAI had the highest mean composite score, 0.984; GPT-5 and Claude Opus 4.1 also scored above 0.97.
   limitations: The authors note that synthetic, single-response scenarios do not capture real clinical complexity
     or evolving interactions, selective human review may miss rare failures, and the evaluation is a snapshot that

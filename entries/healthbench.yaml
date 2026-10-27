@@ -51,6 +51,16 @@ card:
   validation: On 60,896 physician-labelled examples covering 34 consensus criteria, GPT-4.1 achieved theme-level
     macro F1 scores of 0.572 to 0.706, compared with weighted physician averages of 0.569 to 0.730. It exceeded
     the average physician score in five of seven themes and ranked in the upper half of physicians in six of seven.
+  score_meaning: Higher scores indicate that responses satisfy more of the rewarded requirements while avoiding
+    penalized behaviors. For HealthBench Consensus, the error rate is 1 minus the score and reflects failures on
+    the positive-point consensus criteria.
+  annotation_process: Physicians were selected from 1,021 applicants using an interest form and paid introductory
+    tasks, including rubric writing; physician leads and advisors provided training materials, live training and
+    individualized feedback. Individual physicians wrote example-specific criteria, which were not validated by
+    other physicians, while consensus criteria were assigned only when more than half of reviewing physicians, with
+    at least two agreeing, judged them relevant. Physicians then graded model responses against applicable consensus
+    criteria to assess grader agreement, and the team refined the grading prompt and consensus-criterion wording
+    through a small search.
   results: o3 scored 60%, compared with GPT-4o at 32% and GPT-3.5 Turbo at 16%. Models outperformed the unassisted
     physician baseline, whose numerical score is not given in the excerpts.
   limitations: Example-specific criteria were written by individual physicians without validation by other physicians,

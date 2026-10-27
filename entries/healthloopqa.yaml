@@ -43,6 +43,10 @@ card:
   judge: Automatic metrics compare answers with programmatically extracted ground truth.
   scale: Per-question scores normalized to 0-1; mean across questions reported on a 0-100 scale.
   validation: ''
+  score_meaning: Higher scores indicate better performance. Numerical scores reflect error relative to the size
+    of the true and predicted values, categorical scores reflect correct classifications, and event scores reflect
+    temporal overlap and alignment with true event ranges.
+  annotation_process: ''
   results: GPT-5.4 with agent tools scored highest on both the full simulated dataset, at 78.5/100, and the real-world
     dataset, at 86.1/100.
   limitations: The authors state that simulations omit biological variability and some diabetes management practices,

@@ -43,6 +43,10 @@ card:
   scale: Each response is fully correct or incorrect; normalized polygon area gives a PrIME-LLM score from 0 to
     1.
   validation: ''
+  score_meaning: Higher values indicate stronger and more consistent clinical reasoning across the five domains,
+    rather than isolated strengths. A score of 1 corresponds to 100% accuracy in every domain.
+  annotation_process: The three independent model runs for each vignette were scored independently, typically by
+    different evaluators. All replicates and vignettes were parsed independently.
   results: Grok 4 achieved a mean PrIME-LLM score of 0.78, with a range of 0.77 to 0.79 across runs.
   limitations: The authors note mixed API and web access, possible pretraining exposure to public vignettes, exclusion
     of external tools and augmentation, disabled optional search and reasoning, and a study design that does not

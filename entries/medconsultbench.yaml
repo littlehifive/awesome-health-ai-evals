@@ -46,6 +46,13 @@ card:
     of 0.87 for DRSS, 0.82 for FQR, and 0.92 for PSC, with mean absolute differences of 0.12, 0.15, and 0.08, respectively.
     The authors also tested whether the metrics distinguished GPT-5.1 from refusal, fixed-template, and random-response
     baselines.
+  score_meaning: PSC of 1.0 means every treatment plan passes checks for absolute contraindications, severe drug
+    interactions and gross dosing errors; CPRw, POVR, DDIV and PCR of 0 mean no redundant questioning, inquiry-order
+    violations, severe drug interactions or patient-profile conflicts, respectively. Higher FQR means more follow-up
+    responses match the patient's intent, while higher DCSR means more revised regimens meet new constraints without
+    dropping below the required treatment-quality threshold.
+  annotation_process: For reliability testing, identical model outputs were scored twice by Claude Sonnet 3.7 and
+    once by Claude Sonnet 3.5. The LLM judging pipeline was calibrated against human clinicians.
   results: Gemini-3-Pro was described as the most balanced model, leading in history taking and diagnosis; its follow-up
     DCSR was 0.49, compared with 0.814 for the empirical process baseline from real consultations. Its accuracy
     fell from 0.76 under static evaluation to 0.52 when clinical workflow constraints were enforced.

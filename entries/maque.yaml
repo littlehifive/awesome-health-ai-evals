@@ -43,6 +43,12 @@ card:
   scale: 'Judged criteria: 1 to 5, normalized to 0 to 1; diagnostic correctness, cross-specialty robustness, average
     questions per session, and total tokens per session are reported separately.'
   validation: ''
+  score_meaning: Coverage measures the share of task-relevant atomic information units obtained, so a score of 0.385
+    indicates roughly 39% coverage. Higher robustness scores mean diagnostic correctness varies less across medical
+    specialties.
+  annotation_process: Coverage is judged at the session level against the atomic information units annotated in
+    the dataset. Relevance is judged at the turn level by comparing each question with the session's atomic information
+    units, penalizing off-topic or redundant questions.
   results: Claude-Sonnet-4 achieved the highest information coverage score, 0.385.
   limitations: The evaluation focuses on diagnosis scenarios and does not cover other medical settings such as general
     health consultation.

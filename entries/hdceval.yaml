@@ -44,6 +44,12 @@ card:
     Pearson correlation, and reference match.
   validation: HDCEval's pairwise accuracy improved by 23.92% compared with PandaLM against doctors' labels on the
     2,994-sample test set.
+  score_meaning: Higher scores indicate better response quality on the criterion being assessed. In response-pair
+    comparisons, a win means one model's response scores higher than the other's, while a tie means both responses
+    receive the same score.
+  annotation_process: The researchers hired human doctors to annotate the 2,994 test samples using the fine-grained
+    medical evaluation guidelines. For each criterion, the evaluator model first analyzed the response and then
+    assigned a score.
   results: HDCEval outperformed the baseline evaluators across multiple scenarios and exceeded GPT-4 on reference
     match and correlation metrics.
   limitations: ''

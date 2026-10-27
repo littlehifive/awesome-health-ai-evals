@@ -44,6 +44,9 @@ card:
   scale: Correct or incorrect, with one specified half-credit exception; total credited answers reported as accuracy.
   validation: Two annotators, SC and JG, manually answered MedBrowseComp-50, with 100% inter-annotator agreement
     and 98% agreement with GPT-4.1 mini.
+  score_meaning: The reported "Best of 1" result of 30/50 selects the best answer across all evaluated systems for
+    each question after seeing their outputs; it is not the accuracy of a single system.
+  annotation_process: ''
   results: O3 deepresearch led MedBrowseComp-50 with 25.5/50 credited answers (51% accuracy), followed by Gemini-2.5-pro
     deepsearch with 24.5/50 (49%).
   limitations: The authors report incomplete system coverage, lightly audited machine judging, substantial evaluation

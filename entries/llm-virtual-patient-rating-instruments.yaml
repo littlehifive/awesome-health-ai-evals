@@ -42,6 +42,14 @@ card:
   validation: Experts approved the instruments with minor clarifications, and ratings showed expected differences
     by model and clinician type. Human ratings were 0.52 points lower than GPT ratings for overall authenticity,
     while feedback ratings were only 0.10 points higher; all raters agreed on the bias flag.
+  score_meaning: For authenticity and user experience, 5 means a very good approximation of a real conversation
+    with easily overlooked flaws, while 6 means exactly what would be expected from a human patient. For feedback,
+    5 means on par with a trained human clinician-supervisor, while 6 means surprisingly good and better than expected
+    from such a supervisor.
+  annotation_process: The physician who created each conversation provided initial ratings, rating the dialogue
+    before seeing the generated feedback. Before final ratings, the researchers added operational criteria for each
+    response option; each rater then received conversations in a separately randomized order and entered ratings
+    through an online DistillerSR form.
   results: GPT-4.0-Turbo received higher ratings than GPT-3.5-Turbo. Across the evaluated conversations, mean overall
     authenticity was 4.7 (SD 0.7), overall user experience was 4.9 (SD 0.7), and average feedback quality was 4.7
     (SD 0.6), all out of 6.

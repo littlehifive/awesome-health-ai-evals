@@ -39,6 +39,13 @@ card:
     model names are not stated.
   scale: Task solved or not; every rubric criterion passed or not; counts across six models and 150 model-task pairs.
   validation: ''
+  score_meaning: The difficulty labels mean that zero of six models solved a task (unsolved), one or two solved
+    it (hard), three or four solved it (mid), five solved it (easy), or all six solved it (ceiling). Hard tasks
+    are deliberately overrepresented, so scores on this release should not be read as performance across the full
+    benchmark.
+  annotation_process: Tasks and rubrics were authored against the source documents, with criteria anchored to specific
+    document locations. Practising clinicians audited 6 of the 25 tasks; the remaining tasks were not individually
+    reviewed by subject-matter experts.
   results: ''
   limitations: The authors state that the subset overrepresents hard tasks, covers only generalist clinicians and
     pharmacists, has public answer keys, received clinician audits for only 6 tasks, and has grader-dependent absolute

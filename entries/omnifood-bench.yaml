@@ -43,6 +43,12 @@ card:
   scale: Classification accuracy and ingredient match rate in percent; mean absolute percentage error for weight
     and nutrient estimates, where lower is better.
   validation: ''
+  score_meaning: For health advice, A means Normal Intake, B means Controlled Intake, and C means Avoid Intake.
+    The paper describes a safety hallucination as giving benign advice for a dangerous food item.
+  annotation_process: The dataset subset underwent manual spot checks for authenticity and reliability. All six
+    models were evaluated without examples, using standardized prompts containing the image and specific query fields.
+    Open-source models were evaluated on 1,208 samples, while closed-source models were evaluated on a representative
+    subset of 496 samples.
   results: GPT-5.1 led cooking-method accuracy in three of four food categories, reaching 87.23% on raw vegetables
     and fruits. For kidney-disease advice, the best model was Llama-3.2-11B-Vision at 46.11% accuracy; proprietary
     models were tested on 496 samples, while open-source models were tested on 1,208.

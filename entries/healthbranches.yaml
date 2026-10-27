@@ -44,6 +44,11 @@ card:
   scale: Multiple-choice accuracy is the proportion correct; free-text answers receive a 0 to 10 judge score and
     an embedding similarity score.
   validation: ''
+  score_meaning: ''
+  annotation_process: 'G-Eval used two phases: Gemini-flash 2.0 first generated evaluation steps from the task description
+    and criteria, then used those steps with the same description and criteria to score each answer. For dataset
+    validation, 23 volunteer reviewers completed 137 reviews of randomly selected questions: 3 doctors or physicians
+    completed 13 reviews, 5 medical specialists completed 22, and 15 senior medical students completed 102.'
   results: ''
   limitations: The authors identify biases from the generation models, possible propagation of inaccurate or outdated
     textbook information, and the need for expert review to prevent errors in sensitive medical content.

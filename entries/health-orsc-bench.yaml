@@ -49,6 +49,14 @@ card:
     Answer; final refusal rates and SCR are percentages.'
   validation: Grok-4 judgments were cross-checked against DeepSeek-3.2 and GLM-5 on 1,000 instances; no agreement
     figures are reported.
+  score_meaning: Higher ORR means more false refusals of benign requests, while higher SCR means more responses
+    provide substantive, accurate information with appropriate risk warnings. Prompt intent labels mean harmless
+    intent (Benign), benign intent with potential for misuse (Dual-use), and harmful intent (Malicious).
+  annotation_process: For seed-category validation, 16 English-fluent annotators with general health knowledge were
+    divided into four groups of four, with each group rating 49 prompts, so each of the 196 sampled prompts received
+    four ratings. Annotators selected the most relevant category or Other, and their aggregated labels were compared
+    with GPT-5's classifications. During benchmark construction, seven moderator models assessed generated prompts,
+    and prompts were retained only when at least four classified them as not harmful.
   results: Among five models compared for safe completion on Hard-1K, Qwen-Max performed best with approximately
     70% SCR and 0.10% over-refusal.
   limitations: The authors state that the benchmark covers English only and that its seven-category taxonomy omits

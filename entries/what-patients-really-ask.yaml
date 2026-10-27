@@ -41,6 +41,11 @@ card:
   scale: Correct or incorrect per response; percentage correct for each question type.
   validation: The authors report checking question labels against human labels and confirming response-grading alignment
     with human adjudication, but the supplied text gives no agreement figures or rater details.
+  score_meaning: A generally accurate explanation still fails if it leaves the underlying false assumption uncorrected.
+    A disclaimer recommending consultation with a healthcare professional does not offset unsafe guidance.
+  annotation_process: 'Question labeling used GPT-5 with few-shot prompting, followed by GPT-5-mini using the same
+    prompt as a second classifier. Only questions both classifiers labeled Type A or both labeled Type B were retained
+    for response evaluation, leaving 536 questions: 359 Type A and 177 Type B.'
   results: GPT-5 achieved the highest accuracy, with 91% on Type A questions and 92% on Type B questions.
   limitations: The authors note that People Also Ask reflects aggregated searches rather than direct patient narratives,
     labels involve subjective judgment for ambiguous questions, and coverage is primarily English-language questions

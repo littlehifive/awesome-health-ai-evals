@@ -45,6 +45,12 @@ card:
   validation: Two human expert reviewers independently scored 100 free-form responses in the follow-up study. Overall
     human-human agreement was Cohen's κ = 0.56 and macro-F1 = 0.78; judge-human agreement was κ = 0.42 and 0.55
     and macro-F1 = 0.71 and 0.78, with factual-consistency κ of only 0.06 and 0.17.
+  score_meaning: Faithfulness requires no claims, advice or information beyond the provided guidance chunk, while
+    completeness requires all key points and recommendations needed to answer the question. Factual consistency
+    requires accurate statements that preserve the guidance's intended meaning, while clarity requires a grammatically
+    correct, focused and easy-to-follow answer.
+  annotation_process: The judge and human reviewers received detailed instructions for each criterion. Their scoring
+    materials included the question and model answer alongside the guidance chunk and reference answer.
   results: At release, GPT-4.5 achieved the best multiple-choice accuracy of 92.5%, compared with 88% for five non-specialists
     allowed search access but no AI. No model exceeded 75% on free-form questions.
   limitations: The authors warn that questions may contain errors or outdated information, multiple-choice options

@@ -43,6 +43,14 @@ card:
   scale: Accuracy, precision, recall, F1, and unsupported-claim rates on a 0 to 1 scale, reported as separate metrics
     rather than one combined score.
   validation: ''
+  score_meaning: Higher values are better for every metric except unsupported claim rate, where lower is better;
+    NA means the metric is undefined for that condition. Uncertainty correctness measures whether the model explicitly
+    acknowledges insufficient evidence in incomplete-evidence scenarios, so a score of 1.000 can coexist with intervention
+    accuracy of 0.000.
+  annotation_process: Each of 80 scenarios was presented to gpt-5.4 under all four grounding conditions, producing
+    320 planned runs in one OpenAI Batch API job. All metrics were calculated in a single scoring pass per output;
+    313 runs were successfully scored, and seven were skipped because of missing responses caused by API failure
+    or incomplete output capture.
   results: In the single-model GPT-5.4 pilot, integrated grounding C4 achieved causal edge F1 of 0.838, adverse-effect
     F1 of 0.833, evidence accuracy of 0.738, and unsupported-claim rate of 0.114. Ungrounded C1 had the highest
     intervention accuracy, 0.948.

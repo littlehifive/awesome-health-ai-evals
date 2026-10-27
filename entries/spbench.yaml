@@ -40,6 +40,10 @@ card:
   scale: Each criterion is rated from 1 to 5 and linearly converted to a 100-point scale.
   validation: On 30 samples reviewed blind by two clinical experts, GPT-4o scores correlated with their average
     ratings at Pearson's r = 0.79. GPT-4o gave a mean score of 78.5, compared with the experts' mean of 83.9.
+  score_meaning: Higher scores indicate patient responses that more closely match the expected behavior of a standardized
+    patient.
+  annotation_process: Three clinical experts helped define the evaluation criteria. Automated scoring used an evaluation
+    prompt provided in Appendix I.4.
   results: EasyMED was the highest-scoring tested system at 96.98 out of 100, compared with 93.33 for EvoPatient.
     Human standardized patients scored 97.33.
   limitations: The authors state that automated scoring may overlook subtle aspects of dialogue quality and learner

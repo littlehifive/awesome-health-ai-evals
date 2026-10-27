@@ -45,6 +45,14 @@ card:
   validation: Two clinical experts independently assessed 50 dialogue rounds, with inter-annotator agreement exceeding
     87.5%; 90% of judgments endorsed persuasion rating change justifiability and 92.5% endorsed patient behavioral
     realism.
+  score_meaning: Human response scores above 4.0 are reserved for clearly exceptional performance; raters are instructed
+    to use decimals and avoid inflated scores.
+  annotation_process: In the controlled single-turn evaluation, experts reviewed 25 randomly sampled patient cases
+    covering all difficulty levels, with 13 model responses per case presented in blinded, randomized order alongside
+    GPT-4o patient follow-ups and persuasion ratings. Experts wrote their own reference response before scoring
+    the model responses, indicated whether any model outperformed their response, and provided justifications. Annotations
+    were adjudicated for final reporting, and a further qualitative review covered four full patient cases involving
+    deepseek-r1 and gpt-o4-mini in multi-visit and social-resistance settings.
   results: ''
   limitations: The authors state that simulated patients cannot capture the full complexity of real clinical encounters,
     the benchmark is limited to English-language and North American contexts, simulated persuasion does not establish

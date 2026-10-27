@@ -44,6 +44,13 @@ card:
   scale: Binary true/false correctness; percentage precision, recall, F1 and accuracy; similarity scores normalized
     to a maximum of 1.
   validation: ''
+  score_meaning: Higher similarity scores indicate closer agreement with factual reference answers, but no score
+    threshold defines misinformation. Mental-health precision of 90.1% means that 90.1% of statements classified
+    as true were correct, while recall of 95.2% means that 95.2% of true statements were identified.
+  annotation_process: The initial approach sent chatbot responses to experts a week before interviews; time constraints
+    led to a switch to questionnaires after the first two climate-change interviews. Interviews lasted 45-60 minutes
+    and covered 8-13 questions. Mental-health questionnaires contained 16 closed- and open-ended items and took
+    10-30 minutes to complete.
   results: The reported average mental-health performance across the three chatbots was 92.5% accuracy and 92.6%
     F1. Bard (LaMDA) ranked highest on mental-health response similarity, but the supplied text gives no numerical
     score for it.

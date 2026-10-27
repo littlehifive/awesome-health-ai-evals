@@ -42,6 +42,11 @@ card:
   scale: Diagnosis and evidence each score 0, 1, or 2 per case; ExactAcc, StrictEQ, and FSA report percentages meeting
     the maximum-score requirements.
   validation: ''
+  score_meaning: A diagnosis score of 1 means the disease family is correct but the diagnosis lacks specificity
+    or names the wrong subtype; 0 means the diagnosis is wrong, unrelated, or gives only symptoms rather than a
+    diagnosis. The Capability Gap is the drop in performance from full-context diagnosis to active evidence-seeking,
+    measured in percentage points.
+  annotation_process: ''
   results: DeepSeek-v3-250324 had the highest active-task StrictEQ at 54.30%, with diagnostic accuracy of 46.15%.
     Across 15 models, the paper reports that active evidence seeking reduced diagnostic accuracy by 12.75% and supporting-evidence
     quality by 24.36% relative to full-context evaluation.

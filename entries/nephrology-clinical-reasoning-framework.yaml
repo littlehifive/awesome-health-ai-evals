@@ -41,6 +41,13 @@ card:
   scale: Each rater assigns 0 for incorrect, 1 for reasonable but not optimal, or 2 for correct; aggregated scores
     are reported as model averages.
   validation: ''
+  score_meaning: The criteria assess whether answers explain clinically appropriate reasoning, such as prioritizing
+    diagnoses by frequency and severity and interpreting test results in the patient's clinical context. Treatment
+    answers are judged on evidence, patient-specific factors, justification and alternatives, while monitoring answers
+    must identify response indicators, risks and concrete countermeasures.
+  annotation_process: 'Scoring covered outputs from three sequential phases: patient history (Q1-Q4), test results
+    (Q5-Q7), and treatment course (Q8-Q9). Information from later phases was withheld until the model completed
+    the preceding phase. The evaluation took place on July 20, 2025 (JST).'
   results: Gemini 2.5 Pro achieved the highest reported average score of 7.57, followed by OpenAI o3 at 7.39, DeepSeek-R1
     at 7.13, and Llama 4 Maverick at 6.23.
   limitations: ''

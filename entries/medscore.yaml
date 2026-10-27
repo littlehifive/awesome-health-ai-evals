@@ -44,6 +44,12 @@ card:
     as proportions or percentages.
   validation: Two annotators labeled claims from three randomly sampled AskDocsAI responses using six decomposition-error
     categories, with Cohen's kappa of 0.68.
+  score_meaning: Scores against doctor responses measure how much the chatbot answer is grounded in the original
+    doctor response, rather than whether every claim is medically valid. A higher factuality score does not reliably
+    mean a better answer, because omitting claims or accepting invalid claims can inflate it.
+  annotation_process: For verification against external medical literature, MedRAG retrieved the five most relevant
+    passages for each claim from MedCorp, with Wikipedia removed after qualitative review. The manual claim-quality
+    results were reported as rounded averages of the annotators' ratings.
   results: MedScore extracted 28 valid claims from three manually annotated responses, compared with 14 for FActScore,
     9 for VeriScore and 19 for MedScore+Core. On PUMA, MedScore had the highest adjusted verifiable rate at 63.42%,
     compared with 60.09% for FActScore and 47.48% for VeriScoreQA.

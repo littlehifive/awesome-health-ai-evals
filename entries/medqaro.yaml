@@ -44,6 +44,11 @@ card:
   scale: Token-level F1, exact-match proportion, BLEU, and METEOR.
   validation: Five physician annotators independently annotated 350 QA pairs, with an average pairwise Cohen's kappa
     of 0.9562; this checks reference annotation agreement rather than automatic scoring.
+  score_meaning: F1 balances precision and recall over answer tokens, while BLEU gives credit for partial matches
+    of token sequences.
+  annotation_process: Five medical oncology and radiotherapy residents prepared the reference answers after training
+    on annotation guidelines supplied by experienced physicians. Two board-certified medical oncology specialists
+    then checked the accuracy and consistency of the residents' entries.
   results: In the paper's evaluation, fine-tuned Phi-4-mini-instruct performed best, with a test F1 of 0.667.
   limitations: The authors report that context trimming can remove important clinical clues and that METEOR is sensitive
     to Romanian medical word variations and biased against short answers.

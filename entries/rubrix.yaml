@@ -43,6 +43,12 @@ card:
     disagreements by consensus; their consensus agreed with GPT-5-nano in 88.67% of cases. Clinicians also qualitatively
     assessed 50 pairs of initial and refined responses, finding modest, consistent improvements in empathy and acknowledgment
     of distress, alongside persistent or newly introduced inaccuracies.
+  score_meaning: The score does not distinguish risks by severity, frequency, or downstream impact. A lower score
+    does not establish improved caregiver wellbeing, decision-making, or help-seeking, which the study did not measure.
+  annotation_process: Each response was evaluated initially and after each of two refinement rounds, with the generating
+    model revising its response using the full evaluator feedback. GPT-5-nano was excluded from response generation
+    to prevent self-evaluation bias. During validation, reviewers labeled agreement or disagreement with the evaluator's
+    assessment rather than independently assigning audit-question scores.
   results: ''
   limitations: The authors identify limited generalizability beyond caregiving, self-selected online samples, binary
     scores that obscure risk severity, potential GPT-5-nano evaluator biases, and no evidence that reduced rubric-defined

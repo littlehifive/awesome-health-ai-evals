@@ -48,6 +48,13 @@ card:
     across five folds.
   validation: The two evidence annotators independently annotated 50 documents, or 6.7% of the dataset, achieving
     Cohen's kappa of 0.72.
+  score_meaning: The verdict codes are Supported (0), Not enough information (1), and Refuted (2), rather than an
+    ordered performance scale. Not enough information means that an evidence article is available, but relevant
+    clinical studies are absent or too low in quality to support a reliable verdict.
+  annotation_process: At least two members of the portal's scientific team checked study quality; an author summarized
+    the findings, and a medical professional checked the summary. Evidence annotators read the claim and its verdict
+    before reading the full article, then selected up to five sentences that addressed the claim's veracity. They
+    held regular meetings to discuss labels and resolve uncertainties.
   results: Joint DeBERTa achieved the highest verdict-prediction macro-F1 of 67.5 ± 3.2 and evidence-selection macro-F1
     of 73.4 ± 1.4 across five folds. With gold evidence sentences, pipeline DeBERTa reached verdict-prediction macro-F1
     of 81.9 ± 1.4.

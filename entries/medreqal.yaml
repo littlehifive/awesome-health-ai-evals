@@ -42,6 +42,12 @@ card:
   judge: Automated label comparison, ROUGE-L, and BERTScore assign the scores.
   scale: Three-class verdicts; dataset accuracy, macro-F1, ROUGE-L, and BERTScore, reported as percentages.
   validation: ''
+  score_meaning: SUPPORTED means the evidence supports an affirmative answer; REFUTED means reliable studies show
+    no effect of the intervention on the outcome. NOT ENOUGH INFORMATION means there is insufficient high-quality
+    evidence to answer conclusively, rather than evidence of no effect.
+  annotation_process: GPT-3.5 (Turbo-0125) generated the reference verdicts from the questions and review conclusions.
+    Two authors checked a random sample of 100 examples, finding 94% of questions and 92% of labels correct. Generated
+    model responses received no human evaluation.
   results: Mixtral performed best overall among six models, with 62.0% accuracy, 34.8 macro-F1, 21.1 ROUGE-L, and
     85.6 BERTScore. ChatDoctor had the highest BERTScore at 86.0.
   limitations: The authors cite possible errors in automatically generated labels, evaluation limited to zero-shot

@@ -44,6 +44,11 @@ card:
     kappa values of 0.757, 0.855 and 0.880; agreement among clinicians ranged from 0.808 to 0.903. Author checks
     found 98% accuracy for multiple-choice grading, and benchmark scores correlated with clinician evaluations on
     separate questions at average Spearman rho 0.78 and Kendall tau 0.62.
+  score_meaning: For multiple-choice grading, an output counts as correct if it contains the correct answer index,
+    including when the index is followed by an explanation.
+  annotation_process: For the separate clinician evaluation used to test benchmark correlations, 300 DiSCQ questions
+    were randomly selected and divided among three clinicians, with 100 distinct questions per clinician. Each clinician
+    marked 1,900 responses from 19 models as correct or incorrect using the corresponding discharge summaries.
   results: GPT-4 scored highest, with multiple-choice accuracy of 97.16% on Level 1 and 95.15% on Level 2, and open-ended
     correctness of 91.30% and 89.61%, respectively.
   limitations: The authors state that performance may not generalize to discharge summaries outside MIMIC because

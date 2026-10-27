@@ -45,6 +45,13 @@ card:
   validation: Physician agreement within one Likert unit was 74.1%-76.9% across dimensions; quadratic-weighted Cohen's
     kappa was 0.23-0.38 except for verifiability at 0.09. Average Kendall's tau with human rankings was −0.200 for
     GPT-5.5, 0.467 for Gemini 3.1 Pro, 0.267 for Claude Opus 4.8 and −0.067 for the model jury.
+  score_meaning: Positive win differences mean the system won more often than it lost, while negative values mean
+    the reverse. Source quality concerns the authority of supporting sources, verifiability concerns how easily
+    an answer can be checked, and completeness concerns how fully it addresses the question.
+  annotation_process: Physicians were randomly assigned in a 2:1 ratio to view text-only answers or answers with
+    citations, with that display mode held fixed for each physician. Users and non-users of OpenEvidence were sampled
+    evenly, and 52.3% of graders had registered accounts. Each automated judge evaluated the same answer pairs as
+    the physicians using minimal thinking mode and temperature 0.
   results: OpenEvidence ranked highest on all five dimensions, with primary-analysis win differences of 25-39 percentage
     points, all with p < 0.001.
   limitations: The authors note single-week sampling from one platform, OpenEvidence's role in data collection,

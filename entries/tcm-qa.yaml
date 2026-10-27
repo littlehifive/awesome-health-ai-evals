@@ -45,6 +45,14 @@ card:
     criterion, reported as averages.'
   validation: Overall Fleiss' kappa between explanation raters was 0.247 for readability, 0.646 for reliability,
     and 0.594 for integrity.
+  score_meaning: Readability scores of 1, 2 and 3 mean incoherent text with many errors, mostly coherent text with
+    several errors, and fully coherent, fluent, error-free text; reliability scores mean unreliable information
+    with wrong reasoning, mostly reliable information with some inconsistencies, and fully reliable information
+    with sound comprehension and reasoning. Integrity measures coverage of relevant knowledge and sufficient context;
+    higher ratings indicate better performance, and 3 denotes approaching human performance.
+  annotation_process: An expert further defined the assessment criteria before explanations were rated. Ratings
+    with a majority vote were counted as agreement; the text does not describe how cases without a majority were
+    resolved.
   results: Only ChatGPT (gpt-3.5-turbo, March 2023) was evaluated; the abstract reports its highest precision as
     0.688 on true-or-false questions and its lowest as 0.241 on multiple-choice questions. The results table instead
     lists Chinese few-shot true-or-false precision as 0.788 and Precision in Responsive as 0.688.

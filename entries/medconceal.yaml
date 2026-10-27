@@ -45,6 +45,12 @@ card:
   scale: 'Turn-level rubric: 10 dimensions scored 0 to 1; outcomes: reveal fractions, precision/recall/F1, intervention
     success rates and turns to addressing.'
   validation: ''
+  score_meaning: Values Detected is the mean number of patient values identified in a conversation. Higher Readability
+    scores indicate easier-to-read dialogue, while lower Word/Turn values indicate more concise dialogue.
+  annotation_process: The turn evaluator scores each clinician utterance using a recent window of dialogue history,
+    and all metrics are computed in the same way for human and AI clinicians. A separate hybrid reference uses Claude
+    Sonnet 4.5 to summarize the human dialogues and scores those summaries as submitted findings, alongside the
+    clinicians' original submissions.
   results: At eight turns, Claude Sonnet 4.5 had the highest AI intervention success rate, 0.293, versus 0.427 for
     159 human clinicians; Doctor-R1 matched 0.427 with 20 turns. Llama3-OpenBioLLM-8B achieved the highest extended-dialogue
     confirmation Reveal Rate, 0.944, while no model led across all confirmation metrics.

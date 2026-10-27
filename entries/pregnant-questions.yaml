@@ -47,6 +47,14 @@ card:
   validation: The two completeness raters had a Spearman correlation of 0.34. On inference plausibility, the two
     validators rated 80% and 95% of sampled inferences at least 3 out of 5, with Spearman correlation 0.69; two
     authors achieved Cohen's kappa of 0.85 for presupposition versus implicature labels.
+  score_meaning: A completeness rating of 2 means the answer is on-topic but missing crucial information, 3 means
+    it contains all essential information needed to answer the question, and 4 means most information needed for
+    completeness is present. Inference plausibility ratings measure how likely the question asker is to believe
+    the assumption or implication.
+  annotation_process: The expert validators viewed and scored the baseline and inference-augmented answers simultaneously.
+    For inference-type labels, two authors first annotated independently and then adjudicated the final labels,
+    preserving individual labels and adjudication rationales. Two annotators from the health-expert pool separately
+    assessed whether each sampled inference was addressed implicitly or explicitly in the expert-written answer.
   results: GPT-3.5 performed best on QAFactEval, the main automatic metric. Baseline-GPT-3.5 received a mean completeness
     rating of 4.45 versus 4.43 for Inference-GPT-3.5, whose answers were rated equivalent or better on 75% of sampled
     questions.

@@ -40,6 +40,9 @@ card:
   judge: Exact match with the ground-truth disease label.
   scale: Correct or incorrect per description; percentage accuracy for each noise level.
   validation: ''
+  score_meaning: A smaller drop in accuracy from clean to noisy descriptions indicates greater robustness to linguistic
+    noise.
+  annotation_process: ''
   results: Flan-T5 led on noisy inputs, with 92.5% accuracy on medium noise and 87.1% on heavy noise. BERT led on
     clean text with 98.3% accuracy.
   limitations: The authors state that their supervised evaluation was limited to three fine-tuned models trained

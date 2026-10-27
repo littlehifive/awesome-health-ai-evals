@@ -44,6 +44,10 @@ card:
     with no overall score reported.
   validation: The authors compared several semantic-similarity methods and selected GPT-4 as the best performer;
     the supplied text gives no agreement figures.
+  score_meaning: For freeform QA and question formation, responses that are not semantically similar to the reference
+    are counted as incorrect. Higher F1 and accuracy indicate better performance, while a larger excess-Yes bias
+    indicates a stronger tendency to answer Yes on balanced data.
+  annotation_process: ''
   results: GPT-4 led all reported freeform tasks, with accuracy of 0.952 on PubMedQA and 0.948 on BioASQ, while
     GPT-3.5 led shortform baseline QA with F1 of 0.848. GPT-4 and GPT-3.5 both achieved 1.0 accuracy on the refusal
     task.

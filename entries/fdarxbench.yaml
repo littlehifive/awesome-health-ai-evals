@@ -44,6 +44,10 @@ card:
   validation: The question-relevance judge achieved precision 0.968 and F1 0.800 against FDA expert judgments. The
     item-filtering judge achieved average precision 0.797 and F1 0.683 against human annotators, rising to 0.922
     and 0.738 when multi-hop items were excluded.
+  score_meaning: High refusal recall can coexist with refusing answerable questions, so it does not by itself show
+    reliable abstention. Citation scores can penalize valid supporting passages when the label repeats the same
+    information outside the recorded gold passages.
+  annotation_process: ''
   results: With full labels, Claude Opus had the highest factual accuracy at 0.562, while Qwen-32B had the highest
     multi-hop accuracy at 0.473. Llama-8B had the highest refusal F1 at 0.796.
   limitations: The authors identify narrow section-based context, redundant evidence that can distort citation scores,

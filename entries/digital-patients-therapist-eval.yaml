@@ -44,6 +44,12 @@ card:
     psychology PhD candidates trained by that expert, evaluated 30 randomly selected sessions for comparison with
     the LLM. Human inter-rater Krippendorff's alpha was 0.63 for satisfaction and 0.67 for working alliance; LLM
     questionnaire internal consistency across the 288 conversations had Cronbach's alpha values of 0.97 and 0.98.
+  score_meaning: A rating of 1 means an aspect of treatment was ineffective or unsatisfactory, while 5 means it
+    was highly successful.
+  annotation_process: The human evaluators rated sessions independently, without seeing one another's results; they
+    received no formal scoring guidelines and did not coordinate their ratings. The LLM's average questionnaire
+    scores were compared with each evaluator's scores separately using Pearson correlations. Evaluations of the
+    fine-tuned therapist models were not manually validated.
   results: ''
   limitations: The authors note that evaluation covers only two dimensions and three therapist-quality levels, digital-patient
     ratings have low variance compared with human responses, and the fine-tuned therapist results were not manually

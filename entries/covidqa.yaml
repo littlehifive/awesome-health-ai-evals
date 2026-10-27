@@ -43,6 +43,14 @@ card:
   judge: Automatic substring matching against manually annotated answer spans assigns sentence correctness.
   scale: Binary sentence correctness; micro-averaged MRR, P@1 and R@3, each from 0 to 1.
   validation: ''
+  score_meaning: The scores measure answer finding within articles already known to contain an answer; they do not
+    measure whether a model can detect that an article has no answer.
+  annotation_process: 'Five University of Waterloo co-authors created the reference annotations: two computer science
+    undergraduates, a science alumna, a computer science professor and a computer science graduate student. The
+    graduate student was the lead annotator, responsible for approving topics and answering the other annotators''
+    technical questions. Annotators mapped Kaggle answers to verbatim article spans that stayed within sentence
+    boundaries, using human judgment when the wording or numerical precision differed and excluding entries where
+    a suitable span could not be identified.'
   results: 'T5 fine-tuned on MS MARCO achieved the best overall results with natural language questions: MRR 0.415,
     P@1 0.282 and R@3 0.404.'
   limitations: The authors state that the dataset is too small for supervised training, its annotators lack relevant

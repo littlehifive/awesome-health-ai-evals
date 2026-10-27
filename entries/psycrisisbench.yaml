@@ -39,6 +39,12 @@ card:
   judge: Scoring compares predictions with the hotline operators' assessment labels.
   scale: Binary classifications per call; F1 from 0 to 1 for each task, averaged over three runs.
   validation: ''
+  score_meaning: '"Depression" means multiple persistent negative emotions or typical depressive symptoms, suicidal
+    ideation means expressed suicidal thoughts, a suicide plan means mentioning a time, place, method or means,
+    and "High risk" means an urgent need for intervention; the alternative labels indicate these conditions are
+    absent. F1 balances precision and recall, so higher scores indicate better performance at avoiding both missed
+    cases and false alarms.'
+  annotation_process: ''
   results: Fine-tuned Qwen2.5-1.5B led mood recognition with F1 0.8045 and suicidal ideation detection with F1 0.8925.
     Claude-3.5-Sonnet led suicide plan identification with F1 0.7791, and QwQ-32B led risk assessment with F1 0.9067,
     both using four-shot prompting.

@@ -43,6 +43,13 @@ card:
   scale: Alignment precision, recall, and F1 from 0 to 1; case-level dimensions and holistic overall quality from
     1 to 5.
   validation: ''
+  score_meaning: Unmatched reference items count as missing evidence, while unmatched generated items count as extra
+    content, which can include plausible findings absent from the source article. Major factual or clinical-validity
+    errors and omission of case-defining evidence lower the overall reasoning-quality score.
+  annotation_process: For each case, the judge received the reference diagnosis and evidence, the model's diagnosis
+    and reasoning, and a summary of matched, missing, extra, and contradictory evidence. It provided a brief evidence-grounded
+    justification for each dimension score before assigning the holistic overall score; formal clinician scoring
+    was not included.
   results: o4-mini outperformed Claude Haiku 4.5, with diagnosis F1 of 0.35, reasoning F1 of 0.28, image-finding
     F1 of 0.17, and overall reasoning quality of 2.75 out of 5.
   limitations: The authors note that fixed evidence disclosure excludes autonomous diagnostic decisions, the small

@@ -42,6 +42,13 @@ card:
   scale: Correct or incorrect label predictions; aggregate accuracy, error rates, recall, specificity, parse compliance,
     and agreement proportions from 0 to 1.
   validation: ''
+  score_meaning: Under-triage is the share of parse-valid outputs labeled routine when the reference label is see-doctor,
+    so 0.718 means 71.8% of those cases were assigned the lower-risk label; lower is better. Near-zero clarification
+    recall means failure to recognize deliberately omitted information, while high consistency can reflect repeatedly
+    choosing routine rather than correct understanding.
+  annotation_process: Risk targets are computed once per English source case and copied to matched French and Arabic
+    items by shared case identity. Risk, concern and clarification metrics exclude outputs that cannot be parsed;
+    parsing failures are counted separately.
   results: 'Zero-shot Qwen3.5-9B-Instruct achieved the highest reported English risk accuracy, 0.667, against a
     majority-class baseline of 0.644, with clarification recall of 0.856. Risk-corrected multilingual adaptation
     achieved the lowest reported under-triage rates: 0.590 in English, 0.572 in French, and 0.558 in Arabic, but

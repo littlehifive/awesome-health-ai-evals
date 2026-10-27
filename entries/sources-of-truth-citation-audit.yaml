@@ -48,6 +48,14 @@ card:
   validation: Two authors reviewed the 100 most-cited domains, covering 72.1% of citations, and two annotators independently
     coded 200 randomly sampled remaining domains. Cohen's kappa was 0.88 between annotators and 0.89 and 0.86 between
     each annotator and the classifier.
+  score_meaning: A citation counts as language-appropriate if its domain has a country-code suffix associated with
+    the query language or its URL contains a native-language marker; a higher percentage means more citations meet
+    either condition. URL validity means only that the URL is syntactically well formed, not that the page exists
+    or supports the answer.
+  annotation_process: Seven trained, US-based annotators administered each condition five times, using logged-out,
+    fresh or cleared sessions and private browsing where possible. They recorded sources from in-text citations,
+    clickable links and end-of-response reference lists. The recorded citations were then parsed programmatically
+    to extract destination URLs.
   results: ''
   limitations: The authors note that this is a single-time snapshot of logged-out free tiers with undisclosed models,
     only three questions per non-English language, possible translation and US-location effects, and no verification

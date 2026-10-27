@@ -44,6 +44,11 @@ card:
   scale: Multiple-choice correctness, extraction micro-F1 and 0-1 rubric scores; mean performance reported as percentages.
   validation: On 596 held-out disputed questions, the SFT judge achieved 92.13% accuracy and 81.32% Cohen's kappa
     against human expert judgments, compared with 71.02% accuracy for the base Qwen3-14B.
+  score_meaning: ''
+  annotation_process: The review panel comprised 300 licensed physicians from Grade-A tertiary hospitals in China,
+    including experts with web-based medical service experience. Two physicians independently reviewed each benchmark
+    item for plausibility, clinical validity, answer correctness, distractor plausibility where applicable, and
+    whether the rubric matched the question. Items that failed review were discarded or revised and revalidated.
   results: Kimi-K2-Instruct ranked first with 77.3% overall accuracy, scoring 87.8% in medical record understanding
     and 61.3% in patient-facing services.
   limitations: ''

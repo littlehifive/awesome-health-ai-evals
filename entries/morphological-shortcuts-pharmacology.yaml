@@ -45,6 +45,11 @@ card:
   validation: On 300 manually annotated cross-model cases, the open-ended judge achieved 92.3% accuracy and 89.3%
     F1. Two co-authors without medical backgrounds independently performed double-blind labeling using predefined
     labels; an MD co-author analyzed output cases and pharmacological patterns.
+  score_meaning: '"No signal" means the mean real-versus-nonce probability difference minus its standard deviation
+    is at most 0.1, so responses are not reliably distinguishable from responses to fully made-up strings. Otherwise,
+    the largest diagnostic score determines the Holistic, Affix-dependent or Stem-dependent label only if it exceeds
+    the second-largest score by at least 0.1; smaller gaps receive the Mixed signal label.'
+  annotation_process: ''
   results: ''
   limitations: The diagnostic framework requires token probabilities or logits and excludes many advanced closed-source
     models, while computational constraints restricted mechanistic experiments to two 7B-scale models.

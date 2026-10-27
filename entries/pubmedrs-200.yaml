@@ -44,6 +44,14 @@ card:
   scale: Retrieval precision and recall; separate answer-quality metrics, including UniEval's average across four
     dimensions.
   validation: ''
+  score_meaning: Higher retrieval precision and recall mean that more retrieved articles match the systematic review's
+    references and that more of those references were retrieved, respectively. Answer scores reward alignment with
+    the systematic review's synthesis, so an answer based on different evidence can be penalized even when it addresses
+    the question.
+  annotation_process: Two human evaluators, AL and SF, prepared reference answers by removing descriptions of review
+    methods from abstract results and conclusions, retaining text that directly answered the title question and
+    excluding abstracts without substantive results. System outputs were scored automatically rather than through
+    human preference ratings.
   results: Clinfo.ai outperformed the other retrieval-augmented systems on overall UniEval, with reported improvements
     of 6.2% to 14.9%. Its TL;DR output performed better than its longer synthesis outputs.
   limitations: The authors did not check the automated scores against human preferences in this study and note that

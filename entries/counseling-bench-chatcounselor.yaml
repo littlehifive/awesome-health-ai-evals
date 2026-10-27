@@ -38,6 +38,10 @@ card:
   judge: GPT-4 assigns the pairwise judgments.
   scale: A wins, B wins, or tie for each criterion; final aggregation is not specified.
   validation: ''
+  score_meaning: ''
+  annotation_process: GPT-4 was prompted with a few examples for each counseling strategy, including the strategy
+    definition and example expressions. The judging instructions emphasized natural conversation rather than lists
+    of suggestions and told GPT-4 to disregard response length, presentation order and assistant names.
   results: GPT-3.5-turbo (ChatGPT) performed better than ChatCounselor, while ChatCounselor outperformed the evaluated
     open-source models. Numerical scores and a human baseline are not provided in the text.
   limitations: The authors report that GPT-4 tends to favor longer responses and extensive lists of suggestions,

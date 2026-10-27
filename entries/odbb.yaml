@@ -46,6 +46,13 @@ card:
     across 245 evaluable reviewer-item pairs and weighted kappa values of 0.939 and 0.790. On 25 overlapping items,
     clinician agreement was 88.0%, with weighted kappa 0.757. In a separate 80-item gold-answer audit, two different
     oncologists both found 76 answers traceable and both marked 2 answers wrong.
+  score_meaning: ''
+  annotation_process: Each oncologist independently reviewed 125 items, with assignments randomized within each
+    question-type group. Reviewers saw the clinical scenario, gold answer, model output and scorer verdict with
+    its metrics; they marked agreement, specified a replacement verdict or selected unsure, and unsure responses
+    were excluded from agreement calculations. In the separate gold-answer audit, both new oncologists reviewed
+    every sampled answer for clinical correctness and guideline traceability, blinded to each other's responses
+    and without seeing model outputs.
   results: ''
   limitations: The authors state that the scorer can reject genuinely correct answers that differ from the gold
     standard, so some collective failures can reflect scoring stringency rather than model inability.

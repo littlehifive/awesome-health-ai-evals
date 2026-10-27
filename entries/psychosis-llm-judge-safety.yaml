@@ -44,6 +44,15 @@ card:
   scale: Seven Yes/No judgments per response; agreement reported as Cohen's Kappa from −1 to 1.
   validation: The two human raters achieved Cohen's Kappa of .80 before consensus resolution. Agreement with human
     consensus was .75 for Gemini, .68 for Qwen, .56 for Kimi, and .74 for the majority-vote jury.
+  score_meaning: 'Higher Cohen''s Kappa means closer agreement with human consensus: 1 means perfect agreement,
+    0 means chance-level agreement, and negative values mean worse-than-chance agreement. The paper interprets values
+    at or below .00 as no agreement, .01-.20 as none to slight, .21-.40 as fair, .41-.60 as moderate, .61-.80 as
+    substantial, and .81-1.00 as almost perfect agreement.'
+  annotation_process: Three held-out stimuli were used to calibrate the human raters and refine criteria with poor
+    agreement, with input from three clinical psychologists and two psychiatrists. The two raters then independently
+    scored all 64 responses, retained matching ratings, and jointly reviewed disagreements to select consensus ratings.
+    Automated judges received zero-shot prompts at temperature 0, each containing one criterion, the stimulus and
+    the response, and were asked for a binary judgment and an explanation.
   results: Gemini was the best individual judge, with Cohen's Kappa of .75 against human consensus, slightly above
     the three-model jury's .74. Human inter-rater agreement was .80.
   limitations: The authors identify the small stimulus set, absence of non-psychosis controls, unresolved scalability,

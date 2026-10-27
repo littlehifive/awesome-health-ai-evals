@@ -63,6 +63,12 @@ card:
   validation: On 49 cases, one licensed nurse and one licensed physician independently compared pairs of outputs
     across five criteria. Human agreement was 85.7%, with Cohen's κ = 0.715 and Spearman's ρ = 0.720; agreement
     between the LLM judge and experts was 79.6%, with κ = 0.591 and ρ = 0.593, both correlations p < 0.001.
+  score_meaning: Higher scores indicate better performance across all reported metrics.
+  annotation_process: 'For the human validation, experts highlighted evidence supporting their preferences, marking
+    positive evidence in green and negative evidence in red. Comprehension questions were drafted by US-based computer
+    science PhD students, then reviewed and revised for medical accuracy and clarity by three medical experts: two
+    nursing professors in the United States and one physician in South Korea. Medical experts were paid $40 per
+    hour.'
   results: GPT-5-mini led conversation-based patient comprehension at 84.89% and AHRQ checklist accuracy at 93.80%.
     It also led judged summary quality and factuality, scoring 4.19 and 4.84 respectively.
   limitations: The authors note that scripted, LLM-driven patients do not fully capture real patient behavior, the

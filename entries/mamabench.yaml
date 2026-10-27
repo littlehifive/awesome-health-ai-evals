@@ -49,6 +49,16 @@ card:
     of 62 at the strict threshold. A 100-query pooling audit raised estimated lenient coverage from about 0.49 to
     about 0.99 when expanded to five retrievers' top-20 results; mamabench provides 6,853 physician-labelled criterion
     triples over 872 prompts for consumers to calibrate their rubric judge.
+  score_meaning: For retrieval relevance, an off-topic passage scores 0, and higher scores indicate more useful
+    content for answering the query; the lenient cutoff means any useful content, while the strict cutoff means
+    complete and specific content. In the dosage example, an exact alternative formulation scores 6, a dosing section
+    diluted by storage and supply advice scores 4, and an adherence note without a dose scores 2.
+  annotation_process: One LLM judge produces each retrieval relevance label, writing its reasoning before assigning
+    the dimension scores and stopping if the passage fails the topic check. The released set contains 230,964 judged
+    query-passage pairs drawn from the combined top-20 results of six retrievers across 3,185 queries; passages
+    outside that pool are unjudged and counted as not relevant. No midwife reviewed either benchmark at scale, and
+    the physician labels supplied for rubric-judge calibration come from HealthBench's annotator pool rather than
+    midwifery specialists.
   results: ''
   limitations: The authors report no large-scale midwife validation, overlap between rubric-calibration and consensus-test
     prompts, clean single-chunk retrieval queries that favor dense retrievers, incomplete pooled relevance labels,

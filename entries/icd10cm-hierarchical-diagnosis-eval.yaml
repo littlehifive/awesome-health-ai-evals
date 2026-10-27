@@ -42,6 +42,13 @@ card:
     scoring above zero.
   validation: The two reference-code annotators agreed on full codes for 41 of 50 cases (82%; Cohen's κ = 0.817)
     and agreed on all 50 codes at one-decimal precision.
+  score_meaning: A score of 0 means no overlap with the reference code; scores of 1 or 2 identify only the general
+    disease category, while scores of 3 or 4 identify the specific disease with increasing precision. A score of
+    4 means agreement at every evaluated level, rather than necessarily matching every digit of the full code.
+  annotation_process: Two annotators independently mapped diagnosis statements extracted from case metadata to reference
+    codes, each using a different standardized mapping tool. Full-code disagreements were confined to final digits
+    and disappeared at the one-decimal precision used for evaluation, so all cases were retained without further
+    adjudication. Two annotators also independently executed each model-case pair to collect its outputs.
   results: DeepSeek-V3 had the highest overall numerical performance; it tied GPT-4o on binary accuracy at 82% (41
     of 50 cases), where any hierarchical overlap counted as correct.
   limitations: The authors note limited model coverage and warn that credit for broad or nearby ICD-10-CM categories

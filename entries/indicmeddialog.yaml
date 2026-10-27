@@ -43,6 +43,13 @@ card:
   scale: Diagnosis correct or incorrect, reported as percentage accuracy; expert criteria rated 1-5 and averaged,
     with safety reported as a binary pass rate.
   validation: Medical experts' ratings had an average Krippendorff's alpha of 0.81.
+  score_meaning: For expert quality ratings, 1 means Very Poor and 5 means Excellent, so higher averages indicate
+    better-rated dialogues. Translation Quality measures linguistic accuracy and fluency relative to the English
+    source, while Clinical Safety checks medical appropriateness and freedom from harmful or culturally insensitive
+    content.
+  annotation_process: Two native speakers per language independently rated a sampled subset of translated and post-processed
+    dialogues on Translation Quality and Clinical Safety using a 10-point scale, resolving disagreements through
+    discussion. The medical experts reviewed a randomly sampled subset of system-generated dialogues.
   results: IndicMedLM achieved the best post-processed diagnostic accuracy in 7 of 10 languages, including 80.85%
     in English, 72.76% in Hindi, 68.51% in Marathi, and 58.72% in Bengali. Its medical safety pass rate was 95.3%.
   limitations: The authors state that the synthetic-to-real dialogue gap remains unquantified, coverage is restricted

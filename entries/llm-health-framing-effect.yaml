@@ -44,6 +44,13 @@ card:
   scale: Binary evidence-direction agreement per response pair, reported as a percentage; average cosine similarity
     and entity, citation, and numerical overlap.
   validation: ''
+  score_meaning: The direction labels describe whether the medical outcome is higher, lower, unchanged, or uncertain
+    with the treatment compared with placebo or standard treatment. Negative Framed-minus-Baseline differences and
+    odds ratios below 1 indicate lower consistency under opposing question framings than under repeated positive
+    framing.
+  annotation_process: The evaluator was asked a treatment-specific question comparing the quantity of a medical
+    outcome with placebo or standard treatment. The researchers chose an evaluator with a different architecture
+    from the answer-generating models to reduce systematic biases.
   results: Across eight models, average evidence-direction agreement was 72.0% for positive-negative pairs versus
     76.2% for repeated positive questions. For multi-turn conversations, agreement was 70.7% versus 78.4%.
   limitations: The authors state that simulated queries omit real patient language variation, plain-language testing

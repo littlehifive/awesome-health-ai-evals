@@ -45,6 +45,10 @@ card:
   scale: Each domain is rated from 1 (very poor) to 5 (excellent); reported metrics are domain means and estimated
     probabilities of ratings of at least 4.
   validation: ''
+  score_meaning: Ratings of 4 or 5 count as high quality. Higher safety-domain scores indicate a lower likelihood
+    of harm and less severe potential harm if the advice is followed.
+  annotation_process: Evaluators were instructed to consider both clinical content and communication quality when
+    assigning scores. Panel evaluations took place from 4 to 29 August 2025.
   results: o3 led numerically in most domains, scoring 4.72 for guideline alignment compared with the clinician
     baseline of 2.86. Credible intervals broadly overlapped among LLMs, and clinicians scored lower than LLMs in
     9 of 11 domains.

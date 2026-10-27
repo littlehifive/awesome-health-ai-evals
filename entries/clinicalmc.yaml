@@ -48,6 +48,10 @@ card:
   scale: Accuracy, recall, F1, entity intersection over union, and LLM-assigned reasoning scores; results and averages
     reported as percentages.
   validation: ''
+  score_meaning: ''
+  annotation_process: Reference annotations were produced through LLM segmentation of multi-course electronic health
+    records, initial verification by three clinically trained inspectors, and a dual review by two senior clinicians.
+    GPT-4 graded model outputs in three runs.
   results: The best reported average scores are 49.68% on English and 48.17% on Chinese, but the excerpt does not
     identify the winning models. A medical student who was not involved in annotation answered 100 sampled cases,
     with human averages reported as 87.51% on English and 85.00% on Chinese.

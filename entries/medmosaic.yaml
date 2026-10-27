@@ -42,6 +42,15 @@ card:
   scale: Multiple-choice items score 0 or 1; open-ended items average four 0-1 criteria; the final metric is a question-count-weighted
     percentage.
   validation: ''
+  score_meaning: For open-ended answers, correctness measures factual agreement with the reference, relevance measures
+    focus on the question without extraneous information, completeness measures coverage of key reference points,
+    and clarity measures coherence and organization. Any factual contradiction caps correctness at 0.5, and missing
+    key information reduces completeness proportionally.
+  annotation_process: Two healthcare professionals validated 145 generated question-answer pairs sampled across
+    categories, audio types, and difficulty levels, with each pair assigned to one professional without overlap.
+    They rated multiple dimensions on a 3-point scale and gave a final verdict of acceptance, minor revision, or
+    rejection. For open-ended model responses, GPT-5.1 returned scores and written justifications for each criterion
+    in JSON format.
   results: Gemini-2.5-Pro led the 13 evaluated models with 68.1% weighted-average accuracy.
   limitations: The authors identify answer parsing that can count guesses based on question wording rather than
     audio, potential differences between synthetic and real clinical audio, and coverage limited to English.

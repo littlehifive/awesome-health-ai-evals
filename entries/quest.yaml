@@ -42,6 +42,14 @@ card:
   scale: Task-specific Likert scales, presence-or-absence categories, or specialized scales; mean or median ratings
     reported separately for each dimension.
   validation: ''
+  score_meaning: 'The paper gives an example accuracy scale from 1 (inaccurate) to 5 (accurate). In the triage example,
+    ratings of next-step recommendations use five labels: strongly agree, agree, neither agree nor disagree, disagree,
+    and strongly disagree.'
+  annotation_process: QUEST recommends training all evaluators on the questionnaire and guidelines, with Cohen's
+    kappa of 0.7 or above given as an example threshold for consensus. In the clinical-note summarization example,
+    four physicians, two nurses, and one pharmacist received two hours of training and rated ten outputs alongside
+    the original records in an initial round. They discussed agreement and updated the guidelines before conducting
+    the final evaluation over two weeks.
   results: ''
   limitations: The authors identify making human evaluation more scalable and less resource-intensive through LLMs
     or other technology as an unresolved research question.

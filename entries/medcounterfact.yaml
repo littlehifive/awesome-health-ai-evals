@@ -45,6 +45,12 @@ card:
   validation: Human evaluation on 70 randomly sampled instances found 92.86% accuracy for Claude's free-form answer
     classification and 90.00% for implausibility-awareness classification. Two co-authors without medical backgrounds
     performed double-blind labeling of outputs to validate Claude's reliability.
+  score_meaning: Higher, Lower and No Difference describe the outcome for the intervention relative to the comparator;
+    Uncertain expresses doubt when evidence is insufficient or unreliable. Explicit Yes means the model explicitly
+    recognizes the intervention's implausibility, Implicit Yes means it senses a problem but rationalizes or reinterprets
+    the intervention as plausible, and No means it shows no recognition that the intervention is counterfactual
+    or adversarial.
+  annotation_process: ''
   results: ''
   limitations: The authors limit their findings to English scientific literature and RCT-based comparison questions
     rather than broader user queries, note nonuniform evidence formats, and acknowledge that Claude-based grading

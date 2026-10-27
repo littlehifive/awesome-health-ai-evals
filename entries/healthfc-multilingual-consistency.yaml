@@ -51,6 +51,13 @@ card:
     human-model kappa was 0.50 for German, 0.66 for Turkish and 0.71 for Chinese. A separate parsing check on five
     answers per language scored correct parsing as 2 points and partial parsing as 1, with mean scores out of 10
     of 8.4 for English and Turkish, 9.4 for Chinese and 7.2 for German.
+  score_meaning: Consistent means the paired answers fully agree in meaning; Partially Consistent means they overlap
+    or support each other but include some unrelated or contradictory content. Contradict means the answers oppose
+    each other, while Irrelevant means they address unrelated topics; these labels measure cross-language agreement,
+    not factual accuracy.
+  annotation_process: The team refined the prompts iteratively before using the final versions. Disagreements between
+    human and model annotations occurred especially among the three inconsistent labels, so the researchers combined
+    those labels rather than resolving each disagreement individually.
   results: GPT-4o had the lowest average inconsistency for Chinese at 42.63% and German at 39.91%, while ChatGPT
     had the lowest for Turkish at 47.34%.
   limitations: The authors state that the framework does not assess factual accuracy, relies on GPT-4o in ways that

@@ -59,6 +59,9 @@ card:
   scale: Identical, relevant or irrelevant per diagnosis; top-1 and top-5 accuracy and multiple-choice accuracy
     as percentages.
   validation: ''
+  score_meaning: ''
+  annotation_process: All models receive the same prompt asking for five possible diagnoses in descending order
+    of confidence. The prompt does not impose strict constraints on the output format.
   results: The best-performing model, o3, achieved 51.12% accuracy on the open-ended benchmark. In the multiple-choice
     version, o1 achieved 61.90%.
   limitations: The authors state that predefined multiple-choice options simplify diagnosis and provide shortcuts

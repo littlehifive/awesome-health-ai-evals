@@ -44,6 +44,12 @@ card:
     pairs. Three-category Cohen's kappa for plausibility and answerability was 0.64 and 0.30 for human pairs and
     0.60 and 0.24 for LLM pairs; merging partial and negative ratings gave 0.85 and 0.37 for human pairs and 0.59
     and 0.22 for LLM pairs.
+  score_meaning: Verification ratings were "Completely", "Partially" or "Not at all" for both clinical plausibility
+    and whether the recommendation answered the question. An "ideal" pair received "Completely" on both criteria
+    and was eligible for the retrieval evaluation.
+  annotation_process: Four of the six UK-based medical students recruited through a university employment agency
+    carried out one verification round, each receiving 200 human-written and 100 LLM-written pairs. Verifiers were
+    blinded to whether questions came from humans or the LLM and used an updated instruction sheet.
   results: ''
   limitations: The authors state that the dataset is too small for training, agreement on whether recommendations
     fully answer questions is low, newer GPT versions could change the cost analysis, and the evaluation covers

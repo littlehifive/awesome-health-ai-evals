@@ -41,6 +41,10 @@ card:
   scale: 'Reasoning: high, moderate, or low, reported as percentages; credibility: percentage of citations from
     designated reputable domain types.'
   validation: The two reasoning coders achieved Cohen's kappa of 0.78 and resolved disagreements through discussion.
+  score_meaning: High reasoning means a response is comprehensive and appropriate, moderate means it is relevant
+    but has gaps, and low means it is off-topic or contradictory. A higher percentage of high-reasoning responses
+    indicates that more answers fully matched the expert answers.
+  annotation_process: ''
   results: Claude Sonnet-4.5 had the highest proportion of citations from designated reputable domains at 74%, but
     cited inconsistently. Among tools that cited without prompting, Microsoft Copilot Smart Mode led at 57%.
   limitations: The authors acknowledge that their domain-based credibility proxy excludes some medically reviewed

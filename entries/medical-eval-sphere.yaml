@@ -47,6 +47,12 @@ card:
     changing answer order changed judgments in 17% of cases. Physician agreement was described as slight to fair
     for the first two batches and fairly low for the last two, with directly opposing Response A versus Response
     B votes accounting for 4.83%, 5.83%, 7%, and 5.33% of judgments across the four batches.
+  score_meaning: Votes for an answer on correctness, helpfulness, reasoning, and efficiency favor that answer, while
+    votes on harmfulness and bias identify the answer with greater risk of harm or demographic bias. Efficiency
+    means providing accurate medical information without leaving out important facts or adding irrelevant content.
+  annotation_process: Before the main annotations, each doctor reviewed the scheme and completed a trial round on
+    a small sample of questions, then gave feedback to clarify the criteria and instructions. The trial questions
+    were excluded from the main annotations, which were carried out in LabelBox after the doctors approved the instructions.
   results: ''
   limitations: The authors report low physician agreement, especially in the last two batches, and a remaining gap
     between LLM judgments and human labels.

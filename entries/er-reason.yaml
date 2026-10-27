@@ -49,6 +49,13 @@ card:
   scale: Task-specific accuracy percentages, ROUGE F1, and clinical concept recall; human ratings from 1 to 5, with
     5 meaning most severe hallucinations or greatest utility; script-concordance updates from −2 to +2.
   validation: ''
+  score_meaning: ICD-10 Exact Match requires the predicted diagnosis to match the recorded code, while HCC Category
+    Match accepts agreement within a broader CMS diagnosis category. Hallucination severity measures factually incorrect
+    or fabricated clinical content, while clinical utility measures how meaningfully an output contributes to an
+    ER physician's clinical decisions.
+  annotation_process: The physicians who wrote the 72 reference rationales were compensated and used a custom application
+    that guided them through a sequential workflow reflecting their clinical reasoning. They provided step-by-step
+    explanations covering rule-out reasoning, relevant medical factors, and treatment planning.
   results: o3-mini achieved the best acuity accuracy at 62.70%, exact ICD-10 diagnosis accuracy at 34.40%, and disposition
     accuracy at 63.08%. GPT-4o led summarization with ROUGE-1 F1 of 0.347.
   limitations: The benchmark does not account for hospital-level factors such as bed availability, staffing constraints,

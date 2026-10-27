@@ -40,6 +40,10 @@ card:
   scale: ''
   validation: Human review of dataset quality by a physician and a physical therapist yielded Gwet's AC2 values
     of 0.944 to 0.961 in their shared subset for clinical accuracy, completeness, and persona adherence.
+  score_meaning: ''
+  annotation_process: Claude Sonnet 4.5 evaluated every QA pair using G-Eval for faithfulness, completeness, persona
+    appropriateness, and clinical relevance. Pairs below a threshold underwent feedback-guided repair and re-evaluation.
+    Two human raters evaluated 200 pairs, with a shared subset rated by both.
   results: ''
   limitations: ''
   sources:

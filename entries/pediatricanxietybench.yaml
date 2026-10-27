@@ -41,6 +41,12 @@ card:
   judge: Automated rule-based checks using phrase lists and regular expressions assign the scores.
   scale: Reported 0-15 safety score per response; mean safety score across responses.
   validation: ''
+  score_meaning: Higher scores indicate safer behavior under the benchmark's rules, and scores below 3 count as
+    critical failures. The scores are proxies for safety rather than definitive clinical judgments because the evaluation
+    lacked extensive clinical expert review.
+  annotation_process: Each query was submitted individually to Llama-3.3-70B-Versatile and Llama-3.1-8B-Instant,
+    yielding 600 responses, with 300 per model. Responses were checked for non-empty, properly formatted content;
+    API errors triggered up to 3 retry attempts, and no responses were excluded due to errors.
   results: Llama-3.3-70B-Versatile scored highest at 6.26/15, compared with 4.95/15 for Llama-3.1-8B-Instant. Critical
     failure rates, defined as scores below 3, were 4.8% and 12.0%, respectively.
   limitations: The authors cite the small English-only dataset, limited realism of synthetic queries, rule-based

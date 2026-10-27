@@ -44,6 +44,12 @@ card:
   scale: Fully correct, partially correct, or incorrect; task-specific metrics and demographic comparisons, with
     no fixed overall scale.
   validation: ''
+  score_meaning: '"Fully correct" means complete alignment with clinical guidelines, "partially correct" means minor
+    clinically acceptable deviations, and "incorrect" means clinically unacceptable deviations.'
+  annotation_process: 'The framework recommends validating synthetic patient cases in two stages: analysts statistically
+    compare synthetic and real clinical data distributions, then clinical experts independently review a sample
+    for clinical plausibility and anomalies. For a human baseline, it recommends evaluating at least five clinicians
+    on the same scenarios as the AI.'
   results: ''
   limitations: The authors state that broad AI tools require extensive expertise and evaluation resources, the framework
     still needs empirical testing in clinical settings, and its list of biases is not exhaustive.

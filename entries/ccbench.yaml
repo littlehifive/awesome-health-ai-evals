@@ -45,6 +45,9 @@ card:
   validation: The authors assessed agreement among the three experts using mean Spearman rank correlations across
     questions and reported that QA G-Eval scores were consistent with expert evaluations, but the supplied text
     gives no numerical agreement values.
+  score_meaning: Higher expert evaluation and G-Eval scores indicate better answer quality.
+  annotation_process: Answers with formatting problems underwent manual review and handling before scoring. GPT-4
+    used the same custom evaluation criteria as the human experts.
   results: GPT-4 performed best on the text QA dataset, with 70.5% accuracy on close-ended questions and an average
     expert score of 6.9/10 on open-ended questions.
   limitations: The authors state that model responses still differ from those of cytopathologists and that misinformation

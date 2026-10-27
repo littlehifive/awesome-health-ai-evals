@@ -42,6 +42,12 @@ card:
   scale: Each applicable dimension receives 1 (clearly deficient) to 4 (exemplary); aggregate results are linearly
     rescaled to 0-100%.
   validation: ''
+  score_meaning: Scores of 3-4 indicate competent or better performance, while scores of 1-2 indicate weak performance.
+    The scale has no neutral midpoint.
+  annotation_process: For each relevant category, the judge is prompted to simulate multiple, potentially adversarial
+    viewpoints, citing supporting and opposing evidence and key transcript passages. All conversations are scored,
+    including truncated ones. The evaluation uses no human raters, and alignment between AI judges and medical experts
+    was not measured.
   results: GPT-5 generally led core reasoning and safety categories, with mean scores in Core Medical Competence
     and Patient Safety & Care remaining in the 60-70% range. o3 performed slightly better on several communication-oriented
     categories.

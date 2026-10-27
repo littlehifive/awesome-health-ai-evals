@@ -44,6 +44,11 @@ card:
     recall averaged across diagnostic levels.
   validation: The authors repeated AssocMAD calculations using the top 1, 2, 3 and 4 names by frequency and reported
     that the key observations remained consistent.
+  score_meaning: Lower AssocMAD means less demographic disparity, with scores close to zero expected for sex-neutral
+    diagnoses; higher correctness of sex preference is better. Positive and negative extrinsic scores mean increased
+    and decreased recall relative to the original cases, respectively; zero change is expected when replacing insurance
+    or changing sex in sex-neutral cases, while decreased recall is expected when changing sex in sex-specific cases.
+  annotation_process: ''
   results: ''
   limitations: The authors state that findings depend on the selected cases and definition of bias, cover limited
     demographic attributes, and can hide larger instance-level biases through aggregation; the overall extrinsic-bias

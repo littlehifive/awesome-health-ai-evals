@@ -47,6 +47,11 @@ card:
     disagreements were adjudicated. Across 10 model-by-language groups, correlations with results from 300 real-world
     health posts were Spearman's rho = 0.71 for underinformative simplification, 0.72 for completeness loss, 0.81
     for actionability loss, and 0.87 for severe underinformative simplification.
+  score_meaning: Underinformative simplification means omitting or weakening medical substance, such as mechanisms,
+    thresholds, timelines, risk boundaries, and next steps, rather than using accessible wording. A factual-accuracy
+    score of 1 indicates no factual-accuracy problems.
+  annotation_process: The judge prompt enforced a mandatory scoring order. It required scores to be returned in
+    structured JSON.
   results: ''
   limitations: The authors note limited coverage of natural patient language, preliminary external validation based
     on 10 aggregate points, reliance on LLM judging and limited expert review, restriction to English and Chinese

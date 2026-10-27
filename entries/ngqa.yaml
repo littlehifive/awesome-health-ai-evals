@@ -42,6 +42,12 @@ card:
   scale: Binary yes/no labels, multiple nutrition-tag labels, or generated text; classification metrics and ROUGE,
     BLEU, and BERT scores.
   validation: ''
+  score_meaning: A "match" label means a food's nutritional property aligns with the user's health needs, such as
+    low sodium for hypertension. A "contradict" label means it conflicts with those needs, such as high calories
+    for obesity.
+  annotation_process: After initial filtering and rule-based tagging, LLMs checked the annotations for inconsistencies
+    or anomalies. Three human annotators with domain expertise then reviewed and cross-validated the results to
+    remove remaining inaccuracies.
   results: ''
   limitations: The authors note limited health-condition coverage, omission of factors such as food insecurity,
     simplification of complex dietary trade-offs into counts of matching and contradictory tags, and a limited range

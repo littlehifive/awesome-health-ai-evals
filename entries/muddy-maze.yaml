@@ -53,6 +53,10 @@ card:
   scale: Binary matches averaged over evidence sentences for Multi-Hop Accuracy and consecutive pairs for Single-Wise
     Accuracy.
   validation: ''
+  score_meaning: Both scores range from 0 to 1, with higher values indicating more accurate evidence reasoning.
+    Single-Wise Accuracy allows either direction within a pair, so a high score does not require the entire reasoning
+    chain to be in the correct order.
+  annotation_process: Model outputs are scored automatically against the reference evidence chain.
   results: ''
   limitations: The authors describe Single-Wise Accuracy as relatively loose because it accepts evidence pairs in
     either direction.

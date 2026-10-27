@@ -44,6 +44,12 @@ card:
   scale: 0 to 100 points per case; overall percentage of 1,000 points; passing requires at least 80% and zero critical
     mistakes.
   validation: ''
+  score_meaning: The rubric was designed so that correctly completing the minimum essential clinical steps yields
+    80%. Critical mistakes are predefined errors that could directly threaten life, so a high overall score alone
+    does not establish safety.
+  annotation_process: Three board-certified neurosurgeons established the study design through discussion. The evaluator
+    was not blinded to model identity and answered comparable questions consistently using the case response rules.
+    Inter-rater reliability was not assessed.
   results: Claude Fable 5 led with 87.4% and zero critical mistakes. Claude Opus 4.7 scored 80.3% with zero critical
     mistakes, making these the only two of 18 models to meet the safety threshold.
   limitations: The authors identify the small set of 10 cases, a single physician at one institution acting as both

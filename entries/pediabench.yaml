@@ -44,6 +44,11 @@ card:
     and a weighted integrated score.'
   validation: Human and GPT-4o case-analysis scores had Spearman/Kendall correlations of 0.7508/0.6430 for BianQue-7B,
     0.7328/0.6325 for ChatGLM3-6B, 0.8079/0.7149 for Qwen1.5-72B and 0.7732/0.6511 for GPT3.5-turbo.
+  score_meaning: An overall score of 60 or more is a pass. For the 50 multiple-choice questions with more than one
+    correct answer, a response counts as correct only if it selects all correct options and no incorrect options.
+  annotation_process: Each case-analysis sub-question is assigned its own score, and GPT-4o is prompted to give
+    reasons for its grading decisions. Human evaluators also scored case-analysis responses from BianQue-7B, ChatGLM3-6B,
+    Qwen1.5-72B and GPT3.5-turbo to check agreement with GPT-4o.
   results: ''
   limitations: The authors state that coverage omits many pediatric diseases and treatments, is limited to pediatrics,
     and may be affected by GPT-4o's preference for particular answer styles.

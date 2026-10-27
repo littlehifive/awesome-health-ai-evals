@@ -43,6 +43,13 @@ card:
     10, 10, 30, and 10 points, totaling 100.
   validation: Changing the patient and examiner simulators among GPT-5, Gemini-3-Pro, and Claude-4.5-Sonnet yielded
     diagnostic-accuracy rank correlations of 0.946, 0.954, and 0.964; the top four models retained identical rankings.
+  score_meaning: Higher quality scores indicate more thorough information gathering, stronger diagnostic reasoning,
+    and better diagnostic conclusions and handling of uncertainty. Even the highest observed chief complaint exploration
+    score of 6.3 out of 10 and history completeness score of 3.8 out of 10 were interpreted as weaknesses in information
+    gathering.
+  annotation_process: Each evaluation run used a separately generated set of 300 unique patient cases, with dialogues
+    capped at 15 turns. For a separate check of simulation quality, five licensed clinicians independently reviewed
+    the same 200 randomly sampled cases for disclosure of the correct diagnosis and clinical realism and consistency.
   results: ''
   limitations: ''
   sources:

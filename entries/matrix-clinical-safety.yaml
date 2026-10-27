@@ -44,6 +44,12 @@ card:
     using the same safety criteria. On the 240-dialogue HazMAT set, Gemini-2.5-Pro achieved F1 0.96, with a 95%
     bootstrap confidence interval of 0.938 to 0.977, and sensitivity 0.999; clinicians achieved F1 0.94 and sensitivity
     0.95.
+  score_meaning: ''
+  annotation_process: Clinicians reviewed randomly ordered transcripts from one clinical pathway through a web interface,
+    taking about five minutes per case. The judge instructions were developed using two separate clinical cases,
+    and all six candidate judge models received the same instructions at a temperature of 0.1. In the downstream
+    benchmark, each agent completed three independent dialogue runs per scenario and clinical use case, producing
+    420 dialogues per agent.
   results: Gemini-2.5-Pro had the highest mean safety accuracy at 69% among five clinical dialogue agents evaluated
     across 2,100 dialogues.
   limitations: The authors identify the need for multiple graders to account for clinician variability, validation

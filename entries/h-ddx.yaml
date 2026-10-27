@@ -43,6 +43,11 @@ card:
   validation: On 101 diagnoses manually mapped by clinicians, the mapping pipeline achieved 93.1% Top-1 accuracy,
     compared with 71.3% for retrieval alone. All observed mapping errors were correct at the immediate parent level
     of ICD-10.
+  score_meaning: Higher HDF1 scores indicate that the overall differential diagnosis list is closer to the reference
+    diagnoses in the ICD-10 hierarchy, with partial credit for related diagnoses even when the exact diagnosis is
+    absent. A higher HDF1 score does not necessarily mean that the list contains the exact diagnosis.
+  annotation_process: For the Top-5 evaluation, GPT-4o received predicted and true diagnosis names and was asked
+    to answer "y" or "n"; a prediction was marked correct when it returned "y".
   results: ''
   limitations: The authors state that evaluation uses synthetic data and needs real-world clinical validation, ICD-10
     may miss clinical nuances, and static diagnosis lists do not capture sequential clinical reasoning.

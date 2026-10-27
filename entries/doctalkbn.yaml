@@ -57,6 +57,13 @@ card:
   scale: Categorical predictions per item; task-level macro F1 from 0 to 1, with strict span-and-category matching
     for entities.
   validation: ''
+  score_meaning: Triage labels mean reassurance or self-care, a routine outpatient visit, investigation or specialist
+    referral, or urgent emergency care. Advice-safety labels distinguish safe from harmful actions for the given
+    patient profile, rather than judging an entire response.
+  annotation_process: Gemini-2.5-Flash generated the task annotations after five rounds of prompt refinement, with
+    three independent human annotators reviewing outputs in each round. Three independent annotators then reviewed
+    every generated sample; samples rated poor quality by at least two were revised by a separate annotator. This
+    process corrected 17 samples, including classification labels and entity spans.
   results: Llama 3 70B Instruct led triage with 0.463 macro F1 under zero-shot prompting, while GPT-4o led advice
     safety with 0.976 under few-shot prompting. Qwen 3.5 Flash led medical entity recognition with 0.743 strict
     macro F1 under zero-shot prompting.

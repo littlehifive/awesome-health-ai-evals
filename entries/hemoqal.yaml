@@ -43,6 +43,14 @@ card:
     scores.
   validation: The authors report fair-to-moderate inter-rater agreement on factual correctness and lower agreement
     on completeness and conciseness, but the supplied text gives no numerical agreement values.
+  score_meaning: Question category 0 means nonsensical or poorly formulated, 1 means sensible but specific to the
+    paper, 2 means answerable by a domain expert without relying on the paper's specific subject, and 3 means outside
+    the expert's knowledge, so higher categories do not mean better quality. A yes judgment means the answer directly
+    addresses the question with accurate facts, includes all relevant details an expert would expect, or avoids
+    irrelevant and excessive detail, for correctness, completeness, or conciseness respectively.
+  annotation_process: Evaluators were explicitly given definitions distinguishing factual accuracy, sufficient information,
+    and appropriate response scope. Automated semantic analysis compared text pairs using TF-IDF, Word2Vec, and
+    BERT embeddings.
   results: ''
   limitations: The authors note that completeness and conciseness judgments depend on experts' differing thresholds
     for detail, and that generated questions require additional validation for alignment with source content.

@@ -41,6 +41,13 @@ card:
   judge: Automated comparison with the recorded next doctor response.
   scale: Correct or incorrect selection plus option probabilities; aggregate classification and probability metrics.
   validation: ''
+  score_meaning: Higher balanced accuracy, F1 and AUC are better; lower Brier score, total KL divergence, binary
+    cross entropy and expected calibration error are better. Random selection among the 20 options has a 5% chance
+    of choosing the correct response.
+  annotation_process: Each prompt contained one correct response and 19 alternatives randomly drawn from all unique
+    doctor sentences in the dataset. GPT-5 mini, DeepSeek V3 and Claude Sonnet 4 received the same prompts and template,
+    covering 1,062 prompts with manual transcripts and 1,104 with ASR transcripts. ASR was applied only to patient
+    utterances.
   results: Claude Sonnet 4 led with balanced accuracy of 0.7119 on manual transcripts and 0.7473 on ASR transcripts.
     All three tested models were overconfident, with confidence-distribution overlap coefficients above 0.7 between
     correct and incorrect selections.

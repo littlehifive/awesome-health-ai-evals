@@ -46,6 +46,14 @@ card:
     (1,280 pairs; 95% CI 0.638-0.852), 0.926 for selection (416 pairs; 0.906-0.944), 0.512 for factuality (972 statements;
     0.372-0.636), and 0.742 for completeness (328 pairs; 0.666-0.812), with confidence intervals estimated using
     10,000 bootstrap samples.
+  score_meaning: Miss@k is the fraction of questions with no relevant passage among the top k results, so lower
+    values are better; coverage@k is the fraction of essential reference statements supported by at least one of
+    those passages, counting either full or partial support. Response-level factuality is 1 only when the entire
+    answer is correct and 0 if any part contains a factual error.
+  annotation_process: Annotators used a custom Label Studio interface after receiving written task guidelines and
+    examples and attending meetings to clarify definitions and ambiguities. Each annotator assessed all model outputs
+    for a given query. For MedBullets reference answers, GPT-4o extracted statements and classified them as essential
+    or non-essential; only essential statements were used for retrieval and completeness evaluation.
   results: ''
   limitations: Selection scoring excludes self-generated references because only the top-16 retrieved passages have
     relevance annotations, and factuality judgments vary with clinicians' background knowledge and experience.

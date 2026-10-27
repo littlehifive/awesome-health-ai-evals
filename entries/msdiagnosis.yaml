@@ -46,6 +46,13 @@ card:
     three runs.
   validation: Two students with specialized medical training checked the annotated key points, with Cohen's kappa
     of 0.81 for primary diagnostic criteria and 0.79 for final diagnostic criteria.
+  score_meaning: ''
+  annotation_process: 'GPT-4 generated initial diagnostic criteria and extracted reference key points covering medical
+    history, symptoms, physical signs, and examination results; inconsistencies with the medical records led to
+    re-annotation. Three university students who received specialized medical training checked all question-answer
+    pairs: samples rejected by all three were discarded, while samples rejected by one or two were re-annotated
+    and retained only after unanimous approval. A medical expert reviewed a random 20% of each checked batch and
+    returned unacceptable annotations with explanations, repeating the process until batch accuracy reached 95%.'
   results: The best baseline, glm4 with LoRA, achieved 38.78% final-diagnosis F1, compared with a human baseline
     of 95.31%. The authors report that their framework improved final-diagnosis F1 by 0.32 percentage points over
     that baseline.

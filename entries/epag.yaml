@@ -47,6 +47,10 @@ card:
   validation: One dialogue per disease was randomly sampled for evaluation by a human clinician using the same pipeline.
     An F-test found no significant variance difference (p > 0.05), and a subsequent t-test found no significant
     score difference (p > 0.05).
+  score_meaning: A higher HPI comparison score means the dialogue collected more distinct pieces of information
+    relevant to the disease guidelines, but does not necessarily mean it supports a more accurate diagnosis.
+  annotation_process: All agents used a fixed random seed and a temperature of 0 for reproducibility. Expert clinicians
+    assigned each diagnostic guideline its medium or high importance before scoring.
   results: In five-turn dialogues, GPT-4.1 scored 4.82 unweighted and 8.12 weighted, with 74.56% Top-1 and 83.81%
     Top-k accuracy; Claude-3.7-Sonnet tied its weighted score. The human expert baseline scored 4.35 and 7.29, with
     68.24% Top-1 and 80.65% Top-k accuracy.

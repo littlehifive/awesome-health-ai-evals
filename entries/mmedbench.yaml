@@ -55,6 +55,13 @@ card:
     scores and relative rankings from 1 to 6.
   validation: Kendall rank correlation with human rationale rankings was 0.660 for GPT-4 and 0.538 for BERTScore,
     the strongest absolute automatic metric.
+  score_meaning: Human rankings reflect answer accuracy, logical reasoning beyond repeating the question or options,
+    and internal knowledge. A reference rationale qualified for use in evaluation only if it agreed with the correct
+    answer and explained the logic behind it rather than merely repeating it.
+  annotation_process: For reference verification, 200 samples per language were randomly selected, shuffled and
+    distributed among three annotators; 1,136 passed and were used for rationale similarity evaluation. For relative
+    ranking, the order of cases and model outputs was randomized, and evaluators received the question, options,
+    correct answer and manually verified reference rationale.
   results: GPT-4 achieved the highest reported mean accuracy at 74.27%; MMed-Llama 3 was the strongest open-source
     model at 67.75% after full fine-tuning. MMed-Llama 3 led the six-model rationale comparison with human and GPT-4
     ratings of 4.10 and 4.73 out of 6.

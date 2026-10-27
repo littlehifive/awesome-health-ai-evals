@@ -44,6 +44,12 @@ card:
   validation: On 300 independently human-rated conversations, human-human agreement was κ = 0.90 for truth preservation,
     r = 0.84 for realism, r = 0.80 for clinical utility, and κ = 0.83 for noise fidelity. Claude-human agreement,
     averaged over both raters, was κ = 0.85, r = 0.78, r = 0.74, and κ = 0.77, respectively.
+  score_meaning: Truth preservation measures whether responses contain hallucinated symptoms or violate the ground
+    truth. A realism score of 4.04 out of 5 was interpreted as indicating behaviorally convincing simulated patients.
+  annotation_process: The two human evaluators independently scored a stratified sample of 300 conversations using
+    transcripts, ground-truth symptoms, assigned noise profiles, and a detailed rubric with anchor examples for
+    each score level. Claude Opus-4.5 received the full context, including noise profiles, and was prompted to generate
+    reasoning before scoring.
   results: Qwen-2.5-72B was the strongest model, with a reported 15.3% drop in diagnostic accuracy under noise and
     a 34.5% increase in conversation length. All seven tested models lost diagnostic accuracy under noise.
   limitations: The authors state that evaluation is English-only and that using two clinical experts to assess 300

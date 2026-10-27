@@ -43,6 +43,13 @@ card:
     GPT-4.1-generated reference questions.
   scale: 'ZDA: percentage correct; MQD: mean question count capped at five; ISE: BERTScore-based sequence similarity.'
   validation: ''
+  score_meaning: Higher ZDA means more accurate initial diagnoses, lower MQD means fewer questions needed, and higher
+    ISE means closer semantic agreement with the reference questioning sequence, not proven clinical optimality.
+    The reported MQD of 2.4 means an average of 2.4 questions across evaluated cases, including failures at the
+    capped value.
+  annotation_process: ZDA is evaluated only on cases with 100% symptom disclosure. In interactive evaluation, GPT-4o-mini
+    plays the patient with access to the complete symptom set, and the model being evaluated makes a diagnosis after
+    each question-and-answer round; a question counts toward MQD only if it elicits new clinical information.
   results: GPT-4.1 achieved 51% zero-shot diagnostic accuracy with full symptom disclosure and a mean of 2.4 questions
     to reach the correct diagnosis. The reported mean maximum question similarity across rounds was 0.657.
   limitations: The authors state that reference questioning sequences are LLM-generated rather than clinician-authored

@@ -42,6 +42,11 @@ card:
   scale: HAMD-17 symptom scores range from 0 to 4, with 9 indicating uncertainty or inapplicability; reported metrics
     are precision, recall and F1.
   validation: ''
+  score_meaning: HAMD-17 item scores mean 0 for no symptoms, 1 for mild symptoms, 2 for moderate symptoms, 3 for
+    severe symptoms, and 4 for extremely severe symptoms. The cumulative score reflects the severity of the patient's
+    depression.
+  annotation_process: After each consultation, the participating doctor completed the patient's HAMD-17 assessment.
+    The doctor scored all 17 dimensions using clinical judgment and observations of the patient's symptoms.
   results: GPT4o-mini-audio-preview achieved the best reported multimodal result, with F1 of 0.407, precision of
     0.412 and recall of 0.403 using text and audio.
   limitations: ''

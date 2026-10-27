@@ -42,6 +42,14 @@ card:
   scale: Per-item absolute error in grams and correctness within ±7.5 grams; aggregate MAE, Acc@7.5, and answer
     rate.
   validation: ''
+  score_meaning: Lower MAE means more accurate carbohydrate estimates, while higher accuracy and answer rate are
+    better. The accuracy tolerance was chosen conservatively for insulin management, using a rule of thumb that
+    one unit of insulin covers 15 grams of carbohydrate.
+  annotation_process: One author verified that generated meal descriptions included the correct food names and serving
+    sizes, correcting omissions to match the nutrition labels. In the comparison study, three U.S.-based professional
+    nutritionists volunteered to estimate carbohydrates for 72 U.S. meal descriptions without searching nutrition
+    apps or the web. They received three example meals with carbohydrate values, identical to the examples in the
+    LLM prompts.
   results: GPT-4o with chain-of-thought prompting achieved the highest accuracy, 66.82%, with an answer rate of
     99.16% and MAE of 8.61 grams. Three professional nutritionists estimated carbohydrates for 72 U.S. meals, taking
     an average of 43 minutes, compared with 2 minutes for GPT-4o-mini.

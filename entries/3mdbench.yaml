@@ -43,6 +43,16 @@ card:
   validation: Five employee annotators rated dialogues and extracted diagnoses, with average human inter-annotator
     Cohen's kappa of 0.48. The selected assessor achieved average kappa of 0.43 against human clinical competence
     ratings and diagnosis-extraction F1 of 78.0 against human-extracted diagnoses.
+  score_meaning: For Patient Agent evaluation, instruction following uses a 1-5 scale for adherence to the prompt,
+    while relevance is a binary judgment for each doctor-patient utterance pair, averaged across the dialogue. Factuality
+    is the proportion of patient utterances that reference supplied symptoms, so a higher value means more utterances
+    refer to those symptoms.
+  annotation_process: Human annotators used the same instructions as the Assessor Agent on a validation subset balanced
+    across four patient temperaments, multiple doctor models and 34 diagnoses; each employee spent approximately
+    six regular working hours on annotation without additional compensation. GPT-4o-mini graded Patient Agent instruction
+    following and response relevance. Factuality was calculated automatically by comparing patient utterance embeddings
+    with supplied symptom embeddings using NV-Embed-v2, counting an utterance as referencing a symptom when cosine
+    similarity exceeded 0.8.
   results: GPT-4o-mini reached diagnostic F1 of 70.3% with dialogue, images, internal reasoning, and the top three
     predictions from a fine-tuned EfficientNetV2-XL. Its dialogue-and-image score without those additions was 54.2%.
   limitations: The authors identify possible inaccuracies and biases in generated symptoms and model-based grading,

@@ -44,6 +44,12 @@ card:
     optional free-text runs.
   scale: Correct or incorrect per answer or content-source pair; nine accuracy metrics reported as percentages.
   validation: ''
+  score_meaning: ''
+  annotation_process: 'Each sample was reviewed by one of 11 medical experts: 9 specialist clinicians, 1 clinician
+    resident and 1 nurse, over three weeks. Reviewers used a Streamlit interface showing the questions, answer choices
+    and discharge summaries, and recorded revisions in a separate spreadsheet. They removed unfixable or unanswerable
+    samples and revised clinically unnatural questions, incorrect answer keys and distractors that were actually
+    correct.'
   results: Among 22 models, gpt-5.4 achieved the highest reported content-question accuracy at 98.33% and the best
     strict whole-sample paired accuracy at 40.02%.
   limitations: The authors note that the data come from one hospital system, cover only discharge summaries rather

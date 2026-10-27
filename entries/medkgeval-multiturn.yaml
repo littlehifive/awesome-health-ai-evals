@@ -41,6 +41,13 @@ card:
   validation: The authors compared QwQ-32B, Qwen3-32B and DeepSeek-R1-32B ratings with expert human ratings using
     mean absolute error; QwQ-32B had the highest agreement, but numerical errors and the number of raters are not
     provided in the excerpt.
+  score_meaning: Medication correctness scores of 0, 1 and 2 mean all key facts are wrong, some are wrong, and all
+    are accurate; comprehensiveness scores mean no relevant information, partial coverage missing meaningful points,
+    and full coverage; history-taking scores mean irrelevant information, partial core information missing distinguishing
+    features, and structured inquiry covering key disease-specific features. Diagnostic correctness scores of 0,
+    1, 2 and 3 mean an unrelated diagnosis, a clinically similar but categorically unrelated diagnosis, a related
+    disease category or mechanism, and an exact match or clinical synonym, respectively.
+  annotation_process: ''
   results: DeepSeek-R1-671B led medication consultation with correctness scores of 0.8858 in Chinese and 0.8763
     in English, and comprehensiveness scores of 0.7581 and 0.8351. It also led Chinese disease diagnosis in correctness
     and history-taking.

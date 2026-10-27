@@ -41,6 +41,10 @@ card:
   scale: 'Per question: top-rank correctness of 0 or 1 and reciprocal adopted-answer rank; aggregate P@1 and MAP
     reported as percentages.'
   validation: ''
+  score_meaning: Higher values indicate better ranking of the questioners' adopted answers.
+  annotation_process: Questioners selected the answer they found most satisfying; the researchers excluded questions
+    with more than one adopted answer. When a question had fewer than four negative replies, the researchers randomly
+    sampled answers from other questions to complete its candidate set.
   results: Character-based MatchPyramid achieved the highest reported scores of 66.0% P@1 and 79.3% MAP.
   limitations: The authors note that clinical category labels can be wrong and that question counts are severely
     imbalanced across categories.

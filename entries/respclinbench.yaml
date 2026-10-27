@@ -45,6 +45,12 @@ card:
   scale: 'Actions: 0 or 1; rubric dimensions: 1 to 5; recall and rubric scores normalized to 0 to 100 and averaged,
     then averaged across cases.'
   validation: ''
+  score_meaning: Higher scores indicate better performance. A high rubric score reflects clinical plausibility,
+    coherence, prioritization, and usability, but can coexist with omissions of required clinical actions; the scores
+    do not justify autonomous diagnosis or treatment.
+  annotation_process: During reference preparation, disagreements about case framing, reference-answer content,
+    or which atomic points to include were resolved through revision. Cases with unresolved ambiguity or insufficient
+    evidence were excluded.
   results: Qwen3.6-27B ranked first among seven models overall at 71.22 out of 100 and led the COPD subset at 71.11.
     Qwen3.5-397B-A17B led the pulmonary nodule subset at 72.48.
   limitations: The authors note that retrospective cases do not measure patient outcomes or clinician behavior,

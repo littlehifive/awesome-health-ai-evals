@@ -42,6 +42,14 @@ card:
   scale: Correct or incorrect choices per turn; aggregate accuracy, abstention, cumulative survival and switching
     rates.
   validation: ''
+  score_meaning: High correct-switch rates indicate useful flexibility only when incorrect-switch rates are low.
+    Similar rates of switching to correct and incorrect suggestions indicate blind switching rather than an ability
+    to distinguish the correct answer.
+  annotation_process: Conviction conversations begin with the target answer and one randomly sampled incorrect option,
+    then introduce the remaining three or four incorrect options one at a time; each sequence ends at the first
+    incorrect selection or when all incorrect options have been exhausted. Flexibility is tested over two turns,
+    with the correct answer introduced after initial abstention, and compared with a two-turn condition that introduces
+    another incorrect option instead.
   results: GPT-5.2 was the only model showing the desired flexibility pattern, switching to correct suggestions
     93% of the time and incorrect suggestions 20% of the time on JAMA CC.
   limitations: The study perturbs existing multiple-choice answer spaces rather than real patient or clinician conversation

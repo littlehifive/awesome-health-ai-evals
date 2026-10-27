@@ -43,6 +43,10 @@ card:
     accuracy percentages; SMOG readability index.
   validation: Human evaluation used the same rubrics on a subset of 100 conversations to check automated scores;
     no agreement figures are provided in the excerpts.
+  score_meaning: A rubric score of 3 marks "Good Performance"; for conversation flow and correctness, this means
+    covering all five stages in the correct order with reasonable depth. Lower SMOG scores mean easier-to-read responses,
+    and the paper cites a recommended range of 6-8 for health materials.
+  annotation_process: Four graduate-student annotators checked the LLM-judge scores.
   results: DeepSeek-R1 led patient-centred communication with an average score of 2.77 out of 4, compared with 2.55
     for OpenAI o1, and achieved 31.18% hard diagnostic accuracy. OpenAI o1 led soft diagnostic accuracy at 68.39%,
     conversation flow at 3.53 out of 4 and readability with a lower SMOG score of 11.50.

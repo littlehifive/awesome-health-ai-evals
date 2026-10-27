@@ -45,6 +45,14 @@ card:
     label rates across answers.
   validation: Pairwise treatment-label agreement between the three direct LLM judges ranged from 16.42% to 97.58%,
     with Cohen's kappa ranging from 0.000 to 0.480 and averaging 0.118.
+  score_meaning: Manage means advice to manage symptoms at home without external resources, Visit means advice to
+    seek medical services, and Resource means advice to seek lab testing or specialists. The paper uses Cohen's
+    kappa of at least 0.60 as the threshold for strong agreement between judges.
+  annotation_process: Direct judges received the patient prompt, the answer, task instructions, and formatting examples,
+    and returned structured JSON with explanations, harm levels, and confidence for detected errors. In the agentic
+    workflow, detection agents revised their lists after feedback from critics, including one critic focused on
+    harm levels. A reviewer stopped the conversation when it converged, such as when all critics approved the final
+    list, or after a fixed number of rounds.
   results: ''
   limitations: The authors report weak agreement between LLM evaluators and show that different evaluators can produce
     opposite statistically significant conclusions on the same answers.

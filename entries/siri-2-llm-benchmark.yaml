@@ -36,6 +36,10 @@ card:
   judge: Code compares model ratings with the original expert suicidologist panel's mean ratings.
   scale: Absolute deviation per response; summed SIRI-2 total across 48 responses, with lower scores better.
   validation: ''
+  score_meaning: The expert panel baseline is 32.5.
+  annotation_process: Nine models completed ten repeated administrations per condition, across three prompt variants
+    (Minimal, Detailed, and Detailed + reasoning) and two temperature settings (0.0 and 1.0). Code automatically
+    compared their ratings with the original expert panel means, excluding Item 14 and scoring 48 responses.
   results: Claude Opus 4 achieved the best score of 19.5 with the detailed prompt at temperature 0, compared with
     the expert panel baseline of 32.5. All nine models rated clinically inappropriate responses more favorably than
     experts did.

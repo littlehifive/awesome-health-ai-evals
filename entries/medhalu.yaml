@@ -44,6 +44,15 @@ card:
     edit distance, with lower distances better.
   validation: The authors report an average Cohen's kappa of 0.83 between expert annotations and the LLM-generated
     response labels on the 500-pair validation sample.
+  score_meaning: Input-conflicting hallucinations deviate from the correct answer, context-conflicting hallucinations
+    contradict another part of the same response, and fact-conflicting hallucinations contradict established knowledge.
+    Each point of character edit distance represents one insertion, deletion, or substitution needed to turn a detected
+    span into the expert reference span.
+  annotation_process: The study recruited 30 medical experts and 30 laypeople through Prolific, assigning three
+    evaluators per group to each batch of 50 question-answer pairs. All were UK-based native English speakers; experts
+    needed at least an undergraduate degree in health or medicine, while laypeople needed no healthcare or medical
+    degree or background. Experts received detailed annotation guidelines and a video tutorial, and their annotations
+    were accepted only if they passed every random attention check.
   results: GPT-4 achieved macro-F1 scores of 0.57 on HealthQA, 0.52 on LiveQA, and 0.55 on MedicationQA; with expert
     reasoning supplied, its scores rose to 0.64, 0.57, and 0.62. Medical experts scored 0.79, 0.57, and 0.71 on
     the three subsets, respectively.

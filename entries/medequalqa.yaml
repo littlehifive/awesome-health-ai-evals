@@ -44,6 +44,9 @@ card:
   scale: Pairwise cosine similarity, with values near 1 indicating semantic alignment; mean STS and 5th and 95th
     percentiles are reported.
   validation: ''
+  score_meaning: The paper defines scores below 0.73 as the reasoning instability region, where pronoun changes
+    produce differences in interpretation or reasoning even when final diagnoses remain unchanged.
+  annotation_process: ''
   results: GPT-4.1, the only model tested, had a reported overall mean STS of 0.82 ± 0.03, with about 90% of pairs
     exceeding 0.75.
   limitations: The authors note that pronoun-only changes exclude other demographic factors, testing one model limits

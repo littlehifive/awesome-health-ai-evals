@@ -44,6 +44,13 @@ card:
   validation: The initial two reviewers agreed across all dimensions in 60.6% of evaluations. A panel of four credentialed
     Elsevier physicians reviewed 35 responses flagged as potentially harmful by at least one reviewer and disagreed
     with the harm classification for 33.
+  score_meaning: For correctness, 0 means completely incorrect, 1 mostly incorrect, 2 equally correct and incorrect,
+    3 mostly correct, and 4 completely correct. Higher correctness scores indicate closer alignment with scientific
+    and clinical consensus as represented in the cited references.
+  annotation_process: Reviewers were paid Elsevier contractors who used standardized rating guidelines and were
+    blinded to product metric targets. Medication-related questions required at least one specialty-aligned physician;
+    reviewers could decline questions outside their expertise for reassignment. Reviewers had two weeks for initial
+    evaluations and one additional week for disagreement resolution, with three days to respond during email consensus.
   results: ClinicalKey AI version 2.2.0.0.0 received ratings of 95.5% correctness, 98.6% comprehension, and 94.4%
     helpfulness across 426 fully evaluated responses. Two responses, or 0.47%, were rated as potentially harmful.
   limitations: The authors identify subjective interpretation of open-ended queries and responses, difficulty reaching

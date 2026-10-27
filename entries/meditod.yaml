@@ -45,6 +45,12 @@ card:
     BLEU, ROUGE and BERTScore.'
   validation: Average pairwise Cohen's kappa for annotation agreement was 0.94 for intents and 0.72 for slot-value
     pairs.
+  score_meaning: A high BERTScore indicates that generated responses are semantically similar to the reference responses,
+    even when their wording differs.
+  annotation_process: Annotators trained with guidelines and an annotated example, then independently labeled two
+    practice dialogues covering more than 200 utterances and received feedback. Each in-domain test dialogue was
+    labeled independently by two annotators, with a third annotator resolving inconsistencies. One annotator labeled
+    the entire out-of-domain test set, with periodic quality checks and feedback.
   results: Llama3 8B led supervised in-domain understanding and most supervised generation metrics. On out-of-domain
     understanding, Llama 8B had the highest reported overall F1, 0.524.
   limitations: The authors limit the dataset to English dialogues in pulmonology and musculoskeletal medicine, restricting

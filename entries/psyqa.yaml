@@ -46,6 +46,15 @@ card:
     and strategy consistency proportion.'
   validation: Human-rating Krippendorff's alpha was 0.58 for fluency, 0.60 for coherence, 0.55 for relevance and
     0.62 for helpfulness.
+  score_meaning: Fluency measures grammatical, fluent writing; coherence measures logic and organization; relevance
+    measures whether the answer addresses the question; and helpfulness measures whether its interpretations and
+    suggestions are suitable from a psychological counseling perspective. In the separate ethical-risk evaluation,
+    an answer counts as risky when at least two of three annotators flag it.
+  annotation_process: 'Each question had three answers for evaluation: one from GPTft, one from GPTft+strategy and
+    one human-written reference answer; the resulting 300 question-answer pairs were shuffled before assignment
+    to raters. Raters received a detailed scoring guideline and were paid 60 CNY per hour. For the separate ethical-risk
+    evaluation, senior graduate students in psychology or psychological counseling judged whether answers contained
+    risks and supplied reasons.'
   results: GPTft+strategy scored 1.78 for fluency, 1.55 for coherence, 1.75 for relevance and 1.45 for helpfulness,
     outperforming GPTft on all four human-rated dimensions. Human answers scored 2.77, 2.80, 2.76 and 2.47, respectively.
   limitations: The authors state that the data comes from an online mutual-help forum rather than professional counseling,

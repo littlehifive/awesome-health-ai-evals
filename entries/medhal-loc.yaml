@@ -45,6 +45,12 @@ card:
   validation: On the natural subset, three LLM annotators had mean pairwise span-level F1 of 0.87 and Fleiss' kappa
     of 0.88 for error type, but a human expert accepted only 1 of 18 audited spans, plus one partial span; this
     subset was excluded from localization gold.
+  score_meaning: A positive score margin means the detector assigns higher error scores to units overlapping the
+    true error than to other units; localization lift is significant when it exceeds twice the binomial standard
+    error. Detectors that emit only a document-level verdict receive 0% localization by construction.
+  annotation_process: The controlled subset's reference spans come from the known locations of injected errors and
+    were spot-checked by humans. Automated comparison lowercases text, keeps alphabetic tokens of at least four
+    letters, removes stopwords, and checks for shared tokens between each candidate unit and the reference span.
   results: SelfCheckGPT-NLI had the highest reported hit@1 at 81.4%, a lift of 12.6 percentage points above its
     random baseline; NLI-per-clause achieved 62.0% hit@1 and a 20.3-point lift. ADATRIPLE achieved 39.3% hit@1,
     only 3.3 points above chance and not statistically significant.

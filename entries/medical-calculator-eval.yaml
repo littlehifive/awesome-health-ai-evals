@@ -37,6 +37,9 @@ card:
     the score.
   scale: Each item scores 0 or 1; final metrics are overall and stratified accuracy.
   validation: ''
+  score_meaning: Integer scores require an exact match; allowed absolute deviations are 0.1 for rounded clinical
+    values, 0.5 for high-precision derived values, and 1.0 to 10.0 for large-magnitude values.
+  annotation_process: ''
   results: ''
   limitations: ''
   sources:

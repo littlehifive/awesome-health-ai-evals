@@ -45,6 +45,13 @@ card:
   validation: Hans Jarchow blindly rated randomly sampled responses across the five requirements, producing 1,000
     individual judgments. Agreement with GPT-4o mini had Cohen's kappa values of 0.69 to 0.87 across tested models
     and 0.63 for safety to 0.81 for correctness across requirements.
+  score_meaning: A score of 1 means the response meets the requirement, such as being comprehensive; 0 means it
+    fails that requirement. Higher reported scores indicate better performance in meeting the evaluation requirements.
+  annotation_process: Hans Jarchow drafted the test items and ground truths, which four domain experts reviewed
+    in three rounds. They first reviewed subsets independently, then revised the full benchmark, and finally all
+    four re-reviewed it after the items had been rephrased into different presentation formats. Automated response
+    collection and assessment were run four times, then repeated with retrieval-augmented generation enabled for
+    the responding model but not the judge.
   results: GPT-4o achieved the highest overall balanced accuracy across the five requirements, but the supplied
     text does not give its numerical score.
   limitations: The authors identify limited generalizability from 25 synthetic profiles with unusually complete

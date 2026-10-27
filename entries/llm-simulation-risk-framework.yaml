@@ -41,6 +41,14 @@ card:
   scale: Binary classification per item; aggregate classification metrics and estimated P1 and P2 probabilities
     with 95% confidence intervals.
   validation: ''
+  score_meaning: At a 1% baseline probability that lack of professional care results in harm, P2 estimates of 4.9×10⁻⁵
+    to 5.1×10⁻³ correspond to 49 to approximately 5,100 harms per million individual user-model four-turn exchanges.
+    These are assumption-dependent simulation estimates, not calibrated, fixed rates of harm or validated safety
+    thresholds.
+  annotation_process: A psychiatrist reviewed each generated statement and either approved it, made minor modifications
+    to match its intended category, or removed it. A second psychiatrist then approved, modified or rejected the
+    statements retained by the first reviewer. Before simulation, each category was down-sampled so that it did
+    not exceed the size of the category with the fewest approved statements.
   results: ''
   limitations: The authors state that these illustrative English-language proxy tasks do not establish validated
     safety thresholds, depend on unvalidated behavioural assumptions, omit important human factors and false-positive

@@ -45,6 +45,14 @@ card:
   validation: Three general practitioners completed 100 typical cases without comorbidities, achieving 83% diagnosis
     accuracy versus AI Doctor's 87% and GPT-5's 81%; this compared participant performance rather than grader agreement.
     The framework also includes intentional-error tests whose scores must decrease by predetermined amounts.
+  score_meaning: Treatment Accuracy is the percentage of matching prescriptions out of all matching, extra, missing,
+    and incorrect prescriptions, so higher scores mean closer agreement with the gold-standard treatment. High diagnosis
+    accuracy with more dialogue steps can indicate reduced efficiency despite correct diagnoses.
+  annotation_process: Each case was validated by at least two physicians for clinical realism, diagnosis accuracy,
+    and the validity of investigation and treatment recommendations, with particular attention to recommendation
+    weights. During scoring, constrained LLM calls extract clinical entities into schema-validated records, which
+    deterministic scoring functions then assess; ICD-10 codes are normalized and checked using algorithmic code-matching
+    rules.
   results: AI Doctor achieved 89.27% diagnosis accuracy versus GPT-5's 84.61%, and 53.04% treatment accuracy versus
     37.99%; GPT-5 scored higher on weighted investigation recommendations, 33.51% versus 22.16%. In the separate
     100-case human comparison, three GPs achieved 83% diagnosis accuracy versus AI Doctor's 87%.

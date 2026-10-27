@@ -49,6 +49,13 @@ card:
     for ACG MCQs and 0.81 for simulation questions, all p < 0.001. Reward-model agreement with human grades was
     87.9% internally on RAG-GPT-4 and 81.8% externally on SFT-GPT-4o; human graders required a tiebreaker for 6.6%
     of expert-question responses and 9.5% of simulation-question responses.
+  score_meaning: Higher scores indicate better performance across all metrics. Reward-model alignment is the percentage
+    of answers for which its label matches the human grade, rather than the percentage of answers that are correct.
+  annotation_process: 'Five expert-of-experts independently supplied free-text reference answers through Qualtrics.
+    Human grading was blinded: expert-question responses generated at temperature 0.8 were checked against clinical
+    guidelines and expert answers, while simulation responses were checked against established clinical guidelines.
+    The Grader Model was trained using Meta''s OPT-350M and previously human-graded answers to the expert-generated
+    questions.'
   results: SFT-GPT-4o was selected as the best configuration by human grading and embedding similarity, but its
     overall benchmark score is not given in the excerpts. Practicing ACG physician test-takers averaged 75% correct
     on the 40 MCQs.

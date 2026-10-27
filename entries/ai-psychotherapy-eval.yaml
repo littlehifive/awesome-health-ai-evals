@@ -44,6 +44,12 @@ card:
   validation: Crisis detection was checked on 40 proxy crisis statements and achieved 93% classification accuracy;
     crisis-response assessment was checked on 48 synthetic protocol-adherence examples and achieved near-perfect
     precision and recall.
+  score_meaning: For psychological warning signs, 1 means very low intensity and 5 means very high intensity, so
+    higher values indicate a stronger psychological state rather than better therapist performance.
+  annotation_process: After each session, the survey-completing LLM receives the patient persona, current psychological
+    state, and complete transcript, and answers the Working Alliance Inventory and Session Rating Scale while inhabiting
+    that persona. Treatment-fidelity evaluators use the complete transcript rather than isolated turns, and crisis-response
+    assessment follows crisis detection and examines the therapist's subsequent response.
   results: ''
   limitations: The authors warn that automated metrics can encourage learning to the test and unjustified safety
     claims, so clinicians must review simulation patterns and data rather than use these evaluations in isolation.

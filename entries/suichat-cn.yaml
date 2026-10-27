@@ -42,6 +42,11 @@ card:
     refinement and remained between 0.84 and 0.88 during main annotation. Separately, 17 open-weight LLMs achieved
     Fleiss' kappa of 0.422 in silver-label annotation, with 7,148 of 11,189 topics meeting the two-thirds weighted-consensus
     threshold.
+  score_meaning: The risk labels are L0 Unrelated, L1 Depressive, L2 Suicidal Ideation, L3 Suicidal Method, L4 Suicidal
+    Attempt, and L5 Inducement.
+  annotation_process: Three trained psychology graduate students independently labelled 300 pilot samples. The remaining
+    samples were annotated in four batches, with 10% randomly selected for periodic review. Disagreements were resolved
+    by majority voting, and ambiguous samples without consensus were discarded.
   results: ''
   limitations: The authors state that the data may not generalize beyond public Chinese Telegram groups, do not
     explicitly model real-time message latency or long-term user history, and require restricted access that limits

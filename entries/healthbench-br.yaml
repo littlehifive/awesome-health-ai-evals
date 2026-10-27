@@ -45,6 +45,11 @@ card:
   judge: HealthBench-BR uses answer-key matching after regex extraction; PCDT-QA uses GPT-4.1.
   scale: Binary correct/incorrect per item; percentage accuracy per split and percentage of True predictions.
   validation: ''
+  score_meaning: Because HealthBench-BR has equal numbers of true and false assertions, a True-prediction rate near
+    50% indicates balanced verdicts, while higher rates indicate a bias toward agreement. For Google AI Overview,
+    reported accuracy excludes unanswered queries, which account for 11.7% of HealthBench-BR and 4.9% of PCDT-QA
+    questions.
+  annotation_process: ''
   results: With retrieval, Qwen2.5-14B with four-generator continual pre-training and RL achieved the highest HealthBench-BR
     test accuracy, 95.3%, using BM25; four-generator continual pre-training with embedding retrieval achieved the
     highest PCDT-QA score, 94.8%. The headline model without retrieval, Qwen2.5-14B with four-generator continual

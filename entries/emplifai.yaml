@@ -45,6 +45,11 @@ card:
   validation: Human ratings were averaged across three crowd workers per dialogue for 100 dialogues and compared
     with Gemini-2.5-Flash ratings. GPT-o3-pro received judge scores of 5/5 on three criteria, but human scores on
     those criteria were 4.03 for general empathy, 4.21 for harmlessness and 3.87 for sense of security.
+  score_meaning: ''
+  annotation_process: Human evaluation tasks were divided into 10 groups of 10 dialogues, and each crowd worker
+    was paid ¥500 per group. Human raters and the LLM judge received the same instructions. The automated judging
+    pipeline used Ragas with customized rubric prompts, and models that generated the dialogues were excluded from
+    selection as the judge.
   results: GPT-o3-pro had the highest emotion-prediction BERTScore F1 at 0.88 and dialogue judge scores of 4.97
     to 5.00 across the seven criteria. Human raters scored its dialogues from 3.87 to 4.57, with DeepSeek scoring
     higher on harmlessness and sense of security.

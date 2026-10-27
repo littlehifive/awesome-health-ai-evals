@@ -41,6 +41,14 @@ card:
   scale: Equivalent or mismatch per answer; overall accuracy is the percentage equivalent.
   validation: Internal medicine physicians checked GPT-5.2 judgments on 100 randomly selected baseline results spread
     evenly across models and setups, with 93% agreement.
+  score_meaning: 'For dataset screening, physicians used a 1-5 scale: 1 meant the question-answer pair was unrealistic
+    under any circumstances, and 5 meant the question was realistic and the answer correctly addressed it; only
+    pairs rated 4 or 5 were retained. Recall@1 measures how often the top retrieved document is the source case
+    report, so a value below 50% means retrieval misses that report more than half the time.'
+  annotation_process: Eight physicians in internal medicine or pediatrics checked whether question-answer pairs
+    were medically aligned and required specialist rather than general public knowledge. The equivalence judge received
+    a few-shot example in its prompt. For error analysis in the oracle setting, GPT-5.1 assigned each error one
+    primary and at most one secondary failure mode.
   results: GPT-5.2 was the best baseline, answering 56% correctly without retrieval and reaching 82% with retrieved
     medical articles.
   limitations: The authors note that low citation counts can reflect low visibility rather than persistent clinical

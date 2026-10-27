@@ -45,6 +45,15 @@ card:
   scale: Automatic generation metrics normalized to 0-100; human ratings from 1 (poor) to 5 (good) for each dimension.
   validation: Average Cohen's kappa between human response raters was 0.41 for fluency, 0.52 for relevance and 0.59
     for expertise.
+  score_meaning: Fluency measures grammatical and semantic correctness, expertise measures whether the content is
+    medically appropriate, and relevance measures whether the response fits the dialogue history. BLEU measures
+    similarity in word sequences to reference responses, so a higher BLEU score does not necessarily mean a response
+    is more medically appropriate.
+  annotation_process: To create the gold entity annotations, eight annotators first completed trial annotations,
+    reported problems with the annotation manual, and received a revised manual before formal annotation. Each of
+    the 1,000 manually annotated dialogues was labeled independently by two annotators, with disagreements judged
+    by a third; these dialogues formed the test set. The automatic entity annotation program was refined through
+    four rounds of comparison with expert annotations on 2,000 randomly selected utterances.
   results: ''
   limitations: The authors report that BLEU measures only reference n-gram similarity and ranks retrieval below
     generation, whereas human raters rank retrieval above the generative models on all three dimensions.

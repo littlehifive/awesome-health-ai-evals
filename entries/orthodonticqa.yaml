@@ -42,6 +42,12 @@ card:
   scale: Token-level F1 and exact match on a 0-100 scale; human correctness reported as a count and percentage of
     114 test answers.
   validation: ''
+  score_meaning: 'Human judgments accepted answers that differed in length from the reference: among the 100 correct
+    predictions, 15 were verbose and 19 were incomplete. Such differences can lower F1 and exact match even when
+    the answer is judged correct, so these metrics do not measure understanding.'
+  annotation_process: For each training run, evaluation used the checkpoint with the highest validation F1 score.
+    Topic-level and answer-length analyses reported F1 for the best-performing model from the three random seeds,
+    0, 10 and 100.
   results: PubmedBERT SQuAD achieved the best mean F1 score of 77.61 (SD 0.26), with 100 of 114 answers judged correct
     by the human evaluator (87.72%).
   limitations: The authors state that passage-based answers may not reflect current gold-standard evidence and that

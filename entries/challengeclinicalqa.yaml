@@ -46,6 +46,10 @@ card:
   validation: 'On GPT-4 explanations from 30 Medbullets-5 questions, Pearson correlations between automatic and
     human scores were weak: G-Eval coherence correlated 0.32 with human correctness, G-Eval consistency 0.26, and
     G-Eval relevance 0.22.'
+  score_meaning: Human completeness ratings assess whether an explanation sufficiently and convincingly justifies
+    each answer choice as correct or incorrect. Correctness assesses whether the information is correct, while relevance
+    assesses whether the explanation relates to the question.
+  annotation_process: ''
   results: GPT-4 outperformed PaLM 2 in human explanation ratings, with mean scores of 3.35 for completeness, 4.45
     for correctness, and 4.61 for relevance, compared with 2.67, 4.35, and 4.53 respectively.
   limitations: The authors excluded figures that could contain important clinical information and did not test more

@@ -46,6 +46,9 @@ card:
   validation: Pairwise judge agreement was 84% for Claude Sonnet 4 and Grok 4.1, 77% for Claude Sonnet 4 and GPT-5.2,
     and 69% for Grok 4.1 and GPT-5.2; all three agreed in 66% of consultations. Physician validation of 121 sampled
     consultations showed 84% agreement with the majority vote on binary outcomes.
+  score_meaning: Higher defensibility means the model's advice more closely meets the court's requirements for avoiding
+    a malpractice finding. Reported results use 198 cases after excluding cases where no model scored above zero.
+  annotation_process: The three LLM judges scored consultations independently.
   results: GPT-5.2-Concise, an ablation variant, had the highest reported defensibility score at 0.74, with an estimated
     mean diagnostic cost of $1,022. GPT-5.2 scored 0.71 with a mean cost of $1,073.
   limitations: ''

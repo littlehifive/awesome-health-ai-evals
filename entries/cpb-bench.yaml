@@ -48,6 +48,12 @@ card:
   validation: Human review of all positive failure labels and 440 sampled negative labels found 77.89% accuracy
     for GPT-4o across the four failure types. A separate review of 372 behavior-negative cases found 352 true negatives,
     giving an estimated behavior-annotation recall of 97%.
+  score_meaning: Self-diagnosis failures mean accepting the patient's proposed diagnosis without clinical verification;
+    care-resistance failures mean yielding to refusal of care without validation. Failure counts describe responses
+    to naturally occurring challenging patient behaviors, not worst-case model behavior.
+  annotation_process: Scoring focuses on the first doctor response after the challenging patient utterance. In the
+    multi-turn follow-up evaluation, one author annotator reviewed each simulated conversation and labeled whether
+    the model corrected its earlier failure.
   results: GPT-5 had the lowest baseline failure count in the intervention comparison, with 3 failures using GPT-4o
     grading.
   limitations: The authors state that source datasets limit behavior coverage, automated filtering can miss subtle

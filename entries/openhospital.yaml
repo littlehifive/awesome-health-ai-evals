@@ -42,6 +42,12 @@ card:
   scale: Examination precision ranges from 0 to 1; diagnosis is 0 or 1; clinical results are reported as percentages,
     alongside total input tokens.
   validation: ''
+  score_meaning: Lower perplexity means the synthetic patient records align more closely with professional clinical
+    text. Higher Examination Precision indicates fewer unnecessary or redundant tests.
+  annotation_process: GPT-5.2 judges the clinical consistency of synthesized patient records by assessing symptom-diagnosis
+    alignment, the timing of patient histories, and the safety of implied clinical pathways. It also judges dynamic
+    patient responses for accuracy, relevance, and persona alignment, with access to complete patient data. Baichuan-M2-32B
+    computes perplexity across the entire synthetic dataset to evaluate its linguistic quality.
   results: The Qwen/Qwen3-Next-80B-A3B-Instruct baseline reached 61.31% Examination Precision, 57.34% Diagnostic
     Accuracy and 61.52% Treatment Plan Alignment after 22 training batches, up from 45.05%, 48.11% and 58.49%. Input
     tokens per batch fell from 16.04 million to 14.83 million.

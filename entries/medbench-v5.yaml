@@ -44,6 +44,11 @@ card:
     answers on a 5-point Likert scale. Human inter-rater ICC(A,k) was 0.74 (95% CI 0.66-0.79); automatic-human Spearman
     correlation was 0.26 (p < 0.001), and quadratic weighted Cohen's kappa was 0.32 (95% bootstrap CI 0.20-0.43)
     after automatic scores were mapped to five equal-width levels.
+  score_meaning: Higher task scores indicate better performance. In the process-audit change plots, positive values
+    indicate improvement over baseline, negative values indicate deterioration, and zero indicates no change, with
+    the sign adjusted for whether higher or lower values are better for each metric.
+  annotation_process: Human annotators rated each validation sample independently. Process-audit metrics are calculated
+    only for applicable scenarios; cases with empty denominators are excluded from the corresponding aggregate.
   results: ''
   limitations: The authors state that text tasks provide limited separation among the strongest general-purpose
     models and that high agent-track scores reflect broad interaction responsiveness rather than complete agentic

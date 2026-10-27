@@ -46,6 +46,12 @@ card:
   scale: Correct or incorrect per case at each k; aggregate accuracy, precision and recall; confidence-weighted
     scores from -1 to 1.
   validation: ''
+  score_meaning: A confidence-weighted score of -1 means high confidence in wrong diagnoses, while 1 means high
+    confidence in correct diagnoses. For cases with multiple reference diagnoses, identifying any one correctly
+    counts as accurate.
+  annotation_process: Each model underwent a single evaluation run at temperature 0. Reference diagnoses were parsed
+    from the source vignettes or supplied by clinical experts when not explicitly stated, and physicians reviewed
+    all structured cases for accuracy before inclusion.
   results: Gemini 2.5 Pro led the evaluated models, with 35% top-1 final diagnostic accuracy after interactive information
     gathering and 69% with full information.
   limitations: The authors cite the modest case-report dataset, limited realism of deterministic retrieval, nondeterminism

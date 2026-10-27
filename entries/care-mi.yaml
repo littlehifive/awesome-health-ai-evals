@@ -44,6 +44,9 @@ card:
   validation: On held-out answers from MOSS-16B-SFT and ChatGLM-6B, the LLaMA-13B-T graders achieved Pearson correlations
     with human ratings of 0.868 for correctness and 0.683 for interpretability; binary accuracy at a 0.5 threshold
     was 0.898 and 0.835, respectively.
+  score_meaning: Higher scores indicate better performance on the rated aspect. A high interpretability score means
+    the answer explains how it reached its conclusion well, but does not mean that the conclusion is factually correct.
+  annotation_process: ''
   results: GPT-4 had the highest mean correctness, 0.867 ± 0.215. A domain expert answering 200 sampled questions
     scored 0.938 ± 0.213.
   limitations: The authors restrict its use to Chinese long-form misinformation evaluation in maternity and infant

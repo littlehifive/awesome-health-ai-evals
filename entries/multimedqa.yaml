@@ -45,6 +45,14 @@ card:
   scale: Multiple-choice percentage accuracy; categorical long-form ratings reported as percentages for each axis.
   validation: Three qualified clinicians each assessed 25 question-answer pairs per dataset while the rating framework
     and instructions were refined until their rating approaches converged.
+  score_meaning: Scientific consensus ratings distinguish answers aligned with prevailing consensus, answers opposed
+    to it, and questions with no consensus or that cannot be answered. Correct and incorrect comprehension, retrieval
+    and reasoning are assessed separately, so an answer can show both; higher percentages for correct evidence indicate
+    more answers showing that capability, while higher percentages for incorrect evidence indicate more answers
+    containing errors.
+  annotation_process: Each answer received one lay-person rating. The evaluation used 100 randomly selected HealthSearchQA
+    questions, 20 LiveQA questions and 20 MedicationQA questions; a separate clinician panel wrote reference answers,
+    which were evaluated alongside Flan-PaLM and Med-PaLM answers.
   results: Flan-PaLM achieved 67.6% accuracy on MedQA, 57.6% on MedMCQA and 79.0% on PubMedQA. Lay users rated 80.3%
     of Med-PaLM answers helpful, compared with 91.1% of clinician answers.
   limitations: The authors state that the small number of evaluated responses, limited rater pool and single clinician

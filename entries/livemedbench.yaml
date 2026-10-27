@@ -42,6 +42,13 @@ card:
   validation: On 50 cases with 292 criteria, comparison with two bilingual physicians gave the grader a criterion-level
     macro F1 of 0.76 and a case-level Pearson correlation of 0.54 (p = 6.65 × 10⁻⁵). Human inter-rater macro F1
     was 0.89, and the holistic LLM-as-a-Judge baseline had a correlation of 0.26 (p = 0.07).
+  score_meaning: Higher scores indicate better clinical performance. Criterion weights of +10 or −10 mark life-critical
+    details where errors could compromise patient safety, and critical errors such as missed contraindications can
+    produce a case score of zero.
+  annotation_process: For the human validation, two physicians proficient in English and Chinese independently evaluated
+    model responses against the rubric criteria on 50 randomly sampled cases. They also assessed the clinical coherence
+    of the narratives and queries, the quality of the reference physician advice, and the clinical accuracy and
+    relevance of each criterion.
   results: GPT-5.2 led the 38 evaluated models with 39.2%, followed by GPT-5.1 at 38.5%.
   limitations: ''
   sources:

@@ -46,6 +46,16 @@ card:
     1 to 4; realism measured by classification accuracy, with 50% indicating chance.
   validation: Reference-label agreement was Fleiss' κ = 0.580 for the five-physician dataset and Cohen's κ = 0.536
     for the dataset rated by two to three physicians.
+  score_meaning: Clinical fidelity scores run from 1 for contradicted claims to 4 for accurate claims, and from
+    1 for implausible unsupported claims to 4 for expected ones. The realism evaluation tests whether classification
+    accuracy is below 65% at the 95% confidence level, with lower accuracy indicating that real and simulated conversations
+    are harder to distinguish.
+  annotation_process: For clinical fidelity, Claude Opus 4.6 first extracts factual claims from the vignette and
+    patient utterances, then classifies patient claims as supported or unsupported before rating them. Each human
+    realism rater saw 10 conversations sequentially, five real and five simulated; the LLM judges used independent,
+    side-by-side and sequential classification protocols. Reference urgency labels came from blinded reviews by
+    five US board-certified emergency or internal medicine physicians per case in Dataset 1, with labels assigned
+    by plurality vote, and two to three US-based internal medicine physicians per case in Dataset 2.
   results: ''
   limitations: The authors identify the single urgency-assessment task and three-level outcome, possible new clinical
     facts weakening reference labels, reliance on LLM judges, and the narrower range of behaviour produced by a

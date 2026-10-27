@@ -41,6 +41,13 @@ card:
   validation: Reliability was assessed using ICC3 within and between human and automated evaluator groups. For relevance
     labels used in adaptive filtering, three medical experts unanimously agreed on 16/20 blood-biomarker questions,
     20/20 additional user-health questions and 19/20 wearable time-series questions.
+  score_meaning: ''
+  annotation_process: Human evaluation covered 80 query-response pairs in two rounds, each using a separate set
+    of 10 user queries, with the order of Boolean and Likert tasks alternated across query groups. Adaptive scores
+    were derived by retaining only the Boolean ratings selected by the relevance classifier or by majority-vote
+    expert relevance labels. Automated grading evaluated one query-response-criterion combination at a time, using
+    a prompt that described the grader as an "expert medical evaluator" and requested a numerical score without
+    an explanation.
   results: ''
   limitations: The authors limited their experiments to comparisons between Likert and Boolean rubrics and left
     comparisons with open-ended evaluation criteria for future work.

@@ -42,6 +42,12 @@ card:
   scale: Answers are correct or incorrect, reported as accuracy; explanations receive text-similarity scores and
     length-adjusted, term-weighted TCMScore.
   validation: ''
+  score_meaning: Higher TCMScore values indicate greater consistency with the standard analysis in TCM meaning and
+    knowledge. The length adjustment penalizes short explanations more heavily than long ones.
+  annotation_process: A TCM expert and a medical doctoral student manually evaluated responses to 18 questions on
+    TCM fundamentals and clinical knowledge, with model names hidden. They assessed accuracy, professionalism, clinical
+    reasoning logic, objectivity and comprehensiveness. In a separate stability test without chain-of-thought prompts,
+    each model answered each question five times, and the scores were averaged.
   results: GPT-4 achieved 58.19% accuracy on A1/A2 questions with chain-of-thought prompting and led the reported
     explanation-quality comparisons. A TCM expert and a medical doctoral student also rated GPT-4 highest across
     all five evaluation dimensions on 18 questions.

@@ -44,6 +44,10 @@ card:
   scale: Yes or no per criterion; percentage of encounters approved, reported separately by criterion.
   validation: For triage recommendations, Cohen's kappa was 0.79 between AI Triage and physician 1, 0.74 between
     AI Triage and physician 2, and 0.72 between the two physicians.
+  score_meaning: A "no" indicates that the simulated patient was incoherent or that the triage output was incomplete,
+    inappropriate or unsafe, depending on the question. The diagnosis measure counts whether the clinician's most
+    likely diagnosis appeared among the system's top three differential diagnoses.
+  annotation_process: ''
   results: AI Triage included the clinician's most likely diagnosis among its top three diagnoses in 95.4% (495/519)
     of cases for one reviewer and 94.8% (492/519) for the other. Both reviewers approved its question precision
     in 81.7% of cases, tone in 99.6%, and case summary in 99.2%.

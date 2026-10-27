@@ -42,6 +42,15 @@ card:
   scale: Each domain, overall dialogue, and rated turn receives 1 for unacceptable or 2 for acceptable; no aggregate
     benchmark metric is specified.
   validation: ''
+  score_meaning: An unacceptable rating means the response should not be shown to users in its current form; an
+    acceptable rating means the coach is meeting requirements. A single sufficiently concerning turn can make the
+    whole dialogue unacceptable.
+  annotation_process: During initial testing, five evaluators independently scored the same 12 dialogues, compared
+    results, discussed discrepancies, and retested after framework changes. A qualified health professional with
+    five years of health coaching experience led training through sessions, shadowing, and supervised reviews, and
+    certified evaluators before they worked independently. Lead evaluators later spot-checked reviews, with discrepancies
+    discussed by the whole evaluator group and changes agreed upon; subject matter experts provided second opinions
+    on specialist topics.
   results: ''
   limitations: The authors state that validation and inter-rater reliability testing remain to be done, some ethical
     dilemmas are not covered, the expert-driven approach needs consumer input, and thorough human review is resource

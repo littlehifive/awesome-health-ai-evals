@@ -39,6 +39,13 @@ card:
   judge: ''
   scale: ''
   validation: ''
+  score_meaning: The comparison study reports five-point ratings of benchmark question quality, not model performance,
+    across clinical relevance, guideline alignment, clarity/completeness, distractor plausibility, and language/cultural
+    fit. Higher ratings indicate better assessed quality; Alama Health-QA's 4.7/5 denotes high clinical relevance
+    to frontline Kenyan practice.
+  annotation_process: The comparison study randomly sampled 25 questions per dataset with a fixed seed and created
+    five reviewer packs, each containing Alama Health-QA questions plus one external dataset. Reviewers used a double-blind
+    KoboCollect questionnaire with required five-point ratings across five quality dimensions and free-text comments.
   results: ''
   limitations: Reviewers found that some Alama Health-QA questions lacked clinical detail and some answer options
     were too obviously incorrect.

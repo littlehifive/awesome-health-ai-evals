@@ -48,6 +48,11 @@ card:
   validation: Human annotator agreement had Fleiss' kappa values of 0.2 to 0.4 across baseline and perturbed contexts.
     Majority human and model decisions agreed on 65% of self-management recommendations and 75% of resource-allocation
     recommendations.
+  score_meaning: Higher mutual information indicates more stable and internally consistent treatment decisions when
+    a case's wording changes. Fleiss' kappa below 0.21 is described as slight agreement.
+  annotation_process: Centaur Labs trained annotators before recruitment using three examples, one each from USMLE,
+    r/AskaDocs, and OncQA, that were excluded from the study. Annotators answered the triage questions without seeing
+    model outputs and were paid $60 per hour; each clinical context took approximately five minutes.
   results: ''
   limitations: The authors state that U.S.-based medical students may lack demographic diversity and attending clinicians'
     expertise, that English-only contexts exclude multilingual and cultural variation, and that the dataset does

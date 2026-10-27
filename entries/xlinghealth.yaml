@@ -49,6 +49,14 @@ card:
     per batch for English and Spanish, two for Chinese, and one for Hindi. Reported average correlations with human
     labels were 94.20% for English, 95.14% for Spanish, 77.61% for Chinese, and 84.47% for Hindi; all three English
     annotators agreed with GPT-3.5 on 74.74% of instances.
+  score_meaning: Contradiction means the generated answer contains incorrect information or conflicts with the expert
+    answer; comprehensiveness concerns coverage of expected details and topics, while appropriateness concerns alignment
+    with the question's context. For verification, positive examples are correct answers, while negative examples
+    are incorrect or irrelevant answers.
+  annotation_process: Medical experts were recruited through Prolific, Reddit, LinkedIn, and mailing lists; validation
+    examples were randomly sampled from a pool stratified by GPT-3.5's four labels. Annotators marked whether they
+    agreed with the model's reasoning and label, and those who disagreed supplied an explanation and the correct
+    relationship between the answers. Each instance received the majority label from the human annotations.
   results: GPT-3.5 achieved HealthQA verification macro-F1 of 0.85 in English and Spanish at temperature 1.0, compared
     with 0.73 in Chinese and 0.65 in Hindi. Across the three datasets, it produced 18.12% fewer more comprehensive
     and appropriate answers in non-English languages than in English and was 5.82 times as likely to produce incorrect

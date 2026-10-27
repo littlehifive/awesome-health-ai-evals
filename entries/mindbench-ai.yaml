@@ -42,6 +42,10 @@ card:
   judge: Expert ratings provide the reference scores; the number and qualifications of the raters are not specified.
   scale: Numeric appropriateness ratings; benchmark RMSE.
   validation: ''
+  score_meaning: ''
+  annotation_process: Models are prompted to give step-by-step reasoning before their numerical ratings. Reasoning
+    outputs are analyzed using natural language processing and text embedding analysis, with benchmark metadata
+    recording adversarial challenges such as information gaps, distractors, and anchoring bias tests.
   results: ''
   limitations: The authors state that benchmark quality depends on domain-expert contributions, Western English-speaking
     clinicians can embed cultural assumptions that limit global applicability, and current benchmarks do not measure

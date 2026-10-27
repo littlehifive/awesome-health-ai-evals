@@ -48,6 +48,13 @@ card:
     utterances, with Krippendorff's alpha of 0.7834. Across five random 60:40 train-test splits, the best prompting-based
     classifier achieved therapist macro-F1 of 57.7% (standard deviation 2.5%) and client macro-F1 of 76.7% (standard
     deviation 6.3%).
+  score_meaning: A higher behavior frequency means the model uses that behavior more often, not necessarily that
+    its therapy is better. For example, high-quality human therapy showed more questions about experiences and emotions,
+    but less problem-solving, normalizing, and psychoeducation than low-quality therapy.
+  annotation_process: The co-authors who supplied the behavior annotations also helped define the therapist and
+    client behaviors; their annotated examples included both human therapy and simulated conversations. The researchers
+    tested prompts that identified all behaviors at once and prompts that asked a separate Yes-or-No question for
+    each behavior, finding that three in-context examples worked best.
   results: Only GPT-4 consistently changed behavior in the desired direction to a statistically and practically
     significant extent across the three prompt-modulation tests. Its frequency of questions about experiences rose
     from 29.9% to 57.0% with the modified prompt.

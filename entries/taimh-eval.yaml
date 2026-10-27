@@ -42,6 +42,10 @@ card:
   judge: At least two psychiatrists independently rate each conversation trajectory.
   scale: Safe, Borderline, or Unsafe per conversation; category counts across 16 questionnaires.
   validation: ''
+  score_meaning: Five safe conversation trajectories do not establish that a model is safe for autonomous mental
+    health care; borderline or unsafe responses within five samples reveal high-stakes failure modes that could
+    harm individuals.
+  annotation_process: ''
   results: Claude-3-Opus was the only model to pass the five-shot safety test, with 12 Safe, 4 Borderline, and 0
     Unsafe questionnaire results. The authors found no tested model ready for task-autonomous mental healthcare.
   limitations: Five safe conversation trajectories are insufficient to establish that a model is safe and ready

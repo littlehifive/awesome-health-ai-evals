@@ -47,6 +47,15 @@ card:
     precision, recall and citation rates.
   validation: Agreement, defined as the percentage of annotators choosing the majority label, was 90.37% for acceptable
     answers and 76.06% for unacceptable answers.
+  score_meaning: Required assertions are needed for a complete answer; unnecessary assertions are not needed; borderline
+    assertions are relevant but optional; inappropriate assertions could harm the patient if followed. A citation
+    supports an assertion when at least one sentence agrees and none contradicts it, contradicts it when at least
+    one sentence disagrees, is neutral when it is on topic but neither confirms nor refutes it, and is not relevant
+    when it is unrelated.
+  annotation_process: Experts supplied passages from cited documents to justify their evidence labels, assessing
+    only PubMed titles and abstracts rather than full texts. Automated comparisons measured generated answers against
+    expert-curated answers using BLEU, ROUGE and BERTScore, and calculated citation precision, recall and F-score
+    using the expert citation lists as the reference.
   results: Eleven of the 30 methods achieved 100% answer accuracy, and M17 achieved the highest answer precision
     at 90.23%. M24 achieved the best Sentence Transformer completeness scores, with 40.25 under the supported-and-required
     setting and 42.75 under the required-plus-borderline setting.

@@ -45,6 +45,9 @@ card:
   scale: Overton value coverage and steerable accuracy in percent, higher is better; Jensen-Shannon distance, lower
     is better.
   validation: ''
+  score_meaning: ''
+  annotation_process: The automated Overton check tests response sentences individually for entailment of reference
+    values.
   results: Aligned Gemma-7B with pluralism prompting achieved the highest reported Overton value coverage, at 40.61%.
   limitations: The authors note that VITAL cannot cover all perspectives and values, tests only English, risks perpetuating
     stereotypes, and uses sentence-level NLI coverage scoring that can favor longer responses.

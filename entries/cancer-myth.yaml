@@ -45,6 +45,13 @@ card:
   judge: GPT-4o assigns the benchmark response scores.
   scale: 'Per item: -1, 0 or 1; final metrics: mean score and percentage fully corrected.'
   validation: ''
+  score_meaning: ''
+  annotation_process: In the preliminary CancerCare study, three hematology oncology physicians rated each overall
+    response and its individual advice paragraphs, covering 648 paragraphs on a 1-5 scale. Response sources were
+    hidden by matching response lengths and removing identifiers; physicians could attach predefined harmful labels
+    to low-rated segments and add written comments. For Cancer-Myth dataset validation, physicians reviewed 888
+    selected examples and retained 585 after checking that each question contained a false presupposition and that
+    the accompanying corrective medical information was sound and addressed it.
   results: Gemini-1.5-Pro performed best, fully correcting 27.2% of false assumptions, followed by Claude-3.5-Sonnet
     at 19.8% and GPT-4-Turbo at 15.4%.
   limitations: The authors state that correcting false assumptions covers only one part of clinical capability and

@@ -45,6 +45,12 @@ card:
     practicing physicians, compared with 85.2% average agreement between physicians. Agreement on 100 Claude v2.1
     statement-source pairs was 89%; a physician also confirmed all 330 parsed statements from 72 responses, while
     finding six omitted statements.
+  score_meaning: An unsupported statement can be contradicted by the cited source or simply absent from it. The
+    scores measure grounding in cited sources, not whether the medical claims themselves are correct, and do not
+    penalize responses for including irrelevant sources.
+  annotation_process: For the 284-pair validation subset, each of three physicians independently judged whether
+    the automated support decision was correct and could optionally provide a reason. Their judgments were combined
+    by majority vote, rather than discussion or adjudication.
   results: GPT-4 with web browsing performed best, with 54% of responses fully supported by their cited sources.
   limitations: The benchmark checks source support rather than factual correctness, does not penalize extra irrelevant
     sources in its statement-support metric, and can be passed by quoting sources verbatim, so the authors recommend

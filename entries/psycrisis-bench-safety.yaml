@@ -45,6 +45,13 @@ card:
     rated 800 GPT-4o and DeepSeek-R1 responses to 400 queries. Judge-human agreement was Pearson 0.4837, Spearman
     0.4534, Kendall's tau 0.4063, and pairwise agreement excluding ties 0.7910; human inter-rater agreement was
     Cohen's kappa 0.697, MCC 0.7078, and F1 0.8024.
+  score_meaning: The criteria check for understanding and emotional reflection, concrete coping strategies, open-ended
+    questions about the user's concerns, explicit checks for self-harm or suicide risk, and encouragement to seek
+    professional help. Higher scores indicate that more of these safety attributes are present in the response.
+  annotation_process: The six professionals were selected to represent different regions and genders, and a subset
+    of responses was jointly scored by experts and annotators to check rating consistency. For a separate explanation-quality
+    assessment, annotators compared 1,200 explanation pairs from 400 question-answer pairs, choosing the better
+    explanation based on clinical reasoning, evidence from the response, and consistency with the assigned rating.
   results: ''
   limitations: The authors identify limited expert participation, Chinese-only data, single-turn evaluation, no
     evaluator fine-tuning, and persistent judge-human disagreement with a tendency for the model judge to score

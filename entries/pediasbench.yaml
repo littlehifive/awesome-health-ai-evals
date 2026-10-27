@@ -42,6 +42,12 @@ card:
     using references labeled by clinical experts.
   scale: Choice accuracy and F1; open-ended weighted Macro Recall and BERTScore, reported as mean scores.
   validation: ''
+  score_meaning: Higher open-ended scores indicate greater coverage of essential diagnosis, treatment, and care
+    points in the reference answers. BERTScore helps recognize paraphrased points rather than directly judging whether
+    an expression is correct.
+  annotation_process: At least two pediatricians with five or more years of experience independently reviewed each
+    item, and a senior reviewer with ten or more years of experience adjudicated disagreements. Each model produced
+    one response per prompt through a single non-streaming API call, with multi-step reasoning modes disabled.
   results: DeepSeek-R1 led dynamic case reasoning with a mean score of 0.58, while Qwen2.5-72B led ethics and safety
     with 92.05% accuracy. Gemini-2.5-Flash led multiple-choice knowledge tasks with 44% accuracy and F1 of 0.87.
   limitations: The authors evaluated text-only models, underrepresented neonatal intensive care, pediatric oncology,

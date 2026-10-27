@@ -41,6 +41,8 @@ card:
   judge: An LLM evaluator assigns correctness scores; its model name is not reported.
   scale: True or false per diagnosis; percentage diagnostic accuracy per dataset.
   validation: The authors manually reviewed the accuracy logs, but report no agreement statistics.
+  score_meaning: ''
+  annotation_process: ''
   results: MedAgentSim with LLaMA 3.3 70B achieved 70.8% on MedQA, 72.0% on MedQA Extended and 79.5% on MIMIC-IV,
     the highest reported scores on those datasets. It also scored 28.3% on NEJM Extended and 26.7% on NEJM, where
     it tied with GPT-4o.

@@ -44,6 +44,13 @@ card:
   scale: 'Correctness: 0, 0.5 or 1 per item, averaged across parseable verdicts; Evidence Index: 0 to 1.'
   validation: The two judges achieved pooled Cohen's κ = 0.882 across 22,471 parseable paired verdicts out of 26,404
     attempted pairs; five of seven candidate systems had κ ≥ 0.85.
+  score_meaning: YES means the answer covers all gold facts, including answers that add correct facts or correctly
+    refuse when the gold reports no data; PARTIAL means it covers a non-empty correct subset. Source authority passes
+    when citations match the gold source or an accepted upstream source; for no-data items, emitting no citation
+    passes and fabricating one fails.
+  annotation_process: The two judges score independently using the same factual-correctness rules, accepting equivalent
+    units, counts, list orders and continuous values within a 5% rounding tolerance. Both judge model families are
+    absent from the candidate systems to avoid direct self-evaluation.
   results: DrugClaw-graph led the Evidence Index with 0.632 under Llama-3.1-70B-Instruct and 0.623 under gpt-oss-120b.
     It also had the highest primary-source rate, 0.918, while DrugClaw-linear had the highest faithfulness rate,
     0.887.

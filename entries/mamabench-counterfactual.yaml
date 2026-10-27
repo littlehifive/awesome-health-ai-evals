@@ -43,6 +43,10 @@ card:
   judge: Claude Opus 4.5 assigns correctness judgments at temperature 0.
   scale: Correct or incorrect per case; base accuracy, robust accuracy and Bias Trap Rate reported as percentages.
   validation: ''
+  score_meaning: Lower Bias Trap Rate and higher robust accuracy indicate better performance. A Bias Trap Rate of
+    20.3% means that about one in five counterfactual cases is answered incorrectly among pairs whose base case
+    was answered correctly.
+  annotation_process: ''
   results: Claude Sonnet 4.6 with EA-RAG achieved the best results, with a 20.3% Bias Trap Rate and 65.0% robust
     accuracy. Its base accuracy was 81.6%.
   limitations: The authors state that the English-only, single-domain coverage limits generalization, the LLM judge

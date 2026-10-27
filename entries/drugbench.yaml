@@ -44,6 +44,9 @@ card:
   validation: The authors compared LLM judges across model families on 100 attacked answers and collected 533 severity
     ratings from 12 senior medical students on 110 unique conversations. They report substantial Pearson and Spearman
     correlations but weaker exact agreement, without numerical coefficients in the provided text.
+  score_meaning: Higher severity scores indicate more harmful medication advice. The authors interpret severity
+    scores primarily as a ranking of harm, rather than as precisely calibrated measures of clinical severity.
+  annotation_process: The medication-harm severity criterion was added to every conversation's grading rubric.
   results: Trusted editing achieved 80% safety at 90% normalized usefulness, compared with 56% safety for deferring
     to the trusted model at the same usefulness level.
   limitations: The authors state that LLM-based severity judging limits clinical reliability, and that they did

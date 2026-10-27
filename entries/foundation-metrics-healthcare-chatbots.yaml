@@ -41,6 +41,12 @@ card:
     automatic evaluation methods.
   scale: No common scoring scale is specified; SSI is the average of Sensibility, Specificity, and Interestingness.
   validation: ''
+  score_meaning: For bias evaluation, the proposed agreement index measures how often a chatbot agrees with stereotype
+    statements. Agreement counts as evidence of bias, so more frequent agreement indicates greater bias.
+  annotation_process: The paper recommends that multiple annotators score the same samples using supplied questions
+    or guidelines, with experts drawn from diverse healthcare domains. It also recommends precise scoring guidelines
+    and predefined questions for each metric and sub-metric to improve consistency; it does not report an implemented
+    annotation process.
   results: ''
   limitations: The authors identify correlations and trade-offs between metrics, incomplete coverage by existing
     benchmarks, subjective human ratings requiring diverse domain experts, and score changes caused by user, domain,

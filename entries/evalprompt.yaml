@@ -48,6 +48,10 @@ card:
   validation: All six assessors agreed on the category for 34% (32/94) of original responses and 95/152 sentence-dropout
     responses. Within-group unanimous agreement was 52/94 for nonexperts and 46/94 for experts on original responses,
     and 119/152 and 104/152, respectively, on sentence-dropout responses.
+  score_meaning: Robustness applies only to questions the model initially answered correctly, so a high robustness
+    score does not mean it answers most medical questions correctly.
+  annotation_process: The assessors participated as volunteers. The same six assessors evaluated the sentence-dropout
+    responses after rating the original responses.
   results: GPT-4.0 achieved 31% correctness (29/94), 34% clarity (32/94), and 61% robustness (92/152). Only robustness
     met the 60% passing threshold.
   limitations: The authors state that the prompts contain more detail and technical knowledge than ordinary self-diagnosis

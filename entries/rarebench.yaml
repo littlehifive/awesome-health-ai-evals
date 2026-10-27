@@ -45,6 +45,9 @@ card:
     entity extractions.
   scale: Extraction precision, recall and F1; screening recall; diagnostic hit@1, hit@3, hit@10 and median rank.
   validation: ''
+  score_meaning: Lower median rank indicates better diagnostic performance, with the correct disease appearing nearer
+    the top of the prediction list.
+  annotation_process: ''
   results: On the 75-case physician comparison, GPT-4 given phenotypes achieved 52.0% top-1 recall and 82.7% top-10
     recall. The 50 specialist physicians from 23 Chinese Class-A tertiary hospitals achieved 44.7% and 52.4%, respectively,
     with external assistance, with four physicians assigned to each case.

@@ -43,6 +43,14 @@ card:
   scale: Three categorical labels per item; macro precision, recall, and F1, plus latest-minus-outdated F1 and percentage
     of outdated-label predictions.
   validation: ''
+  score_meaning: The answer labels are Supported, Refuted, and Not Enough Information (NEI). A positive latest-minus-outdated
+    F1 difference indicates better agreement with current evidence than with outdated evidence, while a negative
+    difference indicates the reverse.
+  annotation_process: GPT-4o-mini-2024-07-18 generated questions from review objectives and reference labels from
+    the authors' conclusions. Two annotators, a university-clinic physician and an author with a biomedical engineering
+    background, checked 100 randomly selected examples and found 95% of questions and 92% of labels correct. The
+    same two annotators manually checked and corrected all 512 MedChangeQA labels, giving MedChangeQA gold labels
+    while MedRevQA retains silver labels.
   results: Mistral 24B achieved the highest MedRevQA macro F1 at 45.7. BioMistral 7B had the highest F1 against
     MedChangeQA's latest labels at 35.3, while Llama 3.3 70B had the largest latest-minus-outdated F1 gain at 7.4
     points.

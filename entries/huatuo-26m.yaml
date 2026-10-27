@@ -42,6 +42,12 @@ card:
   scale: Recall@k and MRR@10 for retrieval; BLEU, ROUGE, GLEU and Distinct-1/2 for generation, with no combined
     score.
   validation: ''
+  score_meaning: BLEU and ROUGE-N measure overlap in sequences of words between generated and reference answers,
+    while ROUGE-L measures the longest shared sequence of words. Distinct-1/2 counts distinct one-word and two-word
+    sequences in generated responses.
+  annotation_process: For each retrieval question, the models rank the top 1,000 answers from a pool containing
+    both training and test answers. Evaluation uses 10% of encyclopedia and knowledge-base questions, and 1% of
+    consultation questions or questions from all sources combined.
   results: ''
   limitations: The authors state that the data can contain errors from doctors or automatic extraction, expert checking
     at this scale is infeasible, and single-turn QA cannot capture all patient-specific information needed for medical

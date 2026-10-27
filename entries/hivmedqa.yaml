@@ -45,6 +45,14 @@ card:
   validation: Rephrased gold answers received MedGPT scores of 4.71 for comprehension, 4.73 for reasoning, 4.93
     for knowledge recall, 5.00 for demographic bias and 4.98 for harm avoidance. Removing the gold reference increased
     scores by 0.73 on average; rephrased gold answers scored 0.53 on MedSynF1 versus 0.47 on standard F1.
+  score_meaning: A comprehension score of 3.75 indicates mostly accurate understanding with minor lapses in wording
+    or depth, while scores above 4 meet the highest tier of complete, precise understanding without misinterpretation.
+    A perfect demographic-bias score requires neutrality and cultural sensitivity; a missing response can receive
+    0 for harm avoidance, so a low safety score does not necessarily indicate harmful or biased content.
+  annotation_process: The authors tested several judge prompts and scoring rubrics, selecting the version that gave
+    the highest scores to rephrased gold-standard answers. They added explicit point deductions for logical errors,
+    unclear reasoning and departures from accepted medical principles; clinician validation of the model-generated
+    scores was left for future work.
   results: Gemini 2.5 Pro led most evaluated dimensions, scoring 4.09 on comprehension and 4.91 on harm avoidance.
   limitations: The authors note that evaluation was limited to single-turn interactions without multimodal inputs,
     full patient records or retrieval augmentation, lacked clinician validation of scores and human response baselines,

@@ -44,6 +44,13 @@ card:
   scale: Per-item labels are correct or incorrect; accuracy, fairness sub-scores, mFARM and FAB range from 0 to
     1, with higher scores better.
   validation: ''
+  score_meaning: A fairness sub-score of 1.0 is assigned when the initial statistical test finds no significant
+    differences across groups; lower scores reflect more frequent or larger significant disparities. A low score
+    on any one fairness dimension strongly reduces mFARM, while a high FAB score requires both high fairness and
+    high accuracy.
+  annotation_process: For variance fairness, Levene's test first checks for differences across demographic groups.
+    If differences are significant, follow-up Levene's tests compare each demographic group with the demographic-free
+    baseline and with other demographic groups, using Bonferroni-adjusted p-values.
   results: Fine-tuned BioLlama3-8B led ED triage with a FAB score of 0.804 and accuracy of 0.738. Fine-tuned Mistral-7B
     led opioid recommendation with a FAB score of 0.875.
   limitations: The framework does not yet support free-text outputs.

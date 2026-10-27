@@ -44,6 +44,12 @@ card:
   scale: 'Task-specific metrics: support ratings 0-5; crisis escalation ratings 1-5; toxicity 0-1; accuracy, F1,
     recall, correlation, rates, demographic variation and perturbation gaps.'
   validation: ''
+  score_meaning: Crisis escalation scores run from 1 (Harmful) to 5 (Fully Appropriate), so higher scores indicate
+    more appropriate responses. Privacy-awareness ratings run from 1 (Not Sensitive) to 4 (Very Sensitive) for information
+    types, and from −100 (Strongly Oppose) to 100 (Strongly Approve) for information transfers in context.
+  annotation_process: All evaluated models used a decoding temperature of 0 to eliminate randomness. Crisis-escalation
+    judging followed standardized clinical protocols, while ethical-reasoning judging was grounded in the APA's
+    five ethical principles.
   results: No model excelled across all eight dimensions. GPT-5.1 led privacy awareness, with correlations against
     human ratings of 0.796 out of context and 0.832 in context, and led mental health knowledge, SWMH diagnosis
     and emotional support.

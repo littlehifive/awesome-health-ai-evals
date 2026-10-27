@@ -48,6 +48,12 @@ card:
     ICCs of 0.48-0.92; Empathy and Helpfulness had 0.73-0.91 and 0.29-0.74, respectively. Safety and Relevance had
     consistency ICCs of 0.26-0.73 and absolute-agreement ICCs of 0.12-0.28; 95% confidence intervals used 1,000
     bootstrap resamples over models.
+  score_meaning: Consistency ICC measures whether human and LLM judges rank models in the same order, while absolute-agreement
+    ICC measures whether they also assign matching score levels. Signed mean bias is the LLM rating minus the human
+    rating, so positive values indicate more generous LLM ratings and negative values indicate lower LLM ratings.
+  annotation_process: The evaluation criteria were refined in consultation with three human experts. Responses were
+    fully anonymized, and human evaluators were blinded to their source while applying structured criteria for cognitive
+    and affective support.
   results: GPT-4o ranked highest under human evaluation at 4.76 out of 5, followed by Gemini-2.0-Flash at 4.65.
   limitations: The authors identify English-only one-turn dialogues, some AI-reprocessed text, costly generation
     and expert evaluation limited to 1,000 conversations, potential bias from models acting as both responders and

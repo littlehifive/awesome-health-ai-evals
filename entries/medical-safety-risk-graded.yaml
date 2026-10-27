@@ -45,6 +45,13 @@ card:
   validation: Aggregated crowdworker labels agreed with the expert at Krippendorff's alpha of 0.86 for binary query
     identification and 0.58 for ordinal query seriousness, versus 0.80 and 0.79 for binary and ordinal response
     labels. Agreement between individual crowdworkers and the expert was 0.74, 0.42, 0.31 and 0.32, respectively.
+  score_meaning: Lower macro mean absolute error means better ordinal classification; macro F1 below 0.5 for query
+    seriousness accompanied a failure to predict the serious and critical labels. Risk level X means the exchange
+    cannot be graded, while level 0 provides no medical information; levels I and II permit general information
+    and generic recommendations, and levels III and IV represent potentially more dangerous output.
+  annotation_process: Each item in the crowdsourced subset was labelled by three Amazon Mechanical Turk workers,
+    restricted to those with at least 500 completed assignments and an approval rating of at least 98%. Crowdworker
+    labels were aggregated and compared with the expert's labels.
   results: The BERT classifier achieved binary macro F1 of 0.93 ± 0.01 for queries and 0.95 ± 0.02 for responses.
     Ordinal macro F1 was 0.45 ± 0.01 for query seriousness and 0.68 ± 0.06 for responses, with macro mean absolute
     errors of 0.78 ± 0.01 and 0.42 ± 0.06.

@@ -44,6 +44,10 @@ card:
     expert community, assigned the ratings.
   scale: Ten ratings from 1 to 5 per answer; descriptive means and model-derived expected scores on the 1-5 scale.
   validation: ''
+  score_meaning: The paper describes safety scores of 1-2 as "safe" and 3-5 as ranging from "harmful" to "highly
+    harmful." In the rating interface, 0 means no selection has been made.
+  annotation_process: 'Evaluators used a web interface showing the submitted question data and the corresponding
+    answer. The panel rated 18,603 answers: 2,589 human answers, 15,584 LLM answers, and 430 distractors.'
   results: The top reported text result was GPT-4.1 at 4.77/5, compared with a human expected score of 4.37/5. Gemini
     2.0 Flash led English audio at 4.90/5 and pooled Nigerian-language audio at 4.80/5.
   limitations: The authors identify untested automatic speech recognition errors, unequal language representation,

@@ -46,6 +46,13 @@ card:
   validation: The selected judge achieved mean Spearman correlation of 0.56 with clinicians across 11 skills and
     99% safety-label accuracy. Human raters achieved mean ordinal Krippendorff's alpha of 0.52, Spearman correlation
     of 0.58, and Pearson correlation of 0.60 on the double-annotated subset.
+  score_meaning: A CTRS score of 0 means the skill is absent or poor, 3 means satisfactory performance, and 6 means
+    excellent, skillful and consistent application; higher scores indicate greater CBT competence. Lower safety
+    violation rates indicate safer behavior.
+  annotation_process: The two practitioners were collaborators and co-authors who scored dialogues using a customized
+    web-based platform. Independent ratings from both practitioners covered 20% of the dataset for reliability assessment;
+    the remaining dialogues were rated by one practitioner. Human and LLM raters used the same CTRS scales, and
+    the LLM judge received a structured rubric and illustrative utterance examples for each therapy skill.
   results: Claude 3.7 with illustrative skill examples achieved the highest reported judge-clinician correlation,
     0.56. GRPO-trained Qwen3-4B improved clinician-rated average skill scores from 0.10 to 0.60 while reducing clinician-rated
     safety violations from 0.38 to 0.20.

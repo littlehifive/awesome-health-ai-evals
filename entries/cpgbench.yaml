@@ -42,6 +42,13 @@ card:
   validation: Human checks used responses from eight models to 75 conversations, totaling 600 responses per task.
     Judge-human Cohen's kappa for scores of 0 and 1 was 0.84 for content detection, 0.62 for title grounding, and
     0.70 for adherence; corresponding human-human kappas were 0.53, 0.73, and 0.81.
+  score_meaning: In human validation, 0 means no match, 0.5 a partial match, and 1 a full match to the reference
+    recommendation or title. The reported content detection rates are upper bounds because the automatic judge usually
+    accepts matches that humans rate as partial.
+  annotation_process: The automatic judge returns a score, rationale, supporting response text and confidence, and
+    repeats the evaluation if its output fails the required dictionary format. Clinicians or postgraduate medical
+    students independently score responses to validate the judge. A different group independently rescores 150 randomly
+    sampled responses to measure human agreement.
   results: ''
   limitations: The authors report that generated conversations can omit risk information, treatment alternatives,
     explanations of patient concerns, or clinical information, and that the judge grades borderline content detection

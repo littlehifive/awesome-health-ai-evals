@@ -43,6 +43,11 @@ card:
   scale: Accuracy, F1 and seven-dimension open-ended scoring; task scores scaled relative to the best model at 90,
     then combined by harmonic mean.
   validation: ''
+  score_meaning: ''
+  annotation_process: Ophthalmologists agreed on the reference answers for choice questions; GPT-4o drafted open-ended
+    reference answers, which ophthalmologists reviewed and refined. Models were evaluated with both common prompts
+    and advanced prompts designed to improve their responses. Regular expressions extracted option letters from
+    commercial model responses, while the Outlines library constrained open-source models to the permitted options.
   results: ''
   limitations: The authors state that the evaluation excludes some LLMs, especially inaccessible ophthalmology-specific
     models, and that the dataset is limited in size and task coverage.

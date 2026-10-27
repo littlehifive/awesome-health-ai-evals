@@ -42,6 +42,11 @@ card:
   judge: Automated F1 and Rouge-L calculations assign the scores.
   scale: F1 and Rouge-L range from 0 to 1; total F1 weights diagnosis two-thirds and advice one-third.
   validation: ''
+  score_meaning: Higher F1 scores indicate more accurate diagnoses and examination advice, while higher Rouge-L
+    scores indicate greater wording overlap with the reference response.
+  annotation_process: A medical annotation team with clinical expertise and the urology expert panel from Shanghai
+    Renji Hospital conducted a three-tier review of each question-context-answer triple. They checked medical terminology,
+    question-answer coherence, context relevance, the context's role as evidence, answer logic and diagnostic accuracy.
   results: ChatGLM3-6B achieved the highest total F1, 0.346374, with diagnosis F1 of 0.500212 and advice F1 of 0.038699.
     GPT-3.5 achieved the highest Rouge-L, 0.233997.
   limitations: ''

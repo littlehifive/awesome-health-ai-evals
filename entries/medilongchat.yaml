@@ -39,6 +39,13 @@ card:
   judge: Automatic F1, BLEU-1, and accuracy calculations score benchmark answers.
   scale: F1 and BLEU-1 for in-dialogue and cross-dialogue questions; accuracy for synthesis multiple-choice questions.
   validation: ''
+  score_meaning: For dataset quality, higher 1-5 judge scores indicate better quality in the rated dimension; the
+    example correctness anchors are 1 for hallucinating critical information and 5 for being completely factually
+    correct. These scores assess the synthetic data, not the model's benchmark answers.
+  annotation_process: 'Dataset quality was assessed by four independent LLM judges: Gemini 2.5, GPT-5 mini, Qwen3-235B,
+    and Deepseek-R1, with an ensemble score aggregated across them. Judges received the dialogue history, generated
+    response, evaluation instructions, and a rubric with score examples. Each patient''s Stage 1 information was
+    evaluated as one unit, and each complete Stage 2 dialogue was evaluated as one unit.'
   results: ''
   limitations: The authors state that synthetic histories differ from real clinical distributions, especially for
     rare diseases, complex comorbidities, and behavioral health factors; LLM-based data-quality judgments need better

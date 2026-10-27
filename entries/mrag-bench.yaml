@@ -45,6 +45,10 @@ card:
     for four axes.
   validation: Medical experts annotated part of the long-form matches to check judging quality; no agreement figures
     are reported.
+  score_meaning: Higher Elo ratings indicate stronger performance relative to the other models in the arena on the
+    relevant evaluation axis, rather than a percentage of correct answers.
+  annotation_process: 'The arena compares four configurations: GPT-4 and GPT-3.5, each with and without retrieval-augmented
+    generation. Each match randomly selects two responses to the same query.'
   results: GPT-4 (gpt-4o) with RAG led the five reported multiple-choice datasets with 85.2% average accuracy, compared
     with 80.2% without RAG. In long-form evaluation, it led usefulness at 1270.9 Elo and reasoning at 1259.4 Elo,
     while GPT-4 without RAG led readability and GPT-3.5 without RAG led knowledge.

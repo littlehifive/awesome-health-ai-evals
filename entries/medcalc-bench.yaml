@@ -43,6 +43,12 @@ card:
   scale: Correct or incorrect per item; overall accuracy as a percentage.
   validation: For the separate error analysis, GPT-4 classified error types with 89% accuracy against manual review
     of 200 randomly sampled explanation errors.
+  score_meaning: A high score does not establish that a model is safe for clinical calculations. The authors treat
+    passing the benchmark as necessary but insufficient for clinical use, without specifying a numerical pass mark.
+  annotation_process: Medical professionals verified and corrected the patient attributes extracted by GPT-4, and
+    calculator-specific templates generated the reference answers and step-by-step explanations. In the separate
+    error analysis, GPT-4 compared model outputs with the reference explanations and assigned an error type, counting
+    only the earliest error when several occurred.
   results: GPT-4 achieved the best original-release result, with 50.91% accuracy on 1,047 items using one-shot chain-of-thought
     prompting.
   limitations: The authors identify the small original dataset, ambiguity when patient attributes appear multiple

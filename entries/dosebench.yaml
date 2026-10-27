@@ -41,6 +41,12 @@ card:
   scale: 'Majority-vote correctness: 0 or 1, reported as percentage accuracy; consistency: proportion agreeing across
     five runs; verifiability: 0 to 2, reported as a mean.'
   validation: ''
+  score_meaning: A verifiability score of 2 means fully verifiable reasoning, 1 means partially verifiable reasoning,
+    and 0 means non-verifiable or incorrect reasoning, judged against the question context and OTC dosing guidance.
+    Higher consistency means more stable answers, not necessarily more correct answers.
+  annotation_process: Two annotators reviewed gold labels and reasoning annotations using a shared rubric covering
+    decision correctness, ambiguity handling, key dosing facts, and reasoning verifiability. They resolved disagreements
+    through discussion, with annotation decisions grounded in public Drug Facts labels and DailyMed dosage guidance.
   results: GPT-4o-mini achieved the strongest overall performance, with 55.6% majority-vote accuracy and 84.9% repeated-run
     consistency.
   limitations: The authors state that the benchmark is modest in size and limited to adult acetaminophen and ibuprofen

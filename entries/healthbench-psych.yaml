@@ -46,6 +46,12 @@ card:
   validation: The three judges' rankings of 20 models had Kendall correlations of 0.926 to 0.947. Replicating the
     published GPT-4.1 evaluation on all 1,000 HealthBench-Hard conversations produced 0.157 versus the published
     0.16, with no failed gradings.
+  score_meaning: Higher scores indicate greater adherence to the rubrics on the fixed conversations, not evidence
+    that a model is safe or effective for mental-health support, crisis response, or clinical use.
+  annotation_process: All judges graded the same stored response, using a separate call for each rubric criterion
+    and the unchanged HealthBench grading template, system message, and 2,048-token limit. Malformed JSON was handled
+    by extracting the boolean verdict already returned rather than sampling again; verdicts that remained unrecoverable
+    after bounded retries were excluded and logged.
   results: At initial release, kimi-k2.6 had the highest panel mean, 0.627 (95% CI 0.606 to 0.647), within a statistically
     tied group of five leading models. Claude-opus-5 had the highest Hard-subset mean, 0.415 (95% CI 0.366 to 0.463).
   limitations: The authors note residual missed conversations, reliance on machine translations for 123 non-English

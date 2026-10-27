@@ -41,6 +41,12 @@ card:
   scale: Correct or incorrect per question; percentage accuracy overall. Numeric tolerance is ±1 for integers ≤14,
     otherwise max(0.5% of the absolute ground-truth value, 0.01).
   validation: ''
+  score_meaning: The case study reports average 1-5 scores for faithfulness, aggregation correctness, coverage,
+    actionability, personalization, and conciseness on comprehensive assessments and lifestyle recommendations.
+    The text does not define the individual score levels.
+  annotation_process: For the case study's open-ended assessments and recommendations, GPT-4o grades each candidate
+    response using the user task and retrieved evidence, with that evidence treated as the source of truth. It assigns
+    scores on six dimensions, which are then averaged.
   results: GPT-4o led context prompting with 57.02% accuracy. Gemini 2.5 Lite led database-augmented prompting with
     39.04%.
   limitations: ''

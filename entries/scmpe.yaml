@@ -46,6 +46,14 @@ card:
   scale: 'Safety checkpoints: 0 or 1; effectiveness checkpoints: 0 to 1; final weighted mean, MCQ accuracy and Macro-F1.'
   validation: Automated scores were compared with human expert ratings, with Spearman correlations ranging from
     0.8286 to 0.9429 across experts.
+  score_meaning: A safety checkpoint receives 1 only when all pass criteria are met and no fail criteria are triggered;
+    otherwise, it receives 0. Severity weight 1 means context-dependent or limited risk, while weight 5 means life-threatening
+    or catastrophic failure.
+  annotation_process: Qwen (qwen3-max-preview) drafted guideline-based question-answer pairs, and clinicians reviewed
+    the reference answers for alignment with the 37 consensus metrics; clinicians also verified all case-to-checkpoint
+    mappings. For reliability testing, each target model independently answered 74 randomly selected cases, two
+    per assessment criterion, 10 times each; Worst@k was calculated by randomly sampling k of those outcomes and
+    taking the lowest score.
   results: MedGPT-251130 led all three tasks, with MCQ accuracy of 0.9436, an open-QA score of 0.7508, and a multi-turn
     dialogue score of 0.5030.
   limitations: The authors identify limited expert-panel generalizability, possible selection and Delphi conformity

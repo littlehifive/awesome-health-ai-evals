@@ -42,6 +42,13 @@ card:
   scale: Symptom score and diagnosis accuracy range from 0 to 1; reliability is binary per dialogue and reported
     as a fraction at each threshold.
   validation: ''
+  score_meaning: A higher symptom-score threshold makes the reliability requirement stricter. At a threshold of
+    0.5, reliability below 0.2 means that fewer than 20% of dialogues meet that symptom-score requirement while
+    also giving the correct diagnosis.
+  annotation_process: During automated testing, the model starts with the patient's opening utterance, and each
+    generated doctor question is checked against the reference symptoms to choose the next patient response. Questions
+    about unrelated symptoms receive a negative response rather than the next patient utterance from the reference
+    dialogue.
   results: DialoGPT achieved a disease-wise symptom score of 0.309 and diagnosis accuracy of 0.475, ahead of GPT-2
     on both measures. At a symptom-score threshold of 0.5, both models had reliability below 0.2.
   limitations: The authors state that template-generated language has limited diversity and complexity compared

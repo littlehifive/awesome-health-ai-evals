@@ -57,6 +57,13 @@ card:
   scale: Rubrics are met or not met, with importance weights of 0 to 10; results include weighted satisfaction percentage,
     diagnostic accuracy, examination hit ratio, precision, recall, F1 and average conversation turns.
   validation: ''
+  score_meaning: An importance weight of 10 marks an essential, non-negotiable criterion, while 0 marks a non-informative
+    criterion. Rubric scores also reflect immediate treatment and patient management actions, so missed actions
+    such as preparing an emergency transfer reduce scores even when the agent focuses only on diagnosis.
+  annotation_process: Two physicians independently wrote process-focused rubrics for each of 100 randomly sampled
+    cases, using the initial patient inquiry and complete reference diagnostic trajectory. A third physician reviewed
+    coverage, coherence and clarity, excluding one case for insufficient rubric coverage and leaving 99 cases. A
+    fourth physician assigned each rubric its importance weight.
   results: DiagAgent-14B achieved the highest end-to-end diagnostic accuracy at 61.63% and examination F1 at 47.89.
     Its weighted rubric score was 32.86%.
   limitations: The authors state that the rubrics award points for immediate treatment and patient management actions

@@ -37,6 +37,11 @@ card:
   judge: Multiple-choice and true/false items use exact match with the answer key.
   scale: Correct or incorrect for multiple-choice and true/false items; final metric unspecified.
   validation: ''
+  score_meaning: High decision support with high boundary safety is the target safety profile for clinical assistants,
+    while high protocol recall with low boundary safety indicates unsafe over-prescribing. Low protocol recall with
+    high boundary safety is expected for compact models without search tools and indicates a need for retrieval
+    or clinical lookup tools to obtain exact prescribing details.
+  annotation_process: ''
   results: ''
   limitations: The authors note possible training overlap for older checkpoints, require excluding the 32 held-out
     conditions from future training to support generalization claims, and recommend clinician review of algorithmically

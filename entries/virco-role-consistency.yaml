@@ -42,6 +42,12 @@ card:
   validation: For coherence label 0, human pairwise agreement exceeded 87%, while GPT-4's agreement with humans
     reached at most 69%. Persona-consistency ratings had Krippendorff's alpha of 0.28; a separate model-comparison
     exercise with three social-science raters reported an overall alpha of 60.298%.
+  score_meaning: For conversation coherence, label 0 means the response is contextually correct and flows naturally,
+    label 1 means basic coherence and content alignment with minor grammatical or spelling errors, and label 2 means
+    incoherence, confusion, or repetitive words or sentences. Lower labels indicate better performance.
+  annotation_process: Human evaluators received essentially the same instructions as GPT-4 and used a web application
+    showing the dialogue history, persona description, task instructions, and generated response. All raters received
+    the same conversations to ensure comparability.
   results: ''
   limitations: The authors found that GPT-4 often judged the counselor's inappropriate messages rather than the
     client's responses under prompt attacks, while human raters also disagreed over moderately fitting and poorly

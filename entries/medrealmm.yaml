@@ -42,6 +42,13 @@ card:
   validation: On 200 cases containing 1,797 criteria, Gemini-3-Pro-Preview, GPT-5, and Kimi-K2.5 had pairwise Gwet's
     AC1 agreement of 0.87 to 0.89 and agreement with a physician panel of 0.81 to 0.83. The physician panel scored
     responses about 7 points higher on average.
+  score_meaning: Higher scores indicate more clinically desirable behavior and fewer hallucinations, contradictions,
+    or unsafe recommendations. A harmful recommendation can outweigh several correct elements, so covering more
+    positive criteria does not necessarily produce a higher score.
+  annotation_process: Claude-Opus-4.7 generated and refined the rubrics over three iterations, using physician feedback
+    on missing criteria, incorrect weights, and overlooked clinical considerations until approval. For the judge-agreement
+    study, three independent LLM judges and a physician panel separately assessed the same Claude-Opus-4.7 responses
+    against identical rubrics.
   results: Across 19 models, the best model scored around 50%, below the original online physician responses. On
     a separate 200-case subset, Claude-Opus-4.7 scored 50.66%, compared with 50.33% for original online physician
     responses and 60.07% for physicians given ample time and reference materials.

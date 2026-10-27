@@ -45,6 +45,11 @@ card:
   validation: On 100 randomly sampled generated answers, decomposition had 18.1% symmetric mean absolute percentage
     error in statement counts and a 5.9% omission rate. Across 1,687 inference pairs, the evaluator achieved 83.6%
     F1 against gold labels determined by majority vote among three annotators.
+  score_meaning: Higher factual precision, recall and F1 indicate more correct and complete answers, while lower
+    false-claim, misrepresentation and hallucination F1 scores indicate fewer factual errors. Lower D_f and D_R
+    mean fewer tokens are needed to deliver correct information, while higher D_h means contradicted facts are more
+    sparsely distributed through the answer.
+  annotation_process: ''
   results: ''
   limitations: ''
   sources:

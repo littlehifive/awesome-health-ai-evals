@@ -41,6 +41,13 @@ card:
     text.
   scale: Correct or incorrect per item; percentage of correct answers overall and by category.
   validation: ''
+  score_meaning: The judge sets the threshold for correctness without awarding partial credit, even when an answer
+    is partly correct.
+  annotation_process: Two Gemini 2.5 Flash judges evaluated the original conversations to identify mistakes. During
+    scenario testing, Gemini 2.5 Flash checked responses from Gemini 2.5 Pro and GPT-5; if neither repeated the
+    mistake, a harder scenario was generated and retested on both models. Medical experts then reviewed each mistake
+    and scenario for clinical accuracy and realism, using the mistake category, risk level and original conversation
+    excerpt, and provided a justification when either was invalid.
   results: GPT-5.2 led the 12 models with 53% correct answers, reported as 114/215 in Table 2, although the benchmark
     is described as containing 211 unique items.
   limitations: The authors report redundant dimensions, selection bias toward failures by Gemini 2.5 Pro or GPT-5,

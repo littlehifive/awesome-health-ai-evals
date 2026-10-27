@@ -48,6 +48,16 @@ card:
   validation: Medical experts and the LLM evaluator rated 45 responses per language in Chinese, Japanese and Thai,
     drawn from 15 questions answered by three models. Scores were within one point of expert ratings for 88.9%,
     64.4% and 95.6% of responses, respectively, with concordance coefficients of 0.56, 0.11 and 0.77.
+  score_meaning: 'Translation-quality ratings range from 1, indicating severe deficiencies, to 5, indicating no
+    material deficiencies: accuracy covers meaning and medical terminology, fluency covers grammar and natural professional
+    usage, and completeness covers preservation of source information without omissions or unsupported additions.
+    For open-ended QA, the paper separately reports the proportions of responses with an overall score below 3 or
+    a safety score of 2 or lower.'
+  annotation_process: In the paper's translation review, Reviewer 1 scored the original machine translation, corrected
+    it where needed and documented problems; Reviewer 2 independently scored the same original translation, checked
+    the first revision and corrected remaining errors. The dataset card specifies that French had only one reviewer
+    and that 94 rating cells across 49 rows were filled with 5 because ratings were skipped or outside the permitted
+    range.
   results: GPT-5.4 led open-ended QA with an overall score of 4.33 out of 5, scoring 4.31 in higher-resource languages
     and 4.35 in lower-resource languages.
   limitations: The authors state that the small, single-turn benchmark omits dialogue-level capabilities, task-oriented

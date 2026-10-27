@@ -63,6 +63,13 @@ card:
     as win rates and win shares.
   validation: Pearson correlations over item-level mean scores were approximately 0.40 between GPT-4o and Sarvam-M
     and approximately 0.13 between each LLM judge and human annotators.
+  score_meaning: Accuracy reflects whether an answer seems trustworthy and factually correct based on general knowledge,
+    rather than a clinical expert assessment. Pairwise wins reflect annotators' personal preferences, with no prescribed
+    definition of a good or bad response.
+  annotation_process: Annotators received guidelines and examples explaining the three rating options for each dimension.
+    Human annotators recorded a voice note explaining each rating and a detailed spoken explanation for each pairwise
+    choice; LLM judges also had to provide rationales. For pairwise tasks, coordinators provided examples of informative
+    explanations, but no rules for choosing the better answer.
   results: Qwen3-235B-A22B generally had the highest standalone mean and was preferred overall by humans in pairwise
     comparisons, but numerical scores were not provided in the excerpts. GPT-4o preferred Sarvam-M in pairwise comparisons,
     while Sarvam-M as judge preferred Qwen3.

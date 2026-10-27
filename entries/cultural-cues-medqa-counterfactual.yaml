@@ -43,6 +43,11 @@ card:
     in percent, with accuracy differences in percentage points.
   validation: Two independent human annotators labeled 50 randomly selected explanations, achieving Cohen's kappa
     of 0.76 between annotators; no model-to-human agreement figure is reported.
+  score_meaning: A negative accuracy difference means that cultural edits reduced accuracy relative to the baseline.
+    Higher answer-change and correct-to-incorrect change rates under cultural edits than under neutral edits indicate
+    sensitivity to cultural text despite unchanged correct answers.
+  annotation_process: After human validation, GPT-5.2 applied the same rubric across models and settings. The researchers
+    then manually reviewed flagged cases to characterize how cultural cues shaped reasoning.
   results: GPT-5.2 and DeepSeek-R1 tied at 92.67% accuracy on original questions under option-only prompting. Combined
     identifier and context edits reduced their accuracy by an average of 6.23 and 5.78 percentage points, respectively,
     across the three cultural groups.

@@ -38,6 +38,11 @@ card:
   judge: Gemini 3.1 Pro Preview judged answers, including those from Claude Opus 5.
   scale: Per-question rubric score from 0 to 10; historical passing threshold of 7.
   validation: ''
+  score_meaning: The historical "wrong" labels mean that an answer fell below the rubric threshold, not that every
+    statement in it is false.
+  annotation_process: The stored scores were produced using the original v1.1.0 prompts and were not rerun after
+    the questions were revised for v1.2.x or v1.3.0. For the expert-corrected injury-depth question, the stored
+    scores still apply to the earlier two-target question rather than the current single-target rubric.
   results: ''
   limitations: The authors state that this deliberately difficult, model-selected case-report set is not representative
     of clinical questions, that using Gemini as both solver and judge introduces judge-specific selection bias,

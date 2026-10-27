@@ -48,6 +48,13 @@ card:
   validation: Across 200 pathway pairs, PCC agreed with aggregated preferences from two independent human annotators
     in 90.0% of comparisons, with group rates of 88.5% and 91.5%. Agreement between the two annotators was also
     90.0%.
+  score_meaning: For binary step matching, the thresholds are 0.7 for GPT-5.4 Mini, 0.9 for Qwen3-8B, and 0.2 for
+    BERTScore. PCC is the accumulated pathway alignment cost divided by the alignment path length, rather than the
+    percentage of incorrect final decisions.
+  annotation_process: Before formal evaluation, the scoring prompt was iteratively refined against human review.
+    Human annotators judged whether each reference step's best-matched predicted step was a correct match in outputs
+    sampled from seven models. Matching thresholds were selected using F1 scores against these judgments, considering
+    both the best threshold and a nearby stable range.
   results: Among 16 models, GPT-5.4 had the best single-turn pathway consistency, with PCC of 28.41%, while Qwen3-235B-A22B
     had the highest outcome accuracy at 75.81%. Claude-Sonnet-4.6 was the best-performing model in the multi-turn
     setting, but its score is not given in the supplied text.

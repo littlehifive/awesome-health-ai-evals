@@ -44,6 +44,13 @@ card:
   validation: Two senior clinicians independently scored 48 outputs per evaluated model under double-blind conditions.
     Agreement between Claude Opus 4.6 and clinician consensus had quadratic-weighted Cohen's kappa values of 0.78
     to 0.86 across models and sub-arms.
+  score_meaning: PFR of 0 means every correct baseline judgment remained correct under stress, while 1 means all
+    became incorrect; cases answered incorrectly at baseline are excluded. Low PFR can hide poor information extraction,
+    and the metric values have not been calibrated against established clinical safety thresholds.
+  annotation_process: Both clinicians who constructed the cases independently verified each answer key and resolved
+    disagreements by consensus. The automated judge was blinded to model identity and experimental condition and
+    used a fixed temperature of 0. The human validation sample was stratified to equally weight four MI bands and
+    four PFR bands, and clinician agreement was checked before comparison with the automated judge.
   results: Gemini 3 Pro achieved the highest KEM composite score, 0.831. DeepSeek and Gemini 3 Pro shared the highest
     CFI, 0.900.
   limitations: The authors identify the small, single-institution case set, limited stress probes, potential LLM-judge

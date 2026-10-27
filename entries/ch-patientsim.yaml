@@ -41,6 +41,12 @@ card:
   scale: Each judged dimension uses 1 to 5, from poor to excellent; BLEU, ROUGE, METEOR, and BERTScore are reported
     separately.
   validation: ''
+  score_meaning: Factual consistency measures medical correctness and the presence of hallucinations or contradictions.
+    Naturalness measures fluency, coherence, and how human-like the response sounds in clinical communication.
+  annotation_process: The LLM judge uses evaluation prompts and collected patient responses to assess generated
+    answers. For dataset annotation, all data undergo two rounds of manual verification for medical accuracy, naturalness,
+    and persona consistency. A third expert resolves disagreements between the two annotators; 43 of the 591 cases
+    required adjudication.
   results: ''
   limitations: ''
   sources:

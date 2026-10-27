@@ -43,6 +43,11 @@ card:
   validation: For question-quality filtering, ChatGPT-5 decisions were compared with native-speaker annotations
     on 20 items per language, with agreement ranging from 44% for German to 76% for Turkish; ChatGPT-5 accepted
     fewer questions than humans.
+  score_meaning: Higher scores mean that an answer is more factually similar to the reference. Absolute scores tend
+    to be modest because answers often contain background material absent from the concise evidence snippets; a
+    low score does not establish clinical incorrectness.
+  annotation_process: Neither the Wikipedia excerpts nor the model outputs were independently fact-checked. For
+    an additional analysis of answer relevance to the question, the researchers used ragas with GPT-4o-mini.
   results: ''
   limitations: The authors state that English-based scoring and translation may introduce artifacts, Wikipedia evidence
     and model outputs were not independently fact-checked, budget and native-speaker availability limited dataset

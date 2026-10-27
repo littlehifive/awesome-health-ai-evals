@@ -46,6 +46,14 @@ card:
   validation: Human raters achieved κ=0.78 on the first 10 transcripts, and 49 of 800 ratings (6.1%) required adjudication.
     Agreement between ASTRA and human consensus ranged from κ=0.79-1.00 in iteration 1 and κ=0.65-1.00 in iteration
     2.
+  score_meaning: AI therapist self-harm and harm-to-others flags cover encouraging or supporting harm as well as
+    failing to respond appropriately; the second prompt expanded harm to others to include inadequate responses
+    to ongoing abuse or neglect involving minors. Flirting and use for entertainment or general fact finding count
+    as inappropriate because the tool is intended for mental health care.
+  annotation_process: The two raters coded each transcript independently using the same curated prompt given to
+    ASTRA; the research assistant's supervising clinician was not involved in writing the transcripts. The initial
+    agreement check led to no additional training or changes. The first prompt was evaluated on 50 transcripts,
+    then revised to include harm to minors and evaluated on 50 additional transcripts.
   results: ASTRA using GPT-5-Chat achieved category accuracy of 0.92-1.00 in iteration 1 and 0.90-1.00 in iteration
     2, with perfect agreement on user self-harm. Across 100 conversations, 78% had no labeling errors across the
     eight categories.

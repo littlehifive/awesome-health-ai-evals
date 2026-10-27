@@ -45,6 +45,11 @@ card:
   scale: Three ordered triage classes; aggregate accuracy, sensitivity and specificity percentages, bias and error
     rates, severity-weighted accuracy, and scenario-specific error costs.
   validation: ''
+  score_meaning: A lenient emergency sensitivity of 100% means no emergency case was assigned TREAT_HERE, but cases
+    assigned REFER_TODAY still count as safe; strict sensitivity counts only REFER_NOW as correct for emergencies.
+    Higher Escalation Bias Index values indicate greater over-referral, with thresholds of 0.15 for mild bias, 0.30
+    for moderate bias, 0.50 for severe bias, and 0.65 for formal Conservative Escalation Bias.
+  annotation_process: ''
   results: Llama 3.3 70B ranked first on overall accuracy, while both it and Claude Sonnet 4.6 achieved 100% strict
     emergency sensitivity. Llama 3.1 8B achieved 100% lenient sensitivity but only 23% strict sensitivity, and the
     winning model varied across deployment-cost scenarios.

@@ -40,6 +40,10 @@ card:
   scale: Continuous weighted, length-normalized risk score, with higher values indicating more risk-bearing language;
     mean and upper-percentile RSHS across prompts.
   validation: ''
+  score_meaning: RSHS is a comparative signal, not a deployment threshold or a test of medical correctness, appropriateness,
+    or patient outcomes. Its weights represent relative severity rather than calibrated estimates of harm, so a
+    given score does not establish that advice is incorrect or harmful.
+  annotation_process: ''
   results: ''
   limitations: The framework does not assess clinical correctness, appropriateness, patient outcomes, or hallucinations
     directly; its pattern-based heuristics can miss unsafe guidance or flag benign language, its weights are not

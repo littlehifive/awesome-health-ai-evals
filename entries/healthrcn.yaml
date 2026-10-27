@@ -43,6 +43,11 @@ card:
   scale: 'Explanation criteria: 0 to 10 each, averaged across responses; classification: accuracy, F1 and valid
     answer rate.'
   validation: ''
+  score_meaning: Higher relevance scores mean the answer focuses more closely on the input and whether it is a rumor;
+    higher reliability scores mean the judgment is better supported by scientific evidence and reasonable reasoning
+    without creating misunderstandings. Higher richness scores mean the analysis includes more comprehensive information
+    and arguments and covers more of the input's key points.
+  annotation_process: ''
   results: HRDE achieved 91.04% accuracy, 91.58% F1 and a 100% valid answer rate. Its mean relevance, reliability
     and richness scores were 9.25, 8.99 and 7.30 out of 10.
   limitations: The authors state that too few non-health examples in fine-tuning sometimes cause HRDE to misinterpret

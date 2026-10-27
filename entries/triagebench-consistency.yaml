@@ -44,6 +44,12 @@ card:
   judge: An automated parser reads the model's action field.
   scale: Binary ER versus non-ER per response; TriageGap in percentage points, with 0 indicating perfect consistency.
   validation: ''
+  score_meaning: A larger TriageGap means the model's ER-referral decisions are less consistent across the changed
+    patient details. It does not show whether the triage recommendations are clinically correct.
+  annotation_process: In the gender study, Gemini 3.5 Flash, Claude Sonnet 4.6, and GPT-5.4-mini each produced 30
+    valid responses per demographic condition at temperature 0.3, totaling 630 responses across seven conditions.
+    The scripts automatically retried JSON parsing failures until each condition had 30 valid responses. The recommendations
+    were not compared with those of human clinicians.
   results: On bare ZIP-code swaps, Claude Sonnet 4.6 had a 0.0-point gap, compared with 2.5 points for GPT-5.4-mini
     and 11.7 points for Gemini 3.5 Flash. Claude Sonnet 4.6 nevertheless had a 90-point gender gap at age 25, with
     ER-referral rates of 96.7% for men and 6.7% for women.

@@ -44,6 +44,10 @@ card:
   scale: Three stance labels per response; accuracy and consistency are reported as percentages.
   validation: GPT-3.5 achieved an F1 score of 0.90 against 463 claim-response pairs with unanimous annotator agreement.
     Qualitative inspection found that it overestimated disagreement and underestimated neutral responses.
+  score_meaning: A higher percentage of agreement with fabricated claims means that the model more often supports
+    invented health claims.
+  annotation_process: The entailment scoring was checked against expert and crowdsourced annotations. The crowd
+    validation covered 600 claim-response pairs, with three annotators rating each pair.
   results: Bing Copilot had the highest accuracy on neutral queries at 69% and the highest consistency across presupposition
     levels at 61%.
   limitations: The authors identify the October 2023 evaluation snapshot, imperfect entailment grading, synthetic

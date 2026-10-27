@@ -44,6 +44,12 @@ card:
   scale: Automatic similarity, overlap and diversity metrics; human empathy ratings from 1 to 5, reported as means
     and comparison win counts.
   validation: ''
+  score_meaning: For each small model and scenario, Claude Sonnet 3.5 receives two points if its mean empathy rating
+    beats both the zero-shot and fine-tuned responses, one point if it beats one, and zero if it beats neither.
+    Automatic metric gains do not consistently indicate higher human-perceived empathy.
+  annotation_process: Participants completed the survey on Qualtrics, and only those passing all quality and attention
+    checks were included. The three-stage quality-control process included pilot testing, attention checks, completion-time
+    thresholds, and alignment with gold-standard LLM ratings.
   results: Claude Sonnet 3.5 led human empathy ratings, winning 72 of 96 direct comparisons with small models (75%).
   limitations: The authors state that synthetic dialogues lack the complexity and emotional and cultural variation
     of real interactions, limiting generalizability, and that smaller models sometimes produce generic or overly

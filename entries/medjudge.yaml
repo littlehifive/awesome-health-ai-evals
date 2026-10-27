@@ -41,6 +41,15 @@ card:
   scale: Separate check-specific metrics, including score variance, length-score correlation, expert agreement,
     and system error rate; no overall scoring scale.
   validation: ''
+  score_meaning: The proposed alignment pass criteria are less than 5% score variance after reordering, less than
+    5% normalized variance after changing scoring scales, and a length-score correlation below 0.2. Proposed system
+    error limits are below 30% for Tier A, 10% for Tier B, and 5% for Tier C; these and the alignment thresholds
+    are preliminary anchors requiring empirical calibration, not validated standards.
+  annotation_process: MedJUDGE recommends adding expert validators until agreement metrics change minimally with
+    each additional reviewer, for example by less than 0.05, rather than prescribing a fixed panel size. Panels
+    should establish expert-expert agreement before assessing judge-expert agreement and resolve disagreements through
+    structured deliberation rather than majority voting. Persistent disagreement should be represented through confidence
+    bounds rather than forced consensus.
   results: ''
   limitations: The authors state that MedJUDGE is an evidence-informed starting point rather than a finalized deployment
     standard, and that its proposed thresholds and error-propagation bounds require empirical calibration across

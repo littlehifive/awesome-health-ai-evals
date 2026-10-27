@@ -41,6 +41,11 @@ card:
   scale: Each dimension is rated from 1 (poor) to 5 (excellent); final scores are averages across questions and
     the three dimensions.
   validation: Expert and ChatGPT-4o scores had an average Spearman rank correlation of 0.94 across models.
+  score_meaning: Factuality measures accuracy and correctness, clinical relevance measures appropriateness in a
+    clinical context, and comprehensiveness measures completeness and informativeness for patients. BERTScore measures
+    semantic similarity between generated outputs and reference texts.
+  annotation_process: The surgeon's evaluation was blinded. Outputs were also compared automatically with reference
+    texts using BERTScore.
   results: bRAGgen with Llama3-8B scored highest, averaging 4.51/5 in surgeon review and 4.44/5 with ChatGPT-4o
     grading.
   limitations: ''

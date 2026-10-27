@@ -39,6 +39,9 @@ card:
   judge: An LLM-based Judge agent assigns correctness scores; its model name is not specified in the supplied text.
   scale: Correct or incorrect per case; percentage diagnostic accuracy averaged over three runs.
   validation: ''
+  score_meaning: ''
+  annotation_process: The Judge receives the ground-truth diagnosis at initialization and remains fixed across all
+    tested variants. All experiments use a temperature setting of 0.
   results: MeDxAgent using GPT-4o achieved 57.4% diagnostic accuracy, compared with 47.1% for the baseline and 66.8%
     for a full-information oracle.
   limitations: The authors note that evaluation is text-only, case-bound patient responses reduce realism and natural

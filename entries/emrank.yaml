@@ -43,6 +43,12 @@ card:
   validation: All three patients rated 70 questions, with Fleiss' kappa of -0.15. Pearson correlations with majority
     patient judgments were 0.23 for one-shot voting and 0.20 for few-shot voting; the ensemble had the closest alignment
     with patient judgments.
+  score_meaning: Lower perplexity (PPL) is treated as indicating greater empathy and is also used to measure response
+    fluency, although the study found that PPL was not a strong indicator of empathy.
+  annotation_process: Patients submitted judgments and justifications through Google Forms without knowing which
+    response came from ChatGPT or a physician; response order was randomized for each question. The ensemble combined
+    zero-shot, one-shot and few-shot assessments by majority vote. Researchers manually reviewed LLaMA outputs to
+    identify patterns, then used regular expressions to extract the judgments.
   results: ChatGPT won 91.85% of comparisons under the ensemble metric, versus 8.15% for physicians. Patients preferred
     ChatGPT in 72.85% of comparisons and physicians in 27.15%.
   limitations: The authors report that zero-shot grading sometimes fails to choose a response, one-shot results

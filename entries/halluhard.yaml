@@ -50,6 +50,12 @@ card:
   validation: Two postgraduate students independently annotated more than 120 claims from 10 research-domain responses.
     Their agreement was 93.5% for reference grounding and 92.5% for content grounding; the judge agreed with their
     consensus on 97.0% and 87.9%, respectively.
+  score_meaning: A reference-grounding failure means the cited source cannot be located; a content-grounding failure
+    means the cited source does not support the claimed content.
+  annotation_process: The judge decides whether the retrieved evidence is sufficient, refining queries and running
+    additional searches when it is not, rather than using a fixed number of searches. For the human validation,
+    annotators first read the academic papers to understand them before judging content grounding; the process took
+    around 10 hours for both annotators.
   results: Opus-4.5 with web search was the strongest configuration, with an approximately 30% hallucination rate.
   limitations: The authors warn that benchmark scores can be over-relied on or misinterpreted and recommend using
     HalluHard alongside broader evaluations.

@@ -47,6 +47,12 @@ card:
   validation: The paper reports 92.36% overall human-machine agreement on usability and separately reports 92.47%
     for the four categories scored automatically. Agreement was lower for medical text generation, so its reported
     results use human ratings; GPT-4o's variability over five repeated scorings of the same response was 0.99%.
+  score_meaning: An automated score of 4 means the response adequately addresses the user's primary inquiry. A higher
+    human-machine agreement rate means automated and human assessments more often give the same usable or unusable
+    judgment.
+  annotation_process: Human evaluation included two rounds of quality control and acceptance procedures to standardize
+    scoring criteria, and medical experts inspected random samples of automated results. Cases with low human-machine
+    agreement were used to revise or add checklist criteria and refine GPT-4o's scoring prompts.
   results: DeepSeek-R1 achieved the highest overall performance at 64.23%, followed by o1-preview at 61.23%, among
     13 models evaluated.
   limitations: The authors identify a focus on Chinese medical contexts, exclusion of images and audio, and the

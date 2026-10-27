@@ -45,6 +45,11 @@ card:
   scale: Multiple-choice answers are correct or incorrect, aggregated as percentage accuracy; open-ended metrics
     are ROUGE and optional BERTScore.
   validation: ''
+  score_meaning: Models are ranked by accuracy within each evaluation setting, and the mean and standard deviation
+    of these ranks summarize their placement across settings. A lower mean rank indicates better placement, while
+    a lower rank standard deviation indicates more consistent placement across tasks, data sources, and option counts.
+  annotation_process: The main experiment uses zero-shot multiple-choice questions from a fixed evaluation subset,
+    with one question version per item. Responses are scored automatically against the designated correct answers.
   results: Among 31 evaluated LLMs, gpt-5.2 achieved the highest overall accuracy of 70.91%, with a mean rank of
     1.69 across settings and a rank standard deviation of 1.10.
   limitations: ''

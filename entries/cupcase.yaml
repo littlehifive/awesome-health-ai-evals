@@ -43,6 +43,10 @@ card:
   scale: Multiple-choice answers are correct or incorrect, reported as mean accuracy; free-text similarity is scored
     from 0 to 1, reported as mean BERTScore F1.
   validation: ''
+  score_meaning: A BERTScore F1 of 1 indicates the greatest semantic similarity to the reference diagnosis, while
+    0 indicates the least similarity. For multiple-choice accuracy, random guessing among the four options gives
+    25%.
+  annotation_process: ''
   results: GPT-4o performed best on both tasks, with 87.9% multiple-choice accuracy and a free-text BERTScore F1
     of 0.7642.
   limitations: The authors note that cases come from one journal, only samples received manual validation, evaluation

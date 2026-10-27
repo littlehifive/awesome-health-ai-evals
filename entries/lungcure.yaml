@@ -43,6 +43,10 @@ card:
   judge: An unnamed LLM grades reasoning quality; TNM correctness uses exact match with clinician labels.
   scale: TNM is correct or incorrect per case, reported as percentage accuracy; treatment uses precision and BERT-F1.
   validation: ''
+  score_meaning: ''
+  annotation_process: 'Senior clinicians created reference answers in two stages: evidence-based TNM staging with
+    explicit reasoning, followed by treatment plan generation from structured clinical information. For subjective
+    scoring, a language model evaluator used predefined rubrics.'
   results: On LungCURE-Core under Chinese-language conditions, Qwen3.5 had the highest TNM staging accuracy at 61.46%.
     GLM-4.6V had the highest end-to-end F1 at 51.88.
   limitations: ''

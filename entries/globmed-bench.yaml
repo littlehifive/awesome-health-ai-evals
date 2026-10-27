@@ -40,6 +40,14 @@ card:
   judge: The dataset answer key determines correctness.
   scale: Correct or incorrect per item; percentage accuracy.
   validation: ''
+  score_meaning: For translation accuracy, 1 means medical terms and concepts are riddled with errors, 2 means incorrect
+    or inappropriate medical terms are used, and 3 means major terms are generally correct but some errors may cause
+    partial misunderstanding. A score of 4 allows some imprecise terms while maintaining overall accuracy, and 5
+    means all medical terms and concepts are translated correctly with no errors.
+  annotation_process: For translation quality evaluation, topic modeling selected representative samples from multiple
+    thematic clusters for each task. At least two bilingual medical experts proficient in the relevant language
+    independently scored each sampled entry's original translation for accuracy, fluency, and completeness on separate
+    1-5 scales.
   results: Among open-weight models, gpt-oss-120B ranked highest with 74.74% accuracy, followed by DeepSeek-R1 at
     74.56% and LLaMA-4-Maverick at 71.94%.
   limitations: ''

@@ -47,6 +47,12 @@ card:
   validation: Human reviewers classified 77 GPT-4o short answers by whether they matched the reference or a discordant
     recommendation more closely. BERTScore Precision had the highest agreement under an F1 comparison, but the excerpt
     gives no numerical F1 score.
+  score_meaning: Expert accuracy ratings assess clinical or scientific correctness, completeness ratings assess
+    whether all information needed to answer the question is present, and safety ratings assess whether the answer
+    poses any danger to human health or safety.
+  annotation_process: The same four pharmacogenomics experts each scored GPT-4o responses and human-written reference
+    answers for 15 short-answer questions. Answers were presented in randomized, blinded order alongside the relevant
+    CPIC guideline document, and ratings were collected using the Data Annotator for Machine Learning tool.
   results: GPT-4o placed first or second on nearly every numeric, retrieval and multiple-choice metric, while GPT-4-turbo
     had the highest average short-answer win rate. On 15 expert-reviewed questions, GPT-4o averaged 3.917 for accuracy,
     4.167 for completeness and 4.083 for safety, compared with human-written reference scores of 4.917, 4.533 and

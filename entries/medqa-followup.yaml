@@ -45,6 +45,13 @@ card:
   scale: Correct or incorrect per answer; percentage accuracy, relative percentage change from baseline, and answer
     flip rates.
   validation: ''
+  score_meaning: Shallow robustness means resisting misleading information in the initial question, while deep robustness
+    means maintaining accuracy when an answer is challenged in later turns. A negative relative accuracy change
+    indicates deterioration from baseline; for example, Claude Sonnet 4's 85.2% relative reduction means its accuracy
+    fell from 91.2% to 13.5%.
+  annotation_process: The standard protocol first obtains the model's answer to the base question, then appends
+    an adversarial context and asks whether the model changes its answer. The paper uses deterministic decoding
+    with temperature set to 0 and a fixed random seed of 42.
   results: GPT-4.1 had the highest baseline accuracy at 92.5% and the highest average accuracy under context interventions
     at 61.7%. Claude Sonnet 4 fell from 91.2% baseline accuracy to 13.5% under RAG-style context.
   limitations: ''

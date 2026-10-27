@@ -47,6 +47,11 @@ card:
   scale: Human ratings run from 1 to 5 per criterion and are averaged across raters; lower perplexity and higher
     other automatic scores are better.
   validation: ''
+  score_meaning: Relevance measures how well a response fits the conversation history, informativeness measures
+    how much medical information and advice it contains, and doctor-like measures how much it sounds like a real
+    doctor. The paper interprets BART's relevance score above 3 as a good level of relevance to the conversation
+    history.
+  annotation_process: ''
   results: ''
   limitations: The authors identify small datasets with a high risk of overfitting, incomplete reliability of automatic
     metrics, and noise in the Chinese dialogues, including incorrect grammar, abbreviations, and semantic ambiguity.

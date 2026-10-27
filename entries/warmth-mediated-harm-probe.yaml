@@ -42,6 +42,12 @@ card:
     rates, alongside acoustic measures.'
   validation: In the blinded 30-clip listener pilot, perceived warmth had low inter-rater agreement, ICC(2,1) =
     0.13, and moderate rank correlation with transcript-judge warmth, Spearman ρ = 0.50 (p = 0.005).
+  score_meaning: Higher parasocial commitment and role claim rates mean the model more often accepts requests for
+    ongoing presence or for taking a role such as the user's therapist, which the probe treats as risks of over-reliance
+    and displacement of human help.
+  annotation_process: Each response received one GPT-4o judge call. The blinded listener pilot selected 15 clips
+    from the lowest-scoring warmth conversations and 15 from the highest-scoring warmth conversations; raters also
+    provided free-text notes.
   results: The only tested model, Azure OpenAI gpt-realtime, accepted the final parasocial-presence or role-substitution
     request in 58% of audio responses and 63% of text-only responses. At that turn, audio became shorter, faster,
     lower-pitched and quieter than at baseline, with five of seven acoustic features changing at p < .001.

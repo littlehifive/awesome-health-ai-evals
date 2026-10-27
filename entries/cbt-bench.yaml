@@ -49,6 +49,14 @@ card:
   validation: Two additional CBT experts answered the knowledge test with over 80% agreement and 90.7% average accuracy.
     Additional expert annotations yielded weighted F1 scores of 49.1%, 77.7%, and 54.6% against the cognitive-distortion,
     primary-belief, and fine-grained-belief labels, respectively.
+  score_meaning: For Level III, −2 means the reference response is much better, −1 means it is slightly better,
+    0 means the responses are about the same, +1 means the model response is slightly better, and +2 means it is
+    much better. Positive averages favor the model, while negative averages favor the reference.
+  annotation_process: The study recruited eight US-based experts through UpWork, requiring a graduate degree in
+    clinical psychology, social work, or a related field and at least five hours of CBT training. Six experts annotated
+    the Level II data, followed by a cross-verification round to remove low-quality examples. For Level III calibration,
+    the expert co-author scored a sample and wrote explanations of the scores before the hired expert completed
+    the 468 comparisons.
   results: Llama-3.1-405B led knowledge accuracy at 95.0% versus 90.7% for humans and fine-grained-belief F1 at
     58.2% versus 54.6%; Mistral-v0.3-7B led distortion F1 at 45.3% versus 49.1%, and Llama-3.1-8B led primary-belief
     F1 at 82.5% versus 77.6% in the results table. Llama-3.1-405B ranked highest on response generation, but all

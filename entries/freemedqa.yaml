@@ -38,6 +38,11 @@ card:
   judge: String matching grades multiple-choice answers, and GPT-4o grades free-response answers.
   scale: Correct or incorrect per answer; percentage accuracy for each format.
   validation: ''
+  score_meaning: Random guessing corresponds to 25% accuracy on the multiple-choice questions. The authors attribute
+    the 0.15% free-response accuracy under complete question masking to evaluation noise rather than genuinely correct
+    answers.
+  annotation_process: For the medical-student evaluation, GPT-4o automatically compared multiple-choice responses
+    with the stored correct answers and assessed free-response answers for equivalent meaning.
   results: Across GPT-4o, GPT-3.5, and Llama-3-70B-Chat, accuracy fell by an average of 39.43 percentage points
     from multiple-choice to free-response questions. Senior medical students scored 39.43% on multiple-choice questions
     and 17.79% on free-response questions in a 350-question subset.

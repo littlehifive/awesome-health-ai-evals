@@ -39,6 +39,12 @@ card:
   judge: Scoring compares predictions with the answer key finalized by a meta-reviewer.
   scale: True, false, or disputed per claim; aggregate accuracy and macro-F1.
   validation: ''
+  score_meaning: The disputed label covers partial truths, exaggerations, insufficient or contradictory evidence,
+    and irreducible ambiguity. Human-rating codes are 0 for "don't know," 1 for false, 2 for disputed, 3 for true,
+    and 99 for proposed removal.
+  annotation_process: Six physicians independently assessed claim veracity, and three medical experts supplied source-backed
+    annotations with screen-recorded searches. The construction pipeline also included linguistic screening for
+    clarity and single-proposition phrasing, followed by editorial refinement by a medical journalist.
   results: ''
   limitations: ''
   sources:

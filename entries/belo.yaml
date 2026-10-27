@@ -46,6 +46,12 @@ card:
   scale: 'Answer correctness: correct or incorrect; final accuracy and macro-F1: 0 to 1; aggregate reasoning score:
     0 to 1; expert criteria: 5-point Likert scales.'
   validation: ''
+  score_meaning: Higher scores indicate better performance on all metrics; for BARTScore, which has negative values,
+    scores closer to zero indicate better performance.
+  annotation_process: Each reference explanation needing improvement was revised by one board-certified ophthalmologist,
+    and corrected or replacement questions were rechecked by the ophthalmologist who flagged them. Three senior
+    ophthalmologists then proofread, further amended and adjudicated the items. For the qualitative evaluation,
+    FA and KL rated each response from GPT-4o, Llama-3-8B and Gemini 1.5 Pro on randomly selected questions.
   results: 'OpenAI o1 led with accuracy of 0.882 (95% CI: 0.861-0.903), macro-F1 of 0.890 (95% CI: 0.869-0.910),
     and the highest aggregate reasoning performance. Among the three models rated by experts, GPT-4o led in reasoning
     accuracy (4.91) and readability (4.92), while Gemini 1.5 Pro led in completeness (4.79).'

@@ -40,6 +40,11 @@ card:
   judge: ''
   scale: Percentage accuracy per task, with dimension averages.
   validation: ''
+  score_meaning: For the additional tool-selection error measures, step-level error is the proportion of steps with
+    an incorrect tool selection, while task-level error is the proportion of tasks with at least one such error;
+    lower values are better. Errors include invoking an image model without a medical image, SQLCoder or DBManual
+    without a database, or LongDocRAG without a document file.
+  annotation_process: ''
   results: ''
   limitations: The authors state that CAB does not fully capture the complexity of evolving clinical scenarios and
     needs ongoing updates, and that its collected medical tools do not perfectly match the evaluation tasks.

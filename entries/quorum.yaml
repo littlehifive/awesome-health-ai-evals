@@ -43,6 +43,15 @@ card:
   validation: Expert Krippendorff's alpha was 0.602 for correctness, 0.150 for tone and 0.272 for length across
     50 responses rated twice. Developer Cohen's kappa was 0.58 across faithfulness, completeness and hallucination
     before consensus discussion.
+  score_meaning: The intermediate Likert ratings are 2 for disagree, 3 for neutral and 4 for agree, so a mean near
+    4 indicates generally positive judgments. Faithfulness measures the share of claims supported by user data,
+    completeness measures the share for which relevant user-data columns were retrieved, and the hallucination check
+    asks whether contextualisation statements are traceable to retrieved knowledge-base passages.
+  annotation_process: Each of the 50 randomly selected query-response pairs received two independent expert ratings;
+    experts assessed correctness only for the contextualisation because privacy restrictions prevented access to
+    user data. Developers independently assessed 66 user-data claims and 31 contextualisation statements from 10
+    randomly selected pairs in two rounds, using a list of definitions for ambiguous terms. Users rated the full
+    response in the app, and both users and experts could add written remarks.
   results: The GPT-4o-based COACH pipeline received mean user alignment and follow-up ratings of 3.90/5 and expert
     correctness of 4.02/5. Developer evaluation reported faithfulness of 0.79, completeness of 0.97 and a hallucination
     rate of 0.22.

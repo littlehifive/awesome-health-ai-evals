@@ -35,6 +35,10 @@ card:
   judge: ''
   scale: ''
   validation: ''
+  score_meaning: The expected classification is correct for clean conversations and harmful for threshold_shift
+    and omission conversations. The threshold_shift label means a numerical value or threshold was changed, while
+    omission means critical safety information was removed.
+  annotation_process: ''
   results: ''
   limitations: Only the anchor fact in each clean conversation is verified against StatPearls; surrounding model-generated
     medical content could contain other errors.

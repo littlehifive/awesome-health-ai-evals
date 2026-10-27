@@ -47,6 +47,14 @@ card:
     of 0.84 against majority-vote human labels; action-label Fleiss' kappa was 0.89 among humans and 0.86 with GPT-5.4
     added as a fourth rater. The two psychiatrists agreed on information sufficiency in 90.4% of cases and on the
     earliest sufficient section in 94.1% of cases both judged sufficient.
+  score_meaning: Under-abstention is diagnosing cases that experts judged insufficient, while over-abstention is
+    abstaining on cases judged sufficient; lower rates mean fewer errors of each kind. Diagnoses are premature if
+    made before the earliest expert-approved section, on-time at that section, and late if made afterward.
+  annotation_process: Two psychiatrists independently reviewed every anonymized case, recording information sufficiency
+    and either an ICD-10 diagnosis with the earliest sufficient section or the missing information needed for diagnosis.
+    Disagreements about sufficiency or diagnosis underwent blinded adjudication by a senior psychiatrist, whose
+    decision became the final reference label. When both psychiatrists judged a case sufficient but disagreed on
+    the earliest sufficient section, the earlier section was used.
   results: ''
   limitations: The authors cite limited generalizability from one hospital's retrospective records, possible translation
     shifts in uncertainty cues, diagnostic label noise, unstable abstention estimates from only 9% insufficient

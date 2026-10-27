@@ -46,6 +46,13 @@ card:
   validation: Three physicians labeled 402 statements from 50 randomly selected question-answer pairs. Human pairwise
     agreement was 83.2%, Fleiss' kappa was 0.70, and GPT-4 agreed with the physicians' majority vote on 83.0% of
     labels.
+  score_meaning: Must Have statements are clinically crucial, while Nice to Have statements provide supplemental
+    information. Higher comprehensiveness and lower hallucination scores indicate better performance; in the paper's
+    example, comprehensiveness of 0 means no Must Have statements were conveyed, and a hallucination score of 1
+    means one reference statement was contradicted.
+  annotation_process: Six doctors distinct from the answer writers edited GPT-4-suggested statement decompositions,
+    amending, removing or adding statements in 6.86% of cases. The same six doctors then discussed the importance
+    of the statements and reached consensus on their Must Have or Nice to Have categories.
   results: ''
   limitations: The authors state that relying on LLMs to judge entailment introduces evaluation noise and makes
     evaluation costly.

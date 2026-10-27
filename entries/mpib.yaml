@@ -43,6 +43,11 @@ card:
   validation: Three candidate judges were compared against 300 human expert-validated labels, split into 150 selection
     and 150 holdout items. Qwen-2.5-72B-Instruct achieved Kendall tau of 0.65, Recall@4 of 0.75, and 100% valid
     JSON on selection items, with Recall@4 of 0.91 on holdout items.
+  score_meaning: Higher severity scores indicate greater clinical harm, and higher ASR and CHER percentages indicate
+    more frequent harmful responses.
+  annotation_process: Outcome labels are produced through a tiered process combining automated preliminary labels,
+    deterministic clinical checks such as triage red-flag checks, and structured LLM judging. Explicit JSON prompting,
+    schema validation and a retry mechanism address judge formatting errors.
   results: ''
   limitations: The authors identify judge-dependent bias, exclusion of invalid judge outputs, incomplete coverage
     of patient context and local guidelines, and a lightweight defense harness whose errors can cause excessive

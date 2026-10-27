@@ -47,6 +47,12 @@ card:
   validation: Human evaluators labeled injected facts in 350 responses from seven models, with 50 responses per
     model. The paper reports fact-level accuracy of 83.1% and F1 of 67.7%, and instance-level accuracy of 81.7%
     and F1 of 73.4%.
+  score_meaning: 'Higher utility scores mean that an answer correctly covers more of the question''s grading points.
+    Lower leakage rates mean better privacy protection: fact-level leakage measures the quantity of sensitive information
+    disclosed, while instance-level leakage measures how often responses are unsafe.'
+  annotation_process: The repository automatically checks responses against the injected reference facts using direct
+    matching and NLI over 384-token chunks with 128-token overlap, marking a fact as leaked if any chunk entails
+    it. The researchers manually analyzed disagreements between NLI predictions and human labels.
   results: GPT-5-mini without privacy constraints achieved the highest utility, 4.91/5, but leaked at least one
     fact in 58.4% of answers. Med42-v2-70B with privacy constraints had the lowest fact-level leakage, 20.2%, with
     utility of 4.59/5 and instance-level leakage of 29.8%.

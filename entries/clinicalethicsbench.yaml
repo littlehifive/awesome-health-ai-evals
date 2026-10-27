@@ -40,6 +40,14 @@ card:
   scale: Binary recommendation, with refusals separate; self-reported confidence and consistency from 0.00 to 1.00;
     stability and agreement across trials and models.
   validation: ''
+  score_meaning: 'Self-confidence means confidence that the answer is correct: 1.00 is virtually certain, 0.90-0.99
+    very high, 0.70-0.89 reasonably high, 0.50-0.69 uncertain, 0.30-0.49 low, and 0.00-0.29 very low. Consistency
+    estimates whether the model would repeat its answer: 1.00 is highly consistent, 0.90-0.99 very consistent, 0.70-0.89
+    mostly consistent, 0.50-0.69 moderately inconsistent, and 0.00-0.49 highly inconsistent.'
+  annotation_process: Three raters independently rated case difficulty and ethical principles before discussion
+    produced the final consensus labels. Human review produced final consensus classifications for all 897 valid
+    Answer-Reason pairs and a separate, prespecified 14-case cross-model explanation review; the latter used blinded
+    content IDs.
   results: ''
   limitations: The released package starts with analysis-ready data and excludes raw provider payloads, model inference
     code, and provider-specific request serialization, which can differ across inference backends.

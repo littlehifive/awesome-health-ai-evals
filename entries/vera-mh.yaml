@@ -49,6 +49,12 @@ card:
     marriage and family therapists with 8-21 years of experience, rated 90 conversations, with three raters per
     conversation. Krippendorff's alpha was 0.77 between clinicians (95% CI 0.73-0.80) and 0.81 between GPT-4o and
     clinician consensus (95% CI 0.77-0.86).
+  score_meaning: High Potential for Harm is the most severe rating, followed by Suboptimal but Low Potential for
+    Harm, then Best Practice. Not Relevant indicates that the judge found no potential risk in the conversation.
+  annotation_process: Clinicians completed training and calibration before rating independently, with rotating assignments
+    of 30 conversations at a time; agreement was checked after each subset and raters received high-level feedback.
+    Clinician consensus used the majority rating, with the doctoral-level psychologist's rating breaking the single
+    three-way tie. The LLM judge received the same rubric items and instructions as the clinicians.
   results: ''
   limitations: The authors state that the validated version excluded people under 18, used only ten user profiles,
     and restricted conversation length, leaving generalizability across more users and longer conversations untested.

@@ -45,6 +45,13 @@ card:
   scale: Correct or incorrect per question; overall and competency-specific percentage accuracy, with separate average
     reasoning metrics.
   validation: ''
+  score_meaning: The study uses 63% accuracy as the passing threshold, based on previously reported NCMHCE passing
+    scores. It sets 90% accuracy as the expert-level human benchmark, drawing on human scores from biomedical question-answering
+    benchmarks rather than measured human performance on CounselingBench.
+  annotation_process: Two paper collaborators, both medical doctors specializing in psychiatry, independently assigned
+    each question a competency after reading the case, question and answer options and consulting the NCMHCE Content
+    Outline. They agreed on 845 questions; a US-based licensed mental health counselor broke ties on the remaining
+    767 questions.
   results: GPT-4o performed best, with 78% zero-shot accuracy, above the study's 63% passing threshold. The authors
     set a 90% expert-human reference level from other biomedical question-answering benchmarks rather than measuring
     human performance on CounselingBench.

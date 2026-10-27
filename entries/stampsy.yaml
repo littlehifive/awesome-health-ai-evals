@@ -44,6 +44,10 @@ card:
     the human rating scale is not specified in the excerpts.
   validation: For a dataset quality audit, two senior psychologists rated 1,000 randomly sampled dialogues as following
     annotation guidance (1) or not (0); the mean score was 0.91 and kappa was 0.84.
+  score_meaning: ''
+  annotation_process: Eight psychology experts annotated dialogue goals and knowledge graphs using detailed guidance
+    and knowledge triples, with a trial annotation before formal annotation. All annotated samples were reviewed
+    for quality, contentious claims and hazardous information, and substandard samples were re-annotated.
   results: The authors report that Self-STAMPsy outperformed all baselines across all tasks and metrics; its reported
     empathy score was 1.82, compared with 1.31 without spatiotemporal information.
   limitations: The authors report that their model often asks multiple questions in the first turn when using the

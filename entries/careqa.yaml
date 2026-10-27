@@ -48,6 +48,12 @@ card:
   scale: Closed-ended items are correct or incorrect, reported as accuracy; open-ended results use metric-specific
     scales.
   validation: ''
+  score_meaning: ''
+  annotation_process: For dataset validation, 10 annotators reviewed 360 randomly selected samples, with at least
+    three annotators reviewing each sample; the same protocol was used for translations and open-ended rephrasings.
+    Reviewer feedback led to a second rephrasing round and the removal of 961 questions with multiple valid answers.
+    In a separate scoring-consistency experiment, the researchers generated and evaluated 11 responses per CareQA-Open
+    prompt using top_p sampling with p = 0.9.
   results: ''
   limitations: CareQA has no formal bias assessment, may not represent all medical knowledge or patient demographics,
     and can contain parsing, translation or rephrasing errors, while its open-ended version lacks thorough healthcare-expert

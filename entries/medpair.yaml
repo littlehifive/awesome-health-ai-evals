@@ -48,6 +48,13 @@ card:
   validation: A board-certified physician, HJ, reviewed 30 randomly selected QA pairs, checking whether retained
     sentences supported the correct answer and whether removing other sentences affected correctness; no numerical
     agreement result is given.
+  score_meaning: High relevance means information is critical to answering correctly; low relevance means it provides
+    context or minor clues but is not essential; irrelevant means it does not affect the correct answer in that
+    context.
+  annotation_process: Physician trainees were recruited through Centaur Labs, and at least three independently annotated
+    each question, first selecting an answer and then labeling every sentence in the patient profile. Sentence labels
+    from trainees who answered incorrectly were excluded. GPT-4o received the same annotation instructions three
+    times, and its sentence labels were determined by majority vote.
   results: Llama-70B achieved the highest relevance agreement with physician trainees at 65.9%. GPT-4o performed
     best on the original QA data and had the lowest Spurious Rate, 1.6%; unfiltered physician-trainee accuracy was
     48.3%.

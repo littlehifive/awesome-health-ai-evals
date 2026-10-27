@@ -44,6 +44,13 @@ card:
     full compliance; BLEU, ROUGE-L, and BERTScore reported separately.
   validation: Two physicians, blinded to model conditions, and GPT-4o-mini independently evaluated 700 randomly
     selected cases, 100 per model, with Cohen's kappa of 0.70-0.92.
+  score_meaning: Bond's diagnostic scoring gives 5 points for the exact diagnosis, 4 for a very close suggestion,
+    3 for a closely related and potentially helpful suggestion, 2 for a related but unlikely helpful suggestion,
+    and 0 for no relevant suggestions. Only diagnoses receiving 5 points count as accurate.
+  annotation_process: The evaluator temperature was set to 0, and model responses were standardized into a consistent
+    JSON structure to reduce bias from differences in output style. Physicians reviewed content in randomized order
+    during validation. Each model was tested in three independent runs, with diagnostic accuracy recorded for each
+    run and agreement across runs measured using Fleiss' kappa.
   results: ClinDiag-GPT led the Challenging Case and Emergency Case subsets with diagnostic accuracies of 29.55%
     and 48.67%, respectively. GPT-4o led the Rare Disease subset with 35.10% accuracy.
   limitations: The authors note that LLM evaluators can favor particular output styles or their own model's responses,

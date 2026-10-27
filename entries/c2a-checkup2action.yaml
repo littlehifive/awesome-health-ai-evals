@@ -45,6 +45,13 @@ card:
   validation: 'Three physicians assessed outputs on 500 reports: 84% were fully reasonable and effective, 13% were
     generally reasonable with minor timing differences, and 3% were less appropriate. Numerical agreement between
     physicians and automatic judges was not reported.'
+  score_meaning: Priority scores give 1 for an exact match, 0.5 for a predefined near match and 0 otherwise. Positive
+    action complexity bias means too many cards and negative bias means too few, with values closer to zero preferred;
+    higher patient-facing quality ratings mean better quality.
+  annotation_process: Each LLM judge receives the same Action Card JSON and evaluation instructions without knowing
+    which model or workflow produced it. For reference preparation, one physician writes the report summary, a second
+    checks it, and a third physician with clinical check-up experience reviews and refines the candidate Action
+    Cards derived from that summary.
   results: 'No model led every dimension: Gemini-3-pro-preview had the highest problem recall at 0.602. GPT-5.1
     achieved problem F1 of 0.614 and led the subjective ratings for problem relevance, safety, usefulness and tone.'
   limitations: Physician-written references can use diagnostic labels that generated cards are instructed to avoid,

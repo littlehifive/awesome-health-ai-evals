@@ -46,6 +46,12 @@ card:
   validation: Evaluators independently scored responses, then discussed differences greater than one Likert point
     until paired scores were within one point. They could not resolve disagreements for 15 English and 3 Kinyarwanda
     cases, which were excluded from subsequent analyses.
+  score_meaning: The scale labels are 1 (Poor), 2 (Fair), 3 (Average), 4 (Good), and 5 (Excellent). For alignment
+    with medical consensus, 1 means the response contradicts or significantly deviates from medical guidance, 3
+    means partial alignment without sufficient evidence or depth, and 5 means full consistency with current guidance
+    and expert-level understanding.
+  annotation_process: The Director of Clinical Services at Butaro District Hospital recruited the evaluators. Each
+    group assessed 262 questions, scoring five model responses and one human response for each question.
   results: Gemini-2-Flash scored highest at 4.49 out of 5 across all 11 metrics, followed by GPT-4o at 4.48. All
     five models outperformed local clinicians across all metrics (p < 0.001), with Gemini-2 exceeding local GPs
     by an average of 0.83 points per metric.

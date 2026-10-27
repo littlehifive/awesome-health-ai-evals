@@ -41,6 +41,12 @@ card:
   scale: Retrieval hit or miss per item, aggregated as HR@num; pairwise answer outcomes combined into model Elo
     ratings.
   validation: ''
+  score_meaning: In HR@num, "num" is the number of retrieved candidates considered, so HR@1 measures retrieval success
+    using only the first candidate. Higher Elo ratings indicate better relative performance in medication-consultation
+    answers against the competing models.
+  annotation_process: Baseline models were prompted to summarize the preceding dialogue into search queries before
+    retrieval was evaluated. For final-answer evaluation, baseline models were given the corresponding medicine
+    information supplied with the benchmark as context, while RagPULSE generated answers using its retrieved evidence.
   results: RagPULSE (20B) achieved a document retrieval HR@1 of 65.67%, compared with ChatGPT's 63.67%.
   limitations: ''
   sources:

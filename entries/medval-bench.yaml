@@ -45,6 +45,13 @@ card:
   validation: On 90 multiply rated cases, overall inter-physician Krippendorff's alpha was 0.848 for four-level
     grading and 0.754 for binary safety classification. Task-level alpha ranged from 0.560 for patient-query summarization
     to 0.943 for bhc2spanish.
+  score_meaning: 'An F1 score of 1 means perfect precision and recall, while 0 means no correct positive predictions.
+    Cohen''s kappa measures agreement with physicians after accounting for chance: 1 means perfect agreement, 0
+    means agreement no better than chance, and -1 means complete disagreement.'
+  annotation_process: Physicians reviewed the input and generated output without being told about injected errors,
+    then assigned a risk grade and identified factual consistency errors based on the observed text. Fifteen randomly
+    selected examples from each of the six tasks were rated by multiple physicians. For the comparison with a single
+    human expert, majority consensus supplied the reference label on these 90 cases.
   results: MedVAL-distilled GPT-4o achieved the best four-level macro-F1 of 58.7%, compared with 54.5% before distillation.
     On 90 multiply rated cases, its performance was statistically non-inferior to a single physician against majority-consensus
     labels, using a five-percentage-point margin (p < 0.001).

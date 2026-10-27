@@ -48,6 +48,14 @@ card:
   validation: The questionnaire was refined through three pilot rounds with eight participants. Expert ratings had
     Krippendorff's alpha values above 0.7 across measured metrics; GPT-4.1 agreed with one professional on 72.9%
     of 96 adversarial question-response pairs.
+  score_meaning: Higher scores indicate better performance except for Toxicity and Medical Advice, where higher
+    values indicate more problems. Overall Quality scores of 2 or below were treated as low quality for the analysis
+    of response problems.
+  annotation_process: Practitioners were recruited across the United States through Upwork and had to have formal
+    clinical counseling training or certification. Each annotator independently assessed 20 question-response pairs,
+    with the same group assessing all four responses to each question, and provided written rationales and text-span
+    annotations. For adversarial scoring, GPT-4.1 received detailed definitions of the failure types and an example
+    from CounselBench-Eval.
   results: ''
   limitations: The authors note that online therapist responses were written with limited patient information and
     no in-person contact and may not represent the best clinician counseling, while annotator demographics reflect

@@ -42,6 +42,12 @@ card:
   judge: A deterministic Evidence Gate checks required identifiers against each vignette's gold specification.
   scale: Pass or fail per case; fraction passing and fraction requiring revision across 100 cases.
   validation: ''
+  score_meaning: A compliance score of 100/100 means every final answer met the benchmark's evidence requirements,
+    not that every answer was clinically correct. A higher intervention rate means more answers needed correction
+    before meeting those requirements.
+  annotation_process: GPT-4o-mini and GPT-4o generated baseline and evidence-gated answers with temperature set
+    to 0. When verification found missing identifiers, the model received a constrained revision request naming
+    them, and its revised answer was checked again until it passed or a fixed revision budget was exhausted.
   results: GPT-4o had the highest baseline evidence-path compliance at 67/100, compared with 65/100 for GPT-4o-mini.
     After evidence gating and constrained revision, both reached 100/100 under the automated verifier.
   limitations: The authors state that the benchmark covers only part of diabetes care, identifier compliance does

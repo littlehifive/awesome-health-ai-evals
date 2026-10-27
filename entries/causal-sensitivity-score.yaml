@@ -43,6 +43,13 @@ card:
     model identity and judge scores: human-human Cohen''s κ was 0.40-0.72, and LLM-versus-human-majority κ was 0.46
     with 69/100 exact agreement. Regrading all 4,727 tuples with claude-opus-4-7 preserved model rankings (Spearman
     ρ = 1.00), with inter-judge κ of 0.61-0.69 for the five cross-judged models.'
+  score_meaning: Higher CSS indicates greater responsiveness to changed clinical inputs, rather than greater overlap
+    with expert treatment recommendations. The pre-registered rule can assign 0 even to a medically appropriate
+    refusal when a mutation leaves the clinical meaning unchanged, creates conflicting chart information, or makes
+    the case medically incoherent.
+  annotation_process: Each tuple passes through two generation stages, case summary and then recommendations; the
+    judge sees only the recommendations. Ground-truth treatment recommendations come from a two-round expert-oncologist
+    consensus protocol. Human validation scores were compared with the LLM judge using the majority rating.
   results: grok-4.20-reasoning ranked first with CSS 0.473, despite ranking last on consensus coverage. All six
     models scored at most 0.172 on surgery-status interventions.
   limitations: The authors note low case-level judge agreement for some families, regex mutations that can create

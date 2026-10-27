@@ -38,6 +38,10 @@ card:
     evaluate the experiments.
   scale: Each selected criterion receives -1, 0, or +1; points are summed and normalized per response.
   validation: ''
+  score_meaning: Reported experimental scores range from 0.0 to 1.0, with higher scores indicating better alignment
+    with independent, physician-authored criteria. Health-SCORE rewards give all selected criteria equal weight,
+    so they do not distinguish differences in criterion severity or importance.
+  annotation_process: ''
   results: ''
   limitations: The authors identify automated-judge bias and inconsistency, subjective choices in clustering and
     manual refinement, and equal-weight binary scoring that does not capture differences in criterion severity or

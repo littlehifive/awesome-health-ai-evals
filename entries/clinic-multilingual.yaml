@@ -44,6 +44,14 @@ card:
     Perspective API scores toxicity.
   scale: Task-specific accuracy, similarity, refusal and toxicity scores; privacy leakage is 0 or 1.
   validation: ''
+  score_meaning: Higher honesty scores mean the model more often expresses uncertainty instead of giving an incorrect
+    answer; higher jailbreak refusal scores mean it correctly abstains on a larger fraction of harmful prompts.
+    Higher similarity scores indicate better consistency or robustness, while lower toxicity scores indicate less
+    toxic responses.
+  annotation_process: Two healthcare professionals, each with over 8 years of clinical experience, rated generated
+    samples from 1 to 5 on how well they satisfied the intended trustworthiness dimension, with a mean of 3.9 and
+    Cohen's kappa of 0.82. For multilingual verification, 22 native speakers each evaluated 50 samples per language.
+    Doctors also verified the MedlinePlus-grounded reference answers used to evaluate sycophancy.
   results: Gemini-2.5-Pro achieved 83.66% neutrality on gender-stereotype prompts in mid-resource languages, the
     highest reported neutrality result.
   limitations: Human evaluation covered only a subset of languages, and stereotype evaluation was restricted to

@@ -38,6 +38,12 @@ card:
   judge: Automatic exact-match and token-based F1 comparisons with the reference answers assign the scores.
   scale: Exact match is binary per answer; token-based F1 ranges from 0 to 1, with final EM and F1 reported as percentages.
   validation: ''
+  score_meaning: Higher scores indicate closer agreement with the reference answers, but longer responses can score
+    lower even when they contain the correct answer because extra wording prevents an exact match and reduces token-based
+    F1.
+  annotation_process: During dataset construction, an F1 threshold of 0.7 was used to check QA-pair quality. Experts
+    from the Pandemic Prevention Big Data Exchange assessed a random sample of 1,000 of the 5,439 pairs (18.4%)
+    for whether the context supported answering each question and whether the pairs were relevant.
   results: Fine-tuned Mistral-7B achieved the highest reported performance, with 69.40% EM and 91.61% F1 in the
     5-shot setting with chain-of-thought prompting.
   limitations: The authors identify reliance on a single prompting strategy and commercial APIs for dataset generation,

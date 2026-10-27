@@ -48,6 +48,12 @@ card:
     0.36, 0.44 and 0.20, with agreement of 68%, 62.73% and 40% on two-, three- and four-option questions. The authors
     found the inference-model approximation reliable for weak global and local coherence but poor for strong global
     coherence, and called for a larger human study.
+  score_meaning: For coherence scoring, a contradiction between an explanation and a claim labelled false is treated
+    as neutral; an explanation that entails a false claim is not relabelled. Local coherence fails if any pair of
+    sentences in the explanation contradicts each other.
+  annotation_process: The human evaluation used randomly sampled test entries and covered journalist-written explanations
+    alongside outputs from EXPLAINERFC and EXPLAINERFC-EXPERT, using multiple-choice questions about sentence agreement
+    and relevance to the claim. The computational coherence evaluation covered all 1,183 test examples.
   results: SCIBERT achieved the highest reported classification macro-F1 and accuracy, but the supplied text gives
     no numerical scores. EXPLAINERFC-EXPERT achieved ROUGE-1, ROUGE-2 and ROUGE-L F1 scores of 32.30, 13.46 and
     26.99.

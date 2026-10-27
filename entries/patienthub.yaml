@@ -42,6 +42,10 @@ card:
   scale: 'Case studies: 5-point Likert ratings per criterion; average response tokens, tokens per turn, and API
     cost per session are also reported.'
   validation: ''
+  score_meaning: ''
+  annotation_process: For synthetic profiles, an LLM judge first extracted problems such as missing details and
+    inconsistencies, and GPT-4o then revised each profile using that feedback. The researchers manually checked
+    the revisions and retained only changes that directly resolved the flagged issues.
   results: ''
   limitations: The authors report limited coverage of 20 synthetic profiles and 280 sessions, possible self-preference
     and rubric sensitivity in GPT-4o judgments, no expert-clinician validation, and missing support for multi-party

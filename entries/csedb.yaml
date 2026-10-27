@@ -42,6 +42,12 @@ card:
     scores.
   validation: On 411 oncology criteria rated by five oncologists, DeepSeek-R1 achieved macro-F1 of 0.601 against
     physician judgments, compared with a physician consensus baseline of 0.625.
+  score_meaning: For binary items, 1 means the response fully meets the clinical standard, while any violation of
+    a contraindication results in 0. For graded items, higher scores mean closer alignment with clinical best practices,
+    with points awarded for dimensions such as relevance, completeness, and accuracy.
+  annotation_process: Before formal evaluation, the automated scoring engine was calibrated on a subset of samples
+    by comparing its scores with human scores using measures such as the Kappa coefficient. The prompt-based scoring
+    rules were adjusted repeatedly until agreement reached a predefined threshold.
   results: MedGPT ranked highest with an overall score of 0.8952, a safety score of 0.9119, and an effectiveness
     score of 0.8610.
   limitations: The assessment covers only Chinese clinical question-answering scenarios and lacks cross-linguistic

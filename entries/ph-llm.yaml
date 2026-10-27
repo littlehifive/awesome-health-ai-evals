@@ -45,6 +45,13 @@ card:
   validation: AutoEval predictions were compared with expert ratings using Spearman correlation, Kendall's W, weighted
     Cohen's kappa, and ICC(3,1); the best models had agreement similar to inter-rater agreement, but numerical values
     are not provided in the excerpts.
+  score_meaning: For important data interpretations, ratings of 2 and 3 mean many or several interpretations are
+    missing, while 4 and 5 mean few or none are missing. The approximate threshold is 70% for sleep-medicine continuing
+    education credit or passing the fitness practice exam.
+  annotation_process: 'Experts were randomly assigned case studies whose expert response they had not written, and
+    each assigned expert rated all three responses: Gemini Ultra 1.0, PH-LLM, and a domain expert. Cases were distributed
+    across primary experts according to availability, with some also assigned to other available domain experts.
+    AutoEval selected the rubric option with the highest predicted probability from the five possible ratings.'
   results: PH-LLM scored 79% on sleep medicine exams and tied Gemini Ultra 1.0 at 88% on fitness exams, compared
     with expert averages of 76% and 71%, respectively. Its mean sleep case-study rating was 4.61 versus 4.75 for
     experts, while its fitness ratings were not statistically different from expert ratings.

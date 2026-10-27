@@ -45,6 +45,12 @@ card:
   validation: MiniMax M3 and Qwen3.5-27B agreed on matched-pair counts for 89.7% of 6,975 predictions and differed
     by at most one pair in 99.9%, with per-encounter F1 correlation r=0.81. Manual review of 100 predictions agreed
     with the judge in 94% of cases, all within one pair.
+  score_meaning: A supported diagnosis has a specific admission-time finding that directly substantiates it; a partially
+    supported diagnosis has only indirect or circumstantial evidence; an unsupported diagnosis cannot be derived
+    from the admission-time record. Agreement with the reference does not establish clinical adequacy, because a
+    reasonable diagnosis considered and later ruled out counts as an error if it is absent from the coded reference.
+  annotation_process: MiniMax M3 audited each reference diagnosis against the admission-time input and assigned
+    its evidence-support category. Four clinicians independently re-audited these assignments.
   results: Post-trained Qwen3.5-4B reached the best supported-label micro-F1 of 0.51 and approximately 36.3% complete
     matches. A clinician independently diagnosing 1,000 encounters achieved supported-label F1 of 0.31, recall of
     0.68 and a complete-match rate of 36.3%.

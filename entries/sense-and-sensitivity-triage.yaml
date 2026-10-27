@@ -45,6 +45,10 @@ card:
   scale: Three binary decisions per item; accuracy and accuracy drop under perturbation.
   validation: Three physician reads per scenario; Krippendorff's alpha 0.81 to 0.87 and Fleiss' kappa 0.80 to 0.87
     across perturbation conditions, lowest for AskDocs and OncQA text and for the Manage decision.
+  score_meaning: For Manage, YES means clinical management rather than self-management; for Visit, YES means a clinician
+    visit is recommended; for Resource, YES means tests or referrals are recommended. Clinician annotations encode
+    YES as 1.0 and NO as 0.0.
+  annotation_process: ''
   results: ''
   limitations: ''
   sources:

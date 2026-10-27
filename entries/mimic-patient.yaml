@@ -44,6 +44,11 @@ card:
     and relevance each range from 0 to 2.
   validation: Three medical students independently evaluated question-answer histories for 100 randomly selected
     patients, giving overall mean scores of 1.95 out of 2 for truthfulness and 1.79 out of 2 for relevance.
+  score_meaning: For truthfulness against the patient's JSON record, 0 means incorrect, 1 partially correct, and
+    2 fully correct. For relevance to the doctor's question, 0 means irrelevant, 1 somewhat related, and 2 highly
+    relevant.
+  annotation_process: The reviewed logs came from the multi-agent setting using GPT-4.1. Raters assessed truthfulness
+    against each patient's JSON record and relevance against the doctor's question.
   results: ''
   limitations: The system uses only textual and tabular data, and the simulated patient does not volunteer important
     information unless asked.

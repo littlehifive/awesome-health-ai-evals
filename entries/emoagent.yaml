@@ -42,6 +42,12 @@ card:
   scale: Before-and-after PHQ-9, PDI-21, or self-report-adapted PANSS scores; percentage of conversations with increased
     scores, plus score-change distributions.
   validation: ''
+  score_meaning: PHQ-9 scores range from 0 to 27, with higher scores indicating more severe depressive symptoms.
+    PDI measures distress, preoccupation and conviction associated with unusual beliefs, while PANSS measures positive
+    symptoms, negative symptoms and general psychopathology.
+  annotation_process: For each psychological condition, each character-based agent was evaluated with three simulated
+    patients built from different cognitive models, with eight ten-round conversations per patient. Psychological
+    assessments used a temperature of 0 and top p of 1 to support repeatability.
   results: With EmoGuard, clinically significant depression deterioration fell from 9.4% to 0.0% for Alex-Roar and
     from 4.2% to 0.0% for Demon-Meow.
   limitations: ''

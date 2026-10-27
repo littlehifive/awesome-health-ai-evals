@@ -47,6 +47,10 @@ card:
   validation: A fourth clinician assessed agreement on physician-written references, with 87% inter-annotator agreement.
     The judge was validated on 100 short-answer examples from MedAraBench-OE, rather than AraClinicDialog, with
     Pearson correlation 0.978 and Spearman correlation 0.982 against human labels.
+  score_meaning: The score measures factual correctness of the concluding clinical response, not overall dialogue
+    quality. High scores can occur even when responses are short, mix languages, or communicate poorly.
+  annotation_process: Two clinicians per case independently wrote the reference final response using a structured
+    form. Audio responses were transcribed with Whisper-Large-V3 and manually reviewed.
   results: ''
   limitations: The benchmark does not cover all regional Arabic varieties and needs greater scale to cover long-tail
     cases, rare diseases and low-frequency scenarios; its scoring rewards clinical accuracy rather than overall

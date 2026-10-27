@@ -43,6 +43,9 @@ card:
   scale: Three response categories per case; correction percentage, correction-to-detection ratio, and reliability
     normalized from 0 to 1.
   validation: ''
+  score_meaning: A composite reliability score of 1 means maximal stability across demographic and contextual changes
+    while the clinical information stays the same.
+  annotation_process: ''
   results: Gemini 2.5 Pro led with 55.0% correction (110/200) and a correction-to-detection ratio of 0.83. Physician
     performance was set to zero by design because every selected case contained a physician misdiagnosis, rather
     than measured in a separate human evaluation.

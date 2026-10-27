@@ -44,6 +44,13 @@ card:
     records on six evidence-support criteria, producing 270 ratings. Pairwise exact agreement was 57.0%, and the
     mean absolute ordinal difference was 0.51 on the No-Partly-Yes scale; this checked label-evidence support, not
     model-grader agreement.
+  score_meaning: Evidence-link F1 measures both finding the supporting transcript passage and following the reference
+    convention of citing only the patient's disclosure turn. Citing both the interviewer's question and the patient's
+    answer reduces precision even when the cited passage contains the correct evidence.
+  annotation_process: Each baseline used a single transcript-to-JSON pass on a fixed set of 200 interviews. For
+    the separate evidence-support audit, reviewers received email packages containing the symptom area, automated
+    decision, and transcript snippets grouped by criterion; the sampled records were balanced across symptom class,
+    diagnosis label, and disclosure difficulty.
   results: ''
   limitations: The authors state that synthetic language and simplified demographic templates do not capture natural
     clinical variation, labels are not diagnostic ground truth, and results from one prompting regime establish

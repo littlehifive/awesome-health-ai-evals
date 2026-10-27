@@ -41,6 +41,11 @@ card:
     scores.
   scale: ROUGE-1 recall, precision, and F1; final-task accuracy; average turns and output length.
   validation: ''
+  score_meaning: Higher patient recall means more medical information was revealed, while higher patient precision
+    means the responses contained a greater density of that information. The authors interpret higher doctor recall
+    and F1 as indicating fewer hallucinations, and higher doctor precision as indicating more professional language
+    because a greater proportion of the output contains medical terms.
+  annotation_process: ''
   results: ''
   limitations: The authors state that dataset size, potential bias, and the limited number of medical examination
     examples restrict evaluation of comprehensive abilities in real-world consultations.

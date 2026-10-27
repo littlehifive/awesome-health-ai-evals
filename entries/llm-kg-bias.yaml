@@ -43,6 +43,13 @@ card:
     similarity: BERTScore F1, precision, and recall.'
   validation: Fifteen postgraduate students familiar with generative AI compared answers with and without multi-hop
     reasoning across five Nurse Bias clinical scenarios.
+  score_meaning: For question quality, 1 means poor quality and 5 means best quality.
+  annotation_process: 'The bias assessment used 20 randomly selected question-answer pairs across three conditions:
+    original questions, perturbed questions answered without multi-hop reasoning, and perturbed questions answered
+    with multi-hop reasoning. Generated answers to 84 perturbed questions were automatically compared with the original
+    Nurse Bias diagnoses using BERTScore. In the human survey, each scenario contained four question-answer sets
+    arranged as two pairs, and participants used the supplied ground-truth diagnosis to choose the pair that revealed
+    more biases.'
   results: On DiversityMedQA, LLaMA-3.1-8B judged by LLaMA-3.2-3B increased from 0.383 on original questions to
     0.747 with multi-hop reasoning for combined age, gender, and location bias. The framework revealed average increases
     of 0.2 to 0.4 bias-score points over original questions in complex demographic settings.

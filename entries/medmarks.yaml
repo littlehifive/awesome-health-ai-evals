@@ -44,6 +44,10 @@ card:
     GPT-5 mini.
   scale: Dataset-specific correctness or judge ratings; weighted mean win rate across benchmarks.
   validation: ''
+  score_meaning: ''
+  annotation_process: Two LLM judges evaluated responses for all open-ended datasets except MedCaseReasoning and
+    HealthBench. Judge prompts came from the original dataset papers when available; otherwise, the team adapted
+    existing prompts or created new ones informed by No Free Labels.
   results: ''
   limitations: The suite is heavily weighted toward single-turn question answering, has limited fairness, bias and
     safety evaluation, and excludes multimodal tasks; the authors caution that benchmark performance is not equivalent

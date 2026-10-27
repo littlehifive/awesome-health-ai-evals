@@ -44,6 +44,9 @@ card:
     consistency, and call latency.
   validation: Stored answers are re-scored by a second-vendor judge, with verdict agreement, Cohen's kappa, and
     per-model score differences reported; the supplied text gives no numerical values.
+  score_meaning: ''
+  annotation_process: Every model answers every question through OpenRouter before judging. Each question is asked
+    N times to measure answer drift, but the supplied text does not specify N.
   results: ''
   limitations: ''
   sources:

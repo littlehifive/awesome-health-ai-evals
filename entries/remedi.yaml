@@ -44,6 +44,12 @@ card:
   scale: Automatic F1 and overlap metrics; Combination averages micro-F1 and BLEU; human ratings are 0 (bad), 1
     (neutral), or 2 (good).
   validation: Average pairwise Cohen's kappa between response raters was 0.64 for fluency and 0.62 for specialty.
+  score_meaning: Higher fluency scores mean more fluent responses. Higher specialty scores mean that responses provide
+    more complete and accurate medical entities compared with the reference responses.
+  annotation_process: For the reference dialogue labels, 15 annotators with medical backgrounds refined the guidelines
+    over three rounds, each labeling five dialogues per round and reporting confusing cases. During annotation,
+    ambiguous labels were discussed with experts for a final decision, and a rule-based quality check flagged annotations
+    for relabeling.
   results: MT5 + CL achieved the highest NLU Combination score, 43.02, and MT5 (oracle) + CL achieved the highest
     DPL Combination score, 26.56. In human response evaluation, MT5 (oracle), given reference NLU and DPL outputs,
     scored 1.82 for fluency and 1.22 for specialty, compared with 1.91 and 2.00 for ground-truth responses.

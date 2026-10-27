@@ -43,6 +43,12 @@ card:
   scale: Each response receives 0, 0.5 or 1; the overall mean and Conversational Consistency Score are reported
     on a 0-100 scale.
   validation: ''
+  score_meaning: A partially correct score requires exactly one omission or weakness, such as missing a safety warning
+    or key recommendation, excessive reassurance, or guidance too generic to act on, with no factual errors; an
+    incorrect score covers answering the wrong question, harmful factual errors, or dangerously low or high urgency.
+    CCS of 100 means quality stays unchanged within every conversation, even if consistently poor, while 0 means
+    every conversation includes both fully correct and completely wrong answers.
+  annotation_process: ''
   results: GPT-5 led with a mean score of 65.0 out of 100 and 41.2% fully correct responses. All five models declined
     significantly from turn 0 to turn 2, with wrong-answer rates roughly tripling.
   limitations: The authors note that forum physician answers vary in completeness and are not formal clinical documentation,

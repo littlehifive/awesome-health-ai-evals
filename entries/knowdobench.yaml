@@ -44,6 +44,11 @@ card:
   validation: The two physician reviewers unanimously agreed on all included ground-truth labels. A repeat evaluation
     at least 48 hours later on 65 normative and 54 epistemic cases per model produced identical DAR values for all
     20 model-track pairs across ten models, with reported mean MAD of 0.005.
+  score_meaning: Higher DAR means correctness is lost earlier under pressure, while higher PRI means stronger maintenance
+    of correct behavior as pressure increases. Sensitivity measures accuracy on cases requiring refusal, while specificity
+    measures accuracy on cases requiring an answer and therefore resistance to unnecessary refusal.
+  annotation_process: Each model produced one response per case and instruction condition at temperature 0. All
+    benchmark cases and annotations were created by the authors.
   results: ''
   limitations: The authors state that clean synthetic cases omit real clinical ambiguity, normative judgments reflect
     two US-based physicians, demographic coverage is sparse and excludes intersectional identities, binary scoring

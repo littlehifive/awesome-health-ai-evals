@@ -42,6 +42,11 @@ card:
   judge: Choice-based tasks use answer-key comparison, and open-ended tasks use BERTScore with XLM-RoBERTa-Large.
   scale: Choice accuracy and open-ended BERTScore, reported by task on a percentage scale.
   validation: ''
+  score_meaning: Higher BERTScores indicate closer semantic alignment with reference answers, rather than necessarily
+    better medical advice. The authors note that longer, relevant answers can receive lower scores because of verbosity
+    rather than inaccuracy.
+  annotation_process: Medical students helped assess the Q&A dataset for factuality, relevance, clarity, and complexity
+    on a 1-to-5 scale in a preliminary validation.
   results: 'No model led every task: Gemini 1.5 Pro achieved 57.5% multiple-choice accuracy, tied Claude 3.5 Sonnet
     at 72.7% accuracy on fill-in-the-blank with choices, and scored 88.8 BERTScore without choices. Qwen 2.5 led
     patient-doctor QA and LLM-modified QA with 85.2 and 84.9 BERTScore, while LLaMA 3.1 led grammatically corrected

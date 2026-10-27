@@ -42,6 +42,10 @@ card:
   scale: Objective accuracy, open-ended BERTScore and macro recall; consistency accuracy requires five correct option
     rotations.
   validation: ''
+  score_meaning: ''
+  annotation_process: For the option-order consistency test, each model produced one prediction per permutation,
+    giving five predictions per single-choice question. All model inferences used a temperature of 0 to reduce variation
+    from random generation.
   results: 'Kimi_K2_Instruct_0905 led three dimensions: TCM-Exam at 0.847, TCM-MRCD at 0.746 and TCM-CMM at 0.749.
     deepseek_r1 led TCM-LitQA at 0.731, and grok_4_0709 led TCM-ClinNPT at 0.642.'
   limitations: The datasets rely primarily on textbooks and literature cases rather than large-scale real-world

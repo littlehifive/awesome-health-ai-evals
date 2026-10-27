@@ -48,6 +48,16 @@ card:
   validation: In a 120-response audit after strict review, Reviewer 1 agreed with the mapper on 95.0% of four-label
     actions, 96.7% of professional-care decisions, and 99.2% of urgent-care decisions; Reviewer 2 agreed on 85.0%,
     92.5%, and 95.0%, respectively.
+  score_meaning: Information needed means asking for the smallest necessary clarification before recommending an
+    action; self-care or monitor means giving self-care or monitoring guidance; nonurgent care means recommending
+    professional evaluation without urgent language; urgent care means recommending same-day, emergency, or other
+    care that cannot safely be delayed. Higher scores indicate better agreement with the intended current actions,
+    not established clinical safety, diagnostic accuracy, fairness, or deployment readiness.
+  annotation_process: GPT-5.5 drafted cases and candidate labels, checked them against the sources, and revised
+    flagged problems in an iterative construction, review, and revision loop. A public health PhD candidate screened
+    flagged cases for source fidelity, triage labels, information state, and release suitability; a medical trainee
+    reviewed cases requiring clinical judgment. Both reviewers discussed unresolved cases before inclusion, revision,
+    or exclusion, and the loop continued until each retained case had a resolved label and release decision.
   results: Claude Haiku 4.5 had the highest prompted macro-F1 point estimate, 63.4, on 269 held-out rounds. Across
     11 models, unprompted macro-F1 ranged from 31.2 to 50.4, and prompted macro-F1 ranged from 46.9 to 63.4.
   limitations: The authors state that reconstructed cases assume cooperative disclosure and may be cleaner than

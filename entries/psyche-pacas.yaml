@@ -45,6 +45,14 @@ card:
   validation: Across 20 interviews, PSYCHE SCORE correlated with scores from a blinded psychiatrist at r = 0.8486
     (p < 0.0001) and with the same psychiatrist's PIQSCA ratings at r = 0.6367 (p = 0.0025). Correlations with expert
     scores remained at least r = 0.7802 across the tested weight configurations.
+  score_meaning: A higher PSYCHE SCORE indicates that the chatbot more accurately identifies the simulated patient's
+    psychiatric characteristics, with emphasis on patient safety and clinical priorities. For mood, irritable and
+    euphoric answers are treated as equivalent, while answers more than one point from the reference value receive
+    zero.
+  annotation_process: The chatbot's post-interview report is automatically compared with the correct values in the
+    simulated patient's construct. For validation, each of four chatbot types completed five interviews with a simulated
+    patient with major depressive disorder. One psychiatrist, K. L., scored all 20 interview records and reports
+    using a detailed rubric while blinded to the chatbot type, and also rated them using PIQSCA.
   results: ''
   limitations: 'The simulated patients did not consistently reproduce some clinical features: all psychiatrists
     judged bipolar-disorder homicide risk non-conforming, and only half judged obsessive-compulsive-disorder insight

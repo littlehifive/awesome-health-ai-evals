@@ -58,6 +58,13 @@ card:
   validation: Three physicians, two from Cardiology and one from Gastroenterology, assessed GPT-4 predictions on
     100 randomly selected notes, with agreement by at least two defining a match. The largest reported difference
     in automatic evaluation results between Llama3-8B and GPT-4 Turbo did not exceed 5%.
+  score_meaning: An observation counts as a match when it expresses the same description as the physician's annotation,
+    even if the extracted text differs in length. A matching rationale must be meaningful and complete enough to
+    be understood on its own.
+  annotation_process: Nine clinical physicians created the reference annotations, which three senior medical experts
+    then checked for accuracy and completeness. Annotators followed the diagnostic knowledge graph, selecting observations
+    from the notes and linking written rationales to diagnoses. The automatic grader received no examples for observation
+    matching and five examples for rationale matching.
   results: ''
   limitations: The authors note limited disease coverage, a single final diagnosis without inter-diagnostic relationships,
     evaluation that emphasizes following the supplied graph, and a baseline that does not address hallucinations

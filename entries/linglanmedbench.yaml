@@ -45,6 +45,12 @@ card:
   scale: Accuracy, precision, recall, F1 and cosine similarity; dosage mean absolute error is reported separately
     and excluded from the overall average.
   validation: ''
+  score_meaning: Accuracy is the fraction of questions answered correctly; a multiple-choice answer counts as correct
+    only if it includes every correct option and no incorrect options.
+  annotation_process: Experts verified reference answers against standard textbooks and authoritative sources, listing
+    multiple acceptable answers where needed, and were prohibited from consulting LLMs or other automated assistants.
+    They revised ambiguous questions and options, corrected terminology, and excluded items with irreparable logical
+    or semantic flaws.
   results: ''
   limitations: The benchmark is text-only and excludes tongue images, facial and complexion signals, and pulse waveforms,
     limiting assessment of how models connect perception with clinical reasoning.

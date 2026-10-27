@@ -44,6 +44,10 @@ card:
   scale: Accuracy, Exact Match Ratio and Hamming score for multiple choice; ROUGE-1, BLEU-4 and BERTScore for short
     answers; judge ratings of 1-10, with 0 for missing or unparseable answers, averaged and scaled to 0-100.
   validation: ''
+  score_meaning: ''
+  annotation_process: Gemini-2.0-Flash was selected as the judge because it was not among the evaluated models and
+    did not belong to any evaluated model's family. For each short-answer judgment, the prompt included the question,
+    the model's answer and the expert's answer.
   results: o3 led single-answer multiple choice with 73.15% accuracy and short-answer judging with 82.16 out of
     100. DeepSeek-R1 scored 74.29 and GPT-4o scored 68.83 on short-answer judging.
   limitations: The authors report incorrect or outdated reference answers and insufficient clinical context in some

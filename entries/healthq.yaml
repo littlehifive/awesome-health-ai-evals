@@ -45,6 +45,12 @@ card:
   validation: 'The authors compared chain-level question-quality and answer-information scores using normalized
     mutual information: fluency versus medication NER2NER scored 0.66, and coverage versus ROUGE-2 precision scored
     0.53.'
+  score_meaning: Higher question-quality scores indicate better performance. The criteria cover targeting essential
+    patient information, uncovering diagnostic insights, alignment with patient context, comprehensiveness, and
+    linguistic clarity.
+  annotation_process: Claude2 parsed test-set patient notes into structured ground-truth pairs of patient knowledge
+    and doctor question statements. The experiments used 128 test cases, 64 from each dataset, and generated 796
+    patient status-doctor statement pairs across seven healthcare chains.
   results: 'RAG_Reflection achieved the highest NER2NER_total scores: 0.65 for GPT-4o, 0.57 for GPT-3.5, and 0.63
     for Claude. Its reported ROUGE-L F scores were 0.62, 0.65, and 0.59, respectively.'
   limitations: The authors state that reliance on LLM evaluation can miss aspects of question quality that healthcare

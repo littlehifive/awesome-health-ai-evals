@@ -43,6 +43,12 @@ card:
   scale: 'Each dimension: 0, 0.25, 0.50, 0.75 or 1; reported dimension and overall scores, plus failure-rate percentages.'
   validation: Human annotations had an inter-rater reliability of ICC = 0.802. On human-verified failures, GPT-4o-mini
     incorrectly approved 47.9%, while HuatuoGPT-o1 approved 100% of its 138 validly scored cases.
+  score_meaning: Higher scores indicate better performance on every rubric dimension. Human scores of 0.25 or below
+    define the clinical failures used in the judge audit; a higher Hallucination Approval Rate means that a judge
+    more often approves these failures.
+  annotation_process: 'The rubric was developed through iterative review of clinical literature, pilot annotation,
+    and feedback from senior clinicians. The failure-set audit used four automated judges: GPT-4o-mini, HuatuoGPT-o1-8B,
+    DeepSeek-R1-Distill-Llama-8B, and Llama-3.1-8B-Instruct.'
   results: GPT-4o-mini scored highest overall at 0.867, compared with 0.699 for HuatuoGPT-o1-8B; its diagnostic
     precision was 0.713 versus 0.654.
   limitations: The authors identify the approximately 1,000-hour annotation burden, inclusion of senior interns

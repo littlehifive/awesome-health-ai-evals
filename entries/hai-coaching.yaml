@@ -43,6 +43,13 @@ card:
   scale: Binary safe or unsafe per statement; percentage of statements marked safe.
   validation: On 400 statements rated by all 13 experts, Fleiss' kappa was 0.53 for reflections, 0.42 for comfort,
     0.38 for reframings and 0.50 for suggestions; Randolph's kappa was 0.77, 0.67, 0.63 and 0.75, respectively.
+  score_meaning: 'A safe label does not imply that the text is useful: experts found generic advice and replies
+    that ignored the struggle among the safe candidates. The reported safety rate therefore includes safe but useless
+    text.'
+  annotation_process: During prompt development, the 13 experts rated small batches, then compared and discussed
+    their labels to align their judgments of safety; prompts were revised using their feedback before the cycle
+    repeated. For the main annotation task, candidates were shuffled and split equally among the experts, giving
+    each about 7,530 candidates.
   results: Experts judged approximately 85% of ChatGPT's supportive statements safe, with 79,528 safe statements
     reported. Mental-health struggles had the lowest safety rates across all four text categories.
   limitations: The authors state that ChatGPT's proprietary and changing implementation limits analysis and reproducibility,

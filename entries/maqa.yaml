@@ -38,6 +38,13 @@ card:
   judge: Automatic cosine similarity and BLEU calculations assign the scores.
   scale: Average cosine similarity and average BLEU, reported as percentages.
   validation: ''
+  score_meaning: 'Cosine similarity measures similarity between sentence vectors, while BLEU measures overlap in
+    words and word sequences with the reference answer. These scores are sensitive to synonyms: the paper shows
+    relevant generated answers with cosine similarity below 20%, so a low score does not necessarily mean an irrelevant
+    answer.'
+  annotation_process: For cosine similarity, the automatic calculation averages the word embedding vectors in each
+    answer and compares the resulting sentence vectors. BLEU compares each generated answer with one reference answer
+    using normalized word-sequence counts.
   results: The Transformer model performed best, with an average cosine similarity of 80.81% and a BLEU score of
     58%.
   limitations: The authors state that the source data may not represent broader Arabic usage, only three model architectures

@@ -47,6 +47,12 @@ card:
   scale: 'Exact match: 0 or 1; partial credit: 0, 0.5 or 1; quality and violations: binary; aggregate scores and
     rates reported as percentages.'
   validation: ''
+  score_meaning: In the released response annotations, 1 means a problem is present and 0 means it is absent; the
+    quality label marks severe gibberish, repetition, or loss of coherence, rather than a quality pass. A jurisdictional
+    violation means treating non-Australian laws, regulators, professional standards, or ethical guidelines as governing
+    the Australian context without acknowledging their limits.
+  annotation_process: The released response-annotation set contains 100 manually annotated research examples. The
+    released file does not identify the annotators or report inter-annotator agreement.
   results: Qwen2.5-14B achieved the highest overall ethical rate at 84.76% and a conditional ethical rate of 84.96%
     across the 14 evaluated models.
   limitations: The authors identify reliance on an LLM judge, exclusion of models larger than 14 billion parameters,

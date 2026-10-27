@@ -46,6 +46,13 @@ card:
     sample, with only unanimous ratings retained as references. After SFT and DPO, MentalEval achieved average quadratic
     weighted kappa of 0.944, accuracy of 0.790, and mean absolute error of 0.210; a separate comparison reported
     0.926, 0.725, and 0.275, respectively.
+  score_meaning: ''
+  annotation_process: To build evaluator training data, the researchers ran 20 LLMs three times on each of 200 cases
+    and split the encounters into samples for the five evaluation dimensions. Five LLM judges, DeepSeek-V4-Pro,
+    KIMI-K2.6, GPT-5.5, Claude-Opus-4.6, and Gemini-3.1-Pro, rated each sample against an expert-consensus rubric,
+    and sufficiently agreeing ratings and rationales were retained for training. For low-confidence samples, clinicians
+    selected the candidate rationale and rating that best matched the clinical quality; candidates with that same
+    score became preferred training responses, and the others became rejected responses.
   results: Baichuan-M2 was the strongest medical-specific model but trailed medical trainees by 27.17 percentage
     points and human experts by 37.28 points, averaged across five objective metrics. The human expert group comprised
     five licensed psychiatrists and three psychology experts.

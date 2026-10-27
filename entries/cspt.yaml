@@ -41,6 +41,10 @@ card:
   judge: Two physicians score the simulated dialogues manually.
   scale: Checklist hits or misses; reported shares for Symptom, Test, and Diagnosis.
   validation: ''
+  score_meaning: ''
+  annotation_process: Consultations are limited to five dialogue rounds, within which the model must ask about symptoms,
+    provide a diagnosis, and propose a treatment plan. The repository authors also tested GPT-4 as a checklist grader
+    but found its capabilities limited and recommend manual evaluation.
   results: ''
   limitations: The authors note that most cases came from the Wuhan region of China, creating potential geographical
     bias in the test results.
