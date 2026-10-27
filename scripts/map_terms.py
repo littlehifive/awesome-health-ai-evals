@@ -4,10 +4,16 @@ Sends terms in groups of 25 to an OpenAI model with the construct list
 (taxonomy/constructs.yaml) and asks, for each term, which constructs it
 measures and how closely: same, narrower, broader, or partial. Mappings to a
 contested construct are marked contested. Writes the `mappings` list back into
-taxonomy/constructs.yaml and caches each answer, so re-runs only send new terms.
+taxonomy/constructs.yaml together with a `mapping_key` naming the constructs and
+model they came from.
+
+Re-runs send only the terms that have no mapping yet, so adding entries costs a
+few requests. Terms that mapped to nothing are sent again each run (a few hundred
+today; the raw cache answers them locally). A change to the constructs, the
+prompt or the model changes the key and re-maps every term, as does --all.
 
 Usage:
-    uv run scripts/map_terms.py [--model gpt-6.1-sol] [--workers 12]
+    uv run scripts/map_terms.py [--model gpt-6.1-sol] [--workers 12] [--all]
 """
 
 from __future__ import annotations
@@ -57,6 +63,7 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--model", default="gpt-6.1-sol")
     parser.add_argument("--workers", type=int, default=12)
+    parser.add_argument("--all", action="store_true", help="map every term again, not only the new ones")
     args = parser.parse_args()
 
     doc = yaml.safe_load((TAX / "constructs.yaml").read_text())
@@ -71,7 +78,17 @@ def main() -> None:
 
     load_env()
     client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
-    groups = [terms[i:i + 25] for i in range(0, len(terms), 25)]
+    old = doc.get("mappings") or []
+    todo, kept = terms, []
+    if not args.all and doc.get("mapping_key") == sys_key:
+        have = {(m["entry"], m["term"]) for m in old}
+        current = {(t["entry"], t["term"]) for t in terms}
+        kept = [m for m in old if (m["entry"], m["term"]) in current]
+        todo = [t for t in terms if (t["entry"], t["term"]) not in have]
+    elif old:
+        print("constructs or model changed since the last run: mapping every term again", file=sys.stderr)
+    print(f"{len(todo)} terms to map, {len(kept)} mappings kept", file=sys.stderr)
+    groups = [todo[i:i + 25] for i in range(0, len(todo), 25)]
 
     def run(group: list[dict]) -> list[dict]:
         body = "\n".join(f"{n}. {t['term']} ({t['entry']}): {t['definition'][:300]}" for n, t in enumerate(group, 1))
@@ -98,7 +115,9 @@ def main() -> None:
         return out
 
     with ThreadPoolExecutor(args.workers) as pool:
-        mappings = [m for chunk in pool.map(run, groups) for m in chunk]
+        mappings = kept + [m for chunk in pool.map(run, groups) for m in chunk]
+    doc.pop("mappings", None)
+    doc["mapping_key"] = sys_key
     doc["mappings"] = mappings
     (TAX / "constructs.yaml").write_text(
         yaml.safe_dump(doc, sort_keys=False, allow_unicode=True, width=140))

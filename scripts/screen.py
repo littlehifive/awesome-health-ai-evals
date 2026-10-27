@@ -128,15 +128,37 @@ def client() -> OpenAI:
     return OpenAI(api_key=os.environ["OPENAI_API_KEY"])
 
 
+def decisions() -> list[dict]:
+    """Every screening result: the work file (gitignored), plus the rows of search/screening.csv
+    (committed) for records the work file doesn't have, so a fresh checkout doesn't re-screen them."""
+    rows = read_jsonl(RESULTS)
+    seen = {r["id"] for r in rows}
+    path = SEARCH / "screening.csv"
+    if path.exists():
+        with path.open(newline="") as f:
+            for r in csv.DictReader(f):
+                if r["id"] not in seen:
+                    r.setdefault("prompt", STAGES.get(r["stage"], {}).get("prompt", ""))
+                    rows.append(r)
+    return rows
+
+
 def screened_ids(stage: str, model: str) -> set[str]:
-    return {r["id"] for r in read_jsonl(RESULTS)
-            if r["stage"] == stage and r["model"] == model and r["prompt"] == STAGES[stage]["prompt"]}
+    """Records already screened at this stage with this model and prompt. A strict result also
+    counts for title_abstract, since a record only reaches the strict stage through it."""
+    done = set()
+    for r in decisions():
+        if r["stage"] == stage and r["model"] == model and r["prompt"] == STAGES[stage]["prompt"]:
+            done.add(r["id"])
+        elif stage == "title_abstract" and r["stage"] == "strict":
+            done.add(r["id"])
+    return done
 
 
 def latest_decisions() -> dict[str, dict]:
     """Each record's decision: its last strict result, else its last title_abstract result."""
     latest = {}
-    for row in read_jsonl(RESULTS):
+    for row in decisions():
         if row["stage"] == "strict" or latest.get(row["id"], {}).get("stage") != "strict":
             latest[row["id"]] = row
     return latest
@@ -325,18 +347,20 @@ def cmd_collect(args) -> None:
 
 
 def write_csv() -> None:
-    """search/screening.csv: the latest decision for each record."""
+    """search/screening.csv: the latest decision for each record, with the stage, model and prompt
+    that made it, so the file can stand in for the work file on a fresh checkout."""
     titles = {r["id"]: r["title"] for r in read_jsonl(WORK / "records.jsonl")}
     latest = latest_decisions()
     with (SEARCH / "screening.csv").open("w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=["id", "title", "label", "exclude_reason", "name",
-                                          "reason", "stage", "model"])
+                                          "reason", "stage", "model", "prompt"])
         w.writeheader()
         for rid in sorted(latest):
             row = latest[rid]
-            w.writerow({"id": rid, "title": titles.get(rid, ""), "label": row["label"],
+            w.writerow({"id": rid, "title": titles.get(rid) or row.get("title", ""), "label": row["label"],
                         "exclude_reason": row["exclude_reason"], "name": row["name"],
-                        "reason": row["reason"], "stage": row["stage"], "model": row["model"]})
+                        "reason": row["reason"], "stage": row["stage"], "model": row["model"],
+                        "prompt": row.get("prompt", "")})
 
 
 def main() -> None:

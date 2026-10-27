@@ -127,7 +127,7 @@ Breadth first:
 5. Site.
 6. Skills.
 
-No scheduled re-runs in v1; the search scripts can be re-run by hand.
+No scheduled re-runs in v1. `docs/updating.md` gives the order for a re-run by hand; every stage that calls a model skips the work recorded in its committed index.
 
 ## Status (2026-10-26)
 

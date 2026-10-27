@@ -380,8 +380,16 @@ def client() -> OpenAI:
     return OpenAI(api_key=os.environ["OPENAI_API_KEY"])
 
 
-def done_ids(prompt: str = PROMPT) -> set[str]:
-    return {r["id"] for r in read_jsonl(RESULTS) if r.get("prompt") == prompt and r.get("card")}
+def done_ids(prompt: str = PROMPT, entries: dict[str, dict] | None = None) -> set[str]:
+    """Entries that already have this pass: a result in the work file (gitignored), or the pass's
+    fields in their card in entries/*.yaml (committed), so a fresh checkout doesn't redo them.
+    --force (run, submit) or --ids with --force redoes entries on purpose."""
+    done = {r["id"] for r in read_jsonl(RESULTS) if r.get("prompt") == prompt and r.get("card")}
+    fields = fields_of(prompt)
+    for eid, e in (entries if entries is not None else load_entries()).items():
+        if all(f in (e.get("card") or {}) for f in fields):
+            done.add(eid)
+    return done
 
 
 def pending_ids(batches: list[dict], prompt: str = PROMPT) -> set[str]:
@@ -438,7 +446,7 @@ def cmd_submit(args) -> None:
     entries = load_entries()
     batches = json.loads(BATCHES.read_text()) if BATCHES.exists() else []
     ids = args.ids.split(",") if args.ids else default_ids(args.pass_, entries)
-    skip = done_ids(p["prompt"]) | pending_ids(batches, p["prompt"])
+    skip = (set() if args.force else done_ids(p["prompt"], entries)) | pending_ids(batches, p["prompt"])
     todo = [i for i in ids if i not in skip]
     if not todo:
         print("nothing to submit", file=sys.stderr)
@@ -520,7 +528,7 @@ def cmd_run(args) -> None:
                 b["status"] = "cancelled"
         BATCHES.write_text(json.dumps(batches, indent=2))
     ids = args.ids.split(",") if args.ids else default_ids(args.pass_, entries)
-    skip = set() if args.force else done_ids(p["prompt"]) | (set() if args.cancel else pending_ids(batches, p["prompt"]))
+    skip = set() if args.force else done_ids(p["prompt"], entries) | (set() if args.cancel else pending_ids(batches, p["prompt"]))
     todo = requests_for([i for i in ids if i not in skip], args.model, args.pass_)
     print(f"{len(todo)} requests", file=sys.stderr)
     c = client()
@@ -612,6 +620,7 @@ def main() -> None:
     f.add_argument("--force", action="store_true")
     t = with_pass(sub.add_parser("test")); t.add_argument("--ids", required=True); t.add_argument("--model", default=MODEL)
     s = with_pass(sub.add_parser("submit")); s.add_argument("--ids"); s.add_argument("--model", default=MODEL)
+    s.add_argument("--force", action="store_true", help="resubmit the given ids even if they have a result")
     sub.add_parser("collect")
     r = with_pass(sub.add_parser("run")); r.add_argument("--ids"); r.add_argument("--model", default=MODEL)
     r.add_argument("--workers", type=int, default=6); r.add_argument("--cancel", action="store_true")

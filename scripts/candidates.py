@@ -5,8 +5,9 @@ borderline (see screen.py) are grouped when the screener gave them the same
 benchmark name (this folds dataset mirrors into their paper).
 
 Extraction runs in rounds, so it can start before every record is screened.
-Round N takes the screened-in records that no earlier round included. It
-writes search/work/rounds/rN/candidates.jsonl, batches of --batch-size
+Round N takes the screened-in records that no earlier round included (as
+listed in search/work/rounds, or in search/candidates.csv on a fresh
+checkout). It writes search/work/rounds/rN/candidates.jsonl, batches of --batch-size
 candidates for the extraction agents (search/work/rounds/rN/bXXX.jsonl), and
 appends the round to search/candidates.csv (committed: candidate ID, name,
 record IDs).
@@ -46,10 +47,17 @@ def main() -> None:
     args = parser.parse_args()
 
     out = ROUNDS / f"r{args.round}"
+    # Records an earlier round already grouped: from the work rounds (gitignored) and from the
+    # committed index, so a fresh checkout doesn't send them to extraction again.
     earlier = set()
     for path in sorted(ROUNDS.glob("r*/candidates.jsonl")):
         if path.parent != out:
             earlier |= {r["id"] for c in read_jsonl(path) for r in c["records"]}
+    if (SEARCH / "candidates.csv").exists():
+        with (SEARCH / "candidates.csv").open() as f:
+            for r in csv.DictReader(f):
+                if not r["cid"].startswith(f"r{args.round}-"):
+                    earlier |= set(filter(None, r["records"].split(";")))
 
     latest = latest_decisions()
     records = {r["id"]: r for r in read_jsonl(WORK / "records.jsonl")}
