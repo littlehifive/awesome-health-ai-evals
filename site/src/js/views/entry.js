@@ -1,180 +1,284 @@
-// Entry page: the facts, the adaptation family, and what it judges, shown as the source's own
-// terms (nested the way the source nests them) with the constructs each one maps to.
+// Entry page: a model-card-like page for one benchmark or framework. Every entry has the same
+// sections in the same order (what it tests, what's in it, how answers are scored, access,
+// who built it, related entries, sources), and each fact appears once. The rail holds the
+// table of contents. The `card` block written by scripts/build_cards.py supplies the prose
+// facts (task, how the items were made, scoring procedure, judge, scale, validation, results,
+// limitations); when a field is empty the page says so instead of hiding the row.
 
-import { signalText } from "../cards.js";
+import { domainsText } from "../cards.js";
 import { D, constructName, countryName, domainOf, languageName, loadDetails, realCountries } from "../data.js";
-import { LABELS, info, lab, matchGlyph, matchLegend, originTag } from "../labels.js";
-import { compareBtn } from "../ui.js";
-import { $, esc, setTitle } from "../util.js";
+import { LABELS, help, lab, originTag } from "../labels.js";
+import { bindToc, compareBtn, docPage, facts, tag } from "../ui.js";
+import { $, REPO, catalogHref, esc, fmt, join, lower, setTitle } from "../util.js";
 
-const REPO = "https://github.com/littlehifive/awesome-health-ai-evals";
+const names = (codes) => codes.map(countryName);
+const list = (facet, vals) => join(vals.map((v) => lab(facet, v)));
+const link = (href, text) => `<a href="${esc(href)}">${esc(text || href.replace(/^https?:\/\//, ""))}</a>`;
+const cite = (e) => (e.signals && e.signals.citations) || 0;
+const NS = `<span class="none">Not stated in the source</span>`;
+const said = (text, fallback = NS) => (text ? esc(text) : fallback);
 
-function links(e) {
+function hfUrl(id) { return `https://huggingface.co/datasets/${id}`; }
+
+function linkRow(e) {
   const L = e.links || {};
-  return [
-    L.paper && ["Paper", L.paper, "ph-file-text"],
-    L.arxiv && !L.paper && ["arXiv", `https://arxiv.org/abs/${L.arxiv}`, "ph-article"],
-    L.doi && !L.paper && ["DOI", `https://doi.org/${L.doi}`, "ph-article"],
-    L.dataset && ["Dataset", L.dataset, "ph-database"],
-    ...(L.huggingface || []).map((h) => [`Hugging Face: ${h}`, `https://huggingface.co/datasets/${h}`, "ph-database"]),
-    L.code && ["Code", L.code, "ph-code"],
-    L.website && ["Website", L.website, "ph-globe"],
-  ].filter(Boolean);
+  const out = [];
+  if (L.paper) out.push(["Paper", L.paper, "ph-file-text"]);
+  else if (L.doi) out.push(["Paper (DOI)", `https://doi.org/${L.doi}`, "ph-file-text"]);
+  else if (L.arxiv) out.push(["Paper (arXiv)", `https://arxiv.org/abs/${L.arxiv}`, "ph-file-text"]);
+  else if (L.pmcid) out.push(["Paper (PMC)", `https://pmc.ncbi.nlm.nih.gov/articles/${L.pmcid}/`, "ph-file-text"]);
+  if (L.dataset) out.push(["Dataset", L.dataset, "ph-database"]);
+  (L.huggingface || []).forEach((h) => out.push([`Dataset (Hugging Face${(L.huggingface || []).length > 1 ? `: ${h}` : ""})`, hfUrl(h), "ph-database"]));
+  if (L.code) out.push(["Code", L.code, "ph-code"]);
+  if (L.website) out.push(["Website", L.website, "ph-globe"]);
+  return out.map(([t, u, i]) => `<a href="${esc(u)}" target="_blank" rel="noopener"><i class="ph ${i}" aria-hidden="true"></i>${esc(t)}</a>`).join("");
 }
-
-const fact = (label, value, g) => (value ? `<div><dt>${label}${g ? info(g) : ""}</dt><dd>${value}</dd></div>` : "");
-const list = (facet, vals) => vals.map((v) => esc(lab(facet, v))).join(", ");
-const names = (codes) => codes.map(countryName).join(", ");
 
 function whereFrom(e) {
   const real = realCountries(e);
-  const base = real.length ? esc(names(real)) : e.origin === "global" ? "No specific country" : "Not stated";
-  return base + (e.origin_note ? `<span class="muted">${esc(e.origin_note)}</span>` : "");
+  if (real.length) return join(names(real));
+  return e.origin === "global" ? "No specific country" : "Not stated";
+}
+const incomeRegion = (e) => join([...e.income.map((g) => lab("income", g)), ...e.regions.map((r) => lab("regions", r))]);
+
+// ---------- Scoring terms, as a table nested the way the source nests them ----------
+const LEVEL_PLURAL = { axis: "Axes", category: "Categories", dimension: "Dimensions", metric: "Metrics", criterion: "Criteria", principle: "Principles", other: "Other terms" };
+const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
+const plural = (lvl) => LEVEL_PLURAL[lvl] || `${cap(lvl)}s`;
+// A "definition" that only says where the term appears is no definition.
+const LOC_ONLY = /^[\w\s()/-]{0,40}\b(in|from|of|under)\s+(table|section|figure|appendix|fig\.|sec\.)\s*[\w.]+\.?$/i;
+const hasDefinition = (t) => t.definition && t.definition.trim().length > 12 && !LOC_ONLY.test(t.definition.trim());
+
+function constructCells(t) {
+  const cons = (t.constructs || []).map((m) => {
+    const c = D.constructs.get(m.construct);
+    return `<li><a href="#/c/${esc(m.construct)}" title="${esc(domainOf(m.construct) ? domainOf(m.construct).name : "")}">${esc(constructName(m.construct))}</a><em data-help="match-${m.relationship}" tabindex="0">${esc(lower(LABELS.relationship[m.relationship] || m.relationship))}</em>${c && c.status === "contested" ? `<span class="tag warn" data-help="disagree" tabindex="0">Disagree</span>` : ""}</li>`;
+  }).join("");
+  return cons ? `<ul class="constructs" aria-label="Matched constructs">${cons}</ul>` : `<span class="none">No match</span>`;
 }
 
-function familyBlock(e) {
-  const kids = (D.families[e.id] || []).map((id) => D.byId.get(id)).filter(Boolean);
-  const parents = e.adapted_from.map((id) => D.byId.get(id)).filter(Boolean);
-  const item = (x) => `<li>${originTag(x)} <a href="#/e/${x.id}">${esc(x.name)}</a> <span class="muted num">${x.year}</span></li>`;
-  let html = "";
-  if (kids.length) {
-    html += `<div class="facts fam-box"><h2><i class="ph ph-git-fork"></i> ${kids.length} ${kids.length === 1 ? "adaptation" : "adaptations"} of ${esc(e.name)}${info("family")}</h2>
-      <ul class="family" style="list-style:none;padding:0;margin:0;display:grid;gap:6px">${kids.sort((a, b) => b.year - a.year).map(item).join("")}</ul></div>`;
+function termRow(t, showLoc, depth) {
+  const def = hasDefinition(t)
+    ? (t.definition_verbatim === false ? esc(t.definition) : `<q>${esc(t.definition)}</q>`)
+    : `<span class="none">No definition in the source</span>`;
+  return `<tr class="d${depth}">
+    <td class="t"><span class="tn">${esc(t.term)}</span>${showLoc && t.location ? `<span class="loc">${esc(t.location)}</span>` : ""}</td>
+    <td class="d">${def}</td>
+    <td class="s" data-label="Scored as">${t.scale ? esc(t.scale) : `<span class="none">Not stated</span>`}</td>
+    <td class="c" data-label="Construct">${constructCells(t)}</td>
+  </tr>`;
+}
+
+function termsTable(terms) {
+  const byName = new Map(terms.map((t) => [t.term, t]));
+  const kids = new Map();   // parent term -> child terms
+  const groups = new Map(); // parent label that is not itself a term -> terms
+  const top = [];
+  terms.forEach((t) => {
+    if (t.parent && byName.has(t.parent) && t.parent !== t.term) { if (!kids.has(t.parent)) kids.set(t.parent, []); kids.get(t.parent).push(t); }
+    else if (t.parent) { if (!groups.has(t.parent)) groups.set(t.parent, []); groups.get(t.parent).push(t); }
+    else top.push(t);
+  });
+  // Each term renders once. One location shared by every term in a group goes in the group's
+  // header; otherwise each row shows its own. Nesting stops at depth 3 (deeper rows and the
+  // members of any parent cycle land in "Other terms" below).
+  const seen = new Set();
+  const groupRows = (label, ts, depth) => {
+    const locs = new Set(ts.map((t) => t.location || ""));
+    const shared = locs.size === 1 ? [...locs][0] : "";
+    let html = `<tr class="grp d${depth}"><th colspan="4" scope="rowgroup">${label} <span class="n">${ts.length}</span>${shared ? `<span class="loc">${esc(shared)}</span>` : ""}</th></tr>`;
+    ts.forEach((t) => {
+      seen.add(t);
+      html += termRow(t, !shared, depth);
+      const sub = depth < 3 ? (kids.get(t.term) || []).filter((k) => !seen.has(k)) : [];
+      if (sub.length) html += groupRows(`Under ${esc(t.term)}`, sub, depth + 1);
+    });
+    return html;
+  };
+  const byLevel = new Map();
+  top.forEach((t) => { const k = t.level || "other"; if (!byLevel.has(k)) byLevel.set(k, []); byLevel.get(k).push(t); });
+  let body = "";
+  byLevel.forEach((ts, lvl) => { body += groupRows(esc(plural(lvl)), ts, 0); });
+  groups.forEach((ts, label) => { body += groupRows(`Under ${esc(label)}`, ts.filter((t) => !seen.has(t)), 1); });
+  const left = terms.filter((t) => !seen.has(t));
+  if (left.length) body += groupRows("Other terms", left, 0);
+  return `<div class="list-wrap"><table class="terms">
+    <thead><tr><th scope="col">Term</th><th scope="col">Definition</th><th scope="col">Scored as</th><th scope="col">${help("construct", "Construct")}</th></tr></thead>
+    <tbody>${body}</tbody></table></div>`;
+}
+
+function judgedSection(e, det) {
+  const c = det.card || {};
+  const terms = det.terms || [];
+  // Multiple-choice-only entries rarely spell out their scoring; the format implies it.
+  const mcq = e.methods.length === 1 && e.methods[0] === "mcq_exact_match";
+  const head = facts([
+    ["Scored by", list("methods", e.methods) || NS],
+    ["Procedure", said(c.scoring, mcq ? "The chosen option is compared with the answer key; the score is the share of items answered correctly." : NS)],
+    ["Judge", said(c.judge, mcq ? "Exact match with the answer key." : NS)],
+    ["Scale", said(c.scale, mcq ? "Correct or incorrect per item; accuracy overall." : NS)],
+    ["Checked against people", said(c.validation, `<span class="none">Not reported</span>`)],
+    ["Raters based in", e.rater_countries.length ? join(names(e.rater_countries)) : ""],
+    ["Results at release", c.results ? esc(c.results) : ""],
+  ]);
+  if (!terms.length) {
+    return `${head}<h3>Scoring terms</h3><p class="terms-intro">${e.read_full_text ? "None were extracted: the source reports one score without naming the qualities it judges." : "None were extracted because the full text wasn't read."}</p>`;
   }
+  const cons = new Set(terms.flatMap((t) => t.constructs.map((m) => m.construct)));
+  const verbatim = terms.some((t) => t.definition_verbatim !== false && hasDefinition(t));
+  return `${head}<h3 id="judged-terms">Scoring terms</h3>
+    <p class="terms-intro">${terms.length} ${terms.length === 1 ? "term" : "terms"} from the source, matched to ${cons.size} of the catalog's ${help("construct", "constructs")}.${verbatim ? " Definitions in quotation marks are the source's own words; the rest are paraphrased." : ""}</p>
+    ${termsTable(terms)}`;
+}
+
+// ---------- Related entries ----------
+function familyRows(e) {
+  const kids = (D.families[e.id] || []).map((id) => D.byId.get(id)).filter(Boolean).sort((a, b) => b.year - a.year);
+  const parents = e.adapted_from.map((id) => D.byId.get(id)).filter(Boolean);
+  const item = (x) => `<li><a href="#/e/${x.id}">${esc(x.name)}</a><span class="yr num">${x.year}</span>${originTag(x)}</li>`;
+  let html = "";
+  if (parents.length) html += `<p class="note">Adapted from ${parents.map((p) => `<a href="#/e/${p.id}">${esc(p.name)}</a>`).join(", ")}.</p>`;
+  if (kids.length) html += `<h3>${kids.length === 1 ? "An adaptation" : `${kids.length} adaptations`} of ${esc(e.name)}</h3><ul class="family">${kids.map(item).join("")}</ul>`;
   parents.forEach((p) => {
     const sibs = (D.families[p.id] || []).filter((id) => id !== e.id).map((id) => D.byId.get(id)).filter(Boolean);
-    html += `<div class="facts fam-box"><h2><i class="ph ph-git-fork"></i> Adapted from <a href="#/e/${p.id}">${esc(p.name)}</a>${info("family")}</h2>
-      ${sibs.length ? `<p class="muted" style="margin:0 0 8px;font-size:14px">${sibs.length} other ${sibs.length === 1 ? "adaptation" : "adaptations"} of ${esc(p.name)}:</p>
-      <ul class="family" style="list-style:none;padding:0;margin:0;display:grid;gap:6px">${sibs.map(item).join("")}</ul>` : ""}</div>`;
+    if (sibs.length) html += `<h3>Other adaptations of ${esc(p.name)}</h3><ul class="family">${sibs.map(item).join("")}</ul>`;
   });
   return html;
 }
 
-// Nest terms under their parent term when the parent is also a term; otherwise group them
-// under the parent's label (e.g. HealthBench's "themes"). Source order is kept.
-function tree(terms) {
-  const byName = new Map(terms.map((t) => [t.term, t]));
-  const kids = new Map();
-  const top = [];
-  const groups = new Map();
-  terms.forEach((t) => {
-    if (t.parent && byName.has(t.parent) && t.parent !== t.term) {
-      if (!kids.has(t.parent)) kids.set(t.parent, []);
-      kids.get(t.parent).push(t);
-    } else if (t.parent) {
-      if (!groups.has(t.parent)) { groups.set(t.parent, []); top.push({ group: t.parent }); }
-      groups.get(t.parent).push(t);
-    } else top.push(t);
-  });
-  const node = (t, depth) => {
-    const sub = depth < 4 ? kids.get(t.term) || [] : [];
-    return `<li class="tnode">
-      <div class="tname"><b>${esc(t.term)}</b>${t.level ? `<span class="tlevel" data-gloss="term-level" tabindex="0">${esc(t.level)}</span>` : ""}</div>
-      ${t.definition ? `<p class="quote${t.definition_verbatim === false ? " para" : ""}">${esc(t.definition)}</p>` : ""}
-      <div class="tloc">${[t.definition_verbatim === false ? "Paraphrased" : "", t.location || ""].filter(Boolean).map(esc).join(". ")}</div>
-      ${t.constructs.length ? `<div class="cchips">${t.constructs.map((m) => `<a class="cchip" href="#/c/${m.construct}" title="${esc(LABELS.relationship[m.relationship] || m.relationship)}">${matchGlyph(m.relationship)}${esc(constructName(m.construct))}${m.status === "contested" ? `<span class="tag disagree">Benchmarks disagree</span>` : ""}</a>`).join("")}</div>`
-        : `<div class="tloc">Not matched to a construct</div>`}
-      ${sub.length ? `<ul class="tree">${sub.map((c) => node(c, depth + 1)).join("")}</ul>` : ""}
-    </li>`;
-  };
-  return `<ul class="tree">${top.map((t) => (t.group
-    ? `<li class="tnode tgroup"><div class="tg-label">${esc(t.group)}</div><ul class="tree">${groups.get(t.group).map((c) => node(c, 1)).join("")}</ul></li>`
-    : node(t, 0))).join("")}</ul>`;
+// Entries that judge the same constructs for the same people and health areas.
+function similar(e, n = 5) {
+  const A = new Set(e.constructs), U = new Set(e.users.filter((u) => u !== "unspecified")), H = new Set(e.health_areas);
+  const fam = new Set([...(D.families[e.id] || []), ...e.adapted_from]);
+  const jac = (a, arr) => { const b = new Set(arr); if (!a.size || !b.size) return 0; let i = 0; b.forEach((x) => { if (a.has(x)) i += 1; }); return i / (a.size + b.size - i); };
+  return D.entries.filter((x) => x.id !== e.id && !fam.has(x.id)).map((x) => {
+    const shared = x.constructs.filter((c) => A.has(c)).length;
+    const score = jac(A, x.constructs) * 10 + jac(H, x.health_areas) * 3 + jac(U, x.users) * 2 + (x.origin === e.origin && !["unstated", "global"].includes(e.origin) ? 1 : 0);
+    const why = [];
+    if (shared) why.push(`${shared} shared ${shared === 1 ? "construct" : "constructs"}`);
+    if (jac(H, x.health_areas) > 0) why.push("same health area");
+    if (jac(U, x.users) > 0) why.push("same users");
+    if (x.origin === e.origin && !["unstated", "global"].includes(e.origin)) why.push("same origin");
+    return { x, score, why };
+  }).filter((r) => r.score >= 2.5).sort((a, b) => b.score - a.score || cite(b.x) - cite(a.x)).slice(0, n);
 }
 
-function judged(e, terms) {
-  if (!terms.length) {
-    return `<p class="muted">No scoring terms were extracted for this entry. That usually means the source doesn't name what it scores beyond a single accuracy number, or the full text wasn't available.</p>`;
-  }
-  const cons = new Set(terms.flatMap((t) => t.constructs.map((m) => m.construct)));
-  const doms = new Map();
-  cons.forEach((c) => {
-    const d = domainOf(c);
-    if (!d) return;
-    const x = doms.get(d.id) || { d, n: 0 };
-    x.n += 1;
-    doms.set(d.id, x);
-  });
-  const domList = [...doms.values()].sort((a, b) => b.n - a.n);
-  return `<p class="lede" style="font-size:16px">${terms.length} ${terms.length === 1 ? "term" : "terms"}${info("term")}, matched to ${cons.size} ${cons.size === 1 ? "construct" : "constructs"}${info("construct")} in ${domList.length} ${domList.length === 1 ? "domain" : "domains"}${info("domain")}. Definitions are quoted from the source unless marked paraphrased.</p>
-    <div class="judged-sum">${domList.map(({ d, n }) => `<a class="chip" href="#/constructs?d=${d.id}">${esc(d.name)} <span class="num muted">${n}</span></a>`).join("")}</div>
-    ${matchLegend()}
-    ${tree(terms)}`;
+function relatedSection(e) {
+  const fam = familyRows(e);
+  const sim = similar(e);
+  const seeAlso = [];
+  e.users.filter((u) => u !== "unspecified").slice(0, 2).forEach((u) => seeAlso.push([`Entries for ${lower(lab("users", u))}`, catalogHref({ users: u }, { from: "entry", back: `#/e/${e.id}` })]));
+  e.health_areas.slice(0, 2).forEach((h) => seeAlso.push([`${lab("health_areas", h)} entries`, catalogHref({ health_areas: h }, { from: "entry", back: `#/e/${e.id}` })]));
+  realCountries(e).slice(0, 2).forEach((c) => seeAlso.push([`Entries with questions from ${countryName(c)}`, catalogHref({ countries: c }, { from: "entry", back: `#/e/${e.id}` })]));
+  if (!fam && !sim.length && !seeAlso.length) return "";
+  return `${fam}
+    ${sim.length ? `<h3 ${fam ? "" : 'style="margin-top:0"'}>Similar entries</h3><p class="note">Matched on shared constructs, health areas and users.</p>
+      <ul class="sim">${sim.map(({ x, why }) => `<li><a href="#/e/${x.id}">${esc(x.name)}</a><span class="yr num">${x.year}</span>${originTag(x)}<a class="cmp" href="#/compare?ids=${e.id},${x.id}">Compare the two</a><span class="why">${esc(why.join(", "))}</span></li>`).join("")}</ul>` : ""}
+    ${seeAlso.length ? `<h3>In the catalog</h3><div class="seealso">${seeAlso.map(([t, h]) => `<a class="btn small quiet" href="${h}">${esc(t)}</a>`).join("")}</div>` : ""}`;
 }
+
+// ---------- Sources ----------
+function sourcesSection(e, det) {
+  const L = e.links || {};
+  const ids = [L.doi && `<span class="ids">DOI ${esc(L.doi)}</span>`, L.arxiv && `<span class="ids">arXiv ${esc(L.arxiv)}</span>`, L.pmcid && `<span class="ids">${esc(L.pmcid)}</span>`].filter(Boolean).join("");
+  const paper = L.paper || (L.doi && `https://doi.org/${L.doi}`) || (L.arxiv && `https://arxiv.org/abs/${L.arxiv}`) || (L.pmcid && `https://pmc.ncbi.nlm.nih.gov/articles/${L.pmcid}/`);
+  const seen = new Set([paper, ...(L.huggingface || []).map(hfUrl), L.dataset, L.code, L.website].filter(Boolean));
+  const termSources = (det.sources || []).filter((u) => !seen.has(u));
+  const cardSources = ((det.card || {}).sources || []).filter((u) => !seen.has(u) && !termSources.includes(u));
+  const rows = [
+    ["Paper", paper ? link(paper) + ids : ""],
+    ["Dataset card", [...(L.huggingface || []).map((h) => link(hfUrl(h))), L.dataset && link(L.dataset)].filter(Boolean).join("<br>")],
+    ["Code", L.code ? link(L.code) : ""],
+    ["Website", L.website ? link(L.website) : ""],
+    ["Also read", [...termSources, ...cardSources].map((u) => link(u)).join("<br>")],
+    ["Catalog files", `${link(`${REPO}/blob/main/entries/${e.id}.yaml`, `entries/${e.id}.yaml`)}${det.terms.length ? `, ${link(`${REPO}/blob/main/terms/${e.id}.yaml`, `terms/${e.id}.yaml`)}` : ""}`],
+    ["Something wrong?", `<a href="${REPO}/issues/new?title=${encodeURIComponent(`Correction: ${e.name}`)}&body=${encodeURIComponent(`Entry: entries/${e.id}.yaml\n\nWhat's wrong:\n`)}">Report a mistake</a>`],
+  ];
+  return `<p>Facts on this page come from these documents${e.extracted ? `, read on ${esc(e.extracted)}` : ""}${e.read_full_text ? "" : " (abstract and dataset page only)"}. Language models did the reading, so check the source before you cite a detail.</p>
+    ${facts(rows, "src")}
+    ${det.notes ? `<details class="notes"><summary><i class="ph ph-caret-down" aria-hidden="true"></i>Notes from extraction</summary><p>${esc(det.notes)}</p></details>` : ""}`;
+}
+
+// ---------- Page ----------
+function sectionsFor(e, det) {
+  const c = det.card || {};
+  const s = e.signals || {};
+  const sig = [s.citations != null && s.citations > 0 && `${fmt(s.citations)} citations${s.citations_source ? ` (${esc(s.citations_source)})` : ""}`,
+    s.hf_downloads && `${fmt(s.hf_downloads)} Hugging Face downloads`, s.github_stars && `${fmt(s.github_stars)} GitHub stars`].filter(Boolean);
+  const madeBy = list("provenance", e.provenance);
+  return [
+    { id: "purpose", title: "What it tests", body: facts([
+      ["Task", said(c.task)],
+      ["Who it's for", list("users", e.users)],
+      ["Health areas", list("health_areas", e.health_areas)],
+      ["Main focus", `<a href="${catalogHref({ section: e.section }, { from: "entry", back: `#/e/${e.id}` })}">${esc(lab("section", e.section))}</a>`],
+      ["Format", e.modality.includes("voice") ? list("modality", e.modality) : ""],
+      ["Limits the authors state", c.limitations ? esc(c.limitations) : ""],
+    ]) },
+    { id: "contents", title: "What's in it", body: facts([
+      ["Size", e.size ? esc(e.size) : NS],
+      ["How the items were made", c.items_built ? esc(c.items_built) : (madeBy || NS), c.items_built ? madeBy : ""],
+      ["Example item", c.example ? `<q class="ex">${esc(c.example)}</q>` : ""],
+      ["Languages", esc(join(e.languages.map(languageName)))],
+      ["Where the questions come from", esc(whereFrom(e)), esc(incomeRegion(e))],
+      [help("localization", "Localization"), esc(lab("localization", e.localization))],
+    ]) + (e.origin_note ? `<p class="note">${esc(e.origin_note)}</p>` : "")
+      + (e.subsets.length ? `<h3>Subsets</h3><table class="subsets"><thead><tr><th>Subset</th><th>Languages</th><th>Countries</th><th>Localization</th></tr></thead><tbody>${e.subsets.map((x) => `<tr><td>${esc(x.name)}</td><td>${esc(join((x.languages || []).map(languageName)))}</td><td>${esc(join(names(x.countries || [])))}</td><td>${esc(x.localization ? lab("localization", x.localization) : "")}</td></tr>`).join("")}</tbody></table>` : "") },
+    { id: "judged", title: "How answers are scored", body: `<div id="judged-body">${judgedSection(e, det)}</div>` },
+    { id: "access", title: "Access and license", body: facts([
+      [help("data-access", "Data access"), esc(lab("open_data", e.open_data))],
+      ["License", e.license ? esc(e.license) : NS],
+      ["Hugging Face dataset", (e.links.huggingface || []).map((h) => link(hfUrl(h), h)).join(", ")],
+      ["Dataset", e.links.dataset ? link(e.links.dataset) : ""],
+      ["Code", e.links.code ? link(e.links.code) : ""],
+    ]) },
+    { id: "built", title: "Who built it", body: facts([
+      ["Built by", list("builders", e.builders)],
+      ["Lead institutions in", e.lead_countries.length ? esc(join(names(e.lead_countries))) : ""],
+      ["Published as", esc(lab("venue", e.venue))],
+      ["Year", String(e.year)],
+      [help("signals", "Uptake"), sig.length ? `${sig.join("; ")}${s.updated ? `<span class="ids">as of ${esc(s.updated)}</span>` : ""}` : ""],
+    ]) },
+    { id: "related", title: "Related entries", body: relatedSection(e) },
+    { id: "sources", title: "Sources", body: sourcesSection(e, det) },
+  ];
+}
+
+let live = 0; // which mount is current, so a late details.json never redraws an older page
 
 export async function mount({ app, arg }) {
+  const me = ++live;
   const e = D.byId.get(arg);
   if (!e) {
     setTitle("Not found");
-    app.innerHTML = `<div class="page-head"><h1>No entry called "${esc(arg)}"</h1><p class="lede">It may have been merged or renamed. <a href="#/catalog">Search the catalog</a>.</p></div>`;
+    app.innerHTML = `<div class="wrap"><div class="page-head"><h1>No entry called "${esc(arg)}"</h1><p class="lede">It may have been merged or renamed. <a href="#/catalog">Search the catalog</a>.</p></div></div>`;
     return;
   }
   setTitle(e.name);
   let back = "#/catalog";
   try { back = sessionStorage.getItem("lastCatalog") || back; } catch (err) { /* default */ }
-  const s = e.signals || {};
-  const lic = e.license ? ` <span class="muted">License: ${esc(e.license)}</span>` : "";
 
-  app.innerHTML = `
-    <nav class="crumbs" aria-label="Breadcrumb"><a href="${esc(back)}"><i class="ph ph-arrow-left"></i> Catalog</a></nav>
-    <div class="page-head">
-      <h1>${esc(e.name)}</h1>
-      <div class="entry-head"><span class="tag">${lab("kind", e.kind)}</span>${originTag(e)}${e.featured ? `<span class="tag featured"><i class="ph ph-star"></i>Featured</span>` : ""}<span class="year">${e.year}</span></div>
-      <p class="lede">${esc(e.summary)}</p>
-      <div class="actions">${links(e).map(([t, u, i]) => `<a class="btn small" href="${esc(u)}" target="_blank" rel="noopener"><i class="ph ${i}"></i>${esc(t)}<i class="ph ph-arrow-up-right"></i></a>`).join("")}
-        ${compareBtn(e.id)}</div>
-    </div>
+  const titleBlock = `<h1>${esc(e.name)}</h1>
+    <p class="meta">${tag(lab("kind", e.kind))}<span class="num">${e.year}</span>${originTag(e)}${e.featured ? `<span class="tag featured" data-help="featured" tabindex="0">Featured</span>` : ""}</p>
+    <p class="lede">${esc(e.summary)}</p>
+    <p class="links">${linkRow(e)}${compareBtn(e.id, "btn small")}</p>`;
 
-    <div class="factgrid">
-      <section class="facts"><h2>Questions</h2><dl>
-        ${fact("Languages", esc(e.languages.map(languageName).join(", ")), "language")}
-        ${fact("Where they come from", whereFrom(e), "country")}
-        ${fact("Origin", originTag(e), "origin")}
-        ${fact("Income group", esc(e.income.map((g) => lab("income", g)).join(", ")), "income-group")}
-        ${fact("Region", esc(e.regions.map((r) => lab("regions", r)).join(", ")), "region")}
-        ${fact("How they were made", list("provenance", e.provenance), "provenance")}
-        ${fact("Made for this setting?", esc(lab("localization", e.localization)), "localization")}
-      </dl></section>
-      <section class="facts"><h2>What it tests</h2><dl>
-        ${fact("How it's scored", list("methods", e.methods), "methods")}
-        ${fact("Who it's for", list("users", e.users), "users")}
-        ${fact("Health areas", list("health_areas", e.health_areas), "health-area")}
-        ${fact("Main focus", esc(lab("section", e.section)), "main-focus")}
-        ${fact("Size", esc(e.size))}
-        ${fact("Format", list("modality", e.modality))}
-      </dl></section>
-      <section class="facts"><h2>Source and access</h2><dl>
-        ${fact("Data access", esc(lab("open_data", e.open_data)) + lic, "data-access")}
-        ${fact("Who built it", list("builders", e.builders), "builders")}
-        ${fact("Lead institutions in", esc(names(e.lead_countries)))}
-        ${fact("Raters based in", esc(names(e.rater_countries)))}
-        ${fact("Published as", esc(lab("venue", e.venue)), "venue")}
-        ${fact("Citations, downloads and stars", signalText(e) ? `${esc(signalText(e))}${s.updated ? `<span class="muted">As of ${esc(s.updated)}</span>` : ""}` : "", "signals")}
-      </dl></section>
-    </div>
-    ${familyBlock(e)}
-
-    ${e.subsets.length ? `<h2>Subsets</h2><div class="table-wrap"><table><thead><tr><th>Subset</th><th>Languages</th><th>Countries</th><th>Made for this setting?</th></tr></thead><tbody>
-      ${e.subsets.map((x) => `<tr><td>${esc(x.name)}</td><td>${esc((x.languages || []).map(languageName).join(", "))}</td><td>${esc(names(x.countries || []))}</td><td>${esc(x.localization ? lab("localization", x.localization) : "")}</td></tr>`).join("")}</tbody></table></div>` : ""}
-
-    <h2 id="judged">What it judges</h2>
-    <div id="judged-body"><div class="skeleton"><div style="width:60%"></div><div style="width:80%"></div><div style="width:50%"></div></div></div>
-
-    <h2>How sure we are${info("confidence")}</h2>
-    <div class="note" id="extraction">
-      <p style="margin:0 0 6px"><b>${esc(lab("confidence", e.confidence))} confidence.</b> ${e.read_full_text ? "An agent read the full text." : "The full text wasn't read; facts come from the abstract or dataset page."}</p>
-      <p style="margin:0" id="notes"></p>
-    </div>
-    <p class="muted" style="margin-top:12px;font-size:14px">Source file: <a class="mono" href="${REPO}/blob/main/entries/${e.id}.yaml">entries/${e.id}.yaml</a>.
-      <a href="${REPO}/issues/new?title=${encodeURIComponent(`Correction: ${e.name}`)}&body=${encodeURIComponent(`Entry: entries/${e.id}.yaml\n\nWhat's wrong:\n`)}">Report a mistake</a></p>`;
-
+  const draw = (det) => {
+    app.innerHTML = `<div class="wrap">${docPage({
+      crumbs: [{ href: back, text: "Catalog" }, { href: catalogHref({ section: e.section }), text: lab("section", e.section) }, e.name],
+      titleBlock, details: "", sections: sectionsFor(e, det),
+    })}</div>`;
+    bindToc(app);
+  };
+  // Draw once with what entries.json has, then again when the details (terms and card) arrive.
+  draw({ terms: [], notes: "", sources: [], terms_extracted: "", card: {} });
   try {
     const d = await loadDetails();
-    if (!$("#judged-body")) return; // navigated away
-    const det = d[e.id] || { terms: [], notes: "" };
-    $("#judged-body").innerHTML = judged(e, det.terms);
-    if (det.notes) $("#notes").innerHTML = `<span class="muted">Notes from the extraction:</span> ${esc(det.notes)}`;
+    if (live !== me) return; // navigated away
+    draw(d[e.id] || { terms: [], notes: "", sources: [], terms_extracted: "", card: {} });
   } catch (err) {
-    $("#judged-body").innerHTML = `<p class="muted">The scoring terms couldn't load. Reload the page to try again.</p>`;
+    if (live === me && $("#judged-body")) $("#judged-body").insertAdjacentHTML("beforeend", `<p class="muted">The scoring terms couldn't load. Reload the page to try again.</p>`);
   }
 }
+
+export { domainsText };

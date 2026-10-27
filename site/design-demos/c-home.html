@@ -1,0 +1,370 @@
+<!doctype html>
+<!--
+  Direction C: "Evidence first". Design as the best-suited studio would, from first principles.
+
+  Designer chosen: the Our World in Data design team (the group behind Max Roser and Hannah Ritchie's
+  data publication). Their philosophy: the chart is the argument and the prose explains it, so every
+  data mark carries its title, its source and a download link, and the reader can check the work.
+  Colour is spent only on data and on the few things you can click; everything else is ink on paper,
+  set in a serif-and-sans pairing that reads like a well-edited reference rather than a product.
+  It fits this catalog because the site exists to make one evidence-based point (how much health-AI
+  evaluation evidence comes from low- and middle-income countries) to the same readers they serve:
+  researchers, implementers and funders who want numbers they can trust, on a laptop at work or a
+  phone in the field.
+
+  Design read: Reading this as: a public reference catalog for health researchers and implementers,
+  with Our World in Data's evidence-first, plain-spoken language, built with native CSS.
+  Dials: layout variance low (one grid, one rail), motion low (hover only, reduced-motion respected),
+  density medium-high (a reference work, with air between facts).
+
+  Fonts: Source Serif 4 (headings, ledes, large numbers) and Source Sans 3 (body and interface),
+  both open source, loaded from Google Fonts for the mockup.
+  Accent: #1F5A86 (deep blue) for links, buttons and selected states; hover #17466A.
+  Map scale, one hue, six steps: none #EBE9E3, 1 #D2E2EE, 2 to 5 #A4C5DC, 6 to 15 #6C9CC0,
+  16 to 50 #3A6F9F, 51 or more #1D4A73. Greys carry "not from an LMIC" in the origin bar.
+  Radius system: one value, 3px, on every control, chip and panel; maps and tables stay square.
+  Shadows: none; hairlines do the separating.
+
+  Why this direction fits a public health-evaluation catalog: the readers are deciding what to test and
+  what to fund, so the page should behave like evidence, not like marketing. Putting the real map and the
+  real origin split in the first screen, each with its source line, says what the catalog is for before a
+  single sentence of explanation, and the restraint everywhere else keeps the data honest and legible.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>awesome health ai evals</title>
+<meta name="description" content="A public catalog of 994 benchmarks and evaluation frameworks for health chatbots, sorted by where their questions come from and what they judge.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css">
+<style>
+:root{
+  --bg:#fcfbf8;
+  --surface:#ffffff;
+  --ink:#1c1b19;
+  --ink-2:#4a4844;
+  --muted:#6b6862;
+  --line:#e2dfd8;
+  --line-strong:#c9c5bc;
+  --accent:#1f5a86;
+  --accent-ink:#17466a;
+  --accent-soft:#e6eef5;
+  --m0:#ebe9e3; --m1:#d2e2ee; --m2:#a4c5dc; --m3:#6c9cc0; --m4:#3a6f9f; --m5:#1d4a73;
+  --g1:#9a978f; --g2:#c9c5bc; --g3:#ebe9e3;
+  --radius:3px;
+  --sans:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  --serif:"Source Serif 4",Georgia,"Times New Roman",serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#151617; --surface:#1d1f21; --ink:#ebe9e4; --ink-2:#c9c6bf; --muted:#a39f97;
+    --line:#2e3135; --line-strong:#454950; --accent:#8bbbe3; --accent-ink:#a9cdeb; --accent-soft:#1f2c38;
+    --m0:#26292d; --m1:#2b3f52; --m2:#355a78; --m3:#44789f; --m4:#6a9fc9; --m5:#9cc5e8;
+    --g1:#6f6c66; --g2:#4a4d52; --g3:#2a2d31;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#151617; --surface:#1d1f21; --ink:#ebe9e4; --ink-2:#c9c6bf; --muted:#a39f97;
+  --line:#2e3135; --line-strong:#454950; --accent:#8bbbe3; --accent-ink:#a9cdeb; --accent-soft:#1f2c38;
+  --m0:#26292d; --m1:#2b3f52; --m2:#355a78; --m3:#44789f; --m4:#6a9fc9; --m5:#9cc5e8;
+  --g1:#6f6c66; --g2:#4a4d52; --g3:#2a2d31;
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.5}
+a{color:var(--accent);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px;transition:color .15s}
+a:hover{color:var(--accent-ink)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:500;line-height:1.15;margin:0;letter-spacing:-.005em}
+p{margin:0}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+@media (max-width:640px){.wrap{padding:0 16px}}
+@media (prefers-reduced-motion: reduce){*{transition:none !important}}
+
+/* Header */
+.site{border-bottom:1px solid var(--line)}
+.site .wrap{display:flex;align-items:center;gap:28px;min-height:60px}
+.brand{display:inline-flex;align-items:center;gap:10px;font-family:var(--serif);font-size:19px;color:var(--ink);text-decoration:none;white-space:nowrap}
+.brand:hover{color:var(--ink)}
+.mark{width:14px;height:14px;border:2px solid var(--accent);border-radius:50%;position:relative;flex:none}
+.mark::after{content:"";position:absolute;inset:2px;background:var(--accent);border-radius:50%}
+.nav{display:flex;gap:2px;margin-left:auto}
+.nav a{color:var(--ink-2);text-decoration:none;padding:6px 10px;border-radius:var(--radius);font-size:16px;transition:background-color .15s,color .15s}
+.nav a:hover{color:var(--ink);background:var(--accent-soft)}
+.nav a[aria-current="page"]{color:var(--ink);box-shadow:inset 0 -2px 0 var(--accent);border-radius:0}
+.tools{display:flex;gap:2px;align-items:center}
+.icon-btn{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border:0;background:none;color:var(--ink-2);border-radius:var(--radius);cursor:pointer;font-size:20px;text-decoration:none;transition:background-color .15s,color .15s}
+.icon-btn:hover{background:var(--accent-soft);color:var(--ink)}
+.menu-btn{display:none}
+.ic-sun{display:none}
+:root[data-theme="dark"] .ic-sun{display:inline}
+:root[data-theme="dark"] .ic-moon{display:none}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .ic-sun{display:inline}
+  :root:not([data-theme="light"]) .ic-moon{display:none}
+}
+@media (max-width:900px){
+  .site .wrap{flex-wrap:wrap;gap:12px}
+  .tools{margin-left:auto}
+  .menu-btn{display:inline-flex}
+  .nav{display:none;order:3;width:100%;flex-direction:column;gap:0;border-top:1px solid var(--line);padding:6px 0 10px;margin:0}
+  .nav.open{display:flex}
+  .nav a{padding:9px 6px;font-size:17px}
+}
+
+/* Buttons and tags */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border:1px solid var(--accent);border-radius:var(--radius);font:inherit;font-weight:500;font-size:16px;line-height:1.2;color:var(--accent);background:transparent;text-decoration:none;cursor:pointer;transition:background-color .15s,color .15s}
+.btn:hover{background:var(--accent-soft);color:var(--accent-ink)}
+.btn.primary{background:var(--accent);color:#fff}
+.btn.primary:hover{background:var(--accent-ink);color:#fff}
+:root[data-theme="dark"] .btn.primary,:root[data-theme="dark"] .btn.primary:hover{color:#0f1a24}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .btn.primary,:root:not([data-theme="light"]) .btn.primary:hover{color:#0f1a24}}
+
+/* Hero */
+.hero{padding:44px 0 36px}
+.hero .wrap{display:grid;grid-template-columns:minmax(260px,340px) minmax(0,1fr);gap:28px 56px;align-items:start}
+.hero h1{font-size:clamp(30px,3.1vw,42px);line-height:1.12}
+.sub{font-size:19px;color:var(--ink-2);margin:18px 0 26px;line-height:1.45;max-width:34ch}
+.actions{display:flex;flex-wrap:wrap;gap:10px}
+.hero-note{margin-top:28px;font-size:14.5px;color:var(--muted);line-height:1.45;max-width:36ch}
+figure.chart{margin:0;min-width:0}
+.chart-title{font-family:var(--serif);font-size:19px;font-weight:500;line-height:1.3}
+.chart-title small{display:block;font-family:var(--sans);font-size:14.5px;color:var(--muted);font-weight:400;margin-top:2px}
+#map{margin:10px 0 8px;min-height:120px}
+#map svg{width:100%;height:auto;display:block}
+.country{fill:var(--m0);stroke:var(--bg);stroke-width:.5;transition:fill .15s}
+.country.b1{fill:var(--m1)}
+.country.b2{fill:var(--m2)}
+.country.b3{fill:var(--m3)}
+.country.b4{fill:var(--m4)}
+.country.b5{fill:var(--m5)}
+.country:hover{stroke:var(--ink);stroke-width:.9}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13.5px;color:var(--ink-2);margin:0;padding:0;list-style:none}
+.legend li::before{content:"";display:inline-block;width:14px;height:14px;vertical-align:-2px;margin-right:6px;background:var(--sw);border:1px solid rgba(0,0,0,.08)}
+.chart-note{font-size:13.5px;color:var(--muted);margin:10px 0 0;line-height:1.45}
+@media (max-width:900px){
+  .hero{padding:32px 0 28px}
+  .hero .wrap{grid-template-columns:1fr}
+  .sub{max-width:none}
+}
+
+/* Numbers */
+.numbers{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:28px 0}
+.numbers .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.stat strong{display:block;font-family:var(--serif);font-size:40px;font-weight:500;line-height:1;font-variant-numeric:tabular-nums}
+.stat span{display:block;font-size:15px;color:var(--ink-2);margin-top:8px;line-height:1.35;max-width:24ch}
+@media (max-width:700px){.numbers .wrap{grid-template-columns:1fr 1fr;gap:20px 16px}.stat strong{font-size:34px}}
+
+/* Origin bar */
+.origin{padding:40px 0 0}
+.origin .chart-title{max-width:60ch}
+.bar{display:flex;height:22px;border-radius:var(--radius);overflow:hidden;margin:14px 0 12px}
+.bar span{display:block;height:100%}
+.bar .s-lmic{background:var(--m5)}
+.bar .s-adapted{background:var(--m4)}
+.bar .s-translated{background:var(--m3)}
+.bar .s-high{background:var(--g1)}
+.bar .s-global{background:var(--g2)}
+.bar .s-unstated{background:repeating-linear-gradient(135deg,var(--g3) 0 4px,var(--g2) 4px 5px)}
+.bar-legend{display:flex;flex-wrap:wrap;gap:6px 20px;font-size:14.5px;color:var(--ink-2);list-style:none;margin:0;padding:0}
+.bar-legend li::before{content:"";display:inline-block;width:12px;height:12px;vertical-align:-1px;margin-right:6px;background:var(--sw);border:1px solid rgba(0,0,0,.08)}
+.bar-legend b{font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums}
+
+/* Ways in */
+.ways{padding:52px 0 0}
+.ways h2{font-size:25px;margin-bottom:22px}
+.ways .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.way{border-top:1px solid var(--line-strong);padding-top:14px}
+.way h3{font-size:21px}
+.way h3 a{color:var(--ink);text-decoration:none}
+.way h3 a:hover{color:var(--accent)}
+.way p{margin:8px 0 0;color:var(--ink-2);font-size:16px;line-height:1.45}
+.way .go{display:inline-block;margin-top:12px;font-size:15px}
+@media (max-width:700px){.ways .grid{grid-template-columns:1fr;gap:22px}}
+
+/* Footer */
+.foot{border-top:1px solid var(--line);margin-top:64px;padding:26px 0 44px;font-size:14.5px;color:var(--muted);line-height:1.5}
+.foot .wrap{display:flex;flex-wrap:wrap;gap:8px 32px;justify-content:space-between}
+.foot a{color:var(--ink-2)}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="c-home.html"><span class="mark" aria-hidden="true"></span>awesome health ai evals</a>
+    <nav class="nav" id="nav" aria-label="Site">
+      <a href="c-catalog.html">Catalog</a>
+      <a href="#map">Map</a>
+      <a href="#">Constructs</a>
+      <a href="#">Compare</a>
+      <a href="#">Glossary</a>
+      <a href="#">About</a>
+    </nav>
+    <div class="tools">
+      <a class="icon-btn" href="https://github.com/" aria-label="GitHub repository"><i class="ph ph-github-logo" aria-hidden="true"></i></a>
+      <button class="icon-btn" id="theme" type="button" aria-label="Switch between light and dark"><i class="ph ph-moon ic-moon" aria-hidden="true"></i><i class="ph ph-sun ic-sun" aria-hidden="true"></i></button>
+      <button class="icon-btn menu-btn" id="menu" type="button" aria-expanded="false" aria-controls="nav" aria-label="Menu"><i class="ph ph-list" aria-hidden="true"></i></button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-text">
+        <h1>Benchmarks and evaluation frameworks for health chatbots</h1>
+        <p class="sub">994 entries, sorted by where their questions come from and what they judge.</p>
+        <div class="actions">
+          <a class="btn primary" href="c-catalog.html">Browse the catalog</a>
+          <a class="btn" href="#map">See the map</a>
+        </div>
+        <p class="hero-note" id="hero-note"></p>
+      </div>
+      <figure class="chart" aria-labelledby="map-title">
+        <figcaption class="chart-title" id="map-title">Where the test questions come from <small id="map-sub"></small></figcaption>
+        <div id="map"></div>
+        <ul class="legend" aria-label="Entries per country">
+          <li style="--sw:var(--m0)">None</li>
+          <li style="--sw:var(--m1)">1</li>
+          <li style="--sw:var(--m2)">2 to 5</li>
+          <li style="--sw:var(--m3)">6 to 15</li>
+          <li style="--sw:var(--m4)">16 to 50</li>
+          <li style="--sw:var(--m5)">51 or more</li>
+        </ul>
+        <p class="chart-note" id="map-note"></p>
+      </figure>
+    </div>
+  </section>
+
+  <section class="numbers" aria-label="Catalog in numbers">
+    <div class="wrap" id="numbers"></div>
+  </section>
+
+  <section class="origin">
+    <div class="wrap">
+      <figure class="chart" aria-labelledby="origin-title">
+        <figcaption class="chart-title" id="origin-title">How the entries split by where their questions come from <small>All 994 entries, one segment per origin</small></figcaption>
+        <div class="bar" id="bar" role="img" aria-describedby="bar-legend"></div>
+        <ul class="bar-legend" id="bar-legend"></ul>
+      </figure>
+    </div>
+  </section>
+
+  <section class="ways">
+    <div class="wrap">
+      <h2>Three ways in</h2>
+      <div class="grid">
+        <div class="way">
+          <h3><a href="c-catalog.html">Catalog</a></h3>
+          <p>Filter by what it tests, where the questions come from, and how answers are scored.</p>
+          <a class="go" href="c-catalog.html">Open the catalog</a>
+        </div>
+        <div class="way">
+          <h3><a href="#map">Map</a></h3>
+          <p>Which countries the questions come from.</p>
+          <a class="go" href="#map">Open the map</a>
+        </div>
+        <div class="way">
+          <h3><a href="#">Constructs</a></h3>
+          <p>The 76 qualities evaluations judge, and how each source defines them.</p>
+          <a class="go" href="#">Open the constructs</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p>An exploratory catalog, built with LLM help and checked by one person. If something is wrong, <a href="https://github.com/">report it on GitHub</a>.</p>
+    <p><a href="#">Download the data</a></p>
+    <p>Code MIT, content CC BY 4.0</p>
+  </div>
+</footer>
+
+<script src="data.js"></script>
+<script>
+(function(){
+  const D = window.DEMO, C = D.counts, L = D.labels;
+  const fmt = n => n.toLocaleString("en-US");
+
+  // Hero note and map subtitle, from counts only.
+  document.getElementById("map-sub").textContent = `Entries per country, ${C.countries} countries named`;
+  const unstated = D.facets.origin.find(o => o.value === "unstated");
+  const global = D.facets.origin.find(o => o.value === "global");
+  document.getElementById("map-note").textContent =
+    `Each entry is counted once for every country it names as the source of its questions. ` +
+    `${fmt(unstated.n)} entries do not say where their questions come from and ${fmt(global.n)} name no specific country; neither appears on the map. ` +
+    `Source: this catalog, built ${D.built}.`;
+  document.getElementById("hero-note").textContent =
+    `${fmt(C.lmic)} of the ${fmt(C.entries)} entries have questions written in a low- or middle-income country. ` +
+    `${fmt(C.lowIncome)} come from a low-income country.`;
+
+  // Numbers row.
+  const stats = [
+    [C.entries, "entries"],
+    [C.lmic, "entries with questions written in low- and middle-income countries"],
+    [C.countries, "countries the questions come from"],
+    [C.languages, "languages"],
+  ];
+  document.getElementById("numbers").innerHTML = stats.map(([n, label]) =>
+    `<div class="stat"><strong>${fmt(n)}</strong><span>${label}</span></div>`).join("");
+
+  // Origin bar: LMIC-related origins in the map's blues, everything else in grey.
+  const order = ["lmic", "adapted", "translated", "high", "global", "unstated"];
+  const sw = { lmic:"var(--m5)", adapted:"var(--m4)", translated:"var(--m3)", high:"var(--g1)", global:"var(--g2)", unstated:"var(--g2)" };
+  const byVal = Object.fromEntries(D.facets.origin.map(o => [o.value, o]));
+  const total = D.facets.origin.reduce((s, o) => s + o.n, 0);
+  document.getElementById("bar").innerHTML = order.map(v => {
+    const o = byVal[v]; const pct = (100 * o.n / total);
+    return `<span class="s-${v}" style="width:${pct.toFixed(2)}%" title="${o.label}: ${fmt(o.n)} entries"></span>`;
+  }).join("");
+  document.getElementById("bar-legend").innerHTML = order.map(v => {
+    const o = byVal[v]; const pct = Math.round(100 * o.n / total);
+    return `<li style="--sw:${sw[v]}">${o.label} <b>${fmt(o.n)}</b> (${pct}%)</li>`;
+  }).join("");
+
+  // Theme and menu.
+  const root = document.documentElement;
+  document.getElementById("theme").addEventListener("click", () => {
+    const dark = root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+    root.dataset.theme = dark ? "light" : "dark";
+  });
+  const menu = document.getElementById("menu"), nav = document.getElementById("nav");
+  menu.addEventListener("click", () => {
+    const open = nav.classList.toggle("open");
+    menu.setAttribute("aria-expanded", String(open));
+  });
+})();
+</script>
+<script type="module">
+  const [d3, topojson, world] = await Promise.all([
+    import("https://cdn.jsdelivr.net/npm/d3-geo@3.1.1/+esm"),
+    import("https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/+esm"),
+    fetch("https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-110m.json").then(r => r.json()),
+  ]);
+  const features = topojson.feature(world, world.objects.countries).features.filter(f => f.id !== "010");
+  const byNumeric = {};
+  for (const [iso3, c] of Object.entries(DEMO.countries)) if (c.numeric) byNumeric[String(Number(c.numeric))] = iso3;
+  const w = 960, h = 460;
+  const proj = d3.geoEqualEarth().fitSize([w, h], { type: "FeatureCollection", features });
+  const path = d3.geoPath(proj);
+  const n = f => { const iso = byNumeric[String(Number(f.id))]; return iso ? DEMO.countries[iso].n : 0; };
+  const name = f => { const iso = byNumeric[String(Number(f.id))]; return iso ? DEMO.countries[iso].name : (f.properties && f.properties.name) || ""; };
+  const bucket = v => v === 0 ? 0 : v === 1 ? 1 : v <= 5 ? 2 : v <= 15 ? 3 : v <= 50 ? 4 : 5;
+  const esc = s => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;");
+  document.getElementById("map").innerHTML = `<svg viewBox="0 0 ${w} ${h}" role="img" aria-label="World map shaded by the number of catalog entries whose questions come from each country">${features.map(f => {
+    const v = n(f);
+    return `<path d="${path(f)}" data-n="${v}" class="country b${bucket(v)}"><title>${esc(name(f))}: ${v} ${v === 1 ? "entry" : "entries"}</title></path>`;
+  }).join("")}</svg>`;
+</script>
+</body>
+</html>

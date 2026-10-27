@@ -1,42 +1,48 @@
-// Glossary: every label and technical term on the site. Each (i) button links here.
+// Glossary: the technical terms of health AI evaluation, A to Z, with search.
 
 import { D } from "../data.js";
+import { pageHead } from "../ui.js";
 import { $, $$, esc, setTitle } from "../util.js";
 
 function focusTerm(id) {
   const el = id && $(`#g-${CSS.escape(id)}`);
   if (!el) return;
   el.scrollIntoView({ block: "center" });
-  el.classList.remove("hl");
-  void el.offsetWidth;
   el.classList.add("hl");
+  setTimeout(() => el.classList.remove("hl"), 2400);
 }
 
 export function mount({ app, arg }) {
-  setTitle(arg ? (D.meta.glossary.terms.find((t) => t.id === arg) || {}).term : "", "Glossary");
   const G = D.meta.glossary;
   const byId = new Map(G.terms.map((t) => [t.id, t]));
-  app.innerHTML = `
-    <div class="page-head"><h1>Glossary</h1>
-      <p class="lede">What the labels and technical terms on this site mean. Where a label simplifies something, the longer note says how.</p></div>
-    <div class="search-wrap" style="max-width:420px;margin-top:12px"><i class="ph ph-magnifying-glass" aria-hidden="true"></i>
-      <input class="search" id="gq" type="search" placeholder="Find a term" aria-label="Find a term"></div>
-    <nav class="jump" aria-label="Sections">${G.groups.map((g) => `<a class="chip" href="#g-group-${g.id}" data-jump="${g.id}">${esc(g.name)}</a>`).join("")}</nav>
-    ${G.groups.map((g) => `<section class="gloss-group" id="g-group-${g.id}"><h2>${esc(g.name)}</h2><dl class="gloss">
-      ${G.terms.filter((t) => t.group === g.id).map((t) => `<div class="gterm" id="g-${t.id}" data-text="${esc(`${t.term} ${t.short} ${t.long || ""}`.toLowerCase())}">
-        <dt>${esc(t.term)}</dt><dd><p>${esc(t.short)}</p>${t.long ? `<p>${esc(t.long)}</p>` : ""}
-        ${(t.see_also || []).length ? `<div class="see">See also: ${t.see_also.filter((s) => byId.has(s)).map((s) => `<a href="#/glossary/${s}">${esc(byId.get(s).term)}</a>`).join(", ")}</div>` : ""}</dd></div>`).join("")}
-      </dl></section>`).join("")}
-    <p class="muted" style="margin-top:28px;font-size:14px">The constructs have their own page: <a href="#/constructs">all ${D.meta.counts.constructs} constructs with definitions</a>.</p>`;
+  setTitle(arg && byId.has(arg) ? byId.get(arg).term : "", "Glossary");
+  const sorted = [...G.terms].sort((a, b) => a.term.localeCompare(b.term));
+  const firstOf = new Map();
+  sorted.forEach((t) => { const l = t.term.charAt(0).toUpperCase(); if (!firstOf.has(l)) firstOf.set(l, t.id); });
+
+  const termHtml = (t) => `<div class="gterm" id="g-${t.id}" data-text="${esc(`${t.term} ${t.short} ${t.long || ""}`.toLowerCase())}">
+    <dt>${esc(t.term)}</dt>
+    <dd><p class="short">${esc(t.short)}</p>${t.long ? `<p class="long">${esc(t.long)}</p>` : ""}
+      <div class="gmeta">${t.catalog ? `<span><a href="${esc(t.catalog.href)}">${esc(t.catalog.label)}</a></span>` : ""}
+        ${t.source ? `<span>Source: <a href="${esc(t.source.url)}">${esc(t.source.title)}</a></span>` : ""}
+        ${(t.see_also || []).filter((s) => byId.has(s)).length ? `<span>See also: ${t.see_also.filter((s) => byId.has(s)).map((s) => `<a href="#/glossary/${s}">${esc(byId.get(s).term)}</a>`).join(", ")}</span>` : ""}</div></dd></div>`;
+
+  app.innerHTML = `<div class="wrap">
+    ${pageHead({ title: "Glossary", lede: `${G.terms.length} terms used in evaluating health chatbots and language models.` })}
+    <div class="gloss-head">
+      <label class="search"><span class="vh">Find a term</span><span class="field"><i class="ph ph-magnifying-glass" aria-hidden="true"></i><input type="search" id="gq" placeholder="Find a term" autocomplete="off"></span></label>
+      <nav class="az" aria-label="A to Z">${"ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("").map((l) => (firstOf.has(l) ? `<a href="#/glossary/${firstOf.get(l)}">${l}</a>` : `<span>${l}</span>`)).join("")}</nav>
+    </div>
+    <dl class="gloss">${sorted.map(termHtml).join("")}</dl>
+    <p class="muted small" id="gnone" hidden>No term matches.</p></div>`;
 
   $("#gq").addEventListener("input", (ev) => {
     const q = ev.target.value.trim().toLowerCase();
-    $$(".gterm", app).forEach((el) => (el.hidden = q && !el.dataset.text.includes(q)));
-    $$(".gloss-group", app).forEach((s) => (s.hidden = !$$(".gterm", s).some((el) => !el.hidden)));
+    let shown = 0;
+    $$(".gterm", app).forEach((el) => { el.hidden = q && !el.dataset.text.includes(q); if (!el.hidden) shown += 1; });
+    $("#gnone").hidden = shown > 0;
   });
-  app.querySelectorAll("[data-jump]").forEach((a) => a.addEventListener("click", (ev) => {
-    ev.preventDefault();
-    $(`#g-group-${a.dataset.jump}`).scrollIntoView();
-  }));
   focusTerm(arg);
 }
+
+export function update({ arg }) { focusTerm(arg); }

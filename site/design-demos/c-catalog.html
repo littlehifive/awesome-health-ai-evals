@@ -1,0 +1,418 @@
+<!doctype html>
+<!--
+  Direction C: "Evidence first". Design as the best-suited studio would, from first principles.
+
+  Designer chosen: the Our World in Data design team (the group behind Max Roser and Hannah Ritchie's
+  data publication). Their philosophy: the chart is the argument and the prose explains it, so every
+  data mark carries its title, its source and a download link, and the reader can check the work.
+  Colour is spent only on data and on the few things you can click; everything else is ink on paper,
+  set in a serif-and-sans pairing that reads like a well-edited reference rather than a product.
+  It fits this catalog because the site exists to make one evidence-based point (how much health-AI
+  evaluation evidence comes from low- and middle-income countries) to the same readers they serve:
+  researchers, implementers and funders who want numbers they can trust, on a laptop at work or a
+  phone in the field.
+
+  Design read: Reading this as: a public reference catalog for health researchers and implementers,
+  with Our World in Data's evidence-first, plain-spoken language, built with native CSS.
+  Dials: layout variance low (one grid, one rail), motion low (hover only, reduced-motion respected),
+  density medium-high (a reference work, with air between facts).
+
+  Fonts: Source Serif 4 (headings, entry names, the result count) and Source Sans 3 (body and interface),
+  both open source, loaded from Google Fonts for the mockup.
+  Accent: #1F5A86 (deep blue) for links, buttons and selected states; hover #17466A.
+  Radius system: one value, 3px, on every control, chip, card and panel; the list table stays square.
+  Shadows: none; hairlines do the separating.
+
+  Why this direction fits a public health-evaluation catalog: a filter rail is a table of contents for
+  the data, so it is set like one, with plain checkboxes and right-aligned counts and nothing that
+  competes with the results. Cards carry the four facts a reader compares on (what, from where, for whom,
+  scored how) and the list view puts the same facts in columns for scanning the whole set at once.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Catalog, awesome health ai evals</title>
+<meta name="description" content="Benchmarks and evaluation frameworks for health chatbots. Filter by what they test, where their questions come from, and how they score answers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css">
+<style>
+:root{
+  --bg:#fcfbf8;
+  --surface:#ffffff;
+  --ink:#1c1b19;
+  --ink-2:#4a4844;
+  --muted:#6b6862;
+  --line:#e2dfd8;
+  --line-strong:#c9c5bc;
+  --accent:#1f5a86;
+  --accent-ink:#17466a;
+  --accent-soft:#e6eef5;
+  --radius:3px;
+  --sans:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  --serif:"Source Serif 4",Georgia,"Times New Roman",serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#151617; --surface:#1d1f21; --ink:#ebe9e4; --ink-2:#c9c6bf; --muted:#a39f97;
+    --line:#2e3135; --line-strong:#454950; --accent:#8bbbe3; --accent-ink:#a9cdeb; --accent-soft:#1f2c38;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#151617; --surface:#1d1f21; --ink:#ebe9e4; --ink-2:#c9c6bf; --muted:#a39f97;
+  --line:#2e3135; --line-strong:#454950; --accent:#8bbbe3; --accent-ink:#a9cdeb; --accent-soft:#1f2c38;
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.5}
+a{color:var(--accent);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px;transition:color .15s}
+a:hover{color:var(--accent-ink)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:500;line-height:1.15;margin:0;letter-spacing:-.005em}
+p{margin:0}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+@media (max-width:640px){.wrap{padding:0 16px}}
+@media (prefers-reduced-motion: reduce){*{transition:none !important}}
+
+/* Header */
+.site{border-bottom:1px solid var(--line)}
+.site .wrap{display:flex;align-items:center;gap:28px;min-height:60px}
+.brand{display:inline-flex;align-items:center;gap:10px;font-family:var(--serif);font-size:19px;color:var(--ink);text-decoration:none;white-space:nowrap}
+.brand:hover{color:var(--ink)}
+.mark{width:14px;height:14px;border:2px solid var(--accent);border-radius:50%;position:relative;flex:none}
+.mark::after{content:"";position:absolute;inset:2px;background:var(--accent);border-radius:50%}
+.nav{display:flex;gap:2px;margin-left:auto}
+.nav a{color:var(--ink-2);text-decoration:none;padding:6px 10px;border-radius:var(--radius);font-size:16px;transition:background-color .15s,color .15s}
+.nav a:hover{color:var(--ink);background:var(--accent-soft)}
+.nav a[aria-current="page"]{color:var(--ink);box-shadow:inset 0 -2px 0 var(--accent);border-radius:0}
+.tools{display:flex;gap:2px;align-items:center}
+.icon-btn{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border:0;background:none;color:var(--ink-2);border-radius:var(--radius);cursor:pointer;font-size:20px;text-decoration:none;transition:background-color .15s,color .15s}
+.icon-btn:hover{background:var(--accent-soft);color:var(--ink)}
+.menu-btn{display:none}
+.ic-sun{display:none}
+:root[data-theme="dark"] .ic-sun{display:inline}
+:root[data-theme="dark"] .ic-moon{display:none}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .ic-sun{display:inline}
+  :root:not([data-theme="light"]) .ic-moon{display:none}
+}
+@media (max-width:900px){
+  .site .wrap{flex-wrap:wrap;gap:12px}
+  .tools{margin-left:auto}
+  .menu-btn{display:inline-flex}
+  .nav{display:none;order:3;width:100%;flex-direction:column;gap:0;border-top:1px solid var(--line);padding:6px 0 10px;margin:0}
+  .nav.open{display:flex}
+  .nav a{padding:9px 6px;font-size:17px}
+}
+
+/* Buttons and tags */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border:1px solid var(--accent);border-radius:var(--radius);font:inherit;font-weight:500;font-size:16px;line-height:1.2;color:var(--accent);background:transparent;text-decoration:none;cursor:pointer;transition:background-color .15s,color .15s}
+.btn:hover{background:var(--accent-soft);color:var(--accent-ink)}
+.btn.primary{background:var(--accent);color:#fff}
+.btn.primary:hover{background:var(--accent-ink);color:#fff}
+.btn.small{padding:5px 11px;font-size:14.5px}
+.tag{display:inline-block;padding:2px 8px;border:1px solid var(--line-strong);border-radius:var(--radius);font-size:13.5px;line-height:1.4;color:var(--ink-2);white-space:nowrap}
+.tag.accent{border-color:transparent;background:var(--accent-soft);color:var(--accent)}
+
+/* Page */
+.cat{padding:28px 0 0}
+.cat h1{font-size:clamp(32px,3.4vw,42px)}
+.cat .lede{font-family:var(--serif);font-size:19px;line-height:1.45;color:var(--ink-2);max-width:62ch;margin-top:12px}
+.cat-grid{display:grid;grid-template-columns:250px minmax(0,1fr);gap:32px 56px;padding-top:30px}
+.filters-btn{display:none;margin-top:20px}
+
+/* Filter rail */
+.filters{font-size:15px;color:var(--ink)}
+.filters-head{display:none}
+.fgroup{padding:16px 0;border-top:1px solid var(--line)}
+.fgroup:first-of-type{border-top:0;padding-top:0}
+.ftitle{display:inline-block;font-weight:600;font-size:15px;margin:0 0 8px;color:var(--ink)}
+.ftitle[title]{border-bottom:1px dotted var(--line-strong);cursor:help}
+.seg{display:flex;border:1px solid var(--line-strong);border-radius:var(--radius);overflow:hidden}
+.seg label{flex:1;text-align:center;padding:6px 4px;font-size:14px;line-height:1.2;cursor:pointer;position:relative;border-left:1px solid var(--line-strong);transition:background-color .15s,color .15s}
+.seg label:first-child{border-left:0}
+.seg input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.seg label:has(input:checked){background:var(--accent);color:#fff}
+.seg label:has(input:focus-visible){outline:2px solid var(--accent);outline-offset:-2px}
+.seg small{display:block;font-size:12.5px;opacity:.85;margin-top:1px}
+.fl{list-style:none;margin:0;padding:0}
+.fl li{padding:3px 0}
+.fl label{display:flex;align-items:center;gap:9px;cursor:pointer}
+.fl input{margin:0;flex:none;width:15px;height:15px;accent-color:var(--accent)}
+.fl .t{flex:1;min-width:0}
+.fl .n{color:var(--muted);font-variant-numeric:tabular-nums;font-size:14px;flex:none}
+.showall{background:none;border:0;padding:5px 0 0;color:var(--accent);font:inherit;font-size:14.5px;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+details.more{border-top:1px solid var(--line);padding:14px 0 6px}
+details.more>summary{cursor:pointer;font-weight:600;list-style:none;display:flex;align-items:center;justify-content:space-between}
+details.more>summary::-webkit-details-marker{display:none}
+details.more>summary .ph{color:var(--muted);transition:transform .15s}
+details.more[open]>summary .ph{transform:rotate(180deg)}
+.more-list{list-style:none;margin:8px 0 0;padding:0}
+.more-list details{border-bottom:1px solid var(--line)}
+.more-list details:last-child{border-bottom:0}
+.more-list summary{padding:8px 0;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;color:var(--ink-2)}
+.more-list summary::-webkit-details-marker{display:none}
+.more-list summary .ph{color:var(--muted);font-size:14px}
+.more-list .fl{padding:0 0 10px}
+
+/* Results */
+.search{display:block}
+.search span{display:block;font-size:14.5px;font-weight:600;margin-bottom:6px}
+.search input{width:100%;padding:10px 12px 10px 40px;border:1px solid var(--line-strong);border-radius:var(--radius);font:inherit;font-size:16px;background:var(--surface);color:var(--ink)}
+.search .field{position:relative}
+.search .field .ph{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:19px;pointer-events:none}
+.res-head{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;padding:20px 0 14px;border-bottom:1px solid var(--line);margin-bottom:20px;font-size:15px}
+.res-head .count{font-family:var(--serif);font-size:20px;margin-right:2px}
+.chip{display:inline-flex;align-items:center;gap:4px;padding:3px 4px 3px 10px;background:var(--accent-soft);color:var(--accent);border-radius:var(--radius);font-size:14px}
+.chip button{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border:0;background:none;color:inherit;cursor:pointer;border-radius:var(--radius);font-size:14px}
+.chip button:hover{background:rgba(0,0,0,.08)}
+.clear{background:none;border:0;padding:0;color:var(--accent);font:inherit;font-size:14.5px;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+.res-head .right{margin-left:auto;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.sort{display:inline-flex;align-items:center;gap:8px;font-size:14.5px;color:var(--ink-2)}
+select{font:inherit;font-size:14.5px;padding:5px 8px;border:1px solid var(--line-strong);border-radius:var(--radius);background:var(--surface);color:var(--ink)}
+.view{display:inline-flex;border:1px solid var(--line-strong);border-radius:var(--radius);overflow:hidden}
+.view button{display:inline-flex;align-items:center;gap:6px;background:none;border:0;padding:5px 10px;font:inherit;font-size:14px;cursor:pointer;color:var(--ink-2);transition:background-color .15s,color .15s}
+.view button+button{border-left:1px solid var(--line-strong)}
+.view button[aria-pressed="true"]{background:var(--accent);color:#fff}
+.group{display:flex;align-items:center;gap:7px;font-size:14.5px;color:var(--ink-2)}
+.group input{margin:0;width:15px;height:15px;accent-color:var(--accent)}
+
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px 18px 14px;display:flex;flex-direction:column;gap:9px;min-width:0}
+.card .head{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 8px}
+.card h3{font-size:20px;font-weight:500}
+.card h3 a{color:var(--ink);text-decoration:none}
+.card h3 a:hover{color:var(--accent)}
+.card .year{color:var(--muted);font-size:15px}
+.card .tags{display:flex;gap:6px;flex-wrap:wrap}
+.card .sum{margin:0;font-size:15.5px;line-height:1.45;color:var(--ink-2);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card .mline{font-size:13.5px;color:var(--muted);line-height:1.5}
+.card .mline span+span::before{content:"";display:inline-block;width:1px;height:.85em;background:var(--line-strong);margin:0 9px 0 8px;vertical-align:-1px}
+.card .cfoot{margin-top:auto;display:flex;justify-content:flex-end;padding-top:4px}
+
+.list-wrap{overflow-x:auto}
+table.list{width:100%;border-collapse:collapse;font-size:15px}
+.list th{text-align:left;font-weight:600;font-size:13.5px;color:var(--muted);padding:8px 12px 8px 0;border-bottom:1px solid var(--line-strong);white-space:nowrap}
+.list td{padding:10px 12px 10px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.list td.name a{color:var(--ink);text-decoration:none;font-weight:500}
+.list td.name a:hover{color:var(--accent)}
+.list td.yr{color:var(--muted);font-variant-numeric:tabular-nums}
+.list td.nw{white-space:nowrap}
+[hidden]{display:none !important}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.view-note{font-size:14px;color:var(--muted);margin-top:14px}
+
+@media (max-width:900px){
+  .cat-grid{grid-template-columns:1fr;gap:20px}
+  .filters-btn{display:inline-flex}
+  .filters{display:none;position:fixed;inset:0;z-index:50;background:var(--bg);overflow:auto;padding:16px 16px 40px}
+  .filters.open{display:block}
+  .filters-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+  .filters-head h2{font-size:22px}
+  .cards{grid-template-columns:1fr}
+  .res-head .right{margin-left:0;width:100%}
+}
+
+/* Footer */
+.foot{border-top:1px solid var(--line);margin-top:64px;padding:26px 0 44px;font-size:14.5px;color:var(--muted);line-height:1.5}
+.foot .wrap{display:flex;flex-wrap:wrap;gap:8px 32px;justify-content:space-between}
+.foot a{color:var(--ink-2)}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="c-home.html"><span class="mark" aria-hidden="true"></span>awesome health ai evals</a>
+    <nav class="nav" id="nav" aria-label="Site">
+      <a href="c-catalog.html" aria-current="page">Catalog</a>
+      <a href="c-home.html#map">Map</a>
+      <a href="#">Constructs</a>
+      <a href="#">Compare</a>
+      <a href="#">Glossary</a>
+      <a href="#">About</a>
+    </nav>
+    <div class="tools">
+      <a class="icon-btn" href="https://github.com/" aria-label="GitHub repository"><i class="ph ph-github-logo" aria-hidden="true"></i></a>
+      <button class="icon-btn" id="theme" type="button" aria-label="Switch between light and dark"><i class="ph ph-moon ic-moon" aria-hidden="true"></i><i class="ph ph-sun ic-sun" aria-hidden="true"></i></button>
+      <button class="icon-btn menu-btn" id="menu" type="button" aria-expanded="false" aria-controls="nav" aria-label="Menu"><i class="ph ph-list" aria-hidden="true"></i></button>
+    </div>
+  </div>
+</header>
+
+<main class="cat">
+  <div class="wrap">
+    <h1>Catalog</h1>
+    <p class="lede">Benchmarks and evaluation frameworks for health chatbots. Filter by what they test, where their questions come from, and how they score answers.</p>
+    <button class="btn filters-btn" id="filters-btn" type="button" aria-controls="filters" aria-expanded="false"><i class="ph ph-funnel" aria-hidden="true"></i>Filters</button>
+
+    <div class="cat-grid">
+      <aside class="filters" id="filters" aria-label="Filters">
+        <div class="filters-head">
+          <h2>Filters</h2>
+          <button class="icon-btn" id="filters-close" type="button" aria-label="Close filters"><i class="ph ph-x" aria-hidden="true"></i></button>
+        </div>
+        <div id="rail"></div>
+      </aside>
+
+      <section class="results" aria-label="Results">
+        <label class="search">
+          <span>Search the catalog</span>
+          <span class="field"><i class="ph ph-magnifying-glass" aria-hidden="true"></i><input type="search" id="q" placeholder="Name, country, language or construct"></span>
+        </label>
+
+        <div class="res-head">
+          <span class="count" id="count"></span>
+          <span class="chip">Origin: LMIC <button type="button" aria-label="Remove filter Origin: LMIC"><i class="ph ph-x" aria-hidden="true"></i></button></span>
+          <button class="clear" type="button">Clear all</button>
+          <div class="right">
+            <label class="sort"><span class="vh">Sort</span>
+              <select id="sort">
+                <option>Featured first</option>
+                <option>Newest first</option>
+                <option>Name, A to Z</option>
+                <option>Most cited</option>
+              </select>
+            </label>
+            <div class="view" role="group" aria-label="View">
+              <button type="button" id="v-cards" aria-pressed="true"><i class="ph ph-squares-four" aria-hidden="true"></i>Cards</button>
+              <button type="button" id="v-list" aria-pressed="false"><i class="ph ph-list-bullets" aria-hidden="true"></i>List</button>
+            </div>
+            <label class="group"><input type="checkbox" id="group"> Group adaptations under their original</label>
+          </div>
+        </div>
+
+        <div class="cards" id="cards"></div>
+        <div class="list-wrap" id="list" hidden>
+          <table class="list">
+            <thead><tr><th>Name</th><th>Year</th><th>Type</th><th>Origin</th><th>Languages</th><th>Where the questions come from</th><th>Scored by</th></tr></thead>
+            <tbody id="list-body"></tbody>
+          </table>
+        </div>
+        <p class="view-note" id="view-note"></p>
+      </section>
+    </div>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p>An exploratory catalog, built with LLM help and checked by one person. If something is wrong, <a href="https://github.com/">report it on GitHub</a>.</p>
+    <p><a href="#">Download the data</a></p>
+    <p>Code MIT, content CC BY 4.0</p>
+  </div>
+</footer>
+
+<script src="data.js"></script>
+<script>
+(function(){
+  const D = window.DEMO, L = D.labels, F = D.facets, C = D.counts;
+  const esc = s => String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+  const fmt = n => Number(n).toLocaleString("en-US");
+  const lab = (map, v) => (L[map] && L[map][v]) || v;
+
+  // Filter rail
+  const checks = (name, items, limit) => {
+    const vis = limit ? items.slice(0, limit) : items;
+    const rest = limit ? items.slice(limit) : [];
+    const row = (it, hidden) => `<li${hidden ? " hidden" : ""}><label><input type="checkbox" name="${name}" value="${esc(it.value)}"><span class="t">${esc(it.label)}</span><span class="n">${fmt(it.n)}</span></label></li>`;
+    return `<ul class="fl">${vis.map(it => row(it, false)).join("")}${rest.map(it => row(it, true)).join("")}</ul>` +
+      (rest.length ? `<button class="showall" type="button" data-showall>Show all ${items.length}</button>` : "");
+  };
+  const group = (title, body, tip) => `<div class="fgroup"><span class="ftitle"${tip ? ` title="${esc(tip)}"` : ""}>${title}</span>${body}</div>`;
+  const kindN = Object.fromEntries(F.kind.map(k => [k.value, k.n]));
+  const seg = `<div class="seg" role="radiogroup" aria-label="Type">
+      <label><input type="radio" name="kind" value="" checked>All<small>${fmt(C.entries)}</small></label>
+      <label><input type="radio" name="kind" value="benchmark">Benchmarks<small>${fmt(kindN.benchmark)}</small></label>
+      <label><input type="radio" name="kind" value="eval_framework">Frameworks<small>${fmt(kindN.eval_framework)}</small></label>
+    </div>`;
+  const moreItems = [
+    ["Income group", "income", F.income],
+    ["Region", "regions", F.regions],
+    ["Country", "countries", F.countries],
+    ["Language", "languages", F.languages],
+    ["Main focus", "section", F.section],
+    ["What it judges", "domains", D.domains.map(d => ({ value: d.id, label: d.name, n: d.n }))],
+    ["Data access", "open_data", F.open_data],
+    ["Who built it", "builders", F.builders],
+  ];
+  document.getElementById("rail").innerHTML =
+    group("Type", seg) +
+    group("Origin", checks("origin", F.origin), "Where an entry's test questions were written, by World Bank income group of that country") +
+    group("Health area", checks("health_areas", F.health_areas, 6)) +
+    group("Who it's for", checks("users", F.users), "The people the chatbot under test is meant to serve") +
+    group("How it's scored", checks("methods", F.methods), "The method used to turn a chatbot's answers into a score") +
+    `<details class="more"><summary>More filters <i class="ph ph-caret-down" aria-hidden="true"></i></summary>
+      <ul class="more-list">${moreItems.map(([title, name, items]) =>
+        `<li><details><summary>${title} <i class="ph ph-caret-down" aria-hidden="true"></i></summary>${checks(name, items)}</details></li>`).join("")}</ul>
+    </details>`;
+  document.querySelectorAll("[data-showall]").forEach(b => b.addEventListener("click", () => {
+    b.previousElementSibling.querySelectorAll("li[hidden]").forEach(li => li.hidden = false);
+    b.remove();
+  }));
+
+  // Results
+  document.getElementById("count").textContent = `${fmt(C.entries)} entries`;
+  const where = r => r.country_names && r.country_names.length ? r.country_names.join(", ") : "Not stated";
+  const langs = r => r.languages && r.languages.length ? r.languages.join(", ") : "Not stated";
+  const scored = r => r.methods.map(m => lab("methods", m)).join(", ");
+  const rows = D.catalog;
+  document.getElementById("cards").innerHTML = rows.map(r => `
+    <article class="card">
+      <div class="head"><h3><a href="${r.id === "healthbench" ? "c-entry.html" : "#"}">${esc(r.name)}</a></h3><span class="year">${r.year}</span></div>
+      <div class="tags"><span class="tag">${esc(lab("kind", r.kind))}</span><span class="tag${r.origin === "lmic" || r.origin === "adapted" ? " accent" : ""}">${esc(lab("origin", r.origin))}</span></div>
+      <p class="sum">${esc(r.summary)}</p>
+      <p class="mline"><span>${esc(langs(r))}</span><span>${esc(where(r))}</span><span>${esc(scored(r))}</span></p>
+      <div class="cfoot"><button class="btn small" type="button">Compare</button></div>
+    </article>`).join("");
+  document.getElementById("list-body").innerHTML = rows.map(r => `
+    <tr>
+      <td class="name"><a href="${r.id === "healthbench" ? "c-entry.html" : "#"}">${esc(r.name)}</a></td>
+      <td class="yr">${r.year}</td>
+      <td class="nw">${esc(lab("kind", r.kind))}</td>
+      <td class="nw">${esc(lab("origin", r.origin))}</td>
+      <td>${esc(langs(r))}</td>
+      <td>${esc(where(r))}</td>
+      <td>${esc(scored(r))}</td>
+    </tr>`).join("");
+  document.getElementById("view-note").textContent = `Showing the first ${rows.length} of ${fmt(C.entries)} entries in this mockup.`;
+
+  // View toggle
+  const vCards = document.getElementById("v-cards"), vList = document.getElementById("v-list");
+  const cards = document.getElementById("cards"), list = document.getElementById("list");
+  const setView = v => {
+    cards.hidden = v !== "cards"; list.hidden = v !== "list";
+    vCards.setAttribute("aria-pressed", String(v === "cards"));
+    vList.setAttribute("aria-pressed", String(v === "list"));
+  };
+  vCards.addEventListener("click", () => setView("cards"));
+  vList.addEventListener("click", () => setView("list"));
+  if (location.hash === "#list") setView("list");
+
+  // Mobile filter sheet
+  const fb = document.getElementById("filters-btn"), filters = document.getElementById("filters");
+  const openF = o => { filters.classList.toggle("open", o); fb.setAttribute("aria-expanded", String(o)); document.body.style.overflow = o ? "hidden" : ""; };
+  fb.addEventListener("click", () => openF(!filters.classList.contains("open")));
+  document.getElementById("filters-close").addEventListener("click", () => openF(false));
+
+  // Theme and menu
+  const root = document.documentElement;
+  document.getElementById("theme").addEventListener("click", () => {
+    const dark = root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+    root.dataset.theme = dark ? "light" : "dark";
+  });
+  const menu = document.getElementById("menu"), nav = document.getElementById("nav");
+  menu.addEventListener("click", () => {
+    const open = nav.classList.toggle("open");
+    menu.setAttribute("aria-expanded", String(open));
+  });
+})();
+</script>
+</body>
+</html>

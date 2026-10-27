@@ -64,13 +64,9 @@ export const valueGloss = (facet, v) => (VALUE_GLOSS[facet] || {})[v];
 
 export const ORIGIN_ORDER = ["lmic", "adapted", "translated", "high", "global", "unstated"];
 
-// Catalog filters, grouped in the order a reader narrows things down.
-export const GROUPS = [
-  { id: "tests", title: "What it tests", facets: ["section", "health_areas", "users", "constructs"] },
-  { id: "where", title: "Where the questions come from", facets: ["origin", "income", "regions", "countries", "languages"] },
-  { id: "how", title: "How it works", facets: ["kind", "methods"] },
-  { id: "access", title: "Access and source", facets: ["open_data", "builders"] },
-];
+// Catalog filters: the five a reader reaches for first, then the rest under "More filters".
+export const PRIMARY = ["kind", "origin", "health_areas", "users", "methods"];
+export const MORE = ["income", "regions", "countries", "languages", "section", "constructs", "open_data", "builders"];
 
 export const FACETS = {
   section: { title: "Main focus", gloss: "main-focus", get: (e) => [e.section] },
@@ -96,22 +92,43 @@ export function valueName(key, v) {
   return lab(key, v);
 }
 
-// ---------- Glossary ----------
-let glossMap;
+// ---------- Label help and glossary ----------
+// Label help (data/labels.yaml) explains the site's own labels and coded values. The glossary
+// (data/glossary.yaml) defines domain terms. Both open in the same popover.
+let helpMap, termMap;
 export function gloss(id) {
-  glossMap ||= new Map((D.meta.glossary.terms || []).map((t) => [t.id, t]));
-  return glossMap.get(id);
+  helpMap ||= new Map(((D.meta.labels || {}).labels || []).map((t) => [t.id, t]));
+  return helpMap.get(id);
 }
+export function term(id) {
+  termMap ||= new Map((D.meta.glossary.terms || []).map((t) => [t.id, t]));
+  return termMap.get(id);
+}
+export const relationshipSentence = (rel) => ((D.meta.labels || {}).relationship_sentences || {})[rel] || "";
 
-// A small (i) button that opens the glossary definition in a popover.
+// A label with a dotted underline that opens its help text on hover, focus or tap.
+export function help(id, text) {
+  const g = gloss(id);
+  const label = text ?? (g ? g.name : id);
+  if (!g) return esc(label);
+  return `<span class="help" data-help="${id}" tabindex="0" role="button" aria-label="${esc(label)}: what does this mean?">${esc(label)}</span>`;
+}
+// Kept for views not yet moved to help(): same popover, as a small button.
 export function info(id) {
   const g = gloss(id);
   if (!g) return "";
-  return `<button type="button" class="info" data-gloss="${id}" aria-label="What does ${esc(g.term)} mean?"><i class="ph ph-info"></i></button>`;
+  return `<button type="button" class="info" data-help="${id}" aria-label="What does ${esc(g.name)} mean?"><i class="ph ph-info"></i></button>`;
+}
+// A glossary term in running text.
+export function termLink(id, text) {
+  const t = term(id);
+  const label = text ?? (t ? t.term : id);
+  if (!t) return esc(label);
+  return `<a class="term" data-term="${id}" href="#/glossary/${id}">${esc(label)}</a>`;
 }
 
 export function originTag(e) {
-  return `<span class="tag o-${e.origin}" data-gloss="${VALUE_GLOSS.origin[e.origin]}" tabindex="0">${esc(lab("origin", e.origin))}</span>`;
+  return `<span class="tag o-${e.origin}" data-help="${VALUE_GLOSS.origin[e.origin]}" tabindex="0">${esc(lab("origin", e.origin))}</span>`;
 }
 export const kindTag = (e) => `<span class="tag">${lab("kind", e.kind)}</span>`;
 
@@ -128,6 +145,6 @@ export function matchGlyph(rel) {
 
 export function matchLegend() {
   return `<div class="legend-match">${["same", "narrower", "broader", "partial"].map((r) =>
-    `<span data-gloss="${VALUE_GLOSS.relationship[r]}" tabindex="0">${matchGlyph(r)}${LABELS.relationship[r]}</span>`).join("")}
-    <span class="muted">How closely each term matches ${info("match")}</span></div>`;
+    `<span data-help="${VALUE_GLOSS.relationship[r]}" tabindex="0">${matchGlyph(r)}${LABELS.relationship[r]}</span>`).join("")}
+    <span class="muted">${help("match", "How closely each term matches")}</span></div>`;
 }

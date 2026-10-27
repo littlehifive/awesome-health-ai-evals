@@ -7,6 +7,7 @@ export const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&a
 export const fmt = (n) => Number(n || 0).toLocaleString("en-US");
 export const plural = (n, one, many = `${one}s`) => `${fmt(n)} ${n === 1 ? one : many}`;
 export const pretty = (s) => String(s).replace(/_/g, " ").replace(/^\w/, (c) => c.toUpperCase());
+export const lower = (s) => (/^[A-Z][a-z]/.test(s) && !/^[A-Z]{2}/.test(s) ? s.charAt(0).toLowerCase() + s.slice(1) : s);
 
 export function debounce(fn, ms) {
   let t;
@@ -22,6 +23,14 @@ export function listText(items, max, noun) {
   return items.length === 1 ? items[0] : `${items.slice(0, -1).join(", ")} and ${items[items.length - 1]}`;
 }
 
+// "A, B, C and 4 more": the first few, then a count.
+export function someOf(items, max = 3) {
+  if (items.length <= max) return items.join(", ");
+  return `${items.slice(0, max).join(", ")} and ${items.length - max} more`;
+}
+
+export const join = (items) => (items || []).filter(Boolean).join(", ");
+
 export function setTitle(...parts) {
   document.title = [...parts.filter(Boolean), "awesome health ai evals"].join(" | ");
 }
@@ -34,3 +43,24 @@ export function catalogHref(filters = {}, extra = {}) {
   const s = q.toString();
   return `#/catalog${s ? `?${s}` : ""}`;
 }
+
+// Turn [text](path) into links. Relative paths point into the repository; absolute URLs stay.
+// Backticks become <code>. Everything else is escaped.
+const REPO = "https://github.com/littlehifive/awesome-health-ai-evals";
+export function md(text) {
+  let out = "";
+  let i = 0;
+  const re = /\[([^\]]+)\]\(([^)]+)\)|`([^`]+)`/g;
+  let m;
+  while ((m = re.exec(text))) {
+    out += esc(text.slice(i, m.index));
+    if (m[3] != null) out += `<code>${esc(m[3])}</code>`;
+    else {
+      const href = /^https?:\/\//.test(m[2]) ? m[2] : `${REPO}/blob/main/${m[2]}`;
+      out += `<a href="${esc(href)}">${esc(m[1])}</a>`;
+    }
+    i = m.index + m[0].length;
+  }
+  return out + esc(text.slice(i));
+}
+export { REPO };

@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>awesome health ai evals</title>
+<meta name="description" content="A catalog of benchmarks and evaluation frameworks for health chatbots, sorted by where their questions come from and what they judge.">
+<!--
+  a-home.html
+  Direction A: Angled Fluid Gradient (reference: Stripe). Picked by roulette from the style library.
+  Logic: one multi-colour fluid gradient band as the hero background, pure white content below, near-black text,
+  section edges cut at an angle with clip-path, a rational CSS Grid body, and one slow gradient drift (off under
+  prefers-reduced-motion). On the entry and catalog pages the gradient is only a pale angled wash behind the title block.
+
+  Design read: a public reference catalog for health researchers and implementers, with a Stripe-like
+  angled-gradient language, built with native CSS.
+  Dials: layout variance medium (angled band on home, calm grids elsewhere); motion low (hover plus one 32 s drift);
+  density medium on the catalog and the entry page.
+
+  Fonts: Hanken Grotesk (headings and body) from Google Fonts; Inter and the system sans as fallbacks.
+  Accent: #0B7285 deep teal, for links, buttons, focus rings and selected states on all three pages (#5EC4CD in dark).
+  Gradient: ink blue #0B2A4A, sea blue #0D4668, teal #0F7F93, sea green #1FAE8C, with a warm sand #F2DFB9 light.
+  Radius system: 4 px chips, tags and inputs; 8 px buttons, cards and panels; 14 px the hero map card and the filter sheet.
+
+  Why it fits: a reference catalog needs white, grid-aligned, typographically quiet surfaces, and this direction keeps
+  every content surface exactly that. The gradient gives the site one warm, recognisable signature (ink to teal to sand,
+  the colours of water, land and public-health maps rather than the usual purple glow) without any decoration. The angled
+  edge marks the hand-off from the single expressive moment to the rational body, so entry and catalog pages read as
+  documentation, not as a landing page.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css" rel="stylesheet">
+<script src="data.js"></script>
+<style>
+/* Colour tokens. Light is the rendered theme; dark values follow in two blocks (system preference, and the header toggle). */
+:root {
+  --bg: #FFFFFF;
+  --bg-tint: #F4F7F9;
+  --text: #121C2B;
+  --text-2: #3B4A5E;
+  --muted: #5E6B7C;
+  --line: #E1E7EE;
+  --line-strong: #C6D0DB;
+  --accent: #0B7285;
+  --accent-hover: #085A69;
+  --accent-soft: #E2F1F3;
+  --ink-blue: #0B2A4A;
+  --sea: #0D4668;
+  --teal: #0F7F93;
+  --sea-green: #1FAE8C;
+  --sand: #F2DFB9;
+  --shadow: 0 1px 2px rgba(11, 42, 74, .06), 0 12px 32px rgba(11, 42, 74, .12);
+  --shadow-sm: 0 1px 2px rgba(11, 42, 74, .05), 0 3px 10px rgba(11, 42, 74, .06);
+  /* Radius system: 4 px chips, tags and inputs; 8 px buttons, cards and panels; 14 px the hero map card and the mobile filter sheet. */
+  --r-s: 4px;
+  --r-m: 8px;
+  --r-l: 14px;
+  /* Map scale, sequential teal to ink: 0, 1, 2 to 5, 6 to 15, 16 to 50, 51 or more. */
+  --map-0: #EDF1F5;
+  --map-1: #CFE7EB;
+  --map-2: #9BD0D7;
+  --map-3: #4FAAB5;
+  --map-4: #157D8A;
+  --map-5: #0B2A4A;
+  --max: 1200px;
+  --gutter: 16px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0D1521; --bg-tint: #131E2E; --text: #E9EEF4; --text-2: #C3CCD8; --muted: #98A4B5;
+    --line: #243246; --line-strong: #35465D; --accent: #5EC4CD; --accent-hover: #8ADAE0; --accent-soft: #143039;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 12px 32px rgba(0, 0, 0, .45);
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, .3), 0 3px 10px rgba(0, 0, 0, .3);
+    --map-0: #1B2738; --map-1: #1F3D4A; --map-2: #236C76; --map-3: #2E99A4; --map-4: #5EC4CD; --map-5: #D8EFF2;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0D1521; --bg-tint: #131E2E; --text: #E9EEF4; --text-2: #C3CCD8; --muted: #98A4B5;
+  --line: #243246; --line-strong: #35465D; --accent: #5EC4CD; --accent-hover: #8ADAE0; --accent-soft: #143039;
+  --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 12px 32px rgba(0, 0, 0, .45);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, .3), 0 3px 10px rgba(0, 0, 0, .3);
+  --map-0: #1B2738; --map-1: #1F3D4A; --map-2: #236C76; --map-3: #2E99A4; --map-4: #5EC4CD; --map-5: #D8EFF2;
+}
+@media (min-width: 900px) { :root { --gutter: 32px; } }
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0; background: var(--bg); color: var(--text);
+  font-family: "Hanken Grotesk", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 16px; line-height: 1.55; overflow-x: hidden;
+}
+h1, h2, h3, h4 { margin: 0; font-weight: 600; letter-spacing: -0.012em; line-height: 1.15; }
+p { margin: 0; }
+a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+a:hover { color: var(--accent-hover); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: var(--r-s); }
+.on-grad :focus-visible { outline-color: #FFFFFF; }
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+[hidden] { display: none !important; }
+.visually-hidden { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.num { font-variant-numeric: tabular-nums; }
+.muted { color: var(--muted); }
+
+/* Site header. One line at desktop; the nav folds into a panel under a hamburger below 900 px. */
+.site-head { position: relative; z-index: 5; }
+.site-head .wrap { display: flex; align-items: center; gap: 20px; height: 64px; }
+.brand { display: inline-flex; align-items: center; gap: 10px; color: inherit; text-decoration: none; font-weight: 600; font-size: 17px; letter-spacing: -0.01em; white-space: nowrap; }
+.brand .mark { width: 22px; height: 22px; border-radius: 5px; flex: none; background: linear-gradient(135deg, var(--ink-blue), var(--teal) 55%, var(--sand)); clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%); }
+.on-grad .brand .mark { background: linear-gradient(135deg, #FFFFFF, rgba(255, 255, 255, .55)); }
+.site-nav { display: flex; align-items: center; gap: 2px; margin-left: auto; }
+.site-nav a { color: inherit; text-decoration: none; font-size: 15px; font-weight: 500; padding: 8px 10px; border-radius: var(--r-s); white-space: nowrap; }
+.site-nav a:hover { background: rgba(11, 42, 74, .07); }
+.on-grad .site-nav a:hover { background: rgba(255, 255, 255, .14); }
+.site-nav a[aria-current="page"] { text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 2px; text-decoration-color: var(--accent); }
+.on-grad .site-nav a[aria-current="page"] { text-decoration-color: #FFFFFF; }
+.head-tools { display: flex; align-items: center; gap: 2px; }
+.icon-btn { appearance: none; border: 0; background: transparent; color: inherit; width: 38px; height: 38px; border-radius: var(--r-s); display: inline-flex; align-items: center; justify-content: center; cursor: pointer; font-size: 21px; text-decoration: none; padding: 0; }
+.icon-btn:hover { background: rgba(11, 42, 74, .07); color: inherit; }
+.on-grad .icon-btn:hover { background: rgba(255, 255, 255, .14); }
+.nav-toggle { display: none; }
+@media (max-width: 899px) {
+  .site-nav { display: none; position: absolute; left: var(--gutter); right: var(--gutter); top: 60px; margin: 0; padding: 6px; flex-direction: column; align-items: stretch; gap: 0; background: var(--bg); color: var(--text); border: 1px solid var(--line); border-radius: var(--r-m); box-shadow: var(--shadow); }
+  .site-nav a { padding: 12px; }
+  .site-head.open .site-nav { display: flex; }
+  .site-head.open .site-nav a:hover { background: var(--bg-tint); }
+  .site-head.open .site-nav a[aria-current="page"] { text-decoration-color: var(--accent); }
+  .nav-toggle { display: inline-flex; }
+  .head-tools { margin-left: auto; }
+}
+
+/* Buttons */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 0 18px; border-radius: var(--r-m); font: inherit; font-weight: 600; font-size: 15px; line-height: 1; text-decoration: none; cursor: pointer; border: 1.5px solid transparent; transition: background-color .15s, color .15s, border-color .15s; white-space: nowrap; }
+.btn-primary { background: var(--accent); color: #FFFFFF; border-color: var(--accent); }
+.btn-primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); color: #FFFFFF; }
+.btn-secondary { background: var(--bg); color: var(--accent); border-color: var(--line-strong); }
+.btn-secondary:hover { border-color: var(--accent); background: var(--accent-soft); color: var(--accent-hover); }
+.btn-sm { min-height: 34px; padding: 0 12px; font-size: 14px; border-radius: var(--r-s); }
+.btn-white { background: #FFFFFF; color: var(--ink-blue); border-color: #FFFFFF; }
+.btn-white:hover { background: #E6F2F4; border-color: #E6F2F4; color: var(--ink-blue); }
+.btn-ghost-white { background: transparent; color: #FFFFFF; border-color: rgba(255, 255, 255, .65); }
+.btn-ghost-white:hover { border-color: #FFFFFF; background: rgba(255, 255, 255, .12); color: #FFFFFF; }
+.link-btn { appearance: none; border: 0; background: none; padding: 0; font: inherit; color: var(--accent); text-decoration: underline; text-underline-offset: 2px; cursor: pointer; }
+.link-btn:hover { color: var(--accent-hover); }
+
+/* Tags and chips */
+.tag { display: inline-flex; align-items: center; min-height: 24px; padding: 0 8px; border-radius: var(--r-s); font-size: 13px; font-weight: 500; line-height: 1; background: var(--bg-tint); color: var(--text-2); border: 1px solid var(--line); white-space: nowrap; }
+.tag-accent { background: var(--accent-soft); color: var(--accent-hover); border-color: transparent; }
+
+/* Content-page header: a pale wash of the brand gradient behind nav and title block, cut at an angle. Content below sits on white. */
+.page-top { position: relative; z-index: 1; }
+.page-top::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(112deg, rgba(11, 42, 74, .10) 0%, rgba(13, 70, 104, .08) 35%, rgba(15, 127, 147, .12) 65%, rgba(242, 223, 185, .42) 100%); clip-path: polygon(0 0, 100% 0, 100% calc(100% - 34px), 0 100%); }
+.page-head { padding-top: 20px; padding-bottom: 64px; }
+.page-head h1 { font-size: clamp(30px, 3.4vw, 40px); letter-spacing: -0.02em; }
+.page-head .lede { font-size: 18px; color: var(--text-2); max-width: 64ch; margin-top: 12px; }
+
+/* Shared section typography for content pages */
+.prose h2 { font-size: 22px; margin-bottom: 14px; }
+.prose h3 { font-size: 17px; margin: 22px 0 10px; }
+.prose p + p { margin-top: 10px; }
+.facts { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 8px 18px; margin: 0; font-size: 15px; }
+.facts dt { color: var(--muted); }
+.facts dd { margin: 0; }
+.facts .sub { display: block; color: var(--muted); font-size: 13.5px; }
+@media (max-width: 599px) { .facts { grid-template-columns: 1fr; gap: 2px 0; } .facts dd { margin-bottom: 10px; } }
+.disclosure { border: 1px solid var(--line); border-radius: var(--r-m); padding: 0 14px; }
+.disclosure summary { cursor: pointer; padding: 10px 0; font-weight: 500; color: var(--text-2); }
+.disclosure[open] summary { border-bottom: 1px solid var(--line); }
+.disclosure p { padding: 12px 0 14px; font-size: 14.5px; color: var(--text-2); }
+
+/* Footer: one line about the project, data link, licences, and a thin brand stripe to close. */
+.site-foot { margin-top: 72px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
+.site-foot .wrap { display: flex; flex-wrap: wrap; gap: 8px 32px; align-items: baseline; justify-content: space-between; padding-top: 26px; padding-bottom: 26px; }
+.site-foot a { color: var(--text-2); }
+.site-foot .foot-right { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.foot-stripe { height: 4px; background: linear-gradient(90deg, var(--ink-blue), var(--sea) 30%, var(--teal) 62%, var(--sea-green) 84%, var(--sand)); }
+
+</style>
+</head>
+<body>
+<style>
+/* Home: the one expressive moment. The gradient band sits behind the header and hero copy; its bottom edge is cut at an angle; the white map card straddles that edge. */
+.hero { position: relative; color: #FFFFFF; isolation: isolate; }
+.hero-band {
+  position: absolute; inset: 0; bottom: 40px; z-index: -1; overflow: hidden;
+  background: linear-gradient(112deg, #0B2A4A 0%, #0D4668 38%, #0F7F93 70%, #1FAE8C 100%);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 120px), 0 100%);
+}
+/* Fluid highlights: sea green low left, teal upper right, warm sand in the far corner behind the map card. Drifts slowly; off under reduced motion. */
+.hero-band::after {
+  content: ""; position: absolute; inset: -30% -18%;
+  background:
+    radial-gradient(42% 46% at 86% 84%, rgba(242, 223, 185, .95) 0%, rgba(242, 223, 185, 0) 62%),
+    radial-gradient(36% 48% at 70% 22%, rgba(18, 160, 168, .55) 0%, rgba(18, 160, 168, 0) 70%),
+    radial-gradient(34% 44% at 28% 88%, rgba(31, 174, 140, .35) 0%, rgba(31, 174, 140, 0) 70%);
+  animation: drift 32s ease-in-out infinite alternate;
+}
+@keyframes drift { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-5%, 4%, 0); } }
+@media (prefers-reduced-motion: reduce) { .hero-band::after { animation: none; } }
+
+.hero-grid { display: grid; grid-template-columns: 1fr; gap: 36px; padding-top: 32px; padding-bottom: 56px; }
+@media (min-width: 900px) {
+  .hero-grid { grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 56px; padding-top: 52px; padding-bottom: 80px; align-items: start; }
+  .map-card { margin-top: 48px; }
+}
+.hero-copy { padding-top: 8px; }
+.hero h1 { font-size: clamp(34px, 3.9vw, 54px); line-height: 1.06; letter-spacing: -0.025em; font-weight: 600; text-wrap: balance; }
+.hero .sub { margin-top: 20px; font-size: 18.5px; line-height: 1.5; color: rgba(255, 255, 255, .9); max-width: 42ch; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+
+.map-card { margin: 0; background: var(--bg); color: var(--text); border-radius: var(--r-l); box-shadow: var(--shadow); padding: 16px 20px 16px; border: 1px solid rgba(11, 42, 74, .08); }
+.map-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-size: 14.5px; font-weight: 600; }
+.map-head .muted { font-weight: 500; font-size: 13.5px; }
+.map { margin-top: 6px; min-height: 180px; }
+.map svg { width: 100%; height: auto; display: block; }
+.map .country { fill: var(--map-0); stroke: var(--bg); stroke-width: .6; }
+.map .b1 { fill: var(--map-1); }
+.map .b2 { fill: var(--map-2); }
+.map .b3 { fill: var(--map-3); }
+.map .b4 { fill: var(--map-4); }
+.map .b5 { fill: var(--map-5); }
+.legend { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; margin-top: 10px; font-size: 12.5px; color: var(--muted); }
+.legend .lt { flex-basis: 100%; }
+.legend span { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+.legend i { width: 14px; height: 10px; border-radius: 2px; display: inline-block; }
+
+/* Numbers row: four values on a hairline, two columns on phones. */
+.numbers { padding-top: 44px; }
+.num-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 20px; }
+@media (min-width: 800px) { .num-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px; } }
+.num-item { border-top: 2px solid var(--line-strong); padding-top: 14px; }
+.num-item .val { display: block; font-size: 40px; font-weight: 600; letter-spacing: -0.03em; line-height: 1; }
+.num-item .lab { display: block; margin-top: 8px; font-size: 14.5px; color: var(--muted); line-height: 1.4; }
+
+/* Three ways in: a pale tinted band with angled top and bottom edges; items are columns on hairlines, not cards. */
+.ways { margin-top: 72px; padding: 84px 0 92px; background: linear-gradient(112deg, rgba(11, 42, 74, .06) 0%, rgba(15, 127, 147, .09) 60%, rgba(242, 223, 185, .40) 100%); clip-path: polygon(0 44px, 100% 0, 100% calc(100% - 44px), 0 100%); }
+.ways h2 { font-size: 24px; margin-bottom: 26px; }
+.ways-grid { display: grid; grid-template-columns: 1fr; gap: 28px; }
+@media (min-width: 800px) { .ways-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; } }
+.way { display: block; color: inherit; text-decoration: none; border-left: 2px solid var(--line-strong); padding: 2px 0 2px 18px; }
+.way:hover { border-left-color: var(--accent); color: inherit; }
+.way-title { display: block; font-size: 20px; font-weight: 600; color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.way:hover .way-title { color: var(--accent-hover); }
+.way-desc { display: block; margin-top: 8px; color: var(--text-2); font-size: 15px; }
+.way-n { display: block; margin-top: 10px; font-size: 13.5px; color: var(--muted); }
+</style>
+
+<div class="hero">
+  <div class="hero-band" aria-hidden="true"></div>
+  <header class="site-head on-grad" id="head">
+    <div class="wrap">
+      <a class="brand" href="a-home.html" aria-current="page"><span class="mark" aria-hidden="true"></span>awesome health ai evals</a>
+      <nav class="site-nav" id="nav" aria-label="Site">
+        <a href="a-catalog.html">Catalog</a>
+        <a href="#map">Map</a>
+        <a href="#">Constructs</a>
+        <a href="#">Compare</a>
+        <a href="#">Glossary</a>
+        <a href="#">About</a>
+      </nav>
+      <div class="head-tools">
+        <a class="icon-btn" href="https://github.com/littlehifive/awesome-health-ai-evals" aria-label="GitHub repository"><i class="ph ph-github-logo" aria-hidden="true"></i></a>
+        <button class="icon-btn" id="theme" type="button" aria-label="Switch between light and dark" aria-pressed="false"><i class="ph ph-moon" aria-hidden="true"></i></button>
+        <button class="icon-btn nav-toggle" id="navToggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav"><i class="ph ph-list" aria-hidden="true"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <h1>Benchmarks and evaluation frameworks for health chatbots</h1>
+      <p class="sub">994 entries, sorted by where their questions come from and what they judge.</p>
+      <div class="hero-actions">
+        <a class="btn btn-white" href="a-catalog.html">Browse the catalog</a>
+        <a class="btn btn-ghost-white" href="#map">See the map</a>
+      </div>
+    </div>
+    <figure class="map-card">
+      <figcaption class="map-head"><span>Where the questions come from</span><span class="muted" id="mapCount"></span></figcaption>
+      <div id="map" class="map" role="img" aria-label="World map shaded by the number of catalog entries whose questions come from each country"></div>
+      <div class="legend" aria-hidden="true">
+        <span class="lt">Entries per country</span>
+        <span><i style="background:var(--map-0)"></i>0</span>
+        <span><i style="background:var(--map-1)"></i>1</span>
+        <span><i style="background:var(--map-2)"></i>2 to 5</span>
+        <span><i style="background:var(--map-3)"></i>6 to 15</span>
+        <span><i style="background:var(--map-4)"></i>16 to 50</span>
+        <span><i style="background:var(--map-5)"></i>51 or more</span>
+      </div>
+    </figure>
+  </div>
+</div>
+
+<section class="numbers wrap" aria-label="The catalog in numbers">
+  <div class="num-grid" id="numbers"></div>
+</section>
+
+<section class="ways" aria-labelledby="waysTitle">
+  <div class="wrap">
+    <h2 id="waysTitle">Three ways in</h2>
+    <div class="ways-grid">
+      <a class="way" href="a-catalog.html">
+        <span class="way-title">Catalog</span>
+        <span class="way-desc">Filter by what it tests, where the questions come from, and how answers are scored</span>
+        <span class="way-n" id="wayCatalog"></span>
+      </a>
+      <a class="way" href="#map">
+        <span class="way-title">Map</span>
+        <span class="way-desc">Which countries the questions come from</span>
+        <span class="way-n" id="wayMap"></span>
+      </a>
+      <a class="way" href="#">
+        <span class="way-title">Constructs</span>
+        <span class="way-desc">The 76 qualities evaluations judge, and how each source defines them</span>
+        <span class="way-n" id="wayConstructs"></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p>An exploratory catalog, built with LLM help, not a systematic review. Found a mistake? <a href="https://github.com/littlehifive/awesome-health-ai-evals/issues">Report it on GitHub</a>.</p>
+    <p class="foot-right"><a href="https://github.com/littlehifive/awesome-health-ai-evals">Download the data</a><span>Code MIT, content CC BY 4.0</span></p>
+  </div>
+  <div class="foot-stripe" aria-hidden="true"></div>
+</footer>
+
+<script>
+(function () {
+  const D = window.DEMO, C = D.counts;
+  const nf = n => n.toLocaleString('en-US');
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const rows = [
+    [C.entries, 'entries'],
+    [C.lmic, 'entries with questions written in low- and middle-income countries'],
+    [C.countries, 'countries'],
+    [C.languages, 'languages'],
+  ];
+  document.getElementById('numbers').innerHTML = rows.map(([v, l]) =>
+    `<div class="num-item"><span class="val num">${nf(v)}</span><span class="lab">${esc(l)}</span></div>`).join('');
+  document.getElementById('mapCount').textContent = nf(C.countries) + ' countries';
+  document.getElementById('wayCatalog').textContent = nf(C.entries) + ' entries, ' + nf(C.benchmarks) + ' benchmarks and ' + nf(C.frameworks) + ' frameworks';
+  document.getElementById('wayMap').textContent = nf(C.countries) + ' countries, ' + nf(C.languages) + ' languages';
+  document.getElementById('wayConstructs').textContent = nf(C.constructs) + ' constructs in ' + nf(C.domains) + ' domains, from ' + nf(C.terms) + ' scoring terms';
+
+  // Header: menu and theme toggle
+  const head = document.getElementById('head'), toggle = document.getElementById('navToggle');
+  toggle.addEventListener('click', () => { const open = head.classList.toggle('open'); toggle.setAttribute('aria-expanded', String(open)); });
+  const root = document.documentElement, tb = document.getElementById('theme');
+  tb.addEventListener('click', () => {
+    const dark = root.getAttribute('data-theme') === 'dark' || (!root.hasAttribute('data-theme') && matchMedia('(prefers-color-scheme: dark)').matches);
+    root.setAttribute('data-theme', dark ? 'light' : 'dark'); tb.setAttribute('aria-pressed', String(!dark));
+  });
+})();
+</script>
+<script type="module">
+  const [d3, topojson, world] = await Promise.all([
+    import("https://cdn.jsdelivr.net/npm/d3-geo@3.1.1/+esm"),
+    import("https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/+esm"),
+    fetch("https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-110m.json").then(r => r.json()),
+  ]);
+  const features = topojson.feature(world, world.objects.countries).features.filter(f => f.id !== "010");
+  const byNumeric = {};
+  for (const [iso3, c] of Object.entries(DEMO.countries)) if (c.numeric) byNumeric[String(Number(c.numeric))] = iso3;
+  const w = 960, h = 460;
+  const proj = d3.geoEqualEarth().fitSize([w, h], { type: "FeatureCollection", features });
+  const path = d3.geoPath(proj);
+  const n = f => { const iso = byNumeric[String(Number(f.id))]; return iso ? DEMO.countries[iso].n : 0; };
+  const bin = v => v === 0 ? "" : v === 1 ? " b1" : v <= 5 ? " b2" : v <= 15 ? " b3" : v <= 50 ? " b4" : " b5";
+  const name = f => { const iso = byNumeric[String(Number(f.id))]; return iso ? DEMO.countries[iso].name : ""; };
+  document.getElementById("map").innerHTML = `<svg viewBox="0 0 ${w} ${h}">${features.map(f =>
+    `<path d="${path(f)}" data-n="${n(f)}" class="country${bin(n(f))}"><title>${name(f)}: ${n(f)}</title></path>`).join("")}</svg>`;
+</script>
+
+</body>
+</html>

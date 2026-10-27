@@ -1,0 +1,144 @@
+# Shared prose for the README and the site's About page. scripts/build_readme.py and
+# scripts/build_site.py both read it, so the two can't drift. {placeholders} are filled from
+# scripts/counts.py at build time. Links written as [text](path) point into the repository;
+# the README keeps them relative and the site turns them into GitHub links.
+
+tagline: A catalog of benchmarks and evaluation frameworks for health chatbots, sorted by where their questions come from and what they judge.
+
+what:
+  - "{entries} benchmarks and evaluation frameworks ({benchmarks} benchmarks, {frameworks} frameworks) for judging how a model answers health questions or talks with people about their health."
+  - "Questions from {countries} countries in {languages} languages. {lmic} entries have questions written in low- and middle-income countries, and {low} include questions from a low-income country."
+  - "{terms} scoring terms copied from {entries_with_terms} sources, matched to {constructs} shared constructs in {domains} domains, so you can compare benchmarks that use different words for the same thing."
+
+why: >-
+  I built it to answer three questions: what exists, how much of it comes from low- and
+  middle-income countries, and what these evaluations judge once you look past the names they use.
+
+audience: >-
+  For people choosing how to test a health chatbot, especially one built for a low- or
+  middle-income setting, researchers looking for gaps, and funders deciding what evaluation work
+  to support.
+
+caveat: >-
+  This is an exploratory catalog, not a systematic review, and language models did most of the
+  reading. Some facts will be wrong. Each entry lists its sources so you can check them.
+
+built:
+  intro: Every step left files in the repository, so you can check any decision.
+  steps:
+    - title: Search
+      figure: "{records}"
+      figure_label: unique records
+      text: >-
+        Queries to OpenAlex (keywords, papers citing anchor benchmarks such as MedQA and HealthBench,
+        and the reference lists of surveys), paperclip (arXiv, medRxiv, PubMed Central and an abstracts
+        corpus), Hugging Face and GitHub. {queries} logged queries returned {records} unique records
+        after removing duplicates by DOI, arXiv ID and title. Queries are in
+        [search/queries.yaml](search/queries.yaml) and hit counts in [search/log.csv](search/log.csv).
+    - title: Screening
+      figure: "{kept}"
+      figure_label: kept after two passes
+      text: >-
+        A small OpenAI model screened {screened} titles and abstracts against the inclusion criteria
+        and kept anything uncertain. A larger model rescreened what it kept with a stricter prompt,
+        leaving {kept} records ([search/screening.csv](search/screening.csv)).
+    - title: Reading
+      figure: "{entries}"
+      figure_label: entries written
+      text: >-
+        Records about the same benchmark were merged into {candidates} candidates
+        ([search/candidates.csv](search/candidates.csv)). Claude agents read the full text, dataset
+        card or README of each, then wrote an entry with its facts or logged why not
+        ([search/extraction/](search/extraction/)). Review agents rechecked the weakest entries.
+    - title: Terms
+      figure: "{terms}"
+      figure_label: scoring terms copied
+      text: >-
+        For every entry, agents copied each term it scores answers on (an axis, criterion, metric and
+        so on) with its definition in the source's words ([terms/](terms/)). A later pass with the
+        OpenAI API wrote each entry's card from the paper, dataset card or README: what the model
+        has to do, how the items were made, how an output becomes a score, who judges it, and the
+        headline result ([scripts/build_cards.py](scripts/build_cards.py)).
+    - title: Constructs
+      figure: "{constructs}"
+      figure_label: constructs in {domains} domains
+      text: >-
+        The terms were embedded and clustered. One agent proposed constructs from the clusters, and a
+        second argued against the draft from the view of a primary-care clinician in a low-resource
+        setting. The reconciled result and every decision are in [taxonomy/](taxonomy/), and each
+        term is mapped to constructs with a match type (same idea, narrower, broader, or overlapping).
+    - title: Labels
+      figure: "{countries}"
+      figure_label: countries, World Bank groups
+      text: >-
+        Entries record facts: languages, countries, who built the set, how questions were made and how
+        answers are scored. Labels such as income group and origin are derived from those facts at
+        build time, using the World Bank classification pinned in
+        [data/countries.csv](data/countries.csv).
+  outro: Scope and decisions are in [docs/plan.md](docs/plan.md).
+
+use:
+  - title: Website
+    text: "Filter the catalog, see where questions come from on a map, check which constructs are tested in which settings, and compare benchmarks side by side. The full data is one JSON file at [/data/catalog.json]({site}/data/catalog.json)."
+  - title: Claude Code skills
+    text: "[skills/](skills/) has four skills that work from this catalog: find-health-benchmarks, adapt-benchmark-rubric, score-transcripts-with-rubric and run-open-benchmark. Install them as a plugin:"
+    code:
+      - /plugin marketplace add littlehifive/awesome-health-ai-evals
+      - /plugin install health-ai-evals@health-ai-evals
+  - title: Build it yourself
+    text: "`uv run scripts/validate.py` checks the entries, `uv run scripts/build_site.py` builds the site into `site/dist`, and `uv run scripts/build_readme.py` regenerates the README."
+
+layout:
+  - path: entries/
+    text: One YAML file per benchmark or framework. Fields are described in [schema/README.md](schema/README.md).
+  - path: terms/
+    text: The scoring terms each entry uses, with definitions and where they appear in the source.
+  - path: taxonomy/
+    text: Term clusters, the proposed and challenged constructs, the final constructs and mappings, and the decision log.
+  - path: search/
+    text: Queries, hit counts, screening labels, candidates and extraction logs.
+  - path: data/
+    text: Pinned country table, related guidance and surveys, the glossary, and this About text.
+  - path: scripts/
+    text: Search, screening, validation and build scripts.
+  - path: site/
+    text: The website (plain HTML, CSS and JavaScript).
+  - path: skills/
+    text: Claude Code skills that use the catalog.
+  - path: docs/
+    text: The plan and the instructions given to agents.
+
+not_for:
+  - title: As a ranking.
+    text: Citations, downloads and stars show attention, not quality.
+  - title: As a measure of the field.
+    text: The counts reflect what was published in English and turned up in these searches. Evaluations that teams build for their own chatbots are mostly missing.
+  - title: As the last word on any entry.
+    text: Language models extracted the facts. Check the sources listed on each entry before you cite a detail.
+  - title: As an agreed taxonomy.
+    text: The constructs are a draft built with LLM help. Use them to find and compare evaluations, not to claim two scores measure the same thing.
+  - title: To compare scores across benchmarks.
+    text: Two benchmarks that judge the same construct still differ in their questions, raters and scales.
+
+gaps:
+  - The search was in English only, so benchmarks described only in other languages are likely missing.
+  - Implementers rarely publish the evaluation sets they build for their own chatbots, so practice is undercounted. If you have one you can share, even as a description, please [open an issue]({repo}/issues/new).
+  - Language models did the screening and extraction. Expect some misclassified records and wrong facts.
+  - The constructs are a working draft built with LLM help, not an agreed taxonomy.
+  - Image question answering in radiology and pathology, clinical documentation and coding, biomedical text mining and drug discovery are out of scope on purpose.
+  - The constructs don't yet record whose guideline or standard of care a reference answer follows. That matters when a benchmark rewards advice that fits a US hospital but not a rural clinic.
+
+next:
+  - Search in Spanish, Portuguese, French and Chinese for benchmarks described only in those languages.
+  - Collect evaluation sets from implementers, including ones they can only describe.
+  - Ask clinicians, including people working in low-resource settings, to review the constructs, starting with the three where benchmarks disagree.
+  - Record whose guideline each reference answer follows.
+  - Rerun the search on a schedule so new benchmarks show up.
+
+contributing: >-
+  Open an issue to add a benchmark or correct an entry, or send a pull request that edits the
+  entry's YAML file. `uv run scripts/validate.py` checks it.
+
+license: "Code: MIT. Content (entries, data, README): CC BY 4.0. Datasets are linked, not re-hosted; each keeps its own license."
+
+credit: Made by Zezhen Wu.
