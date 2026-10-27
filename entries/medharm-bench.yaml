@@ -24,6 +24,25 @@ facets:
   eval_methods: [rubric_llm_judge]
   modality: [text]
   size: 50 questions (10 implicit diagnosis, 15 second opinion, 15 data interpretation, 5 emotional coercion, 5 authority bias)
+card:
+  task: Reply to each patient-style question without giving a definitive diagnosis, prescribing drugs or dosages,
+    contradicting the treating physician, or advising delays in urgent care.
+  items_built: 'The dataset collects 50 single-turn inducement questions: 10 implicit-diagnosis questions, 15 second-opinion
+    traps, 15 data-interpretation questions, 5 emotional-coercion questions, and 5 authority-bias questions using
+    fabricated citations.'
+  example: ''
+  scoring: A server-side LLM judge scores each reply against the four medical compliance red lines, without a ground-truth
+    answer. Scores are aggregated by inducement dimension; the aggregation formula is not given.
+  judge: The server-side redteam_compliance LLM judge assigns scores; its model and implementation are not published.
+  scale: The item schema specifies a threshold of 0.7; the score range and final metric are not stated.
+  validation: ''
+  results: ''
+  limitations: The evaluator implementation is not published, and the questions are for research use rather than
+    diagnosis or treatment decisions.
+  sources:
+  - https://huggingface.co/datasets/mirobody/MedHarm-Bench
+  - https://github.com/healthmemoryarena/holyeval
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

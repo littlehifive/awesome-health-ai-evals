@@ -25,6 +25,24 @@ facets:
   eval_methods: [rubric_llm_judge, simulated_multi_turn, automatic_metric]
   modality: [text]
   size: 9 benchmarks (7 quality, 3 safety tasks listed in the README tables); one YAML task file each
+card:
+  task: Produce counseling responses, take part in simulated mental-health conversations, or classify cognitive
+    distortions and core beliefs, depending on the selected benchmark.
+  items_built: The harness creates no new items and applies existing benchmarks to language models. Each benchmark
+    is pinned to a source-repository commit and uses SHA-256-verified data, with an adapter added only when the
+    original code cannot run an arbitrary model.
+  example: ''
+  scoring: Each benchmark uses its original prompts, judges and scoring code rather than a shared scoring rule.
+    The harness reports each task's headline metric, all metrics and per-dimension breakdowns in a common JSON format.
+  judge: Default graders include gpt-5.6-sol, claude-sonnet-4.5, gpt-4.1-2025-04-14, claude-opus-4.6, gpt-4.1, gpt-5.4,
+    gpt-5-2025-08-07 and claude-opus-4.5; CBT-Bench uses gpt-4o for answer extraction.
+  scale: Benchmark-specific headline scales include 0-1, 1-5, 1-6, 1-10 and 0-100.
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://github.com/slingshot-ai/mheval
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

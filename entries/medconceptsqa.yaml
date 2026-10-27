@@ -27,6 +27,31 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: "819,772 test and 60 dev questions across 3 vocabularies and 3 difficulty levels"
+card:
+  task: Select the correct description of a given medical code from four answer options.
+  items_built: Ofir Ben Shoham and Nadav Rappoport automatically generated over 800,000 questions from ICD9-CM,
+    ICD10-CM, ICD9-PROC, ICD10-PROC and ATC vocabulary graphs represented using PyHealth. They sampled distractors
+    from the whole vocabulary for easy questions, from codes three to five edges away for medium questions, and
+    from codes two edges away for hard questions, then randomized answer positions.
+  example: What is the description of the medical code B05BB04 in ATC? A. electrolytes B. electrolytes with carbohydrates
+    C. IV solutions used in parenteral administration of fluids, electrolytes and nutrients D. electrolytes in combination
+    with other drugs
+  scoring: Selected answers are compared with the correct options to calculate accuracy for each vocabulary and
+    difficulty level, and these accuracies are averaged for the aggregate score. The reported experiments sampled
+    250 questions per vocabulary, difficulty and prompting condition, repeated evaluations three times, and reported
+    95% confidence intervals.
+  judge: Exact match with the answer key.
+  scale: Correct or incorrect per question; mean accuracy reported as a percentage.
+  validation: ''
+  results: GPT-4 (gpt-4-0125-preview) scored highest, with 52.489% accuracy without examples and 61.911% with four
+    examples.
+  limitations: The authors state that the benchmark omits some medical vocabularies, including LOINC, and uses only
+    one question format.
+  sources:
+  - https://arxiv.org/abs/2405.07348
+  - https://huggingface.co/datasets/ofir408/MedConceptsQA
+  - https://github.com/nadavlab/MedConceptsQA
+  extracted: '2026-10-27'
 signals:
   citations: 11
   citations_source: OpenAlex

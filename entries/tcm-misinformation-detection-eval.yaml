@@ -35,6 +35,23 @@ facets:
   modality:
   - text
   size: Over 3,000 questions in four paradigms
+card:
+  task: Answer Traditional Chinese Medicine multiple-choice questions and detect misinformation in wrong options,
+    misleading guidance, and fabricated medical concepts.
+  items_built: 'The authors transformed over 3,000 Traditional Chinese Medicine examination questions into four
+    testing paradigms: Standard multi-choice questions, Wrong Options Test, Misleading Guidance Test, and Fabricated
+    Entity Test.'
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: ''
+  validation: ''
+  results: Among six models tested, some scored above 60% in standard evaluation, while all scored 20-39% in hallucination
+    detection and had near-zero performance in detecting fabricated medical concepts.
+  limitations: ''
+  sources:
+  - https://doi.org/10.1145/3714394.3756275
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

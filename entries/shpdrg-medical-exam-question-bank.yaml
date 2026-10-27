@@ -24,6 +24,22 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 39,307 questions in 7,902 JSON files, 346 subjects
+card:
+  task: Answer Chinese medical multiple-choice questions by selecting from the supplied options.
+  items_built: SHPDRG compiled existing medical exam question-bank materials into 7,902 JSON files, all listed as
+    valid JSON. The original 462 directories were reorganized by subject, removing exam type, professional title,
+    level, and intended-use information from directory names.
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: ''
+  validation: ''
+  results: ''
+  limitations: The card states that fields vary between source files, recommends quality review for the intended
+    use, and warns against using the data for clinical decisions.
+  sources:
+  - https://huggingface.co/datasets/SHPDRG/medical-exam-question-bank-json
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

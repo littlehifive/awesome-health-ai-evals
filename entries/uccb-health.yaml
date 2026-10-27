@@ -24,6 +24,26 @@ facets:
   eval_methods: [mcq_exact_match, expert_human_rating]
   modality: [text]
   size: "1,008 items: 210 free-form, 300 MCQ and 300 true/false (decision support); 66 MCQ and 132 true/false (protocol recall)"
+card:
+  task: Answer free-form, multiple-choice and true/false items about Uganda-specific clinical decision support and
+    safe prescribing boundaries, or exact UCG treatment protocols, in two separate tracks.
+  items_built: Crane AI Labs built 1,008 items from the Uganda Clinical Guidelines 2023, including 210 free-form
+    items, 366 multiple-choice questions and 432 true/false statements. Distractors and negative statements were
+    created algorithmically or with LLM assistance; expert clinician review is recommended before deployment.
+  example: A patient with Ischaemic Heart Disease develops acute myocardial infarction. Is this a danger sign?
+  scoring: Multiple-choice and true/false answers are scored by exact match with the answer key. Decision-support
+    and protocol-recall scores must be reported separately; the card does not specify free-form scoring or how item
+    scores are aggregated.
+  judge: Multiple-choice and true/false items use exact match with the answer key.
+  scale: Correct or incorrect for multiple-choice and true/false items; final metric unspecified.
+  validation: ''
+  results: ''
+  limitations: The authors note possible training overlap for older checkpoints, require excluding the 32 held-out
+    conditions from future training to support generalization claims, and recommend clinician review of algorithmically
+    or LLM-assisted distractors and negative statements.
+  sources:
+  - https://huggingface.co/datasets/CraneAILabs/uccb-health
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

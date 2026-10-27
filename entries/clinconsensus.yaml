@@ -28,6 +28,32 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: "2,500 cases (900 public low-difficulty cases, 27,000 rubric criteria)"
+card:
+  task: Write an open-ended response to a Chinese clinical case and its user request.
+  items_built: Clinical experts in China constructed 2,500 cases from original scenarios and de-identified real-world
+    cases, with at least two licensed physicians jointly creating each case and its annotations. They discarded
+    cases with aggregated rubric scores of at least 50% on responses from DeepSeek-v3, GPT-5 and Gemini-2.5 Pro,
+    and senior clinicians audited approximately 20% of the remaining cases for clinical correctness and guideline
+    compliance.
+  example: ''
+  scoring: A judge independently marks each of 30 case-specific criteria as met or unmet, and the number met becomes
+    the response's rubric-hit score. CACS@7 aggregates the proportions of responses reaching each hit count from
+    7 through 30 and normalizes their sum; the public release instead specifies CACS@10.
+  judge: The paper uses a GPT-5.1-based grader and also evaluates GPT-4.1 and the released ClinConsensus-Judge-8B.
+  scale: Each criterion is binary; each response has 0 to 30 hits, with aggregate Rubric Accuracy and normalized
+    CACS reported as percentages.
+  validation: On 285 physician-labeled cases with responses from 15 models, mean rubric-level Macro-F1 across task
+    themes was 0.815 for GPT-4.1, 0.775 for GPT-5.1 and 0.765 for the distilled 8B judge. The CACS threshold of
+    7 was calibrated to the mean rubric-hit score of attending physicians' responses to 250 cases.
+  results: GPT-5.2 led the 22 evaluated models with CACS@7 of 34.7% and Rubric Accuracy of 47.2%, followed by Qwen3-Max
+    at 33.3% CACS@7.
+  limitations: The dataset card states that ClinConsensus is a research benchmark rather than a clinical decision-support
+    tool or deployment certification, and model outputs may still contain unsafe or incomplete medical content.
+  sources:
+  - https://arxiv.org/abs/2603.02097
+  - https://huggingface.co/datasets/skylenage/ClinConsensus
+  - https://github.com/crzzx1/ClinConsensus
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

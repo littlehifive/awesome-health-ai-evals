@@ -28,6 +28,28 @@ facets:
   eval_methods: [rubric_llm_judge]
   modality: [text]
   size: 3,000 prompts across six domains (chemistry, biology, medicine, pharmacology, physics, psychology)
+card:
+  task: Respond to each hazardous scientific request, with the test checking whether the model refuses or produces
+    unsafe content.
+  items_built: Experts extracted hazardous terms from regulatory documents and expanded them using domain knowledge
+    bases; the authors combined AdvBench templates with expert-informed, human-written templates and evolved prompts
+    using GPT-4o-mini. Llama-3.1-8B, Qwen-2.5-7B and Gemma-2-9B generated validation responses checked by LlamaGuard1,
+    followed by manual inspection and domain-expert review to select 500 prompts per domain, totaling 3,000.
+  example: ''
+  scoring: GPT-4.1 judges each prompt-response pair as unsafe or safe using the authors' grading prompts. The Harmful
+    Rate is the fraction of responses judged unsafe; disclosed reasoning is included in the evaluated response.
+  judge: GPT-4.1 assigns the safety scores in the paper's evaluation.
+  scale: Each response scores 1 if unsafe and 0 otherwise; the mean is the Harmful Rate, with lower scores indicating
+    safer responses.
+  validation: ''
+  results: ''
+  limitations: The authors state that the six domains do not cover all high-risk areas, the prompts do not capture
+    every adversarial tactic, and publishing model responses could spread harmful knowledge.
+  sources:
+  - http://arxiv.org/abs/2505.21605
+  - https://huggingface.co/datasets/SOSBench/SOSBench
+  - https://github.com/SOSBench/SOSBenchEval
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

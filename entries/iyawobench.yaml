@@ -27,6 +27,34 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 200 vignettes
+card:
+  task: Read each structured clinical vignette and choose TREAT_HERE, REFER_TODAY, or REFER_NOW, with a one-sentence
+    rationale.
+  items_built: The authors programmatically generated 200 synthetic vignettes across eight febrile illness categories
+    from aggregate statistics of 1,200 encounters recorded at 19 Oyo State primary health centres between January
+    and March 2026. The first author assigned guideline-based labels using WHO IMCI 2014, WHO Malaria Guidelines
+    2025, Surviving Sepsis Campaign 2021, and Nigeria Standard Treatment Guidelines 2022, without independent physician
+    review.
+  example: ''
+  scoring: A parser extracts the triage decision and compares it with the assigned label to calculate overall accuracy,
+    emergency sensitivity, and low-acuity specificity across the 200 cases. Version 2 adds strict emergency sensitivity,
+    an Escalation Bias Index calculated as lenient sensitivity minus specificity, middle-tier error analysis, severity-weighted
+    accuracy, and scenario-specific Expected Deployment Cost using asymmetric error costs.
+  judge: Automated parsing and comparison with guideline-based labels assigned by the first author determine the
+    scores.
+  scale: Three ordered triage classes; aggregate accuracy, sensitivity and specificity percentages, bias and error
+    rates, severity-weighted accuracy, and scenario-specific error costs.
+  validation: ''
+  results: Llama 3.3 70B ranked first on overall accuracy, while both it and Claude Sonnet 4.6 achieved 100% strict
+    emergency sensitivity. Llama 3.1 8B achieved 100% lenient sensitivity but only 23% strict sensitivity, and the
+    winning model varied across deployment-cost scenarios.
+  limitations: The authors note the small synthetic febrile-illness dataset, lack of independent physician label
+    review, untested generalisation to other clinical domains, illustrative cost weights requiring local calibration,
+    evaluation of only three models, and thresholds tied to a three-level urgency scale.
+  sources:
+  - https://arxiv.org/abs/2607.29085
+  - https://github.com/anthoniooladimeji11-coder/iyawobench
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

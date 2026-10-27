@@ -28,6 +28,32 @@ facets:
   eval_methods: [automatic_metric, expert_human_rating]
   modality: [text]
   size: 1,500 input-output pairs (6 tasks x 250)
+card:
+  task: For each medication prompt, list valid formulations or administration routes, generate a prescription instruction,
+    identify a drug interaction or need for renal dose adjustment, or select the drug matching an indication.
+  items_built: The six datasets contain 1,500 standardized input-output pairs covering inpatient and outpatient
+    medications, drawn from LexiDrug and reviewed by two board-certified pharmacists for accuracy and clinical relevance.
+    Task prompts were refined iteratively with clinical pharmacists to improve clarity and avoid leading language.
+  example: ''
+  scoring: Outputs are compared with clinician-annotated references using accuracy for drug orders, indications
+    and interactions, and F1 for formulations, routes and renal dose adjustment; two pharmacists manually review
+    drug-order errors and HAMEC classifies their potential harm. Each model is run three times per item, with correctness
+    consistency calculated as the fraction of correct runs averaged across items and 95% confidence intervals reported
+    across runs.
+  judge: Automated reference-based scoring is supplemented by two pharmacists reviewing drug-order errors and two
+    clinical pharmacists validating HAMEC classifications.
+  scale: Accuracy and F1 range from 0 to 100; correctness consistency is the proportion of correct runs averaged
+    across items.
+  validation: Two clinical pharmacists validated the HAMEC classifications of drug-order errors; no numerical agreement
+    measure is reported.
+  results: LLaMA3-70B led formulation matching (54.0% F1), drug-order generation (88.0% accuracy), route identification
+    (74.3% F1) and indication identification (97.6% accuracy). GPT-4o-mini led drug-interaction identification (70.4%
+    accuracy) and renal dose-adjustment identification (83.3% F1).
+  limitations: The tasks do not cover all aspects of safe medication use, and drug-order generation was restricted
+    to oral routes to reduce complexity.
+  sources:
+  - https://doi.org/10.64898/2025.12.01.25341004
+  extracted: '2026-10-27'
 signals:
   citations: 5
   citations_source: OpenAlex

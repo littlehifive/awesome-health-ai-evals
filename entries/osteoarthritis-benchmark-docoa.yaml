@@ -28,6 +28,34 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: "778 questions (337 + 145 + 216 + 80)"
+card:
+  task: Answer questions about osteoarthritis treatment recommendations, summarize guideline evidence, and recommend
+    management for patient profiles or individual patients.
+  items_built: Physicians and data scientists designed questions through panel discussions using established clinical
+    guidelines and real-world patient information. The 778 items cover individual guideline statements, summarized
+    treatment recommendations, patient-type treatment strategies, and treatment recommendations for 80 real-world
+    patients.
+  example: Is Walking aids, assistive technology and adaptations at home and at work recommended for Physical Treatment
+    of Knee osteoarthritis according to 2013 EULAR recommendations for the nonpharmacological core management of
+    hip and knee osteoarthritis?
+  scoring: Responses are compared with predefined correct answers for recommendation status, recommendation strength,
+    and treatment appropriateness, with accuracy reported by subset and overall across five responses per question.
+    Human evaluation reports criterion-specific rates for 1,200 outputs from 80 randomly selected items, with independent
+    physician ratings of response quality and patient ratings of intent fulfillment and helpfulness.
+  judge: Five experienced physicians and patients assign human ratings; the scorer for objective accuracy is not
+    specified.
+  scale: Correct or incorrect for objective scoring, reported as accuracy; human ratings are reported as criterion-specific
+    percentages.
+  validation: ''
+  results: DocOA achieved the highest overall accuracy, 0.88, compared with 0.24 for GPT-4 and 0.16 for GPT-3.5.
+    Its subset accuracies were 0.92 for GIQA, 0.87 for MOQA, 0.88 for TSQA, and 0.72 for RCQA.
+  limitations: The authors state that the dataset needs continued expansion and updating, reliance on English sources
+    limits linguistic and cultural applicability, and the augmented model has not been tested in a real-world clinical
+    setting.
+  sources:
+  - https://doi.org/10.2196/58158
+  - https://github.com/geteff1/Osteoarthritis-Benchmark
+  extracted: '2026-10-27'
 signals:
   citations: 48
   citations_source: OpenAlex

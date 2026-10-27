@@ -27,6 +27,25 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 5,029 paired test questions (940 MedExQA, 2,816 MedMCQA, 1,273 MedQA), each in clear and vague form; train splits for MedQA and MedMCQA
+card:
+  task: Choose the correct multiple-choice answer for each medical question presented in clear or deliberately underspecified
+    form.
+  items_built: The authors used an LLM, such as GPT-4o, to rewrite questions from MedQA, MedMCQA, and MedExQA by
+    removing or weakening clinical details while preserving the medical topic and reference answer. Human verification
+    assessed topic fidelity, ambiguity validity, and linguistic fluency, with agreement rates exceeding 95%.
+  example: ''
+  scoring: Selected answers are compared with the reference answers, and accuracy is the proportion answered correctly.
+    In the clarification experiment, questions flagged as ambiguous are replaced with their clear counterparts before
+    answer accuracy is computed.
+  judge: Answers are compared with the dataset's reference answers.
+  scale: Correct or incorrect per question; overall answer accuracy.
+  validation: ''
+  results: ''
+  limitations: The dataset is not intended for direct clinical deployment or medical decision-making.
+  sources:
+  - https://arxiv.org/abs/2601.17284
+  - https://huggingface.co/datasets/yaokunl/CV-MedBench
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

@@ -28,6 +28,31 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 1,612 questions
+card:
+  task: Answer Chinese maternity and infant care questions with a true/false judgment or a free-form response.
+  items_built: The authors used rules, GPT-3.5-turbo and ChatYuan to construct questions from topic-filtered BIOS,
+    CPubMed, MEDQA and MLEC-QA samples, adding evidence retrieved from Chinese Wikipedia and medical books. Two
+    medical-domain experts reviewed 5,779 synthetic samples, with a third arbitrating disagreements, leaving 1,612
+    samples after removing those with two or more negative evaluations.
+  example: 青春期无排卵型功血的治疗原则是什么?
+  scoring: Three medical-domain experts independently rate each answer for factual correctness and relevance, and
+    for a detailed, concise explanation of its conclusion; ratings are averaged across raters and questions. Separate
+    fine-tuned LLaMA-13B-T judgment models provide automated ratings from the question, answer and retrieved knowledge.
+  judge: Three medical-domain expert-level annotators assign human scores; fine-tuned LLaMA-13B-T models assign
+    automated scores.
+  scale: Each aspect receives a score from 0 to 1 per answer; mean correctness and interpretability are reported.
+  validation: On held-out answers from MOSS-16B-SFT and ChatGLM-6B, the LLaMA-13B-T graders achieved Pearson correlations
+    with human ratings of 0.868 for correctness and 0.683 for interpretability; binary accuracy at a 0.5 threshold
+    was 0.898 and 0.835, respectively.
+  results: GPT-4 had the highest mean correctness, 0.867 ± 0.215. A domain expert answering 200 sampled questions
+    scored 0.938 ± 0.213.
+  limitations: The authors restrict its use to Chinese long-form misinformation evaluation in maternity and infant
+    care, note that medical knowledge can become outdated and questions may not reflect community interests, and
+    acknowledge residual subjective annotation bias.
+  sources:
+  - https://arxiv.org/abs/2307.01458
+  - https://github.com/Meetyou-AI-Lab/CARE-MI
+  extracted: '2026-10-27'
 signals:
   citations: 4
   citations_source: OpenAlex

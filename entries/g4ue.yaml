@@ -28,6 +28,29 @@ facets:
   eval_methods: [expert_human_rating, automatic_metric]
   modality: [text]
   size: 5,072 annotated GPT-4 responses (919 incorrect)
+card:
+  task: Assign one or more error or non-error categories to each GPT-4 explanation of a USMLE answer, at the response
+    or text-span level.
+  items_built: The authors collected GPT-4 explanations for 5,072 MedQA training questions and randomly selected
+    300 of the 919 wrong-answer responses for annotation by three medical annotators each. Two recent medical graduates
+    helped develop and refine the taxonomy and guidelines, with further revisions based on a pilot study with participants
+    from medical backgrounds.
+  example: ''
+  scoring: Reference labels retain categories selected by at least two of three annotators, yielding 191 responses
+    under the strict criterion; a relaxed version retains every category selected by any annotator. The source does
+    not specify a metric for scoring model predictions against these labels.
+  judge: Forty-four medical annotators recruited through Prolific assigned the reference annotations, with three
+    annotators per response.
+  scale: Multiple categorical labels per response or span; no final model-performance metric specified.
+  validation: Across 300 responses, mean pairwise Jaccard agreement was 0.66 ± 0.14, with a median of 0.64. For
+    the 191 responses retained under the strict criterion, agreement was 0.70 ± 0.15, with a median of 0.70.
+  results: ''
+  limitations: The authors cite difficulties defining medical error spans, variation in annotators' country-specific
+    medical training, possible annotation fatigue, and the exclusion of explanations that accompanied correct answers.
+  sources:
+  - https://arxiv.org/abs/2404.13307
+  - https://github.com/roysoumya/usmle-gpt4-error-taxonomy
+  extracted: '2026-10-27'
 signals:
   citations: 17
   citations_source: OpenAlex

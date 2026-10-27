@@ -26,6 +26,28 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: about 2,252 multiple-choice questions
+card:
+  task: Select the single correct answer from two, four, or five options for each counselor exam-style question.
+  items_built: The author collected questions from publicly available psychological counseling exam resources and
+    paraphrased and refined them using GPT, while psychology experts contributed new questions. Experts with professional
+    backgrounds in psychology reviewed and corrected all 2,252 items for accuracy, consistency, and alignment with
+    certification exam standards.
+  example: '"An individual''s self-esteem is most likely to improve when they credit their success to which of the
+    following?" Options: "Factors within themselves", "Factors outside themselves", "Indirect factors", "Random
+    factors", "Unstable factors". Answer: "Factors within themselves".'
+  scoring: Each predicted option is compared with the answer key, and Top-1 accuracy is the percentage of all questions
+    answered correctly. The evaluation also reports Top-2 accuracy and weighted F1, precision, and recall.
+  judge: Exact match with the answer key.
+  scale: Correct or incorrect per item; overall accuracy from 0% to 100%, with roughly 70% treated as passing.
+  validation: ''
+  results: GPT-4o achieved the highest Top-1 accuracy at 94.36% and Top-2 accuracy at 96.76%.
+  limitations: The authors state that English, U.S.-specific multiple-choice questions do not fully assess interpersonal,
+    empathic, or conversational skills, reasoning transparency, confidence calibration, or responses to ambiguous
+    and emotionally charged scenarios, and that newer models could change the results.
+  sources:
+  - http://arxiv.org/abs/2510.01611
+  - https://github.com/cloversjtu/PsychCounsel-Bench
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

@@ -26,6 +26,22 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 13,300+ multiple-choice questions
+card:
+  task: Answer multiple-choice questions about medication usage, side effects, precautions, and interactions based
+    on patient information leaflets.
+  items_built: A fully automated pipeline using multiple large language models generated more than 13,300 multiple-choice
+    questions and answers from real patient information leaflets.
+  example: ''
+  scoring: Accuracy measures the proportion of questions for which the model selects the correct answer.
+  judge: Exact match with the answer key.
+  scale: Correct or incorrect per question; overall accuracy.
+  validation: ''
+  results: Llama-3.3-70B-Instruct had the highest reported accuracy at 0.789.
+  limitations: ''
+  sources:
+  - https://huggingface.co/datasets/smdclab/pils
+  - https://doi.org/10.1145/3726302.3730283
+  extracted: '2026-10-27'
 signals:
   citations: 3
   citations_source: OpenAlex

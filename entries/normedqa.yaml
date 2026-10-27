@@ -25,6 +25,23 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric]
   modality: [text]
   size: "1,313 question-answer pairs in the GitHub README (1,401 in the Zenodo record, which includes questions that need an image or ECG)"
+card:
+  task: Generate an answer to each Norwegian medical examination question in Bokmål or Nynorsk.
+  items_built: Riegler and Gautam collected publicly available Norwegian medical examination questions and checked,
+    cleaned and preprocessed them into 1,313 question-and-answer pairs. A separate version contains 1,401 pairs,
+    including questions requiring interpretation of an image or ECG, with multimodal data to be added later.
+  example: ''
+  scoring: The provided lm-evaluation-harness setup compares each generated answer with a single reference answer
+    and reports the percentage of exact matches plus ROUGE-1, ROUGE-2, ROUGE-L and ROUGE-Lsum overlap scores. Wrong
+    answer options are supplied where available, but multiple-choice scoring is not implemented in the example.
+  judge: Automated exact-match and ROUGE scoring in lm-evaluation-harness.
+  scale: Exact match or mismatch per answer; final exact-match percentage and ROUGE overlap scores.
+  validation: ''
+  results: ''
+  limitations: The provided example scores only a single correct answer and does not implement multiple-choice testing.
+  sources:
+  - https://github.com/kelkalot/normedqa
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

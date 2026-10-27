@@ -27,6 +27,32 @@ facets:
   eval_methods: [simulated_multi_turn, expert_human_rating]
   modality: [text]
   size: 519 encounter-derived vignettes (44 to 68 per symptom category, nine categories)
+card:
+  task: Conduct a multi-turn conversation with a simulated patient to gather symptoms, propose likely diagnoses,
+    and recommend urgency, care, and when to seek further help.
+  items_built: The authors derived 519 encounter vignettes from 21,779 HealthVerity EHR records for 1,000 non-cancer
+    patients collected from May 2021 to April 2024, using GPT-4o-mini to select initial encounters and balance nine
+    symptom categories after excluding psychological cases. Clinical experts guided iterative improvements to simulator
+    instructions, and two clinicians independently checked the resulting conversations against the vignettes.
+  example: ''
+  scoring: Two clinicians independently reviewed vignettes, prior-encounter notes, conversations, and system assessments,
+    answering 14 questions about whether they agreed with each aspect of the output and explaining disagreements.
+    Results are reported as percentages of cases approved by both reviewers for each criterion, with diagnosis inclusion
+    also reported separately for each reviewer.
+  judge: Two specialists in Internal Medicine or related sub-disciplines, with approximately 50 years of combined
+    experience, assigned the ratings independently.
+  scale: Yes or no per criterion; percentage of encounters approved, reported separately by criterion.
+  validation: For triage recommendations, Cohen's kappa was 0.79 between AI Triage and physician 1, 0.74 between
+    AI Triage and physician 2, and 0.72 between the two physicians.
+  results: AI Triage included the clinician's most likely diagnosis among its top three diagnoses in 95.4% (495/519)
+    of cases for one reviewer and 94.8% (492/519) for the other. Both reviewers approved its question precision
+    in 81.7% of cases, tone in 99.6%, and case summary in 99.2%.
+  limitations: The authors identify EHR inaccuracies and under-representation, possible omission of uncommon conditions,
+    exclusion of returning-patient scenarios, limited context for clinical judgments, and information gaps when
+    patients give vague or incomplete descriptions.
+  sources:
+  - http://arxiv.org/abs/2506.04032
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

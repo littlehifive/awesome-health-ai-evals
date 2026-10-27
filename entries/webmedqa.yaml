@@ -26,6 +26,28 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 63,284 questions (50,610 train, 6,337 dev, 6,337 test)
+card:
+  task: Rank five candidate answers to a Chinese medical question so that the questioner's adopted answer comes
+    first.
+  items_built: He, Fu and Tu collected questions and replies from health consultancy websites including Baidu Doctor
+    and 120Ask, retained 65,941 questions with adopted answers, and cleaned and filtered them to 63,284 by removing
+    web artifacts, questions with adopted answers longer than 500 characters, and questions with multiple adopted
+    replies. They sampled four negative replies per question, supplementing from other questions when needed, and
+    split each clinical category into training, development and test sets in an 8:1:1 ratio.
+  example: ''
+  scoring: Candidate rankings are compared with the adopted-answer labels. Precision at 1 is the proportion of questions
+    whose adopted answer ranks first; MAP averages the reciprocal rank of the single adopted answer across questions.
+  judge: Scoring uses the answer key based on questioners' adopted answers.
+  scale: 'Per question: top-rank correctness of 0 or 1 and reciprocal adopted-answer rank; aggregate P@1 and MAP
+    reported as percentages.'
+  validation: ''
+  results: Character-based MatchPyramid achieved the highest reported scores of 66.0% P@1 and 79.3% MAP.
+  limitations: The authors note that clinical category labels can be wrong and that question counts are severely
+    imbalanced across categories.
+  sources:
+  - https://doi.org/10.1186/s12911-019-0761-8
+  - https://github.com/hejunqing/webMedQA
+  extracted: '2026-10-27'
 signals:
   citations: 50
   citations_source: OpenAlex

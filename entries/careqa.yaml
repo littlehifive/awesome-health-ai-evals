@@ -31,6 +31,31 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric]
   modality: [text]
   size: 5,621 closed-ended questions (Spanish and English); 2,769 open-ended questions
+card:
+  task: Select the correct answer from four options for each healthcare exam question, or generate a free-form answer
+    in the open-ended version.
+  items_built: Lucia Urcelay Ganzabal and Pablo Bernabeu Pérez curated expert-written government exam PDFs through
+    automatic extraction and manual review, excluding image-based, annulled and incorrectly parsed questions. GPT-4-0314
+    translated the questions into English, and Qwen2.5-72B-Instruct rephrased them into open-ended questions; 10
+    annotators reviewed 360 samples with at least three reviewers per sample, and feedback-driven revision and filtering
+    left 2,769 open-ended items.
+  example: '"What is the primary function of Leydig cells in the synthesis of testosterone?"'
+  scoring: Closed-ended answers are compared with the correct option and reported as accuracy. Open-ended evaluation
+    uses reference-answer overlap through BLEU and ROUGE, semantic similarity through BERTScore, BLEURT and MoverScore,
+    reference-text prediction through perplexity metrics, and response grading by Prometheus.
+  judge: Closed-ended scoring uses the answer key; open-ended scoring uses automatic metrics and the Prometheus
+    model.
+  scale: Closed-ended items are correct or incorrect, reported as accuracy; open-ended results use metric-specific
+    scales.
+  validation: ''
+  results: ''
+  limitations: CareQA has no formal bias assessment, may not represent all medical knowledge or patient demographics,
+    and can contain parsing, translation or rephrasing errors, while its open-ended version lacks thorough healthcare-expert
+    evaluation and covers fewer questions.
+  sources:
+  - https://arxiv.org/abs/2502.06666
+  - https://huggingface.co/datasets/HPAI-BSC/CareQA
+  extracted: '2026-10-27'
 signals:
   citations: 2
   citations_source: OpenAlex

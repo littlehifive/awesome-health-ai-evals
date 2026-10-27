@@ -27,6 +27,31 @@ facets:
   eval_methods: [rubric_llm_judge]
   modality: [text]
   size: 3.2M generated prompts, 29,256 answers from 3 LLMs, 684K evaluations by 4 LLMs
+card:
+  task: Answer a patient or caregiver's mental-health question using the demographic and clinical information included
+    in the prompt.
+  items_built: The authors used Llama3-ChatQA-1.5-8B to generate 3.2 million prompts spanning 37 disorders, 68 symptoms,
+    79 desires, 518 distinct patients, and 48 writing styles. Seed desires came from clinician and patient engagement
+    involving four focus groups and six patient interviews, reaching 20 people in total; identical generated questions
+    were removed.
+  example: ''
+  scoring: LLM judges identify statements inconsistent with medical literature or potentially harmful to patients,
+    flag missing information that could cause harm, and assign non-exclusive Manage, Visit, and Resource labels.
+    Reports average the numbers of hallucinations and omissions and the rates of treatment labels, partitioned by
+    evaluator, answering model, and patient attributes or writing style.
+  judge: Llama3-ChatQA-1.5-8B, Qwen2.5-7B-Instruct, and OLMo-2-1124-13B judge answers directly; Nemo-Instruct-2407
+    evaluates them through agentic workflows.
+  scale: Counts of detected hallucinations and omissions and binary treatment labels per answer; mean counts and
+    label rates across answers.
+  validation: Pairwise treatment-label agreement between the three direct LLM judges ranged from 16.42% to 97.58%,
+    with Cohen's kappa ranging from 0.000 to 0.480 and averaging 0.118.
+  results: ''
+  limitations: The authors report weak agreement between LLM evaluators and show that different evaluators can produce
+    opposite statistically significant conclusions on the same answers.
+  sources:
+  - https://arxiv.org/abs/2511.02246
+  - https://github.com/BBN-E/medic-neurips-2025-demo
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

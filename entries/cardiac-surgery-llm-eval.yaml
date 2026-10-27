@@ -25,6 +25,25 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: 15 scenarios; five LLMs rated by blinded surgeons
+card:
+  task: Answer an open-ended clinical reasoning question for each complex cardiac surgery scenario.
+  items_built: A panel of senior cardiac surgeons independently developed 15 high-fidelity cardiac surgery scenarios,
+    each paired with an open-ended reasoning task, expert-curated reference answers, and a 10-dimensional weighted
+    evaluation framework.
+  example: ''
+  scoring: Surgeons rated model responses using a 10-dimensional weighted framework in two blinded rounds, first
+    independently and then with access to reference answers and the option to revise ratings. Results were reported
+    as median normalized scores.
+  judge: A separate group of senior cardiac surgeons assigned the ratings.
+  scale: Affirmative or negative ratings across 10 weighted dimensions; median normalized scores.
+  validation: ''
+  results: O1 had the highest median normalized score at 0.896, followed by O3-mini-high at 0.854. In the second
+    round, 7.57% of ratings changed from affirmative to negative and 2.59% changed from negative to affirmative.
+  limitations: The authors report poor model performance in core clinical dimensions and complex longitudinal reasoning,
+    alongside clinicians' overacceptance of reasoning that appears sound but is incorrect or potentially harmful.
+  sources:
+  - https://doi.org/10.3389/fdgth.2026.1769467
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

@@ -27,6 +27,37 @@ facets:
   eval_methods: [simulated_multi_turn, automatic_metric]
   modality: [text]
   size: 13 therapist behaviors; 259 + 212 source therapy transcripts
+card:
+  task: Respond as a therapist to a client, either with one reply within an existing therapy conversation or throughout
+    a simulated conversation of up to 20 turns.
+  items_built: The authors created single-response items from every conversation prefix ending in a client utterance
+    in 259 transcripts from Perez-Rosas et al. and 212 HOPE transcripts, both sourced from public therapy videos;
+    the first dataset includes 155 high-quality and 104 low-quality sessions. For full conversations, GPT-4 simulated
+    clients from the source transcripts, and a GPT-4-based check found mean conversation consistency of 2.95 out
+    of 3 (standard deviation 0.13).
+  example: ''
+  scoring: A GPT-based classifier assigns psychotherapy behavior labels to utterances using definitions and annotated
+    examples, then compares behavior frequencies, temporal ordering, and responses to different client behaviors
+    against human therapy. Differences from average human behavior are tested with two-sided Student's t-tests and
+    Bonferroni correction, with high- and low-quality human sessions providing the direction of desirable behavior
+    rather than a single overall score.
+  judge: GPT-based classifiers, including GPT-3 and GPT-4, assign behavior labels automatically.
+  scale: Multiple behavior labels per utterance; aggregate behavior frequencies and differences from human therapy,
+    with no overall score.
+  validation: Two co-authors with expertise in NLP and mental health research annotated 283 therapist and 91 client
+    utterances, with Krippendorff's alpha of 0.7834. Across five random 60:40 train-test splits, the best prompting-based
+    classifier achieved therapist macro-F1 of 57.7% (standard deviation 2.5%) and client macro-F1 of 76.7% (standard
+    deviation 6.3%).
+  results: Only GPT-4 consistently changed behavior in the desired direction to a statistically and practically
+    significant extent across the three prompt-modulation tests. Its frequency of questions about experiences rose
+    from 29.9% to 57.0% with the modified prompt.
+  limitations: The authors cite imperfect automated measures without human evaluation of the assessed therapy, reliance
+    on prior high- and low-quality labels, coverage of limited psychotherapy approaches, and exclusion of patient
+    safety from the study's scope.
+  sources:
+  - http://arxiv.org/abs/2401.00820
+  - https://github.com/behavioral-data/BOLT
+  extracted: '2026-10-27'
 signals:
   citations: 27
   citations_source: OpenAlex

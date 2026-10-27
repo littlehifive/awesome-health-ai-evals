@@ -25,6 +25,26 @@ facets:
   eval_methods: [expert_human_rating, automatic_metric]
   modality: [text]
   size: 4 rubric domains scored out of 4; 51 handouts scored by one neuro-ophthalmologist, plus SMOG readability
+card:
+  task: Write a patient education handout about a neuro-ophthalmic condition.
+  items_built: The authors developed QGLOP to assess generated patient handouts and applied it to 51 handouts generated
+    by ChatGPT-3.5 across 17 neuro-ophthalmic conditions.
+  example: ''
+  scoring: A fellowship-trained neuro-ophthalmologist scored each handout on accuracy/comprehensiveness, bias, currency,
+    and tone, with up to 4 points per domain summed to 16; mean domain and total scores were reported across handouts.
+    Readability was assessed separately using SMOG, which estimates the years of education needed to understand
+    the text.
+  judge: One fellowship-trained neuro-ophthalmologist scored the handouts.
+  scale: Each domain is scored out of 4; totals are out of 16 and averaged across handouts, with SMOG reported in
+    years of education.
+  validation: ''
+  results: ChatGPT-3.5 had a mean QGLOP score of 11.9 out of 16, or 74.4%. Its mean SMOG reading level was 10.9
+    years of education.
+  limitations: The authors state that the handouts require review and editing before dissemination and that their
+    mean reading level exceeded the accepted grade 8 upper limit for patient handouts.
+  sources:
+  - https://doi.org/10.1097/wno.0000000000002074
+  extracted: '2026-10-27'
 signals:
   citations: 32
   citations_source: OpenAlex

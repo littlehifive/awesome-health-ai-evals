@@ -28,6 +28,33 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 92 questions; 1,691 rubric elements
+card:
+  task: Answer single-turn, open-ended questions about non-small cell lung cancer, including factual explanations
+    and clinical decisions under clean, noisy, or misleading wording.
+  items_built: A multi-agent pipeline generated 92 questions and 1,691 rubric elements from evidence centered on
+    the NCCN NSCLC guideline, using knowledge graphs, synthesized clinical vignettes, controlled prompt variations,
+    and an evidence-review agent. Items were retained after automated reasoning-level classification checked against
+    clinician labels and clinician comparisons with human-authored questions.
+  example: '"What is the recommended follow-up interval for an 8 mm part-solid lung nodule in a low-risk patient?"'
+  scoring: LLM judges compare each response with item-specific positive and negative rubric elements, combine binary
+    judgments by majority vote, and apply weighted credits and penalties alongside rule-based relevance checks.
+    Scores are normalized and clipped to 0 to 1, any S4 error makes the item fail, and mean scores are reported
+    by reasoning level.
+  judge: An ensemble of LLM judges assigns rubric scores; the paper gives GPT-4, Claude, and DeepSeek as examples,
+    alongside a rule-based relevance matcher.
+  scale: Binary rubric hits; weighted credits and penalties normalized to 0 to 1 per item, with mean scores and
+    rubric hit rates reported.
+  validation: Automated judgments achieved 90.00% agreement with consensus annotations from five senior clinical
+    experts across 92 questions and 1,691 rubrics, with Cohen's kappa of 0.77.
+  results: ''
+  limitations: The authors state that single-turn, text-only questions cannot assess longitudinal dialogue or multimodal
+    information, perturbations capture only part of real-world variability, and automated rubric generation still
+    requires human validation.
+  sources:
+  - https://arxiv.org/abs/2510.13734
+  - https://huggingface.co/datasets/AQ-MedAI/GAPS-NSCLC-preview
+  - https://github.com/AQ-MedAI/MedicalAiBenchEval
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

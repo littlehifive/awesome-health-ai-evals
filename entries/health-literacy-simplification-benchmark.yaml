@@ -24,6 +24,23 @@ facets:
   eval_methods: [automatic_metric, expert_human_rating]
   modality: [text]
   size: not stated in the abstract
+card:
+  task: Simplify a health text at the sentence or paragraph level for the general public while preserving its medical
+    meaning and factual accuracy.
+  items_built: Public-domain health documents from CDC, WHO, and MedlinePlus were paired with human-written simplifications
+    at a readability level suitable for the general public.
+  example: ''
+  scoring: Outputs are evaluated using Flesch-Kincaid Grade Level, SARI, BLEU, and BERTScore, alongside human assessments
+    of linguistic simplicity, medical accuracy, grammatical fluency, and reader comprehension.
+  judge: Automated metrics and human raters described as public health communication experts and linguistic annotators
+    assess the outputs.
+  scale: ''
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://doi.org/10.20944/preprints202506.1683.v1
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

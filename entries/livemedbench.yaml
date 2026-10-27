@@ -27,6 +27,26 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: "2,756 cases, 16,702 rubric criteria (about 6 per case), 38 specialties"
+card:
+  task: Write an open-ended medical response to the patient narrative and query in each clinical case.
+  items_built: A multi-agent pipeline converted physician-answered threads from four online medical communities
+    into 2,756 structured cases, including 1,568 in English and 1,188 in Chinese, with weekly collection of new
+    threads. Agents checked clinical consistency against medical evidence and support in the original threads, and
+    two bilingual physicians reviewed a random sample of 50 cases and 292 rubric criteria.
+  example: ''
+  scoring: The grader checks each response against case-specific binary criteria derived from verified physician
+    advice, with weights from −10 to 10 for rewards and penalties. For each case, satisfied weights are summed,
+    divided by the total positive weight and clipped to 0-1; the overall score is the mean of case scores.
+  judge: The automated grader is gpt-4.1-2025-04-14.
+  scale: Criteria are met or not met; weighted case scores range from 0 to 1, and their mean is reported as a percentage.
+  validation: On 50 cases with 292 criteria, comparison with two bilingual physicians gave the grader a criterion-level
+    macro F1 of 0.76 and a case-level Pearson correlation of 0.54 (p = 6.65 × 10⁻⁵). Human inter-rater macro F1
+    was 0.89, and the holistic LLM-as-a-Judge baseline had a correlation of 0.26 (p = 0.07).
+  results: GPT-5.2 led the 38 evaluated models with 39.2%, followed by GPT-5.1 at 38.5%.
+  limitations: ''
+  sources:
+  - http://arxiv.org/abs/2602.10367
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

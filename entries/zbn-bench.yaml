@@ -24,6 +24,26 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 1,500 items; 300 rated by four experts; 14 LLMs evaluated
+card:
+  task: Answer single-choice, multiple-choice and chained-choice questions about clinical reasoning in the Zhao
+    Bingnan school of traditional Chinese medicine dermatology.
+  items_built: The MAC-TCM multi-agent workflow generated 1,500 items using a knowledge graph built from over 1,000
+    curated clinical cases, 54 books, over 1,000 full-text articles and over 3,000 indexed records. Candidates were
+    constrained by graph paths and question directions, checked for answer reachability and filtered with four-dimensional
+    soft scoring; four domain experts independently rated a sample of 300 items.
+  example: ''
+  scoring: Model answers were scored automatically and reported as overall accuracy and accuracy on item subsets;
+    the abstract does not describe the answer-comparison or aggregation rules.
+  judge: An automatic scorer assigns scores, but the abstract does not name it.
+  scale: Overall accuracy, reported as a percentage.
+  validation: Automatic scoring had a mean absolute error of 0.035 against expert consensus. Four domain experts
+    rated 300 items, with a consensus score of 3.802 out of 4.0 and inter-rater Fleiss' kappa of 0.78.
+  results: The best-performing model, unnamed in the abstract, achieved 62.30% overall accuracy among fourteen models
+    tested, with 26.54% on high-difficulty items and 18.62% on chained-choice items.
+  limitations: Broader external validation remains necessary before downstream clinical interpretation.
+  sources:
+  - https://doi.org/10.2139/ssrn.6736926
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

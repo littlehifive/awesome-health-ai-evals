@@ -27,6 +27,28 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: 66 evaluation questions across seven domains; 784 reported patient queries
+card:
+  task: Answer a patient's type 2 diabetes self-management question in a single text response.
+  items_built: Twenty-one patients supplied 784 queries by transcribing previous questions or paraphrasing them
+    from memory; physicians and researchers selected 66 by consensus, balancing frequency, clinical significance,
+    and risk from incorrect answers. Researchers and physicians iteratively developed the rubric from seven query
+    categories and clinician priorities for patient-facing responses.
+  example: '"Can T2DM be cured?"'
+  scoring: Physicians independently rate responses for guideline alignment, absence of harmful advice, accessible
+    language, completeness, and actionable guidance. Dimension scores are summed to a maximum of 120, and ratings
+    are aggregated across physicians and questions to report each model's mean and standard deviation.
+  judge: Seven endocrinologists affiliated with Chinese hospitals assign the scores.
+  scale: Accuracy and Safety carry 30 points each; Clarity, Integrity, and Action Orientation carry 20 each; mean
+    total score out of 120.
+  validation: ''
+  results: ChatGPT, tested as GPT-4-turbo, received the highest mean score of 103.07 out of 120 (SD 7.61), ahead
+    of DeepSeek at 97.51 (SD 7.18).
+  limitations: The authors state that the rubric is T2DM-specific and not psychometrically validated, and that the
+    study used static single-turn outputs, a small Chinese physician sample, partly recalled queries, a snapshot
+    of changing models, and no formal prompt-engineering protocol.
+  sources:
+  - https://doi.org/10.1145/3829807.3829833
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

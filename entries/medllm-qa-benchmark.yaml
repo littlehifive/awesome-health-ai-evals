@@ -24,6 +24,21 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: "11 test sets (5 English, 3 Japanese, 3 Chinese); item counts not stated in the README"
+card:
+  task: Answer medical multiple-choice questions in English, Japanese or Chinese.
+  items_built: The repository compiles 11 datasets, using only test splits where splits exist and combining IgakuQA
+    exams from 2018 through 2022 into one file. Its new DenQA dataset contains Japanese National Dentistry Examination
+    questions and answers from 2023 and 2024, extracted from Japan's Ministry of Health, Labour and Welfare website.
+  example: ''
+  scoring: Evaluation scripts compare model predictions with gold answers from the input dataset and report accuracy.
+  judge: Evaluation scripts compare predictions with gold answers.
+  scale: Accuracy.
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://github.com/aistairc/medLLM_QA_benchmark
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

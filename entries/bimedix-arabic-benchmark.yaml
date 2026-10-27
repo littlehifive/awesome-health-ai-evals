@@ -29,6 +29,26 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: nine translated multiple-choice sets (for example 135 anatomy and 1,273 MedQA test questions in English counterparts); total not summed
+card:
+  task: Answer Arabic medical multiple-choice questions, including choosing yes, no, or maybe from a biomedical
+    abstract for PubMedQA items.
+  items_built: The authors translated 7,045 English evaluation questions from six medical MMLU subjects, MedMCQA,
+    MedQA and PubMedQA using ChatGPT to translate, score and iteratively revise the Arabic text. A medical professional
+    fluent in Arabic manually checked all translations below a quality threshold and a random subset of high-scoring
+    translations.
+  example: ''
+  scoring: The EleutherAI evaluation framework measures accuracy by comparing selected answers with the reference
+    answers.
+  judge: Answers are scored automatically using the EleutherAI evaluation framework.
+  scale: Correct or incorrect per question; accuracy across questions.
+  validation: ''
+  results: Bilingually trained BiMediX performed best across all Arabic benchmark categories, with an average absolute
+    accuracy gain of 10 percentage points over Jais-30B.
+  limitations: ''
+  sources:
+  - https://arxiv.org/abs/2402.13253
+  - https://github.com/mbzuai-oryx/BiMediX
+  extracted: '2026-10-27'
 signals:
   citations: 21
   citations_source: OpenAlex

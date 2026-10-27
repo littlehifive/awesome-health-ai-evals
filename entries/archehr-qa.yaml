@@ -26,6 +26,25 @@ facets:
   eval_methods: [automatic_metric, expert_human_rating]
   modality: [text]
   size: 134 cases (development set plus a 100-case test set)
+card:
+  task: Answer each patient's question using only the supplied clinical note excerpt, citing the sentence numbers
+    that support the answer.
+  items_built: Experts curated 134 cases using patient questions from public health forums and clinical notes from
+    MIMIC-III and MIMIC-IV. Clinicians reworded the questions and wrote reference answers, and note sentences were
+    manually labeled as essential, supplementary, or not relevant to answering the question.
+  example: Why was cardiac catheterization recommended to the patient?
+  scoring: Factuality measures overlap between the cited note sentences and the ground-truth evidence, while Relevance
+    measures textual and semantic similarity between the generated answer and the clinician-written reference answer.
+  judge: ''
+  scale: ''
+  validation: ''
+  results: Llama 4 achieved the highest scores among Llama 4, Llama 3, and Mixtral, with answer-first prompting
+    consistently performing best.
+  limitations: ''
+  sources:
+  - https://github.com/soni-sarvesh/archehr-qa
+  - https://pubmed.ncbi.nlm.nih.gov/40735090
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

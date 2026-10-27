@@ -26,6 +26,30 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric, rubric_llm_judge]
   modality: [text]
   size: 3,680 instances across 5 source datasets (dataset card); paper text says 3,480
+card:
+  task: Answer a medical question using supplied documents and, depending on the scenario, identify irrelevant documents,
+    decline when information is insufficient, answer supporting sub-questions, or detect and correct factual errors.
+  items_built: The authors used GPT-4o to generate retrieval topics, supporting sub-question and answer pairs, and
+    counterfactual edits, with signal documents retrieved through topic-based MedCPT and Google search and distractors
+    taken from other questions in the same dataset. The dataset card lists 3,680 questions across five sources,
+    while the paper describes 3,480 across four sources without MedLFQA.
+  example: ''
+  scoring: Main answers are compared with answer keys for accuracy, while document judgments yield noise-detection
+    and factual-error-detection rates. The paper scores sub-answers by exact match and a GPT-based comparison with
+    ground truth that awards 1 for a complete semantic match, 0.5 for a relevant partial match, and 0 for a wrong
+    or irrelevant answer; the dataset card instead lists token F1 alongside exact match.
+  judge: Answer-key comparisons and a GPT-based semantic grader whose model version is not specified assign the
+    reported answer scores.
+  scale: Main-answer and detection accuracy rates; sub-answer exact match and GPT-based scores of 0, 0.5, or 1 in
+    the paper, with token F1 listed in the dataset card.
+  validation: ''
+  results: ''
+  limitations: The authors state that evaluation covers a limited set of model architectures, only question answering,
+    and only single-turn prompts rather than multi-turn clinical interactions.
+  sources:
+  - https://arxiv.org/abs/2411.09213
+  - https://huggingface.co/datasets/ngotrnghia1811/MedRGB
+  extracted: '2026-10-27'
 signals:
   citations: 3
   citations_source: OpenAlex

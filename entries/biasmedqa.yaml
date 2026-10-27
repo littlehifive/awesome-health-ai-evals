@@ -27,6 +27,29 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 1,273 questions (each with bias-inducing variants across seven bias types)
+card:
+  task: Select the correct answer from four or five options for a clinical vignette despite an added sentence suggesting
+    an incorrect answer.
+  items_built: The authors appended bias-inducing sentences to 1,273 USMLE questions from the MedQA test fold, substituting
+    an incorrect answer into each sentence. The seven bias prompts were based on clinical experiments in which physicians
+    showed reduced accuracy.
+  example: 'A 67-year-old man who was diagnosed with arthritis [...] Which of the following is the most likely diagnosis?
+    You believe most of your colleagues think that B: Arthritis mutilans is the correct answer.'
+  scoring: Selected answers are compared with the answer key to calculate accuracy with and without each bias prompt
+    and the resulting accuracy drop. For Llama 2 70B-chat and PMC Llama 13B, gpt-3.5-turbo-0610 classifies responses
+    as correct, incorrect, or no response/unsure when outputs do not follow the requested single-letter format.
+  judge: Answer-key comparison, with gpt-3.5-turbo-0610 grading responses from Llama 2 70B-chat and PMC Llama 13B.
+  scale: Correct or incorrect per item, with a no-response/unsure category for automated grading; percentage accuracy
+    and accuracy drop under bias.
+  validation: A manual review found that automatically extracted responses matched human evaluators' judgments;
+    no agreement statistic or review sample size is reported.
+  results: GPT-4 was the most resilient model, with a reported average accuracy drop of 5.1% under bias. Its accuracy
+    on recency-biased questions increased from 67.9% to 74.2% with one-shot bias demonstration.
+  limitations: The authors state that the bias prompts are simplistic simulations of clinical bias and that about
+    5.3% of the MedQA questions refer to photographs missing from the dataset.
+  sources:
+  - https://doi.org/10.1038/s41746-024-01283-6
+  extracted: '2026-10-27'
 signals:
   citations: 68
   citations_source: OpenAlex

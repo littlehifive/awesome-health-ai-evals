@@ -23,6 +23,21 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 1,000 questions in English and Hindi (2,000 prompts)
+card:
+  task: Answer questions about health statistics for Indian districts in English and Hindi.
+  items_built: The dataset contains 1,000 questions, each presented in English and Hindi, for 2,000 prompts drawn
+    from public HMIS and Rural Health Statistics tables. Gold answers are computed by code from those tables.
+  example: ''
+  scoring: The evaluate.py script compares model answers with gold answers computed from the source tables and reports
+    exact-match accuracy in closed-book and oracle conditions.
+  judge: The evaluate.py script uses exact match with the gold answers.
+  scale: Each answer is correct or incorrect; the final metric is exact-match accuracy.
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://huggingface.co/datasets/judicialmind/Health-StatsQA
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

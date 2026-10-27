@@ -26,6 +26,32 @@ facets:
   eval_methods: [rubric_llm_judge, automatic_metric, simulated_multi_turn]
   modality: [text]
   size: 2,284 synthetic conversations (1,142 each with o1 and DeepSeek-R1 as the sensemaker)
+card:
+  task: Hold a multi-turn text conversation with a simulated patient to help them understand their mental health
+    concerns and provide a diagnosis without multiple-choice options.
+  items_built: The authors selected 181 mental health cases from MedQA using a GPT-4o classifier followed by human
+    validation, then extracted medical facts and diagnostic labels to build patient personas. GPT-4o simulated patients
+    in conversations with OpenAI o1 and DeepSeek-R1; removing erroneous generations and incomplete conversations
+    left 1,142 conversations per model.
+  example: ''
+  scoring: An LLM judge rates patient-centred communication and conversation flow using rubrics, and compares free-text
+    diagnoses with case labels using exact or broader-category matching. Results are reported as mean rubric scores,
+    diagnostic accuracy percentages and mean SMOG readability scores, rather than one combined score.
+  judge: An LLM judge whose model name is not given assigns rubric and diagnostic scores, and the SMOG index measures
+    readability.
+  scale: Rubric scores from 1 (Very Poor) to 4 (Very Good), averaged across conversations; hard and soft diagnostic
+    accuracy percentages; SMOG readability index.
+  validation: Human evaluation used the same rubrics on a subset of 100 conversations to check automated scores;
+    no agreement figures are provided in the excerpts.
+  results: DeepSeek-R1 led patient-centred communication with an average score of 2.77 out of 4, compared with 2.55
+    for OpenAI o1, and achieved 31.18% hard diagnostic accuracy. OpenAI o1 led soft diagnostic accuracy at 68.39%,
+    conversation flow at 3.53 out of 4 and readability with a lower SMOG score of 11.50.
+  limitations: The authors state that simulated actors do not capture the full range of human emotions and lived
+    experiences, the dataset does not fully capture real-world variation in conversation-stage length, and the framework
+    may omit other evaluation dimensions.
+  sources:
+  - https://arxiv.org/abs/2505.20201
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

@@ -27,6 +27,31 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 118 tasks, 1,173 unique calculators, EHR database of about 49,500 patients
+card:
+  task: Interpret each underspecified clinical query, retrieve the patient's EHR data, select and sequence the appropriate
+    medical calculators, and report the calculated results.
+  items_built: Using a physician-developed taxonomy of 125 scenarios and 1,173 unique calculators collected from
+    MDCalc, Medscape, and QxMD, GPT-5 generated workflows and naturalistic questions that were manually reviewed,
+    yielding 118 tasks after quality checks. Tasks were linked to clinically similar MIMIC-IV patients and supplemented
+    with GPT-5-generated patient records; reviewers checked calculator names, inputs, and answers item by item against
+    patient information and the three calculator websites.
+  example: ''
+  scoring: Structured results are extracted with DeepSeek-V3.1 and compared with ground-truth calculator choices,
+    inputs, and outputs. Task Fulfillment is the proportion of tasks with valid final outputs; the other reported
+    scores average per-task ratios of correctly selected to required calculators, correct outputs to invoked calculators,
+    and correctly extracted to required inputs.
+  judge: DeepSeek-V3.1 extracts structured results for comparison with ground truth.
+  scale: Binary final-output validity and per-task correctness ratios, aggregated as percentages for TF, CS, QP,
+    and EA.
+  validation: ''
+  results: Claude Opus 4.5 was the top performer, with 33.97% calculation accuracy and a Calculator Selection score
+    of 66.66.
+  limitations: The authors state that the database's data associations may contain region-specific biases and do
+    not capture the diversity of EHR systems worldwide.
+  sources:
+  - https://arxiv.org/abs/2601.23049
+  - https://github.com/SPIRAL-MED/MedMCP-Calc
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

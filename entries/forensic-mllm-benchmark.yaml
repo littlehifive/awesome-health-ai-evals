@@ -25,6 +25,29 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 847 questions (781 multiple choice or true/false, 66 open-ended; 225 image-based)
+card:
+  task: Answer forensic science and medicine examination questions by selecting an option or writing a response,
+    using the supplied image when present.
+  items_built: 'The authors assembled 847 questions from publicly available educational sources, including Forensic
+    Pathology Review, Forensic Science: From the Crime Scene to the Crime Lab, and nationally certified forensic
+    clinical examinations from the University of Jordan Faculty of Medicine. The set contains 781 choice-based questions
+    with two, four or five options and 66 open-response questions.'
+  example: ''
+  scoring: GPT-4o grades each answer part as correct or incorrect, with no partial credit within a part; a question's
+    score is the proportion of its equally weighted parts answered correctly. Question scores are averaged and reported
+    as percentage accuracy.
+  judge: GPT-4o assigns scores, with human annotations used to check a sample.
+  scale: 0 or 1 per answer part; 0 to 1 per question; aggregate percentage accuracy.
+  validation: Human annotators checked 30 randomly sampled responses from each of the 11 models, with perfect agreement
+    between human and GPT-4o scores across all sampled responses.
+  results: Gemini 2.5 Flash scored highest, achieving 79.0% ± 2.72% accuracy with chain-of-thought prompting and
+    74.32% ± 2.90% with direct prompting.
+  limitations: The authors report an uneven topic distribution, missing subfields including forensic entomology,
+    odontology and toxicokinetics, no audio or video items, and limited generalizability to unstructured or novel
+    forensic scenarios.
+  sources:
+  - https://doi.org/10.1101/2025.07.06.25330972
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

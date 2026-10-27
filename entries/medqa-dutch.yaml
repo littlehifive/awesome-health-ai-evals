@@ -25,6 +25,19 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: about 14,368 JSONL lines in one file; item count not stated on the card
+card:
+  task: Answer medical exam questions in Dutch.
+  items_built: UMCU translated the English MedQA dataset into Dutch using OpenAI's GPT-4.1 mini.
+  example: ''
+  scoring: Performance is scored by accuracy.
+  judge: ''
+  scale: Accuracy.
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://huggingface.co/datasets/UMCU/MedQA_Dutch
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

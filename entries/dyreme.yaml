@@ -26,6 +26,22 @@ facets:
   eval_methods: [rubric_llm_judge, automatic_metric]
   modality: [text]
   size: "3,200 generated questions from 800 DxBench cases in the paper's main run; the benchmark is regenerated, with versioned snapshots planned every six months"
+card:
+  task: Respond to each consultation-style patient case with a diagnosis.
+  items_built: GPT-4.1 generated 3,200 questions from seed cases for testing 12 LLMs, adding differential-diagnosis
+    and common misdiagnosis confounders and varying patient expression styles. The repository includes example seed
+    datasets named ddxplus, dxbench, dxy, and persona.
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: ''
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://github.com/xansar/DyReMe
+  - https://doi.org/10.18653/v1/2026.acl-long.1218
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

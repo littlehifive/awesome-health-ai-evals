@@ -27,6 +27,29 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 13,452 annotated answers from four medical LLMs (2,994 held out as test set annotated by doctors)
+card:
+  task: Answer open-ended patient medical questions in free text.
+  items_built: The framework applies to free-text medical answers using guidelines developed with professional doctors,
+    with three main dimensions divided into three or four sub-aspects each. ChatDoctor, Baize, MedAlpaca, and MedLlama2
+    generated answers for 13,452 samples annotated with AI assistance; doctors then annotated a 2,994-sample test
+    subset using the guidelines.
+  example: What is Dermatophytosis and how can it be distinguished from other illnesses?
+  scoring: Specialized evaluator models assign a score and rationale for each sub-aspect of relevance, medical correctness,
+    and expression. Evaluator performance is measured by the proportion of response pairs whose score ranking agrees
+    with doctors' labels, alongside score correlations and doctors' checks of whether generated rationales match
+    reference rationales; reported results average three runs.
+  judge: Specialized HDCEval expert models score answers, and human doctors provide test labels and assess rationale
+    matches.
+  scale: Each sub-aspect is scored from 0 to 5; evaluator performance uses pairwise accuracy, intraclass correlation,
+    Pearson correlation, and reference match.
+  validation: HDCEval's pairwise accuracy improved by 23.92% compared with PandaLM against doctors' labels on the
+    2,994-sample test set.
+  results: HDCEval outperformed the baseline evaluators across multiple scenarios and exceeded GPT-4 on reference
+    match and correlation metrics.
+  limitations: ''
+  sources:
+  - https://arxiv.org/abs/2501.06741
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

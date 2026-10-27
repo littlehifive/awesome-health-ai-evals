@@ -27,6 +27,31 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: "HARD subset of about 862 questions (100 each from MedQA, PubMedQA, MedMCQA, MMLU-Pro, MedExQA, MedXpertQA-R, MedXpertQA-U; 89 MedBullets; 73 MMLU)"
+card:
+  task: Select the correct answer to each medical multiple-choice question.
+  items_built: The authors selected 862 questions from MedQA, PubMedQA, MedMCQA, MedBullets, MMLU, MMLU-Pro, MedExQA,
+    and MedXpertQA, retaining questions answered correctly by fewer than half of the tested models. Four medical
+    professionals described as M.D. students reviewed the questions for clinical relevance and reasoning complexity,
+    and the authors checked potential memorization using MELD.
+  example: You are called to assess a term newborn... What is the most likely diagnosis?
+  scoring: The selected answer is compared with the stored correct answer, and Pass@1 accuracy is reported as the
+    percentage of questions answered correctly for each source test set. The overall comparison averages the test-set
+    accuracies.
+  judge: Answers are checked against the dataset answer key.
+  scale: Correct or incorrect per question; Pass@1 accuracy in percent, with test-set accuracies averaged for the
+    overall comparison.
+  validation: ''
+  results: DeepSeek-R1 led on five subsets, scoring 31.0% on MedMCQA, 43.8% on MMLU, 37.0% on MMLU-Pro, and 26.0%
+    each on MedExQA and MedXpertQA-U. O3-mini scored 53.0% on MedQA and 50.6% on MedBullets, and tied for the lead
+    on PubMedQA at 16.0%.
+  limitations: The authors state that educational question-answering tasks do not fully reflect real clinical care,
+    model outputs lack systematic verification by practicing clinicians, and MELD cannot rule out training-data
+    exposure when no memorization is detected.
+  sources:
+  - https://arxiv.org/abs/2503.07459
+  - https://huggingface.co/datasets/super-dainiu/MedicalAgentsBench
+  - https://github.com/gersteinlab/MedicalAgentsBench
+  extracted: '2026-10-27'
 signals:
   citations: 2
   citations_source: OpenAlex

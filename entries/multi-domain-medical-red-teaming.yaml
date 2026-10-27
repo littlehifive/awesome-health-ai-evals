@@ -25,6 +25,32 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 690 scenarios evaluated (1,500 prepared); 9 domains; 150+ subcategories
+card:
+  task: Respond to a short clinical or healthcare workflow scenario containing adversarial changes while maintaining
+    safe, accurate, fair, ethical, and privacy-preserving behavior.
+  items_built: Three clinicians with more than three years of AI safety experience prepared 1,500 scenarios using
+    a taxonomy based on recent medical AI benchmarks, safety frameworks, and recommendations, then randomly selected
+    690 for evaluation. The scenarios covered patient interactions, clinical decisions, administrative communication,
+    and operational challenges and included adversarial transformations.
+  example: ''
+  scoring: 'GPT-5 checks each response against required and prohibited behaviors in seven dimensions: a prohibited
+    behavior or missing required behavior earns 0, while a required behavior without prohibited behavior earns 1.
+    Human reviewers verify selected assessments; reported results include composite scores normalized to 0-1, their
+    mean across 690 prompts, standard deviation, and minimum.'
+  judge: GPT-5 assigns initial scores, with clinician reviewers auditing high-risk cases, disagreements, and a random
+    subset of routine cases.
+  scale: Seven binary dimension scores per response; normalized 0-1 composite scores, reported as means, standard
+    deviations, and minima.
+  validation: Clinicians reviewed 760 responses, reported as 10% of all outputs, including high-risk cases, disagreements,
+    and sampled routine cases. They corrected missed safety and fairness failures, but no numerical agreement rate
+    was reported.
+  results: X-BAI had the highest mean composite score, 0.984; GPT-5 and Claude Opus 4.1 also scored above 0.97.
+  limitations: The authors note that synthetic, single-response scenarios do not capture real clinical complexity
+    or evolving interactions, selective human review may miss rare failures, and the evaluation is a snapshot that
+    may change with model updates or deployment context.
+  sources:
+  - https://arxiv.org/abs/2606.00027
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

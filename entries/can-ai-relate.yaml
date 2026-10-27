@@ -27,6 +27,32 @@ facets:
   eval_methods: [expert_human_rating, automatic_metric]
   modality: [text]
   size: 12,513 posts with 70,429 peer responses; 50 posts rated by 2 clinicians; 11 counterfactual seed posts
+card:
+  task: Write a supportive response to a Reddit post seeking mental health help.
+  items_built: The authors collected posts and peer responses through the Reddit API and randomly selected 50 posts
+    for blinded clinician evaluation, masking demographic information in the posts and responses. For demographic
+    auditing, they used GPT-4-inferred attributes to select 253 posts labeled Black, 58 Asian, 47 White and 520
+    with unknown race.
+  example: ''
+  scoring: Fine-tuned RoBERTa classifiers score three empathy dimensions, and differences in demographic group means
+    are tested with t-tests. Clinicians separately rate three empathy dimensions and Cultivating Change Talk, with
+    scores averaged across samples and clinicians.
+  judge: Automatic judges are three fine-tuned RoBERTa classifiers; human judges are two licensed clinical psychologists
+    specializing in adult depression, anxiety disorders and CBT.
+  scale: 'Empathy: 0-2 per dimension; Cultivating Change Talk: five-point scale; reported means and demographic-group
+    differences.'
+  validation: Clinician agreement on empathy was Cohen's κ = 0.25-0.42. On a held-out 10% sample, the classifiers
+    achieved macro F1 scores of 80.5%, 87.3% and 92.7% for binary identification of emotional reactions, interpretations
+    and explorations, respectively.
+  results: GPT-4 scored 3.08 and 3.13 on Cultivating Change Talk for the two clinicians, compared with 2.08 and
+    2.31 for human peer responses, reported as a 48% improvement. Responses to Black posters had 2%-13% lower empathy
+    than responses to the unknown-race control group.
+  limitations: The authors identify quality-of-care scores as imperfect proxies for patient outcomes, limited coverage
+    of bias and systemic inequality, and small numbers of samples and clinical evaluators.
+  sources:
+  - https://arxiv.org/abs/2405.12021
+  - https://github.com/skgabriel/mh-eval
+  extracted: '2026-10-27'
 signals:
   citations: 40
   citations_source: OpenAlex

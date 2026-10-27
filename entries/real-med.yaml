@@ -23,6 +23,23 @@ facets:
   eval_methods: [rubric_llm_judge]
   modality: [text]
   size: "405 cases, 10 task types, 5,813 rubric criteria"
+card:
+  task: Produce the requested clinical-workflow output from each case prompt and its referenced attachments, following
+    the specified content and format requirements.
+  items_built: Clinical prompts and medical scoring criteria for 210 cases were revised using a human-verified 210-case
+    source package, while 195 cases were unchanged. Revised prompts and medical criteria are in Chinese, while original
+    formatting instructions and unchanged cases remain in English.
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: ''
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://huggingface.co/datasets/nips2026123user/Real-Med
+  - https://huggingface.co/datasets/wzhwzhwzh0921/Real_Med_
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

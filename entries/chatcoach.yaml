@@ -27,6 +27,34 @@ facets:
   eval_methods: [automatic_metric, simulated_multi_turn, expert_human_rating]
   modality: [text]
   size: 3,500 conversations (13,666 utterances); 291 test conversations
+card:
+  task: Read a doctor's statement in its conversational and medical context, identify misused medical terminology,
+    and provide corrective coaching feedback.
+  items_built: Patient, doctor, and coach LLM agents generated 3,500 conversations using patient queries from MedDialog
+    and information from the Disease database, with the doctor agent deliberately introducing common misconceptions.
+    Two to three medical professionals or knowledgeable students annotated 500 conversations for terminology errors
+    and corrections; manual validation and agreement checks using models such as GPT-4 retained 291 conversations
+    covering 99 diseases and 1,315 doctor statements.
+  example: ''
+  scoring: GPT-4 extracts terminology errors and corrections from generated feedback, which are compared with human
+    annotations using BLEU-2, ROUGE-L, and BERTScore separately for detection and correction. Two participants also
+    rated feedback on constructiveness, clarity, knowledgeability, and overall quality, with mean ratings reported
+    for each criterion.
+  judge: The paper names GPT-4 for extraction and two participants for feedback ratings; the README instead names
+    gpt-3.5-turbo-1106 for evaluation.
+  scale: Human ratings range from 1 to 4 and are averaged by criterion; automatic results report BLEU-2, ROUGE-L,
+    and BERTScore for detection and correction.
+  validation: An additional human evaluation checked feedback quality on 126 randomly selected test instances, described
+    as 10% of the test set, using two participants.
+  results: Instruction-tuned Chinese_Alpaca2_LORA_13B led detection BLEU-2 and BERTScore at 39.8 and 77.8, while
+    gpt-3.5-turbo with GCoT led correction BERTScore at 65.4 and received a mean overall human rating of 2.52/4.
+    The human baseline achieved detection and correction BERTScores of 90.5 and 84.1.
+  limitations: The authors report that GCoT still critiques acceptable responses for lacking professional jargon
+    and needs a better way to determine when coaching is necessary.
+  sources:
+  - http://arxiv.org/abs/2402.05547
+  - https://github.com/zerowst/Chatcoach
+  extracted: '2026-10-27'
 signals:
   citations: 7
   citations_source: OpenAlex

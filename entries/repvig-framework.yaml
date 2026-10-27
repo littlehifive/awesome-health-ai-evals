@@ -26,6 +26,28 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: "45 representative vignettes (plus a standard vignette set from earlier studies); 8,794 candidate posts screened"
+card:
+  task: Classify each patient's symptom description as requiring emergency care, non-emergency care, or self-care.
+  items_built: The researchers randomly sampled 45 patient descriptions from 8,794 eligible posts collected on r/AskDocs
+    over 14 days, filling symptom-cluster quotas and correcting only typographical errors and measurement units.
+    Two licensed physicians independently assigned triage levels and resolved disagreements by consensus.
+  example: ''
+  scoring: Responses are compared with the physicians' consensus triage levels to calculate overall and level-specific
+    accuracy, the percentage of emergencies identified, the percentage of cases receiving advice, and the percentage
+    of errors that are overtriage. The Capability Comparison Score adjusts accuracy for item difficulty and cases
+    receiving no advice, giving harder cases more weight.
+  judge: The answer key comes from two licensed physicians; two graduate students without medical training coded
+    app responses, with review by the lead author.
+  scale: Correct or incorrect per case; percentage-based metrics and a difficulty-adjusted Capability Comparison
+    Score.
+  validation: Agreement between the two app inputters was ICC = 0.605, using a two-way mixed, agreement, average-measures
+    intraclass correlation.
+  results: ''
+  limitations: The authors state that published vignettes and their solutions can enter LLM training data or be
+    retrieved through web searches, limiting generalizability.
+  sources:
+  - https://pmc.ncbi.nlm.nih.gov/articles/PMC11666565/
+  extracted: '2026-10-27'
 signals:
   citations: 11
   citations_source: OpenAlex

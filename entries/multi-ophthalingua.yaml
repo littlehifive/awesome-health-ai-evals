@@ -27,6 +27,24 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 1,184 questions in 7 languages
+card:
+  task: Choose the correct answer from four options for an ophthalmology question in English, Spanish, Portuguese,
+    Filipino, Mandarin, French, or Hindi.
+  items_built: Seven board-certified ophthalmologists manually designed 1,184 questions in Portuguese inspired by
+    Brazilian Ophthalmological Board exams, then manually translated them into six other languages. Board-certified
+    native-speaker ophthalmologists reviewed every question-answer pair for medical knowledge, language correctness,
+    cultural appropriateness, and neutrality across regions.
+  example: ''
+  scoring: The selected A, B, C, or D option is compared with the correct answer to calculate overall, subdomain-wise,
+    and disease-wise accuracy for each language. Reported results are averaged over eight runs.
+  judge: Answers are scored against the correct option for each question.
+  scale: Correct or incorrect per question; percentage accuracy averaged over eight runs.
+  validation: ''
+  results: GPT-4 achieved 63.4% accuracy in English, compared with 51.8% in Filipino and 50.6% in Hindi.
+  limitations: ''
+  sources:
+  - https://doi.org/10.1609/aaai.v39i27.35053
+  extracted: '2026-10-27'
 signals:
   citations: 5
   citations_source: OpenAlex

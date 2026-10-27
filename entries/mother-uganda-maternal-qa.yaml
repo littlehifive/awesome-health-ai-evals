@@ -27,6 +27,24 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 503 question-answer pairs
+card:
+  task: Answer questions about health challenges and lifestyle during pregnancy.
+  items_built: Questions from 500 purposively sampled expectant mothers aged 20-50, spanning all three trimesters
+    with a 94% response rate, were compiled into 503 question-and-answer pairs with answers provided and validated
+    by professional medical personnel. The text was rewritten into clear English, and similar questions and answers
+    were grouped into patterns and responses, with topic tags and contexts forming intents for chatbot training.
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: ''
+  validation: ''
+  results: ''
+  limitations: The authors state that the English-only dataset requires translation for populations with limited
+    English, its 500 participants do not capture the full diversity of pregnancy challenges across regions and demographics,
+    and chatbots using it cannot replace doctors.
+  sources:
+  - https://pmc.ncbi.nlm.nih.gov/articles/PMC11980107/
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

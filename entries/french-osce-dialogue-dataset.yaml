@@ -27,6 +27,35 @@ facets:
   eval_methods: [rubric_llm_judge, simulated_multi_turn]
   modality: [text]
   size: 240 recorded dialogues; 792 generated dialogues; 192 OSCE stations
+card:
+  task: Respond as a simulated patient in a French OSCE conversation with a student playing the physician, keeping
+    answers relevant to the questions and consistent with the patient sheet.
+  items_built: Medical teachers and healthcare professionals authored 192 stations, each with physician, patient
+    and evaluator sheets; 23 stations were used for 240 recorded training dialogues, and 11 for 792 generated dialogues.
+    Fifteen French-fluent annotators manually corrected 26 automatic transcripts against the audio to assess transcription
+    quality.
+  example: '"Hello, my name is Frédérique DUMONT, I''m 23."'
+  scoring: GPT-4o-mini judges patient responses against the physician's questions and patient sheet, checks physician
+    conduct against the physician sheet and evaluator checklist, and rates linguistic quality using rubrics. OSCE
+    scores are the percentage of checklist criteria met; separate metric scores are averaged across dialogues, with
+    baseline generated results averaged over 44 dialogues per model.
+  judge: GPT-4o-mini assigns scores at temperature 0.
+  scale: Information recall and OSCE coverage are percentages; relevance, role adherence and linguistic quality
+    are reported on 1-5 scales, with linguistic ratings rescaled from 0-100.
+  validation: Six annotators without medical training each rated four dialogues, giving two ratings per dialogue
+    across 12 dialogues; human ICCs for naturalness, fluency and coherence were 0.131, −0.134 and −0.040, and human-LLM
+    Pearson correlations were 0.08, 0.46 and 0.76, respectively, with only coherence significant. On 67 recorded
+    dialogues across 14 stations, OSCE human-LLM agreement was ICC 0.41 and Spearman 0.33, rising to 0.85 and 0.82
+    for patient-only stations without document analysis.
+  results: Claude-Haiku-4.5 had the best overall performance across evaluation dimensions; with reflection and retrieval
+    at full physician criteria coverage, it scored 56.62% information recall, 4.89/5 response relevance and 89.21%
+    OSCE coverage. Recorded dialogues had a naturalness baseline of 3.21/5.
+  limitations: The authors cite limited station coverage, reliance on one LLM judge with one evaluation run per
+    dialogue, incomplete human validation, untested educational effectiveness with medical students, and reproducibility,
+    cost and scalability concerns from extensive LLM use.
+  sources:
+  - https://doi.org/10.18653/v1/2026.sigdial-1.25
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

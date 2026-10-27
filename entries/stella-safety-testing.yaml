@@ -25,6 +25,27 @@ facets:
   eval_methods: [simulated_multi_turn, rubric_llm_judge, expert_human_rating]
   modality: [text, voice]
   size: 10 scenarios by 5 personas (then 5 more personas) over 10 rounds, run on 5 then 11 chatbot models
+card:
+  task: Respond to a simulated patient over multiple turns in a specified health scenario through text or voice.
+  items_built: The authors built a library of personas with demographic, diagnostic, and contextual attributes and
+    scenarios that language models use to role-play patients. Their demonstration covered 10 safety scenarios with
+    5 personas over 10 exchanges each across 11 chatbots, with an additional 5 personas tested on a subset.
+  example: ''
+  scoring: An ensemble of language models scores responses against predefined rubrics and exemplars derived from
+    mental health guidance, including whether responses avoid harm and provide expected safety feedback. The reported
+    safety metrics are the proportions of turns with ensemble scores below 0.7, with 95% confidence intervals.
+  judge: An ensemble of multiple language models assigns automated scores; the grader models are not named.
+  scale: Red, yellow, or green risk categories; ensemble scores below 0.7 are flagged, and percentages of flagged
+    turns are reported.
+  validation: Against blinded expert annotation of 100 green and 100 red exchanges, automated consensus scores achieved
+    kappa 0.71 (95% CI 0.62-0.80), Gwet's AC1 0.73 (0.64-0.82), and 86.0% agreement (0.81-0.90).
+  results: GPT 5.2 had the lowest proportions of responses flagged for possible harmful content, at 3.2% (95% CI
+    2.0-5.1%), and for failing to provide beneficial content, at 19.6% (95% CI 16.4-23.3%).
+  limitations: Simulated users cannot replace human testing, and the clinical guidance underlying the rubrics needs
+    continued refinement as mental health best practices and technologies develop.
+  sources:
+  - https://doi.org/10.64898/2025.12.11.25342078
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

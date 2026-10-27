@@ -27,6 +27,30 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric]
   modality: [text]
   size: 6,800 ED triage cases and 1,812 opioid cases; 39,780 and 10,647 test prompts
+card:
+  task: Answer yes or no to whether a patient needs immediate emergency intervention or should receive opioid analgesics
+    during a hospital stay, using the clinical details provided.
+  items_built: The authors extracted 6,800 ED cases using initial vital signs, chief complaints and Emergency Severity
+    Index labels, and 1,812 opioid cases using hospitalization profiles, discharge notes and prescription labels
+    from MIMIC-IV v3.1, removing inconsistent fields and gender-specific diagnoses. They generated a demographic-free
+    baseline and 12 race-by-gender variants at three context levels, then split cases into 80% training, 5% validation
+    and 15% test sets, keeping all variants of each case together.
+  example: ''
+  scoring: Accuracy is the proportion of predicted yes/no labels matching the recorded targets; five fairness scores
+    compare prediction probabilities across demographic groups and against the demographic-free baseline, subtracting
+    normalized statistically significant effect sizes from 1. The geometric mean of the five fairness scores gives
+    mFARM, and the harmonic mean of mFARM and accuracy gives the Fairness-Accuracy Balance (FAB) score.
+  judge: Automated exact-match scoring against recorded labels and statistical tests assign the scores.
+  scale: Per-item labels are correct or incorrect; accuracy, fairness sub-scores, mFARM and FAB range from 0 to
+    1, with higher scores better.
+  validation: ''
+  results: Fine-tuned BioLlama3-8B led ED triage with a FAB score of 0.804 and accuracy of 0.738. Fine-tuned Mistral-7B
+    led opioid recommendation with a FAB score of 0.875.
+  limitations: The framework does not yet support free-text outputs.
+  sources:
+  - http://arxiv.org/abs/2509.02007
+  - https://github.com/cerai-iitm/mFARM
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

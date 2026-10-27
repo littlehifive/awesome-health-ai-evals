@@ -25,6 +25,25 @@ facets:
   eval_methods: [rubric_llm_judge]
   modality: [text]
   size: HealthBench's 5,000 conversations in 32 translated languages plus the English original
+card:
+  task: Respond to health questions from patients and clinicians in multi-turn conversations in the language of
+    each item.
+  items_built: The dataset machine-translates OpenAI's HealthBench, which contains 5,000 synthetic and adversarially
+    generated conversations with no real patient data, into 32 languages alongside the English original. The source
+    benchmark includes 48,562+ rubric criteria authored by 262 physicians across 60 countries; the card does not
+    describe translation review.
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: ''
+  validation: ''
+  results: ''
+  limitations: Machine translation can distort clinical nuance, especially in low-resource languages, translated
+    conversations may miss local cultural norms, and rubrics written in an English-language medical context may
+    not apply across healthcare systems.
+  sources:
+  - https://huggingface.co/datasets/projetogabi/healthbench-multilingual
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

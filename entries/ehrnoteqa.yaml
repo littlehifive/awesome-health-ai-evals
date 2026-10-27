@@ -28,6 +28,30 @@ facets:
   eval_methods: [mcq_exact_match, rubric_llm_judge]
   modality: [text]
   size: 962 QA pairs in open-ended and multiple-choice formats; 27 LLMs evaluated
+card:
+  task: Answer a question using a patient's discharge summaries, either with a free-text response or by selecting
+    one of five answer choices.
+  items_built: GPT-4 generated initial questions, complete answers and four distractors from discharge summaries
+    for 1,000 sampled MIMIC-IV patients. Three clinicians removed 38 unsuitable questions and refined the remaining
+    962 pairs, revising 206 questions, 338 answers and 966 distractors.
+  example: '"What was the range of the patient''s blood pressure during second stay?"'
+  scoring: For free-text answers, GPT-4 judges correctness using the discharge summaries, question, reference answer
+    and model output; for multiple-choice answers, it checks the output against the five choices and correct answer.
+    Results are reported as percentages correct separately for Level 1 and Level 2.
+  judge: GPT-4 assigns correctness scores; the repository specifies gpt-4-1106-preview as the evaluation model.
+  scale: Correct or incorrect per answer; percentage correct by question format and note-length level.
+  validation: Three clinicians independently scored 270 question-output pairs, with GPT-4 versus clinician Cohen's
+    kappa values of 0.757, 0.855 and 0.880; agreement among clinicians ranged from 0.808 to 0.903. Author checks
+    found 98% accuracy for multiple-choice grading, and benchmark scores correlated with clinician evaluations on
+    separate questions at average Spearman rho 0.78 and Kendall tau 0.62.
+  results: GPT-4 scored highest, with multiple-choice accuracy of 97.16% on Level 1 and 95.15% on Level 2, and open-ended
+    correctness of 91.30% and 89.61%, respectively.
+  limitations: The authors state that performance may not generalize to discharge summaries outside MIMIC because
+    both benchmark construction and validation used MIMIC data.
+  sources:
+  - https://arxiv.org/abs/2402.16040
+  - https://github.com/ji-youn-kim/EHRNoteQA
+  extracted: '2026-10-27'
 signals:
   citations: 3
   citations_source: OpenAlex

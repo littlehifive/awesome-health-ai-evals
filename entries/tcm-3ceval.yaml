@@ -27,6 +27,28 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 450 questions
+card:
+  task: Select the correct answer option for each Chinese-language question on traditional Chinese medicine knowledge,
+    classical texts, or clinical decision-making.
+  items_built: The authors assembled 450 questions from TCM textbooks, classical literature, and clinical cases,
+    and TCM experts reviewed and revised each set for accuracy and representativeness. Knowledge and classical-text
+    sets each contain five subjects with 30 questions each; clinical cases include 35 pediatrics, 35 gynecology,
+    40 internal medicine, and 40 surgery questions.
+  example: ''
+  scoring: Model-selected options are compared with the correct options, and accuracy is reported for each dataset.
+    In the option-shuffle evaluation, an item passes only when every shuffled version produces the same correct
+    answer.
+  judge: Exact match with the answer key.
+  scale: Correct or incorrect per item; percentage accuracy by dataset, with all shuffled versions required to be
+    correct for a consistency pass.
+  validation: ''
+  results: DeepSeek performed best across all three datasets, with 88.59% accuracy on TCM-Exam, 71.81% on TCM-LitQA,
+    and 78.52% on TCM-MRCD.
+  limitations: The test sets primarily use literature cases and need validation with real-world clinical electronic
+    medical records, while context-dependent TCM terminology remains challenging for models.
+  sources:
+  - https://arxiv.org/abs/2503.07041
+  extracted: '2026-10-27'
 signals:
   citations: 5
   citations_source: OpenAlex

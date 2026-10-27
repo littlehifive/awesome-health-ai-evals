@@ -24,6 +24,30 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 19,783 dev and 19,767 test questions (16,845 and 16,768 in the default evaluation subset)
+card:
+  task: Read a Japanese patient vignette and list differential diagnoses in order of likelihood with a one-line
+    reason for each, or select one diagnosis in the reference multiple-choice format.
+  items_built: The SIP Phase 3 Theme B-6 project built 19,783 dev and 19,767 test questions from PMC-Patients V2
+    case-report summaries, using google/gemma-4-31B-it for Japanese translation and deepseek-ai/DeepSeek-V4-Flash-0731
+    for question, diagnosis and candidate generation. Qwen/Qwen3.8-27B screened their quality, and all released
+    questions were checked against source patient descriptions, with mismatches excluded and source articles kept
+    separate between splits.
+  example: 28歳女性。10年前に全身性エリテマトーデス（SLE）および抗リン脂質抗体症候群と診断され、… 入院中、持続的な胸部不快感はあるが胸痛エピソードなく、心電図モニターでST上昇なし。この患者で考慮すべき疾患を挙げよ。
+  scoring: An LLM judge compares the final differential list with the gold diagnosis, awards 0-3 points for diagnostic
+    agreement and records the matching diagnosis's rank. Reported metrics include the mean, a mean counting unresolved
+    errors and empty responses as zero, score-threshold shares and top-k shares; multiple-choice answers use exact
+    match.
+  judge: The reference implementation uses Qwen/Qwen3.8-27B for open-ended grading; multiple-choice grading uses
+    exact match with the answer key.
+  scale: 0-3 per open-ended answer; mean, penalised mean, strict (3), clinical (≥2), reach (≥1) and top-k shares.
+  validation: ''
+  results: ''
+  limitations: Questions, gold answers and distractors are LLM-generated without physician verification, about 31%
+    of questions have the gold answer as the uniquely longest candidate, and benchmark scores do not establish clinical
+    safety or usefulness.
+  sources:
+  - https://huggingface.co/datasets/SIP-med-LLM/PMC-Patients-JA-DDx
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

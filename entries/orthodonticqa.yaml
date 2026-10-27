@@ -25,6 +25,29 @@ facets:
   eval_methods: [automatic_metric, expert_human_rating]
   modality: [text]
   size: 587 samples
+card:
+  task: Answer each orthodontic question by extracting a span of text from the supplied journal passage.
+  items_built: Maxime Rousseau, a domain expert, curated 587 samples from 2,166 candidate questions collected from
+    Anki, cram, and study-stack, using BM25 to retrieve candidate passages from 6,204 open-access Angle Orthodontist
+    articles published between January 1931 and January 2022. He validated and edited the questions and answers,
+    and an experienced orthodontist checked a random 10% subset, rating 93% very clear, 7% moderately clear, and
+    none unclear.
+  example: ''
+  scoring: Predictions are compared with reference answers using token-level F1, the harmonic mean of token precision
+    and recall, and exact match, the percentage of identical answers; model results report means and standard deviations
+    across three training seeds. For the best model, a human investigator also judged all 114 test predictions as
+    correct or wrong and counted the correct answers.
+  judge: Automated comparison with reference answers assigns F1 and exact match; one domain-expert investigator,
+    Maxime Rousseau, assigns human correctness judgments.
+  scale: Token-level F1 and exact match on a 0-100 scale; human correctness reported as a count and percentage of
+    114 test answers.
+  validation: ''
+  results: PubmedBERT SQuAD achieved the best mean F1 score of 77.61 (SD 0.26), with 100 of 114 answers judged correct
+    by the human evaluator (87.72%).
+  limitations: The authors state that passage-based answers may not reflect current gold-standard evidence and that
+    F1 and exact match can penalize correct answers for being too verbose or concise and do not measure understanding.
+  sources: []
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

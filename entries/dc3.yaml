@@ -27,6 +27,31 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 31 cases; median 3,597 relevant PubMed documents per case; 6.9 target CUIs per case on average
+card:
+  task: Use each case's physician notes to rank biomedical articles relevant to its diagnosis or predict the diagnosis
+    as a classification task.
+  items_built: Clinical experts manually compiled and solved the 31 cases, including all MGH case challenges published
+    in NEJM at collection time without manual sub-selection. Treating physicians wrote the notes in discovery order;
+    a proprietary medical named entity recognition system identified PubMed titles or abstracts mentioning target
+    diagnoses to generate relevance labels.
+  example: ''
+  scoring: Retrieved article rankings are evaluated against inferred relevance labels using nDCG, with an article
+    considered relevant if its title or abstract mentions any target diagnosis. Diagnostic classifications are compared
+    with the confirmed diagnoses and reported as F1 scores for candidate sets of 500, 1,000 or 2,000 diagnoses;
+    averaging details are not specified.
+  judge: A proprietary medical named entity recognition system supplies retrieval relevance labels, and confirmed
+    diagnoses supply classification targets.
+  scale: Binary article relevance with nDCG for retrieval; F1 for diagnosis classification.
+  validation: ''
+  results: DRMM achieved the highest retrieval nDCG at 0.42. SVM led classification with F1 scores of 0.17, 0.09
+    and 0.07 for 500, 1,000 and 2,000 candidate diagnoses, respectively.
+  limitations: The authors state that inferred relevance labels cannot replace expert annotations, exclusively complex
+    cases do not represent everyday diagnosis, and the baseline methods illustrate difficulty rather than competitive
+    performance.
+  sources:
+  - https://arxiv.org/abs/1908.08581
+  - https://github.com/codiag-public/dc3
+  extracted: '2026-10-27'
 signals:
   citations: 4
   citations_source: OpenAlex

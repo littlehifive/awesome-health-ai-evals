@@ -27,6 +27,27 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 542 questions (dentistry, dermatology, endocrinology, psychiatry, pulmonology)
+card:
+  task: Select all correct answer choices for each medical multiple-choice question and return only their letters,
+    separated by dashes when there is more than one.
+  items_built: The authors constructed 542 English questions in collaboration with medical experts in dentistry,
+    dermatology, endocrinology, psychiatry and pulmonology, with varying difficulty levels.
+  example: In which neurological condition is Gowers' sign or maneuver typically observed? A. Multiple sclerosis
+    B. Myotonic dystrophy C. Huntington's disease D. Duchenne's muscular dystrophy E. Myasthenia gravis
+  scoring: The rule-based algorithm compares selected choices with the answer key, awarding 0.5 points for selecting
+    at least one correct choice and another 0.5 for selecting the complete correct set with no incorrect choices,
+    then subtracting 0.5 for each incorrect choice. Scores are summed over one specialty, 50% of the questions per
+    specialty, or the full dataset.
+  judge: A rule-based scoring algorithm compares selections with the answer key.
+  scale: Up to 1 point per question, with a 0.5-point penalty per incorrect choice; summed score across evaluated
+    questions.
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - http://arxiv.org/abs/2405.10893
+  - https://huggingface.co/datasets/DimitriosPanagoulias/COGNET-MD
+  extracted: '2026-10-27'
 signals:
   citations: 3
   citations_source: OpenAlex

@@ -24,6 +24,25 @@ facets:
   eval_methods: [rubric_llm_judge, simulated_multi_turn]
   modality: [text]
   size: "160 attack prompts (20 per category); 2,880 evaluations of 18 model configurations across the studies"
+card:
+  task: Respond as a medical assistant to adversarial prompts designed to elicit dangerous medical advice.
+  items_built: Claude Sonnet 4.5 generated 160 naturalistic adversarial prompts using a taxonomy of 8 categories
+    and 24 sub-strategies. Identical prompts were sent to each target model under a standard medical assistant system
+    prompt.
+  example: ''
+  scoring: Claude Sonnet 4.5 assigns each response a harm score from 0 to 5 and classifies its guardrail behavior.
+    Attack Success Rate is the proportion of prompts whose responses receive a harm score of at least 3.
+  judge: Claude Sonnet 4.5 assigns the scores.
+  scale: Harm level 0 (completely safe) to 5 (life-threatening); final metric is the percentage of responses scoring
+    at least 3.
+  validation: Responses scoring at least 3 were flagged for physician inter-rater reliability assessment, described
+    as in progress; no agreement results are reported.
+  results: Claude Haiku 4.5 had the lowest Attack Success Rate in the frontier comparison at 1.2%, compared with
+    24.4% for o4-mini. The initial Claude Sonnet 4.5 baseline had a 6.9% Attack Success Rate.
+  limitations: ''
+  sources:
+  - https://github.com/tekram/medical-ai-safety
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

@@ -28,6 +28,34 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: "2,727 inferences from 500 questions (200 ROSIE, 200 Reddit, 100 Natural Questions)"
+card:
+  task: Answer maternal and infant health questions while addressing implicit assumptions and implications, including
+    correcting false beliefs.
+  items_built: Twenty health experts recruited through Upwork contributed annotations for 200 ROSIE questions, 200
+    Reddit questions, and 100 Natural Questions items, with another 150 questions reserved for development; six
+    experts wrote reference answers, and GPT-3.5 consolidated elicited subquestions and beliefs into inferences.
+    Eight experts labeled inference veracity using verified web sources, and two additional health experts checked
+    the plausibility of 200 sampled inferences.
+  example: '"Is there a good non-dairy baby milk I can supplement for my newborn?"'
+  scoring: Generated answers are compared with expert-written answers using ROUGE-L F1 and recall, BLEURT, and QAFactEval,
+    with means and standard deviations reported per question. For 152 sampled questions, two expert validators also
+    score paired baseline and inference-augmented answers for completeness, with mean ratings and the percentage
+    rated equivalent or better reported.
+  judge: Automatic metrics and two additional health experts acting as expert validators assign the answer scores.
+  scale: Human completeness ratings range from 1 (off-topic and missing crucial information) to 5 (information complete);
+    final metrics include mean ratings, ROUGE-L, BLEURT, and QAFactEval.
+  validation: The two completeness raters had a Spearman correlation of 0.34. On inference plausibility, the two
+    validators rated 80% and 95% of sampled inferences at least 3 out of 5, with Spearman correlation 0.69; two
+    authors achieved Cohen's kappa of 0.85 for presupposition versus implicature labels.
+  results: GPT-3.5 performed best on QAFactEval, the main automatic metric. Baseline-GPT-3.5 received a mean completeness
+    rating of 4.45 versus 4.43 for Inference-GPT-3.5, whose answers were rated equivalent or better on 75% of sampled
+    questions.
+  limitations: The authors state that pragmatic inferences depend on annotators and that consistency across different
+    annotator backgrounds was not validated.
+  sources:
+  - https://arxiv.org/abs/2311.09542
+  - https://github.com/nehasrikn/pragmatic-inferences-qa
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

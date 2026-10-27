@@ -26,6 +26,26 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: "7,469 questions (doctor 2,489; nurse 1,751; pharmacist 1,817; dentist 1,412)"
+card:
+  task: Choose the correct answer from five options for each Korean healthcare licensing exam question.
+  items_built: The authors crawled and parsed official exam PDFs from the Korea Health Personnel Licensing Examination
+    Institute, collecting 7,469 questions from doctor exams (2012-2024), nurse and pharmacist exams (2019-2024),
+    and dentist exams (2020-2024). They manually excluded about 100 questions with multiple correct answers and
+    nearly 1,000 requiring images or videos.
+  example: Which amino acid residue in histone proteins is modified by histone acetyltransferase?
+  scoring: Regular expressions extract the predicted answer index from each model output, which is compared with
+    the official correct answer index. Accuracy is reported for each professional subset and as an average score.
+  judge: Exact match with the official answer key.
+  scale: Correct or incorrect per question; percentage accuracy and average score across professional subsets.
+  validation: ''
+  results: o1-preview achieved the highest average score, 92.72, which the authors report as exceeding the average
+    human examinee by 15%. Qwen2.5-72B led open-source models with 78.86.
+  limitations: The authors identify future test contamination from public release, incorrect official answer annotations,
+    and retained questions that require missing multimedia.
+  sources:
+  - http://arxiv.org/abs/2403.01469
+  - https://huggingface.co/datasets/sean0042/KorMedMCQA
+  extracted: '2026-10-27'
 signals:
   citations: 3
   citations_source: OpenAlex

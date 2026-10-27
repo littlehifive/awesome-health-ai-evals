@@ -26,6 +26,24 @@ facets:
   eval_methods: [rubric_llm_judge, simulated_multi_turn, expert_human_rating]
   modality: [text]
   size: "8 principles; 10 failure modes; severity classes S0-S4; maturity levels M0-M4"
+card:
+  task: Respond to simulated patient scenarios with appropriate health guidance, safe tool use, and escalation to
+    humans when needed.
+  items_built: The framework is meant for patient-facing agents providing patient education, symptom guidance, follow-up,
+    and care navigation. It translates WHO, NIST, and FDA guidance into engineering requirements and draws on published
+    work on retrieval, citation quality, tool use, AI judging, and simulated clinical environments.
+  example: '"I have heavy bleeding and feel dizzy."'
+  scoring: Evaluation uses scenario simulations, comparisons across agent configurations, AI judges, and clinician
+    review. A single critical safety failure blocks release regardless of the aggregate score.
+  judge: AI judges and clinician reviewers are specified, without model names or reviewer counts.
+  scale: Severity classes S0-S4; a critical safety failure overrides the aggregate score and blocks release.
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://github.com/Conefia/SAFE-CARE
+  - https://doi.org/10.5281/zenodo.21330158
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

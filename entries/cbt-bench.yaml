@@ -28,6 +28,37 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric]
   modality: [text]
   size: 220 MCQs; 146 + 184 + 112 classification examples; 156 exercises
+card:
+  task: Answer CBT multiple-choice questions, classify cognitive distortions and core beliefs in patient situations
+    and thoughts, and write therapist responses to patient speech.
+  items_built: Two social-work professors supplied 92 graduate-course exam questions, and four CBT experts wrote
+    and cross-checked additional questions, producing 270 accepted questions with 220 reserved for testing; six
+    CBT experts extracted or supplemented situations and thoughts from TherapistQA online-forum posts, labeled them,
+    and cross-checked them to retain 442 classification examples. The response-generation test uses 156 exercises
+    from Boswell and Constantino (2022), spanning ten CBT skill categories and three difficulty levels, with evaluation
+    criteria developed with social-work professors.
+  example: ''
+  scoring: Multiple-choice answers are scored for accuracy against the answer key, while classifications are compared
+    with expert labels using weighted precision, recall, and F1. For generated responses, an expert compares each
+    response with its published reference on four category-specific criteria and overall preference, using blinded,
+    randomized pairs; preferences are mapped to −2 through +2 and averaged.
+  judge: Answer keys and expert labels grade Levels I and II; one hired CBT expert grades all Level III pairs after
+    guidance from an expert co-author.
+  scale: Accuracy and weighted precision, recall, and F1 for Levels I and II; five preference levels from −2 to
+    +2, averaged, for Level III.
+  validation: Two additional CBT experts answered the knowledge test with over 80% agreement and 90.7% average accuracy.
+    Additional expert annotations yielded weighted F1 scores of 49.1%, 77.7%, and 54.6% against the cognitive-distortion,
+    primary-belief, and fine-grained-belief labels, respectively.
+  results: Llama-3.1-405B led knowledge accuracy at 95.0% versus 90.7% for humans and fine-grained-belief F1 at
+    58.2% versus 54.6%; Mistral-v0.3-7B led distortion F1 at 45.3% versus 49.1%, and Llama-3.1-8B led primary-belief
+    F1 at 82.5% versus 77.6% in the results table. Llama-3.1-405B ranked highest on response generation, but all
+    three tested models averaged below human-written references.
+  limitations: The authors state that expert annotation costs limited dataset size and task coverage, and that deliberate-practice
+    exercises are a proxy rather than real CBT sessions, which are difficult to obtain because of privacy constraints.
+  sources:
+  - http://arxiv.org/abs/2410.13218
+  - https://huggingface.co/datasets/Psychotherapy-LLM/CBT-Bench
+  extracted: '2026-10-27'
 signals:
   citations: 2
   citations_source: OpenAlex

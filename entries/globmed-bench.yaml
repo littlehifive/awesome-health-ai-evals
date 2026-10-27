@@ -27,6 +27,28 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric]
   modality: [text]
   size: over 500,000 entries in 12 languages (NLI, long-form QA, MCQA); 56 LLMs evaluated
+card:
+  task: Select the correct letter option for a medical multiple-choice question or for the relationship between
+    a given premise and hypothesis, using prompts in the target language.
+  items_built: The authors manually screened nine source datasets, removed 3,114 incomplete, irrelevant or disorganized
+    entries, and expanded the remaining data through an agentic translation pipeline with medical terminology retrieval
+    and two review agents. Topic modeling selected representative translated samples, and at least two bilingual
+    medical experts independently rated each sampled entry for accuracy, fluency and completeness on 1-5 scales.
+  example: ''
+  scoring: Selected answers are scored for accuracy against the correct options. Each evaluation is repeated in
+    five independent runs, with overall performance reported as accuracy across benchmarks and languages.
+  judge: The dataset answer key determines correctness.
+  scale: Correct or incorrect per item; percentage accuracy.
+  validation: ''
+  results: Among open-weight models, gpt-oss-120B ranked highest with 74.74% accuracy, followed by DeepSeek-R1 at
+    74.56% and LLaMA-4-Maverick at 71.94%.
+  limitations: ''
+  sources:
+  - https://arxiv.org/abs/2601.02186
+  - https://huggingface.co/datasets/ruiyang-medinfo/GlobMed_MedQA
+  - https://huggingface.co/datasets/ruiyang-medinfo/GlobMed_MedMCQA
+  - https://github.com/ruiyang-medinfo/GlobMed
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

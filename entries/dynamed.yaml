@@ -24,6 +24,25 @@ facets:
   eval_methods: [simulated_multi_turn]
   modality: [text]
   size: unknown
+card:
+  task: Ask information-seeking questions about a patient's symptoms during a simulated medical consultation before
+    making a decision.
+  items_built: The framework is designed for simulated medical consultations between a Patient System and an Expert
+    System. The authors also introduce MEDQACHAT, a synthetic medical conversation dataset, but the abstract does
+    not describe its sources, size or checks.
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: ''
+  validation: ''
+  results: Across LlaMA-2-Chat 7B and 13B, GPT-3.5 and GPT-4, accuracy dropped by 10.1% on average when prompted
+    to ask questions rather than answer directly from the same limited information. The authors' best model improved
+    the GPT-3.5 Expert System's accuracy by 19.0%, but remained 10.0% below its accuracy with full information upfront.
+  limitations: The authors state that substantial work remains to extend LLM assistants' information-seeking abilities
+    in critical domains.
+  sources:
+  - http://dx.doi.org/10.1109/ichi61247.2024.00090
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

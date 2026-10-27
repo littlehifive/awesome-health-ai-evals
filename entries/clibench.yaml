@@ -26,6 +26,29 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: "about 1,000 evaluation admissions per task (4 tasks), plus a training split"
+card:
+  task: Given a hospital patient's records, produce a set of discharge diagnoses, treatment procedures, lab test
+    orders, or medication prescriptions, depending on the task.
+  items_built: The authors extracted about 1,000 evaluation cases per task from MIMIC-IV records at Beth Israel
+    Deaconess Medical Center from 2008 to 2019, sampling across medical code categories. A rule-based pipeline removed
+    post-decision information from discharge notes, its rules were refined through screening 1,000 records, and
+    a clinical NLP expert manually verified every evaluation-set admission record.
+  example: ''
+  scoring: Generated codes are parsed and normalized, while free-text decisions are mapped to codes using cosine
+    similarity between BERT sentence embeddings; the resulting sets are compared with recorded clinician decisions.
+    Micro precision, recall, and F1 are calculated across admissions at each code hierarchy level, with averages
+    across levels also reported.
+  judge: Automated code matching assigns scores, with a BERT model trained on 1 billion sentence pairs mapping free
+    text to codes.
+  scale: Set overlap at each code hierarchy level; micro precision, recall, and F1, with F1 reported as a percentage
+    and averaged across levels.
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://arxiv.org/abs/2406.09923
+  - https://github.com/clibench/clibench
+  extracted: '2026-10-27'
 signals:
   citations: 2
   citations_source: OpenAlex

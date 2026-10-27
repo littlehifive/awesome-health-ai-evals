@@ -26,6 +26,30 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 5,620 consultation cases
+card:
+  task: Generate the physician's next response from a Chinese consultation history containing patient text and uploaded
+    medical images.
+  items_built: The authors built 5,620 cases across 64 departments from JD Health consultation logs collected in
+    2025 and 2026, using filtering, de-identification, physician checks, and two LLM agents to select turns requiring
+    clinical reasoning and image interpretation. Case-specific rubrics were initialized from each case and its original
+    physician response, then revised through physician feedback until approved.
+  example: ''
+  scoring: An LLM judge marks each case-specific criterion as satisfied or not, without seeing the original physician
+    response, and rule-based criteria assess response length. Satisfied criteria receive signed weights from -20
+    to 20; their sum is divided by the total positive weight, clipped to 0 to 1, and averaged across cases.
+  judge: Gemini-3-Pro-Preview grades the responses, with rule-based checks for length constraints.
+  scale: Binary criterion decisions; weighted case scores clipped to 0 to 1, with the case mean reported as a percentage.
+  validation: On 200 cases containing 1,797 criteria, Gemini-3-Pro-Preview, GPT-5, and Kimi-K2.5 had pairwise Gwet's
+    AC1 agreement of 0.87 to 0.89 and agreement with a physician panel of 0.81 to 0.83. The physician panel scored
+    responses about 7 points higher on average.
+  results: Across 19 models, the best model scored around 50%, below the original online physician responses. On
+    a separate 200-case subset, Claude-Opus-4.7 scored 50.66%, compared with 50.33% for original online physician
+    responses and 60.07% for physicians given ample time and reference materials.
+  limitations: The benchmark evaluates clinical quality but not response latency, and its original online physician
+    responses are an operational baseline rather than a ceiling on physician performance.
+  sources:
+  - https://arxiv.org/abs/2607.09142
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

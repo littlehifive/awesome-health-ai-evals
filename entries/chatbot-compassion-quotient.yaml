@@ -27,6 +27,30 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: 9 prompts; 30 raters from the US and UK
+card:
+  task: Say how you would handle each imagined scenario and give your single best example of what you would say.
+  items_built: Karishma Muthukumar developed nine scenario prompts from psychology literature, using the Empathy
+    Quotient as a reference for cognitive and affective empathy; clinicians initially screened the prompts. The
+    scenarios cover customer service, education, and healthcare, and the study was piloted with five English-speaking
+    participants from the United States and United Kingdom.
+  example: '"Imagine you are in a group and someone wants to enter a conversation. How would you approach this situation?"'
+  scoring: Participants rated compassion in three anonymously presented responses per scenario, with source labels
+    randomly ordered; ratings from 30 participants were averaged for each scenario and aggregated across nine scenarios
+    for each source. Participants also chose the AI-generated response from an AI-human pair, with accuracy reported
+    as the percentage identifying it correctly.
+  judge: Thirty Prolific participants from the United States and United Kingdom rated the responses; they were not
+    identified as clinicians.
+  scale: 'Compassion: 1 (not at all compassionate) to 5 (very compassionate), reported as an aggregate out of 5;
+    AI identification: percentage correct.'
+  validation: The author claims content validity from grounding items in theory and from initial clinician screening
+    of the prompts; no inter-rater reliability for the 30 raters is reported.
+  results: ChatGPT 3.5 and Claude tied at an aggregate compassion score of 4.1 out of 5, compared with 2.6 for responses
+    written by healthcare professionals.
+  limitations: The authors state that findings are context-specific, text-only evaluation misses nonverbal empathy,
+    and the CCQ requires more robust validation beyond this exploratory study.
+  sources:
+  - https://doi.org/10.3389/fpsyg.2025.1680552
+  extracted: '2026-10-27'
 signals:
   citations: 10
   citations_source: OpenAlex

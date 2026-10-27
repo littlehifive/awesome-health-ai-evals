@@ -30,6 +30,31 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating, real_user_data]
   modality: [text]
   size: 749 question-answer pairs; 183 queries human-annotated
+card:
+  task: Answer each patient question about cataract surgery using the supplied knowledge-base passages.
+  items_built: The authors curated 749 question-answer pairs from patient messages sent to HEALTHBOT between December
+    2023 and June 2024, excluding exact duplicates, personally identifying information, and questions unrelated
+    to health. They retained only GPT-4-generated reference answers that doctors approved as correct and complete
+    without editing.
+  example: '"Can aztolet20 (atorvastatin and clopidogrel) tablet be taken post surgery"'
+  scoring: GPT-4o separately scores factual correctness and semantic similarity against the doctor-approved reference,
+    and scores coherence and conciseness without a reference. Scores are averaged across questions, and the aggregate
+    combines the four metrics using weights averaged from the importance percentages assigned by two collaborating
+    doctors.
+  judge: GPT-4o assigns the main scores; KARYA native-speaker annotators check semantic similarity, with one annotator
+    per instance.
+  scale: Each metric is scored 0 (bad), 1 (medium), or 2 (good); reported metrics are mean scores and a doctor-weighted
+    aggregate.
+  validation: Human evaluation covered five models on 183 queries, comprising 100 English queries and all 83 Indic-language
+    queries. Human and GPT-4o semantic-similarity rankings matched for every language except Telugu, and average
+    percentage agreement exceeded 0.7 across languages and models.
+  results: ''
+  limitations: The authors identify limited non-English data from one hospital and four Indian languages, excluded
+    models, possible GPT-family bias from the GPT-4o judge, and human checks restricted to one metric on a subset
+    of models and questions.
+  sources:
+  - http://arxiv.org/abs/2410.13671
+  extracted: '2026-10-27'
 signals:
   citations: 2
   citations_source: OpenAlex

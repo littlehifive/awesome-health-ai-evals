@@ -25,6 +25,26 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: 4 questionnaires (PHQ-9, GAD-7, CAGE, TEQ); 4 chatbots assessed, 50 repeated runs each
+card:
+  task: Answer conversational questions about the model's own moods, behaviors and empathy, either in separate conversations
+    or as a sequence within one conversation.
+  items_built: 'The authors selected 36 questions from four academically validated questionnaires available through
+    Psychology Tools: PHQ-9 (9), GAD-7 (7), CAGE (4) and TEQ (16). They manually created templates to turn instructions
+    and declarative items into conversational utterances, leaving existing questions unchanged.'
+  example: '"How often did you have poor appetite or overeating?"'
+  scoring: Human annotators map each reply to a questionnaire answer option or "Failure"; failed replies receive
+    the mean score of successful replies to the same question in other runs. Scores are totaled using each questionnaire's
+    rating scale and averaged across 50 runs, with severity categories and assessment confidence also reported.
+  judge: Six well-educated professional annotators hired from a commercial data-annotation company assign answer
+    options to replies.
+  scale: Questionnaire-specific option points; mean total scores and severity categories across 50 runs, plus assessment
+    confidence (tau).
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://arxiv.org/abs/2201.05382
+  extracted: '2026-10-27'
 signals:
   citations: 3
   citations_source: OpenAlex

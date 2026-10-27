@@ -26,6 +26,22 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 218 training cases and 3 test sets of 72 cases each
+card:
+  task: Read a clinical triage case and assign an Emergency Severity Index level from 1 to 5.
+  items_built: 'The authors collected cases from the Emergency Severity Index, Version 4: Implementation Handbook,
+    with expert-assigned ESI levels, and split them into 218 training cases and three 72-case test sets.'
+  example: ''
+  scoring: Each predicted ESI level is compared with the expert-assigned level using exact match, and accuracy is
+    the proportion of cases classified correctly.
+  judge: Exact match with the expert-assigned ESI answer key.
+  scale: Correct or incorrect per case; accuracy across cases.
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://github.com/Lucanyc/TriageAgent
+  - https://doi.org/10.18653/v1/2024.findings-emnlp.329
+  extracted: '2026-10-27'
 signals:
   citations: 19
   citations_source: OpenAlex

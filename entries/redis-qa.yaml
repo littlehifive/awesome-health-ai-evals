@@ -28,6 +28,26 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 1,360 questions
+card:
+  task: Select the correct answer from four options for each question about rare diseases.
+  items_built: The authors manually removed questions unrelated to rare diseases from over 200,000 question-answer
+    pairs in MedMCQA, MedQA, and MMLU, retaining 1,360 pairs covering 205 rare diseases. They annotated each pair
+    with disease names and the type of knowledge needed to answer it.
+  example: '"Question: Abetalipoproteinemia is due to deficiency of Choices: (A) Lecithin Cholesterol Acyl Transferase
+    (B) ATP Binding Cassette Transporter-1 (C) Mitochondrial Triglyceride Transfer Protein (D) ApoCII"'
+  scoring: Selected answers are compared with the provided correct answers, and accuracy is reported as the percentage
+    answered correctly across the dataset and separately for each disease-property subset.
+  judge: Answers are scored against the answer key.
+  scale: Correct or incorrect per question; percentage accuracy overall and by disease-property subset.
+  validation: ''
+  results: Phi-3-7B achieved 71.6% accuracy without retrieval, the highest among the five tested models. With ReCOP
+    and the metadata retriever supplying seven chunks, it reached 75.1%.
+  limitations: ''
+  sources:
+  - https://arxiv.org/abs/2408.08422
+  - https://huggingface.co/datasets/guan-wang/ReDis-QA
+  - https://github.com/guanchuwang/redis-bench
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

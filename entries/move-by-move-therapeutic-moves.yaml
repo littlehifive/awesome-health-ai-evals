@@ -25,6 +25,34 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating, simulated_multi_turn]
   modality: [text]
   size: 10 therapeutic moves; 40 simulated member profiles; human transcripts not released
+card:
+  task: Generate the next therapist turn from a counseling conversation or conduct a complete text therapy session
+    with a simulated patient.
+  items_built: The framework was developed from the MULTI-60 inventory to classify therapeutic functions in human
+    and model-generated therapy turns. Five licensed psychologists independently checked its application to 19 Alexander
+    Street human transcripts containing 868 therapist turns and 18 synthetic transcripts containing 889 turns with
+    the framework and 863 without it.
+  example: '"Patient: Right. And is there even an answer to that?" The next clinician turn is "Let''s try it. I''ll
+    be Mark: ''Mark, why don''t you respond better?'' , now you answer back." The source labels this illustrative
+    paraphrase as Skill building.'
+  scoring: GLM 5.2 classifies each therapist turn five times, with majority voting determining the move labels;
+    move usage is aggregated and compared with human clinicians' distributions. Pass@k measures the probability
+    that at least one of k sampled continuations matches the human reference, using either moves selected by at
+    least three of five psychologists or moves selected by any psychologist.
+  judge: GLM 5.2 assigns move labels; five US-based licensed PhD/PsyD psychologists with more than six years of
+    independent practice provide human reference labels.
+  scale: One or more of ten move labels per turn, or the exclusive no_defined_move label; move-use percentages and
+    pass@k percentages.
+  validation: On human transcripts, mean pairwise psychologist agreement was 0.627 using Krippendorff's alpha with
+    Jaccard distance, and mean judge-psychologist agreement was 0.592.
+  results: Across Claude Sonnet 4.6, GLM 5.2 and GPT 5.6 Terra, the framework raised pass@4 from 53% to 62% against
+    majority human labels and from 65% to 72% against union human labels. It roughly halved the mean deviation from
+    the human move distribution.
+  limitations: The authors state that moderate human inter-annotator agreement reflects the subjectivity of coding
+    psychotherapy dialogue and introduces noise into the analysis.
+  sources:
+  - https://arxiv.org/abs/2608.21325
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

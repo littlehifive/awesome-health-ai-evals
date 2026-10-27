@@ -26,6 +26,27 @@ facets:
   eval_methods: [expert_human_rating, automatic_metric]
   modality: [text]
   size: 80 prompts (160 responses rated by two specialists)
+card:
+  task: Answer patient questions about tooth whitening, veneers, implants, and orthodontic aligners.
+  items_built: The 80 prompts were derived from thematic analysis of real-world patient inquiries and cross-LLM
+    synthesis across four cosmetic dentistry domains.
+  example: ''
+  scoring: Two specialists independently scored every response using a 20-point rubric covering readability, ethical
+    disclaimer inclusion, practicality, empathetic tone, and structural clarity; results were reported as mean total
+    rubric scores. A separate clinical safety audit assessed major factual errors and critical omissions and reported
+    error rates.
+  judge: Two board-certified specialists independently evaluated all responses.
+  scale: A 20-point rubric per response, reported as a mean total score; FKGL readability scores, disclaimer inclusion
+    percentages, and clinical safety error rates.
+  validation: ''
+  results: CSA-GPT achieved a mean total rubric score of 17.95 ± 1.62, compared with 9.55 ± 1.94 for ChatGPT5.2
+    (p < 0.001; Cohen's d = 3.22). Clinical safety error rates were 1.25% and 3.75%, respectively, with no significant
+    difference (p = 0.25).
+  limitations: The authors describe the study as an exploratory proof of concept requiring psychometric refinement,
+    external validation, and broader testing before use in governance or implementation.
+  sources:
+  - https://doi.org/10.3389/froh.2026.1837073
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

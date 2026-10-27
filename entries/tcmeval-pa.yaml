@@ -28,6 +28,27 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 328 questions
+card:
+  task: Select the correct option or all correct options for each question about auditing Chinese herbal medicine
+    prescriptions.
+  items_built: Licensed TCM physicians compiled 328 questions from printed training manuals and official examination
+    books for Chinese pharmacy qualifications, using rules extracted from national standards and adding expert-written
+    questions where coverage was insufficient. Two licensed TCM physicians independently annotated each item, a
+    licensed TCM pharmacist resolved disagreements, and all items underwent checks for answer accuracy, clear wording,
+    and rule alignment.
+  example: ''
+  scoring: A response is correct only when its selected set of options exactly matches the reference answer, with
+    no partial credit. Accuracy is the proportion of correct responses, reported by prescription audit dimension.
+  judge: Exact match with the answer key.
+  scale: Correct or incorrect per item; percentage accuracy by dimension.
+  validation: ''
+  results: Qwen-Plus (2025-04-28) had the highest overall performance and scored 86.05% (74/86) on prescription
+    normativity; the supplied text does not give its overall accuracy.
+  limitations: The benchmark does not replicate the full clinical prescription audit workflow, including open-ended
+    audits of actual prescription texts and joint identification of multiple safety violations.
+  sources:
+  - https://doi.org/10.1038/s41597-025-06387-6
+  extracted: '2026-10-27'
 signals:
   citations: 3
   citations_source: OpenAlex

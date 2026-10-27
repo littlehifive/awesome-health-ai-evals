@@ -28,6 +28,31 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 1,200 questions in the arXiv version (800 in the Nature Communications version); 58,000 statement-source pairs; 284 expert-annotated pairs
+card:
+  task: Answer each medical question with a short response and a structured list of sources that support it.
+  items_built: GPT-4 generated 1,200 questions from 400 topic pages each from Mayo Clinic, UpToDate and Reddit r/AskDocs.
+    A US-licensed practicing physician checked 100 randomly sampled document-question pairs and found all questions
+    relevant and answerable.
+  example: '"What is the correct dosage for acetaminophen for infants?"'
+  scoring: GPT-4 splits responses into medical statements and checks each statement against every cited source,
+    marking it supported if at least one source supports it. Reported scores are the percentage of URLs returning
+    HTTP 200 with non-empty text, the percentage of statements supported, and the percentage of responses with all
+    statements supported.
+  judge: GPT-4 assigns source-support judgments, and automated URL requests check source validity.
+  scale: Binary support per statement-source pair; URL validity, statement support and fully supported responses
+    reported as percentages.
+  validation: On 284 statement-source pairs, GPT-4 agreed 88.0% with the majority consensus of three US-licensed
+    practicing physicians, compared with 85.2% average agreement between physicians. Agreement on 100 Claude v2.1
+    statement-source pairs was 89%; a physician also confirmed all 330 parsed statements from 72 responses, while
+    finding six omitted statements.
+  results: GPT-4 with web browsing performed best, with 54% of responses fully supported by their cited sources.
+  limitations: The benchmark checks source support rather than factual correctness, does not penalize extra irrelevant
+    sources in its statement-support metric, and can be passed by quoting sources verbatim, so the authors recommend
+    using it alongside other quality measures.
+  sources:
+  - http://arxiv.org/abs/2402.02008
+  - https://github.com/kevinwu23/SourceCheckup
+  extracted: '2026-10-27'
 signals:
   citations: 70
   citations_source: OpenAlex

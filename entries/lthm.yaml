@@ -25,6 +25,23 @@ facets:
   eval_methods: [automatic_metric, rubric_llm_judge]
   modality: [text]
   size: 30 patient profiles with time-stamped dialogues
+card:
+  task: Answer user queries using information from a patient's time-stamped healthcare dialogue history.
+  items_built: The dataset contains 30 longitudinal patient profiles covering various chronic conditions, with health
+    records, symptom tracking, and time-stamped patient-LLM conversations.
+  example: ''
+  scoring: ROUGE-1, ROUGE-2, and ROUGE-L measure lexical overlap between generated responses and reference answers.
+    Recall@K compares retrieved memory nodes with ground-truth nodes at K values of 1, 2, 3, and 5.
+  judge: The repository's ROUGE and recall evaluation scripts score response overlap and memory retrieval.
+  scale: ROUGE-1, ROUGE-2, ROUGE-L, and Recall@1, @2, @3, and @5.
+  validation: ''
+  results: The RTD strategy achieved a correctness score of 0.786 and a coherence score of 0.764, outperforming
+    the baseline approaches.
+  limitations: ''
+  sources:
+  - https://github.com/tianlimin2/Long-Term-Health-Monitoring-LTHM-dataset
+  - https://doi.org/10.1109/embc58623.2025.11254888
+  extracted: '2026-10-27'
 signals:
   citations: 2
   citations_source: OpenAlex

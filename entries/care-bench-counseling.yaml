@@ -27,6 +27,27 @@ facets:
   eval_methods: [simulated_multi_turn, rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 500 client profiles with about 5 expert principles each
+card:
+  task: Conduct a multi-turn psychological counseling conversation in Chinese with a simulated client.
+  items_built: GPT-4o extracted profiles from 1,500 client descriptions drawn from public counseling cases on Google
+    Scholar, Wanfang Data and VIP Journals; two psychologists reviewed and revised complete profiles, and 500 were
+    selected for diversity across counseling topics and personality traits. Ten psychologists developed simulation
+    principles through interactive testing, with each profile cross-validated by two psychologists until both approved
+    the simulation.
+  example: ''
+  scoring: GPT-4o scores dialogue histories using the Working Alliance Inventory, the Empathic Understanding subscale
+    of the Barrett-Lennard Relationship Inventory, and the Counselor Competencies Scale-Revised. Scores are reported
+    by dimension and as an average for each scale.
+  judge: GPT-4o assigns the benchmark scores.
+  scale: 'WAI and CCS-R: 1 to 5; BLRI: −3 to +3, excluding 0; dimension scores and averages for each scale.'
+  validation: Two psychologists rated 100 randomly sampled counseling dialogues using the same criteria; average
+    consistency between their ratings and GPT-4o was 0.72.
+  results: ''
+  limitations: The authors state that findings from Chinese cases may not generalize to other languages and cultures,
+    and that Qwen2.5-Max simulations cannot fully reproduce human emotions, subconscious behavior and lived experience.
+  sources:
+  - https://doi.org/10.1609/aaai.v40i46.41287
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

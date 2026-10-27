@@ -27,6 +27,31 @@ facets:
   eval_methods: [expert_human_rating, rubric_llm_judge, automatic_metric]
   modality: [text]
   size: 100 benchmark questions with ideal responses; 5 guideline questions
+card:
+  task: Respond to a mental health question in a supplied clinical scenario as a chatbot interacting with a patient.
+  items_built: The researchers developed 100 synthesized patient-chatbot question-answer dialogues with clinical
+    context and ideal responses, in collaboration with mental health and AI experts. Four mental health experts
+    reviewed the questions and ideal responses.
+  example: ''
+  scoring: Experts rate each response against five safety guidelines, and scores are averaged across the 100 responses
+    and guidelines for an overall mean. Automated alternatives give a single adequacy score, average five guideline
+    scores with or without ideal responses, use an agent accessing external information, or compute embedding similarity
+    to the ideal response.
+  judge: The paper reports five mental health raters in its methods but three in its results; automated judges include
+    GPT-4, Mistral (mistral-large-latest), Claude-3-Opus, Gemini-1.0, an evaluator agent, and embedding models.
+  scale: Five ratings from 1 to 10 per response; overall mean safety score; embedding cosine similarity rescaled
+    to 0 to 10.
+  validation: Automated scores were compared with expert scores using mean absolute error and paired t-tests after
+    normality checks. The Agent method had the lowest mean absolute error and no statistically significant difference
+    from expert scores (p = 0.1961); all other methods differed significantly.
+  results: The only chatbot tested was GPT-3.5-turbo, whose responses received a mean human safety rating of 6.50
+    out of 10.
+  limitations: Experts found some chatbot responses too vague to evaluate against the guidelines, and automated
+    methods other than the Agent tended to overrate responses that experts scored poorly.
+  sources:
+  - http://arxiv.org/abs/2408.04650
+  - https://github.com/Institute4FutureHealth/MentalHealthSafetyEval
+  extracted: '2026-10-27'
 signals:
   citations: 4
   citations_source: OpenAlex

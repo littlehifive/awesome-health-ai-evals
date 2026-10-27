@@ -26,6 +26,28 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 3,600 narrative triplets (clean, medium, heavy noise)
+card:
+  task: Classify each patient self-description into one of 24 disease categories despite repetitions, irrelevant
+    details, and other conversational noise.
+  items_built: The authors used Llama3.1:8b to add medium-noise and heavy-noise versions to 1,200 descriptions from
+    the Symptom-Based Disease Labeling Dataset, producing 3,600 texts according to the repository; the paper instead
+    reports 3,600 narrative triplets. The repository reports checks for missing values, duplicates, and balanced
+    disease labels.
+  example: '"My skin is extremely sensitive and quickly irritated by changes in temperature or humidity. My nails
+    have developed dents. I am worried about this sudden change."'
+  scoring: Predicted disease labels are compared with the ground-truth diagnoses, and the percentage correct is
+    reported separately for clean, medium-noise, and heavy-noise inputs.
+  judge: Exact match with the ground-truth disease label.
+  scale: Correct or incorrect per description; percentage accuracy for each noise level.
+  validation: ''
+  results: Flan-T5 led on noisy inputs, with 92.5% accuracy on medium noise and 87.1% on heavy noise. BERT led on
+    clean text with 98.3% accuracy.
+  limitations: The authors state that their supervised evaluation was limited to three fine-tuned models trained
+    on a clinically clean subset.
+  sources:
+  - http://arxiv.org/abs/2509.11803
+  - https://github.com/lielsheri/PatientSignal
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

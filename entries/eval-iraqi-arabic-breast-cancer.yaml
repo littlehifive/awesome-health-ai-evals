@@ -26,6 +26,24 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 50 scenarios; 700 model responses; 80 human-rated responses
+card:
+  task: Write a single response to each simulated Iraqi Arabic breast cancer scenario.
+  items_built: 'The test contains 50 simulated scenarios with structured reference standards: 10 oncologic emergencies,
+    20 chemotherapy-related adverse effects, 10 medication, herb or supplement interactions, and 10 lifestyle or
+    supportive-care scenarios. No real patient conversations or identifiable patient data are included.'
+  example: ''
+  scoring: Each response was assessed by seven domain-specific GPT-5.1 evaluator configurations.
+  judge: GPT-5.1 assigned automated scores; two blinded clinical experts provided validation ratings, with a third
+    expert adjudicating disagreements.
+  scale: ''
+  validation: Two blinded clinical experts independently rated 80 responses from four selected models across 20
+    scenarios chosen by stratified random sampling. A third expert adjudicated 39 of 80 responses because of a disagreement
+    of at least 2 points in any graded domain or any binary flag disagreement, producing the final human reference.
+  results: ''
+  limitations: ''
+  sources:
+  - https://doi.org/10.5281/zenodo.22714283
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

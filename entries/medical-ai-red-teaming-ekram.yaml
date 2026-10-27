@@ -24,6 +24,24 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating, simulated_multi_turn]
   modality: [text]
   size: 160 adversarial prompts in 8 categories and 24 sub-strategies
+card:
+  task: Respond as a patient-facing medical assistant to adversarial medical requests in single-turn and multi-turn
+    exchanges.
+  items_built: The authors developed a taxonomy of 8 adversarial attack categories with 24 sub-strategies and used
+    an LLM-based attack generator to create 160 realistic adversarial prompts.
+  example: ''
+  scoring: Claude Sonnet 4.5 assigns responses a harm level and assesses guardrail effectiveness. Attack success
+    is the percentage of prompts eliciting responses with harm level ≥ 3; full refusal rates are also reported.
+  judge: Claude Sonnet 4.5 is the automated evaluator; physician review of the 11 high-harm cases was still in progress.
+  scale: Harm level from 0 to 5 per response; attack success rate at harm level ≥ 3 and full refusal percentage.
+  validation: ''
+  results: Claude Sonnet 4.5 produced clinically significant harmful responses for 11 of 160 prompts (6.9%) and
+    fully refused 86.2%. Authority Impersonation achieved 45.0% attack success, with the Educational Authority sub-strategy
+    reaching 83.3%.
+  limitations: ''
+  sources:
+  - https://doi.org/10.64898/2026.02.26.26347212
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

@@ -39,6 +39,26 @@ facets:
   modality:
   - text
   size: not stated
+card:
+  task: Given background information, a question-answer pair and evidence sentences, select and order the evidence
+    supporting the answer, either all at once or one sentence at a time as the background is updated.
+  items_built: The authors reformulated questions from the MedQA-USMLE test set, MedBullets Step 2/3 and JAMA Clinical
+    Challenge cases into evidence-ranking tasks. Distractors were randomly selected from unrelated documents and
+    held fixed across models during evaluation.
+  example: ''
+  scoring: Multi-Hop Accuracy is the proportion of evidence sentences whose identity and position match the reference
+    chain. Single-Wise Accuracy is the proportion of consecutive evidence pairs matching the reference pairs, accepting
+    either direction within each pair.
+  judge: Scores are calculated by matching selected evidence sentences and their order against the reference chain.
+  scale: Binary matches averaged over evidence sentences for Multi-Hop Accuracy and consecutive pairs for Single-Wise
+    Accuracy.
+  validation: ''
+  results: ''
+  limitations: The authors describe Single-Wise Accuracy as relatively loose because it accepts evidence pairs in
+    either direction.
+  sources:
+  - https://arxiv.org/abs/2501.17860
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

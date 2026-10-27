@@ -27,6 +27,29 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric]
   modality: [text]
   size: 858 questions
+card:
+  task: Read the clinical background and select the correct answer from the choices for each nephrology question.
+  items_built: The researchers extracted 858 questions from nephSAP materials dated January 2016 to April 2023,
+    excluding questions with complex tables. They used automated parsing and NLTK tokenization to structure the
+    questions, then added answer keys from a separate test-bank CSV file.
+  example: ''
+  scoring: A script extracts answers using regular expressions and compares them with the answer key, reporting
+    the percentage correct overall and by topic; responses without a definitive answer count as incorrect. Open-source
+    models' explanations are also compared with reference explanations using BLEU, word error rate and cosine similarity,
+    reported with standard deviations and counts meeting the 0.5 threshold for BLEU and cosine similarity.
+  judge: An automated regular-expression parser compares answers with the key; NLTK, jiwer and sklearn compute explanation
+    metrics.
+  scale: Correct or incorrect per answer; percentage correct overall and by topic, plus explanation BLEU and cosine
+    similarity from 0 to 1 and word error rate.
+  validation: ''
+  results: GPT-4 scored highest, answering 629 of 858 questions correctly (73.3%), followed by Claude 2 at 54.4%.
+    The human passing threshold is 75%; no measured human baseline is reported.
+  limitations: Questions containing complex tables were excluded because the models had difficulty interpreting
+    them.
+  sources:
+  - https://arxiv.org/abs/2308.04709
+  - https://huggingface.co/datasets/SeanWu25/NEJM-AI_Benchmarking_Medical_Language_Models
+  extracted: '2026-10-27'
 signals:
   citations: 97
   citations_source: OpenAlex

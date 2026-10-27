@@ -28,6 +28,32 @@ facets:
   eval_methods: [automatic_metric, expert_human_rating]
   modality: [text]
   size: "600 test dialogues (8,975 turns); synthetic train (3,058) and validation (420) dialogues"
+card:
+  task: Label each user utterance using the dialogue history, marking early crisis warnings and explicit crisis
+    disclosures, distinguishing past from ongoing risk, and excluding hypothetical or third-person experiences.
+  items_built: GPT-5 converted real Reddit posts from CRADLE-Bench into 600 test dialogues using seven scenarios
+    and controlled early, middle, or late crisis disclosure. Four clinical experts annotated all 8,975 turns, with
+    disagreements resolved through independent re-annotation, majority vote, and a senior expert's decision when
+    all three labels differed.
+  example: '"User: hi. idk if this is the right place. i keep thinking about something from years ago and i don''t
+    know if it was sexual harassment or if i''m making a big deal."'
+  scoring: 'Predictions are compared with clinician labels: turn-level scoring requires the correct label at the
+    exact turn, while dialogue-level scoring compares aggregated label sets regardless of turn position. Reported
+    metrics include exact match at the turn level, Jaccard, micro and macro F1, and micro and macro recall, with
+    an additional dialogue-level evaluation restricted to Confirm labels.'
+  judge: Reference labels come from two licensed psychologists, a PhD clinical postdoctoral resident, and a licensed
+    clinical social worker.
+  scale: Label-set matching; exact match, Jaccard, micro/macro F1 and recall, with reported scores on a 0-100 scale.
+  validation: Before adjudication, Cohen's kappa ranged from 0.51 to 0.75 on crisis-labeled turns.
+  results: Claude-4.5-Sonnet led turn-level evaluation with micro F1 of 56.85 and achieved dialogue-level micro
+    F1 of 70.11. The authors' Qwen3-32B fine-tuned model led Confirm-only dialogue-level evaluation with micro F1
+    of 76.03.
+  limitations: The authors state that generated dialogues may miss features of real crisis conversations, the labels
+    omit severity, protective factors and escalation, and the boundary between Alert and Confirm remains ambiguous.
+  sources:
+  - https://arxiv.org/abs/2606.10380
+  - https://huggingface.co/datasets/SungJoo/Cradle-Dialogue
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

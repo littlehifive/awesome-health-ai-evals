@@ -27,6 +27,32 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 24 datasets; 50 prompt variations per dataset per task (1,200 queries per model per task)
+card:
+  task: Assign evaluative attribute words to one of two identity groups, or choose between groups in a comparative
+    medical decision scenario.
+  items_built: The authors constructed identity-group and opposing-attribute datasets guided by National Center
+    for Cultural Competence bias domains, Project Implicit Health paradigms and datasets, and added healthcare-specific
+    dimensions such as Traditional Chinese Medicine. Standardized templates randomized group and attribute order
+    to produce 1,200 queries per model per task; an April 2025 pilot assessed feasibility and was excluded from
+    the final analysis.
+  example: ''
+  scoring: Extracted group-attribute assignments and comparative choices are converted into association and decision
+    bias scores, summarized as means and standard deviations across models and datasets against an unbiased baseline
+    of zero. Paired-prompt logistic regression reports odds ratios linking association scores to discriminatory
+    decisions.
+  judge: DeepSeek-Chat standardizes and extracts responses, and Python analysis scripts calculate scores and statistics.
+  scale: Binary decision choices, with an unbiased probability of 0.5 scaled to zero; association and decision scores
+    reported as means and standard deviations.
+  validation: Chinese-prompt validation produced correlated bias patterns with r > 0.84. In supplementary MIMIC-IV
+    case-report tests with altered demographic labels, ChatGPT-4o showed a 90% bias rate (p < 0.001).
+  results: ''
+  limitations: The authors state that synthetic prompts and simplified decision vignettes do not capture real clinical
+    complexity or directly predict clinical errors, model updates may change findings, the main experiments were
+    in English, and binary bias measures oversimplify intersectional effects.
+  sources:
+  - https://doi.org/10.1371/journal.pone.0348819
+  - https://github.com/Luna-naa/LLM_MedBias_Replication
+  extracted: '2026-10-27'
 signals:
   citations: 5
   citations_source: OpenAlex

@@ -29,6 +29,29 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric]
   modality: [text]
   size: 11 task categories drawn from 28 datasets; some test sets are randomly subsampled
+card:
+  task: Follow each medical task instruction to select an answer, identify a diagnosis, choose a treatment category,
+    or generate the requested explanation or other text from the supplied context.
+  items_built: The authors reformatted 28 existing datasets covering 52 distinct tasks into question-answer items
+    with hand-written task definitions. For some datasets, they randomly sampled test cases to reduce commercial-model
+    evaluation costs; the cases used for the paper are released in MedS-Bench-SPLIT.
+  example: ''
+  scoring: Single-choice predictions are compared with reference answers using accuracy, while multiple-label tasks
+    use precision, recall and F1. Generated text is compared with reference text using BLEU-1 and ROUGE-1 by default,
+    with results reported by dataset and as task-level averages rather than one overall benchmark score.
+  judge: Automated accuracy, precision, recall, F1, BLEU and ROUGE calculations against reference answers assign
+    the scores.
+  scale: Accuracy, precision, recall, F1, BLEU-1 and ROUGE-1 scores by task; no single overall score.
+  validation: ''
+  results: MMedIns-Llama 3 achieved 97.53% accuracy on DDXPlus diagnosis and 98.47% on SEER treatment planning.
+    Claude-3.5 led the evaluated baseline models on answer rationale, averaging 46.26 BLEU and 36.97 ROUGE across
+    six languages.
+  limitations: ''
+  sources:
+  - https://doi.org/10.1038/s41746-024-01390-4
+  - https://huggingface.co/datasets/Henrychur/MedS-Bench
+  - https://github.com/MAGIC-AI4Med/MedS-Ins
+  extracted: '2026-10-27'
 signals:
   citations: 52
   citations_source: OpenAlex

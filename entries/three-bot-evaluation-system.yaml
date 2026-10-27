@@ -25,6 +25,34 @@ facets:
   eval_methods: [simulated_multi_turn, rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 30 simulated patient bots; 60 provider-patient transcripts (two provider bots, 30 interactions each)
+card:
+  task: Conduct a 10-turn text conversation with a simulated patient, providing cancer education or carrying out
+    pretherapy screening.
+  items_built: The researchers used GPT-4 to create 30 patient bots representing 40-year-old men with lung cancer,
+    with 10 each assigned anxious, depressed, or frustrated personas; each of two provider bots completed 30 conversations.
+    A pediatric hematology-oncology nurse helped develop the patient-education approach and reviewed its transcripts,
+    while a cognitive behavior counselor and a PhD in IT psychology reviewed the screening transcripts using 14
+    criteria adapted from the Enhancing Assessment of Common Therapeutic Factors tool.
+  example: ''
+  scoring: A GPT-4 evaluator scores each conversation transcript against five patient-education criteria or 14 screening
+    criteria and provides qualitative feedback. Criterion scores are summed per conversation, and mean totals and
+    standard deviations are reported separately for each patient persona.
+  judge: GPT-4 evaluator bots assign scores, checked by one pediatric hematology-oncology nurse for education and
+    a cognitive behavior counselor and a PhD in IT psychology for screening.
+  scale: 'Each criterion: 1 (poor) to 3 (excellent); summed totals of 5-15 for education or 14-42 for screening,
+    reported as means and standard deviations.'
+  validation: Experts scored transcripts blind to GPT-4 scores before reviewing its assessments. Education mean
+    scores were 15, 14.9, and 15 from GPT-4 versus 14.9, 14.9, and 15 from the nurse; screening means were 40.1-40.7
+    from GPT-4 versus 36.9-37.6 and 36.2-36.9 from the two reviewers.
+  results: The patient-education bot received mean GPT-4 evaluator scores of 15/15 for frustrated and anxious patients
+    and 14.9/15 for depressed patients. The screening bot received mean scores of 40.1, 40.3, and 40.7 out of 42
+    for frustrated, depressed, and anxious patients, respectively.
+  limitations: The authors state that limited evaluation criteria could miss subtle performance differences and
+    that concise patient prompts, chosen to maintain response speed, could underrepresent real patients' emotional
+    and behavioral complexity.
+  sources:
+  - https://pmc.ncbi.nlm.nih.gov/articles/PMC11884306/
+  extracted: '2026-10-27'
 signals:
   citations: 13
   citations_source: OpenAlex

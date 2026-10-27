@@ -24,6 +24,27 @@ facets:
   eval_methods: [rubric_llm_judge, automatic_metric]
   modality: [text]
   size: 112 cases (12 factual, 15 contextual, 10 citation, 33 numerical, 42 relational) plus 20 virtual user records
+card:
+  task: Answer medical queries without inventing clinical facts, patient-record details, citations, numerical values
+    or relationships between clinical entities.
+  items_built: The dataset contains 12 factual, 15 contextual, 10 citation, 33 numerical and 42 relational cases;
+    contextual cases reference 20 virtual users whose profiles, exam records and timelines are included. The text
+    does not describe who wrote the cases, their source material or how they were checked.
+  example: ''
+  scoring: An LLM judge scores factual, contextual and citation responses, while numerical and relational responses
+    are checked against ground-truth fields using numeric tolerances, unit normalization, code whitelists and date
+    equality. Citation scores combine 30% verification through NCBI PubMed/PMC, CrossRef DOI and DuckDuckGo with
+    70% LLM judgment.
+  judge: HolyEval's hallucination evaluator uses an unnamed LLM judge and programmatic field checks.
+  scale: LLM-judged items receive 0-1 scores with item-specific thresholds; numerical and relational items use field-level
+    matches.
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://huggingface.co/datasets/mirobody/MedHall-Bench
+  - https://github.com/healthmemoryarena/holyeval
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

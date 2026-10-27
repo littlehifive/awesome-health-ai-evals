@@ -27,6 +27,26 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 420 questions
+card:
+  task: Choose the single correct answer from five options for each theoretical medical knowledge question.
+  items_built: Medical education experts and subject specialists wrote 420 questions from medical textbooks, journal
+    articles, educational resources, curricula, and clinical guidelines, with supporting passages and page references.
+    Experts checked medical accuracy and difficulty, three experts independently assessed RAG pipeline suitability
+    and resolved disagreements by consensus, and independent medical and AI experts validated the final dataset.
+  example: ''
+  scoring: Answer accuracy is the evaluation metric; the supplied text does not specify the scoring procedure or
+    aggregation.
+  judge: ''
+  scale: Answer accuracy.
+  validation: ''
+  results: ''
+  limitations: The authors identify European educational emphasis, coverage of only six specialties, a multiple-choice
+    theoretical format that excludes practical skills and patient interaction, difficulty labels that differ across
+    educational frameworks, language constraints, and a static knowledge base requiring updates.
+  sources:
+  - https://doi.org/10.1016/j.dib.2025.112146
+  - https://huggingface.co/datasets/ChatMED-Project/RAGCare-QA
+  extracted: '2026-10-27'
 signals:
   citations: 4
   citations_source: OpenAlex

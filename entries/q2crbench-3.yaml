@@ -28,6 +28,24 @@ facets:
   eval_methods: [automatic_metric, expert_human_rating]
   modality: [text]
   size: 99 clinical questions in three guideline datasets, each with five staged tasks
+card:
+  task: Turn each clinical question into an evidence-based recommendation through question decomposition, literature
+    search, study selection, evidence assessment, and recommendation drafting.
+  items_built: The authors constructed the benchmark from development records for the 2020 EAN dementia guideline,
+    the 2021 ACR rheumatoid arthritis guideline, and the 2024 KDIGO chronic kidney disease guideline.
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: ''
+  validation: ''
+  results: ''
+  limitations: Copyright restrictions prevent direct release of screened records from the 2020 EAN dementia and
+    2021 ACR rheumatoid arthritis datasets.
+  sources:
+  - https://huggingface.co/datasets/somewordstoolate/Q2CRBench-3
+  - https://github.com/somewordstoolate/Quicker
+  - https://doi.org/10.1038/s41746-025-02273-y
+  extracted: '2026-10-27'
 signals:
   citations: 18
   citations_source: OpenAlex

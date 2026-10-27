@@ -25,6 +25,25 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: "986 case kernels; 3 preference-equipoise scenarios, 9 safety traps, 4 must-say lists; 14 models scored"
+card:
+  task: Answer clinical requests under changed patient details, preferences, safety-related requests and communication
+    needs, changing the answer only when appropriate.
+  items_built: The release contains 986 de-identified clinical case kernels, three genuine-equipoise decisions,
+    nine hidden-danger traps, four tiered must-say lists and communication scenarios covering four style dimensions.
+    Clinical facts and scenario specifications draw on published guidelines and drug labels; the must-say lists
+    were taken from those sources without using model output.
+  example: ''
+  scoring: Automated checks compare each model's answers with its own answers after one input is changed, rather
+    than with a per-case answer key. The release provides per-cell numeric results and aggregation scripts, but
+    the README does not specify the formulas used to combine scores.
+  judge: Automated self-comparison checks assign scores; the README names no model grader or human raters.
+  scale: ''
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://github.com/guxungang/PerSafe-benchmark
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

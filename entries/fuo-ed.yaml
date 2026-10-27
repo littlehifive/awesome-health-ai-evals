@@ -24,6 +24,22 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 560 questions
+card:
+  task: Diagnose the cause of fever of unknown origin for each question using descriptions of a patient's physiological
+    indicators.
+  items_built: The 560 questions were derived from real-world medical records, annotated by large language models,
+    and verified by human experts. They cover 16 representative causes of fever of unknown origin and descriptions
+    of 180 physiological indicators.
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: Average accuracy.
+  validation: ''
+  results: GPT-4o was the only evaluated model to achieve average accuracy above 40%.
+  limitations: ''
+  sources:
+  - https://doi.org/10.1145/3718391.3718410
+  extracted: '2026-10-27'
 signals:
   citations: 2
   citations_source: OpenAlex

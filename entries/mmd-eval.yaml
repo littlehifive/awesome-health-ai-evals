@@ -24,6 +24,21 @@ facets:
   eval_methods: [automatic_metric, simulated_multi_turn]
   modality: [text]
   size: 2,636 cases in the English-named case file; plus a 1,000-sentence intent-classification test set
+card:
+  task: Conduct an interactive doctor-patient dialogue and provide a diagnosis and treatment.
+  items_built: The dataset contains 2,636 Chinese cases with department labels; the provided text does not describe
+    how they were collected or checked.
+  example: ''
+  scoring: ROUGE and BERTScore compare the model's diagnosis and treatment with the reference final diagnosis and
+    final treatment.
+  judge: ROUGE and BERTScore automatically score the outputs.
+  scale: ROUGE and BERTScore against reference diagnoses and treatments.
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://github.com/lry00127/MMD-Eval
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

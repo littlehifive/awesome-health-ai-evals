@@ -26,6 +26,28 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 14,000 questions (4k sample public, 10k full public, 2k private)
+card:
+  task: Select the correct answer to each Vietnamese multiple-choice medical question.
+  items_built: The authors used GPT-4o and Gemini 2.0 Flash to extract structured questions from 100,000 raw items
+    drawn from Vietnamese textbooks, exams, online quizzes, flashcards and clinical records, then deduplicated and
+    sampled 14,000 questions across 34 categories. Answers were checked against source keys, foundation-model answers
+    and medical expert answers, with human review prioritized by disagreement and difficulty.
+  example: ''
+  scoring: Selected answers are compared with the verified answer key, and accuracy is reported as a percentage
+    using pass@1 and pass@3. For ensemble scoring, each model answers the same questions three times with independently
+    shuffled options, and a vote determines the final answer before accuracy is calculated.
+  judge: Answers are scored against the verified answer key.
+  scale: Correct or incorrect per question; percentage accuracy for pass@1, pass@3 and three-run voting.
+  validation: ''
+  results: Deepseek R1 ranked highest on both pass@1 and ensemble accuracy; the supplied text does not give its
+    overall score.
+  limitations: The authors note that multiple-choice medical question answering does not capture real-world clinical
+    reasoning, report writing, patient communication or ethical and legal compliance, that adapting the benchmark
+    to other languages requires further validation, and that only 14,000 of 100,000 entries were verified within
+    three months.
+  sources:
+  - https://arxiv.org/abs/2506.01305
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

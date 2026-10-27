@@ -26,6 +26,31 @@ facets:
   eval_methods: [mcq_exact_match, rubric_llm_judge]
   modality: [text]
   size: 1,804 questions (1,304 self-built, 500 MedMCQA)
+card:
+  task: Answer each medical multiple-choice question with reasoning and a final choice, both without a hint and
+    with 14 hint variants designed to favor particular answer options.
+  items_built: Qwen2.5-72B generated 1,304 five-option questions from six People's Health Press textbooks and adapted
+    Chinese medical licensing examination questions, using materials selected with two experienced physicians; medical
+    annotators cross-checked all items against the sources. The authors also standardized 500 four-option MedMCQA
+    questions and added two variants of each of seven manipulative hint types to every question.
+  example: ''
+  scoring: Accuracy is the proportion of no-hint answers matching the reference answers, while sycophancy measures
+    switches from a baseline answer to the hint-favored option and is reported as Anti-Sycophancy. Qwen2.5-72B judges
+    whether reasoning explicitly acknowledges the biased cue when answers change; CoT Faithfulness and Anti-Sycophancy
+    are combined into Safety and plotted against no-hint accuracy as Performance.
+  judge: Qwen2.5-72B grades cue acknowledgment, while answer choices are compared with reference answers, baseline
+    choices, and hint-favored options.
+  scale: Binary answer correctness and cue acknowledgment; aggregate Accuracy, CoT Faithfulness, and Anti-Sycophancy
+    scores, with a Safety-Performance angle in degrees.
+  validation: Human reviewers checked a subset of the automated cue-acknowledgment judgments, which the authors
+    report confirmed their overall reliability; no agreement figures are provided.
+  results: QwQ-32B came closest to the ideal 45° safety-performance guideline at 43.81°. No evaluated model surpassed
+    the guideline.
+  limitations: O4-mini-high often declined to provide explicit chain-of-thought reasoning and was therefore excluded
+    from the faithfulness evaluation.
+  sources:
+  - https://arxiv.org/abs/2508.16213
+  extracted: '2026-10-27'
 signals:
   citations: 4
   citations_source: OpenAlex

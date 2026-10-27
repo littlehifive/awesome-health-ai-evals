@@ -28,6 +28,34 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 4,460 questions (Text and MM subsets, each with a 5-question dev set)
+card:
+  task: Select the correct answer to each medical question from 10 options in the Text subset or five options with
+    accompanying images and clinical information in the MM subset.
+  items_built: The authors collected 37,543 questions from medical examinations and textbooks, including USMLE,
+    COMLEX-USA, 17 American specialty board exams, radiology exams and NEJM Image Challenges, retaining 2,455 Text
+    and 2,005 MM questions. They filtered questions using human response distributions, expert difficulty ratings,
+    eight AI models and similarity checks, then rewrote questions, augmented answer options and had licensed physicians
+    review and correct them.
+  example: A 70-year-old female patient seeks medical attention with complaints of dizziness and widespread rash
+    that developed over the past week, following a viral respiratory infection. Physical examination reveals a generalized,
+    macular, purplish rash that does not blanch with pressure. What is the most probable diagnosis?
+  scoring: The selected answer is extracted from the model's response and compared with the correct answer label.
+    Accuracy reports the percentage of questions answered correctly, with separate results for Reasoning and Understanding
+    questions.
+  judge: Exact match with the answer key.
+  scale: Correct or incorrect per question; percentage accuracy across questions.
+  validation: ''
+  results: Table 4 reports o1 at 44.67% accuracy on a sampled evaluation, compared with 42.60% for the pre-licensed
+    human baseline. The human baseline uses original-source response distributions from upper-year medical students
+    or trainees preparing for licensing examinations.
+  limitations: The benchmark primarily reflects United States medical practices and standards, and its Text and
+    MM scores are not directly comparable because the subsets have different numbers of answer choices and filtering
+    settings.
+  sources:
+  - https://arxiv.org/abs/2501.18362
+  - https://huggingface.co/datasets/TsinghuaC3I/MedXpertQA
+  - https://github.com/TsinghuaC3I/MedXpertQA
+  extracted: '2026-10-27'
 signals:
   citations: 3
   citations_source: OpenAlex

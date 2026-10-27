@@ -27,6 +27,28 @@ facets:
   eval_methods: [mcq_exact_match, expert_human_rating]
   modality: [text]
   size: 143 questions after exclusions (abstract says 145)
+card:
+  task: Choose the single correct answer to each Spanish rheumatology multiple-choice question and justify the choice.
+  items_built: The authors extracted rheumatology questions from 14 MIR exams published with official answers by
+    the Spanish Ministry of Health, retaining 143 after applying inclusion criteria, although the abstract reports
+    145. They classified questions by disease and as factual questions or clinical cases, and used DeepL to produce
+    English translations.
+  example: ''
+  scoring: Selected answers are compared with the official answers to report the percentage correct. Six rheumatologists
+    rate each response's clinical reasoning, with the majority score retained and ties resolved toward the lower
+    score; reasoning scores are summarized using the median and first and third quartiles.
+  judge: Official answer keys determine accuracy; six independent rheumatologists with clinical and teaching experience
+    rate reasoning, including three practising clinicians who teach MIR preparation.
+  scale: Accuracy is percent correct; reasoning is rated from 1 (significant errors) to 5 (entirely correct), summarized
+    by median and quartiles.
+  validation: For the six reasoning raters, Krippendorff's alpha was 0.225 for GPT-4 and 0.624 for ChatGPT. Kendall's
+    coefficients with and without tie correction were 0.452 and 0.269 for GPT-4, and 0.783 and 0.636 for ChatGPT.
+  results: GPT-4 had the highest accuracy at 93.71% (134/143), compared with ChatGPT's 66.43% (95/143).
+  limitations: The authors warn that detailed, seemingly accurate explanations of wrong answers make errors difficult
+    for students to recognize, so educational use requires expert review.
+  sources:
+  - https://doi.org/10.1038/s41598-023-49483-6
+  extracted: '2026-10-27'
 signals:
   citations: 79
   citations_source: OpenAlex

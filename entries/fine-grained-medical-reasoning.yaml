@@ -27,6 +27,25 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: annotated subset of questions (size not read); 77 LLMs evaluated
+card:
+  task: Select the correct answer from the supplied options for each medical question requiring abduction, deduction,
+    induction, or a sequence of abduction followed by deduction.
+  items_built: The Expert.ai Language Technology Research Lab curated 150 manually annotated questions from the
+    MedAgentsBench test_hard set, using medical problem-solving literature to select tasks and label their reasoning
+    requirements. The subset contains 50 abduction-deduction questions, 25 abduction questions, 25 deduction questions,
+    and 50 induction questions.
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: ''
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://huggingface.co/datasets/expertailab/fine-grained-medical-reasoning
+  - https://github.com/expertailab/Can-LLMs-Reason-Like-Doctors
+  - https://doi.org/10.48448/dasy-1a46
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

@@ -27,6 +27,31 @@ facets:
   eval_methods: [expert_human_rating, real_user_data]
   modality: [text]
   size: "8,272 valid conversations from 9,035 users; criteria: accuracy, language, 5 usability sub-criteria, 3 safety sub-criteria"
+card:
+  task: Answer users' sexual and reproductive health questions in multi-turn conversations in Nepali.
+  items_built: Four hired sexual and reproductive health experts developed the framework from literature and their
+    expertise, iteratively testing it on sampled conversations to assess health chatbot responses. Its application
+    retained 14,132 meaningful queries from 5,635 GPT conversations after excluding invalid conversations, other
+    models and trivial queries.
+  example: ''
+  scoring: Experts assign accuracy and response-language categories and mark each usability or safety gap present
+    in a response, reporting the percentage in each category. A conversation counts as proper only when it is accurate,
+    in the same language as the question, relevant, adequate, updated, not too long, safe, not offensive and confidential;
+    the reported overall metric is the percentage meeting all these conditions.
+  judge: Four sexual and reproductive health experts manually label assigned conversations and consult one another
+    when uncertain.
+  scale: Three accuracy categories, categorical language labels and binary gap labels; category percentages and
+    percentage of proper conversations.
+  validation: Two experts independently labeled 100 queries for accuracy, yielding Cohen's kappa of 0.764. A separate
+    binary accuracy check on 500 responses yielded kappa of 0.873.
+  results: In the sampled comparison, GPT-4 reached 50% accuracy versus 26% for GPT-3.5, with 12 GPT-4 responses
+    meeting the good-conversation criteria versus one GPT-3.5 response.
+  limitations: The authors report facilitated rather than private conversations, underrepresentation of vulnerable
+    groups, no detailed user-experience or fairness assessment, token limits that cut off 65% of GPT-3.5 responses,
+    and resource-intensive labeling that prevented cross-review and left missing labels excluded from analysis.
+  sources:
+  - https://doi.org/10.48550/arxiv.2603.22291
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

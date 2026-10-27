@@ -30,6 +30,32 @@ facets:
   eval_methods: [simulated_multi_turn, rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 437 primary patients (442 admissions) plus validation cohorts of 119 and 67 patients
+card:
+  task: Conduct a multi-turn consultation with a virtual patient, then produce patient-information summaries, a
+    diagnosis with reasoning, and recommended medications with justification.
+  items_built: The researchers built patient-specific knowledge graphs from electronic health records for 437 MIMIC-III
+    patients and external cohorts of 119 and 67 patients from PMC-Patients and PCI. Attending physicians and medical
+    AI experts co-designed the eight evaluation dimensions, and experienced physicians identified the failure patterns
+    used in the rubrics.
+  example: ''
+  scoring: GPT-5 examines the conversation and final clinical outputs against reference diagnoses, medications,
+    and patient information in the knowledge graph, applying predefined deductions for failure patterns with a penalty
+    cap for each dimension. Dimension scores are averaged across cases, and overall performance is reported as a
+    weighted average.
+  judge: GPT-5 assigns the automated scores.
+  scale: Eight dimension scores on a 0-5 scale; mean dimension scores across cases and an overall weighted average.
+  validation: Twenty medical experts with formal clinical training and standardized clinical assessment experience,
+    including attending physicians, reviewed 120 consultations in four groups of five. Each consultation received
+    five independent ratings of alignment with clinical judgment; median alignment ratings exceeded 4.20 out of
+    5 in all 32 evaluated scenarios.
+  results: 'GPT-5.5 achieved the highest weighted average on all three cohorts: 3.76 on CCQA, 3.71 on PMC-Patients,
+    and 3.75 on PCI.'
+  limitations: The authors identify limited cohort scale and sources, incomplete representation of patient emotion
+    and real-world clinical context, and the need for larger clinician panels, formal agreement analyses, and prospective
+    workflow validation.
+  sources:
+  - https://arxiv.org/abs/2606.17474
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

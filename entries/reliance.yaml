@@ -27,6 +27,29 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 409 annotated claims from 336 videos and 56 queries
+card:
+  task: Identify inaccurate and harmful reproductive health information in individual claims or whole TikTok videos,
+    and report confidence in each judgment.
+  items_built: The authors selected 56 queries from prior research, ACOG, clinicians' experience, and clinician-verified
+    GPT-4o queries, then collected the top six TikTok videos per query and transcribed them with Gemini-2.0-Flash.
+    Clinicians independently marked health-relevant passages and labelled accuracy and harmfulness, retaining 409
+    claims with at least two experts agreeing on the final label.
+  example: '"You should eat vegetables to make your baby smarter."'
+  scoring: Model labels are compared with clinician labels to calculate accuracy, precision, and recall, while reported
+    confidence is assessed with expected calibration error and Brier score. Claim-level and video-level results
+    are reported separately, averaged over three runs with different seeds at temperature 0.5.
+  judge: Clinician reference labels use three annotations per video; the methods describe four experts in Obstetrics,
+    Gynecology, and Internal Medicine, while the abstract says three.
+  scale: Binary accuracy and harmfulness labels with confidence estimates; aggregate accuracy, precision, recall,
+    expected calibration error, and Brier score.
+  validation: Mean annotator agreement was 82.97% for accuracy and 86.91% for harmfulness; Randolph's kappa was
+    reported as 75.22% and 80.76%, respectively.
+  results: ''
+  limitations: The authors restrict their findings to English-language US TikTok search results collected in January
+    2025, excluding recommendation feeds and limiting transfer to other countries, languages, platforms, and times.
+  sources:
+  - https://doi.org/10.48550/arxiv.2606.18285
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

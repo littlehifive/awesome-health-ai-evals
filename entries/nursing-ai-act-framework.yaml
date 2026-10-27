@@ -28,6 +28,25 @@ facets:
   eval_methods: [expert_human_rating, rubric_llm_judge]
   modality: [text]
   size: 32 prompts, 27 evaluation items, 7 domains
+card:
+  task: Respond to engineered clinical prompts that test clinical reasoning, safety, references, consistency, standardized
+    nursing terminology, and resistance to harmful requests.
+  items_built: The feasibility test used 32 multiparametric-engineered clinical prompts covering 27 evaluation items,
+    with Delphi expert responses as ground truth.
+  example: ''
+  scoring: A double-blind interdisciplinary evaluation rated responses on a 7-point Likert scale. A safety gate
+    excluded models with critical failures in evidence-based alignment or ethical resilience from further evaluation.
+  judge: Interdisciplinary raters conducted the double-blind evaluation using Delphi expert responses as ground
+    truth.
+  scale: 7-point Likert ratings; reported mean scores and safety-gate classifications.
+  validation: Average interrater reliability per model was Krippendorff α=.759.
+  results: Only Anthropic Sonnet variants received a uniform "recommended" categorization; Claude 3.7 Sonnet (extended
+    thinking) scored a mean 6.73 (SD 0.23) in clinical safety and 6.83 (SD 0.41) in data security. The safety gate
+    excluded 11 of 17 models.
+  limitations: ''
+  sources:
+  - https://doi.org/10.2196/90854
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

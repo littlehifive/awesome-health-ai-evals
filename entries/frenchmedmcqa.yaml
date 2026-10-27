@@ -28,6 +28,30 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 3,105 questions (2,025 multi-answer, 1,080 single-answer)
+card:
+  task: Select all correct answers from five options for each French pharmacy exam question.
+  items_built: Medical experts manually wrote the 3,105 questions and answers for real French pharmacy examinations,
+    and the authors collected them with their manual corrections from remede.org, splitting them into 2,171 training,
+    312 validation and 622 test questions. The later extension added aggregated student responses from MedShake.net
+    and topic and question-structure tags manually assigned by Ricardo Rodriguez at Avignon University.
+  example: 'Cocher la (les) proposition(s) exacte(s) : Le métronidazole :'
+  scoring: 'Predicted answer sets are compared with the manual answer key: the Hamming score averages the proportion
+    of correctly predicted labels among the union of predicted and correct labels for each question. Exact Match
+    Ratio is the percentage of questions whose predicted answer set exactly matches the key.'
+  judge: Automatic comparison with the manually corrected answer key assigns the scores.
+  scale: Per-question label overlap from 0 to 1 and exact match as correct or incorrect; dataset averages are reported
+    as percentages.
+  validation: ''
+  results: BioBERT V1.1 with Wikipedia context retrieved by BM25 achieved the best Hamming score, 38.72%. BART-base
+    with the same retrieval configuration achieved the best Exact Match Ratio, 18.64%.
+  limitations: The authors note that using only the highest-ranked retrieved passage may explain the limited benefit
+    of context, and the extension lacks MedShake.net response data for about half the training questions.
+  sources:
+  - https://doi.org/10.18653/v1/2022.louhi-1.5
+  - https://huggingface.co/datasets/qanastek/FrenchMedMCQA
+  - https://huggingface.co/datasets/uy-rrodriguez/FrenchMedMCQA-extended
+  - https://github.com/qanastek/FrenchMedMCQA
+  extracted: '2026-10-27'
 signals:
   citations: 11
   citations_source: OpenAlex

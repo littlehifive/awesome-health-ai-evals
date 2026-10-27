@@ -30,6 +30,31 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 194,000+ questions (train, dev, and test splits)
+card:
+  task: Select the correct answer or answers from four options for each English-language medical entrance exam question.
+  items_built: Ankit Pal, Logesh Kumar Umapathi and Malaikannan Sankarasubbu collected expert-written questions
+    from official AIIMS PG and NEET PG exam websites, books, and online mock tests, retaining 193,155 questions
+    after cleaning. They removed duplicates, incomplete questions and questions requiring images or tables, applied
+    grammar corrections with human supervision, and excluded development and test questions with similarity above
+    0.9 to other questions.
+  example: '"A 40-year-old man presents with 5 days of productive cough and fever. Pseudomonas aeruginosa is isolated
+    from a pulmonary abscess. CBC shows an acute effect characterized by marked leukocytosis (50,000 mL) and the
+    differential count reveals a shift to left in granulocytes. Which of the following terms best describes these
+    hematologic findings..."'
+  scoring: Selected answers are compared with the ground-truth answer labels, and accuracy is the proportion of
+    questions answered correctly. The paper reports overall test and development accuracy and test accuracy by medical
+    subject.
+  judge: Exact match with the answer key.
+  scale: Correct or incorrect per question; overall accuracy reported as a percentage.
+  validation: ''
+  results: PubMedBERT with PubMed context achieved the best baseline test accuracy of 47%, with 43% development
+    accuracy. The authors report that merit candidates in these exams score an average of 90% marks.
+  limitations: ''
+  sources:
+  - https://arxiv.org/abs/2203.14371
+  - https://huggingface.co/datasets/openlifescienceai/medmcqa
+  - https://github.com/medmcqa/medmcqa
+  extracted: '2026-10-27'
 signals:
   citations: 117
   citations_source: OpenAlex

@@ -26,6 +26,32 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 80 synthetic scenarios across 8 reasoning failure modes, 4 conditions
+card:
+  task: Choose an intervention for each clinical scenario and report its causal pathway, adverse effects, contraindications,
+    supporting evidence, and any uncertainty in structured response fields.
+  items_built: The authors developed a generator that produced 80 synthetic cardiovascular scenarios from a curated
+    biomedical knowledge graph, evenly divided across eight reasoning categories. Each scenario includes clinical
+    context, candidate actions, a gold intervention, and gold causal and evidential structures expressed as ordered
+    lists of assertion identifiers.
+  example: ''
+  scoring: An automated pipeline compares structured model outputs with gold interventions and graph assertion identifiers
+    to score action selection, causal reconstruction, safety, evidence use, and uncertainty; claims whose subject-predicate-object
+    pattern is absent from the retrieved subgraph count as unsupported. Results are reported separately by grounding
+    condition over scenarios where each metric is defined, with adverse-effect F1 restricted to scenarios with gold
+    adverse-effect targets.
+  judge: Python scoring scripts compare outputs with graph-linked gold references automatically.
+  scale: Accuracy, precision, recall, F1, and unsupported-claim rates on a 0 to 1 scale, reported as separate metrics
+    rather than one combined score.
+  validation: ''
+  results: In the single-model GPT-5.4 pilot, integrated grounding C4 achieved causal edge F1 of 0.838, adverse-effect
+    F1 of 0.833, evidence accuracy of 0.738, and unsupported-claim rate of 0.114. Ungrounded C1 had the highest
+    intervention accuracy, 0.948.
+  limitations: The authors state that the single-model pilot in a designed cardiovascular environment does not establish
+    clinical performance, comparative model performance, or external validity for live clinical deployment or other
+    clinical areas.
+  sources:
+  - https://arxiv.org/abs/2608.15382
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

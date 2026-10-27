@@ -24,6 +24,23 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: "about 30,000 question-answer pairs (ngram/medchat-qa); descriptive set of 1,000 to 10,000 questions without reference answers"
+card:
+  task: Answer questions about medical information and medical communication, including descriptive, long-form answers
+    for the companion set.
+  items_built: The cards describe the items as synthetic and expert-generated, curated by Anand Prabhu, Devadutta
+    Ghat, Rahul Shah, Akshay Sharma and Anish Muppalaneni. The main set contains approximately 30,000 questions
+    covering about 1,000 FDA-approved human prescription drugs.
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: ''
+  validation: ''
+  results: ''
+  limitations: The authors warn that the dataset is synthetically generated and its answers may be wrong.
+  sources:
+  - https://huggingface.co/datasets/ngram/medchat-qa
+  - https://huggingface.co/datasets/ngram/medchat-qa-descriptive
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

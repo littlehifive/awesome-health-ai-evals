@@ -24,6 +24,22 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 400 questions (Systems section) plus 190 questions (Cycles section)
+card:
+  task: Choose the correct answer to each Albanian-language multiple-choice question from medical exams.
+  items_built: 'The questions were extracted from official digital medical exams provided by Albania''s Ministry
+    of Education and Sports: 400 from the biology-profile Sistemet sections and 190 from the Ciklet section. Each
+    entry includes metadata identifying its source within the exam papers.'
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: Accuracy.
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://huggingface.co/datasets/marjpri/albanian-medical-exams-systems-mcq-400
+  - https://huggingface.co/datasets/marjpri/albanian-medical-exams-cycles-mcq-190
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

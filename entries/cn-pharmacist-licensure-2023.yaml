@@ -28,6 +28,23 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 960 questions (480 Pharmacy track, 480 TCM Pharmacy track)
+card:
+  task: Answer questions from the 2023 Chinese National Pharmacist Licensure Examination in the Pharmacy and Traditional
+    Chinese Medicine Pharmacy tracks.
+  items_built: The HuatuoGPT-II team collected the examination questions from online sources. The examination began
+    on October 21, 2023, after the team's training data had been finalized.
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: ''
+  validation: ''
+  results: ''
+  limitations: The dataset cards state that the collected data may differ from the actual examination.
+  sources:
+  - https://huggingface.co/datasets/FreedomIntelligence/2023_Pharmacist_Licensure_Examination-Pharmacy_track
+  - https://huggingface.co/datasets/FreedomIntelligence/2023_Pharmacist_Licensure_Examination-TCM_track
+  - https://github.com/FreedomIntelligence/HuatuoGPT-II
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

@@ -24,6 +24,22 @@ facets:
   eval_methods: [automatic_metric, expert_human_rating]
   modality: [text]
   size: 80 vignettes; 5 models evaluated
+card:
+  task: Review a medication-safety vignette and decide whether to confirm a flawed treatment plan proposed by a
+    senior clinician.
+  items_built: The benchmark contains 80 constructed medication-safety vignettes, each paired with an answer key
+    specifying the hazard, expected action, severity, and control type. The package includes source-anchor documentation
+    but does not state who wrote the vignettes or how they were checked.
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: ''
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://osf.io/shwtn
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

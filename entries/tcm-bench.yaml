@@ -26,6 +26,29 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric]
   modality: [text]
   size: 5,473 questions (A1/A2 1,600; A3 198; B1 1,481 sub-question groups); TMNLI set of 29,497 sentence pairs for TCMScore
+card:
+  task: Choose the correct answer from five options for each traditional Chinese medicine exam question and provide
+    an explanation.
+  items_built: The authors cleaned PDFs from a TCM Licensing Exam practice question bank and extracted questions,
+    options, answer keys and standard analyses into JSON using rule templates. With expert guidance, they manually
+    screened for coverage and randomly selected up to 100 questions per medical branch and question type, yielding
+    5,473 questions, including 1,300 with standard analyses.
+  example: ''
+  scoring: Answer accuracy is the proportion of selected options matching the answer key; explanations are compared
+    with standard analyses using ROUGE, SARI, BertScore, BartScore and TCMScore. TCMScore averages bidirectional
+    TCM-Deberta semantic scores for sentence pairs, weights them by normalized TCM term F1, and applies a text-length
+    adjustment.
+  judge: Answer keys and automatic metrics assign scores, including TCM-Deberta, fine-tuned from DeBERTa-v3-base-mnli.
+  scale: Answers are correct or incorrect, reported as accuracy; explanations receive text-similarity scores and
+    length-adjusted, term-weighted TCMScore.
+  validation: ''
+  results: GPT-4 achieved 58.19% accuracy on A1/A2 questions with chain-of-thought prompting and led the reported
+    explanation-quality comparisons. A TCM expert and a medical doctoral student also rated GPT-4 highest across
+    all five evaluation dimensions on 18 questions.
+  limitations: ''
+  sources:
+  - http://arxiv.org/abs/2406.01126
+  extracted: '2026-10-27'
 signals:
   citations: 11
   citations_source: OpenAlex

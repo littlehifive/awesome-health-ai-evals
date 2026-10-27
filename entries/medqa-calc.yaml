@@ -25,6 +25,25 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 1,009 test questions (about 5,000 training)
+card:
+  task: Read a truncated patient note and choose the appropriate clinical calculator from five answer options, including
+    "None of the above."
+  items_built: NCBI/NLM researchers used GPT-4o to extract mentions of 35 MDCalc calculators from PMC-Patients case
+    reports, then truncated the notes with a GPT-4o model fine-tuned on 72 examples. They manually checked over
+    1,000 test instances for correct truncation and automatically generated questions with five options, producing
+    about 5,000 training instances and a test set reported as 1,009 instances in the dataset card and 1,007 in the
+    README.
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: Accuracy.
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://huggingface.co/datasets/Nicholas-Wan/MedQA-Calc
+  - https://github.com/ncbi-nlp/Calculator-Recommendation
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

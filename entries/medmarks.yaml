@@ -28,6 +28,30 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric, rubric_llm_judge, simulated_multi_turn]
   modality: [text]
   size: 30 benchmarks (Medmarks-V verifiable, Medmarks-OE open-ended, Medmarks-T trainable subset of 8)
+card:
+  task: Answer medical questions, extract or generate clinical information, perform medical calculations, or complete
+    patient-interaction tasks, depending on the component benchmark.
+  items_built: The authors assembled 30 existing public, open-source benchmarks rather than creating a new item
+    set, including 19 verifiable benchmarks and eight datasets with training and evaluation splits. They reused
+    original task and judge prompts where available, otherwise adapting community prompts or writing new ones.
+  example: ''
+  scoring: Verifiable tasks use programmatic grading; multiple-choice grading compares normalized responses with
+    the correct answer, accepting the option letter or number, exact answer text, or both. Open-ended responses
+    receive LLM judgments using dataset-specific prompts, including comparisons with reference answers, and models
+    are ranked across benchmarks by weighted mean win rate.
+  judge: Programmatic graders handle verifiable tasks; GPT-5 mini is paired with Grok 4.1 Fast for numerical ratings
+    or Gemini 3 Flash Preview for other ratings, except that MedCaseReasoning uses GPT-5 nano and HealthBench uses
+    GPT-5 mini.
+  scale: Dataset-specific correctness or judge ratings; weighted mean win rate across benchmarks.
+  validation: ''
+  results: ''
+  limitations: The suite is heavily weighted toward single-turn question answering, has limited fairness, bias and
+    safety evaluation, and excludes multimodal tasks; the authors caution that benchmark performance is not equivalent
+    to clinical competence.
+  sources:
+  - https://arxiv.org/abs/2605.01417
+  - https://github.com/MedARC-AI/medmarks
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

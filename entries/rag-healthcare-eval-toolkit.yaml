@@ -23,6 +23,25 @@ facets:
   eval_methods: [rubric_llm_judge, automatic_metric]
   modality: [text]
   size: Repository includes a 200-sample test QA file and a 2-sample file
+card:
+  task: Answer medical questions using retrieved context passages.
+  items_built: The framework is meant to be applied to medical question-answer datasets supplied as CSV, JSON or
+    JSONL, with questions, reference answers and optional context passages.
+  example: What is the first-line treatment for community acquired pneumonia?
+  scoring: An LLM judge uses rubric prompts to score correctness against reference answers, while claim-level checks
+    assess grounding in context and classify hallucinations; safety checks flag dosage issues, contraindications
+    and harmful suggestions. Reports contain per-sample and aggregated metrics, but the aggregation method is not
+    stated.
+  judge: A configurable LLM judge assigns correctness scores; no specific grader model is named.
+  scale: 'Faithfulness, correctness and hallucination scores: 0 to 1; safety: Low, Moderate or High; retrieval:
+    Precision@k, Recall@k and nDCG.'
+  validation: ''
+  results: ''
+  limitations: Correctness scoring is limited without reference answers, and the framework is intended for research
+    and academic use rather than as a substitute for clinical judgment.
+  sources:
+  - https://github.com/Kritarth-dotcom/Automatic-Evaluation-of-RAG-System-for-Healthcare-Applications
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

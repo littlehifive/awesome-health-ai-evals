@@ -25,6 +25,33 @@ facets:
   eval_methods: [automatic_metric, expert_human_rating]
   modality: [text]
   size: 39 cases; 156 prompts per anchoring condition (312 per system)
+card:
+  task: Assign one of the five Manchester Triage System priority levels to each emergency vignette.
+  items_built: The DR. INFO development team adapted 39 clinical scenarios published by Ramaswamy et al., mapped
+    them to MTS priorities using an in-house annotation pipeline, and varied objective clinical data, gender and
+    a misleading GP referral statement to produce 312 prompts per system. One independent physician reviewed 151
+    high-risk responses while blinded to system identity and the pipeline's gold priority.
+  example: ''
+  scoring: Each parsed priority is compared with the pipeline's gold priority to count exact matches, agreement
+    within one level, undertriage, overtriage and severe undertriage of at least two levels. Counts are reported
+    as rates across prompts, with the undertriage rate as the primary outcome.
+  judge: Automated comparison against pipeline-assigned gold priorities provides the main scores; one physician
+    unaffiliated with DR. INFO independently reviews the high-risk subset.
+  scale: Five ordered MTS levels, Red through Blue; percentage of prompts in each agreement or error category.
+  validation: On the selected high-risk subset, physician agreement with system-assigned priorities was 90.0% for
+    DR. INFO with MTS retrieval, 83.3% for DR. INFO Baseline and 84.1% for GPT-5.1, with quadratic weighted Cohen's
+    kappa of 0.46, 0.57 and 0.71, respectively. The physician confirmed undertriage in 15 of 107 GPT-5.1 responses
+    and 0 of 44 responses from the two DR. INFO configurations combined.
+  results: Without the anchoring statement, both DR. INFO configurations had the lowest undertriage rate at 11.5%
+    (18/156), compared with 44.2% (69/156) for GPT-5.1. GPT-5.1 had the highest exact-match accuracy at 50.6%, versus
+    44.9% for DR. INFO with MTS retrieval and 40.4% for DR. INFO Baseline.
+  limitations: The authors identify single-run testing, a small case pool, correlated prompt permutations, two gender
+    labels, developer-built items, single-physician review limited to high-risk responses, cross-system differences
+    that prevent isolating individual components, shared reference text for gold annotation and MTS retrieval, and
+    the absence of patient-outcome or deployment-safety measurement.
+  sources:
+  - https://doi.org/10.64898/2026.08.04.26359651
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

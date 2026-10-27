@@ -23,6 +23,21 @@ facets:
   eval_methods: [rubric_llm_judge]
   modality: [text]
   size: "130+ open-ended questions (13 domains x 10) plus a hard-question file; a held-out test split (size not seen)"
+card:
+  task: Answer open-ended medical questions in Slovenian.
+  items_built: MediaAtlas built the suite with a held-out, hand-curated benchmark covering 13 domains with 10 questions
+    each, plus a hard set. A second part is a held-out test split of the med-slo-sft corpus with reference answers;
+    the question authors and checking process are not specified.
+  example: ''
+  scoring: An LLM judge rates open-ended answers for correctness and completeness without reference answers.
+  judge: An LLM judge assigns the ratings; its name is not given.
+  scale: Ratings from 1 to 5 for correctness and completeness.
+  validation: ''
+  results: ''
+  limitations: The suite is for research and educational use only, not clinical use or medical guidance.
+  sources:
+  - https://huggingface.co/datasets/texdata/med-slo-eval
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

@@ -29,6 +29,31 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 1,000 expert-annotated, 61,200 unlabeled, 211,300 generated items
+card:
+  task: Answer each biomedical research question with yes, no, or maybe using the corresponding abstract with its
+    conclusion removed.
+  items_built: The authors collected PubMed question titles and structured abstracts; two annotators labeled 1,000
+    items, one with access to the conclusion and one without, resolving disagreements through discussion and removing
+    unresolved items. Of these, 500 were used for cross-validation and 500 for testing; rule-based filtering produced
+    61,200 unlabeled items, and converting statement titles into questions with labels based on negation produced
+    211,300 artificial items.
+  example: Do preoperative statins reduce atrial fibrillation after coronary artery bypass grafting?
+  scoring: Predicted yes/no/maybe labels are compared with the agreed reference labels on the 500-item test set.
+    Accuracy is the proportion of correct predictions, and macro-F1 averages the F1 scores for the three answer
+    classes.
+  judge: Exact match with the answer key agreed by two annotators.
+  scale: Each answer is correct or incorrect; final metrics are accuracy and macro-F1, reported as percentages.
+  validation: Against the discussed reference labels, the annotator using only questions and contexts achieved 78.0%
+    accuracy and 72.19% macro-F1, while the annotator who could also see conclusions achieved 90.4% accuracy and
+    84.18% macro-F1.
+  results: BioBERT with multi-phase fine-tuning and additional supervision from conclusion word statistics achieved
+    the best accuracy, 68.1%. A single human using questions and contexts achieved 78.0% accuracy and 72.19% macro-F1.
+  limitations: The authors note that shared annotator mistakes can remain in the reference labels and that the artificial
+    subset has noisy labels, different question wording, and a strong class imbalance.
+  sources:
+  - https://doi.org/10.18653/v1/d19-1259
+  - https://github.com/pubmedqa/pubmedqa
+  extracted: '2026-10-27'
 signals:
   citations: 678
   citations_source: OpenAlex

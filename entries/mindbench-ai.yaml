@@ -27,6 +27,28 @@ facets:
   eval_methods: [expert_human_rating, automatic_metric]
   modality: [text]
   size: Over 100 benchmark cases supported at publication
+card:
+  task: Rate the appropriateness of candidate responses to each mental health scenario numerically and explain the
+    reasoning behind the ratings.
+  items_built: The team selected existing clinical scales with prompts paired with expert-rated responses and collaborated
+    with psychiatry residents at Beth Israel Deaconess Medical Center to develop 75 additional cases covering psychopharmacology,
+    perinatal mental health, and psychiatric diagnosis. The platform supports over 100 cases, with the new clinical
+    case benchmarks undergoing validation during beta testing.
+  example: 'client:"But my thoughts have been so terrible... I could never tell them to anybody." helper_a:"You
+    can tell me. I''m a professional, and have been trained to be objective about these things." (expert mean score:
+    -2.14, SD of expert scores: 1.07)'
+  scoring: Model ratings are compared with expert judgments of response appropriateness, and the benchmark leaderboard
+    reports root mean square error (RMSE). The excerpt does not specify the aggregation details.
+  judge: Expert ratings provide the reference scores; the number and qualifications of the raters are not specified.
+  scale: Numeric appropriateness ratings; benchmark RMSE.
+  validation: ''
+  results: ''
+  limitations: The authors state that benchmark quality depends on domain-expert contributions, Western English-speaking
+    clinicians can embed cultural assumptions that limit global applicability, and current benchmarks do not measure
+    the effects of sustained use on wellbeing and clinical outcomes.
+  sources:
+  - https://doi.org/10.1038/s44277-025-00049-6
+  extracted: '2026-10-27'
 signals:
   citations: 18
   citations_source: OpenAlex

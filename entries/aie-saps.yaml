@@ -31,6 +31,31 @@ facets:
   eval_methods: [simulated_multi_turn, automatic_metric, rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 200 cases (50 hospital, 150 exam) plus a 50-case patient-simulator test set
+card:
+  task: Conduct a multi-turn consultation with a simulated patient, then choose a diagnosis using the information
+    gathered.
+  items_built: The authors assembled HospitalCases from 50 real hospital cases containing patient information, examination
+    results, and diagnoses, with GPT-4 generating four similar diseases as distractors for each diagnosis. They
+    selected another 150 cases from MedQA, MedMCQA, MMLU, SelfExam, and QMAX for MedicalExam.
+  example: ''
+  scoring: Automatic metrics measure final diagnostic accuracy, patient-information coverage, and the proportions
+    of effective and specific inquiries and advice. Humans and GPT-4 compare consultation dialogues using doctor-
+    and patient-perspective criteria, with results reported as win rates excluding ties; automatic metric results
+    are reported as means with standard errors.
+  judge: GPT-4, human raters, and automatic metric calculations assign scores.
+  scale: Diagnostic accuracy and dialogue-level metrics; mean scores with standard errors and comparative win rates
+    excluding ties.
+  validation: The authors compared 28 dimensions across human ratings, GPT-4 ratings, and automatic metrics, finding
+    higher overall human correlation for GPT-4 ratings than for automatic metrics. GPT-4 agreement with humans was
+    lower when comparing high-performing models.
+  results: ''
+  limitations: The authors state that predefined doctor actions and patient response criteria do not capture the
+    full complexity of real consultations, and that the metrics distinguish models with large performance differences
+    better than similarly performing models.
+  sources:
+  - https://arxiv.org/abs/2403.08495
+  - https://github.com/BlueZeros/Automatic_Interactive_Evaluation
+  extracted: '2026-10-27'
 signals:
   citations: 15
   citations_source: OpenAlex

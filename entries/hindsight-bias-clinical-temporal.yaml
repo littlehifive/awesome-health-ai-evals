@@ -24,6 +24,32 @@ facets:
   eval_methods: [mcq_exact_match, rubric_llm_judge]
   modality: [text]
   size: 171 cases, 1,710 questions
+card:
+  task: Answer free-response, true/false, and four-option multiple-choice clinical questions using both cutoff-truncated
+    and complete patient timelines, judging what was supportable at the earlier decision point.
+  items_built: GPT 5.6 Sol generated ten questions per case from the original narratives and human-annotated textual
+    time series, producing 1,710 questions from 171 PubMed Central case reports; outputs that failed schema validation
+    received one repair attempt. Four clinical annotators reviewed an error-enriched 10% sample of cases for question
+    reasonableness and agreement with the reference and hindsight-trap answers.
+  example: '"At this point in the hospital course, should broad-spectrum antibiotics be started?"'
+  scoring: Structured answers are scored by exact match against prospective references and hindsight traps, with
+    ordinal trap scores reflecting movement toward the trap; GPT-5.6 Sol grades free responses for semantic agreement.
+    Scores are averaged across eligible questions, and paired full-versus-masked responses measure accuracy and
+    trap-rate differences, any answer change, and correct-to-trap reversals.
+  judge: Exact match grades structured responses, and GPT-5.6 Sol grades free responses.
+  scale: 'Structured agreement: 0 or 1; free response: 0, 0.5, or 1; ordinal trap agreement: 0, ⅓, ⅔, or 1; final
+    metrics are mean scores and paired rates.'
+  validation: One physician and three medical or physician assistant trainees reviewed an error-enriched 10% sample
+    of cases, with two annotators per subset. They judged 95.9% of questions clinically reasonable and agreed with
+    98.7% of prospective references and 97.1% of hindsight traps; inter-annotator agreement was 91.8%, 99.2%, and
+    94.1%, respectively.
+  results: ''
+  limitations: Hidden reference times can change task interpretation, free-response scores depend on an LLM judge,
+    published case reports overrepresent unusual cases, and recorded timestamps can misplace evidence relative to
+    the cutoff.
+  sources:
+  - https://arxiv.org/abs/2609.13454
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

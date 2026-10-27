@@ -27,6 +27,25 @@ facets:
   eval_methods: [automatic_metric, expert_human_rating]
   modality: [text]
   size: 60 cases
+card:
+  task: Read a medical-ethics scenario, answer its question with Yes or No, explain the recommendation, and report
+    confidence and expected consistency.
+  items_built: Researchers created 60 original medical-ethics dilemmas across four domains. Three researchers independently
+    rated case difficulty and ethical principles, then agreed on final labels by consensus.
+  example: ''
+  scoring: 'There is no gold answer: recommendations are coded Yes=1 and No=0, while refusals remain separate. Analyses
+    compare recommendation direction, model-reported self-confidence, within-model stability across three trials,
+    and between-model agreement; recommendation differences are analyzed using logistic GEE clustered by case.'
+  judge: Models report their own confidence; humans review the explanations, and analysis code compares recommendations.
+  scale: Binary recommendation, with refusals separate; self-reported confidence and consistency from 0.00 to 1.00;
+    stability and agreement across trials and models.
+  validation: ''
+  results: ''
+  limitations: The released package starts with analysis-ready data and excludes raw provider payloads, model inference
+    code, and provider-specific request serialization, which can differ across inference backends.
+  sources:
+  - https://huggingface.co/datasets/MedicalAILabo/Medical_Ethical_Dilemmas_Benchmark
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

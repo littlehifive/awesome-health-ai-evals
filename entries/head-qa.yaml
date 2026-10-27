@@ -33,6 +33,33 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 6,765 questions (v1, 2019); 12,751 questions (v2, 2025)
+card:
+  task: Choose the correct answer from four or five options for each healthcare specialization exam question.
+  items_built: David Vilares and Carlos Gómez-Rodríguez compiled the original questions from Spanish Ministry of
+    Health exams beginning in 2013, removing questions invalidated after the exams; two fluent Spanish-English speakers
+    checked translation adequacy and one native English speaker checked fluency on 60 randomly selected questions
+    and their answers. Version 2 adds newer exams and English, Galician, Italian and Russian translations generated
+    with meta-llama/Llama-3.1-8B-Instruct.
+  example: 'The antibiotic treatment of choice for Meningitis caused by Haemophilus influenzae serogroup b is: 1.
+    Gentamicin 2. Erythromycin 3. Ciprofloxacin 4. Cefotaxime'
+  scoring: The selected option is compared with the recorded correct answer to calculate accuracy, with results
+    reported by healthcare area and averaged across the six areas. The original paper also reports the official
+    exam POINTS score, adding 3 points for each correct answer and subtracting 1 for each wrong answer.
+  judge: Exact match with the answer key.
+  scale: Correct or incorrect per item; percentage accuracy and POINTS totals (+3 correct, −1 wrong), averaged across
+    healthcare areas.
+  validation: ''
+  results: At the original release, English information retrieval performed best, with 34.6% average accuracy across
+    the full dataset and 37.2% on the designated test split. On the 2016 exams, its POINTS scores ranged from 62.0
+    to 168.0 across areas, compared with 515.2 to 627.1 for the average of the ten best human examinees.
+  limitations: The authors report difficulties translating and extracting molecular formulae, do not use the supplied
+    images in their experiments, and note that human comparisons are not strictly comparable because the last ten
+    exam questions are backup questions for humans.
+  sources:
+  - https://arxiv.org/abs/1906.04701
+  - https://huggingface.co/datasets/dvilares/head_qa
+  - https://huggingface.co/datasets/alesi12/head_qa_v2
+  extracted: '2026-10-27'
 signals:
   citations: 50
   citations_source: OpenAlex

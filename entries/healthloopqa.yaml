@@ -26,6 +26,32 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 127 tasks and 1,516 QA instances (1,044 simulated from 16 virtual patients, 472 from 5 real patients)
+card:
+  task: Answer a question about longitudinal glucose monitoring data and therapy, meal, and activity records, following
+    detailed instructions and returning a precise numerical, categorical, or temporal answer with a natural-language
+    explanation.
+  items_built: The authors curated and cross-verified 127 task templates with experts in time-series analysis, cybersecurity,
+    NLP, and diabetes care, drawing on CGM analysis practices, clinical guidelines, and device safety requirements,
+    and manually labeled each question's reasoning chain. Automatic extraction modules generated ground-truth answers
+    for 1,044 questions from 16 simulated patients and 472 questions from 10 months of MetaboNet records covering
+    five people with type 1 diabetes aged 3-59 years.
+  example: What was the average glucose reading between 2-4 pm on week 3, day 1?
+  scoring: Outputs are compared with programmatically extracted ground truth using symmetric mean absolute percentage
+    error (SMAPE) for numerical answers, accuracy for categorical answers, and Affinity F1 for event intervals.
+    SMAPE is converted to 1 − SMAPE/2, and the resulting scores and the other metrics are averaged across questions
+    and reported on a 0-100 scale.
+  judge: Automatic metrics compare answers with programmatically extracted ground truth.
+  scale: Per-question scores normalized to 0-1; mean across questions reported on a 0-100 scale.
+  validation: ''
+  results: GPT-5.4 with agent tools scored highest on both the full simulated dataset, at 78.5/100, and the real-world
+    dataset, at 86.1/100.
+  limitations: The authors state that simulations omit biological variability and some diabetes management practices,
+    modeled faults do not capture the full diversity of real failures and attacks, question templates do not cover
+    all patient queries, and clinical deployment or use in other wearable domains requires further validation.
+  sources:
+  - https://arxiv.org/abs/2609.06976
+  - https://github.com/schlevik/py-mgipsim/tree/merge
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

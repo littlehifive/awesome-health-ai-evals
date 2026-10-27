@@ -26,6 +26,23 @@ facets:
   eval_methods: [automatic_metric, expert_human_rating]
   modality: [text]
   size: "Framework mapping criteria to metrics; evaluated on Epic In-Basket patient message replies (count not recorded)"
+card:
+  task: Draft a reply to a patient message in Epic In-Basket.
+  items_built: The framework adapts the multidimensional quality metric framework for evaluating healthcare LLM
+    outputs and was applied to patient message replies in Epic In-Basket at Duke.
+  example: ''
+  scoring: The framework maps evaluation aspects to qualitative assessments and quantitative metrics, including
+    ROUGE-L, ROUGE-N recall, and keyword matching.
+  judge: ''
+  scale: ''
+  validation: Clinicians' decisions to use AI-generated drafts correlated strongly with quantitative metrics, but
+    the abstract reports no correlation values.
+  results: ''
+  limitations: The authors state that automated quantitative evaluations cannot fully replace qualitative human
+    evaluations, particularly for aspects requiring contextual interpretation.
+  sources:
+  - https://doi.org/10.1093/jamia/ocaf023
+  extracted: '2026-10-27'
 signals:
   citations: 11
   citations_source: OpenAlex

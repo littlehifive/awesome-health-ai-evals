@@ -28,6 +28,29 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 7,747 multiple-choice questions (5 options each); 25 LLMs evaluated
+card:
+  task: Select the guideline-consistent next diagnostic or treatment step from multiple-choice options for each
+    cancer patient vignette.
+  items_built: Two medical experts selected the NCCN decision trees, GPT-4o enumerated paths that were manually
+    checked, and multiple LLMs generated 16,000 questions with answers taken from the path endpoints. Filtering
+    retained 7,747 questions using a Qwen2.5-7B-Instruct reward model trained on 500 questions labeled by six medical
+    experts and an ensemble of four LLM judges.
+  example: '"A 32-year-old male patient with acute promyelocytic leukemia (APL) was initially diagnosed one year
+    ago and achieved complete remission after treatment with all-trans retinoic acid (ATRA) and arsenic trioxide.
+    He experienced his first relapse five months after completing these treatments..."'
+  scoring: The selected answer is compared with the correct endpoint in the source decision tree, and accuracy is
+    the fraction of questions answered correctly. Weighted accuracy sums difficulty-weighted correct answers and
+    divides by the number of questions, with difficulty based on the number of answer options.
+  judge: Exact match with the guideline-derived answer key.
+  scale: Correct or incorrect per question; overall accuracy and difficulty-weighted accuracy.
+  validation: For question-quality ratings, four human annotators independently reviewed 500 randomly selected samples,
+    with over 96% agreement across annotators.
+  results: ''
+  limitations: ''
+  sources:
+  - https://arxiv.org/abs/2505.11613
+  - https://huggingface.co/datasets/MedGUIDE/MedGUIDE-MCQA-8K
+  extracted: '2026-10-27'
 signals:
   citations: 2
   citations_source: OpenAlex

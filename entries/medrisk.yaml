@@ -27,6 +27,29 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 12,352 questions (train, validation, and test splits 7:1:2)
+card:
+  task: Read patient information and select one of four answers giving a numerical risk estimate, risk score, or
+    qualitative risk category.
+  items_built: The authors used Azure GPT-4o to randomly select parameters for 387 MDCalc risk calculators and generated
+    over 15,000 questions with reference answers through MDCalc APIs, then manually removed questions unrelated
+    to risk prediction, leaving 12,352. They added three wrong choices to each correct answer and split the data
+    into training, validation, and testing sets in a 7:1:2 ratio; the dataset card lists 1,232 test questions per
+    version.
+  example: '"What is the estimated risk of postoperative pulmonary complications?" (Answer: High risk)'
+  scoring: Predicted choices are matched exactly against the ground-truth answers, and accuracy is averaged across
+    all test questions in each version. For RiskAgent, GPT-4o, and o3-mini, the authors report the mean and standard
+    deviation across five runs.
+  judge: Exact match with the answer key.
+  scale: Correct or incorrect per question; overall accuracy as a percentage.
+  validation: ''
+  results: 'RiskAgent with 8 billion parameters achieved the highest accuracy: 78.34% on MedRisk-Qualitative and
+    76.33% on MedRisk-Quantitative.'
+  limitations: ''
+  sources:
+  - https://doi.org/10.1101/2025.04.03.25323489
+  - https://huggingface.co/datasets/jinge13288/MedRisk-Bench
+  - https://github.com/AI-in-Health/RiskAgent
+  extracted: '2026-10-27'
 signals:
   citations: 3
   citations_source: OpenAlex

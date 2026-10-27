@@ -27,6 +27,36 @@ facets:
   eval_methods: [mcq_exact_match, rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 6,314 public questions (3,139 educational, 3,175 research-derived) plus 67 clinical cases (not released)
+card:
+  task: Answer audiology knowledge and research questions and, for each multimodal clinical case, interpret audiometric
+    findings, give a differential diagnosis, and recommend clinical actions.
+  items_built: The benchmark contains 3,139 items from educational resources, 3,175 items derived from peer-reviewed
+    articles published between 2015 and 2025, and 67 multimodal clinical cases. The public question pools include
+    reference answers for 356 educational multiple-choice, 1,112 true-or-false, 1,671 fill-in-the-blank, 529 research
+    multiple-choice, 1,186 true-or-false, and 1,460 short-answer items.
+  example: ''
+  scoring: Gemini 2.5 Pro judges educational and research-derived answers against reference answers, with accuracy
+    reported by model and question format. Claude Opus 4.5 grades clinical answers against a standardized A-F rubric
+    covering numerical interpretation, differential diagnosis, and recommendations, with six prespecified critical-error
+    types capping grades at D or F.
+  judge: Gemini 2.5 Pro grades educational and research items; Claude Opus 4.5 grades clinical cases, with an independent
+    audit against PhD-level audiologist consensus.
+  scale: Question correctness and percentage accuracy; clinical grades A-F with critical-error caps at D or F.
+  validation: Audiologist interreviewer agreement was quadratic-weighted κ=0.78 in an 80-item audit and κ=0.85 in
+    a 50-item audit. When two audiologists regraded 80 numerical-interpretation responses with diagnostic images,
+    adjudicator agreement was κ=0.05, critical-error sensitivity was 19/26 (73%), and positive predictive value
+    was 19/53 (36%); the reweighted automated critical-error rate was 36.2%, compared with human estimates of 28%-34%.
+    Recommendations remained stronger than numerical interpretation and differential diagnosis after human calibration.
+  results: Web-style multiple-choice accuracy exceeded 95%, while the best research short-answer accuracy was 30%;
+    the supplied abstract does not name the model achieving that score. Clinical recommendation generation was stronger
+    than numerical interpretation and differential diagnosis.
+  limitations: The authors report multiple-choice ceiling effects and per-item miscalibration of the clinical adjudicator,
+    state that the benchmark does not certify clinical safety, and withhold clinical inputs needed to rerun clinical
+    inference.
+  sources:
+  - https://github.com/pc9413/AudiologyQA
+  - https://doi.org/10.2196/94755
+  extracted: '2026-10-27'
 signals:
   citations: 2
   citations_source: OpenAlex

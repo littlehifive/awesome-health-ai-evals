@@ -24,6 +24,30 @@ facets:
   eval_methods: [simulated_multi_turn, rubric_llm_judge]
   modality: [text]
   size: 500 Chinese and 500 English subgraph cases for each of two tasks
+card:
+  task: Conduct a multi-turn conversation with a simulated patient to give medication advice or gather a medical
+    history and provide a diagnosis.
+  items_built: The authors constructed 500 Chinese and 500 English knowledge-graph subgraphs per task, using CMeKG
+    for Chinese and PrimeKG for English, extended with triples from expert-annotated datasets. They removed medically
+    inconsistent triples and prioritized distinctive symptoms before generating simulated consultations.
+  example: '"I have high blood pressure,can I still take this?"'
+  scoring: The Judge Agent uses the dialogue history and reference medical knowledge to rate each medication response
+    for correctness and comprehensiveness, and diagnostic conversations for history-taking and agreement with the
+    reference disease. Reported task scores are normalized to 0-1; the excerpt does not specify how scores across
+    turns and cases are combined.
+  judge: QwQ-32B is the Judge Agent selected for its agreement with expert human raters.
+  scale: 'Medication correctness, comprehensiveness and history-taking: 0-2; diagnostic correctness: 0-3; reported
+    scores normalized to 0-1.'
+  validation: The authors compared QwQ-32B, Qwen3-32B and DeepSeek-R1-32B ratings with expert human ratings using
+    mean absolute error; QwQ-32B had the highest agreement, but numerical errors and the number of raters are not
+    provided in the excerpt.
+  results: DeepSeek-R1-671B led medication consultation with correctness scores of 0.8858 in Chinese and 0.8763
+    in English, and comprehensiveness scores of 0.7581 and 0.8351. It also led Chinese disease diagnosis in correctness
+    and history-taking.
+  limitations: ''
+  sources:
+  - http://arxiv.org/abs/2510.12224
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

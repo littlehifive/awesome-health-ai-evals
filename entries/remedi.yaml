@@ -27,6 +27,32 @@ facets:
   eval_methods: [automatic_metric, expert_human_rating]
   modality: [text]
   size: 96,965 conversations (1,557 fine-grained labelled; 843 diseases, 40 domains)
+card:
+  task: Given a medical dialogue context, predict patient intent-slot-value triples, predict doctor action-slot-value
+    triples, or generate the doctor's response using the supplied context and triples.
+  items_built: The authors collected online medical dialogues, cleaned them with rules, and sampled them by disease-category
+    proportions; 15 annotators with medical backgrounds labeled 1,557 dialogues after three rounds of guideline
+    revision. Quality checks included expert decisions on ambiguous labels, rule-based checks, and medical-entity
+    standardization; the labeled dialogues were split into 657 for fine-tuning, 100 for validation, and 800 for
+    testing.
+  example: '"Ten days. Yes. What is the disease?"'
+  scoring: Predicted intent/action and slot labels are compared with reference labels using micro-F1 and category-frequency-weighted
+    macro-F1, while generated values are compared with reference values using BLEU; Combination is 0.5 × micro-F1
+    + 0.5 × BLEU. Responses receive reference-based BLEU1, BLEU4, ROUGE1 and METEOR scores, plus reported human
+    fluency and specialty scores from three annotators per response on 300 sampled context-response pairs.
+  judge: Evaluation scripts compute automatic scores, and three annotators rate each sampled response.
+  scale: Automatic F1 and overlap metrics; Combination averages micro-F1 and BLEU; human ratings are 0 (bad), 1
+    (neutral), or 2 (good).
+  validation: Average pairwise Cohen's kappa between response raters was 0.64 for fluency and 0.62 for specialty.
+  results: MT5 + CL achieved the highest NLU Combination score, 43.02, and MT5 (oracle) + CL achieved the highest
+    DPL Combination score, 26.56. In human response evaluation, MT5 (oracle), given reference NLU and DPL outputs,
+    scored 1.82 for fluency and 1.22 for specialty, compared with 1.91 and 2.00 for ground-truth responses.
+  limitations: The dataset does not explicitly mark boundaries between dialogue sessions with different service
+    types, making relationships among services difficult to model explicitly.
+  sources:
+  - https://arxiv.org/abs/2109.00430
+  - https://github.com/yanguojun123/Medical-Dialogue
+  extracted: '2026-10-27'
 signals:
   citations: 16
   citations_source: OpenAlex

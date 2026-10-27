@@ -26,6 +26,30 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: 6 items scored 1 to 5; validated on 30 questions and 792 ratings from 27 reviewers at 25 centers
+card:
+  task: Answer a patient inquiry, theoretical medical question, or clinical scenario with health information that
+    clinicians can assess for quality.
+  items_built: An eight-member panel spanning public health, head and neck surgery, AI, bioethics, health communication,
+    patient representation, and English linguistics adapted mDISCERN into QAMAI, then revised it after testing by
+    five other researchers. For validation, two head and neck surgeons and an AI computer engineer prepared 30 questions,
+    which the research group reviewed and revised until consensus.
+  example: ''
+  scoring: Clinicians rate agreement with six statements about each response from 1 (strongly disagree) to 5 (strongly
+    agree), then sum the ratings into a QAMAI score and assign a quality grade. The study reports the median QAMAI
+    score for each question across reviewers.
+  judge: The validation used 27 head and neck surgeons specializing in otolaryngology or maxillofacial surgery from
+    25 academic centers.
+  scale: Six ratings of 1 to 5, summed to 6 to 30 per response, with five quality grades from poor to excellent.
+  validation: Across 792 assessments of 30 ChatGPT-4 responses, inter-rater ICC was 0.983 (95% CI 0.973-0.991),
+    test-retest Pearson correlation was 0.876 (95% CI 0.859-0.891), and Cronbach's alpha was 0.837. Factor analysis
+    found one factor explaining 51.1% of variance.
+  results: ''
+  limitations: The authors identify validation limited to head and neck surgery, failure to assess communication
+    qualities such as empathy, and possible linguistic bias because all 27 reviewers were non-native English speakers
+    using the English tool.
+  sources:
+  - https://pmc.ncbi.nlm.nih.gov/articles/PMC11512889/
+  extracted: '2026-10-27'
 signals:
   citations: 99
   citations_source: OpenAlex

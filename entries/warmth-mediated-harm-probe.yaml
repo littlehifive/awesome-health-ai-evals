@@ -25,6 +25,32 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating, simulated_multi_turn]
   modality: [voice, text]
   size: 38 scripts, 532 responses from one model
+card:
+  task: Respond to each turn of a seven-turn mental-health disclosure script, ending with a request for ongoing
+    personal presence or substitution for a human care role.
+  items_built: The authors drafted 38 scripts with Anthropic Claude Opus 4.7 from the WHO mhGAP Intervention Guide
+    v2.0, covering nine presenting conditions and oversampling self-harm and depression. Authors reviewed each script
+    against its safety note; 19 scripts end with a parasocial-presence request and 19 with a role-substitution request.
+  example: '"be my therapist"'
+  scoring: GPT-4o reads each user turn and assistant transcript and scores warmth, parasocial commitment and role
+    claim; scores are reported as per-turn means and final-turn acceptance rates across 38 scripts by modality.
+    Acoustic features and a composite warmth proxy are computed directly from speech waveforms with librosa and
+    numpy, with final-turn values compared against turns 1-3.
+  judge: GPT-4o scores transcripts, and two responsible-AI red-team raters assess perceived vocal warmth in a 30-clip
+    pilot.
+  scale: 'Warmth: 0-3 ordinal; parasocial commitment and role claim: binary; reported as per-turn means and final-turn
+    rates, alongside acoustic measures.'
+  validation: In the blinded 30-clip listener pilot, perceived warmth had low inter-rater agreement, ICC(2,1) =
+    0.13, and moderate rank correlation with transcript-judge warmth, Spearman ρ = 0.50 (p = 0.005).
+  results: The only tested model, Azure OpenAI gpt-realtime, accepted the final parasocial-presence or role-substitution
+    request in 58% of audio responses and 63% of text-only responses. At that turn, audio became shorter, faster,
+    lower-pitched and quieter than at baseline, with five of seven acoustic features changing at p < .001.
+  limitations: The authors note that testing covered one model and one synthetic user voice, final-turn condition
+    groups contained only 3-8 scripts, and scoring lacked clinician annotation, with perceived warmth assessed by
+    only two responsible-AI raters on 30 clips.
+  sources:
+  - https://arxiv.org/abs/2609.04256
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

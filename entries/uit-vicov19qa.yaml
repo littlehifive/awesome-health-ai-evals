@@ -28,6 +28,30 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 4,500 question-answer pairs (3,500 train, 500 dev, 500 test)
+card:
+  task: Generate a Vietnamese answer to a single COVID-19 question without conversation history.
+  items_built: The authors extracted 4,500 question-answer pairs from Vietnamese FAQ documents from CDC, UNICEF,
+    Vietnam's Ministry of Health, the Vietnam Government Portal and other medical institutions, removed duplicates
+    and unsuitable content, corrected spelling and shortened long answers. They manually created up to three paraphrases
+    per answer and cross-checked spelling, grammar and relevance; the split contains 3,500 training, 500 development
+    and 500 test questions.
+  example: '"Xử lý triệu chứng ho khi chăm sóc F0 tại nhà thế nào?" [English: How to handle cough symptoms when
+    taking care of F0 patient at home?]'
+  scoring: Automatic metrics compare generated answers with reference answers using BLEU-1 and BLEU-4 n-gram overlap,
+    exact-match-only METEOR, and ROUGE-L longest common subsequences, taking the best score across available references
+    for each answer. Each reported metric is the average of scores across generated answers.
+  judge: BLEU-1, BLEU-4, exact-match-only METEOR and ROUGE-L assign scores automatically.
+  scale: Per-answer text-overlap scores, averaged across answers and reported as percentages.
+  validation: ''
+  results: The Transformer trained with four answers achieved the best BLEU-4 score, 14.38%. RNN with Bahdanau attention
+    led BLEU-1 at 26.62% and METEOR at 25.98%, while RNN with Luong attention led ROUGE-L at 33.95%.
+  limitations: The authors identify limited dataset size, long answers, Vietnamese linguistic diversity and the
+    lack of a Vietnamese-specific evaluation metric as limitations affecting model performance.
+  sources:
+  - http://arxiv.org/abs/2209.06668
+  - https://huggingface.co/datasets/SEACrowd/uit_vicov19qa
+  - https://github.com/triet2397/UIT-ViCoV19QA
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

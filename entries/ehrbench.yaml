@@ -27,6 +27,31 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric]
   modality: [text]
   size: 960,067 QA items (4/5/6-choice MCQ and open-ended variants)
+card:
+  task: Read a patient encounter scenario and answer a four-, five-, or six-option multiple-choice question or an
+    open-ended question about diagnosis, treatment selection, or a diagnosis at the next encounter, explaining open-ended
+    answers.
+  items_built: The authors used HuatuogPT-o1-8B to extract clinical relations and generate templates from structured
+    encounter records in MIMIC-III, MIMIC-IV, and Emory Healthcare's private PROMOTE dataset. Relations and distractors
+    were checked using UMLS concept linking and SemMedDB evidence, then templates were deterministically expanded
+    into 960,067 questions through paraphrasing and choice permutation.
+  example: '"Given the prior clinical history summarized above, what event may lead to acute kidney failure at the
+    next encounter? Why?"'
+  scoring: Multiple-choice selections are compared with the designated correct answers and reported as accuracy
+    overall and by task, data source, and option count. Open-ended responses are compared with generated reference
+    rationales using ROUGE and optional BERTScore.
+  judge: Automated answer-key comparison scores multiple-choice responses; ROUGE and optional BERTScore score open-ended
+    responses.
+  scale: Multiple-choice answers are correct or incorrect, aggregated as percentage accuracy; open-ended metrics
+    are ROUGE and optional BERTScore.
+  validation: ''
+  results: Among 31 evaluated LLMs, gpt-5.2 achieved the highest overall accuracy of 70.91%, with a mean rank of
+    1.69 across settings and a rank standard deviation of 1.10.
+  limitations: ''
+  sources:
+  - https://arxiv.org/abs/2605.30637
+  - https://github.com/constantjxyz/EHRBench
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

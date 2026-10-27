@@ -27,6 +27,24 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: "5,000 generated QA pairs filtered to 500 for annotation; 278 of the annotated pairs labelled correct by five hospital specialists"
+card:
+  task: Answer questions about hospital medical and administrative procedures using leaflet content, including factoid
+    questions and questions that cannot be answered from the documents.
+  items_built: GPT-3.5-turbo-instruct generated question-answer pairs from more than 1,000 Dutch patient leaflets
+    from a Dutch hospital group. About 500 pairs were sampled for hospital-specialist annotation.
+  example: ''
+  scoring: Model answers are evaluated using ROUGE and similar metrics, with pass/fail scoring for unanswerable
+    questions.
+  judge: ''
+  scale: Pass/fail for unanswerable questions; ROUGE and other metrics for answers.
+  validation: Hospital specialists judged more than 50% of the generated question-answer pairs applicable; this
+    checked item quality rather than scoring agreement.
+  results: ''
+  limitations: ''
+  sources:
+  - https://github.com/Bindila-Bogdan/Auto-QA-Generation
+  - https://doi.org/10.63317/3e22ykrrugx8
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

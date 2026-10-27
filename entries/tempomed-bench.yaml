@@ -27,6 +27,29 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 721 questions from 3,411 guideline trajectories
+card:
+  task: Answer five-option clinical multiple-choice questions using the recommendations valid in the guideline year
+    specified in each question.
+  items_built: The authors filtered 23,195 PMC articles and used LLMs to identify guideline versions and extract
+    721 current-to-prior recommendation differences, which a separate verifier LLM checked against detailed rubrics.
+    An LLM converted each difference into an NBME-style question with a current recommendation, an outdated recommendation,
+    two distractors and an "I don't know" option.
+  example: ''
+  scoring: Selected options are compared with the answer corresponding to the target guideline version, and accuracy
+    is the percentage correct across all question instances. Each original question has two additional variants
+    with reordered answer options to reduce positional bias.
+  judge: Exact match with the answer key.
+  scale: Correct or incorrect per question; percentage accuracy across all question instances.
+  validation: ''
+  results: GPT-4.1 had the highest reported accuracy on current-guideline questions at 71.11%. Historical-knowledge
+    accuracy across evaluated models was only 25.37% to 53.89% of their current-knowledge accuracy.
+  limitations: The authors state that strict difference-extraction criteria limited the benchmark to 721 items,
+    incomplete full-text availability left guideline trajectories incomplete, and fine-tuning and more advanced
+    agentic systems were not explored.
+  sources:
+  - https://arxiv.org/abs/2605.13045
+  - https://github.com/GuanZihan/TempoMed-Bench
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

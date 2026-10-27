@@ -26,6 +26,29 @@ facets:
   eval_methods: [expert_human_rating, real_user_data]
   modality: [text]
   size: 1,571 pairwise preferences from 357 credentialed clinicians; 12 LLMs
+card:
+  task: Respond to clinician-authored medical queries in single- or multi-turn conversations, including image-based
+    queries.
+  items_built: Clinicians submitted their own medical queries through the platform, with 357 credentialed users
+    contributing 1,571 preferences by November 1, 2025. US credentials were checked through Doximity or an NPI lookup;
+    international clinicians supplied credentials that were not verified.
+  example: '"An otherwise healthy 50 year old patient presents with a first time seizure. Labs are unremarkable.
+    What is the next appropriate step in the diagnostic workup?"'
+  scoring: The clinician compares two anonymous, randomly selected model responses and chooses model A, model B,
+    tie, or neither; for multi-turn conversations, the choice covers the entire interaction. Preferences are aggregated
+    into Bradley-Terry ratings and rankings, with win rates and bootstrapped 95% confidence intervals also reported.
+  judge: The judges were 357 credentialed clinician users; over 84% of those reporting credentials were MD/DOs,
+    with the remainder including PAs, NPs, and other professions.
+  scale: Four preference choices per comparison; aggregate Bradley-Terry ratings, rankings, and win rates.
+  validation: ''
+  results: Gemini 2.0 Flash Thinking ranked first, followed by Gemini 2.5 Pro and GPT-4o; the supplied text gives
+    no numerical ratings. The leaderboard ranked ten models, excluding two with insufficient samples.
+  limitations: The authors cite small matchup samples, limited coverage of commercial and newer models, exclusion
+    of protected health information that restricts testing of complete patient cases, and subjective preferences
+    that can favor persuasive but incorrect answers.
+  sources:
+  - https://arxiv.org/abs/2603.15677
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

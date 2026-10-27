@@ -24,6 +24,28 @@ facets:
   eval_methods: [rubric_llm_judge]
   modality: [text]
   size: 25 tasks, 152 sub-questions, 1,513 rubric criteria, 25 source PDFs (350 pages)
+card:
+  task: Answer a sequence of sub-questions from a supplied healthcare PDF for a practitioner in a specified clinical
+    or pharmacy situation.
+  items_built: Experts authored tasks and rubrics anchored to specific locations in 14 CDC Stacks documents and
+    11 FDA drug labels, producing 25 tasks with 152 sub-questions and 1,513 criteria. The release was selected from
+    a 100-task pool to cover difficulty, occupations and capabilities while preserving model rankings; practising
+    clinicians audited 6 of the 25 tasks.
+  example: ''
+  scoring: Two LLM graders must agree that every sub-question conveys the reference answer's key value or conclusion
+    for a task to count as solved. The stricter measure requires passing every rubric criterion, which can require
+    an explicit value, an implied step or a behaviour or format requirement.
+  judge: Two LLM graders from independent vendors assign the difficulty metadata, with consensus required; their
+    model names are not stated.
+  scale: Task solved or not; every rubric criterion passed or not; counts across six models and 150 model-task pairs.
+  validation: ''
+  results: ''
+  limitations: The authors state that the subset overrepresents hard tasks, covers only generalist clinicians and
+    pharmacists, has public answer keys, received clinician audits for only 6 tasks, and has grader-dependent absolute
+    scores.
+  sources:
+  - https://huggingface.co/datasets/CentificAIResearch/Healthcare.pdf
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

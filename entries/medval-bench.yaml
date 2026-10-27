@@ -28,6 +28,34 @@ facets:
   eval_methods: [expert_human_rating, automatic_metric]
   modality: [text]
   size: 840 physician-annotated test outputs; 1,000+ unlabeled training inputs per task
+card:
+  task: Assess an AI-generated medical output against its input, identify factual errors, and assign a risk level
+    from 1 to 4.
+  items_built: The authors generated 840 test outputs across six tasks using MedicationQA, MeQSum, Open-i, MIMIC-IV,
+    MIMIC-IV-BHC and ACI-Bench, randomly requesting one of four perturbation levels for each output. Twelve physicians
+    assessed the observed text without seeing the perturbation instructions, with 15 examples per task rated by
+    multiple physicians.
+  example: '"FINDINGS: No pleural effusion or pneumothorax. Heart size normal." → "IMPRESSION: Small pleural effusion."'
+  scoring: Predicted risk levels are compared with physician labels, and F1 scores are macro-averaged with equal
+    weighting across risk levels and tasks. The evaluation also reports linearly weighted Cohen's kappa and binary
+    safe/unsafe F1, accuracy, sensitivity and specificity.
+  judge: Reference labels come from four board-certified internal medicine physicians, three bilingual internal
+    medicine residents, four board-certified radiologists and one radiology resident.
+  scale: Risk levels 1 to 4; macro-F1 from 0 to 1, also reported as a percentage.
+  validation: On 90 multiply rated cases, overall inter-physician Krippendorff's alpha was 0.848 for four-level
+    grading and 0.754 for binary safety classification. Task-level alpha ranged from 0.560 for patient-query summarization
+    to 0.943 for bhc2spanish.
+  results: MedVAL-distilled GPT-4o achieved the best four-level macro-F1 of 58.7%, compared with 54.5% before distillation.
+    On 90 multiply rated cases, its performance was statistically non-inferior to a single physician against majority-consensus
+    labels, using a five-percentage-point margin (p < 0.001).
+  limitations: The authors note insufficient input information for some question-answering items, unresolved effects
+    of the synthetic perturbation design, sparse multiple-physician annotation covering only 90 of 840 cases, and
+    possible differences with larger models or other closed platforms.
+  sources:
+  - https://arxiv.org/abs/2507.03152
+  - https://huggingface.co/datasets/stanfordmimi/MedVAL-Bench
+  - https://github.com/StanfordMIMI/MedVAL
+  extracted: '2026-10-27'
 signals:
   citations: 2
   citations_source: OpenAlex

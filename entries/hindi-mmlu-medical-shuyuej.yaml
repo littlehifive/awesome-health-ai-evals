@@ -29,6 +29,20 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 781 questions across four test files
+card:
+  task: Answer four-option multiple-choice medical questions in Hindi.
+  items_built: The items are Hindi translations of questions from four MMLU medical subsets.
+  example: ''
+  scoring: Accuracy measures the proportion of questions for which the model selects the labeled answer.
+  judge: Exact match with the answer key.
+  scale: Correct or incorrect per question; overall accuracy.
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://huggingface.co/datasets/shuyuej/Hindi-MMLU-Clinical-Knowledge-Benchmark
+  - https://huggingface.co/datasets/shuyuej/Hindi-MMLU-College-Medicine-Benchmark
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

@@ -25,6 +25,25 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 22,000 questions (23,048 per Table 1) over 11,524 dialogues; train/val/test split
+card:
+  task: Read a Chinese doctor-patient dialogue and choose one of two candidate answers to a question about it, using
+    evidence, calculations or medical knowledge.
+  items_built: The authors and a data labeling team wrote 23,048 questions, two per dialogue, from 11,524 dialogues
+    collected from haodf.com and dxy.com after removing irrelevant text and retaining dialogues with more than six
+    turns. Writers were instructed to require reasoning, consider medical knowledge, avoid other domains and take
+    numerical data directly from the dialogues.
+  example: '"患者的症状可以自愈吗？ Can the patient''s symptoms heal on its own?" Choices: "Yes; No". Answer: "Yes".'
+  scoring: Each predicted answer is compared with the annotated answer, and accuracy is the proportion of matching
+    answers across the 3,320 test questions.
+  judge: Exact match with the answer key.
+  scale: Correct or incorrect per question; percentage accuracy across test questions.
+  validation: ''
+  results: MeDia-BERT achieved the best model test accuracy of 63.8%, compared with 93.6% for humans. Human performance
+    was estimated on 1,000 held-out samples using majority votes from three annotators per sample.
+  limitations: ''
+  sources:
+  - http://arxiv.org/abs/2108.08074
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

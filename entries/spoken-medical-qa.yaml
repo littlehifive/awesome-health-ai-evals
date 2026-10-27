@@ -27,6 +27,27 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [voice]
   size: 6,545 spoken questions (about 47 hours of audio); 8 tasks
+card:
+  task: Listen to a medical question and four spoken answer options, then select the correct option using internal
+    knowledge without external information.
+  items_built: The authors synthesized 1,089 MMLU test questions across six healthcare subjects, 1,273 MedQA test
+    questions and 4,183 MedMCQA validation questions using OpenAI's tts-1 API, alternating its six voices. They
+    experimented with prompt formats and carefully listened to the resulting audio to select the format.
+  example: '"A 39-year-old woman, with a history of thyroidectomy and primary hyperparathyroidism presents for surgical
+    evaluation for a right adrenal mass. Preoperatively, which of the following medications should she receive to
+    prevent a hypertensive emergency intraoperatively? Option A: Atenolol ..."'
+  scoring: Each predicted option is compared with the ground-truth answer and counted as correct only if it matches
+    exactly. Accuracy is the number of correct predictions divided by the number of questions in each task.
+  judge: Exact match with the answer key.
+  scale: Correct or incorrect per question; percentage accuracy per task.
+  validation: ''
+  results: ''
+  limitations: The authors identify limited synthetic speaker variety, a simplified task without genuine human interaction
+    dynamics, and the exclusion of multilingual contexts as limitations.
+  sources:
+  - https://doi.org/10.21437/interspeech.2024-1344
+  - https://huggingface.co/datasets/SpokenMedicalQA/SpokenMedicalQA
+  extracted: '2026-10-27'
 signals:
   citations: 2
   citations_source: OpenAlex

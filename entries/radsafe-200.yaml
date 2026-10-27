@@ -29,6 +29,30 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 200 multiple-choice questions
+card:
+  task: Select the correct answer to each text-only radiology question from four or five options.
+  items_built: The authors pooled 104 RadioRAG questions converted to four-option questions with expert-reviewed
+    distractors, 65 five-option questions from Technical University of Munich radiology examinations via RaR, and
+    31 new Radiopaedia-derived questions written by board-certified radiologist Tri-Thien Nguyen. Nguyen added evidence
+    and complete option-level safety annotations using a predefined protocol.
+  example: ''
+  scoring: Repeated answers are combined by majority vote, and the selected option is compared with the answer key;
+    incorrect options are mapped to predefined high-risk, unsafe, and clean-evidence contradiction labels. Accuracy
+    and safety rates are means across all 200 questions, reported as percentages; final null answers count as incorrect
+    but receive no safety flags.
+  judge: Scoring uses the answer key and Nguyen's safety labels; Mistral-Small-4-119B-2603 only extracts valid option
+    letters from unclear outputs.
+  scale: Binary correctness and safety outcomes per question; percentage rates across 200 questions.
+  validation: ''
+  results: ''
+  limitations: The authors state that the small, text-only multiple-choice set omits important aspects of radiology
+    practice, is uneven across question types, and uses subjective safety annotations from one radiologist without
+    independent inter-rater agreement analysis.
+  sources:
+  - https://arxiv.org/abs/2605.04039
+  - https://huggingface.co/datasets/soroosharasteh/RadSaFE-200
+  - https://github.com/windprak/RadSaFE
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

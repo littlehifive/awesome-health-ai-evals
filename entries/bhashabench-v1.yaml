@@ -27,6 +27,25 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 74,166 questions across four domains (52,494 English, 21,672 Hindi); the Ayurveda (BBA) share has 16 subdomains, with its question count not read
+card:
+  task: Answer English and Hindi Ayurveda examination questions in multiple-choice, assertion-reasoning, fill-in-the-blank,
+    matching, reading comprehension, and sequence-rearrangement formats.
+  items_built: The BharatGen team collected papers and answer keys from official examination portals, using Surya
+    OCR and GPT-OSS-120B to extract and structure questions; the Ayurveda subset covers 16 subdomains. They removed
+    image-based questions, questions with more than four options, and duplicates, and domain experts checked all
+    extracted question-answer pairs for accuracy, ambiguity, cultural context, and linguistic authenticity.
+  example: ''
+  scoring: Selected answers are compared with the answer keys and reported as percentage accuracy. For open-source
+    models, the highest-log-probability answer choice is selected using LM-EVALUATION-HARNESS; API models generate
+    structured JSON responses for automated parsing.
+  judge: Automated comparison with the examination answer keys.
+  scale: Correct or incorrect per question; percentage accuracy by domain, language, difficulty, and question type.
+  validation: ''
+  results: GPT-4o achieved 59.74% accuracy in Ayurveda.
+  limitations: ''
+  sources:
+  - https://arxiv.org/abs/2510.25409
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

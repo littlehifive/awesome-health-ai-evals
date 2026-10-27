@@ -28,6 +28,37 @@ facets:
   eval_methods: [mcq_exact_match, expert_human_rating]
   modality: [text]
   size: 1,300 QA pairs (from 2,000 sampled; 36 physician-trainee labelers)
+card:
+  task: Answer a four-option or ten-option clinical-vignette question and estimate the relevance of each patient-profile
+    sentence, with answers also tested after low-relevance and irrelevant sentences are removed.
+  items_built: The authors randomly sampled 2,000 cases from MMLU, Medbullets, JAMA Clinical Challenge and MedXpertQA,
+    retaining patient profiles with more than two sentences. Each case received annotations from at least three
+    physician trainees recruited through Centaur Labs; removing incorrect-answer annotations and cases containing
+    only highly relevant sentences left 1,300 cases.
+  example: ''
+  scoring: QA accuracy compares selected answers with the answer key, while sentence-level relevance agreement compares
+    model estimates with physician-trainee majority votes; ContextCite scores are ranked and mapped to relevance
+    categories using the physician-labeled sentence counts. Spurious Rate is the percentage of questions answered
+    correctly with the original context but incorrectly after physician-labeled low-relevance and irrelevant sentences
+    are removed.
+  judge: Answer keys determine QA correctness, and majority-vote labels from 36 physician trainees with medical-student
+    or higher qualifications provide the relevance reference.
+  scale: 'Three sentence labels: high relevance, low relevance and irrelevant; QA accuracy, relevance agreement
+    and Spurious Rate are reported as percentages.'
+  validation: A board-certified physician, HJ, reviewed 30 randomly selected QA pairs, checking whether retained
+    sentences supported the correct answer and whether removing other sentences affected correctness; no numerical
+    agreement result is given.
+  results: Llama-70B achieved the highest relevance agreement with physician trainees at 65.9%. GPT-4o performed
+    best on the original QA data and had the lowest Spurious Rate, 1.6%; unfiltered physician-trainee accuracy was
+    48.3%.
+  limitations: The authors state that ContextCite scores and self-reported relevance labels lack reliability, the
+    small annotated subset limits generalizability, and human annotation is too costly and time-consuming for real-time
+    clinical use.
+  sources:
+  - https://arxiv.org/abs/2505.24040
+  - https://huggingface.co/datasets/YuexingHao/MedPAIR
+  - https://github.com/YuexingHao/MedPAIR
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

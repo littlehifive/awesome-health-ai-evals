@@ -23,6 +23,28 @@ facets:
   eval_methods: [expert_human_rating, mcq_exact_match]
   modality: [text]
   size: 21-statement questionnaire (16 validated), interaction guide, 2 scoring instruments; 4 chatbots tested
+card:
+  task: Answer Portuguese statements about healthy eating and citizen-style questions with nutrition advice that
+    can be assessed against the Dietary Guidelines for the Brazilian Population.
+  items_built: The authors developed the citizen interaction guide from the five chapters and final section of the
+    guidelines, using a Google Search test to adapt question wording. The evaluation instruments use guideline excerpts
+    as response expectations; they were piloted with two external nutritionists, and the alignment instrument was
+    revised after the pilot.
+  example: ''
+  scoring: The GAB-1 knowledge score uses only the 16 validated items from the 21 statements administered, with
+    "Unsure/I don't know" counted as incorrect. Nutrition responses are assessed using 9 binary indicators of misalignment
+    and consistency with food corporations' narratives and 14 alignment indicators with guideline-based response
+    expectations.
+  judge: ''
+  scale: GAB-1 answers are correct or incorrect; 9 misalignment indicators are binary; 14 alignment indicators use
+    full, partial or no alignment.
+  validation: The instruments were piloted with two external nutritionists, and inter-rater reliability was assessed
+    using the kappa coefficient; no coefficient values are given in the record.
+  results: ''
+  limitations: ''
+  sources:
+  - https://doi.org/10.5281/zenodo.23199455
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

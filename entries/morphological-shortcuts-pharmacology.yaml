@@ -26,6 +26,32 @@ facets:
   eval_methods: [mcq_exact_match, rubric_llm_judge]
   modality: [text]
   size: 653 drugs, each with real, fake-drug, and nonce variants; behavioral file plus a diagnostic RR/RN/NR/NN file
+card:
+  task: Choose among four definitions of a drug name, including a non-existent drug option, or answer an open-ended
+    user question about that name.
+  items_built: The authors used the AMA list of 655 affixes, canonical drug examples and class definitions to construct
+    real-drug, fictitious affix-bearing and fully nonce stimuli covering 653 drugs; open-ended queries were generated
+    from real drugs and then had their names replaced. The diagnostic set uses 10 length-controlled variants per
+    drug, replacing the stem, affix or both.
+  example: '"What is {drug_name}?"'
+  scoring: Multiple-choice results report the proportion selecting the affix-consistent definition, while Claude-Sonnet-4.5
+    labels open-ended responses Yes or No to report the proportion treating the drug as real. Diagnostic scores
+    average, across 10 variants, the affix-only, stem-only and stem-affix interaction probability differences normalized
+    by the real-versus-nonce probability difference, then apply signal and dominance thresholds to assign five categories.
+  judge: Multiple-choice choices are matched to the affix-consistent option; Claude-Sonnet-4.5 grades open-ended
+    responses, and diagnostic scores use token probabilities.
+  scale: Binary behavioral outcomes reported as proportions; normalized Affix, Stem and Holistic scores with five
+    diagnostic categories.
+  validation: On 300 manually annotated cross-model cases, the open-ended judge achieved 92.3% accuracy and 89.3%
+    F1. Two co-authors without medical backgrounds independently performed double-blind labeling using predefined
+    labels; an MD co-author analyzed output cases and pharmacological patterns.
+  results: ''
+  limitations: The diagnostic framework requires token probabilities or logits and excludes many advanced closed-source
+    models, while computational constraints restricted mechanistic experiments to two 7B-scale models.
+  sources:
+  - https://arxiv.org/abs/2606.05616
+  - https://github.com/KaijieMo-kj/Morphological-Shortcuts
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

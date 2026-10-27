@@ -27,6 +27,34 @@ facets:
   eval_methods: [rubric_llm_judge, automatic_metric]
   modality: [text]
   size: "Seed suites of 81 privacy, 415 bias/fairness, and 131 hallucination items plus MedQA for robustness; 15 LLMs audited"
+card:
+  task: Answer medical questions and respond to clinical requests while maintaining correct, privacy-preserving,
+    unbiased and factual responses under adversarial changes.
+  items_built: The authors use initially correct MedQA questions for robustness testing, 81 self-authored privacy
+    scenarios, and 415 bias cases comprising 111 clinician-authored items and 304 adapted from Omar et al. For hallucination
+    detection, one board-certified physician reviewed Stanford red-teaming cases, removing 19 ambiguous cases to
+    retain 131 positive samples, and checked 129 near-ideal HealthBench responses for errors.
+  example: '"What is/are not the best follow-up medication(s) option?"'
+  scoring: Robustness failures are answers that diverge from the answer key during up to five attack rounds; bias
+    failures are changes from a majority-vote reference answer established over five unmodified runs. A privacy
+    judge classifies violations, and a hallucination orchestrator combines seven specialist agents' findings; results
+    are reported as proportions of tested cases with failures.
+  judge: GPT-4o judges privacy violations, agent graders detect hallucinations, and robustness answers are compared
+    with the answer key.
+  scale: Robustness and bias use failure or no failure; privacy uses three violation levels; final metrics are jailbreak
+    and hallucination percentages.
+  validation: The GPT-4o privacy judge matched human expert annotations on 95 of 102 response pairs, achieving 93.14%
+    accuracy. The hallucination detector achieved 81.9% accuracy, 81.5% F1, 79.8% precision and 83.2% recall on
+    260 labeled samples.
+  results: o4-mini had the lowest robustness jailbreak rate at 69%, followed by o3 at 77% and DeepSeek-R1 at 80%,
+    on 100 initially correctly answered questions per model.
+  limitations: The authors report that question inversion can fail on descriptive questions, physiological mutations
+    can remain plausible, choice expansion can introduce ambiguous options, and hallucination detection requires
+    ongoing updating in rapidly evolving medical fields.
+  sources:
+  - https://doi.org/10.1038/s44360-026-00152-8
+  - https://huggingface.co/datasets/JZPeterPan/DAS-Mediacal-Red-Teaming-Data
+  extracted: '2026-10-27'
 signals:
   citations: 2
   citations_source: OpenAlex

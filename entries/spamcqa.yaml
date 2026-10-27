@@ -26,6 +26,23 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 222 questions
+card:
+  task: Answer multiple-choice questions about the diagnosis and treatment of spondyloarthritis.
+  items_built: The earlier protocol and EULAR abstract describe 122 questions developed with clinical experts and
+    thoroughly revised for applicability to real-world diagnosis and treatment. The later protocol describes a planned
+    benchmark of 222 questions, with extensive revision to check their suitability for evaluating models.
+  example: ''
+  scoring: Responses are assessed for accuracy, and reasoning is evaluated for fluency, relevance, completeness,
+    and medical proficiency in the later protocol.
+  judge: ''
+  scale: Accuracy reported as a percentage.
+  validation: ''
+  results: The EULAR 2024 abstract reports 75% accuracy for the authors' model, SpARobotGPT, compared with 55% for
+    the second-ranked model. Initial base models scored between 40% and 60%.
+  limitations: ''
+  sources:
+  - https://doi.org/10.2196/57001
+  extracted: '2026-10-27'
 signals:
   citations: 8
   citations_source: OpenAlex

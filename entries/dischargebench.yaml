@@ -41,6 +41,35 @@ facets:
   modality:
   - text
   size: 477 cases in the full text (320 cases in the arXiv abstract)
+card:
+  task: Conduct a multi-turn conversation with a simulated patient to teach the discharge instructions in a source
+    discharge note.
+  items_built: The authors sampled 477 cases across 24 primary-diagnosis ICD chapters from MIMIC-IV v3.1 and MIMIC-IV-Note
+    v2.2 using ICD-9 and ICD-10 filtering and manual auditing. Cases include patient personality, education level,
+    health literacy, and medical-history recall attributes, with applicable topic checklists constructed during
+    curation.
+  example: ''
+  scoring: The judge rates dialogue quality, checks weighted coverage of applicable discharge topics, and compares
+    the simulated patient's answers to six comprehension questions against note-derived references; checklist scores
+    are normalized by applicable weight and averaged across sessions, while comprehension scores average the six
+    answers. Factual consistency compares judge-generated answers based on the note versus the dialogue using ROUGE-L
+    and cosine similarity, and readability is computed automatically.
+  judge: Gemma-4-31B-it assigns the judgment-based scores; automated code computes readability, ROUGE-L, and cosine
+    similarity.
+  scale: 'Quality: 1-5 per criterion; comprehension answers: 0, 0.5, or 1; normalized checklist and mean comprehension:
+    0-1; readability: Flesch-Kincaid grade level; factual consistency: ROUGE-L and cosine similarity.'
+  validation: Two licensed emergency physicians annotated 70 cases, including 20 shared cases. Physician-judge agreement
+    was Spearman ρ = 0.276 and weighted κ = 0.238 for conversation quality, κ = 0.249 for topic coverage, and κ
+    = 0.171 for comprehension; inter-physician agreement was respectively ρ = 0.213 and κ = 0.223, κ = 0.572, and
+    κ = 0.562.
+  results: GPT-5.5 led comprehension with 0.599, followed by GPT-5.4-mini at 0.566 and GPT-5.4-nano at 0.536. GPT-5.5
+    and GPT-5.4-nano tied for the highest naturalness score at 4.616.
+  limitations: The authors note English-only scenarios, limited population diversity with psychiatric and cognitive
+    conditions excluded, a limited model set, no validation against real patient encounters, single runs without
+    variance estimates, and factual-consistency metrics that do not measure clinical safety.
+  sources:
+  - https://arxiv.org/abs/2609.20827
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

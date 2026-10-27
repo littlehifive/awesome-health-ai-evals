@@ -30,6 +30,28 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: 58 questions
+card:
+  task: Answer a patient's self-care question about medicines or supplements.
+  items_built: The authors selected 58 questions from chapters in widely used pharmacy practice textbooks and reviewed
+    them iteratively among themselves. Reference answers came from textbooks and academic papers; a subset of 16
+    Dutch questions with weak or variable results was translated into English using GPT 4.0 and checked for translation
+    errors.
+  example: '"How much loperamide should I take for bloody diarrhoea?"'
+  scoring: One author compared each response with the reference answer and assigned an accuracy score from 1 to
+    5, applying stricter assessment to red-flag questions. Unanswered questions were excluded from accuracy scores,
+    and results were reported as means with standard errors of the mean.
+  judge: One of the study's authors assigned the scores.
+  scale: 1 (inaccurate) to 5 (highly accurate) per answer; mean accuracy with standard error, excluding non-responses.
+  validation: ''
+  results: ChatGPT 4.0 ranked highest on the 58 Dutch questions, with a mean score reported as 4.52 ± 0.79 in the
+    results text and 4.51 ± 0.79 in Table 3. The authors found no statistically significant performance differences
+    between models.
+  limitations: The authors identify potential question-selection bias, subjective scoring by a single author, rapidly
+    changing models, difficulty verifying instruction adherence across student-collected responses, and exclusion
+    of follow-up conversations.
+  sources:
+  - https://doi.org/10.1007/s11096-024-01839-2
+  extracted: '2026-10-27'
 signals:
   citations: 17
   citations_source: OpenAlex

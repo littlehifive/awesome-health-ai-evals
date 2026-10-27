@@ -24,6 +24,20 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: Not stated; CPubMedKG and CMeKG benchmarks at large and small scales with nine tasks each
+card:
+  task: Answer questions about entities, relations, and subgraphs drawn from Chinese medical knowledge graphs.
+  items_built: The authors used utils/qa_construct.py to construct questions from CPubMedKG and CMeKG, with each
+    graph downsampled into large and small versions.
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: ''
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://github.com/ZihengZZH/MedKGEval
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

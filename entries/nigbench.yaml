@@ -28,6 +28,30 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text, voice]
   size: 7,289 questions from 284 CHEWs; 9,303 GP answers; 2,054 questions in local languages; 1,142 scenarios recorded as audio
+card:
+  task: Answer a frontline health worker's clinical question using the supplied patient scenario and any attached
+    material.
+  items_built: 284 practicing community health extension workers across three Nigerian districts contributed 7,289
+    unique questions from clinical settings, and 66 licensed general practitioners supplied 9,303 answers. For the
+    local-language audio evaluation subset, bilingual, medically trained native speakers transcribed and translated
+    questions into English.
+  example: ''
+  scoring: Expert raters, blinded to whether answers came from clinicians or models, scored each answer on ten quality
+    dimensions using five-point Likert scales rather than matching it against a reference answer. The study reports
+    means and standard deviations, plus expected scores derived from ordinal mixed models controlling for quality
+    dimension and question, separately by language and modality.
+  judge: A panel of vetted general practitioners with regional familiarity, recruited through the Intron Health
+    expert community, assigned the ratings.
+  scale: Ten ratings from 1 to 5 per answer; descriptive means and model-derived expected scores on the 1-5 scale.
+  validation: ''
+  results: The top reported text result was GPT-4.1 at 4.77/5, compared with a human expected score of 4.37/5. Gemini
+    2.0 Flash led English audio at 4.90/5 and pooled Nigerian-language audio at 4.80/5.
+  limitations: The authors identify untested automatic speech recognition errors, unequal language representation,
+    possible systematic rater biases, and single-turn interactions that provide weak guarantees about performance
+    in field deployments.
+  sources:
+  - https://doi.org/10.64898/2026.07.05.26356776
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

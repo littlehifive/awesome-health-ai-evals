@@ -26,6 +26,29 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 5,213 case reports
+card:
+  task: Read a patient's clinical features and return a differential diagnosis as a list of disease names ranked
+    from most to least likely.
+  items_built: The researchers assembled 5,213 previously solved patient cases spanning 378 Mendelian or chromosomal
+    diseases from publicly available case reports in phenopacket-store. They used phenopacket2prompt to turn structured
+    age, sex, onset, and observed or excluded clinical features into clinical narratives, without including causal
+    variants.
+  example: ''
+  scoring: Responses are mapped to Mondo disease terms using exact label or synonym matching with OAK, followed
+    by CurateGPT for unmatched names; OAK counts a diagnosis as correct if it matches the case's known diagnosis,
+    an equivalent term, or a more general term with the known diagnosis as a close descendant. PhEval reports the
+    percentage of cases with a correct diagnosis at rank 1, within the top 3, and within the top 10.
+  judge: OAK assigns correctness through Mondo ontology matching, with CurateGPT helping map unmatched disease names.
+  scale: Each diagnosis is correct or incorrect; final metrics are Top-1, Top-3, and Top-10 accuracy as percentages
+    of cases.
+  validation: ''
+  results: The best LLM, o1-preview, achieved 23.6% Top-1, 31.2% Top-3, and 36.8% Top-10 accuracy. Exomiser in phenotype-only
+    mode achieved 35.5%, 46.3%, and 58.5%, respectively.
+  limitations: The study did not test whether providing genomic information improves LLM diagnosis.
+  sources:
+  - https://doi.org/10.1101/2024.07.22.24310816
+  - https://github.com/monarch-initiative/pheval.llm
+  extracted: '2026-10-27'
 signals:
   citations: 8
   citations_source: OpenAlex

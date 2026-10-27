@@ -25,6 +25,20 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: "21,753 questions (18,703 train, 2,500 dev, 550 test)"
+card:
+  task: Answer multiple-choice questions from China's National Licensed Pharmacist Examination.
+  items_built: The authors collected more than 21,000 medical multiple-choice questions for China's National Licensed
+    Pharmacist Examination. The later extension includes expert annotations.
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: Test-set accuracy.
+  validation: ''
+  results: KMQA achieved 61.8% accuracy on the test set, outperforming the competing models and passing the exam.
+  limitations: ''
+  sources:
+  - https://doi.org/10.18653/v1/2020.emnlp-main.111
+  extracted: '2026-10-27'
 signals:
   citations: 38
   citations_source: OpenAlex

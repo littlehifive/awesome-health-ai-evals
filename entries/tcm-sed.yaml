@@ -28,6 +28,33 @@ facets:
   eval_methods: [mcq_exact_match, expert_human_rating]
   modality: [text]
   size: 203 questions
+card:
+  task: Answer Chinese short-answer, single- and multiple-choice, and essay questions about traditional Chinese
+    medicine for stroke, including clinical case analysis and interpretation of classical texts.
+  items_built: Senior TCM experts with clinical stroke experience crafted and validated 203 questions using classical
+    texts, clinical guidelines, existing question banks, modern research, and real clinical cases. Reviewers resolved
+    disagreements about objective answers through group consensus or adopted answers from authoritative guidelines,
+    and prepared standard answers and scoring rubrics for essays.
+  example: '"What are the main constituent herbs of Buyang Huanwu Tang?"'
+  scoring: Short-answer and multiple-choice responses receive 1 point for a perfect match with the gold answer and
+    0 otherwise, with accuracy reported by section and knowledge dimension. Two experts independently score essays
+    for coverage and accuracy of predefined answer points, and their scores are summed across the 10 questions in
+    each essay category for a maximum of 200 points.
+  judge: Objective answers use exact match with the answer key; two senior TCM rehabilitation experts independently
+    grade essays.
+  scale: 'Objective items: 0 or 1, reported as percentage accuracy; essays: 0 to 10 per expert, summed to 0 to 200
+    per category.'
+  validation: Across 40 essay responses, the two experts achieved linearly weighted Cohen κ of 0.78, exact score
+    agreement of 38% (15/40), and agreement within 1 point of 88% (35/40).
+  results: DeepSeek-R1 led on short-answer accuracy at 83% (38/46) and multiple-choice accuracy at 70.1% (96/137).
+    GPT-4o led on essays, scoring 90.5% (181/200) for classical text interpretation and 79.5% (159/200) for clinical
+    case analysis.
+  limitations: The authors cite the limited dataset size, uncertain generalizability beyond stroke to other TCM
+    fields, and residual subjectivity in expert essay scoring.
+  sources:
+  - https://doi.org/10.2196/81545
+  - https://github.com/LongHL0729/TCM-SED
+  extracted: '2026-10-27'
 signals:
   citations: 5
   citations_source: OpenAlex

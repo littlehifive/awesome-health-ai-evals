@@ -27,6 +27,25 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 650 questions (131 with Indonesian translations)
+card:
+  task: Choose the correct answer from four options for each medical question.
+  items_built: The 650 released questions were selected from a larger machine-generated question bank produced by
+    a retrieval-augmented generation pipeline using PubMed and textbook-style medical sources. Items were machine-filtered
+    using retrieval and natural language inference signals, and all released items have status "OK".
+  example: A patient with chronic asthma experiences symptoms more than 4-6 times a week. What should be initiated
+    in addition to inhaled short acting beta 2-agonists as needed?
+  scoring: ''
+  judge: ''
+  scale: ''
+  validation: ''
+  results: ''
+  limitations: The authors state that the dataset is machine-generated and machine-filtered, is not intended for
+    direct clinical decision-making, contains facts that can become outdated and require independent review, has
+    operational rather than fully normalized metadata, and includes Indonesian translations for only a subset of
+    items.
+  sources:
+  - https://huggingface.co/datasets/iqbalr/Medical-MCQA
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

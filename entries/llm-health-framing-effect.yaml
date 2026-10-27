@@ -26,6 +26,33 @@ facets:
   eval_methods: [rubric_llm_judge, automatic_metric, simulated_multi_turn]
   modality: [text]
   size: 6,614 query pairs from 629 Cochrane reviews (368 with technical questions, 363 with plain-language questions)
+card:
+  task: Answer patient questions about treatments using supplied clinical trial abstracts, giving a concise answer
+    with citations in single-turn exchanges or multi-turn conversations.
+  items_built: The researchers filtered 4,500 Cochrane reviews and associated PubMed trial abstracts to 629 reviews,
+    checking trial counts against Cochrane references and excluding missing abstracts; Qwen3 Thinking 4B extracted
+    treatment-condition pairs from 368 reviews for templates producing 11,776 technical questions. Qwen3-4B-Instruct-2507
+    simplified terms for 726 plain-language questions, which the research team, including a health communication
+    expert and a physician, reviewed and edited.
+  example: '"Does treatment after surgery work for womb cancer?"'
+  scoring: Gemini 2.5 Flash labels each response's evidence direction as higher, lower, same, or uncertain, and
+    agreement percentages for positive-negative response pairs are compared with those for two responses to the
+    same positive question. Additional comparisons report average PubMedBERT embedding cosine similarity and intersection-over-union
+    overlap for entities, citations, and numbers.
+  judge: Gemini 2.5 Flash at temperature 0 assigns evidence-direction labels; PubMedBERT embeddings and automated
+    overlap calculations provide the other measures.
+  scale: Binary evidence-direction agreement per response pair, reported as a percentage; average cosine similarity
+    and entity, citation, and numerical overlap.
+  validation: ''
+  results: Across eight models, average evidence-direction agreement was 72.0% for positive-negative pairs versus
+    76.2% for repeated positive questions. For multi-turn conversations, agreement was 70.7% versus 78.4%.
+  limitations: The authors state that simulated queries omit real patient language variation, plain-language testing
+    covers only two single-turn question types, fixed evidence limits real-world generalizability, and LLM-based
+    processing and slightly different grading questions can introduce errors and confounding.
+  sources:
+  - http://arxiv.org/abs/2604.05051
+  - https://github.com/hyesunyun/LLMHealthFramingEffect
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

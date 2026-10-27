@@ -30,6 +30,32 @@ facets:
   eval_methods: [mcq_exact_match, rubric_llm_judge]
   modality: [text]
   size: 1,780 true/false assertions; 890 open-ended questions
+card:
+  task: Classify clinical assertions as Verdadeiro or Falso and answer open-ended clinical questions according to
+    Brazilian Ministry of Health guidelines.
+  items_built: GPT-5.2 generated 1,780 assertions from guideline text by pairing each true statement with a false
+    version that changes one critical detail; no human review is reported. PCDT-QA contains 890 questions with guideline-grounded
+    reference answers, and both benchmarks are split by guideline into 89 training and 89 test guidelines.
+  example: 'Alteplase: 0,9 mg/kg (máximo 90 mg) por via intravenosa, 10% em bolus e restante em 60 minutos, até
+    4h30.'
+  scoring: HealthBench-BR extracts the Verdadeiro/Falso verdict by regex and compares it with the answer key; PCDT-QA
+    uses GPT-4.1 to compare each free-text response with its reference answer and mark it correct or incorrect.
+    Accuracy is reported separately for training and test splits, and the percentage of True predictions is reported
+    as a measure of sycophancy.
+  judge: HealthBench-BR uses answer-key matching after regex extraction; PCDT-QA uses GPT-4.1.
+  scale: Binary correct/incorrect per item; percentage accuracy per split and percentage of True predictions.
+  validation: ''
+  results: With retrieval, Qwen2.5-14B with four-generator continual pre-training and RL achieved the highest HealthBench-BR
+    test accuracy, 95.3%, using BM25; four-generator continual pre-training with embedding retrieval achieved the
+    highest PCDT-QA score, 94.8%. The headline model without retrieval, Qwen2.5-14B with four-generator continual
+    pre-training and RL, scored 83.9% and 85.4%, respectively.
+  limitations: The authors state that evaluation measures guideline recall rather than performance in real clinical
+    encounters and lacks prospective validation with professionals.
+  sources:
+  - https://arxiv.org/abs/2605.01077
+  - https://huggingface.co/datasets/hugo/healthbench-br
+  - https://github.com/hugoabonizio/clinical-protocols-br
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

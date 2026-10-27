@@ -27,6 +27,30 @@ facets:
   eval_methods: [simulated_multi_turn, rubric_llm_judge, automatic_metric]
   modality: [text]
   size: 2,996 cases, 3,013 images, 34 diagnoses
+card:
+  task: Conduct a telemedicine consultation using a medical image and text dialogue with a simulated patient, then
+    provide a diagnosis and recommendations.
+  items_built: The authors collected 3,013 images covering 34 diagnoses from public datasets and the Internet, applied
+    automated quality checks, and had a coauthor with a medical background verify the associated diagnoses. GPT-4o-mini
+    generated a basic symptom for each diagnosis and image-specific complaints describing affected areas, duration,
+    intensity, and patient history, with manual checks for plausibility and coherence.
+  example: ''
+  scoring: The assessor extracts the doctor's final diagnosis for comparison with the case's ground-truth diagnosis,
+    with diagnostic performance reported as F1 across cases. It also evaluates complete consultations on eight clinical
+    competence criteria adapted from Mini-CEX, using the dialogue, image, and ground-truth diagnosis.
+  judge: Llava-OneVision-Qwen2-72b-ov-chat-hf assigns consultation scores and extracts diagnoses.
+  scale: Diagnostic F1 across cases; eight clinical competence criteria.
+  validation: Five employee annotators rated dialogues and extracted diagnoses, with average human inter-annotator
+    Cohen's kappa of 0.48. The selected assessor achieved average kappa of 0.43 against human clinical competence
+    ratings and diagnosis-extraction F1 of 78.0 against human-extracted diagnoses.
+  results: GPT-4o-mini reached diagnostic F1 of 70.3% with dialogue, images, internal reasoning, and the top three
+    predictions from a fine-tuned EfficientNetV2-XL. Its dialogue-and-image score without those additions was 54.2%.
+  limitations: The authors identify possible inaccuracies and biases in generated symptoms and model-based grading,
+    potential pretraining leakage from public images, and limited diagnostic coverage across 34 conditions.
+  sources:
+  - https://arxiv.org/abs/2504.13861
+  - https://github.com/univanxx/3mdbench
+  extracted: '2026-10-27'
 signals:
   citations: 2
   citations_source: OpenAlex

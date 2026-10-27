@@ -32,6 +32,27 @@ facets:
   eval_methods: [mcq_exact_match, expert_human_rating]
   modality: [text]
   size: "1,088 text exam questions; 7,204 image questions (vision); 90 cases for human evaluation"
+card:
+  task: Select the correct answer to each Chinese TCM multiple-choice question, using text alone for the exam questions
+    and an accompanying image for medicinal recognition and visual diagnosis questions.
+  items_built: The authors compiled five national exam sections with 480 pharmacist, 184 physician, 138 assistant
+    physician, 147 graduate entrance (2024), and 139 graduate entrance (2025) questions. They compiled 7,204 image
+    questions from seven TCM atlases that were explicitly excluded from training.
+  example: '请根据这张图片，判断它属于下面哪一种？ A: 巴戟肉 B: 盐巴戟天 C: 制白附子片 D: 生白附子片'
+  scoring: Answers are evaluated for accuracy against the correct choices, with scores reported for each exam or
+    visual category and an average across those sections.
+  judge: ''
+  scale: Correct or incorrect per question; percentage accuracy by section and an overall average.
+  validation: ''
+  results: Deepseek-R1-671B scored highest on the text exams, with an average of 84.0%. ShizhenGPT-32B scored highest
+    on the vision benchmark, with an average of 63.6%.
+  limitations: ''
+  sources:
+  - http://arxiv.org/abs/2508.14706
+  - https://huggingface.co/datasets/FreedomIntelligence/TCM-Text-Exams
+  - https://huggingface.co/datasets/FreedomIntelligence/TCM-Vision-Benchmark
+  - https://github.com/FreedomIntelligence/ShizhenGPT
+  extracted: '2026-10-27'
 signals:
   citations: 4
   citations_source: OpenAlex

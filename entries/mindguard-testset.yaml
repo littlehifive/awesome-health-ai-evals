@@ -27,6 +27,27 @@ facets:
   eval_methods: [automatic_metric, expert_human_rating]
   modality: [text]
   size: 67 conversations, 1,134 annotated user turns (3.7% unsafe)
+card:
+  task: Classify each user message as safe, self-harm risk, or harm-to-others risk using the preceding conversation
+    as context.
+  items_built: Ten licensed clinical psychologists role-played seven predefined patient archetypes in low-risk and
+    high-risk conversations with a proprietary clinician language model, yielding 67 conversations with 1,134 annotated
+    user turns. Three separate licensed clinical psychologists independently labeled each turn using preceding context
+    without seeing the model's reply to that turn, and final labels were set by majority vote.
+  example: ''
+  scoring: The model's log-probability for the "unsafe" token is compared with the psychologists' majority-vote
+    labels, combining self-harm and harm-to-others labels into one unsafe class. Across user turns, evaluation reports
+    AUROC and false positive rates at 90% and 95% true positive rates; multiclass confusion matrices are also reported.
+  judge: Three licensed clinical psychologists provide the reference labels by majority vote.
+  scale: Three categories per turn; binary safe/unsafe AUROC, FPR@90%TPR, and FPR@95%TPR across turns.
+  validation: The three annotators had 94.4% unanimous agreement and a Krippendorff's alpha of 0.57, which the authors
+    attribute to class imbalance.
+  results: MindGuard classifiers achieved up to 0.982 AUROC.
+  limitations: Each message receives only the dominant risk label, even when it indicates both self-harm risk and
+    harm-to-others risk.
+  sources:
+  - https://arxiv.org/abs/2602.00950
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

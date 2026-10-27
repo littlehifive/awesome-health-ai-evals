@@ -33,6 +33,35 @@ facets:
   eval_methods: [mcq_exact_match, rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: "280,839 exam questions (400 per subcategory held out as test); 74 clinical cases, 208 questions"
+card:
+  task: Select one or more correct answers from four to six options for Chinese medical exam questions, or answer
+    successive diagnosis and treatment questions about a clinical case using the case description and preceding
+    reference question-answer pairs.
+  items_built: The authors collected 280,839 questions with expert solutions from public exams and coursework, largely
+    from Medtiku, removed duplicates and flagged errors, manually corrected OCR errors, and selected 400 questions
+    per subcategory for an 11,200-question test set. For CMB-Clin, they screened 108 textbook cases down to 74 cases
+    with 208 questions, excluding image-dependent, insufficiently detailed and similar-disease cases, with reference
+    answers determined by teaching-expert consensus.
+  example: '"患者，男性，11岁。近2个月来时有低热（37～38℃），全身无明显症状。查体无明显阳性体征。X线检查发现右肺中部有一直径约0.8cm类圆形病灶，边缘稍模糊，肺门淋巴结肿大。此男孩可能患" A: 小叶型肺炎;
+    B: 浸润性肺结核; C: 继发性肺结核; D: 原发性肺结核; E: 粟粒型肺结核.'
+  scoring: For CMB-Exam, a regular expression extracts the selected answers, which must exactly match the solution
+    to count as correct; performance is reported as accuracy. For CMB-Clin, GPT-4 uses reference solutions to score
+    each response on Fluency, Relevance, Completeness and Medical Proficiency from 1 to 5, following the same guidelines
+    as the medical annotators.
+  judge: CMB-Exam uses exact match with the answer key; CMB-Clin uses GPT-4, checked against three annotators with
+    professional medical knowledge.
+  scale: Exam answers are correct or incorrect, reported as percentage accuracy; clinical responses receive 1 to
+    5 on each of four criteria.
+  validation: Three medical annotators rated 320 randomly selected responses from 11 models; GPT-4 and expert model
+    rankings had a Spearman correlation of 0.93.
+  results: HuatuoGPT-II-34B ranked first among medical models on CMB-Exam, with 76.82% zero-shot answer-only accuracy.
+  limitations: The benchmark does not cover the multimodal capabilities needed for many real-world medical problems,
+    and CMB-Clin uses uniform scoring criteria where disease-specific criteria are needed.
+  sources:
+  - http://arxiv.org/abs/2308.08833
+  - https://huggingface.co/datasets/FreedomIntelligence/CMB
+  - https://github.com/FreedomIntelligence/CMB
+  extracted: '2026-10-27'
 signals:
   citations: 4
   citations_source: OpenAlex

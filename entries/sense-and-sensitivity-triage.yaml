@@ -28,6 +28,29 @@ facets:
   eval_methods: [automatic_metric, expert_human_rating]
   modality: [text]
   size: 6,233 scenarios (dataset.csv); over 7,000 physician annotations; 225,000 model responses
+card:
+  task: Read each clinical vignette and make three yes-or-no decisions about clinical management rather than self-management,
+    a clinician visit, and tests or referrals.
+  items_built: The dataset contains 6,233 vignette-condition rows drawn from r/AskDocs posts, oncology Q&A, Script
+    Concordance Test cases, and USMLE dermatology vignettes, with each vignette appearing under up to five conditions.
+    The pipeline cleans and deduplicates source text, then creates gender swaps, gender removal, dramatic language,
+    and anxious hedging variants; ten physicians annotated through Centaur Labs, with gold labels determined by
+    a majority of three.
+  example: ''
+  scoring: For each model and decision, a majority vote across three sampling seeds produces a yes-or-no prediction,
+    which is compared with the physician gold label. Reported measures include baseline accuracy, accuracy drop
+    under perturbation, missed necessary interventions, and unnecessary escalations.
+  judge: Ten physicians, seven from the US and three from outside the US, supplied annotations, with a majority
+    of three determining each gold label.
+  scale: Three binary decisions per item; accuracy and accuracy drop under perturbation.
+  validation: Three physician reads per scenario; Krippendorff's alpha 0.81 to 0.87 and Fleiss' kappa 0.80 to 0.87
+    across perturbation conditions, lowest for AskDocs and OncQA text and for the Manage decision.
+  results: ''
+  limitations: ''
+  sources:
+  - https://arxiv.org/abs/2609.38600
+  - https://github.com/abinithago/Sen2Med
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

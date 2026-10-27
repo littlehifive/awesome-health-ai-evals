@@ -25,6 +25,25 @@ facets:
   eval_methods: [rubric_llm_judge]
   modality: [text]
   size: 225 scenarios; 4,050 labeled model responses
+card:
+  task: Recommend whether to order a test, prescribe a drug, or make a referral for each primary-care clinical scenario.
+  items_built: Fifteen Choosing Wisely recommendations were used to develop 225 scenarios, with 10 restraint-appropriate
+    and 5 action-appropriate scenarios per recommendation. Scenarios are frozen within each benchmark version.
+  example: ''
+  scoring: An LLM judge with physician adjudication classifies responses against whether action or restraint is
+    appropriate. The co-primary outcomes are the overuse rate, endorsing action when restraint is appropriate, and
+    the false restraint rate, withholding an appropriate action.
+  judge: An LLM judge classifies responses, with physician adjudication.
+  scale: Response classifications; overuse and false restraint rates reported as percentages.
+  validation: ''
+  results: Across six commercial LLMs, the overuse rate was 5.4% (95% CI, 0.6% to 12.2%) and the false restraint
+    rate was 0.6% (95% CI, 0.1% to 1.2%). Overuse was concentrated in thyroid ultrasound for an incidental subcentimeter
+    nodule and routine electrocardiography in low-risk adults.
+  limitations: The authors note single prompts without follow-up, benchmark rather than real-world use, classification
+    by an LLM judge with physician adjudication, and findings that may not extend to consumer-facing use.
+  sources:
+  - https://osf.io/8qug5
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

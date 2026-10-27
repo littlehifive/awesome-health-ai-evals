@@ -27,6 +27,31 @@ facets:
   eval_methods: [expert_human_rating, rubric_llm_judge]
   modality: [text]
   size: 50 cases; 19 rubric questions
+card:
+  task: Produce a breast cancer assessment and management plan for each clinical vignette.
+  items_built: Three breast cancer specialists created synthetic scenarios reflecting presentations at their center,
+    including rare and challenging cases, with ground-truth assessments provided in the appendix. Another experienced
+    breast oncologist independently checked their accuracy and realism and refined their clarity and consistency
+    of detail.
+  example: ''
+  scoring: Specialists assessed responses against NCCN guidelines using 19 questions, each with two to five answer
+    options; each clinician response received one evaluation and each AMIE response received three. Results report
+    the proportion of favorable evaluations for each criterion, excluding cases marked not applicable by a majority
+    of evaluators, with 95% confidence intervals from 10,000 bootstrap samples.
+  judge: Five experienced breast cancer specialists, averaging 10 years of work experience, rated the responses.
+  scale: Two to five answer options per question; proportion of favorable evaluations reported separately for each
+    criterion.
+  validation: 'Three raters evaluated each AMIE response: agreement was substantial to nearly perfect for neoadjuvant
+    therapy, surgical planning and adjuvant radiation, but limited for adjuvant treatment appropriateness and overall
+    potential harm.'
+  results: AMIE outperformed internal medicine trainees and oncology fellows on 7 of 9 management reasoning criteria
+    and 3 of 8 other criteria, but fell below oncology attendings overall. Oncology attendings received favorable
+    evaluations for all cases.
+  limitations: The study excluded practical concerns such as treatment interruptions from non-cancer hospitalizations,
+    dose reductions due to side effects, and management of treatment toxicities.
+  sources:
+  - https://arxiv.org/abs/2411.03395
+  extracted: '2026-10-27'
 signals:
   citations: 6
   citations_source: OpenAlex

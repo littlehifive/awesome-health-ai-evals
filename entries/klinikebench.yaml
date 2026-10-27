@@ -30,6 +30,28 @@ facets:
   eval_methods: [simulated_multi_turn, rubric_llm_judge]
   modality: [text]
   size: "333 tasks (283 training, 50 held-out test); 35 clinicians authored"
+card:
+  task: Conduct a clinical consultation with a simulated patient, ask the required history questions, use clinical
+    tools with the required parameters, and give a diagnosis.
+  items_built: Thirty-five clinicians from Canada and China authored 333 disease-grounded cases, defining patient
+    personas and clinical requirements with LLM help for narrative and formatting. They revised the cases after
+    inspecting live simulations; 283 tasks were assigned to training and 50 to held-out testing.
+  example: ''
+  scoring: A verifier checks diagnosis, required tools and parameterised actions against each task's hidden requirements,
+    while an LLM judge checks must-ask history coverage. Strict pass@1 is the proportion of encounters that pass
+    all four gates.
+  judge: A task verifier scores three gates, and claude-opus-4-6 judges must-ask coverage in the reported held-out
+    evaluation.
+  scale: Four pass-or-fail gates per encounter; strict pass@1 is the fraction passing all four.
+  validation: Substituting judges broadly preserved model rankings but could change the leader.
+  results: Among the three reported Qwen3-4B variants on 50 held-out tasks, SFT + GRPO at step 50 achieved the highest
+    strict pass@1 of 0.12, compared with 0.08 for SFT and 0.00 for zero-shot Qwen3-4B.
+  limitations: Passing all gates does not guarantee a coherent encounter, and with 50 held-out tasks, score differences
+    below about 0.07 are within noise.
+  sources:
+  - https://arxiv.org/abs/2609.38480
+  - https://github.com/Zehui127/klinikebench-train
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

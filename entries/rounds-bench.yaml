@@ -26,6 +26,32 @@ facets:
   eval_methods: [simulated_multi_turn, rubric_llm_judge]
   modality: [text]
   size: 468 cases
+card:
+  task: Give a final diagnosis and three supporting evidence items from either a complete patient record or information
+    requested from a patient simulator over at most 10 turns.
+  items_built: DeepSeek-v3 restructured 468 cases from MedQA, MedMCQA, MIMIC-III-derived MedFound, and PMC case
+    reports, with 78 cases in each of six clinical system categories. An independent validator checked that all
+    six required sections were present and that the content was grounded in the source text, admitting only cases
+    that passed both checks.
+  example: ''
+  scoring: A blinded LLM judge compares the diagnosis with the gold standard for semantic equivalence and subtype
+    precision, and checks whether the three evidence items are grounded in acquired information and support the
+    diagnosis. ExactAcc is the percentage of cases with diagnosis score 2, StrictEQ is the percentage with evidence
+    score 2, and FSA is the percentage with both scores equal to 2.
+  judge: DeepSeek-v3 grades outputs using frozen weights and standardized prompts, without access to model identities.
+  scale: Diagnosis and evidence each score 0, 1, or 2 per case; ExactAcc, StrictEQ, and FSA report percentages meeting
+    the maximum-score requirements.
+  validation: ''
+  results: DeepSeek-v3-250324 had the highest active-task StrictEQ at 54.30%, with diagnostic accuracy of 46.15%.
+    Across 15 models, the paper reports that active evidence seeking reduced diagnostic accuracy by 12.75% and supporting-evidence
+    quality by 24.36% relative to full-context evaluation.
+  limitations: The authors state that simulation omits sociopsychological factors, text-only interaction excludes
+    multimodal evidence, a single reference diagnosis misses comorbidity and uncertainty, and LLM-based grading
+    needs further validation by expert clinicians.
+  sources:
+  - https://arxiv.org/abs/2605.22047
+  - https://github.com/Leonard-zc/ROUNDS-Bench
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

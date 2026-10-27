@@ -25,6 +25,28 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: "100+ Boolean rubrics; curated from about 4,000 queries; internal meta-evaluation set of 532 queries (not released)"
+card:
+  task: Answer open-ended personal health queries using the user's health data and context.
+  items_built: The framework is meant to evaluate personal health agents' responses and tool-use actions. A domain-expert
+    panel led by a physician reviewed 4,000 real user queries through iterative curation to develop over 100 Boolean
+    criteria, each grounded in medical literature or supported by physician experts.
+  example: '"Could I have diabetes?"'
+  scoring: An LLM evaluator checks whether the response meets each contextually activated criterion, including checks
+    against the user's data and medical references. The Boolean results are combined using automatically assigned
+    hierarchical weights and deterministic normalization to produce an overall score.
+  judge: LLM raters assign criterion scores; judge-backbone experiments include Gemini-1.5-flash and Gemini-1.5-pro.
+  scale: Pass or fail per active criterion; normalized, hierarchically weighted overall score.
+  validation: Against an independent panel of one physician with 15 years of experience tutoring entry-level physicians
+    and five health-domain experts, overall ICC3 was 0.876 and Cohen's kappa was 0.787, versus 0.291 and 0.431 for
+    the principle baseline. Criterion-level kappa was 1.000 for Health Data, 0.806 for Action Plan, 0.724 for Symptoms,
+    and 0.657 for Explanation.
+  results: ''
+  limitations: The authors state that new populations, languages, or care settings require further expert curation,
+    routing can miss rare safety-critical criteria, and the evaluation panel's single experienced physician and
+    five health-domain experts may introduce specialty-domain bias.
+  sources:
+  - https://arxiv.org/abs/2606.18203
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

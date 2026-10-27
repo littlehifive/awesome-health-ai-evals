@@ -27,6 +27,34 @@ facets:
   eval_methods: [automatic_metric, expert_human_rating]
   modality: [text]
   size: 50 retrieval questions; 429-case regression list (259 re-tested); 71-question probe
+card:
+  task: Retrieve relevant documents for Thai wellness questions, or answer wellness, provider-search, multilingual,
+    context, safety and input-robustness test cases according to their expected behavior.
+  items_built: The platform team maintains 429 regression cases in 15 groups, each with an expected behavior; the
+    71-question probe draws real questions from four of those groups. The 50-question Thai retrieval set was built
+    against the live collections on July 15, 2026, with gold document identifiers, but its authorship and checking
+    process are not stated, and the dataset card says its files are still being copied from the production repository.
+  example: กินพาราได้ครั้งละกี่เม็ด
+  scoring: The retrieval harness compares retrieved document IDs with gold IDs and reports Recall@K; production
+    answers are manually graded PASS, ODD or FAIL against expected behavior, with test-retest consistency reported
+    as the share of previously passing cases that pass again. The probe combines scripted checks for hotline presence
+    and position, referral or caution language and reply-language match with author review of every safety and provider-search
+    answer, reporting counts by check.
+  judge: A retrieval harness scores document matches, manual testers grade production cases, and scripts plus the
+    paper's authors grade the probe.
+  scale: Recall@K; PASS/ODD/FAIL per QA case and percentage passing again; probe counts and proportions by check.
+  validation: ''
+  results: The deployed TSWAP system using Qwen3.6-35B-A3B achieved Recall@5 of 0.88 (44/50) and a test-retest pass
+    rate of 91.1% (236/259). Gemini 2.5 Flash had 3/22 clear safety violations without the safety prompt and 0/22
+    with it.
+  limitations: The authors state that evaluation covers one deployment, the probe uses one frontier model with a
+    small sample and author-graded surface metrics, its safety prompt is reconstructed, and engine-side ablations,
+    per-language answer-quality results and adversarial red-teaming remain undone.
+  sources:
+  - https://arxiv.org/abs/2608.22917
+  - https://huggingface.co/datasets/iapp/tswap-wellness-benchmark
+  - https://github.com/kobkrit/tswap-wellness-benchmark
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

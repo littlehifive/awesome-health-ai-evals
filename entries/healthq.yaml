@@ -27,6 +27,33 @@ facets:
   eval_methods: [rubric_llm_judge, automatic_metric, simulated_multi_turn]
   modality: [text]
   size: Cases from ChatDoctor and MTS-Dialog turned into ground-truth pairs and simulated patient conversations; exact test size not confirmed
+card:
+  task: Generate a follow-up question from a simulated patient's initial statement to elicit relevant symptoms,
+    medical history, and other patient information.
+  items_built: The authors used Claude2 to parse ChatDoctor and MTS-Dialog notes into pairs of patient knowledge
+    and doctor information-seeking statements, then simulated initial patient statements from that knowledge. Experiments
+    used 128 test cases, 64 from each dataset, and seven healthcare chains generated 796 patient status-doctor statement
+    pairs.
+  example: ''
+  scoring: An LLM judge scores each question against patient knowledge for specificity, usefulness, relevance, coverage,
+    and fluency; ROUGE and biomedical named-entity comparisons measure how well the simulated answer matches the
+    complete patient information. Scores are averaged across interactions for each chain and reported separately
+    by judge and metric.
+  judge: GPT-3.5-turbo, GPT-4, and Claude-3-Opus are named as judges; the results also name GPT-4o.
+  scale: Five question-quality scores specified as 0 to 1, though reported examples exceed 1; chain-level means
+    plus ROUGE and NER2NER scores.
+  validation: 'The authors compared chain-level question-quality and answer-information scores using normalized
+    mutual information: fluency versus medication NER2NER scored 0.66, and coverage versus ROUGE-2 precision scored
+    0.53.'
+  results: 'RAG_Reflection achieved the highest NER2NER_total scores: 0.65 for GPT-4o, 0.57 for GPT-3.5, and 0.63
+    for Claude. Its reported ROUGE-L F scores were 0.62, 0.65, and 0.59, respectively.'
+  limitations: The authors state that reliance on LLM evaluation can miss aspects of question quality that healthcare
+    professionals would assess, and that clinician review, real clinical testing, and multi-turn evaluation remain
+    future work.
+  sources:
+  - https://doi.org/10.1016/j.smhl.2025.100570
+  - https://github.com/wangziyu99/HealthQ-LLM-Healthcare-Benchmark
+  extracted: '2026-10-27'
 signals:
   citations: 28
   citations_source: OpenAlex

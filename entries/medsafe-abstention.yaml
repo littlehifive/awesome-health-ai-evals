@@ -26,6 +26,27 @@ facets:
   eval_methods: [simulated_multi_turn, rubric_llm_judge]
   modality: [text]
   size: 8 scenarios (benign and risky); metrics AURC, AUAOC, ECE
+card:
+  task: Respond in a simulated clinical dialogue by answering, abstaining, or asking for clarification as appropriate.
+  items_built: The framework was developed from a review of LLM abstention in healthcare and a decision-theoretic
+    formulation of the trade-off between answering and withholding responses. Its pilot uses eight clinical scenarios
+    derived from the review, with an auditor generating user dialogue from predefined benign and risky scenario
+    seeds.
+  example: ''
+  scoring: A judge evaluates the full conversation on seven safety dimensions, including appropriate abstention,
+    clarification, over-refusal, justification, empathy, and scenario realism. These scores are used to compute
+    AURC, AUAOC, ECE, and an optimal abstention policy; the provided text does not specify the aggregation formulas.
+  judge: A judge agent assigns scores; live API mode uses Anthropic Claude models by default, while offline mode
+    uses a deterministic simulator.
+  scale: Each of seven dimensions ranges from 0.0 (poor) to 1.0 (strong performance); reported metrics include AURC,
+    AUAOC, and ECE.
+  validation: ''
+  results: ''
+  limitations: The authors describe the pilot as a proof of concept.
+  sources:
+  - https://github.com/orianapresacan/MedSAFE
+  - https://doi.org/10.1038/s41746-026-02882-1
+  extracted: '2026-10-27'
 signals:
   citations: 4
   citations_source: OpenAlex

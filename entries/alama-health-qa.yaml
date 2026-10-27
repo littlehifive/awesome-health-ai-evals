@@ -28,6 +28,23 @@ facets:
   eval_methods: [mcq_exact_match, expert_human_rating]
   modality: [text]
   size: thousands of question-answer pairs (exact count not stated)
+card:
+  task: Answer case-based clinical questions by choosing one of four options in the context of Kenyan primary care.
+  items_built: Gemini Flash 2.0 Lite generated questions, four answer options and source-referenced explanations
+    from retrieved passages of Kenya's Ministry of Health guidelines for dispensaries and health centres. Physicians
+    from the Kenya Medical Association reviewed the items.
+  example: What is the recommended first-line ART for adult PWID? A) TDF + 3TC + DTG B) AZT + 3TC + EFV C) TDF +
+    FTC + LPV/r D) ABC + 3TC + DTG
+  scoring: ''
+  judge: ''
+  scale: ''
+  validation: ''
+  results: ''
+  limitations: Reviewers found that some Alama Health-QA questions lacked clinical detail and some answer options
+    were too obviously incorrect.
+  sources:
+  - http://arxiv.org/abs/2507.16322
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

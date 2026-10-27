@@ -25,6 +25,26 @@ facets:
   eval_methods: [simulated_multi_turn, rubric_llm_judge]
   modality: [text]
   size: 2,160 scenarios, 8,640 conversations, 157,054 scored turns across 4 LLMs
+card:
+  task: Respond to successive user messages in simulated conversations where psychological distress escalates through
+    clinical stages, while retaining the conversation history.
+  items_built: The MIT Media Lab authors collected 18 documented cases and used GPT-5 to annotate harmful AI actions
+    and outcomes, then varied demographic contexts to generate 2,160 scenarios. GPT-5 generated user messages following
+    condition-specific clinical staging models, and a random subset of conversations was reviewed for realistic
+    interactions and clinical progression.
+  example: ''
+  scoring: GPT-5-mini classifies each user-message and model-response pair as making further harm less likely, having
+    negligible impact, or making harm more likely, using the scenario description but no conversation history. Results
+    are reported as percentages of responses classified as IMPROVES or WORSENS, excluding Stage 0 baseline responses.
+  judge: GPT-5-mini assigns the turn-level ratings.
+  scale: 'Three categories per response: IMPROVES, NEUTRAL, or WORSENS; aggregate percentages of classified responses.'
+  validation: ''
+  results: ''
+  limitations: The authors note possible classifier bias toward OpenAI models, a coarse three-point scale, no validation
+    against clinical expert annotations, and uncertainty about how including conversation history would change ratings.
+  sources:
+  - https://arxiv.org/abs/2511.08880
+  extracted: '2026-10-27'
 signals:
   citations: 4
   citations_source: OpenAlex

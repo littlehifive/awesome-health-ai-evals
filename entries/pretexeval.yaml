@@ -26,6 +26,27 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: samples generated dynamically from knowledge-base subsets
+card:
+  task: Decide whether each medical statement is true or false.
+  items_built: The authors sampled knowledge triplets from MedLAMA and DiseK, added negative triplets, and generated
+    eight statement variants per knowledge point using handcrafted prototypes and Llama3-70B-Instruct rephrasing.
+    Two experienced doctors checked samples derived from 50 randomly selected MedLAMA triplets for reliability,
+    lexical diversity, and structural diversity.
+  example: '"If a patient has disease B, drug A may cure them."'
+  scoring: Each true/false prediction receives 1 if it matches the statement's label and 0 otherwise. Average accuracy
+    is the mean across all statements; joint accuracy is the fraction of knowledge points for which all eight statement
+    variants are answered correctly.
+  judge: Exact match with the true/false answer key.
+  scale: 0 or 1 per statement; average accuracy and joint accuracy, with average accuracy also reported as gain
+    above 50% random guessing.
+  validation: ''
+  results: GPT-4o performed best, with average-accuracy gains above 50% random guessing of 31.7 percentage points
+    on MedLAMA and 26.7 percentage points on DiseK.
+  limitations: ''
+  sources:
+  - https://arxiv.org/abs/2409.14302
+  - https://github.com/THUMLP/PretexEval
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

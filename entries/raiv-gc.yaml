@@ -25,6 +25,24 @@ facets:
   eval_methods: [rubric_llm_judge, simulated_multi_turn]
   modality: [text]
   size: Five validation layers; synthetic datasets, adversarial prompts, persona-based fairness tests
+card:
+  task: Respond to healthcare prompts and multi-turn conversations while protecting PII and PHI, treating personas
+    fairly, resisting adversarial prompts, and providing factual, regulation-compliant answers.
+  items_built: The framework is intended for generative chatbots handling PII and PHI in healthcare, payer systems
+    and government benefit programs. It was demonstrated using synthetic healthcare datasets, adversarial prompt
+    simulations, persona-based fairness assessments and multi-turn evaluations.
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: ''
+  validation: ''
+  results: Compared with baseline models, the abstract reports privacy leakage reductions of 84-100%, approximately
+    80% improvement in adversarial resistance, conversational bias reductions of 70-75%, and factual accuracy gains
+    of 8-12%. It does not name the models.
+  limitations: ''
+  sources:
+  - https://doi.org/10.1109/icsft66733.2026.11506902
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

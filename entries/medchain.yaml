@@ -28,6 +28,31 @@ facets:
   eval_methods: [simulated_multi_turn, automatic_metric]
   modality: [text]
   size: "12,163 cases, 19 specialties, 156 sub-categories; 7,338 images with reports; 7:1:2 train/validation/test split"
+card:
+  task: Starting with a patient's basic information and chief complaint, select a referral department, gather history
+    through dialogue, interpret medical images, make a diagnosis, and propose treatment in sequence.
+  items_built: The authors structured doctor-verified, de-identified records from the Chinese medical website iiYi
+    using government standards and Medical Subject Headings, removing incomplete records to retain 12,163 cases.
+    Five senior physicians with over 10 years of clinical experience checked 6,000 randomly sampled cases against
+    six binary quality criteria; 94.7% passed, and failed cases were revised or excluded.
+  example: ''
+  scoring: 'Outputs are compared with multi-point standard answers, rewarding covered points and penalizing irrelevant
+    content: referral uses accuracy and IoU, history-taking and treatment use examination-item IoU, image interpretation
+    uses DocLens, and diagnosis uses a prompt based on National Health Commission of China guidelines. The results
+    table reports stage scores and an overall average.'
+  judge: Scoring uses reference-answer comparisons, DocLens, and a diagnostic evaluation prompt; the model running
+    that prompt is not specified.
+  scale: Stage-specific accuracy, IoU, and key-point scores; overall average.
+  validation: ''
+  results: MedChain-Agent built on InternVL2-8b achieved the highest average score in the paper's comparison table,
+    0.5200. Claude-3.5-sonnet led the base models with 0.4262.
+  limitations: The authors identify reliance on a single Chinese data source, uneven representation of specialties,
+    and Gemma 2 patient responses that do not capture the full variety and complexity of real patient interactions.
+  sources:
+  - https://arxiv.org/abs/2412.01605
+  - https://huggingface.co/datasets/ljwztc/MedChain
+  - https://github.com/ljwztc/MedChain
+  extracted: '2026-10-27'
 signals:
   citations: 5
   citations_source: OpenAlex

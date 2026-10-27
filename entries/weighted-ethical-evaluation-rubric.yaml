@@ -24,6 +24,23 @@ facets:
   eval_methods: [rubric_llm_judge]
   modality: [text]
   size: 1,020 synthetic prompts (20 per category, 12 categories); 6 rubric dimensions; 6,120 scored responses across 3 LLMs and 2 prompt conditions
+card:
+  task: Respond to mental health prompts in a way that can be assessed for ethical quality.
+  items_built: The rubric was developed from European and UK psychological ethics frameworks and AI Act safety principles
+    to assess mental health responses. The study generated 1,020 synthetic mental health prompts and collected 6,120
+    responses from three models under baseline and ethical-instruction conditions.
+  example: ''
+  scoring: Each response was scored using the Weighted Ethical Evaluation Rubric and assigned to an ethical tier.
+  judge: ''
+  scale: ''
+  validation: ''
+  results: Ethical instructions significantly improved scores for all three models, with GPT-4o showing the largest
+    improvement (Δ = 0.62, described as a very large effect). Claude Sonnet 4 and Gemini 2.5 Pro showed smaller
+    but statistically strong gains.
+  limitations: ''
+  sources:
+  - https://norma.ncirl.ie/9783/1/emilyelizabethwhite.pdf
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

@@ -25,6 +25,27 @@ facets:
   eval_methods: [rubric_llm_judge]
   modality: [text]
   size: 357 questions (194 image-based, 163 text-only); 235 image crops
+card:
+  task: Answer clinical-reasoning questions in English using the supplied case information and any accompanying
+    images, without consulting external sources.
+  items_built: The MDLE organization maintains 357 questions derived from 350 case-report articles in its March-July
+    2026 collection, retaining only questions scored below 6/10 for both Gemini 3.1 Pro Preview and Claude Opus
+    5. Active wording was clarified in v1.2.0, and one injury-depth target and rubric received an expert correction
+    in v1.2.1; historical scores were not rerun after these changes.
+  example: ''
+  scoring: Historical answers received rubric scores out of 10, with 7 used as the historical passing threshold.
+    The dataset card does not specify how item scores are combined into an overall score.
+  judge: Gemini 3.1 Pro Preview judged answers, including those from Claude Opus 5.
+  scale: Per-question rubric score from 0 to 10; historical passing threshold of 7.
+  validation: ''
+  results: ''
+  limitations: The authors state that this deliberately difficult, model-selected case-report set is not representative
+    of clinical questions, that using Gemini as both solver and judge introduces judge-specific selection bias,
+    and that historical scores are neither current performance measurements nor a general model ranking.
+  sources:
+  - https://huggingface.co/datasets/Medical-Doctors-Last-Exam/mdle
+  - https://huggingface.co/datasets/Medical-Doctors-Last-Exam/mdle-zh
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

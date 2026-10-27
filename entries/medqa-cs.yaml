@@ -28,6 +28,38 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating, simulated_multi_turn]
   modality: [text]
   size: USMLE Step 2 CS cases across four sections (InfoGatherQA, Physical Exam, Closure, Diagnosis); case count not confirmed
+card:
+  task: Given a patient case and encounter history, ask focused history questions, recommend physical examinations
+    with reasons, explain diagnostic possibilities and workup to the patient, and document supported differential
+    diagnoses, or grade another model's responses as a clinical-skills examiner.
+  items_built: The authors adapted original USMLE Step 2 CS cases and worked with a domain expert to design tasks,
+    prompts, evaluation criteria and score weights from the exam guidelines. Three medical experts independently
+    assessed GPT-4 responses across the four sections to check the evaluation design.
+  example: '"Joseph Shorr, a 46-year-old male, comes to the ED complaining of chest pain."'
+  scoring: 'GPT-4 compares responses with reference question banks, examinations, closure answers and diagnoses
+    using section-specific rubrics: history questions must be relevant and non-repetitive, examinations receive
+    coverage and justification points with penalties for unnecessary exams, and closure receives points for diagnostic
+    discussion, workup, answers, accessibility and compassion. History performance is the proportion of accepted
+    questions, diagnosis points are summed and divided by the maximum possible points, and examiner models are assessed
+    by correlation with average expert scores.'
+  judge: GPT-4 grades student responses; the repository defaults to gpt-4-1106-preview, and three medical experts
+    provide reference ratings.
+  scale: 'History questions: 0 or 1, reported as a proportion; physical examination and closure: 0 to 100; diagnosis:
+    normalized 0 to 1; examiner performance: Pearson correlation and Kendall''s tau.'
+  validation: Across three experts, pairwise Pearson correlations ranged from 0.77 to 0.99, Kendall's tau from 0.54
+    to 0.90, and Kendall's W from 0.78 to 0.91. GPT-4's Pearson correlations with average expert scores were 0.90
+    for information gathering, 0.92 for physical examination, 0.78 for diagnosis and 0.47 for closure; corresponding
+    Kendall's tau values were 0.78, 0.53, 0.69 and 0.47.
+  results: ''
+  limitations: The authors identify a small case sample, evaluation that excludes student reasoning and treatment
+    plans, coverage limited to medical visits, only three expert raters, and assessment of instruction-following
+    and text generation rather than real-world clinical judgment.
+  sources:
+  - https://pubmed.ncbi.nlm.nih.gov/42272748
+  - https://huggingface.co/datasets/bio-nlp-umass/MedQA-CS-Student
+  - https://huggingface.co/datasets/bio-nlp-umass/MedQA-CS-Exam
+  - https://github.com/bio-nlp/MedQA-CS
+  extracted: '2026-10-27'
 signals:
   citations: 2
   citations_source: OpenAlex

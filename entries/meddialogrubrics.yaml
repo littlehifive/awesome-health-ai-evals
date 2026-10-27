@@ -27,6 +27,33 @@ facets:
   eval_methods: [simulated_multi_turn, rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: "5,200 patient cases; more than 60,000 rubric items"
+card:
+  task: Conduct a clinical history-taking conversation with a simulated patient, asking follow-up questions to gather
+    clinically important information within a maximum of 12 turns.
+  items_built: The authors used a multi-agent pipeline to generate 5,200 synthetic cases from disease knowledge
+    without real patient records, then generated over 60,000 inquiry criteria grounded in evidence-based guidelines
+    and a medical knowledge graph, with automated filtering and revision. Three clinical experts independently reviewed
+    each candidate criterion; criteria receiving at least two Keep votes were retained, merged where redundant,
+    and revised using expert feedback.
+  example: ''
+  scoring: GPT-5, Gemini-2.5-Pro, and DeepSeek-V3 judge whether the full conversation satisfies each case-specific
+    criterion, with majority voting used for the main leaderboard. Satisfied criteria contribute their importance
+    or penalty weights, divided by the sum of positive weights to produce a normalized case score; scores are then
+    aggregated across cases.
+  judge: GPT-5, Gemini-2.5-Pro, and DeepSeek-V3 assign rubric judgments by majority vote.
+  scale: Each criterion is Satisfied or Not Satisfied; normalized weighted case scores measure inquiry completeness
+    and can be reported as percentages.
+  validation: The judge ensemble was compared with clinical-expert judgments on 300 cases using Macro F1. Majority
+    voting achieved approximately 75%-79% F1 across evaluated doctor models; liberal aggregation reached approximately
+    79.6% for GPT-5.
+  results: Gemini-2.5-Pro performed best at approximately 52% rubric coverage.
+  limitations: The authors state that synthetic cases do not capture the full variability of clinical practice,
+    patient simulation retains errors, scores depend on judge settings, source biases can carry into the cases and
+    rubrics, and inquiry completeness does not establish real-world clinical effectiveness.
+  sources:
+  - http://arxiv.org/abs/2601.03023
+  - https://huggingface.co/datasets/AQ-MedAI/MedDialogRubrics
+  extracted: '2026-10-27'
 signals:
   citations: 2
   citations_source: OpenAlex

@@ -28,6 +28,33 @@ facets:
   eval_methods: [rubric_llm_judge, simulated_multi_turn, expert_human_rating]
   modality: [text]
   size: 6 Innovative Moment types; NTConv 1,300 dialogues of 50 turns (1,040 train, 260 test)
+card:
+  task: Hold a narrative-therapy conversation with a client, responding to their concerns and helping them develop
+    alternatives to problematic life stories.
+  items_built: The authors developed IMA for annotating client speech in therapy dialogues, drawing on Innovative
+    Moment coding protocols from Gonçalves et al. (2011) and Montesano et al. (2017). They evaluated it in conversations
+    with GPT-4o clients based on 260 real-world ESConv profiles and with 200 human participants discussing personal
+    challenges.
+  example: '"Yesterday I went out to the cinema for the first time this month to watch a movie."'
+  scoring: GPT-4o or human annotators mark client speech with six IM categories or None; Action and Reflection can
+    both be coded, while Protest takes precedence when it co-occurs with either. Each category's marked word count
+    is divided by the total client and therapist word count in the session, and session salience scores are averaged
+    for each system.
+  judge: GPT-4o grades simulated-client dialogues; trained human annotators grade human-client dialogues, with a
+    senior therapist adjudicating unresolved disagreements.
+  scale: Six IM categories or None; word-based salience percentages per session, averaged across sessions, with
+    a sum across categories.
+  validation: Human annotators trained until Cohen's κ exceeded 0.75, then independently annotated 10 randomly sampled
+    sessions per system; about 3% of cases required senior-therapist adjudication.
+  results: INT achieved the highest total IM salience in human interactions at 29.698%, compared with 21.858% for
+    the best direct role-playing model, GPT-4o. In simulated-client evaluation, Doubao-1.5-pro had the highest total
+    salience at 42.110%.
+  limitations: The authors report that evaluation was primarily in English-speaking contexts and that compliant
+    simulated clients and GPT-based grading overestimate therapeutic progress and advanced IMs.
+  sources:
+  - https://arxiv.org/abs/2507.20241
+  - https://github.com/MIMIFY/narrative-therapy-llm
+  extracted: '2026-10-27'
 signals:
   citations: 2
   citations_source: OpenAlex

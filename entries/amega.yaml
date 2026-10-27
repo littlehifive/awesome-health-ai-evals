@@ -27,6 +27,30 @@ facets:
   eval_methods: [rubric_llm_judge]
   modality: [text]
   size: 20 cases, 135 questions, 1,337 scoring elements
+card:
+  task: Answer open-ended questions about a clinical case, covering diagnosis, relevant findings, treatment, complications,
+    and long-term management according to medical guidelines.
+  items_built: Five physicians with more than five years of clinical experience selected guidelines and wrote 20
+    cases, 135 questions, and 1,337 weighted scoring criteria; each case was reviewed by at least one additional
+    physician and refined iteratively. The later repository version contains 24 fictional cases, 163 questions,
+    and 1,497 criteria.
+  example: ''
+  scoring: GPT-4 marks each guideline-based criterion true or false, with majority voting across 11 parallel evaluations
+    by default; candidates can revise incomplete answers when reasks are allowed. Met criteria earn points weighted
+    by clinical significance, which are summed into case scores with a maximum of 50 and averaged across the 20
+    cases.
+  judge: GPT-4 assigns criterion scores, with a clinical expert checking selected evaluations.
+  scale: True or false per criterion; weighted case scores out of 50, averaged across cases; question scores also
+    normalized to 0 to 1.
+  validation: Against a human expert on primary working diagnoses, GPT-4 achieved F1 of 0.98 ± 0.04, precision of
+    0.98 ± 0.04, and recall of 0.97 ± 0.05. Spot checks of 632 criterion evaluations across two cases and two candidate
+    models yielded average F1 of 97%; human corrections increased final scores by 0.1 points on average.
+  results: GPT-4-1106-preview led the 17 tested models with 41.9/50. A recent medical graduate scored 25.8/50.
+  limitations: ''
+  sources:
+  - https://doi.org/10.1038/s41746-024-01356-6
+  - https://github.com/DATEXIS/AMEGA-benchmark
+  extracted: '2026-10-27'
 signals:
   citations: 39
   citations_source: OpenAlex

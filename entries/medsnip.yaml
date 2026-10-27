@@ -27,6 +27,25 @@ facets:
   eval_methods: [automatic_metric, expert_human_rating]
   modality: [text]
   size: 276 responses; 2,524 snippets (train 1,599, validation 494, test 431)
+card:
+  task: Label each medical snippet as true or false both in general and in the context of the patient.
+  items_built: Trained annotators segmented 276 consumer-health and clinical-vignette model responses into 2,524
+    snippets and assigned general and patient-context labels plus six structural pattern codes. All 37 snippets
+    flagged as ambiguous were adjudicated to binary labels, and the dataset also includes labels projected from
+    source physician annotations of atomic claims.
+  example: ''
+  scoring: The primary reported metric is F1 on the false class because the corpus contains more true snippets than
+    false snippets.
+  judge: ''
+  scale: Binary true or false labels in general and in patient context; primary metric is false-class F1.
+  validation: ''
+  results: ''
+  limitations: Automated verification can accept false claims, reject correct claims, or abstain on clinically important
+    cases, and the dataset should not be used for autonomous clinical decision support.
+  sources:
+  - https://huggingface.co/datasets/MBZUAI/MedSNIP
+  - https://github.com/mbzuai-nlp/MedSNIP
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

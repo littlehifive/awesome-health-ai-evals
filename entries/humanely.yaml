@@ -27,6 +27,26 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: 5 metrics, 17 submetrics; systematic review of 186 studies
+card:
+  task: Generate text for a user-supplied task, such as summarization or question answering, for human assessment
+    alongside reference text.
+  items_built: The authors developed survey questions and metric definitions from prior evaluation work, including
+    LongEval guidance and Oxford Languages definitions. The framework applies to user-supplied LLM outputs rather
+    than a fixed set of test items.
+  example: ''
+  scoring: Human evaluators inspect reference and generated text and assign Likert ratings for the evaluation criteria,
+    with comparison criteria assessing outputs against human or other LLM responses. The tool exports raw scores
+    and leaves aggregation across evaluators and model outputs to users.
+  judge: Human evaluators assign the scores; the framework does not specify their number or qualifications.
+  scale: Ratings from 1 to 5; raw scores with user-defined aggregation.
+  validation: ''
+  results: ''
+  limitations: The authors state that their mapping of prior studies to HumanELY metrics lacks direct, quantifiable
+    correlation, that not every metric applies to every response, and that the framework does not determine who
+    should evaluate outputs.
+  sources:
+  - https://doi.org/10.1101/2023.12.22.23300458
+  extracted: '2026-10-27'
 signals:
   citations: 12
   citations_source: OpenAlex

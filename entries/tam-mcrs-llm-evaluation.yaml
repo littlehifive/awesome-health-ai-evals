@@ -26,6 +26,23 @@ facets:
   eval_methods: [expert_human_rating, rubric_llm_judge]
   modality: [text]
   size: 4 rating dimensions; 2-arm design (clinician panel plus automated assessment)
+card:
+  task: Generate post-care patient education for each clinical vignette.
+  items_built: The framework is intended for evaluating LLM-generated post-care patient education using clinical
+    vignettes. It was developed through the NIH AIM-AHEAD CLINAQ fellowship program in partnership with Ochsner
+    Health and Xavier University of Louisiana.
+  example: ''
+  scoring: Clinicians rate each output using a TAM-based questionnaire that maps perceived usefulness to accuracy
+    and completeness, and perceived ease of use to clarity and appropriateness. The MCRS is administered after scoring
+    to examine whether clinicians' regard for the conditions in the vignettes influences their ratings.
+  judge: An expert clinician panel and automated assessment methods form the two proposed evaluation arms.
+  scale: ''
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://doi.org/10.2196/100423
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

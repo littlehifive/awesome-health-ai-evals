@@ -28,6 +28,32 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating, simulated_multi_turn]
   modality: [text]
   size: 116 dialogues with 1,270 expert ratings (judge benchmark); configurable simulated patients
+card:
+  task: Conduct a 10-turn CBT-style conversation with a simulated patient, or, for TherapyJudgeBench, score a completed
+    dialogue for CBT skills and safety violations.
+  items_built: The authors generated 116 synthetic dialogues pairing LLM therapists with GPT-o3-mini patients initialized
+    from Patient-ψ-CM cognitive models, with five turns per role. Two licensed CBT-trained practitioners supplied
+    1,270 expert ratings, with 20% of dialogues double-annotated and the remainder singly annotated.
+  example: ''
+  scoring: A judge applies the CTRS rubric to each complete dialogue, assigning 11 skill scores and four binary
+    safety flags; TherapyJudgeBench compares these outputs with clinician ratings using Spearman correlation for
+    skills and accuracy for safety. Downstream evaluation normalizes retained skill scores from 0-6 to 0-1 and reports
+    average skill scores and safety violation rates, excluding two skills with human agreement below 0.4.
+  judge: Claude-3.7-sonnet is the selected automated judge, validated against two licensed CBT-trained practitioners;
+    GPT-o3-mini and DeepSeek-R1 were also tested as judges.
+  scale: Eleven session-level skills scored 0-6 and four present/absent safety flags; normalized average skill scores,
+    safety violation rates, and judge-clinician agreement.
+  validation: The selected judge achieved mean Spearman correlation of 0.56 with clinicians across 11 skills and
+    99% safety-label accuracy. Human raters achieved mean ordinal Krippendorff's alpha of 0.52, Spearman correlation
+    of 0.58, and Pearson correlation of 0.60 on the double-annotated subset.
+  results: Claude 3.7 with illustrative skill examples achieved the highest reported judge-clinician correlation,
+    0.56. GRPO-trained Qwen3-4B improved clinician-rated average skill scores from 0.10 to 0.60 while reducing clinician-rated
+    safety violations from 0.38 to 0.20.
+  limitations: The authors identify the focus on CBT and reliance on LLM judges as limitations, with real-world
+    outcomes, longitudinal outcomes, other therapy approaches, and multilingual evaluation left for future work.
+  sources:
+  - https://arxiv.org/abs/2603.18008
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

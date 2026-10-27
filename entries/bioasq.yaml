@@ -27,6 +27,28 @@ facets:
   eval_methods: [automatic_metric, expert_human_rating]
   modality: [text]
   size: expert-written questions released yearly since 2013 (total count not read)
+card:
+  task: Answer each English biomedical research question with an exact answer where applicable and a paragraph-length
+    summary, and return supporting articles and snippets.
+  items_built: Twenty-one biomedical experts, seven of them most active, created 4,721 questions and answers from
+    information needs encountered in their work, adding around 500 questions annually and selecting supporting MEDLINE
+    articles and snippets through PubMed searches. Experts discard questions without adequate evidence and refine
+    reference answers and supporting material after reviewing participating systems' responses.
+  example: '"Which virus is best known as the cause of infectious mononucleosis?"'
+  scoring: Exact answers are compared automatically with expert reference answers; yes/no questions use macro-averaged
+    F1, with accuracy also reported. Each question's author rates summary answers from 1 to 5 for information recall,
+    information precision, information repetition and readability, and average manual scores are reported.
+  judge: Automatic comparison grades exact answers, and the biomedical expert who wrote each question grades its
+    summary answers.
+  scale: 'Summary answers: 1 (very poor) to 5 (excellent) on four criteria, reported as averages; yes/no answers:
+    macro-averaged F1 and accuracy.'
+  validation: ''
+  results: ''
+  limitations: The authors note that changing vocabularies and databases complicate the dataset, and articles published
+    after a question's annotation may contain relevant evidence missing from its reference material.
+  sources:
+  - https://doi.org/10.1038/s41597-023-02068-4
+  extracted: '2026-10-27'
 signals:
   citations: 75
   citations_source: OpenAlex

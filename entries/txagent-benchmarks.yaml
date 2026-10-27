@@ -27,6 +27,31 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 3,168 DrugPC questions (11 tasks); BrandPC, GenericPC, DescriptionPC modified versions; 456 TreatmentPC questions
+card:
+  task: Answer drug-information and patient-specific treatment questions by selecting an option or generating an
+    answer, and identify the drug from its description for DescriptionPC.
+  items_built: The authors used QUESTIONGEN to generate DrugPC's 3,168 questions from FDA label sections mapped
+    to 11 tasks, checked answerability and answer accuracy against those sections, and had humans review and refine
+    the questions and answers to exclude non-biomedical content. The benchmarks focus on drugs approved in 2024;
+    DescriptionPC replaces names with descriptions and retains 626 questions after manual removal of unanswerable
+    items.
+  example: ''
+  scoring: Selected options are compared with the answer key, and accuracy is reported across each dataset; for
+    open-ended answers, the tested model receives its generated answer as context and then selects an option from
+    the original choices. DescriptionPC requires both identification of a drug in the accepted ground-truth set
+    and selection of the correct answer, with incorrect identification automatically making the answer incorrect.
+  judge: Scores use agreement with the answer key, with the tested model mapping its own open-ended answer to an
+    option.
+  scale: Correct or incorrect per item; percentage accuracy across each benchmark.
+  validation: ''
+  results: TxAgent achieved 92.1% accuracy on open-ended drug reasoning tasks. On DescriptionPC, it led with 56.5%
+    accuracy when both drug identification and answer selection had to be correct.
+  limitations: The authors note that models can guess some DescriptionPC answers without identifying the drug, limiting
+    the trustworthiness of answer-only accuracy.
+  sources:
+  - https://arxiv.org/abs/2503.10970
+  - https://github.com/mims-harvard/TxAgent
+  extracted: '2026-10-27'
 signals:
   citations: 19
   citations_source: OpenAlex

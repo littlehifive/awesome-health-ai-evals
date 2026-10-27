@@ -28,6 +28,26 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 306 MCQ and 311 true/false questions (plus a 100-question RAG comparison set)
+card:
+  task: Answer each biomedical question by choosing the single correct answer from five options or deciding whether
+    a statement is true or false.
+  items_built: The authors created 311 true/false questions from DisGeNET, MONDO and SemMedDB, and 306 five-option
+    questions from the Monarch Initiative and ROBOKOP. Domain experts reviewed both sets to remove false positives.
+  example: ''
+  scoring: Accuracy measures the proportion of answers that are correct. For each question set, 150 questions were
+    sampled with replacement 1,000 times, with accuracy calculated for each sample and reported as the mean and
+    standard deviation across samples.
+  judge: ''
+  scale: Correct or incorrect per question; mean accuracy from 0 to 1, with bootstrap standard deviation.
+  validation: ''
+  results: GPT-3.5-Turbo (0613) with KG-RAG had the highest multiple-choice accuracy at 0.79 ± 0.02. On true/false
+    questions, GPT-3.5-Turbo and GPT-4 with KG-RAG tied at 0.95 ± 0.01.
+  limitations: ''
+  sources:
+  - https://arxiv.org/abs/2311.17330
+  - https://huggingface.co/datasets/kg-rag/BiomixQA
+  - https://github.com/BaranziniLab/KG_RAG
+  extracted: '2026-10-27'
 signals:
   citations: 138
   citations_source: OpenAlex

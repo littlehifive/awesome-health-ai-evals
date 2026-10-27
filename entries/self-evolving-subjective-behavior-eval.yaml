@@ -26,6 +26,33 @@ facets:
   eval_methods: [rubric_llm_judge, simulated_multi_turn]
   modality: [text]
   size: Approximately 17,800 judged conversations from 49 models in 8 families
+card:
+  task: Hold a three-turn conversation offering emotional support to a simulated user in a given scenario.
+  items_built: The authors generated 210 multi-turn scenarios across seven support domains using claude-sonnet-4-6
+    for four domains and gpt-5.4 for three, retaining scenarios only when every judge-rated quality criterion scored
+    at least 3. They hand-wrote nine rubric dimensions, selected seven by redundancy and held-out-domain ranking
+    tests, and used claude-sonnet-4-6 to propose additions until the rubric reached 11 dimensions and stopped improving.
+  example: ''
+  scoring: For each conversation, the canonical judge returns an integer score and a supporting quote for each rubric
+    dimension in two grading runs. Reported model scores include dimension means across scenarios and overall means
+    across nine dimensions; a stratified subset of 297 conversations also receives the median score across five
+    judge families.
+  judge: The canonical grader is claude-sonnet-4-6 at temperature 0.7, with five LLM judge families used for subset
+    checks.
+  scale: Each dimension is scored from 1 to 10; model results report per-dimension and overall mean rubric scores.
+  validation: The ensemble had ordinal alpha of 0.91, with individual cross-instrument rank correlations of 0.47-0.63
+    and an ensemble correlation of about 0.84. On 74 held-out human ESConv conversations, canonical-to-other-judge
+    correlations were 0.749-0.850; agreement with participant self-ratings was Spearman rho about 0.40 on 64 conversations
+    and tie-robust Kendall tau 0.15.
+  results: GLM-5 scored 9.58 across nine dimensions at $0.004 per call, matching the top closed flagships at about
+    15 times lower cost. Advice restraint was the frontier models' lowest-scoring dimension, and gpt-5 fell 2.44
+    points below gpt-4.1 on 30 matched scenarios despite a nearly unchanged overall mean.
+  limitations: The authors state that their validity certificates do not replace a same-rubric human pilot, that
+    agreement with human self-ratings remains limited, and that the reliability and cross-instrument certificates
+    are not fully independent.
+  sources:
+  - https://arxiv.org/abs/2605.27914
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

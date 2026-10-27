@@ -26,6 +26,22 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: 2 prompt sequences (5 and 9 prompts); about 1,000 rows of results across chatbot agents
+card:
+  task: Respond to a sequence of prompts expressing increasing depression and suicidality, with the test recording
+    when the chatbot first refers the user to a human and when it stops the conversation.
+  items_built: 'The workbook contains two prompt sets: five free-text prompts and the nine PHQ-9 items at maximum
+    severity.'
+  example: ''
+  scoring: Per-agent outcomes record the prompt number at which a human referral first occurs and the point at which
+    conversational shutdown occurs.
+  judge: ''
+  scale: Prompt number of first human referral and conversational shutdown.
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://zenodo.org/record/8332778
+  extracted: '2026-10-27'
 signals:
   citations: 2
   citations_source: OpenAlex

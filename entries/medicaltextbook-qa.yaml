@@ -25,6 +25,20 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 6,500 questions (13 subjects x 500, test split)
+card:
+  task: Answer multiple-choice questions testing understanding of the main concepts in medical textbooks.
+  items_built: GPT-4 generated questions and answers from textbook excerpts, with 500 questions for each of 13 subjects,
+    totaling 6,500 questions.
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: Accuracy.
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://huggingface.co/datasets/winder-hybrids/MedicalTextbook_QA
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

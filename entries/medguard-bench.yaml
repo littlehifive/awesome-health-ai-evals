@@ -24,6 +24,21 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: 1,000 questions
+card:
+  task: Answer questions that test safety and reliability in medical contexts.
+  items_built: The benchmark contains 1,000 expert-verified questions covering ten aspects of truthfulness, resilience,
+    fairness, robustness, and privacy.
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: ''
+  validation: ''
+  results: The sixteen evaluated language models generally performed poorly on most safety tests and fell significantly
+    short of human physicians; the abstract gives no model-specific scores.
+  limitations: ''
+  sources:
+  - https://doi.org/10.1038/s43856-026-01881-3
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

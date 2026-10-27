@@ -27,6 +27,33 @@ facets:
   eval_methods: [automatic_metric, rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 4 tasks, 6 LLMs; 80 generations annotated by 8 annotators with a medical background
+card:
+  task: Write a scientific or lay summary of a biomedical article, or answer a biomedical question with or without
+    supplied evidence snippets.
+  items_built: The authors selected 1,000 random articles from the PubMed Summarization dataset and 1,000 from the
+    PLOS lay summarization dataset. They also used 1,130 BioASQ-QA summary questions, written by experts with human-selected
+    PubMed evidence and human-written ideal answers, for both evidence-based and open-ended answering.
+  example: ''
+  scoring: Generated text is split into atomic facts and checked against the source document, then unsupported facts
+    are checked against Wikipedia; open-ended answers use Wikipedia alone. Scores report the percentage of supported
+    facts using NLI, chain-of-thought judging, or unanimous voting, which counts a fact as correct only when both
+    methods support it.
+  judge: Tasksource DeBERTa-v3 and GPT-4o mini assign automatic judgments; eight in-house annotators with medical
+    backgrounds provide human ratings.
+  scale: Each atomic fact is supported or unsupported; factual support is reported as a percentage, and human ratings
+    range from 1 to 100.
+  validation: Two annotators rated each of 80 randomly selected generations, 20 per task, with Cohen's kappa of
+    0.75. Unanimous voting aligned best with human ratings for summarization, lay summarization and RAG, while baseline
+    FActScore aligned best for open-ended generation.
+  results: With source-document and Wikipedia checks, Mixtral 8x7b led unanimous-voting scores for scientific summarization
+    at 86.24 and lay summarization at 95.1. GPT-4o mini led RAG at 76.4 and open-ended generation at 50.3.
+  limitations: The authors note that computational costs restricted each judging method to one backbone model, the
+    tasks and tested models do not cover all LLM capabilities, automated fact judgments can be wrong, and repeated
+    API and Wikipedia calls slow evaluation.
+  sources:
+  - https://arxiv.org/abs/2509.02198
+  - https://github.com/jvladika/FactSumm
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

@@ -28,6 +28,27 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 11,232 questions (6,359 life-threatening, 4,873 safe splits)
+card:
+  task: Choose an answer or explicitly abstain, and report confidence, when given medical answer options either
+    with the full question or with the question hidden.
+  items_built: The authors rebuilt 11,232 questions from existing medical multiple-choice datasets, including MedQA
+    and MedXpertQA, by removing the original correct answer and adding an abstention option. They divided the items
+    into 6,359 life-threatening and 4,873 safe cases according to the potential harm of an incorrect decision.
+  example: '"A 39-year-old woman is brought to the emergency department because of fevers, chills, and left lower
+    quadrant pain. Her temperature is 39.1°C (102.3°F), pulse is 126/min, respirations are 28/min, and blood pressure
+    is 80/50 mm Hg..."'
+  scoring: The selected option is compared with the answer key, where abstention is always correct, and the proportion
+    of abstentions is reported as the abstention rate. Self-reported confidence is also evaluated using Expected
+    Calibration Error, Brier score, and AUROC.
+  judge: Exact match with the answer key.
+  scale: Correct abstention or incorrect answer per item; aggregate abstention rate, ECE, Brier score, and AUROC.
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://huggingface.co/datasets/disi-unibo-nlp/MedQAbstain
+  - https://github.com/disi-unibo-nlp/llm-medical-abstention
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

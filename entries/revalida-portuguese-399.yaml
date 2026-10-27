@@ -26,6 +26,25 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 399 multiple-choice questions (four options each)
+card:
+  task: Choose the correct answer from four options for each Portuguese clinical-scenario question.
+  items_built: The researchers assembled 399 questions from the multiple-choice stage of Brazil's 2020-2023 Revalida
+    examinations, excluding questions containing tables or images.
+  example: ''
+  scoring: Single-letter answers are compared directly with the answer key; longer answers are compared with the
+    key by GPT-4 and Claude Opus, with outputs excluded when the graders disagree. Accuracy is averaged over five
+    runs of all 399 questions, with 99% confidence intervals based on the standard deviation; models producing incoherent
+    responses receive zero accuracy.
+  judge: A text-comparison script grades single-letter answers, and GPT-4 and Claude Opus grade longer answers.
+  scale: Correct or incorrect per answer; mean percentage accuracy across five runs with a 99% confidence interval.
+  validation: GPT-4 and Claude Opus disagreed on 227 of 8,778 outputs, which were excluded from the results.
+  results: GPT-4o led with 86.8% accuracy and a reported 99% confidence interval of ±0.85 percentage points, compared
+    with the reported human average of 67%. Ten of the 31 models exceeded the human average.
+  limitations: The authors note that undisclosed parameter counts for proprietary models make it difficult to analyse
+    performance relative to model size.
+  sources:
+  - https://doi.org/10.1136/bmjhci-2024-101195
+  extracted: '2026-10-27'
 signals:
   citations: 7
   citations_source: OpenAlex

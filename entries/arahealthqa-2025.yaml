@@ -29,6 +29,30 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric]
   modality: [text]
   size: MentalQA 500 QA pairs (300 train, 50 dev, 150 test); MedArabiQ test sets of 100 questions per subtask (dev sets of 300 and 400)
+card:
+  task: Classify Arabic mental-health questions and answer strategies, generate supportive Arabic answers, or answer
+    medical multiple-choice, fill-in-the-blank, and open-ended questions, depending on the subtask.
+  items_built: MentalQA contains 500 annotated pairs of real patient questions and expert doctor responses, curated
+    from publicly available or anonymized sources. MedArabiQ supplied development sets of 300 structured and 400
+    generative questions; its two 100-item test sets used digitized regional Arabic medical exams, including questions
+    converted to fill-in-the-blank format, and patient-doctor questions sampled from AraMed, with no development
+    questions repeated in the test sets.
+  example: ''
+  scoring: Mental-health classification predictions are compared with gold label sets using weighted F1 and Jaccard
+    scores, while structured medical answers are scored by accuracy. Generated answers are compared with reference
+    answers using BERTScore; results are reported separately for each subtask.
+  judge: Automatic metrics assign scores against gold labels and reference answers.
+  scale: Weighted F1, Jaccard, accuracy, and BERTScore, reported separately by subtask.
+  validation: ''
+  results: MentalQA leaders were mucAI with weighted F1 0.61 for question classification, Sindbad and MarsadLab
+    with weighted F1 0.79 for answer-strategy classification, and RetAug with BERTScore 0.679 for generation. MedArabiQ
+    leaders were NYUAD with accuracy 0.77 and MedGapGab with BERTScore 0.873.
+  limitations: The authors state that automatic metrics fail to fully measure appropriateness or trustworthiness,
+    and that potentially misleading, unsafe, or culturally inappropriate outputs require human oversight and must
+    not be treated as clinical advice.
+  sources:
+  - https://arxiv.org/abs/2508.20047
+  extracted: '2026-10-27'
 signals:
   citations: 5
   citations_source: OpenAlex

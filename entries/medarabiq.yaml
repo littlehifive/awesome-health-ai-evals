@@ -27,6 +27,31 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric]
   modality: [text]
   size: Seven tasks; about 100 items each for the multiple-choice and fill-in tasks, 400 source QA pairs for patient-doctor QA
+card:
+  task: Answer each Arabic medical question by selecting an option, completing a blank, or writing a response to
+    a patient's query.
+  items_built: The authors constructed 700 samples from past exams and lecture notes shared on medical-school student
+    platforms and from AraMed patient-doctor question-answer pairs, using manual verification. They randomly selected
+    and digitized 100 multiple-choice questions, manually injected seven categories of bias, constructed fill-in-the-blank
+    variants, selected 100 of AraMed's 400 pairs, and created grammatically corrected and LLM-modified QA variants.
+  example: ''
+  scoring: For choice-based tasks, the first character after "The correct letter is:" is compared with the answer
+    key to calculate accuracy; invalid option characters are treated as invalid responses. Full open-ended responses
+    are compared with reference answers using BERTScore, with results reported by task; bias tests report changes
+    in accuracy after bias injection and mitigation.
+  judge: Choice-based tasks use answer-key comparison, and open-ended tasks use BERTScore with XLM-RoBERTa-Large.
+  scale: Choice accuracy and open-ended BERTScore, reported by task on a percentage scale.
+  validation: ''
+  results: 'No model led every task: Gemini 1.5 Pro achieved 57.5% multiple-choice accuracy, tied Claude 3.5 Sonnet
+    at 72.7% accuracy on fill-in-the-blank with choices, and scored 88.8 BERTScore without choices. Qwen 2.5 led
+    patient-doctor QA and LLM-modified QA with 85.2 and 84.9 BERTScore, while LLaMA 3.1 led grammatically corrected
+    QA with 85.5.'
+  limitations: The authors could not rule out data contamination, called for broader dataset evaluation, and noted
+    that BERTScore can penalize long, informative answers rather than reflect their medical quality.
+  sources:
+  - http://arxiv.org/abs/2505.03427
+  - https://github.com/nyuad-cai/MedArabiQ
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

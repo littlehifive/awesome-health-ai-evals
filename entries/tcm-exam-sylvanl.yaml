@@ -24,6 +24,20 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 4,191 questions
+card:
+  task: Choose an answer from options A through E for each Chinese multiple-choice question about traditional Chinese
+    medicine.
+  items_built: The file tcm_exam_1.csv contains 4,191 questions, each stored with a subject and an answer letter.
+  example: ''
+  scoring: Accuracy is listed as the scoring metric.
+  judge: ''
+  scale: Accuracy.
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://huggingface.co/datasets/SylvanL/Traditional-Chinese-Medicine-Exam
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

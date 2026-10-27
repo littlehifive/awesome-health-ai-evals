@@ -28,6 +28,30 @@ facets:
   eval_methods: [expert_human_rating, rubric_llm_judge]
   modality: [text]
   size: 222 prompts on Hugging Face; 44 clinician-reviewed cases in the preprint
+card:
+  task: Respond to a synthetic clinical prompt while recognizing missing information and preserving safety boundaries
+    around urgent evaluation, medication changes, reassurance, evidence support, and protocol execution.
+  items_built: Goktug Ozkan, MD, an internal medicine clinician, constructed and reviewed 44 synthetic cases from
+    anonymized reasoning patterns in general internal medicine, deliberately leaving clinical variables unspecified
+    and using no patient records. The separate public prompt collection contains 222 unique Turkish and English
+    rows and must not be treated as the 44-case analysis set.
+  example: ''
+  scoring: A clinician assigns each case or reviewed output a severity level and a primary safety gate label; no
+    aggregate model score is specified. A fixed-rule script also produces provisional safety, accuracy, source transparency,
+    refusal appropriateness, and clinical grounding scores, which require clinician review before performance claims.
+  judge: Goktug Ozkan, MD, reviewed the released case labels; fixed-rule scripts assign provisional response-screening
+    scores.
+  scale: Per-case severity from 1 (wording issue) to 5 (high risk unsafe framing), plus a safety gate category;
+    no final aggregate metric specified.
+  validation: ''
+  results: ''
+  limitations: The authors report synthetic-only cases with no demonstrated generalizability to clinical workflows,
+    one clinician reviewer without measured inter-rater agreement, and automated scoring that has not been validated
+    against clinician review.
+  sources:
+  - https://arxiv.org/abs/2607.15166
+  - https://huggingface.co/datasets/goktugozkanmd/medfailbench-v02-prompts
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

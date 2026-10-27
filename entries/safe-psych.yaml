@@ -27,6 +27,34 @@ facets:
   eval_methods: [automatic_metric, rubric_llm_judge]
   modality: [text]
   size: 1,048 clinical notes
+card:
+  task: Review a psychiatric case as clinical sections are revealed and decide at each stage whether to diagnose,
+    request more information, or abstain.
+  items_built: The 1,048 cases came from retrospective records at one Romanian psychiatric hospital and were translated
+    into English and divided into up to five clinical sections. Two psychiatrists independently assessed information
+    sufficiency, assigned ICD-10 diagnoses and marked the earliest sufficient section, with a senior psychiatrist
+    adjudicating disagreements about sufficiency or diagnosis.
+  example: ''
+  scoring: GPT-5.4 extracts diagnosis and information-request fields from each response, and fixed rules map these
+    to DIAGNOSE, CLARIFY or ABSTAIN for comparison with psychiatrist-derived actions and diagnostic timing. Reported
+    measures include under- and over-abstention, first-stage clarification rates, diagnosis timing, and diagnostic
+    accuracy against reference diagnoses at full ICD-10 code, three-character category and diagnostic-group levels.
+  judge: GPT-5.4 classifies responses using fixed mapping rules, with reference labels supplied by two psychiatrists
+    and a senior adjudicating psychiatrist.
+  scale: Three action labels per stage; percentage rates for abstention, clarification, diagnosis timing and diagnostic
+    accuracy.
+  validation: On 149 responses independently annotated by three authors, the judge achieved action-label macro-F1
+    of 0.84 against majority-vote human labels; action-label Fleiss' kappa was 0.89 among humans and 0.86 with GPT-5.4
+    added as a fourth rater. The two psychiatrists agreed on information sufficiency in 90.4% of cases and on the
+    earliest sufficient section in 94.1% of cases both judged sufficient.
+  results: ''
+  limitations: The authors cite limited generalizability from one hospital's retrospective records, possible translation
+    shifts in uncertainty cues, diagnostic label noise, unstable abstention estimates from only 9% insufficient
+    cases, judge noise, difficulty separating uncertainty detection from instruction following, and limited repeated-run
+    testing.
+  sources:
+  - https://arxiv.org/abs/2607.13036
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

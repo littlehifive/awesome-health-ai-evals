@@ -26,6 +26,27 @@ facets:
   eval_methods: [rubric_llm_judge]
   modality: [text]
   size: 5 scenarios in the whitepaper; 7 scenarios in repo v0.3
+card:
+  task: Recommend clinical decisions for an acute medical scenario during spaceflight without real-time ground consultation
+    and with limited onboard resources.
+  items_built: M. Al Kharabsheh created synthetic scenarios loosely informed by public NASA Human Research Program
+    materials, with five scenarios in the whitepaper and seven in the repository. The repository describes the scenarios
+    as clinically reviewed and the rubric as derived from public NASA and aerospace-medicine guidance and reviewed
+    by a clinician.
+  example: ''
+  scoring: Responses are scored against a rubric using keyword and criteria matching by default, with an optional
+    LLM judge. A hard-gate safety multiplier sets the score to zero for contraindicated recommendations; the supplied
+    text does not describe how scores are combined across scenarios.
+  judge: Keyword-based scoring is the default, with an optional user-selected LLM judge.
+  scale: A contraindicated recommendation yields zero; the full scale and aggregate metric are not specified.
+  validation: ''
+  results: ''
+  limitations: The author describes the whitepaper numbers as an initial methodology and states that the synthetic
+    scenarios are only loosely informed by public NASA materials and must not guide real patient care.
+  sources:
+  - https://github.com/dr-mimo/SpaceFlight-Clinical-AI-Benchmarks
+  - https://doi.org/10.5281/zenodo.21920928
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

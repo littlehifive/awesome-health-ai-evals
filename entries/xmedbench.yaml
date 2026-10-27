@@ -34,6 +34,27 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: six per-language test files (item counts not stated in the text read)
+card:
+  task: Select the correct answer to each multiple-choice medical knowledge question in the language provided.
+  items_built: The authors assembled MedQA-USMLE, MedMCQA, six medical-related MMLU categories, MedQA-MCMLE, seven
+    medical-related CMMLU categories, HEAD-QA and FrenchMedMCQA. For Arabic and Hindi, they translated the six MMLU
+    categories with Google Translate and had practicing physicians proofread them.
+  example: ''
+  scoring: Evaluation uses three worked examples per prompt and regular-expression matching to extract the selected
+    option, which is compared with the correct answer. Accuracy is reported for each dataset and averaged across
+    the nine dataset-language evaluations.
+  judge: Automated comparison of the extracted option with the answer key assigns the score.
+  scale: Each answer is correct or incorrect; final scores are percentage accuracy and average accuracy.
+  validation: ''
+  results: GPT-4 led with 73.37% average accuracy, while Qwen-72B led open-source models with 68.74%. Apollo-7B
+    scored 58.78%.
+  limitations: The authors state that Arabic and Hindi lack local evaluations, so these portions use translated
+    MMLU questions instead.
+  sources:
+  - http://arxiv.org/abs/2403.03640
+  - https://huggingface.co/datasets/FreedomIntelligence/XMedbench
+  - https://github.com/FreedomIntelligence/Apollo
+  extracted: '2026-10-27'
 signals:
   citations: 13
   citations_source: OpenAlex

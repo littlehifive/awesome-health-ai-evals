@@ -25,6 +25,23 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 2,400 questions (4 exams)
+card:
+  task: Answer five-option, single-answer multiple-choice questions from the Chinese Dental Licensing Examination.
+  items_built: The dataset contains 2,400 questions from four examinations, drawn from Historical Chinese Dental
+    Licensing Examinations, an official preparation book authored by the Chinese National Licensed Physician Qualification
+    Examination Proposition Research Group.
+  example: ''
+  scoring: Performance is reported as mean exam accuracy with standard deviation and pass/fail outcomes, and as
+    question-level accuracy with 95% and 99% confidence intervals.
+  judge: ''
+  scale: Exam-level mean accuracy ± standard deviation and pass/fail; question-level accuracy with confidence intervals.
+  validation: ''
+  results: 'Qwen3-Max performed best, with exam-level mean accuracy of 0.866 ± 0.089 and question-level accuracy
+    of 0.865 (95% CI: 0.852-0.878). All five tested models passed the examinations.'
+  limitations: ''
+  sources:
+  - https://doi.org/10.21203/rs.3.rs-7968968/v1
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

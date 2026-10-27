@@ -40,6 +40,27 @@ facets:
   modality:
   - text
   size: 360,600 questions; 15,000 users
+card:
+  task: Answer a diabetes-management question using the supplied glucose and behavior data where applicable, covering
+    calculations, education, reasoning, decisions, planning, or alerts and triage.
+  items_built: The authors created 135,000 glucose-math questions from nine templates, while Gemini 2.5 Flash generated
+    600 educational questions and 225,000 behavior-grounded questions from user data. Generated questions underwent
+    binary checks for fluency, relevance, originality, difficulty, and answerability, with up to five refinement
+    attempts, an additional within-user originality check, and expert human review of a sample.
+  example: '"What workouts from this past month consistently lower my glucose levels?"'
+  scoring: Gemini 2.5 Pro assigns each answer a binary score for accuracy, groundedness, safety, clarity, and actionability
+    using task-specific criteria, followed by expert human verification; six of the nine glucose-math questions
+    are checked against exact ground-truth values. Results report the percentage of answers passing each metric
+    across users and tasks, with Bernoulli standard errors.
+  judge: Gemini 2.5 Pro grades answers, followed by verification by an expert human reviewer.
+  scale: 0 or 1 per criterion; percentage passing each criterion, with standard error.
+  validation: ''
+  results: GPT-5 had the highest average performance across the five metrics at 87.4%. No model led on every metric.
+  limitations: The dataset lacks detailed demographics and insulin and medication information, relies on potentially
+    sparse and noisy wearable and self-logged data, and covers only part of diabetes-management decision-making.
+  sources:
+  - https://arxiv.org/abs/2510.00038
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

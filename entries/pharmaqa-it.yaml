@@ -26,6 +26,22 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 861 question-answer pairs
+card:
+  task: Answer each Italian question by extracting the answer from the supplied medicine product-characteristics
+    text and returning it in structured JSON.
+  items_built: A semi-automatic pipeline selected informative pages from 1,077 AIFA product-characteristics documents
+    in PharmaER.IT and used a multimodal LLM prompted with professional personas to generate candidate question-answer
+    pairs from page images. Experts revised and normalised the candidates to produce 861 pairs.
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: ''
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://doi.org/10.48448/605g-wg23
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

@@ -27,6 +27,30 @@ facets:
   eval_methods: [automatic_metric, mcq_exact_match]
   modality: [text]
   size: "1,208 samples (open models); 496-sample subset for closed models"
+card:
+  task: Given a food image and a text question, identify ingredients and cooking methods, estimate component weights
+    and macronutrient amounts in grams, or choose an intake recommendation for a specified health condition.
+  items_built: The authors selected 1,208 samples from MM-Food-100K across homemade food, restaurant food, packaged
+    food, and raw ingredients, and checked them through manual spot checks. They derived disease-specific intake
+    labels from the original protein, fat, and carbohydrate weights using numerical intake ranges.
+  example: '"I have high blood lipids (hyperlipidemia). How should I control my intake when faced with the food
+    in the picture?"'
+  scoring: Cooking methods and intake recommendations are compared with reference labels using classification accuracy,
+    and predicted ingredient sets are compared with reference sets using ingredient match rate. Component weights
+    and macronutrient estimates are compared with reference amounts using mean absolute percentage error, with results
+    reported separately by task and food category or health condition.
+  judge: ''
+  scale: Classification accuracy and ingredient match rate in percent; mean absolute percentage error for weight
+    and nutrient estimates, where lower is better.
+  validation: ''
+  results: GPT-5.1 led cooking-method accuracy in three of four food categories, reaching 87.23% on raw vegetables
+    and fruits. For kidney-disease advice, the best model was Llama-3.2-11B-Vision at 46.11% accuracy; proprietary
+    models were tested on 496 samples, while open-source models were tested on 1,208.
+  limitations: ''
+  sources:
+  - https://arxiv.org/abs/2607.08423
+  - https://github.com/PbRQianJiang/OmniFood-Bench
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

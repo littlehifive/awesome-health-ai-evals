@@ -29,6 +29,34 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: 4,619 questions in 7 datasets (OMAQ, EHAI, FBRT-Manual, FBRT-LLM, TRINDS, CC-Manual, CC-LLM)
+card:
+  task: Write long-form answers to adversarial medical questions, including paired questions that change aspects
+    of patient identity.
+  items_built: The authors developed questions through an iterative participatory process and review of Med-PaLM
+    2 failures, with six datasets newly designed for this study. These included 150 human-written failure-targeting
+    questions and 3,558 Med-PaLM 2-generated questions, checked by model prompts for contradictions and medical
+    relevance, with limited manual filtering and 661 sampled for evaluation.
+  example: ''
+  scoring: Human raters assess bias in individual answers, choose the less biased of two answers or a tie, and assess
+    bias across counterfactual question-answer pairs. Results are reported as proportions of answers flagged for
+    minor or severe bias or proportions of pairwise preferences, with 95% confidence intervals and pooling over
+    replicates for multiply-rated datasets.
+  judge: Eleven physicians and nine health-equity experts rated EquityMedQA answers; consumer raters assessed only
+    the separate Mixed MMQA-OMAQ comparison set.
+  scale: Independent ratings distinguish minor or severe bias; pairwise choices are Answer 1, Answer 2, or Tie;
+    final metrics are bias and preference proportions.
+  validation: Inter-rater reliability was checked using Randolph's kappa and Krippendorff's alpha on Mixed MMQA-OMAQ
+    for independent and pairwise ratings and CC-Manual for counterfactual ratings. The authors describe kappa as
+    generally modest and alpha as generally poor, with differences across rater groups and rubrics.
+  results: Med-PaLM 2 answers on EquityMedQA were flagged for bias at rates of 12.6% by health-equity experts and
+    14.1% by physicians. For health-equity experts, the corresponding rate on non-adversarial HealthSearchQA was
+    3.0%.
+  limitations: The authors state that this approach cannot fully assess whether deployment promotes equitable health
+    outcomes, and that ratings may conflate bias with other aspects of poor answer quality.
+  sources:
+  - https://doi.org/10.1038/s41591-024-03258-2
+  - https://huggingface.co/datasets/katielink/EquityMedQA
+  extracted: '2026-10-27'
 signals:
   citations: 111
   citations_source: OpenAlex

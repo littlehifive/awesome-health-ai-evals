@@ -26,6 +26,33 @@ facets:
   eval_methods: [mcq_exact_match, expert_human_rating]
   modality: [text]
   size: 105,222 questions
+card:
+  task: Choose one answer to each medical multiple-choice question about a numerical range or a semantic relationship,
+    with an option to answer "I do not know."
+  items_built: The authors generated 105,222 questions using relation-specific templates applied to Kahun's knowledge
+    graph, which draws on more than 50,000 peer-reviewed studies. They removed questions with multiple sources or
+    backgrounds, nonmedical questions, duplicates, and questions with "all answers are correct" or "none of the
+    answers are correct" options.
+  example: ''
+  scoring: Selected answers are compared with the correct answers derived from the knowledge graph, and accuracy
+    is the number correct divided by the number answered, excluding "I do not know" responses. Answer rate is the
+    proportion of questions answered rather than abstained from, with results reported separately for numerical
+    and semantic questions and topic subgroups.
+  judge: Answers are scored against the knowledge-graph-derived answer key.
+  scale: Correct or incorrect per answer; percentage accuracy excluding abstentions and percentage answer rate.
+  validation: 'On 100 numerical questions, 2 physicians and 4 clinical-year medical students achieved mean accuracy
+    of 82.3% with the abstention option and 78.2% with mandatory guessing. Across four answer orders, neither model
+    showed a significant accuracy difference with versus without abstention: Claude 3 Opus scored 64.25% versus
+    59.25% (P=.17), and GPT-4 scored 55.75% versus 53.25% (P=.24).'
+  results: Claude 3 Opus scored 68.7% on semantic questions and 61.3% on numerical questions, compared with GPT-4's
+    68.4% and 56.7%. On the 100-question numerical comparison with abstention allowed, humans averaged 82.3%, versus
+    64.3% for Claude 3 Opus and 55.8% for GPT-4.
+  limitations: The study excluded medically tuned models, additional context and retrieval methods, required single-answer
+    responses without feedback, did not analyze progressive abstention patterns, and noted potential biases in model
+    training data.
+  sources:
+  - https://doi.org/10.2196/64452
+  extracted: '2026-10-27'
 signals:
   citations: 5
   citations_source: OpenAlex

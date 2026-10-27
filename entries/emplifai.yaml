@@ -26,6 +26,34 @@ facets:
   eval_methods: [automatic_metric, rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 280 situations, 4,125 two-turn dialogues, 28 emotion labels
+card:
+  task: Generate a Japanese two-turn patient-supporter dialogue for a given emotion-situation pair, or identify
+    the intended emotion from a situation-dialogue pair.
+  items_built: In two crowdsourcing rounds, workers drew on personal medical experiences to write emotion-specific
+    situations, then used those situations to write patient-supporter dialogues, producing 280 situations and 4,125
+    dialogues. Two native Japanese researchers reviewed the translated GoEmotions labels, and two research assistants
+    with at least three years of medical annotation experience reviewed entries after each round, modifying or flagging
+    emotionally inappropriate or harmful content.
+  example: ''
+  scoring: Gemini-2.5-Flash rates generated dialogues on seven criteria using five-point rubrics, with results reported
+    by criterion across 100 sampled emotion-situation pairs; outputs in the wrong format receive the lowest score.
+    Emotion predictions are compared with reference labels using FastText cosine similarity and BERTScore precision,
+    recall and F1, averaged across items.
+  judge: Gemini-2.5-Flash grades dialogue quality, and three crowd workers per dialogue provide comparison ratings.
+  scale: 'Dialogue criteria: 1 to 5, higher is better; emotion prediction: mean FastText cosine similarity and mean
+    BERTScore precision, recall and F1.'
+  validation: Human ratings were averaged across three crowd workers per dialogue for 100 dialogues and compared
+    with Gemini-2.5-Flash ratings. GPT-o3-pro received judge scores of 5/5 on three criteria, but human scores on
+    those criteria were 4.03 for general empathy, 4.21 for harmlessness and 3.87 for sense of security.
+  results: GPT-o3-pro had the highest emotion-prediction BERTScore F1 at 0.88 and dialogue judge scores of 4.97
+    to 5.00 across the seven criteria. Human raters scored its dialogues from 3.87 to 4.57, with DeepSeek scoring
+    higher on harmlessness and sense of security.
+  limitations: The authors identify response-length bias, limited generalization beyond Japanese chronic-condition
+    contexts, imagined dialogues that may not reflect clinical conversations, and a judge that overrates polished
+    responses relative to human assessments of empathy.
+  sources:
+  - https://arxiv.org/abs/2601.10033
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

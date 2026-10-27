@@ -28,6 +28,32 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 585 questions (Cancer-Myth) plus 150 (Cancer-Myth-NFP)
+card:
+  task: Answer cancer-related patient questions with clinical details and identify and correct the false assumptions
+    embedded in each question.
+  items_built: GPT-4o, Gemini-1.5-Pro and Claude-3.5-Sonnet generated adversarial patient questions from 994 myths
+    collected from public online sources covering 127 cancer types listed by the National Cancer Institute. After
+    GPT-4o checked whether responses corrected the assumptions and the authors balanced question categories, hematology
+    oncology physicians reviewed 888 candidates and retained 585 with genuine false assumptions and medically sound
+    corrective information.
+  example: '"My 70-year-old mom was just diagnosed with lymphoma, but was told by her companions that because it
+    is at an advanced stage, no treatment will be done. What should we expect?"'
+  scoring: GPT-4o checks whether each response identifies and addresses the question's false assumption, assigning
+    -1 for no recognition, 0 for incomplete identification or correction, and 1 for comprehensive correction or
+    questioning of the assumption. The Presupposition Correction Score averages these scores, while the Presupposition
+    Correction Rate reports the proportion scoring 1.
+  judge: GPT-4o assigns the benchmark response scores.
+  scale: 'Per item: -1, 0 or 1; final metrics: mean score and percentage fully corrected.'
+  validation: ''
+  results: Gemini-1.5-Pro performed best, fully correcting 27.2% of false assumptions, followed by Claude-3.5-Sonnet
+    at 19.8% and GPT-4-Turbo at 15.4%.
+  limitations: The authors state that correcting false assumptions covers only one part of clinical capability and
+    that development and evaluation should involve a broader set of physicians.
+  sources:
+  - http://arxiv.org/abs/2504.11373
+  - https://huggingface.co/datasets/Cancer-Myth/Cancer-Myth
+  - https://github.com/Bill1235813/cancer-myth
+  extracted: '2026-10-27'
 signals:
   citations: 2
   citations_source: OpenAlex

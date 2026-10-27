@@ -25,6 +25,28 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric, rubric_llm_judge]
   modality: [text]
   size: 80 synthetic patients, about 18 dialogues per patient; three tasks (In-dialogue, Cross-dialogue, Synthesis Reasoning)
+card:
+  task: Answer questions about a single doctor-patient encounter or across encounters, and answer multiple-choice
+    questions requiring reasoning over the patient's full history.
+  items_built: The authors used LLMs to generate fictional patient records guided by disease and complication knowledge,
+    generate multi-turn encounters for individual medical events, and arrange them chronologically. They derived
+    three categories of questions from these histories; the underlying patient records are hidden from models during
+    testing.
+  example: ''
+  scoring: Answers to in-dialogue and cross-dialogue questions are evaluated with F1 and BLEU-1, while synthesis
+    multiple-choice answers are evaluated with accuracy. The text does not specify how scores are aggregated across
+    questions.
+  judge: Automatic F1, BLEU-1, and accuracy calculations score benchmark answers.
+  scale: F1 and BLEU-1 for in-dialogue and cross-dialogue questions; accuracy for synthesis multiple-choice questions.
+  validation: ''
+  results: ''
+  limitations: The authors state that synthetic histories differ from real clinical distributions, especially for
+    rare diseases, complex comorbidities, and behavioral health factors; LLM-based data-quality judgments need better
+    agreement with clinical experts; and the dialogues lack systematic integration of images, lab curves, and structured
+    health records.
+  sources:
+  - https://arxiv.org/abs/2605.19766
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

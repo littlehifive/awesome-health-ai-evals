@@ -27,6 +27,26 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric]
   modality: [text]
   size: 3,341 questions plus a 12-question supplementary probe
+card:
+  task: Answer multiple-choice, binary-comparison, and free-text questions about disease and phenotype onset, progression,
+    and ordering, alongside static knowledge controls.
+  items_built: The authors generated 3,329 questions across eight task types and a separate 12-question diagnostic
+    probe from Orphadata, HPOA, GA4GH Phenopackets, and PMID-linked ChronoMedKG triples. Four rounds of independent
+    LLM review covered 180 questions with 540 assessments; automated checks removed 30 logically inconsistent questions,
+    and all 1,447 external-source answers matched their source data.
+  example: '"at what age does phenotype X emerge in disease Y?"'
+  scoring: Answers are evaluated for correctness and reported as accuracy by task on a stratified 120-question baseline
+    sample. The separate 147-question retrieval experiment uses a calibrated rubric and reports accuracy plus the
+    fraction of questions answered incorrectly without retrieval that are answered correctly with retrieval.
+  judge: ''
+  scale: Answer accuracy; retrieval rescue rate on questions failed without retrieval.
+  validation: ''
+  results: ''
+  limitations: The authors state that the underlying graph still contains extraction errors despite multi-model
+    consensus and that its 6,250 diseases without external reference coverage require expert review at scale.
+  sources:
+  - https://arxiv.org/abs/2605.22734
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

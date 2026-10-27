@@ -29,6 +29,31 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 24,883 questions (about 80 percent train, 20 percent test)
+card:
+  task: Select the correct answer to each Arabic medical multiple-choice question from four or five options.
+  items_built: Professional typists digitized scanned exams from student-led platforms at regional medical schools,
+    and five NLP researchers manually filtered 34,333 questions to retain 24,883. Two board-certified clinicians
+    in Anesthesiology and Internal Medicine, each with Arabic clinical fluency and over 20 years of experience,
+    independently reviewed 378 questions, while LLM judges assessed quality across the test set.
+  example: ''
+  scoring: Pattern matching extracts an answer-choice letter from each model response and compares it with the answer
+    key. Accuracy is the proportion of test questions answered correctly.
+  judge: Automated comparison with the answer key assigns model-performance scores.
+  scale: Correct or incorrect per question; overall accuracy from 0 to 1.
+  validation: Two board-certified clinicians (anesthesiology and internal medicine, 20+ years each) independently
+    rated a sample of 378 test questions on medical accuracy, clinical relevance, difficulty and question quality;
+    mean scores were 0.653 to 0.767, percent agreement 65.6 to 82.0% and Cohen's kappa 0.152 to 0.555. Four LLM
+    judges rated the whole test set on the same criteria and correlated weakly to moderately with the experts (GPT-o3
+    highest, r = 0.577 and 0.505 for medical accuracy).
+  results: GPT-o3 achieved the highest zero-shot accuracy at 0.765, followed by GPT-5 at 0.764.
+  limitations: The authors note that the benchmark tests text-only multiple-choice classification rather than generation
+    or image-based reasoning, cannot rule out contamination, assumes Modern Standard Arabic fluency, has inconsistent
+    expert quality ratings, and is skewed toward early study years, limiting assessment of advanced clinical reasoning.
+  sources:
+  - http://arxiv.org/abs/2602.01714
+  - https://huggingface.co/datasets/IFM/MedAraBench_verified
+  - https://github.com/nyuad-cai/MedAraBench
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

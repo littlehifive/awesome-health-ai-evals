@@ -25,6 +25,25 @@ facets:
   eval_methods: [rubric_llm_judge]
   modality: [text]
   size: 484 gold-standard excerpts; 7 dialogues, 1,290 exchanges, 3 LLMs
+card:
+  task: Respond to user messages in an extended dialogue while replies are assessed for intensifying anomalous interpretations
+    within domains or introducing new domains.
+  items_built: The authors developed an automated rubric-based prompt from phenomenological psychiatry and evaluated
+    it on 484 gold-standard text excerpts adapted from clinically validated qualitative instruments. They then applied
+    it to 1,290 user-LLM response exchanges from 7 dialogues using 3 LLMs with 5 repeats each.
+  example: ''
+  scoring: Automated LLM scoring assigns domain scores to text and tracks increases within a domain as amplification
+    and the appearance of new domains over time as expansion.
+  judge: LLMs assign the scores; the abstract does not name them.
+  scale: Domain scores from 0 to 3; domain amplification and expansion across dialogues.
+  validation: Against the 484 gold-standard excerpts, domain accuracy was 82.7-98.9% and exact agreement on 0-3
+    scores was 63.6-82.7%.
+  results: Across dialogues, amplification was significant in four domains (p < .05; d = 0.14-0.46), and domain
+    expansion occurred in 83.8% of dialogues (88/105; p < .001).
+  limitations: ''
+  sources:
+  - https://doi.org/10.64898/2026.03.19.26346371
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

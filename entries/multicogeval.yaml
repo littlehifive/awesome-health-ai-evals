@@ -27,6 +27,36 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric]
   modality: [text]
   size: "Low level 3,611 MCQs (MedQA 795, MedMCQA 2,816); mid level 21,666 reformulated questions (MedQA 4,770, MedMCQA 16,896); high level 2,176 MIMIC-IV diagnosis cases"
+card:
+  task: Answer medical multiple-choice questions, validate statements, verify and correct answers, judge whether
+    an answer is present among options, or sequentially request examinations and give a final diagnosis for a patient
+    record.
+  items_built: The authors reformulated each MedQA and MedMCQA question into six application questions, using GPT-4o
+    to generate statements and distractors that three doctors with over three years of experience checked, finding
+    an error rate below 5%. They used MedCAT and ICD-10-CM codes to select 2,176 MIMIC-IV admission records covering
+    42 diseases across eight body systems, matching primary discharge diagnoses to diseases identified in the question
+    datasets.
+  example: ''
+  scoring: Low- and mid-level answers are scored by accuracy; each high-level case receives examination recall multiplied
+    by whether the final diagnosis is correct, averaged across cases. Scores are normalized by subtracting random-guess
+    accuracy and dividing by one minus that baseline, with means and standard errors reported across 3-5 evaluation
+    runs.
+  judge: Automated answer scoring uses reference answers, with the UMLS Metathesaurus and a handcrafted synonym
+    set identifying requested examinations and diagnoses.
+  scale: Answer accuracy or diagnosis correctness multiplied by examination recall; chance-adjusted accuracy reported
+    as a percentage.
+  validation: Prediction detection using UMLS and handcrafted synonyms reached about 95% across categories. In a
+    difficulty validation using 100 randomly selected samples, four licensed clinicians with 3-8 years of experience
+    achieved 68.8%, 54.2%, and 23.5% accuracy at the low, mid, and high levels, with mean difficulty ratings of
+    5.0, 6.0, and 7.5 out of 10.
+  results: DeepSeek-V3 achieved the highest reported full-path diagnosis accuracy at 19.4%, compared with 53.6%
+    for final diagnosis alone. Clinicians achieved 23.5% accuracy on the high-level tasks in the small-scale validation
+    study.
+  limitations: The authors state that the evaluation is constrained by its medical knowledge coverage and task diversity.
+  sources:
+  - https://arxiv.org/abs/2506.08349
+  - https://github.com/THUMLP/MultiCogEval
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

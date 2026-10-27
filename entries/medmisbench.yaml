@@ -28,6 +28,34 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 10,932 items; 48,889 misleading context-option pairs
+card:
+  task: Answer each multiple-choice medical question both without added context and with either one misleading claim
+    supporting a wrong option or a bundle containing truthful support for the correct option and misleading support
+    for every wrong option.
+  items_built: The authors filtered questions from MedQA, MedMCQA, MedXpertQA, MedJourney, and HLE for answer grounding
+    and applicability of misleading context, then used Gemini-3-flash to generate option-wise claims, yielding 10,932
+    released questions and 48,889 misleading context-option pairs. A 14-member panel of clinicians, clinical students,
+    and clinical researchers from 7 countries reviewed 89 items, giving a composite item-quality score of 1.76/2.00.
+  example: '"Which of the following is not false about annual risk of TB"'
+  scoring: Selected answers are automatically compared with the gold answers to report accuracy before and after
+    injection. Attack success rate is the percentage of initially correct answers that become incorrect after injection;
+    targeted attack success rate counts those that change specifically to the sampled wrong option.
+  judge: Automatic comparison with the answer key assigns correctness, while 14 clinicians, clinical students, and
+    clinical researchers from 7 countries separately review response harm.
+  scale: Correct or incorrect per answer; percentage accuracy, attack success rate, and targeted attack success
+    rate.
+  validation: Clinician correctness judgments agreed with automatic labels on 155/158 annotations (98.1%, 95% CI
+    94.6-99.4). Across 64 dual-rated tasks, Gwet's AC2 was 0.94 for correctness, 0.95 for injection uptake, 0.84
+    for harm potential, and 0.78 for clinical grounding.
+  results: Gemini-3.1-pro with high reasoning had the highest clean accuracy at 83.5%, but fell to 29.9% under focused
+    misleading context, with 65.0% attack success. Across 11 model configurations, mean accuracy fell from 71.1%
+    to 38.0%, with 51.5% attack success.
+  limitations: The benchmark is text-only and single-turn, difficulty varies substantially across splits, some tasks
+    are highly specialized, and a small Chinese-language subset requires multilingual handling.
+  sources:
+  - https://doi.org/10.64898/2026.05.25.727671
+  - https://huggingface.co/datasets/HongjianZhou/MedMisBench
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

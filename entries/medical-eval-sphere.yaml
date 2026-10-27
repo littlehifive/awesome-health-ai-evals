@@ -27,6 +27,34 @@ facets:
   eval_methods: [expert_human_rating, rubric_llm_judge]
   modality: [text]
   size: 1,077 deduplicated questions; 400 pairwise annotated comparisons in the released v1.0 split
+card:
+  task: Write a long-form answer to each consumer medical or health question.
+  items_built: The authors collected 4,271 user inputs from Lavita Medical AI Assist between October 31, 2023 and
+    February 12, 2024, then used language filtering, GPT-4 medical-question detection and grammar correction, human
+    review, and semantic deduplication to retain 1,077 questions. They sampled four 100-question annotation batches
+    proportionally across GPT-4-assigned difficulty levels; medical-question detection was checked on 337 queries,
+    and one human reviewed all 1,446 queries initially identified as medical.
+  example: ''
+  scoring: For each question, raters compare two answers on six criteria and choose Response A, Response B, Tie
+    (equally good), or Neither (equally bad); results are reported as cumulative vote distributions by criterion.
+    Each LLM judge runs three times in each answer order, with majority votes within each order and disagreements
+    across orders or judges resolved as Tie, or Neither for harmfulness and bias.
+  judge: Three physicians specializing in radiology and pathology, with two assigned per batch, provide human ratings;
+    gpt-4o-2024-08-06 and claude-3-5-sonnet-20241022 provide separate LLM judgments.
+  scale: Four choices per criterion per answer pair; cumulative vote counts by criterion, without a single overall
+    score.
+  validation: The two LLM judges had 71% observed agreement and a Cohen's kappa of 0.55, with 37% chance agreement;
+    changing answer order changed judgments in 17% of cases. Physician agreement was described as slight to fair
+    for the first two batches and fairly low for the last two, with directly opposing Response A versus Response
+    B votes accounting for 4.83%, 5.83%, 7%, and 5.33% of judgments across the four batches.
+  results: ''
+  limitations: The authors report low physician agreement, especially in the last two batches, and a remaining gap
+    between LLM judgments and human labels.
+  sources:
+  - http://arxiv.org/abs/2411.09834
+  - https://huggingface.co/datasets/lavita/medical-eval-sphere
+  - https://github.com/lavita-ai/medical-eval-sphere
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

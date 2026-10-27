@@ -25,6 +25,23 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 3,723 records (1,273 from MedQA, 2,450 from MedXpertQA)
+card:
+  task: Answer medical multiple-choice questions with added medically related context that does not change the correct
+    answer.
+  items_built: The dataset uses 1,273 MedQA-USMLE test questions and 2,450 MedXpertQA-Text test questions. Medical
+    entities are extracted from each question, and an LLM rewrites the top two co-occurring entity triplets from
+    a PPMI matrix built from 11,493 ICHI/ICD-11 entities and 12,820 PubMed papers into factual context sentences
+    for insertion.
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: Accuracy.
+  validation: ''
+  results: Across six general-purpose and medical LLMs, adding the context lowered accuracy by 3.1% on average.
+  limitations: ''
+  sources:
+  - https://huggingface.co/datasets/SiyuanChen/CORE-MedQA
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

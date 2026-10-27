@@ -26,6 +26,31 @@ facets:
   eval_methods: [expert_human_rating, rubric_llm_judge]
   modality: [text]
   size: 3 instruments; 60 rated conversations (48 with a human clinician, 12 GPT self-chat)
+card:
+  task: Role-play a patient in a text conversation with a clinician and provide feedback on the clinician's performance.
+  items_built: The instruments apply to virtual patient dialogues and clinician-performance feedback, with items
+    grounded in theory and prior empirical work and reviewed by three experts in virtual patients or natural language
+    generation. Validation used 60 conversations about chronic cough diagnosis or diabetes management, including
+    48 with physician investigators playing clinicians and 12 with GPT playing both roles.
+  example: '"The feedback correctly identifies important weaknesses and strengths in the clinician''s performance."'
+  scoring: Raters judge outputs against agreement statements and operational criteria, with a separate yes-or-no
+    bias flag. Results are reported as unweighted means, standard deviations, and medians across conversations,
+    including overall authenticity and user-experience ratings and average feedback quality.
+  judge: Three blinded, board-certified internal medicine physicians rated all conversations; GPT-4.0-Turbo rated
+    authenticity and feedback in three runs, but not user experience.
+  scale: Items range from 1 (strongly disagree) to 6 (strongly agree); final results use unweighted means and medians.
+  validation: Experts approved the instruments with minor clarifications, and ratings showed expected differences
+    by model and clinician type. Human ratings were 0.52 points lower than GPT ratings for overall authenticity,
+    while feedback ratings were only 0.10 points higher; all raters agreed on the bias flag.
+  results: GPT-4.0-Turbo received higher ratings than GPT-3.5-Turbo. Across the evaluated conversations, mean overall
+    authenticity was 4.7 (SD 0.7), overall user experience was 4.9 (SD 0.7), and average feedback quality was 4.7
+    (SD 0.6), all out of 6.
+  limitations: The authors report low rating reproducibility, suboptimal zero-shot GPT grading, changed rating criteria
+    that prevented test-retest assessment, and evaluation limited to text, two outpatient topics, a narrow range
+    of patient preferences, and investigators rather than real learners.
+  sources:
+  - https://doi.org/10.2196/68486
+  extracted: '2026-10-27'
 signals:
   citations: 94
   citations_source: OpenAlex

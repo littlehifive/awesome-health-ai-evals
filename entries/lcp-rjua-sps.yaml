@@ -26,6 +26,29 @@ facets:
   eval_methods: [automatic_metric, simulated_multi_turn]
   modality: [text]
   size: 45 standardized patients for 45 common urological diseases
+card:
+  task: Answer clinical questions from patient information, recommend tests and examinations, or conduct a multi-turn
+    patient consultation ending with a diagnosis and treatment plan.
+  items_built: Clinical physicians selected 45 common urological diseases and used real patient communications,
+    diagnoses, treatment information, and objective findings to create 45 standardized patient records through expert-level
+    transcription. Each record underwent at least three rounds of manual calibration and validation involving a
+    urology expert, algorithm engineers, and a medical expert team checking completeness, clinical authenticity,
+    terminology, dialogue, reasoning, and diagnosis.
+  example: '"I am experiencing frequent urination recently, what should I do?"'
+  scoring: The retrieval-augmented evaluator compares diagnoses, treatments, and recommended tests and examinations
+    with reference information retrieved from standardized patient records to calculate accuracy. For dialogue,
+    it also checks information collected, inquiry order, reasonable test requests, and consultation rounds against
+    the records and clinician references; the excerpts do not specify how these scores are combined.
+  judge: An automated retrieval-augmented evaluator assigns the scores.
+  scale: Accuracy for diagnosis, treatment, and test and examination recommendations; six clinical capability measures
+    for dialogue.
+  validation: ''
+  results: GPT-4 achieved the highest reported diagnostic reasoning accuracy for test and examination recommendations
+    at 20.15%; the other evaluated models scored below 20%.
+  limitations: ''
+  sources:
+  - https://arxiv.org/abs/2403.16446
+  extracted: '2026-10-27'
 signals:
   citations: 17
   citations_source: OpenAlex

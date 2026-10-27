@@ -26,6 +26,27 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 400+ questions, with over 3.3 trillion possible combinations
+card:
+  task: Answer four-option multiple-choice questions about symptoms, conditions, treatments, severity classifications,
+    and follow-up schedules under WHO IMCI childhood illness guidelines.
+  items_built: Jessica Lundin and Guillaume Chabot-Couture at the Institute for Disease Modeling, Gates Foundation,
+    converted the 80-page WHO IMCI handbook into a directed graph with 200+ nodes and 300+ edges. Graph traversal
+    generated 400+ questions using four templates for each of five question types, with ages and distractors drawn
+    from the condition's valid age range and coverage of all guideline relationships.
+  example: 'Q: A 13 month old child with Very Severe Disease should be classified as: Options: A: moderate, B: mild,
+    C: none, D: severe Answer: D'
+  scoring: The model's selected answer letter is compared with the correct answer generated from the graph. Accuracy
+    is reported overall and by question type, with standard deviations across template variations.
+  judge: Answers are checked against the graph-derived answer key.
+  scale: Correct or incorrect per question; overall and per-type accuracy percentages with standard deviations.
+  validation: ''
+  results: o4-mini led the seven tested models with 67.5% overall accuracy, reported with a standard deviation of
+    16.6 percentage points.
+  limitations: The benchmark inherits any inaccuracies in its source graph and covers only text-based multiple-choice
+    questions, without patient vignettes or multi-turn conversations.
+  sources:
+  - https://arxiv.org/abs/2508.20810
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

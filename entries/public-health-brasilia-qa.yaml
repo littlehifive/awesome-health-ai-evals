@@ -25,6 +25,25 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 650 QA pairs (500 test, 150 validation); 1,688-article knowledge base
+card:
+  task: Answer Brazilian Portuguese questions about public health facilities, services, programs, and community
+    impacts in named locations in Brazil's Federal District using SES-DF news articles.
+  items_built: Claude Haiku 4.5 generated 933 question-answer pairs from SES-DF news articles, using Portuguese
+    prompts designed with guidance from a public health expert to reflect inquiries from researchers, managers,
+    and citizens. Filtering discarded empty questions or answers and required a source-article location name in
+    each question through case-insensitive substring matching; 283 pairs failed the location check, leaving 650
+    pairs split into 500 test and 150 validation items.
+  example: Qual unidade de saúde da Asa Norte promoveu uma manhã de ações preventivas com testagem para HIV e ISTs
+    em dezembro?
+  scoring: ''
+  judge: ''
+  scale: ''
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://huggingface.co/datasets/gvic-unb/public-health-news-DF-qa
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

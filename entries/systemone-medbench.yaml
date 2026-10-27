@@ -26,6 +26,33 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: "10 public datasets, 4,408 parent entries, 29,582 evaluation requests (full paper benchmark: 15 datasets, 8,742 instances)"
+card:
+  task: Select a medical decision from supplied candidates or answer a binary proposition using clinical text or
+    structured numerical evidence.
+  items_built: The collection freezes selected cohorts from 10 existing benchmarks, preserving 4,408 parent entries
+    and exporting 29,582 requests with relabeled, shuffled, binary, missing-answer and optional-abstention variants.
+    Original inputs, detached source labels and identity mappings are preserved without re-sampling; no new clinical
+    adjudication is claimed.
+  example: Using the supplied numerical features extracted from a cardiotocography (CTG) recording, classify fetal
+    state as normal, suspect, or pathologic. Select one class. This task does not ask whether delivery or another
+    treatment should be performed.
+  scoring: Decisions are aligned to canonical labels and compared with detached source references, including acceptable
+    alternatives and maximum-score SCT options; overall and category accuracy and macro-F1, robustness and abstention
+    results use equal dataset weighting. Probability-based selection pools the declared cohort and reports accuracy,
+    retained count and coverage at probability thresholds from 0.70 to 0.90 and global top 5%, 10%, 15%, 20% and
+    25%.
+  judge: Scoring uses detached source answer keys, annotations and expert references.
+  scale: Correct or incorrect per decision; equal-dataset-weighted accuracy and macro-F1, plus selected-subset accuracy,
+    count and coverage.
+  validation: ''
+  results: ''
+  limitations: Repeated scenarios, ambiguous annotations, overlapping source cohorts, proxy targets and unknown
+    pretraining exposure affect interpretation, and selective accuracy does not establish calibration, clinical
+    safety, fairness or deployed routing efficiency.
+  sources:
+  - https://arxiv.org/abs/2610.18529
+  - https://huggingface.co/datasets/yrdu/systemone-medbench
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

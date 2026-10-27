@@ -27,6 +27,32 @@ facets:
   eval_methods: [rubric_llm_judge, automatic_metric]
   modality: [text]
   size: 17,223 QA items (9,888 factual, 3,400 multi-hop, 3,935 refusal) over 700 labels
+card:
+  task: Answer questions about prescription drug labels, cite supporting passage identifiers when requested, and
+    abstain when the label cannot answer the question.
+  items_built: An LLM generated 9,888 factual and 3,400 two-section questions from 700 FDALabel Database labels,
+    guided by FDA regulatory assessors' feedback on 50 seed questions; rules and an LLM judge filtered correctness
+    and question quality. Another 3,935 refusal questions used clinical templates with out-of-scope terms checked
+    to be absent from the full label.
+  example: ''
+  scoring: An LLM compares each response with the reference answer and assigns correct, incorrect, or not attempted,
+    with answer accuracy reported separately for factual and multi-hop questions. Automatic scoring reports refusal
+    F1, macro-F1 between cited and gold passage identifiers, and retrieval overlap and recall at specified cutoffs.
+  judge: An unnamed LLM grades answer correctness, and automatic comparisons score refusal, citations, and retrieval.
+  scale: Answers receive A (correct), B (incorrect), or C (not attempted); reported metrics are accuracy, F1, and
+    retrieval recall.
+  validation: The question-relevance judge achieved precision 0.968 and F1 0.800 against FDA expert judgments. The
+    item-filtering judge achieved average precision 0.797 and F1 0.683 against human annotators, rising to 0.922
+    and 0.738 when multi-hop items were excluded.
+  results: With full labels, Claude Opus had the highest factual accuracy at 0.562, while Qwen-32B had the highest
+    multi-hop accuracy at 0.473. Llama-8B had the highest refusal F1 at 0.796.
+  limitations: The authors identify narrow section-based context, redundant evidence that can distort citation scores,
+    limited multi-hop coverage, imperfect LLM grading and overlap metrics, and templated refusal questions that
+    miss naturally ambiguous or partially answerable queries.
+  sources:
+  - https://arxiv.org/abs/2603.19539
+  - https://github.com/xiongbetty/FDARxBench
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

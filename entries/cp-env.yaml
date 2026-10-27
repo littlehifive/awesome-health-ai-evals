@@ -27,6 +27,27 @@ facets:
   eval_methods: [simulated_multi_turn, rubric_llm_judge, automatic_metric]
   modality: [text]
   size: number of cases not found in the text read
+card:
+  task: Guide each simulated patient through triage, specialist consultation, diagnostic testing, and treatment,
+    documenting encounters and producing a final report with a diagnosis, medication regimen, and follow-up plan.
+  items_built: The authors derived patient roles from detailed clinical case records published in medical journals,
+    extracting symptoms, medical history, and observable physical characteristics. With expert guidance, they designed
+    four clinical stages with branching pathways, withholding test results from patients until the physician orders
+    the tests.
+  example: ''
+  scoring: An LLM evaluator scores the interaction logs; diagnosis recall checks whether the correct diagnosis appears
+    among the top k diagnoses, investigation coverage measures intersection over union between ordered tests and
+    the case's reference tests, and result utilization measures the proportion of ordered results used. Other criteria
+    assess workflow completion, documentation, reasoning, and ethical care.
+  judge: The README evaluation command uses GPT-OSS-120B as the LLM grader.
+  scale: Diagnosis recall@k, test-set intersection over union, and proportion of ordered results used.
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - http://arxiv.org/abs/2512.10206
+  - https://github.com/SPIRAL-MED/CP_ENV
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

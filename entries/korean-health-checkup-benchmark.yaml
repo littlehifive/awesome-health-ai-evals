@@ -24,6 +24,28 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 144 tier cases, 528 ladder cases, 6,321 ordered pairs
+card:
+  task: Assign each laboratory or anthropometric result to Normal A, Normal B (borderline), or suspected disease
+    under Korean National Health Screening Program criteria.
+  items_built: The authors generated 144 tier-classification cases across 20 items and 528 value-ladder cases in
+    22 ladders, yielding 6,321 ordered pairs, from published criteria. A deterministic rule engine independently
+    verified the gold labels, with 100% agreement and no violations across the 6,321 pairs.
+  example: ''
+  scoring: Tier accuracy compares predicted tiers with verified gold labels, while the primary outcome measures
+    monotonicity violations across ordered value-ladder pairs. Each model and condition underwent 10 stateless full-benchmark
+    runs, and test-retest reliability was assessed through flip proportions.
+  judge: A deterministic rule engine independently verified the gold labels.
+  scale: Tier accuracy, monotonicity violation rate, and test-retest flip proportion.
+  validation: ''
+  results: With rule grounding, Claude Fable 5 and GPT-5.6 Sol both achieved 100% tier accuracy and zero monotonicity
+    violations in all 10 runs each; no zero-shot run achieved 100% accuracy. At equal run counts, zero-shot flip
+    proportions were 6.4% for Claude and 11.2% for GPT.
+  limitations: The evaluations used fixed cases rather than new clinical samples, the 10-run sufficiency criterion
+    was study-specific and not prospectively prespecified, and the findings do not establish end-to-end clinical
+    deployment safety.
+  sources:
+  - https://doi.org/10.2196/preprints.110836
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex
