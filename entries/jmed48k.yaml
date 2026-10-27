@@ -25,6 +25,27 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: "48,862 questions in the full corpus; JMed48k-Eval has 12,484 scored questions (9,905 text-only, 2,579 with images)"
+card:
+  task: Answer Japanese healthcare licensing examination questions by selecting the required answer choices or filling
+    numeric slots, using the supplied text and any attached images.
+  items_built: The authors used MinerU to extract questions and choices from official MHLW PDFs, matched cropped
+    figures by section and question number, and joined official answers by question identifier. Professional Japanese-language
+    manual verification and automated consistency checks covered extraction and image pairing; 93 withdrawn questions
+    or items without usable official answers were excluded from the recent evaluation subset.
+  example: ''
+  scoring: Answers are scored by exact match against the official answer keys, preserving multiple correct options,
+    alternative acceptable answer sets, and numeric-slot answers. Accuracy is reported separately for text-only
+    and image-bearing questions, with the overall score calculated as the unweighted mean across 11 professions;
+    the paired audit reports correctness transitions and the accuracy difference with versus without images.
+  judge: Exact match with the official MHLW answer key.
+  scale: Correct or incorrect per question; percentage accuracy, macro-averaged across 11 professions.
+  validation: ''
+  results: ''
+  limitations: The authors state that JMed48k measures licensing examination performance rather than clinical deployment,
+    and that the image-removal audit measures observable answer changes rather than human-like reasoning.
+  sources:
+  - https://arxiv.org/abs/2605.22080
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

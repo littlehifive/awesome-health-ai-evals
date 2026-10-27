@@ -24,6 +24,30 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: v1 card - 2,998 train and 500 test rows; v2 card - 2,004 rows
+card:
+  task: Classify an answer to a medical question as hallucinated or not hallucinated using the accompanying PubMed
+    abstract.
+  items_built: The original release contains 1,749 pairs, or 3,498 answers, with both answers generated together
+    and each recorded single-span edit checked for exact reconstruction. In v2, gemini-3.8-flash generated answers
+    using material from MedHallu, PubMedQA and PubMed abstracts; 1,002 of 1,259 pairs passed a claim-level selection
+    check, and two model judges checked every retained answer.
+  example: ''
+  scoring: In v2, each judge checks extracted claims against the raw abstract, and an answer is labelled hallucinated
+    unless every claim receives a yes verdict. The reported agreement is the percentage of answer labels matching
+    the construction labels, which record how the answers were built rather than independently verified correctness.
+  judge: gemini-3.1-flash-lite and gpt-5.6-luna assign claim verdicts; the reference labels come from recorded edits.
+  scale: Yes or non-yes per claim; binary label per answer; percentage agreement with construction labels.
+  validation: gemini-3.1-flash-lite agreed with construction labels on 100.0% of answers, but its verdicts also
+    selected the retained pairs. gpt-5.6-luna agreed on 92.0%, flagging 157 grounded answers as not fully grounded
+    and missing 4 hallucinated answers; no human validation is reported.
+  results: ''
+  limitations: The authors state that constructed negatives are narrower than deployed hallucinations, human-labelled
+    testing remains necessary, low lexical overlap does not establish semantic correctness or rule out shortcuts,
+    original difficulty labels do not describe the new edits, and v2 selection favours pairs one judge could localise.
+  sources:
+  - https://huggingface.co/datasets/Certops/medhallu-twins-rewritten
+  - https://huggingface.co/datasets/Certops/medhallu-twins-rewritten-v2
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

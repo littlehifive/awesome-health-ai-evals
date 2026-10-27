@@ -24,6 +24,27 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 4 rubrics (R1-R4); 4 sample cases in the repository
+card:
+  task: Answer an internal medicine case with a clinical reasoning trace that explains the diagnostic conclusion.
+  items_built: Charles Zhao, MD, developed the framework using factuality and relevance rubrics adapted from CLEVER,
+    a safety-effectiveness rubric from CSEDB, and a new reasoning-trace rubric. The repository includes four demonstration
+    cases covering STEMI, premature closure, abstention, and polypharmacy, with expected components and forbidden
+    omissions rather than a single required reasoning path.
+  example: ''
+  scoring: Responses are assessed against case-specific constraints using ordinal rubric scores; the total is R1
+    + R2 + (R3 × 1.5) + R4, with any safety item scored 0 capping the total at 4.0. The pipeline reports model averages
+    with bootstrap confidence intervals and separately fits Bradley-Terry rankings from blinded, randomized pairwise
+    comparisons.
+  judge: The framework provides structured LLM judge prompts for R4 but names no grading model or human rating panel.
+  scale: 'Raw items: 0 inadequate, 1 partial, 2 complete; weighted total up to 9.0, capped at 4.0 after a safety-item
+    zero.'
+  validation: ''
+  results: ''
+  limitations: The authors state that the framework's evaluation coverage is necessary but insufficient for regulatory
+    compliance and is not a compliance certification tool.
+  sources:
+  - https://github.com/charleszhao-crypto/im-reasoning-trace-benchmark
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

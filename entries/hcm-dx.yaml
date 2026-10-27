@@ -26,6 +26,31 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 2,697 diagnostic queries
+card:
+  task: Produce a differential diagnosis list for each patient-authored query requesting a diagnosis.
+  items_built: The authors used an LLM judge to screen the first 20,000 HealthCareMagic-100K examples, retaining
+    2,697 queries explicitly requesting diagnosis with the judge's highest confidence. GPT-5.2, Gemini-3-Pro, and
+    Claude-4.5-Opus constructed plausible, highly likely, and safety-critical reference diagnosis sets, which two
+    clinicians independently checked on 50 questions.
+  example: ''
+  scoring: LLM parsers extract diagnoses from responses, and LLM judges match clinical synonyms against the reference
+    sets to measure precision over plausible diagnoses, coverage of highly likely and safety-critical diagnoses,
+    and differential breadth. Auxiliary metrics assess evidence grounding and epistemic uncertainty; the provided
+    text does not specify how item scores are aggregated.
+  judge: LLM parsers and semantic-matching judges assign the automated scores, with GPT-5-mini and GPT-4.1-mini
+    named in the matching verification.
+  scale: Separate precision and coverage metrics, diagnosis counts for breadth, and auxiliary semantic metrics;
+    breadth is normalized in the results plot.
+  validation: 'Two clinicians independently checked reference sets for 50 questions: both requested removals in
+    2% of safety-critical sets and 8% of highly likely sets, and additions in 18% of plausible sets and 20% of safety-critical
+    sets. Error rates rose substantially when either clinician''s objection counted, indicating expert disagreement.'
+  results: ''
+  limitations: The authors state that the framework omits questioning strategy, explanation quality, conversational
+    appropriateness, and actionability, while synthetic reference construction and semantic matching reduce real-world
+    fidelity and underspecified queries produce expert disagreement.
+  sources:
+  - https://arxiv.org/abs/2604.24700
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

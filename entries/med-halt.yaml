@@ -29,6 +29,29 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric]
   modality: [text]
   size: 18,866 samples per reasoning test (7 source datasets); 4,916 PubMed samples per memory test
+card:
+  task: Evaluate and explain proposed medical answers, identify when none of the options is correct or a question
+    is fake, or retrieve a PubMed article's title or link from its identifier, title, abstract or link.
+  items_built: The authors adapted MedMCQA, HeadQA and MedQA medical-exam questions into 18,866 items per reasoning
+    test and used PubMed records for 4,916 items per memory test. Human experts and GPT-3.5 created the fake questions;
+    the false-confidence test adds a randomly suggested answer, and the none-of-the-above test replaces the correct
+    answer with that option.
+  example: ''
+  scoring: Predicted answers are compared with the true labels, and accuracy is the proportion of correct predictions.
+    The stated pointwise score awards +1 for a correct prediction and −0.25 for an incorrect prediction, then averages
+    these points across items.
+  judge: ''
+  scale: Correct or incorrect per item; percentage accuracy and mean pointwise score using +1 and −0.25.
+  validation: ''
+  results: Llama-2 70B had the highest average reasoning accuracy at 72.33%. Falcon 40B and Falcon 40B-instruct
+    tied for the highest average memory-test accuracy at 30.36%.
+  limitations: The authors report that models are sensitive to prompt framing and decoding parameters, with even
+    small changes causing previously correct responses to become incorrect.
+  sources:
+  - https://doi.org/10.18653/v1/2023.conll-1.21
+  - https://huggingface.co/datasets/openlifescienceai/Med-HALT
+  - https://github.com/medhalt/medhalt
+  extracted: '2026-10-27'
 signals:
   citations: 149
   citations_source: OpenAlex

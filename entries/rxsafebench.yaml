@@ -27,6 +27,27 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 2,443 cases (1,063 contraindication, 1,380 drug interaction)
+card:
+  task: Choose the safest appropriate medication from three options using the patient history and medication risks
+    in a simulated consultation dialogue.
+  items_built: 'The authors used LLMs to generate dialogues from RxRisk DB, which contains 6,725 contraindications,
+    28,781 drug interactions and 14,906 indication-drug pairs collected from medical websites. Indication-based
+    sampling reduced the pool to about 6,000 cases, and GPT-4 scored realism, dialogue quality and medication selection
+    to retain 2,443 cases: 1,063 contraindication cases and 1,380 interaction cases.'
+  example: ''
+  scoring: The selected medication is compared with the designated safe option, and accuracy is reported separately
+    for contraindication and drug interaction cases, with department-level breakdowns.
+  judge: Answers are checked against the designated correct medication option.
+  scale: Correct or incorrect per item; percentage accuracy by subset and department.
+  validation: ''
+  results: At release, DeepSeek-R1 performed best on both subsets, with 59.27% accuracy on contraindications and
+    38.12% on drug interactions.
+  limitations: The authors identify scenario realism, reasoning depth, multidimensional metrics and domain adaptation
+    as areas needing improvement before clinical deployment.
+  sources:
+  - https://doi.org/10.1109/bibm66473.2025.11356353
+  - https://github.com/CAS-SIAT-XinHai/RxSafeBench
+  extracted: '2026-10-27'
 signals:
   citations: 2
   citations_source: OpenAlex

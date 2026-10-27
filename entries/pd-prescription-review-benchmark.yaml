@@ -26,6 +26,25 @@ facets:
   eval_methods: [automatic_metric, expert_human_rating]
   modality: [text]
   size: 125 cases; 1,875 model calls
+card:
+  task: Review each synthetic peritoneal dialysis prescription case and identify the embedded prescription problems.
+  items_built: The authors generated 125 synthetic peritoneal dialysis cases containing 13 trap types aligned with
+    International Society for Peritoneal Dialysis guidelines.
+  example: ''
+  scoring: The primary score was must-identify recall (TDR must), analyzed using generalized estimating equations
+    and case-clustered bootstrap. Secondary assessments included an alarm-burden proxy sensitive to verbosity, WCS,
+    relaxed-match scoring, and blinded expert adequacy ratings for 25 outputs.
+  judge: Blinded nephrologists rated expert adequacy; the abstract does not identify who assigned the other scores.
+  scale: 'Primary metric: must-identify recall.'
+  validation: Must-identify kappa was 0.89 in Stage 1 and 0.92 in Stage 2. In the 25-output expert substudy, inter-rater
+    concordance was rho 0.977, while WCS had no positive association with expert adequacy (rho −0.17, p=0.41).
+  results: Claude Sonnet 4.5 led must-identify recall at 0.977, followed by GPT-5.4 at 0.955; the other three models
+    scored 0.86-0.90. Rankings differed across recall, the alarm-burden proxy, and WCS.
+  limitations: The authors state that rankings depend strongly on the scoring construct and that algorithmic metrics
+    should not alone determine deployment.
+  sources:
+  - https://doi.org/10.64898/2026.05.28.26354383
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

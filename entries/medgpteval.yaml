@@ -27,6 +27,30 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: 34 cases (27 multi-turn dialogues, 7 case reports)
+card:
+  task: Answer patients' medical questions in Chinese multi-turn dialogues and case reports, including rephrased
+    questions used to test response robustness.
+  items_built: Three clinical experts designed 27 dialogues and 7 case reports covering 14 clinical departments,
+    adapting real clinical cases and checking them through internal review, expert review, and verification against
+    clinical scenarios. The evaluation criteria came from a literature review and Delphi consensus among 5 doctoral-level
+    experts in medicine and engineering.
+  example: ''
+  scoring: Blinded clinicians score responses against medical, social, and contextual criteria; indicator points
+    are summed, with the medical capability score set to zero if accuracy or logic scores zero. Robustness is reported
+    as the proportions of answers to rephrased questions that retain the original meaning, change meaning but remain
+    medically sound, or change meaning and contain a medical error.
+  judge: Five licensed clinical medical experts with similar years of clinical experience received common training
+    and rated responses blind to chatbot identity.
+  scale: Indicators score 0-1 or 0-2; total scores reach 16 for dialogues and 13 for case reports; robustness is
+    reported as R1, R2, and R3 percentages.
+  validation: ''
+  results: Dr PJ scored highest, with 13.95 out of 16 for multi-turn dialogues and 10.14 out of 13 for case reports,
+    ahead of ChatGPT and ERNIE Bot.
+  limitations: The authors identify subjective, resource-intensive human scoring, a small Chinese-language dataset
+    with cultural and language constraints, and sensitivity to prompting as limitations.
+  sources:
+  - https://doi.org/10.2196/57674
+  extracted: '2026-10-27'
 signals:
   citations: 25
   citations_source: OpenAlex

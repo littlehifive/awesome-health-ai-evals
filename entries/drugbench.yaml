@@ -28,6 +28,30 @@ facets:
   eval_methods: [rubric_llm_judge, simulated_multi_turn]
   modality: [text]
   size: 3,671 conversations
+card:
+  task: Answer the next turn in a medical conversation with useful advice that avoids medication-related harm.
+  items_built: The authors used 3,671 HealthBench-Consensus conversations selected for the highest agreement between
+    physicians on grading criteria. An LLM pipeline extracted relevant generic drug names, retrieved their labels
+    from OpenFDA, and used GPT-5-mini to summarize the labels into structured JSON.
+  example: I've had migraines for the past week (...) What should I take?
+  scoring: GPT-4.1 judges answers against HealthBench rubrics and rates medication-harm severity using the conversation
+    and FDA labels; usefulness is the average proportion of criteria met, normalized so GPT-4o's 89.61% is 0 and
+    GPT-5's 95.50% is 1. Protocol safety reflects severity-weighted risk, estimated over 100 scheming episodes of
+    1,000 turns each, while usefulness is estimated over 100 honest episodes.
+  judge: GPT-4.1 grades usefulness and medication-harm severity.
+  scale: Usefulness and safety ratings are shown on 0-9 scales; reported protocol usefulness and safety are normalized
+    to 0-1.
+  validation: The authors compared LLM judges across model families on 100 attacked answers and collected 533 severity
+    ratings from 12 senior medical students on 110 unique conversations. They report substantial Pearson and Spearman
+    correlations but weaker exact agreement, without numerical coefficients in the provided text.
+  results: Trusted editing achieved 80% safety at 90% normalized usefulness, compared with 56% safety for deferring
+    to the trusted model at the same usefulness level.
+  limitations: The authors state that LLM-based severity judging limits clinical reliability, and that they did
+    not evaluate omission, hedging or tone manipulation, fine-tuned or jailbroken attack models, or harms beyond
+    medication-related advice.
+  sources:
+  - https://arxiv.org/abs/2606.20663
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

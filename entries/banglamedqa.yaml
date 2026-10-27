@@ -30,6 +30,29 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 2,000 questions (1,000 + 1,000)
+card:
+  task: Select the correct answer from four options for each Bangla medical question and provide a rationale.
+  items_built: IUT researchers curated BanglaMedQA from 1,200 MBBS, BDS and AFMC admission questions from 1990-2024,
+    removing 5 ambiguous items, 11 with irregular option labels and 184 duplicates to retain 1,000 questions. They
+    built BanglaMMedBench by translating 1,000 English MMedBench questions with Gemini-1.5-Flash, checking formatting
+    and answer-rationale alignment; a medical expert reviewed 50 sample questions when comparing translation methods,
+    and medical domain experts validated rationales.
+  example: ''
+  scoring: Predicted option labels are compared with the answer key, and accuracy is the number of correct predictions
+    divided by the total number of predictions. Generated rationales are compared with reference rationales using
+    BERTScore F1, METEOR, ROUGE and BLEU.
+  judge: Answer correctness uses exact match with the answer key; rationale scoring uses automated text-similarity
+    metrics.
+  scale: Each answer is correct or incorrect; final accuracy is reported as a percentage.
+  validation: ''
+  results: On BanglaMedQA, openai/gpt-oss-120b with Agentic RAG achieved the highest accuracy, 89.54%. On BanglaMMedBench,
+    the same model achieved 90.59% with zero-shot answering, compared with 82.97% with web search.
+  limitations: The authors identify limited dataset size and computational resources, translation-related semantic
+    drift, possible OCR transcription errors, and rationales that reflect academic exam phrasing.
+  sources:
+  - https://doi.org/10.2139/ssrn.5719285
+  - https://huggingface.co/datasets/ajwad-abrar/BanglaMedQA
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

@@ -26,6 +26,28 @@ facets:
   eval_methods: [rubric_llm_judge]
   modality: [text]
   size: "639 questions; retrieval corpus of 53,617 case reports across 12 specialties"
+card:
+  task: Read a rare clinical case and give one best free-text answer identifying the next appropriate diagnostic
+    test, treatment, or other clinical step.
+  items_built: From 1,500 sampled recent, low-citation PubMed Central case reports, GPT-5.2 extracted question-answer
+    pairs and Claude 4 Opus modified the questions while preserving the answers. Eight internal medicine or pediatrics
+    physicians assessed medical validity and expertise requirements on a 1-to-5 scale, retaining 639 pairs rated
+    4 or 5.
+  example: ''
+  scoring: GPT-5.2 compares each response with the reference answer and labels it equivalent only when the main
+    recommended clinical procedure matches, rejecting vague recommendations or answers that mention but do not prioritize
+    the reference procedure. The reported accuracy is the percentage of answers labeled equivalent.
+  judge: GPT-5.2 assigns the equivalence labels.
+  scale: Equivalent or mismatch per answer; overall accuracy is the percentage equivalent.
+  validation: Internal medicine physicians checked GPT-5.2 judgments on 100 randomly selected baseline results spread
+    evenly across models and setups, with 93% agreement.
+  results: GPT-5.2 was the best baseline, answering 56% correctly without retrieval and reaching 82% with retrieved
+    medical articles.
+  limitations: The authors note that low citation counts can reflect low visibility rather than persistent clinical
+    rarity.
+  sources:
+  - https://arxiv.org/abs/2605.21807
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

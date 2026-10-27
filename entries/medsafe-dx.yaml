@@ -26,6 +26,32 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 250 cases in the v0 preprint; 900 cases in the v0.3 full run
+card:
+  task: Read a GP intake summary containing age, sex, symptoms and history, provide a differential diagnosis, and
+    optionally flag one concerning condition to indicate escalation.
+  items_built: Clark Van Oyen and Namrah Mirza-Haq of Cortico Health Technologies developed the benchmark from synthetic
+    DDXPlus patients, using 250 cases in v0 and 900 previously unreviewed cases from the test split in v0.3. The
+    v0.3 sample contains 500 tier-1 cases, 140 promoted by cited patient-level rules and 260 benign cases; the rules
+    were frozen and checked on 250 fresh cases before the full run.
+  example: ''
+  scoring: 'In v0.3, outputs are compared with rule-based labels: missing a serious patient costs 7, while naming
+    the wrong danger or escalating a benign patient costs 1. These costs produce a score anchored at 100 for perfect
+    answers and 0 for escalating every patient with the fixed flag of possible myocardial infarction; negative scores
+    are possible.'
+  judge: Arithmetic scoring against labels from a cited rule file assigns the scores, with no model grading answers.
+  scale: Per-case costs of 7 for a missed serious patient and 1 for a wrong danger or unnecessary escalation; final
+    score anchored at 100 for perfect performance and 0 for a fixed escalation baseline.
+  validation: Claude Fable 5.1 and GPT-6 Astra blindly reviewed 250 fresh cases, with Claude Fable 5.1 adjudicating.
+    Round 2 passed five of six prespecified criteria, with 96.6% class agreement, reviewer kappa of 0.700 and reference
+    agreement on 84.3% of full-miss charges; rule P5 failed its threshold and was demoted before the full run.
+  results: Claude Opus 5.5 led the v0.3 evaluation of 20 models with 73.5 points (95% CI 69.5 to 77.3). In the separately
+    scored v0 preprint, GPT-5 Chat led 12 models with a Triage Success Rate of 72.4%.
+  limitations: The authors state that synthetic-patient scores do not establish fitness for patient care, clinical-advisor
+    review of v0.3 ratings remains in progress, and several evaluated models helped draft the rules or write the
+    reference used to design and check them.
+  sources:
+  - https://github.com/cortico-health/MedSafe-Dx
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

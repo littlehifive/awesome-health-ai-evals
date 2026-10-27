@@ -26,6 +26,21 @@ facets:
   eval_methods: [automatic_metric, rubric_llm_judge]
   modality: [text]
   size: 21 gold test questions (categories include guideline knowledge, safety, out-of-scope refusal, empathy); model answers and judge scores for 8 fine-tuned models
+card:
+  task: Answer Turkish questions about postpartum care.
+  items_built: The deposit includes a common held-out gold reference test set with guideline-derived scoring criteria.
+  example: ''
+  scoring: The primary score is objective accuracy against guideline-derived criteria on the common held-out test
+    set, independent of model judges. Secondary quality scores come from two LLM judges.
+  judge: Guideline-derived criteria determine objective accuracy, and two unnamed LLM judges assess secondary quality.
+  scale: Objective accuracy with 95% Wilson confidence intervals.
+  validation: The study assesses inter-judge agreement with Cohen's kappa and platform-versus-local concordance,
+    but the abstract reports no values.
+  results: ''
+  limitations: ''
+  sources:
+  - https://doi.org/10.5281/zenodo.20984622
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

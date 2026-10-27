@@ -27,6 +27,32 @@ facets:
   eval_methods: [mcq_exact_match, rubric_llm_judge]
   modality: [text]
   size: 1,650 variants from 150 MedQA items
+card:
+  task: Choose the single best answer to each multiple-choice medical question, returning either the option alone
+    or a two- to three-sentence explanation followed by the option.
+  items_built: The authors randomly selected 150 MedQA test questions and used an LLM with few-shot examples to
+    generate 1,350 cultural augmentations; adding the originals and 150 neutral edits produced 1,650 items. A clinician
+    reviewed every augmented item and confirmed that the correct answer was unchanged.
+  example: '"A 39-year-old man from a First Nations community in Canada presents with chest pain..."'
+  scoring: Parsed answer options are compared with the unchanged gold labels and averaged into accuracy for each
+    condition, with percentage-point differences from original and neutral baselines and rates of changed answers
+    and correct-to-incorrect changes. GPT-5.2 flags culture-referential explanations, and the proportion with incorrect
+    final answers is reported; incomplete explanation outputs are excluded, leaving 147 questions per setting.
+  judge: Answer correctness uses the gold answer key; GPT-5.2 labels culturally grounded reasoning.
+  scale: Correct or incorrect per answer; condition accuracy, answer-change rates, and culture-linked error rates
+    in percent, with accuracy differences in percentage points.
+  validation: Two independent human annotators labeled 50 randomly selected explanations, achieving Cohen's kappa
+    of 0.76 between annotators; no model-to-human agreement figure is reported.
+  results: GPT-5.2 and DeepSeek-R1 tied at 92.67% accuracy on original questions under option-only prompting. Combined
+    identifier and context edits reduced their accuracy by an average of 6.23 and 5.78 percentage points, respectively,
+    across the three cultural groups.
+  limitations: The authors identify inference costs that constrained dataset size, repeated contexts from LLM augmentation,
+    limited coverage of model categories, and residual confounding because cultural context can imply access or
+    lifestyle differences.
+  sources:
+  - https://arxiv.org/abs/2601.20102
+  - https://github.com/HIVE-UofT/Evaluating-Cultural-Cues-Medical-LLMs
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

@@ -27,6 +27,33 @@ facets:
   eval_methods: [rubric_llm_judge, automatic_metric]
   modality: [text]
   size: 50 guidelines, 5,133 atomic claims, 1,200+ rubric criteria
+card:
+  task: Generate a complete, evidence-grounded clinical guideline for a named tumour using the supplied section
+    schema and output format, with citations supporting individual claims.
+  items_built: The authors selected 50 tumour-specific tasks from five volumes of the WHO Classification of Tumours,
+    5th Edition. Source PDF and HTML documents were converted to structured Markdown with MinerU and reviewed by
+    board-certified medical professionals before normalization and claim extraction.
+  example: ''
+  scoring: GPT-4.1 scores four guideline-quality dimensions against task-specific rubrics, combined using fixed
+    task-specific weights, and checks generated claims and references against gold-standard claims, gold references,
+    and retrieved citation content. Claim coverage, reference retrieval and factual grounding scores are combined
+    into an evidence-verification score; the evaluation pipeline computes a weighted combination of enabled metrics.
+  judge: GPT-4.1 grades outputs with fixed prompts and temperature 0, using the JINA Reader API to retrieve reference
+    content.
+  scale: 'Holistic dimensions: 0-10, combined by task-specific weights; evidence metrics and an overall weighted
+    composite are also reported.'
+  validation: Three senior medical experts independently rated 40 guidelines from four systems; agreement with GPT-4.1
+    was Spearman rho = 0.754 (p = 0.012), with human overall scores exceeding automated scores by 1.6 points for
+    higher-performing systems and 1.8 for lower-performing systems. On 200 stratified claim-reference pairs, automated
+    factual-consistency judgments achieved F1 = 86.4% and Cohen's kappa = 0.79 against expert annotations.
+  results: MiroThinker v1.5 (Pro) ranked highest among 17 systems, with an overall score of 0.631.
+  limitations: The benchmark is limited to oncology and is not intended for clinical deployment, since fluent outputs
+    can lack reliable evidence grounding and medical use still requires human expert review.
+  sources:
+  - https://arxiv.org/abs/2604.18418
+  - https://huggingface.co/datasets/HanToser/MedprobeBench
+  - https://github.com/uni-medical/MedProbeBench
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

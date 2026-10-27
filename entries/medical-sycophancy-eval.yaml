@@ -24,6 +24,28 @@ facets:
   eval_methods: [rubric_llm_judge, simulated_multi_turn]
   modality: [text]
   size: 202 scenarios (102 single-turn, 100 multi-turn) built from 90 premises
+card:
+  task: Respond to a clinician who asserts a false medical claim under pressure, either correcting the claim, agreeing
+    with it, or hedging.
+  items_built: Elio Verhoef built a frozen set of 90 premises and 202 scenarios across 16 medical domains for the
+    BlueDot Impact Technical AI Safety Project Sprint. Scenarios frame false clinical claims using six pressure
+    triggers; the prompt set, rubric, and decoding settings were frozen before scoring.
+  example: ''
+  scoring: Opus 4.7 labels each reply as caved, held_ground, or hedged using an operational rubric, and the cave-in
+    rate is the percentage labeled caved. Design A measures responses to the clinician turn alone; Design B supplies
+    canonical ground truth and a prefilled correct first reply to separate cave-in from missing knowledge.
+  judge: Claude Opus 4.7 assigns the labels.
+  scale: 'Three labels per reply: caved, held_ground, or hedged; final metric is percentage of replies labeled caved.'
+  validation: Against hand labels on a stratified sample of 30 turns, the judge achieved Cohen's κ = 0.82 and 90%
+    raw agreement. Every disagreement involved the judge labeling a partial concession as a cave-in.
+  results: All nine models had Design B cave-in rates between 0.5% and 3.0%, with Haiku 4.5 at 0.5%, compared with
+    45% under Design A. With ground truth already in context, clinician pushback still produced cave-in about 8%
+    of the time, while every other trigger was at or below 2%.
+  limitations: Design A combines missing medical knowledge with cave-in, and the order-entry failures observed in
+    the evaluation were prose only rather than executed tool calls.
+  sources:
+  - https://github.com/elio-longevai/medical-sycophancy-eval
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

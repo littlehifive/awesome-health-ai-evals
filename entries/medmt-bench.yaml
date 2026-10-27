@@ -25,6 +25,28 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 400 test cases; 17 models evaluated
+card:
+  task: Answer the final user turn in a long medical conversation while following system instructions, using relevant
+    history, resolving ambiguity, and handling conflicting or distracting requests.
+  items_built: The authors used five agents to synthesize and filter 400 conversations from medical text and images
+    mapped to departments and scenarios. Approximately 20 full-time medical data specialists with Master's or PhD
+    degrees edited the samples for coherence, medical correctness, and instruction quality, using two-layer cross-review
+    with a third reviewer resolving disagreements, and retained questions that multiple models failed to answer
+    correctly.
+  example: '"How should he be treated?"'
+  scoring: Gemini-2.5-Pro checks each final answer against case-specific atomic test points, assigning "yes" or
+    "no" to each point. Reported accuracy measures whether generated answers satisfy their corresponding evaluation
+    criteria.
+  judge: Gemini-2.5-Pro grades automatically at temperature 0, with expert human assessments used for comparison.
+  scale: Binary yes/no per test point; reported accuracy as a percentage.
+  validation: Across six frontier models, the best agreement between automatic and human evaluation was 91.94% with
+    atomic test points, compared with 41.09% without them.
+  results: GPT-5 achieved the best overall accuracy at 59.75%; all 17 tested models scored below 60%.
+  limitations: The benchmark emphasizes instruction following rather than depth of medical knowledge and covers
+    text and images but excludes speech, video, and other interaction modalities.
+  sources:
+  - https://arxiv.org/abs/2603.23519
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

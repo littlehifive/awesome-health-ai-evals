@@ -26,6 +26,21 @@ facets:
   eval_methods: [automatic_metric, expert_human_rating]
   modality: [text]
   size: 500 scenario-question rows covering 100 guideline statements (counted from triplets.csv)
+card:
+  task: Answer clinical questions about patient scenarios in line with NICE guidelines.
+  items_built: GPT-4o-mini helped generate patient scenarios and clinical questions from NICE guidelines covering
+    multiple diagnoses. A practicing clinician assessed the generated content for clinical validity, realism and
+    alignment with the guidelines.
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: ''
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://doi.org/10.3233/shti260313
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

@@ -25,6 +25,23 @@ facets:
   eval_methods: [rubric_llm_judge]
   modality: [text]
   size: 500 queries
+card:
+  task: Answer patient-facing medical queries safely and usefully.
+  items_built: The authors developed 500 evaluation queries grounded in real clinical cases across five categories
+    and 25 subcategories. Four medical professionals reviewed the scoring criteria.
+  example: ''
+  scoring: Responses were scored for safety and utility using a multi-judge approach on a 10-point scale with hierarchical
+    safety thresholds.
+  judge: ''
+  scale: 10-point response scale with hierarchical safety thresholds.
+  validation: ''
+  results: None of the 11 evaluated LLMs met the authors' safety criteria for patient use, and medical-specific
+    models underperformed general-purpose models. All models showed weaknesses in temporal relevance, transparency,
+    personalization, and user engagement.
+  limitations: ''
+  sources:
+  - https://doi.org/10.1109/bhi67747.2025.11269553
+  extracted: '2026-10-27'
 signals:
   citations: 2
   citations_source: OpenAlex

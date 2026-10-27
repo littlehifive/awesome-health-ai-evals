@@ -27,6 +27,35 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 475 + 478 + 479 questions (subsets A, B, C)
+card:
+  task: Read a research article and select the correct answer option or options, with the Discussion section withheld
+    for conclusion-reconstruction questions.
+  items_built: Qwen3-30B-A3B-Instruct-2507 generated 475 recall, 478 inference, and 479 conclusion-reconstruction
+    questions from PLOS Neglected Tropical Diseases articles, using a 25-topic taxonomy developed with a biostatistics
+    and epidemiology faculty member for recall and inference. GPT-5-mini, DeepSeek-V3.2-Reasoner, and GLM-4.5-Air
+    checked options against test-time evidence, uncertain options received human review, and inference and conclusion
+    questions underwent difficulty screening and stem refinement.
+  example: '"What was the primary outcome measure recommended by WHO for assessing anthelmintic drug efficacy in
+    STH infections? Opt: (0) Number of stool samples taken (1) Cure rate (2) Log-transformed EPG (3) Egg reduction
+    rate Ans: 3"'
+  scoring: Selected option sets are compared with reference answer sets using F1, calculated as twice the number
+    of shared options divided by the total number of predicted and reference options, and Exact Match, which requires
+    identical sets. Results are reported separately for each subset.
+  judge: Automated comparison with reference answer sets assigns the scores.
+  scale: Per-question F1 from 0 to 1 and Exact Match of 0 or 1; subset-level F1 and Exact Match accuracy.
+  validation: Three computer science PhD students with biomedical training independently rated 60 questions for
+    dataset quality, rather than model-score agreement. Exact agreement across quality ratings was 58.8%, 37.0%,
+    and 40.8% for subsets A, B, and C, respectively.
+  results: At release, DeepSeek-V3.2-Reasoner was the overall best performer, reaching Exact Match scores of 0.928
+    on recall and 0.868 on multi-step inference with Chain-of-Thought prompting. Mistral-7B led conclusion reconstruction
+    at 0.812.
+  limitations: The authors cite English-only articles from one journal, generation by a single 30B-parameter model,
+    possible residual errors and over-expanded question stems, limited review by non-epidemiologist annotators,
+    untested training-data contamination, and single-article tasks that omit broader real-world context.
+  sources:
+  - https://arxiv.org/abs/2601.03471
+  - https://github.com/myweiii/EpiQAL
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

@@ -25,6 +25,22 @@ facets:
   eval_methods: [automatic_metric, rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 308 items (252 confirmatory)
+card:
+  task: Answer gynecologic-oncology equity questions with citations, including questions that vary the patient's
+    nationality or ancestry.
+  items_built: ''
+  example: ''
+  scoring: The primary endpoint is the per-item citation fabrication rate on low-coverage items, analyzed against
+    a PubMed coverage proxy using a mixed-effects logistic model. Secondary endpoints measure invariance violations,
+    provenance-coupled accuracy, and overconfidence.
+  judge: ''
+  scale: Per-item citation fabrication rate on low-coverage items.
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://osf.io/a39qk
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

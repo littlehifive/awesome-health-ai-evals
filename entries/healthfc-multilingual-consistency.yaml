@@ -31,6 +31,35 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 508 questions in 4 languages
+card:
+  task: Answer each health question in English, German, Turkish and Chinese so that the answers can be compared
+    for consistency across languages.
+  items_built: The authors used HunFlair2 to select 508 disease-related claims from HealthFC's 750 question-form
+    claims, manually assigned ICD-10 codes and retained disease categories occurring more than 20 times. They translated
+    English questions into Turkish and Chinese with Google Translate, and native-speaking team members reviewed
+    50 random translations per language, judging 84% of Turkish and 98% of Chinese translations satisfactory.
+  example: '"Does discontinuation of denosumab increase the risk of vertebral fractures?"'
+  scoring: GPT-4o parses each answer into five information units and compares each non-English unit with its English
+    counterpart, assigning Consistent, Partially Consistent, Contradict or Irrelevant, with empty responses counted
+    as Irrelevant. The last three labels are combined as inconsistent, and results report the percentage of inconsistent
+    samples for each information unit and the average across the five units.
+  judge: GPT-4o assigns the parsing and consistency labels.
+  scale: Four labels per paired information unit, collapsed to consistent or inconsistent; percentage inconsistent
+    by unit and average across five units, with lower scores better.
+  validation: Native-speaking team members annotated 50 samples per non-English language, yielding 250 unit annotations
+    each for German and Turkish and 240 for Chinese; after collapsing labels to consistent versus inconsistent,
+    human-model kappa was 0.50 for German, 0.66 for Turkish and 0.71 for Chinese. A separate parsing check on five
+    answers per language scored correct parsing as 2 points and partial parsing as 1, with mean scores out of 10
+    of 8.4 for English and Turkish, 9.4 for Chinese and 7.2 for German.
+  results: GPT-4o had the lowest average inconsistency for Chinese at 42.63% and German at 39.91%, while ChatGPT
+    had the lowest for Turkish at 47.34%.
+  limitations: The authors state that the framework does not assess factual accuracy, relies on GPT-4o in ways that
+    affect reproducibility and miss fine-grained inconsistencies, can make parsing and labeling errors outside its
+    ontology, and is limited to single questions and three non-English languages.
+  sources:
+  - https://doi.org/10.1007/978-3-031-88714-7_30
+  - https://github.com/isspek/ecir-2025-multilang-consistency
+  extracted: '2026-10-27'
 signals:
   citations: 12
   citations_source: OpenAlex

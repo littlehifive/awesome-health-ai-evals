@@ -26,6 +26,30 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: 29 vignettes, 21 LLMs, 16,254 scored responses
+card:
+  task: Answer sequential clinical questions as patient information unfolds, covering differential diagnosis, diagnostic
+    testing, final diagnosis, management, and related clinical reasoning.
+  items_built: The framework builds on the authors' 2023 stepwise evaluation approach and can be applied to any
+    multitask clinical benchmark. This study used 29 peer-reviewed clinical vignettes developed by independent clinical
+    experts for the January 2025 MSD Manual professional educational modules, with sequential select-all-that-apply
+    questions.
+  example: ''
+  scoring: Evaluators map free-text responses to MSD Manual answer options, awarding full credit only when all correct
+    options are included and all incorrect options are excluded; raw question accuracy is averaged across three
+    independent runs. Domain accuracies form an equally weighted radar polygon, whose area is divided by the area
+    of a polygon with perfect accuracy in every domain to calculate PrIME-LLM.
+  judge: Nine medical student evaluators scored responses against MSD Manual answer keys, with one evaluator per
+    response.
+  scale: Each response is fully correct or incorrect; normalized polygon area gives a PrIME-LLM score from 0 to
+    1.
+  validation: ''
+  results: Grok 4 achieved a mean PrIME-LLM score of 0.78, with a range of 0.77 to 0.79 across runs.
+  limitations: The authors note mixed API and web access, possible pretraining exposure to public vignettes, exclusion
+    of external tools and augmentation, disabled optional search and reasoning, and a study design that does not
+    support comparisons with clinicians.
+  sources:
+  - https://doi.org/10.1001/jamanetworkopen.2026.4003
+  extracted: '2026-10-27'
 signals:
   citations: 43
   citations_source: OpenAlex

@@ -26,6 +26,33 @@ facets:
   eval_methods: [simulated_multi_turn, rubric_llm_judge]
   modality: [text]
   size: 1,193 cases (885 single-diagnosis, 308 comorbid)
+card:
+  task: Interview a simulated psychiatric patient, recommend examinations, write a clinical note, rank diagnoses,
+    and propose treatment during a complete clinical encounter.
+  items_built: The authors constructed standardized patients from 1,193 de-identified psychiatric EHR cases covering
+    76 disorders, obtained through an approved partnership with a coordinating medical center, and added presentation
+    and memory skills. Five psychiatrists, three psychologists, and 14 medical trainees assessed the simulations'
+    clinical fidelity.
+  example: ''
+  scoring: Interview, examination, and note outputs are compared with EHR-derived checkpoints using semantic matching
+    with a 0.85 similarity threshold and multi-LLM adjudication below that threshold; diagnosis is assessed through
+    category identification and disorder-ranking nDCG. MentalEval separately assigns rubric-based ratings for empathy,
+    interviewing professionalism, note quality, diagnostic rigor, and treatment appropriateness.
+  judge: Automatic semantic matching and multi-LLM adjudication score reference coverage, while five Qwen3-8B-based
+    MentalEval evaluators assign subjective ratings.
+  scale: Objective metrics reported as percentages, including diagnostic nDCG; five separate subjective ratings
+    from 1 to 5.
+  validation: On 40 held-out cases yielding 200 dimension-level samples, three experts independently rated each
+    sample, with only unanimous ratings retained as references. After SFT and DPO, MentalEval achieved average quadratic
+    weighted kappa of 0.944, accuracy of 0.790, and mean absolute error of 0.210; a separate comparison reported
+    0.926, 0.725, and 0.275, respectively.
+  results: Baichuan-M2 was the strongest medical-specific model but trailed medical trainees by 27.17 percentage
+    points and human experts by 37.28 points, averaged across five objective metrics. The human expert group comprised
+    five licensed psychiatrists and three psychology experts.
+  limitations: MentalEval is designed for judgments within MentalHospital rather than for arbitrary clinical tasks.
+  sources:
+  - https://arxiv.org/abs/2607.08257
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

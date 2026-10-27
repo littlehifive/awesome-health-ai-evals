@@ -24,6 +24,23 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 75 conversations
+card:
+  task: Classify each multi-turn patient-AI conversation as medically correct and complete or harmful.
+  items_built: Arth Singh's pipeline used Claude Sonnet 4.6 to extract 758 medical facts from 10 StatPearls articles,
+    curated them to 25 patient-actionable facts, and generated 4 to 6 turn conversations plus two tampered copies
+    of each, yielding 75 items. Each anchor fact is checked against an exact source quote, and tamper metadata records
+    what changed and in which turn.
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: ''
+  validation: ''
+  results: ''
+  limitations: Only the anchor fact in each clean conversation is verified against StatPearls; surrounding model-generated
+    medical content could contain other errors.
+  sources:
+  - https://huggingface.co/datasets/ArthT/ai-oversight-medical-harm-detection
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

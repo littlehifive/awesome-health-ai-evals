@@ -37,6 +37,33 @@ facets:
   modality:
   - text
   size: 4 scenarios; 7-dimension rubric; pilot with 15 users
+card:
+  task: Hold a therapeutic conversation in a standardized mental health scenario ranging from mild anxiety to crisis-level
+    presentations.
+  items_built: The framework is intended for therapeutic chatbot evaluation and improvement and was developed through
+    three enhancement cycles on Dr. CareSam. The pilot used four standardized mental health scenarios with Korean
+    and English scripts, with diagnostic review by two licensed clinical psychologists.
+  example: ''
+  scoring: Users rate each version on seven dimensions after interaction; ratings are averaged across scenarios
+    within each dimension, then across dimensions to produce each participant's therapeutic communication score
+    and compare versions. An independent blinded psychologist also rates matched transcripts across four scenarios,
+    with scores summed across scenarios and dimensions, while three LLMs provide rubric-aligned scores and rationales.
+  judge: Fifteen Korean graduate students, one independent licensed clinical psychologist, GPT 4.0, Claude 4.0 Sonnet,
+    and Gemini 2.5 Flash assign validation ratings.
+  scale: 'User ratings: 10-point Likert per dimension, averaged into TCS; expert ratings: 1=poor, 2=adequate, 3=excellent,
+    summed across four scenarios and seven dimensions.'
+  validation: Users favored the enhanced version in 13 of 15 cases (86.7%), and the blinded psychologist favored
+    it in three of four scenarios (75%); all three LLM evaluators also favored it. Formal interrater reliability
+    was not computed for the consensus diagnostic review and could not be estimated for the single-expert validation.
+  results: Enhanced Dr. CareSam scored 7.63 versus 5.40 for the baseline version on mean therapeutic communication
+    score, a gain of 2.23 points (41%; dz=0.881). Expert totals were 76 points for the enhanced version and 65 for
+    baseline.
+  limitations: The authors identify the small, culturally specific pilot sample, single-expert validation, simulated
+    crisis scenarios, rubric-driven optimization risk, and reuse of the same LLMs for enhancement mapping and evaluation
+    as limitations.
+  sources:
+  - https://doi.org/10.2196/87887
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

@@ -27,6 +27,32 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 16,501 QA pairs (MedRevQA); 512 pairs (MedChangeQA)
+card:
+  task: Given a biomedical question without supporting context, predict Supported, Refuted, or Not Enough Information
+    and explain the answer.
+  items_built: The authors used gpt-4o-mini-2024-07-18 to turn Objectives sections from Cochrane review abstracts
+    indexed in PubMed from 2000 to January 2024 into questions and derive labels from Authors' conclusions, producing
+    16,501 pairs and a 512-question subset with changed verdicts. Two annotators, a university-clinic physician
+    and an author with a biomedical engineering background, checked 100 random examples and manually checked and
+    corrected all 512 labels in MedChangeQA.
+  example: Does long-term antibiotic use help prevent recurrent urinary tract infections in children?
+  scoring: Predicted labels are extracted and compared with reference labels to calculate macro-averaged precision,
+    recall, and F1. MedChangeQA is scored separately against outdated and latest labels, with the F1 difference
+    used as a proxy for outdated knowledge and the percentage of outdated-label predictions also reported.
+  judge: Scores use exact match with the reference labels.
+  scale: Three categorical labels per item; macro precision, recall, and F1, plus latest-minus-outdated F1 and percentage
+    of outdated-label predictions.
+  validation: ''
+  results: Mistral 24B achieved the highest MedRevQA macro F1 at 45.7. BioMistral 7B had the highest F1 against
+    MedChangeQA's latest labels at 35.3, while Llama 3.3 70B had the largest latest-minus-outdated F1 gain at 7.4
+    points.
+  limitations: The authors note imperfect generated questions and labels, an outdated-knowledge proxy that can also
+    reflect reasoning or interpretation errors, incomplete model coverage, and no deeper medical-expert evaluation
+    of model answers.
+  sources:
+  - https://arxiv.org/abs/2509.04304
+  - https://github.com/jvladika/MedChange
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

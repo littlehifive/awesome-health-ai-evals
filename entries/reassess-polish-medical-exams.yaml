@@ -26,6 +26,34 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: "seven exam sets (LEK, LDEK, PES, PESDL, PESF, LEK-EN, LDEK-EN); over 15,000 questions added to the earlier benchmark"
+card:
+  task: Answer medical exam questions by selecting one option, identifying all correct answers or statements, choosing
+    that no answer is correct, or writing a short answer without options.
+  items_built: The authors extended an existing benchmark with questions and answer keys scraped from official Centre
+    of Medical Examination PDFs, producing over 38,000 questions; two pharmacy exam editions were discarded because
+    of OCR errors. Regular expressions selected questions for structural changes, covering 68% of the original items,
+    and the same filters were applied to parallel English editions.
+  example: ''
+  scoring: Selected answers are compared with the adapted answer key, with multiple-answer and multiple-statement
+    items correct only when the entire set matches; Deepseek-V4-Pro judges open-ended answers as correct or incorrect
+    using medical knowledge and the reference answer. Scores are percentages correct, with modified-question comparisons
+    averaging the three non-open-ended modification groups and the open-ended overall result averaging exam-level
+    accuracies.
+  judge: Exact match with the answer key grades closed-ended items, and Deepseek-V4-Pro grades open-ended answers.
+  scale: Correct or incorrect per item; percentage accuracy, with averages across modification groups or exams.
+  validation: Six Polish-speaking medical experts each annotated 200 answer triplets, including 15 control items.
+    After excluding one outlier annotator, human agreement on controls was Fleiss' kappa 0.921, and agreement between
+    experts and the model judge on 743 valid samples was Cohen's kappa 0.649.
+  results: Qwen3.5-122B performed best overall on altered questions, but its accuracy fell by 28.4 percentage points
+    on English exams and 31 percentage points on Polish exams relative to the original questions.
+  limitations: The authors report limited model coverage due to cost and computing constraints, a judge without
+    medical specialization that can miss subtle clinical errors, and regular-expression filtering that can miss
+    edge cases and introduce mismatches between questions and instructions.
+  sources:
+  - https://arxiv.org/abs/2606.12250
+  - https://huggingface.co/datasets/NASK-PIB/Reassess-Polish-Medical-Exams
+  - https://github.com/NASK-NLP/Reassess-Polish-Medical-Exams
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

@@ -29,6 +29,36 @@ facets:
   eval_methods: [simulated_multi_turn, rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 140 seed instructions, 34 personas, 19 metrics
+card:
+  task: Hold a multi-turn emotional-support conversation with a simulated help-seeking user whose distress can escalate
+    or change across turns.
+  items_built: The gpt-5.4-mini auditor generated synthetic conversations from 140 seed instructions specifying
+    behavior, locale and success criteria, paired with 34 user personas. Practicing mental-health psychologists
+    helped define the new and adapted scoring metrics and rubrics; the reported model grid used 19 conversations
+    per target, for 57 conversations.
+  example: ''
+  scoring: The judge matches conduct in the full transcript to anchored rubric bands for each applicable metric,
+    supplies verbatim evidence and justifies each score; the parser rejects scores without cited evidence. Results
+    include per-metric scores and model-level means, with a strict calibration variant calculated as the fraction
+    of five binary sub-criteria passed multiplied by 10.
+  judge: claude-sonnet-4-6 and gpt-5.4 independently scored the model grid; claude-opus-4-6 judged the separate
+    clinician-concordance study.
+  scale: Standard scores are integers from 1 to 10 per transcript metric; strict scores are the fraction of five
+    criteria passed × 10; model aggregates are means.
+  validation: 'Across 57 model-metric pairs, the two grid judges differed by 0.70 points on average, agreed within
+    1 point on 93% and correlated at r = 0.84. Two licensed psychologists independently blind-rated 50 separate
+    synthetic transcripts: judge-clinician preference agreement was 76% (AC1 = 0.61, n = 21) and 60% (AC1 = 0.20,
+    n = 15), compared with 47% between clinicians (AC1 = -0.04, n = 17); only the first judge-clinician result was
+    statistically significant.'
+  results: Under strict scoring, claude-opus-4-7 led with 7.63, followed by gpt-5.5 at 6.95 and deepseek-v4-pro
+    at 6.84. This reversed the standard-rubric ranking.
+  limitations: The authors state that cross-family judge agreement establishes reliability rather than clinical
+    validity, clinician evidence is preliminary and uses a separate judge and corpus, and deployed-system evaluation
+    was not tested in the reported model grid.
+  sources:
+  - https://arxiv.org/abs/2606.30256
+  - https://github.com/camilochs/empath-benchmark
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

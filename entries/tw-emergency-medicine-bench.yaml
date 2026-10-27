@@ -24,6 +24,25 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 1,719 questions (999 with 5 options, 720 with 4)
+card:
+  task: Choose the correct answer to each Traditional Chinese clinical scenario question with four or five answer
+    options.
+  items_built: Emergency medicine examination committee members appointed by Taiwan's Ministry of Health and Welfare
+    wrote the 1,719 questions and official answers, which were collected in yuhsintw/TW_ED_exam. Liang Hsun Huang
+    cleaned the formatting, split options into separate fields and corrected an option label error, with preliminary
+    manual formatting corrections but further checks still needed.
+  example: 10 個月大的男童因躁動且意識改變而被父母送至急診。母親說男童自昨晚開始就發生嘔吐和腹瀉...試問，下列何者對此病童是最適當的處置？
+  scoring: ''
+  judge: ''
+  scale: ''
+  validation: ''
+  results: ''
+  limitations: The authors state that multiple-choice questions cannot capture clinical complexity, coverage is
+    limited to the exam syllabus, answers reflect guidelines at the time of the exam, formatting still needs cleaning,
+    evaluation must handle mixed option counts, and Taiwan-specific content is unsuitable for other healthcare systems.
+  sources:
+  - https://huggingface.co/datasets/lianghsun/tw-emergency-medicine-bench
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

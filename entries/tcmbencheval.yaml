@@ -25,6 +25,19 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric]
   modality: [text]
   size: unknown
+card:
+  task: Answer traditional Chinese medicine exam questions and respond to clinical case tasks.
+  items_built: The benchmark combines authentic clinical case records, recent national traditional Chinese medicine
+    licensing exam questions and classical traditional Chinese medicine literature.
+  example: ''
+  scoring: Clinical task outputs are evaluated using BLEU-1 and ROUGE-L.
+  judge: ''
+  scale: BLEU-1 and ROUGE-L for clinical tasks.
+  validation: ''
+  results: ''
+  limitations: ''
+  sources: []
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

@@ -26,6 +26,24 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 716 questions
+card:
+  task: Choose the correct answer to each Brazilian Portuguese multiple-choice question from ENADE health-science
+    exams.
+  items_built: The dataset contains 716 unique questions drawn from official ENADE exams held from 2013 to 2023
+    across ten undergraduate programs, with official answer keys. The repository includes a notebook for dataset
+    construction and deduplication.
+  example: ''
+  scoring: The framework selects answers through generation or log-probability scoring and reports accuracy against
+    the official answer keys. It also measures answer-position bias as the deviation of the predicted-position distribution
+    from uniform under shuffled answer options.
+  judge: Answers are checked automatically against the official answer keys.
+  scale: Correct or incorrect per question; overall accuracy.
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://github.com/H2IA/ENADE-QA
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

@@ -28,6 +28,27 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating, mcq_exact_match]
   modality: [text]
   size: "50 HealthBench conversations; MedQA n=100 (300 supplementary) and MedMCQA n=200 perturbation sets"
+card:
+  task: Respond to a medical conversation with information deleted from the final user turn, qualifying the answer,
+    asking for clarification, or otherwise avoiding unsupported confident advice.
+  items_built: The probe uses 50 HealthBench conversations with the latter half of the final user turn deleted.
+    The repository includes a perturbation-validity audit.
+  example: ''
+  scoring: GPT-5.5 judges whether each response appropriately handles missing information, and the appropriate-response
+    rate is reported across the 50 conversations. The inappropriate-confident rate is one minus the appropriate-response
+    rate; baseline rubric scores and a four-provider judge-panel analysis are also reported.
+  judge: GPT-5.5 is the primary judge, with a four-provider LLM panel and human checks by two independent clinicians
+    plus the physician author.
+  scale: Appropriate or inappropriate-confident per response; aggregate rates from 0 to 1.
+  validation: A clinician-anchored validity check used two independent clinicians as co-primary raters, plus the
+    author; LLM judges were more permissive than the stricter clinician.
+  results: Claude Opus 4.8 had the highest appropriate-response rate, 0.940, and an inappropriate-confident rate
+    of 0.060 under the primary GPT-5.5 judge.
+  limitations: ''
+  sources:
+  - https://arxiv.org/abs/2607.18828
+  - https://github.com/KAVentures/health-ai-readiness-robustness
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

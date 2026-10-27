@@ -27,6 +27,28 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: Framework with four quality domains, scored per dialogue and per turn; no released item set
+card:
+  task: Converse with patients to support their treatment for overweight and obesity.
+  items_built: The framework applies to patient conversations with an AI health coach, rather than a fixed set of
+    test items. A team of Master's- and Doctorate-qualified behavioral scientists and psychologists developed it
+    using literature review and expert consultation, then five evaluators independently rated the same 12 dialogues,
+    discussed discrepancies, and repeatedly tested revisions.
+  example: ''
+  scoring: Trained reviewers rate each dialogue against the four FAST domains and assign a separate overall dialogue
+    score using their judgment, not an average of the domain scores. Individual turns can receive an overall quality
+    score and an explanatory tag; unrated turns are assumed acceptable.
+  judge: Trained human reviewers assign scores; the initial testing team included three Master's-level evaluators
+    and two Doctorate-level experts in health psychology, behavioral science, and weight management.
+  scale: Each domain, overall dialogue, and rated turn receives 1 for unacceptable or 2 for acceptable; no aggregate
+    benchmark metric is specified.
+  validation: ''
+  results: ''
+  limitations: The authors state that validation and inter-rater reliability testing remain to be done, some ethical
+    dilemmas are not covered, the expert-driven approach needs consumer input, and thorough human review is resource
+    intensive.
+  sources:
+  - https://doi.org/10.3389/fdgth.2025.1460236
+  extracted: '2026-10-27'
 signals:
   citations: 8
   citations_source: OpenAlex

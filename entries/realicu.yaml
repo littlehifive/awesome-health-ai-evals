@@ -26,6 +26,35 @@ facets:
   eval_methods: [expert_human_rating, rubric_llm_judge]
   modality: [text]
   size: "930 Gold windows (94 ICU stays); 11,862 Scale windows"
+card:
+  task: At each 30-minute ICU window, use the clinical events available so far to assess patient status, rank five
+    acute problems and five recommended actions, and provide supporting evidence from the recorded history.
+  items_built: The authors sampled 94 MIMIC-IV ICU stays into 30-minute windows at a 2-hour stride; at least two
+    of five senior ICU physicians independently reviewed each selected window with the full trajectory available,
+    retaining 930 consensus windows after dropping disagreements. Oracle, instantiated with Gemini-3.1-pro and validated
+    against physician consensus, labeled all 11,862 windows for RealICU-Scale.
+  example: '"Patient ContextAge: 45 -Gender: Female Pre-ICU history: ruptured saccular aneurysm, left cerebellar
+    parenchymal hemorrhage, rising lactate (1.3 - 3.6) Allergies: penicillins, sulfa"'
+  scoring: Patient status predictions are compared with hindsight labels using accuracy and macro-F1; PubMedBERT
+    semantic matching scores the top-five problems and actions against reference sets using Hit@5 and Recall@5.
+    Window scores are aggregated across stays, while the harmful recommendation rate is calculated as the fraction
+    of recommendations matching red flags within each stay and then averaged across stays.
+  judge: Automated label comparison and PubMedBERT semantic matching use reference labels from physician consensus
+    or Gemini-3.1-pro Oracle.
+  scale: Binary semantic matches at a 0.5 threshold; accuracy, macro-F1, Hit@5, Recall@5 and harmful recommendation
+    rate, each from 0 to 1.
+  validation: Physician inter-rater reliability was 0.985 for status, 0.980 for problems, 0.826 for recommendations
+    and 0.916 for red flags; Oracle F1 against physician consensus was 0.987, 0.987, 0.895 and 0.964, respectively.
+    The PubMedBERT matching threshold achieved 0.96 F1 on 100 expert-annotated pairs.
+  results: On RealICU-Gold, ICU-Evo with Gemini-3.1-pro achieved the highest patient-status accuracy, 0.459, and
+    tied for the highest action Recall@5, 0.534, with a harmful recommendation rate of 0.300. ICU-Evo with GPT-5.4
+    led acute-problem Recall@5 at 0.570 but had a harmful recommendation rate of 0.473.
+  limitations: The authors state that MIMIC-IV demographics and care patterns may not transfer to other ICUs, each
+    model configuration was run only once without variance estimates, and the benchmark excludes imaging and physiological
+    signals.
+  sources:
+  - https://arxiv.org/abs/2605.13542
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

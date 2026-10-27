@@ -28,6 +28,29 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 2,786 questions
+card:
+  task: Answer each medical question without supplied evidence, giving a long-form explanation and a verdict of
+    supported, refuted, or not enough information.
+  items_built: The authors used GPT-3.5 (Turbo-0125) to generate 2,786 questions from the objectives of Cochrane
+    review abstracts published in 2018 to 2023 and verdicts from their conclusions, retaining the original conclusions
+    as reference answers. Two authors checked 100 randomly selected examples and found 94% of questions and 92%
+    of labels correct.
+  example: '"Can listening to music improve sleep in adults with insomnia?"'
+  scoring: Predicted verdicts are compared with the reference labels using accuracy and macro-averaged F1 across
+    the dataset. Generated answers are compared with the original review conclusions using ROUGE-L for word overlap
+    and BERTScore for semantic similarity.
+  judge: Automated label comparison, ROUGE-L, and BERTScore assign the scores.
+  scale: Three-class verdicts; dataset accuracy, macro-F1, ROUGE-L, and BERTScore, reported as percentages.
+  validation: ''
+  results: Mixtral performed best overall among six models, with 62.0% accuracy, 34.8 macro-F1, 21.1 ROUGE-L, and
+    85.6 BERTScore. ChatDoctor had the highest BERTScore at 86.0.
+  limitations: The authors cite possible errors in automatically generated labels, evaluation limited to zero-shot
+    recall and a subset of relevant biomedical models, and no human evaluation of generated responses.
+  sources:
+  - https://doi.org/10.18653/v1/2024.findings-acl.860
+  - https://huggingface.co/datasets/lavita/MedREQAL
+  - https://github.com/jvladika/MedREQAL
+  extracted: '2026-10-27'
 signals:
   citations: 7
   citations_source: OpenAlex

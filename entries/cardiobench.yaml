@@ -28,6 +28,30 @@ facets:
   eval_methods: [rubric_llm_judge, mcq_exact_match, expert_human_rating]
   modality: [text]
   size: 2,263 items in 13 datasets; 15,841 outputs from seven LLMs
+card:
+  task: Produce the requested clinical response from a cardiovascular case, ECG or imaging input, or select the
+    best answer to a five-option clinical ethics question.
+  items_built: Sixteen cardiology physicians with intermediate or higher professional titles constructed 2,263 items,
+    reference answers and atomic key points from de-identified cardiovascular records and examination data, including
+    2,048 open-ended items and 215 ethics questions. Two senior cardiologists cross-reviewed every item for clinical
+    validity, source fidelity, answerability and guideline concordance, with revision, exclusion and consensus resolution
+    of disagreements.
+  example: ''
+  scoring: For open-ended items, matched reference key points are divided by all reference key points and averaged
+    within each task; holistic scoring compares responses with references and task-specific clinical-quality rubrics,
+    and a composite gives greater weight to key-point coverage without stating the weights. Ethics scores are percentages
+    correct, and overall results report both an unweighted mean across 13 tasks and an item-weighted mean.
+  judge: The text discusses LLM-as-a-Judge scoring but does not identify the grader model.
+  scale: 'Open-ended components and composites: 0 to 100; ethics: percentage correct; overall: task macro-average
+    and item-weighted mean.'
+  validation: ''
+  results: GPT-5.4 ranked first with an overall task macro-average of 62.55 and an item-weighted mean of 62.19.
+  limitations: The authors identify uncertain generalizability beyond one tertiary academic center, sensitivity
+    of scoring to reference granularity and evaluator preferences, ethics items needing audit, and a need for independent
+    clinician and prospective validation.
+  sources:
+  - https://arxiv.org/abs/2607.25186
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

@@ -28,6 +28,36 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric, expert_human_rating, rubric_llm_judge]
   modality: [text]
   size: 7,556 questions (6,867 train, 500 dev, 189 test)
+card:
+  task: Choose one of five answer options for each Chinese pharmacist examination question and write a free-text
+    explanation for the choice.
+  items_built: The authors collected examination questions from 2020-2021 official examinations for the test set,
+    with explanations from official solutions, and additional questions from the internet and exercise books, then
+    removed duplicate and incomplete items to produce 6,867 training, 500 development and 189 test questions. Three
+    Peking Union Medical College doctoral students who had completed standardized residency training checked 320
+    collected samples, finding 318 correct answer labels (99.4%) and 317 correct explanations (99.0%).
+  example: '"The patient, female, 65 years old, received the second cycle of chemotherapy for breast cancer. Which
+    antiemetic drugs are prohibited? Options A. Metoclopramide. B. Ondansetron. C. Dexamethasone. D. Diphenhydramine.
+    E. Aprepitant."'
+  scoring: Answer accuracy compares selected options with gold answers, and ROUGE-1, ROUGE-2 and ROUGE-L compare
+    generated explanations with reference explanations. Human annotators and GPT-4 also rate explanations from selected
+    models separately on well-formedness, support for the answer, factual correctness, valid reasoning and novelty,
+    with results reported by criterion.
+  judge: Automatic answer and ROUGE scoring, human annotators whose number and qualifications are not stated, and
+    GPT-4 assign scores.
+  scale: Answer accuracy as a percentage; ROUGE-1, ROUGE-2 and ROUGE-L scores; explanation ratings from 1 to 5 for
+    each of five criteria.
+  validation: The authors report that GPT-4's relative ratings were consistent with human evaluation, without an
+    agreement statistic.
+  results: GPT-4 led with 75.7% answer accuracy and ROUGE-L of 0.247, and was the only evaluated model to pass the
+    pharmacist examination.
+  limitations: The authors limit the benchmark to explanation generation and note inadequate automatic assessment
+    of interpretability, with further work needed on explanation quality and diversity, medical knowledge coverage
+    and evaluation metrics.
+  sources:
+  - https://doi.org/10.18653/v1/2023.findings-emnlp.129
+  - https://github.com/HITSz-TMG/ExplainCPE
+  extracted: '2026-10-27'
 signals:
   citations: 10
   citations_source: OpenAlex

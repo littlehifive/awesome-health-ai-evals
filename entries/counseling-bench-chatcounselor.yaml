@@ -26,6 +26,26 @@ facets:
   eval_methods: [rubric_llm_judge]
   modality: [text]
   size: 229 questions (sanitised subset public)
+card:
+  task: Write a counseling response to each single-turn, open-ended question describing a client's concerns.
+  items_built: The authors designed 229 questions covering addiction, anxiety, minority group issues, depression,
+    family and relationships, and other counseling scenarios. The paper calls them real-world questions but does
+    not specify their sources or how they were checked.
+  example: ''
+  scoring: GPT-4 compares two models' responses to the same question on each of seven counseling criteria, gives
+    a brief explanation, and selects the better response or a tie. The provided text does not explain how these
+    judgments are combined into reported scores.
+  judge: GPT-4 assigns the pairwise judgments.
+  scale: A wins, B wins, or tie for each criterion; final aggregation is not specified.
+  validation: ''
+  results: GPT-3.5-turbo (ChatGPT) performed better than ChatCounselor, while ChatCounselor outperformed the evaluated
+    open-source models. Numerical scores and a human baseline are not provided in the text.
+  limitations: The authors report that GPT-4 tends to favor longer responses and extensive lists of suggestions,
+    despite instructions to avoid these preferences.
+  sources:
+  - http://arxiv.org/abs/2309.15461
+  - https://github.com/EmoCareAI/ChatPsychiatrist
+  extracted: '2026-10-27'
 signals:
   citations: 43
   citations_source: OpenAlex

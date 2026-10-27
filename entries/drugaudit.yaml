@@ -26,6 +26,33 @@ facets:
   eval_methods: [rubric_llm_judge]
   modality: [text]
   size: 3,772 questions
+card:
+  task: Answer each drug-information question with supporting citations and evidence snippets, or refuse when the
+    source records contain no data.
+  items_built: The authors sampled drugs from source indexes, queried live databases, retained records as gold answers,
+    and used Claude Opus 4.7 with source-specific templates to write 3,772 questions, including 383 requiring multiple
+    sources. A structural validator checked citation databases, locators and snippets, and an independent LLM audit
+    checked answer-citation consistency; 100% were structurally valid and 95.2% passed the quality audit, without
+    pharmacist re-annotation.
+  example: ''
+  scoring: Two LLM judges compare answers with gold facts, assigning YES = 1, PARTIAL = 0.5 or NO = 0, and scores
+    are averaged after excluding unparseable verdicts. Automated citation checks measure source authority, snippet
+    overlap, primary-source weights and faithfulness; the Evidence Index combines 40% mean judge score with 60%
+    citation-side score, while answered rate is reported separately.
+  judge: Llama-3.1-70B-Instruct is the primary correctness judge and gpt-oss-120b is the secondary judge; citation
+    metrics are automated and judge-independent.
+  scale: 'Correctness: 0, 0.5 or 1 per item, averaged across parseable verdicts; Evidence Index: 0 to 1.'
+  validation: The two judges achieved pooled Cohen's κ = 0.882 across 22,471 parseable paired verdicts out of 26,404
+    attempted pairs; five of seven candidate systems had κ ≥ 0.85.
+  results: DrugClaw-graph led the Evidence Index with 0.632 under Llama-3.1-70B-Instruct and 0.623 under gpt-oss-120b.
+    It also had the highest primary-source rate, 0.918, while DrugClaw-linear had the highest faithfulness rate,
+    0.887.
+  limitations: The authors note that cross-benchmark comparison awaits external adoption or comparable resources,
+    that 47% to 50% of graph-mode answers received unparseable judge verdicts and were excluded, and that agreement
+    for DrugClaw-linear was lower at κ = 0.79.
+  sources:
+  - https://arxiv.org/abs/2606.01434
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

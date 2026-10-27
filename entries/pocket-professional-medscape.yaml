@@ -26,6 +26,24 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 183 cases; 361 viable questions
+card:
+  task: Read a clinical case history and select answers to multiple-choice questions about diagnosis or treatment.
+  items_built: The author collected 183 Medscape Case Challenge cases submitted by practicing physicians from January
+    2023 through October 2024, yielding 361 usable questions. Each case included a detailed clinical presentation
+    and crowd-sourced answer votes from the medical community.
+  example: ''
+  scoring: Each selected answer is compared with the answer receiving the most physician votes, and accuracy is
+    the percentage of usable questions matching that consensus. Models that failed to select multiple-choice answers
+    were deemed unscorable.
+  judge: Crowd-sourced physician votes determine the reference answer.
+  scale: Match or mismatch per question; percentage agreement with physician consensus across 361 usable questions.
+  validation: ''
+  results: GPT-4o had the best reported score, matching physician consensus on 293 of 361 questions, about 81%.
+  limitations: The authors state that text-only testing does not fully capture the multimodal nature of diagnosis,
+    particularly for cases with diagnostic images, and that models lack reliable calibration of diagnostic confidence.
+  sources:
+  - http://arxiv.org/abs/2410.20636
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

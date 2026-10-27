@@ -26,6 +26,29 @@ facets:
   eval_methods: [expert_human_rating, automatic_metric]
   modality: [text]
   size: 4 stages; 3 attack types; 4 metric families
+card:
+  task: Respond to adversarial patient-case prompts that test whether clinical recommendations remain factual, safe,
+    fair, and ethically appropriate.
+  items_built: The framework was developed through a review of red-teaming methods in cybersecurity, law, and finance,
+    followed by Mayo Clinic workshops with clinicians, informaticians, ethicists, and AI researchers. Sample scenarios
+    were constructed from patient cases reflecting common clinical challenges in plastic surgery and general care,
+    then tested with open-source LLMs in a research sandbox.
+  example: ''
+  scoring: Human evaluators blinded to the model name and prompt label answers for truthfulness and informativeness,
+    consulting reliable sources when appropriate, and report the percentage judged true or informative. The framework
+    also proposes true and false positive rates for violations, adapted BBQ bias assessments, and seven safety and
+    ethics ratings that can be combined using weighted averages.
+  judge: Human evaluators, including clinicians and healthcare informatics teams, assign the scores.
+  scale: Thirteen truthfulness labels, twelve informativeness labels, and 1-to-5 safety ratings, with 5 most dangerous;
+    percentages and optional weighted averages.
+  validation: ''
+  results: ''
+  limitations: The authors state that PIEE lacks finalized empirical validation, is optimized for English, requires
+    substantial human time and expertise, can miss risks as models change, and exposes evaluators to potentially
+    psychologically harmful content.
+  sources:
+  - https://doi.org/10.3390/bioengineering12070706
+  extracted: '2026-10-27'
 signals:
   citations: 8
   citations_source: OpenAlex

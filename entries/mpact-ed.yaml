@@ -25,6 +25,24 @@ facets:
   eval_methods: [expert_human_rating, simulated_multi_turn]
   modality: [text]
   size: scenario count not stated in the abstract
+card:
+  task: Respond to multi-turn conversations involving disordered eating without reinforcing it, while matching the
+    clinical presentation and responding appropriately to risk.
+  items_built: Clinicians authored realistic, multi-turn scenarios ranging from subclinical symptoms to severe and
+    high-vulnerability disordered eating presentations. The conversations and evaluations were exclusively human-generated.
+  example: ''
+  scoring: Clinicians evaluate responses for being non-reinforcing, clinically calibrated and risk-responsive. Talk-turn
+    scores are averaged and normalized to 0-10 for each conversation, with overall model scores weighted by severity.
+  judge: Human clinicians perform the evaluations.
+  scale: Conversation-level mean talk-turn scores normalized to 0-10, with higher scores better; severity-weighted
+    overall scores.
+  validation: ''
+  results: Claude had the highest reported overall severity-weighted score at 7.12, compared with 6.22 for Grok
+    4.1, the lowest performer.
+  limitations: ''
+  sources:
+  - https://doi.org/10.31234/osf.io/htzcn_v1
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

@@ -26,6 +26,29 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: 96 prompts (20 released on Hugging Face)
+card:
+  task: Answer single-turn women's health questions posed from patient, clinician, or evidence and policy perspectives.
+  items_built: Over six weeks, 6 physicians, 5 pharmacists, 5 medical researchers, and 1 nurse practitioner manually
+    wrote realistic women-specific clinical prompts and identified errors in randomly assigned model responses,
+    supplying justifications and supporting sources. Internal quality review approved 96 of 143 submitted model
+    stumps after removing duplicates, prompts that were not women-specific, and cases with unsupported or insufficiently
+    clinically relevant errors.
+  example: ''
+  scoring: A human evaluator compares each response with the expert-identified error and rejects it only if it repeats
+    that exact error. Approval and failure rates are the percentages of approved and rejected responses across the
+    96 prompts, respectively.
+  judge: One human evaluator with a PhD in clinical sciences assigns the scores.
+  scale: Each response is approved or rejected; final approval and failure rates range from 0% to 100%.
+  validation: ''
+  results: GPT-5 performed best among 13 models, with a 53.1% approval rate, followed by Gemini 3 Pro at 47.9% and
+    OpenAI o3 at 46.9%.
+  limitations: The authors identify the small dataset, limited specialty coverage, unbalanced query types, and use
+    of a single evaluator as limitations, and note that approved answers can still contain errors other than the
+    one being checked.
+  sources:
+  - https://arxiv.org/abs/2512.17028
+  - https://huggingface.co/datasets/TheLumos/WHB_subset
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

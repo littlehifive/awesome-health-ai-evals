@@ -28,6 +28,31 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: "1,000 conversations with rubrics"
+card:
+  task: Answer a sequence of one or three related user queries about mental health or psychology, using earlier
+    dialogue turns as context.
+  items_built: The authors sampled 1,000 synthetic and existing-dataset conversations from oMind-SFT, retaining
+    961 conversations with 1,809 dialogue turns after review. GPT-4 drafted rubrics from an expert-curated inventory,
+    and four psychology experts with at least master's qualifications reviewed them, with three reviewing independently
+    and one resolving disagreements and consolidating additions.
+  example: ''
+  scoring: An LLM judge compares responses with turn-level and whole-conversation rubrics, assigning binary presence
+    scores and 0-10 scores to individual rubric points and averaging them within each turn or conversation. It also
+    assigns a 1-5 Likert rating against the complete rubric; the text does not specify how scores are aggregated
+    across the dataset.
+  judge: An LLM judge assigns response scores; its model name is not specified.
+  scale: Binary presence, 0-10 rubric-point scores, and 1-5 overall Likert ratings at turn and conversation levels;
+    the stated binary coding is present = 0 and absent = 1.
+  validation: ''
+  results: oMind-Qwen led with turn-level scores of 0.73 binary, 6.0 out of 10, and 4.0 out of 5, and conversation-level
+    scores of 0.79 binary, 6.5 out of 10, and 4.1 out of 5.
+  limitations: The authors describe oMind as research for decision support, not a replacement for professionals
+    or a system for standalone real-world deployment.
+  sources:
+  - https://arxiv.org/abs/2603.25105
+  - https://huggingface.co/datasets/surajracha/oMind-Chat
+  - https://github.com/surajrachaiitb/oMind
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

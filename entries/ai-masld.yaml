@@ -26,6 +26,32 @@ facets:
   eval_methods: [automatic_metric, expert_human_rating]
   modality: [text]
   size: 240 clinical cases (40 probes in each of 6 categories, baseline and stressed variants), 7 models audited
+card:
+  task: Extract clinical facts and make clinical judgments from each case in both a clean narrative and a perturbed
+    version containing the same clinical content.
+  items_built: Senior clinicians at one institution created 240 vignettes from real-world clinical archetypes across
+    multiple specialties, with 40 probes in each of six categories and baseline and stress variants for each probe.
+    Both constructing clinicians independently verified each answer key and resolved disagreements by consensus;
+    agreement on gold-standard diagnostic pathways was Cohen's kappa 0.84.
+  example: ''
+  scoring: Claude Opus 4.6 compares clinical assertions with the answer key to compute recall and purity, and marks
+    binary judgments correct or incorrect; MI is averaged across 40 cases per probe and condition. PFR is the fraction
+    of baseline-correct judgments that become incorrect under stress, CFI measures consistency across demographic
+    counterfactuals, and the KEM composite multiplies CFI, one minus mean PFR, and mean stress MI.
+  judge: Claude Opus 4.6 grades de-identified outputs against gold-standard answer keys using a structured rubric.
+  scale: Binary judgments are correct or incorrect; PFR ranges from 0 to 1, MI is averaged by probe and condition,
+    and the reported KEM composite ranges from 0 to 1.
+  validation: Two senior clinicians independently scored 48 outputs per evaluated model under double-blind conditions.
+    Agreement between Claude Opus 4.6 and clinician consensus had quadratic-weighted Cohen's kappa values of 0.78
+    to 0.86 across models and sub-arms.
+  results: Gemini 3 Pro achieved the highest KEM composite score, 0.831. DeepSeek and Gemini 3 Pro shared the highest
+    CFI, 0.900.
+  limitations: The authors identify the small, single-institution case set, limited stress probes, potential LLM-judge
+    bias, lack of multimodal testing, time-sensitive rankings, and absence of calibration against clinical safety
+    thresholds or prospective real-world outcomes as limitations.
+  sources:
+  - https://arxiv.org/abs/2606.07929
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

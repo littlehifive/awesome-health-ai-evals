@@ -26,6 +26,27 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric, rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 150 subjective questions; 3,175 multiple-choice questions; 517, 689, and 475 items for three NLP tasks
+card:
+  task: Answer open-ended TCM questions, select correct options on TCM exam questions, and complete prescription
+    entity recognition, syndrome differentiation, and reading-comprehension quiz construction tasks.
+  items_built: The authors collected and organized 150 TCM questions and 3,175 practice questions from 13 TCM practice
+    exams. They also held out 517 prescription identification items, 689 syndrome differentiation items, and 475
+    reading-comprehension quiz items from existing datasets.
+  example: ''
+  scoring: GPT-4 compares subjective answers for professionalism, safety, and fluency, using medical experts' assessments
+    as examples for safety, and reports win, tie, and loss rates against baseline models. Multiple-choice responses
+    are scored for accuracy by subject, while NLP outputs are compared with dataset reference outputs using ROUGE-L.
+  judge: GPT-4 grades subjective answers, with medical expert assessments guiding safety evaluation; objective tasks
+    use correct options and ROUGE-L.
+  scale: Subjective win, tie, and loss rates; multiple-choice accuracy; ROUGE-L for each NLP task.
+  validation: ''
+  results: Qibo achieved a 63% average subjective win rate against baselines and 58% average multiple-choice accuracy,
+    the best reported objective result. Its ROUGE-L scores were 0.72 for prescription identification, 0.61 for syndrome
+    differentiation, and 0.55 for reading-comprehension quiz construction, below the best task-specific methods.
+  limitations: ''
+  sources:
+  - https://doi.org/10.1016/j.eswa.2025.127672
+  extracted: '2026-10-27'
 signals:
   citations: 27
   citations_source: OpenAlex

@@ -26,6 +26,29 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 13,312 segments (258,228 raw messages, 1,406 users)
+card:
+  task: Assign the target user in each Chinese group-chat segment to one of six suicide-risk classes using the surrounding
+    conversation.
+  items_built: The authors collected messages from 20 public Chinese suicide-related Telegram groups from January
+    2020 to June 2025, then used expert-checked signal words and backward and forward context expansion to construct
+    13,312 segments. Three trained psychology graduate students piloted annotation on 300 samples; main annotation
+    included periodic review of 10% of samples, majority voting for disagreements, and removal of unresolved cases.
+  example: ''
+  scoring: Predicted risk classes are compared with the annotated labels to calculate accuracy and macro-averaged
+    precision, recall, and F1 across the six classes.
+  judge: Classification metrics compare predictions with the annotated reference labels.
+  scale: One of six classes per segment; accuracy and macro precision, recall, and F1 reported as percentages.
+  validation: Annotator agreement measured by Fleiss' kappa rose from 0.57 to 0.73 over three rounds of pilot guideline
+    refinement and remained between 0.84 and 0.88 during main annotation. Separately, 17 open-weight LLMs achieved
+    Fleiss' kappa of 0.422 in silver-label annotation, with 7,148 of 11,189 topics meeting the two-thirds weighted-consensus
+    threshold.
+  results: ''
+  limitations: The authors state that the data may not generalize beyond public Chinese Telegram groups, do not
+    explicitly model real-time message latency or long-term user history, and require restricted access that limits
+    immediate reproducibility.
+  sources:
+  - https://arxiv.org/abs/2605.27911
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

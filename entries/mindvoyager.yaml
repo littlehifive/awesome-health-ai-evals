@@ -26,6 +26,31 @@ facets:
   eval_methods: [simulated_multi_turn, automatic_metric]
   modality: [text]
   size: 2 metrics; simulated client built on Patient-Psi-CM cognitive diagrams
+card:
+  task: Conduct a freeform counseling conversation with a simulated client to uncover and help the client articulate
+    their experiences, thoughts, beliefs, and coping strategies.
+  items_built: The framework applies to simulated counseling sessions built from expert-written Cognitive Conceptualization
+    Diagrams in the Patient-ψ-CM dataset, with easy, normal, and hard settings. Its focus on openness and metacognition
+    was informed by three psychological counseling experts' qualitative review of 20 sessions generated with GPT-4o-mini
+    as both therapist and client.
+  example: ''
+  scoring: CDER is the percentage of sessions in which every initially masked cognitive-diagram element is revealed,
+    with any remaining concealed element making that session a failure. For IDSS, an LLM extracts cognitive-diagram
+    elements from the conversation, and semantic similarity scoring compares each extracted element with its corresponding
+    ground-truth element.
+  judge: A cognition mediator judges disclosure progress, and an unspecified LLM extracts elements for semantic
+    similarity scoring.
+  scale: 'CDER: binary success per session, reported as a percentage; IDSS: semantic similarity to ground-truth
+    cognitive elements.'
+  validation: The authors compared CDER and IDSS with the Cognitive Therapy Rating Scale and reported slight correlation
+    but no direct relationship, without numerical agreement estimates in the provided text.
+  results: Llama-3.1-70B had the highest CDER across all three difficulty settings. Llama-3.1-70B and Claude-3.5-Haiku
+    were the best-performing models on IDSS; scores are not given in the provided text.
+  limitations: The authors state that cognitive-diagram elements may not sufficiently model complex, context-dependent
+    human cognition, and the simulator addresses only openness and metacognition.
+  sources:
+  - https://arxiv.org/abs/2507.19643
+  extracted: '2026-10-27'
 signals:
   citations: 3
   citations_source: OpenAlex

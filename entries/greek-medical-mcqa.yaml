@@ -23,6 +23,21 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 2,034 questions (1,602 train, 432 validation)
+card:
+  task: Answer multiple-choice questions in Greek from DOATAP medical exams.
+  items_built: ILSP/Athena RC curated 2,034 questions automatically extracted from past DOATAP medical exams available
+    at doatap.gr.
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: Accuracy.
+  validation: ''
+  results: ''
+  limitations: The authors state that the automatically extracted data are provided as is, without a warranty of
+    quality, absence of defects, or fitness for a particular purpose.
+  sources:
+  - https://huggingface.co/datasets/ilsp/medical_mcqa_greek
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

@@ -27,6 +27,25 @@ facets:
   eval_methods: [simulated_multi_turn, rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: "25 synthetic help-seeker roles in the paper's study; framework can generate more"
+card:
+  task: Hold an emotional-support conversation with a simulated help seeker so that it can be compared with another
+    model's conversation with the same role.
+  items_built: The framework synthesizes help-seeker roles by sampling stressors, personality attributes, and life
+    history, then uses those roles to simulate separate sessions with each model under test. Its evaluation rubrics
+    are grounded in Clara Hill's Exploration-Insight-Action counselling model.
+  example: ''
+  scoring: A judge LLM compares two models' conversations with the same help-seeker role and assigns pairwise preferences
+    across rubric-anchored skills in Exploration, Insight, and Action.
+  judge: A judge LLM assigns preferences; the repository's example judging command uses o1-mini.
+  scale: Pairwise preferences by rubric skill across Exploration, Insight, and Action.
+  validation: The judge agreed with two PhD-level annotators on 85% of Exploration, 83% of Insight, and 86% of Action
+    decisions.
+  results: ''
+  limitations: ''
+  sources:
+  - https://github.com/navidmdn/ESC-Judge
+  - https://doi.org/10.18653/v1/2025.emnlp-main.811
+  extracted: '2026-10-27'
 signals:
   citations: 6
   citations_source: OpenAlex

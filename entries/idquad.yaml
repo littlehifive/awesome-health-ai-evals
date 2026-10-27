@@ -25,6 +25,26 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: "5,439 QA pairs covering 104 infectious diseases"
+card:
+  task: Give a short answer to each infectious-disease question using only the information in its supplied context.
+  items_built: GPT-4o-mini generated answers and Llama3-Instruct generated questions from processed papers, patents
+    and news, producing 5,439 pairs; Llama3-8B-Instruct regenerated answers through counterfactual simulation with
+    an F1 threshold of 0.7. Experts from the Pandemic Prevention Big Data Exchange checked a random sample of 1,000
+    pairs (18.4%) for answerability from the context and relevance.
+  example: ''
+  scoring: Generated answers are compared with the reference answers using exact match and token-based F1, which
+    balances precision and recall. Reported EM and F1 scores are averaged across three evaluation runs for each
+    model and setting.
+  judge: Automatic exact-match and token-based F1 comparisons with the reference answers assign the scores.
+  scale: Exact match is binary per answer; token-based F1 ranges from 0 to 1, with final EM and F1 reported as percentages.
+  validation: ''
+  results: Fine-tuned Mistral-7B achieved the highest reported performance, with 69.40% EM and 91.61% F1 in the
+    5-shot setting with chain-of-thought prompting.
+  limitations: The authors identify reliance on a single prompting strategy and commercial APIs for dataset generation,
+    which introduces dependence on external services and changes in cost and availability.
+  sources:
+  - https://doi.org/10.1371/journal.pone.0333075
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

@@ -27,6 +27,28 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric, expert_human_rating]
   modality: [text]
   size: 300 real cases (paper); six tasks; 16 LLMs evaluated; 60-psychiatrist reader study
+card:
+  task: Use patient records to generate chief complaints and structured summaries, identify principal and differential
+    diagnoses, recommend medications, and answer questions about the patient's course over time.
+  items_built: The researchers collected 300 de-identified cases from three psychiatric medical centers in northern,
+    central, and southern China, with sample size determined by power analysis and an independent expert committee
+    auditing the data and providing reference answers. The long-record multiple-choice subtask contains four questions
+    per record, each with one correct answer among four or five options.
+  example: ''
+  scoring: Automatic metrics compare outputs with expert reference answers using text overlap, semantic similarity,
+    medical entity matching, diagnostic code agreement, medication overlap and ranking, and question-answer accuracy.
+    Metrics are min-max normalized and averaged within each task, then the five task averages are averaged into
+    a comprehensive score.
+  judge: Automatic metrics assign benchmark scores against reference answers supplied by an expert committee.
+  scale: 'Principal diagnosis: 0, 0.5 or 1 for ICD-10 agreement; other task-specific similarity, coverage and accuracy
+    metrics; final score is the mean of five normalized task scores.'
+  validation: ''
+  results: Doubao-pro-32k achieved the highest principal diagnosis accuracy at 53.33 ± 48.36%. Qwen-max achieved
+    the highest differential diagnosis accuracy at 34.56 ± 40.92%.
+  limitations: ''
+  sources:
+  - https://arxiv.org/abs/2503.01903
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

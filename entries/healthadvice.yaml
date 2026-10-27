@@ -27,6 +27,29 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: 222 questions; 888 chatbot responses rated by 16 physicians
+card:
+  task: Answer each patient-posed question seeking advice about diagnosis or treatment.
+  items_built: The authors manually selected 91 primary-care advice-seeking questions from Google's HealthSearchQA
+    and generated 131 additional questions using search-engine recommendations, focusing on pediatrics and women's
+    health. The resulting 222 questions cover 75 internal medicine, 73 pediatrics, and 74 women's health topics.
+  example: '"How should I treat pregnancy acne?"'
+  scoring: A physician blinded to chatbot identity judges each response against the quality expected of a board-certified
+    physician, labels it acceptable or problematic, assigns a 1-to-5 quality rating, and tags issues in problematic
+    responses. Results report the percentage of problematic responses and the mean quality rating across 222 questions
+    per chatbot.
+  judge: Fifteen physicians with M.D. or M.B.B.S. degrees and current US medical licenses rated responses, with
+    exactly one physician per question.
+  scale: Acceptable or problematic, issue tags, and quality from 1 (poor) to 5 (excellent); percentage problematic
+    and mean quality rating.
+  validation: ''
+  results: Claude 3.5 Sonnet performed best, with 21.6% problematic responses, 5% unsafe responses, and a mean quality
+    rating of 4.02 out of 5.
+  limitations: Each response had only one physician evaluator, questions came from search-engine recommendations
+    rather than actual chatbot queries and used correct grammar and punctuation, and manual evaluation cannot be
+    rapidly repeated as models change.
+  sources:
+  - https://doi.org/10.1038/s41746-026-02428-5
+  extracted: '2026-10-27'
 signals:
   citations: 52
   citations_source: OpenAlex

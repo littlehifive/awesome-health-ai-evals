@@ -25,6 +25,29 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: "3,581 questions (1,326 image references, 1,258 unique images)"
+card:
+  task: Answer each Japanese medical licensing examination question by selecting the required answer options or
+    giving a numeric answer, using the supplied text and any accompanying images.
+  items_built: The 3,581 items were extracted from MHLW examination PDFs using Vertex AI and Codex (GPT-5.5), followed
+    by text cleanup, metadata annotation, automated validation, and small-scale manual review of structured fields,
+    image paths, and selected visual samples. Shared case descriptions were copied into linked questions so each
+    could be answered independently, and questions excluded from official-style scoring were removed.
+  example: ''
+  scoring: A rule-based parser extracts the final answer for comparison with the gold answer; answers that cannot
+    be extracted count as incorrect. Accuracy is reported overall and by year, section, clinical area, and image
+    dependency.
+  judge: A rule-based answer parser scores responses against the gold answers.
+  scale: Each answer is correct or incorrect; final accuracy is the proportion correct.
+  validation: ''
+  results: Among the selected results reported on October 5, 2026, DeepSeek-V4.1-Flash had the highest text-only
+    accuracy at 0.951 across all 3,581 questions. Qwen3.8-Flash-Next had the highest accuracy with images at 0.959,
+    combining image-assisted answers for 944 questions with text-only answers for the remaining questions.
+  limitations: The authors note that small-scale quality checks leave residual extraction, annotation, or formatting
+    errors, deletion of image references can produce unnatural phrasing, and some original images are unavailable.
+  sources:
+  - https://huggingface.co/datasets/SIP-med-LLM/JMedQA
+  - https://github.com/yamagishi0824/jmedqa-eval
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

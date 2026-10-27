@@ -27,6 +27,32 @@ facets:
   eval_methods: [simulated_multi_turn, expert_human_rating]
   modality: [text]
   size: 10 cases (1,000 points total)
+card:
+  task: Conduct a Japanese-language consultation with a simulated patient, ask up to 20 history-taking questions,
+    prepare a medical record, and propose tests or actions one at a time until a case-specific endpoint is reached.
+  items_built: 'The authors created 10 fictional cases from nonpublic sources, with no real patient information:
+    three intracerebral hemorrhages, four ischemic strokes, two aneurysms, and one primary headache. Three board-certified
+    neurosurgeons discussed the study design, and Hirohumi Iwamoto and Kazutaka Yatsushiro assessed the cases''
+    clinical validity and appropriateness.'
+  example: ''
+  scoring: A neurosurgeon scores each conversation against predefined case-specific criteria, allocating 50 points
+    each to history taking and actions, applying deductions, and summing scores across 10 cases into a percentage
+    of 1,000 points. The paper sets only the phase containing a critical mistake to zero, while the repository README
+    says the whole case receives zero.
+  judge: One board-certified neurosurgeon with 10 years of postgraduate clinical experience both plays the patient
+    and assigns scores.
+  scale: 0 to 100 points per case; overall percentage of 1,000 points; passing requires at least 80% and zero critical
+    mistakes.
+  validation: ''
+  results: Claude Fable 5 led with 87.4% and zero critical mistakes. Claude Opus 4.7 scored 80.3% with zero critical
+    mistakes, making these the only two of 18 models to meet the safety threshold.
+  limitations: The authors identify the small set of 10 cases, a single physician at one institution acting as both
+    patient and evaluator, no inter-rater reliability assessment, and the need for repeated trials because model
+    responses are not deterministic.
+  sources:
+  - https://arxiv.org/abs/2609.16739
+  - https://github.com/imy2929/JapaneseStrokeLLMEvaluation
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

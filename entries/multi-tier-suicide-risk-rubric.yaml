@@ -24,6 +24,28 @@ facets:
   eval_methods: [simulated_multi_turn, rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: "53 scenarios; 1,759 evaluation runs across 31+ models; 2,644 annotated marker turns (author's corpus, not released)"
+card:
+  task: Respond to multi-turn suicide-risk dialogues in which clinically meaningful changes in risk may be expressed
+    indirectly, briefly, through denial, or in socially smoothed language.
+  items_built: The framework uses stage-aware scenarios with per-turn reference annotations and was informed by
+    the Salient Distress Model of Suicide, the Narrative-Crisis Model, the Three-Step Theory of Suicide, and the
+    Collaborative Assessment and Management of Suicidality framework. The reported evaluation used 53 scenarios.
+  example: ''
+  scoring: A three-tier rubric scores responses at the turn, run, and expert-review levels. A deterministic rule-based
+    procedure computes the Mechanical Severity Score from structured per-turn observation fields independently of
+    the holistic AI-derived run-level concern rating, allowing the two scores to be compared for evaluator drift.
+  judge: AI evaluators and model-blinded human experts assess responses, alongside a deterministic rule-based severity
+    procedure.
+  scale: Turn-, run-, and expert-review scoring; percentage of marker-turn responses at or below the inadequate
+    transition-recognition threshold.
+  validation: ''
+  results: Across 2,644 reference-annotated marker turns in 1,759 evaluation runs, including 1,679 complete runs,
+    spanning 31+ active models, 57% of responses received inadequate transition-recognition scores overall. Rates
+    ranged from 49% to 77% depending on rubric version.
+  limitations: ''
+  sources:
+  - https://doi.org/10.5281/zenodo.20146999
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

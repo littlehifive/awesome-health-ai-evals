@@ -28,6 +28,35 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 10,000 contexts, 100,000 responses; 70,000 ratings on 1,000 conversations
+card:
+  task: Write a supportive reply to a one-turn mental health counseling message, or, as a judge, rate a supplied
+    reply on seven cognitive and emotional support attributes.
+  items_built: The authors combined MentalChat16K, EmoCare and CounselChat, audited and cleaned 10,000 conversations,
+    and categorized them into 23 conditions; EmoCare's human-derived text had been rephrased using ChatGPT-4. They
+    paired each context with its original reply and nine LLM replies, then selected 1,000 conversations for expert
+    and automated ratings using criteria refined with three human experts.
+  example: ''
+  scoring: Human experts and LLM judges independently rate each reply on seven attributes grouped into Cognitive
+    Support Score and Affective Resonance Score, with scores averaged across conversations for model-level comparisons.
+    Judge reliability is measured against human ratings using consistency and absolute-agreement ICCs and signed
+    mean bias, excluding evaluations of the judge's own model family.
+  judge: Three graduate-level or licensed professionals with formal psychiatric training, plus GPT-4o, O4-Mini,
+    Claude-3.7-Sonnet and Gemini-2.5-Flash, assign ratings.
+  scale: Seven 1-5 Likert ratings per reply; model-level mean scores, consistency and absolute-agreement ICCs, and
+    mean rating bias.
+  validation: Against human experts, Guidance and Informativeness had consistency ICCs of 0.85-0.95 and absolute-agreement
+    ICCs of 0.48-0.92; Empathy and Helpfulness had 0.73-0.91 and 0.29-0.74, respectively. Safety and Relevance had
+    consistency ICCs of 0.26-0.73 and absolute-agreement ICCs of 0.12-0.28; 95% confidence intervals used 1,000
+    bootstrap resamples over models.
+  results: GPT-4o ranked highest under human evaluation at 4.76 out of 5, followed by Gemini-2.0-Flash at 4.65.
+  limitations: The authors identify English-only one-turn dialogues, some AI-reprocessed text, costly generation
+    and expert evaluation limited to 1,000 conversations, potential bias from models acting as both responders and
+    judges, and sensitivity to prompt wording.
+  sources:
+  - http://arxiv.org/abs/2510.19032
+  - https://huggingface.co/datasets/abadawi/MentalBench-Align
+  - https://github.com/abeerbadawi/MentalBench-Align
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

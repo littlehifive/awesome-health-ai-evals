@@ -26,6 +26,27 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 22,573 questions
+card:
+  task: Answer questions that require retrieving, aggregating, and comparing lifestyle records across time, health
+    domains, and users.
+  items_built: The authors aligned AI4FoodDB records by anonymized user IDs and timestamps, then instantiated predefined
+    task templates to create 13,452 single-user and 9,121 multi-user questions. Each question was paired with an
+    executable SQL query that produced its ground-truth answer, and answers were manually spot-checked.
+  example: '"For each day last week, what was my average sleep duration?"'
+  scoring: 'Predictions are compared with SQL-derived answers: yes/no answers must match exactly, numeric answers
+    use specified error tolerances, and multi-item answers must have the correct number of items with every item
+    correct. Accuracy is the percentage of questions answered correctly; database prompting also reports SQL validity,
+    execution accuracy, and final-answer accuracy conditional on correct evidence retrieval.'
+  judge: Answers are checked against SQL-derived ground truth using answer-type-specific matching rules.
+  scale: Correct or incorrect per question; percentage accuracy overall. Numeric tolerance is ±1 for integers ≤14,
+    otherwise max(0.5% of the absolute ground-truth value, 0.01).
+  validation: ''
+  results: GPT-4o led context prompting with 57.02% accuracy. Gemini 2.5 Lite led database-augmented prompting with
+    39.04%.
+  limitations: ''
+  sources:
+  - https://arxiv.org/abs/2601.13880
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

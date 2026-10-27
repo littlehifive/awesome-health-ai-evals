@@ -26,6 +26,24 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: 10 scenarios; 150 sentinel actions
+card:
+  task: Give safety guidance through successive deterioration phases of an intraoperative crisis.
+  items_built: The authors developed ten intraoperative crisis archetypes, each with five to seven deterioration
+    phases, and 150 binary sentinel actions anchored to clinical practice guidelines and published crisis checklists.
+  example: ''
+  scoring: Blinded clinicians independently double-scored outputs against the sentinel actions to calculate the
+    proportion of required safety actions completed. Completion was aggregated for each model and compared across
+    three runs per scenario to measure run-to-run variation.
+  judge: Blinded clinicians independently double-scored the outputs.
+  scale: Binary sentinel actions; aggregate completion percentage and run-to-run differences in percentage points.
+  validation: ''
+  results: Claude Opus 4.6 had the highest aggregate completion at 83.7%, followed by ChatGPT 5.2 at 69.0% and Gemini
+    3.1 Pro at 61.2%. Completion varied across repeated runs in 29 of 30 model-scenario combinations, with mean
+    between-run differences of 14.7 to 18.1 percentage points.
+  limitations: ''
+  sources:
+  - https://doi.org/10.21203/rs.3.rs-10438275/v1
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

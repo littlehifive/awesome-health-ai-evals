@@ -24,6 +24,22 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: about 2,600 questions in three subsets (234 MedXpertQA-Text diagnosis cases; other subset sizes not stated)
+card:
+  task: Answer each clinical diagnostic question and select evidence spans from the question that support the answer.
+  items_built: The benchmark was developed for EviDx using cases from DiagnosisArena, JAMA, and MedXpertQA-Text.
+    During curation, 234 diagnosis-related cases were selected from MedXpertQA-Text and annotated with evidence
+    spans extracted directly from the question text.
+  example: '"A male neonate, aged 2 weeks, ..."'
+  scoring: Diagnostic answers and selected evidence can be evaluated separately or jointly against ground-truth
+    answers and annotated evidence spans. The card does not specify scoring rules or how scores are combined.
+  judge: ''
+  scale: ''
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://huggingface.co/datasets/danieez/Med-Evidence-2.6k
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

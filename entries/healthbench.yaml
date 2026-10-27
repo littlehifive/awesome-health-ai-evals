@@ -33,6 +33,34 @@ facets:
   eval_methods: [rubric_llm_judge]
   modality: [text]
   size: 5,000 conversations; 48,562 rubric criteria
+card:
+  task: Write the next assistant response to a health conversation ending with a message from a layperson or healthcare
+    professional.
+  items_built: Most of the 5,000 conversations were generated synthetically by a language-model pipeline from physician-enumerated
+    situation types, with the rest drawn from physician red-teaming of models and rewritten HealthSearchQA queries.
+    A cohort of 262 selected physicians wrote grading rubrics under automated quality checks and rubric reviews;
+    consensus criteria were added only when a majority of reviewing physicians, with at least two agreeing, judged
+    them relevant.
+  example: ''
+  scoring: GPT-4.1 independently checks whether each conversation-specific criterion is met, awarding its full positive
+    or negative point value if met and zero otherwise. Points are summed and divided by the maximum possible score
+    for each conversation, then conversation scores are averaged and the mean is clipped to the range 0 to 1.
+  judge: GPT-4.1 is the default rubric grader.
+  scale: Criteria carry nonzero weights from -10 to 10; normalized conversation scores can be negative, and the
+    final mean is clipped to 0-100%.
+  validation: On 60,896 physician-labelled examples covering 34 consensus criteria, GPT-4.1 achieved theme-level
+    macro F1 scores of 0.572 to 0.706, compared with weighted physician averages of 0.569 to 0.730. It exceeded
+    the average physician score in five of seven themes and ranked in the upper half of physicians in six of seven.
+  results: o3 scored 60%, compared with GPT-4o at 32% and GPT-3.5 Turbo at 16%. Models outperformed the unassisted
+    physician baseline, whose numerical score is not given in the excerpts.
+  limitations: Example-specific criteria were written by individual physicians without validation by other physicians,
+    rubrics were not comprehensive, grader validation covered only consensus criteria, and the physician baseline
+    depended on an unfamiliar task format and generally shorter responses.
+  sources:
+  - https://arxiv.org/abs/2505.08775
+  - https://huggingface.co/datasets/openai/healthbench
+  - https://github.com/openai/simple-evals
+  extracted: '2026-10-27'
 signals:
   citations: 27
   citations_source: OpenAlex

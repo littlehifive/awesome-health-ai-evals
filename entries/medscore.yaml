@@ -27,6 +27,33 @@ facets:
   eval_methods: [rubric_llm_judge]
   modality: [text]
   size: AskDocsAI 300 questions (plus 3,195 PUMA questions used for analysis)
+card:
+  task: Write a free-form answer to a patient's medical question.
+  items_built: The framework was developed for patient-facing medical answers using a taxonomy of claim-decomposition
+    errors and eight GPT-4o-generated decomposition examples that the authors manually corrected. Development used
+    300 r/AskDocs questions with verified-doctor responses expanded by Meta-Llama 3.1-405B Instruct-Turbo, and robustness
+    testing used PUMA's 3,195 questions and 10,067 answers from Yahoo! Answers.
+  example: '"what is the quickess way to lose weight?"'
+  scoring: Answers are split into claims, which a verifier judges True or False using its internal knowledge, the
+    original doctor response, or retrieved medical passages; invalid verifier outputs count as False. True claims
+    receive 1 and False claims receive 0, scores are averaged within each answer, and the reported dataset score
+    averages answers after excluding those with no extracted claims.
+  judge: GPT-4o or Llama3-OpenBioLLM-70B grades from internal knowledge, while Mistral-Small-24B-Instruct-2501 grades
+    against doctor responses or retrieved medical passages.
+  scale: Each claim scores 0 or 1; mean claim scores per answer and mean answer scores per dataset are reported
+    as proportions or percentages.
+  validation: Two annotators labeled claims from three randomly sampled AskDocsAI responses using six decomposition-error
+    categories, with Cohen's kappa of 0.68.
+  results: MedScore extracted 28 valid claims from three manually annotated responses, compared with 14 for FActScore,
+    9 for VeriScore and 19 for MedScore+Core. On PUMA, MedScore had the highest adjusted verifiable rate at 63.42%,
+    compared with 60.09% for FActScore and 47.48% for VeriScoreQA.
+  limitations: The authors state that the framework checks only information present in an answer, cannot measure
+    omitted necessary information or recall, and produces factuality scores that vary substantially with the decomposition
+    method, verification corpus and verifier model.
+  sources:
+  - https://arxiv.org/abs/2505.18452
+  - https://github.com/Heyuan9/MedScore
+  extracted: '2026-10-27'
 signals:
   citations: 2
   citations_source: OpenAlex

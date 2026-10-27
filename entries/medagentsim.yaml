@@ -27,6 +27,30 @@ facets:
   eval_methods: [simulated_multi_turn]
   modality: [text]
   size: "Dataset files: 107 + 214 MedQA, 15 + 120 NEJM, 288 MIMIC-IV cases"
+card:
+  task: Interview a simulated patient over multiple turns, request examination results and medical images as needed,
+    and give a final diagnosis.
+  items_built: The authors used GPT-4o to convert MedQA, NEJM and MIMIC-IV cases into structured JSON that separates
+    information for the doctor, patient and measurement agents, then manually reviewed the conversions. The paper
+    reports 106 MedQA cases, 214 MedQA Extended cases, 15 NEJM cases, 120 NEJM Extended cases and 288 MIMIC-IV cases;
+    the dataset card lists 107 rather than 106 MedQA cases.
+  example: ''
+  scoring: An LLM judges whether the final diagnosis is correct, allowing for variation in generated wording, and
+    assigns a true or false result. Diagnostic accuracy is reported as the percentage of cases judged correct for
+    each dataset.
+  judge: An LLM evaluator assigns correctness scores; its model name is not reported.
+  scale: True or false per diagnosis; percentage diagnostic accuracy per dataset.
+  validation: The authors manually reviewed the accuracy logs, but report no agreement statistics.
+  results: MedAgentSim with LLaMA 3.3 70B achieved 70.8% on MedQA, 72.0% on MedQA Extended and 79.5% on MIMIC-IV,
+    the highest reported scores on those datasets. It also scored 28.3% on NEJM Extended and 26.7% on NEJM, where
+    it tied with GPT-4o.
+  limitations: The authors state that the system is not designed or validated for clinical use and that further
+    research is needed to ensure equitable and safe behavior across populations and medical contexts.
+  sources:
+  - http://arxiv.org/abs/2503.22678
+  - https://huggingface.co/datasets/ItsMaxNorm/MedAgentSim-datasets
+  - https://github.com/MAXNORM8650/MedAgentSim
+  extracted: '2026-10-27'
 signals:
   citations: 2
   citations_source: OpenAlex

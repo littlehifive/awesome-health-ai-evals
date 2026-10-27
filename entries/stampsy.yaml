@@ -27,6 +27,31 @@ facets:
   eval_methods: [automatic_metric, mcq_exact_match]
   modality: [text]
   size: 5,006 dialogues; 61,832 utterances
+card:
+  task: Given a Chinese counseling dialogue's preceding turns, select the counselor's helping skill, extract the
+    spatiotemporal state, and generate the next counselor response.
+  items_built: The authors collected 4,000 source texts from public counseling cases, counseling books and PsyQA,
+    removed private information, and expanded them into multi-turn dialogues using prompts and reference knowledge
+    from a 2.6 GB psychology knowledge base. Eight psychology experts annotated dialogue goals and knowledge graphs,
+    clinical psychologists checked consistency and correctness, and substandard samples were re-annotated.
+  example: ''
+  scoring: Helping-skill predictions are evaluated against annotations using precision, recall and weighted F1;
+    spatiotemporal processing uses slot and state accuracy and ROUGE-L for values. Generated responses are compared
+    with reference responses using BLEU-n, ROUGE and BertSim, while four psychotherapists use consensus judgments
+    to rate relevance, informativeness, human-likeness, helpfulness and empathy.
+  judge: Automatic metrics score predictions and responses, and four psychotherapists jointly judge response quality.
+  scale: Precision, recall, weighted F1, accuracy, BLEU-n, ROUGE and BertSim, plus five human-rated response criteria;
+    the human rating scale is not specified in the excerpts.
+  validation: For a dataset quality audit, two senior psychologists rated 1,000 randomly sampled dialogues as following
+    annotation guidance (1) or not (0); the mean score was 0.91 and kappa was 0.84.
+  results: The authors report that Self-STAMPsy outperformed all baselines across all tasks and metrics; its reported
+    empathy score was 1.82, compared with 1.31 without spatiotemporal information.
+  limitations: The authors report that their model often asks multiple questions in the first turn when using the
+    Open Question skill, which can put stress on clients.
+  sources:
+  - https://arxiv.org/abs/2412.16674
+  - https://github.com/JOY-SWang/STAMPsy
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

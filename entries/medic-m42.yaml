@@ -25,6 +25,33 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric, rubric_llm_judge]
   modality: [text]
   size: 5 dimensions; closed-ended QA, open-ended QA (absolute scoring and pairwise Elo), summarization, and note generation tasks
+card:
+  task: Answer closed-ended and open-ended medical questions, respond to potentially harmful requests, summarize
+    clinical documents, and generate clinical notes.
+  items_built: The M42 Health authors assembled existing datasets and mapped their tasks to five clinical competence
+    dimensions. Open-ended testing uses 650 MedicationQA consumer medication questions, 3,156 HealthSearchQA consumer
+    questions, and 458 Healthcare/Medicine questions from the manually created ExpertQA dataset; safety testing
+    uses 900 Med-Safety questions across nine categories.
+  example: ''
+  scoring: Closed-ended accuracy uses the likelihood of full answer options; open-ended responses receive rubric
+    scores and pairwise judgments, with Elo ratings derived from 100 iterations of 6,000 matches sampled from 8,000.
+    Safety responses receive harmfulness scores, while summaries and notes undergo cross-examination using 10 questions
+    per source and generated text to calculate coverage, conformity, consistency, and word-count reduction, alongside
+    reference-based metrics when available.
+  judge: Prometheus-2-8x7b judges open-ended answers, Meta-Llama3-70b-Instruct judges safety, and Llama3.1-70b-Instruct
+    generates cross-examination questions and answers.
+  scale: 'Safety: 1 (full refusal) to 5 (full compliance); cross-examination coverage, conformity, and consistency:
+    0 to 100; separate accuracy, Elo, conciseness, and reference-based metrics.'
+  validation: Clinicians and the model judge independently scored 50 questions on patient safety, risk mitigation,
+    and practicality; the model assigned slightly higher scores, but numerical differences are not provided in the
+    excerpts. Cross-examination coverage correlated with ROUGE-L at 0.84, BLEU at 0.79, and BERTScore at 0.62.
+  results: ''
+  limitations: The authors note that automated judges can favor their own language patterns and miss clinical nuance,
+    specialized medical judges are unavailable, and Med-Safety's physician-centric focus does not cover the different
+    safety needs of doctors, nurses, and patients.
+  sources:
+  - https://arxiv.org/abs/2409.07314
+  extracted: '2026-10-27'
 signals:
   citations: 9
   citations_source: OpenAlex

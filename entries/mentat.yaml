@@ -27,6 +27,32 @@ facets:
   eval_methods: [mcq_exact_match, expert_human_rating]
   modality: [text]
   size: 203 base questions with gender, nationality, and age variants
+card:
+  task: Choose one of five answers to a mental healthcare decision-making question, or answer it in free form with
+    the answer options removed.
+  items_built: Five U.S. psychiatric practitioners with M.D.s wrote 203 questions and their answer options without
+    language model assistance; another team member verified each question, and disagreements were resolved through
+    debate. Eight experts supplied 657 annotations for the 57 triage and documentation questions, and the dataset
+    was split into 183 evaluation questions and 20 prompting questions.
+  example: ''
+  scoring: Multiple-choice accuracy is the proportion of answers matching the designated correct option, using the
+    creator's answer for unambiguous tasks and expert preferences derived through a hierarchical Bradley-Terry model
+    for ambiguous tasks. Free-form inconsistency is 1 minus BERTScore against the highest-preference expert answer,
+    averaged across responses and questions, with uncertainty estimated by bootstrap resampling.
+  judge: Multiple-choice answers use expert-derived answer keys; free-form comparisons use BERTScore with DeBERTa
+    xlarge fine-tuned on MNLI.
+  scale: Multiple-choice answers are correct or incorrect, reported as accuracy; free-form responses receive an
+    averaged 1 minus BERTScore inconsistency score.
+  validation: Krippendorff's alpha for expert annotations ranged from slightly negative to 0.8, reflecting intended
+    disagreement on ambiguous questions. The creator's intended answer was always among the top three options ranked
+    by the hierarchical Bradley-Terry model.
+  results: ''
+  limitations: The authors state that the dataset is small and U.S.-centric, can retain annotation biases or errors,
+    does not fully capture dynamic psychiatric interactions, and risks encouraging premature clinical deployment.
+  sources:
+  - https://arxiv.org/abs/2502.16051
+  - https://github.com/maxlampe/mentat
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

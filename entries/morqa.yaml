@@ -27,6 +27,30 @@ facets:
   eval_methods: [expert_human_rating, automatic_metric, rubric_llm_judge]
   modality: [text]
   size: 16,041 expert ratings; test sets of 93 to 259 queries per collection (WoundcareVQA, DermaVQA, LiveQA, MedDialog)
+card:
+  task: Score each candidate answer to a medical question so that the scores can be compared with expert ratings.
+  items_built: The authors added two board-certified dermatologist answers per DermaVQA case, filtered LiveQA for
+    patient-related questions, and sampled 500 two-turn MedDialog cases before manually excluding irrelevant or
+    incomplete pairs. They generated responses with GPT-4o, Gemini-1.5-pro-002 and Qwen-VL-Chat for DermaVQA, WoundcareVQA
+    and MedDialog, and reused released TREC responses and ratings for LiveQA.
+  example: ''
+  scoring: Metric scores are compared with expert ratings using Spearman's rank correlation, Pearson's correlation
+    and Kendall's rank correlation, with their mean reported as average correlation. Pairwise ranking accuracy measures
+    whether predicted system win, loss or tie outcomes match human judgments; numerical score differences below
+    0.05 count as ties.
+  judge: Reference ratings come from two practicing dermatologists, two practicing doctors specializing in General
+    Surgery and Emergency Medicine, one Chinese-medical-school-trained annotator, and TREC organizers' released
+    ratings.
+  scale: Expert ratings use 0, 0.5 or 1, except LiveQA's 0-4 scale; final metrics are correlations, mean correlation
+    and pairwise ranking accuracy.
+  validation: Using more than one reference rather than one generally improved average correlation with human ratings
+    by 5-10 percentage points, although DermaVQA did not show consistent gains.
+  results: ''
+  limitations: The authors state that sample size and scope are limited, the small number of expert raters may not
+    represent all experts, and the analysis does not cover all LLMs or evaluation methods.
+  sources:
+  - https://doi.org/10.63317/5e46vrbnwfwe
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

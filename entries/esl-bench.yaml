@@ -26,6 +26,30 @@ facets:
   eval_methods: [automatic_metric, rubric_llm_judge]
   modality: [text]
   size: 100 synthetic users, 10,000 queries (100 per user)
+card:
+  task: Answer questions about a synthetic user's health history by retrieving records, calculating trends and comparisons,
+    detecting anomalies, and explaining changes using recorded events.
+  items_built: The authors deterministically generated 10,000 queries from synthetic event-indicator-time records,
+    using Gemini 3.1 Pro Preview for profiles, plans and event content and algorithms for indicator dynamics. Clinicians
+    reviewed sampled event-impact templates, distributions were checked against published reference values, and
+    query difficulty was calibrated using a strong baseline agent on a held-out generation session.
+  example: ''
+  scoring: Responses are parsed into a canonical JSON schema and checked against computed ground truth using numeric
+    tolerances of 0.01 absolute and 0.01 relative, exact set matching, and other programmatic checks; any failed
+    check gives zero. GPT-4.1 grades passing responses on dimension-specific rubric aspects, and the binary check
+    result is multiplied by the mean rubric score normalized to 0-1, then averaged across queries.
+  judge: Programmatic checks and GPT-4.1 with fixed seeds assign the scores.
+  scale: Each rubric aspect scores 0-2; gated, normalized per-query scores range from 0 to 1 and are averaged and
+    reported as percentages.
+  validation: ''
+  results: Gemini 3 Flash Preview scored highest at 62.9% overall, with 75.0% on Easy, 70.6% on Medium and 55.0%
+    on Hard queries.
+  limitations: The authors state that simplified dynamics do not represent clinical effect sizes, generation priors
+    and templates can introduce bias, narratives can drift across model versions, and explanation scores measure
+    recovery of generator mechanisms rather than causal inference in observational medicine.
+  sources:
+  - https://arxiv.org/abs/2604.02834
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

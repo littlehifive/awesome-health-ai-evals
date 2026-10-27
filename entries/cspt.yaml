@@ -27,6 +27,27 @@ facets:
   eval_methods: [simulated_multi_turn, expert_human_rating]
   modality: [text]
   size: 72 cases (23 internal medicine, 23 surgery, 8 gynecology, 10 pediatrics, 8 psychiatry)
+card:
+  task: Conduct a consultation with a simulated patient in at most five dialogue rounds, elicit key symptoms, recommend
+    medical tests, and diagnose the disease.
+  items_built: The authors built 72 cases across five departments from patient cases in WeiGuo Dong's 2012 book
+    "Objective Structured Clinical Examinations & Standardized Patients," using patient descriptions and dialogue
+    scripts to support simulation. They provided a reference checklist of key symptoms, medical tests, and diseases
+    for each case.
+  example: ''
+  scoring: Two physicians check each simulated dialogue against the case checklist. The reported Symptom, Test,
+    and Diagnosis scores are the shares of key symptoms identified, key tests recommended, and correct diagnoses,
+    respectively.
+  judge: Two physicians score the simulated dialogues manually.
+  scale: Checklist hits or misses; reported shares for Symptom, Test, and Diagnosis.
+  validation: ''
+  results: ''
+  limitations: The authors note that most cases came from the Wuhan region of China, creating potential geographical
+    bias in the test results.
+  sources:
+  - https://doi.org/10.18653/v1/2024.findings-acl.144
+  - https://github.com/Chengfeng-Dou/SpTesting
+  extracted: '2026-10-27'
 signals:
   citations: 4
   citations_source: OpenAlex

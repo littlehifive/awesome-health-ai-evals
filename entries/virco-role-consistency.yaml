@@ -25,6 +25,30 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating, simulated_multi_turn]
   modality: [text]
   size: 164 test cases (65 persona consistency, 45 coherence, 54 prompt attacks) over 7 personas
+card:
+  task: Respond to the counselor's final message using the preceding conversation history while staying in the assigned
+    client persona, including when the message contains a prompt attack.
+  items_built: 'The authors adapted conversations from their earlier VirCo work, covering seven client personas,
+    into 164 German-language cases: 65 for persona consistency, 45 for conversation coherence, and 54 for prompt
+    attacks. They formulated questions about persona details and used ChatGPT to generate additional questions about
+    information absent from the persona descriptions.'
+  example: '"Can you explain that in more detail?"'
+  scoring: GPT-4 and three human raters separately score each generated response against the conversation history
+    for coherence and against the character description for persona consistency. Results are reported as the percentage
+    of responses receiving each label from each rater.
+  judge: GPT-4 0125 Turbo Preview and three human raters with an academic background assign the scores.
+  scale: Labels 0 to 2, from coherent or persona-consistent to not fitting; percentages of responses in each label,
+    reported separately by criterion and rater.
+  validation: For coherence label 0, human pairwise agreement exceeded 87%, while GPT-4's agreement with humans
+    reached at most 69%. Persona-consistency ratings had Krippendorff's alpha of 0.28; a separate model-comparison
+    exercise with three social-science raters reported an overall alpha of 60.298%.
+  results: ''
+  limitations: The authors found that GPT-4 often judged the counselor's inappropriate messages rather than the
+    client's responses under prompt attacks, while human raters also disagreed over moderately fitting and poorly
+    fitting responses.
+  sources:
+  - https://arxiv.org/abs/2601.08892
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

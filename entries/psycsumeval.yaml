@@ -27,6 +27,26 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: 115 abstracts; 460 summaries rated on 9 dimensions by two psychiatrists
+card:
+  task: Compress a Cochrane mental-health systematic review abstract into a clinician-oriented summary that preserves
+    its clinically important details.
+  items_built: GPT-4o, Claude Opus, LLaMA-3.1-70B-Instruct and GPT-4o-mini each summarised 115 Cochrane abstracts,
+    producing 460 summaries using only the abstracts as input. The prompt drew on PRISMA for Abstracts and Cochrane
+    guidance, and psychiatrists checked the summaries for accuracy and professional acceptability.
+  example: ''
+  scoring: Psychiatrists compare each summary with its source abstract and score nine content dimensions, providing
+    reasons for missing or inaccurate information and corrective actions for main findings, methodology and conclusions.
+    The provided text does not specify how dimension scores are combined into an overall score.
+  judge: Psychiatrists assign the scores; each model-specific evaluation file contains one psychiatrist's assessments.
+  scale: Seven dimensions use 0-2; evidence quality uses 0-1; currency uses 0-1 or "No date reported"; no aggregate
+    metric is specified.
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://github.com/paul-rich-t/PsycSumEval
+  - https://doi.org/10.63317/4exjqeuaw9ti
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

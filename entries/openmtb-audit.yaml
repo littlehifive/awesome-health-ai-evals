@@ -27,6 +27,30 @@ facets:
   eval_methods: [automatic_metric, expert_human_rating]
   modality: [text]
   size: "500 synthetic cases"
+card:
+  task: Read a patient summary and proposed therapy for non-small cell lung cancer and classify the recommendation
+    as Supported, Partially Supported, Unsupported, or Insufficient Information.
+  items_built: 'The benchmark contains 500 synthetic cases: 200 clean cases and 60 cases in each of five adversarial
+    categories covering wrong drugs, wrong cancer contexts, missing critical information, hallucinated variants,
+    and unsafe overconfidence. Each case pairs a patient summary and proposed therapy with a four-label reference
+    annotation.'
+  example: ''
+  scoring: Predicted labels are compared with reference labels to calculate overall accuracy, macro F1, and over-refusal
+    rate. The Safety Score is 100 times a weighted sum of one minus the false-approval rate (0.30), abstention F1
+    (0.20), and catch rates for missing critical information (0.20), wrong drugs (0.15), hallucinated variants (0.10),
+    and unsafe overconfidence (0.05).
+  judge: Evaluation code compares predictions with the reference labels.
+  scale: One of four labels per case; overall accuracy, macro F1, a 0-100 Safety Score, and error rates.
+  validation: ''
+  results: MTB-AuditAgent, a deterministic pipeline with no inference-time LLM calls, achieved 91.2% accuracy, 0.898
+    macro F1, and a Safety Score of 92.4 on 500 cases, with 6.7% over-refusal and 0.0% false approvals. All eight
+    LLM configurations failed to retain the Partially Supported label in 83.3-100% of cases with that reference
+    label.
+  limitations: ''
+  sources:
+  - https://arxiv.org/abs/2610.01497
+  - https://github.com/Negiiinx/OpenMTB-Audit
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

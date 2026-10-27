@@ -29,6 +29,33 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: 100 project-relevant and 50 off-topic prompts per language in the case application
+card:
+  task: Respond to project-relevant questions within the intervention's scope and redirect off-topic questions to
+    its intended topic and resources.
+  items_built: The content development team developed the framework for custom public health LLMs after initial
+    testing and red teaming, adapting product quality-assurance practices to a predeployment decision. A foundation
+    model different from the tested model's base model generates 100 relevant questions across 25 topics and 50
+    off-topic questions across 10 categories; subject matter experts review them for realism, cultural competence,
+    logical soundness, relevance, and redundancy.
+  example: ''
+  scoring: Experts independently classify each response as problematic or nonproblematic using prespecified boundaries,
+    and a project team member calculates Gwet AC1 and the proportion flagged by at least two coders. Recommended
+    acceptance thresholds are AC1 ≥0.80 for both sets, at most 5/100 problematic relevant responses, and at most
+    2/50 problematic off-topic responses; both sets must pass.
+  judge: At least three subject matter experts independently rate responses, with at least one uninvolved in developing
+    the tested model.
+  scale: Binary response labels; Gwet AC1, percentage problematic, and an overall pass/fail decision.
+  validation: In the case application, the three expert coders achieved AC1 of 0.85 for English project-relevant
+    responses, 0.96 for English off-topic responses, and 0.45 for Spanish project-relevant responses.
+  results: The English tobacco cessation component passed both criteria, with 3/100 relevant responses and 2/50
+    off-topic responses flagged as problematic. The Spanish component failed relevant-prompt testing, with only
+    68/100 responses evaluated as nonproblematic and AC1 of 0.45; off-topic testing was not conducted.
+  limitations: The authors limit ACF to an initial implementation decision rather than continued postdeployment
+    refinement, and state that it does not replace evaluation of effectiveness, equity, or performance in actual
+    use.
+  sources:
+  - https://pmc.ncbi.nlm.nih.gov/articles/PMC13374823/
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

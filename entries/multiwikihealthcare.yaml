@@ -26,6 +26,30 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: "2,901 analysed questions (Turkish 854, German 997, Italian 502, Chinese 548) from 1,100 sampled per language before quality filtering"
+card:
+  task: Answer a single-turn health question in English, German, Italian, Turkish, or Mandarin Chinese.
+  items_built: The authors used GPT-4o-mini to generate questions from 1,100 sampled Wikipedia facts and supporting
+    paragraphs per language, after extracting cross-language aligned facts with InfoGap and filtering for health
+    relevance. Questions were translated into English with Google Translate and pre-filtered by ChatGPT-5 (Extended
+    Thinking) for relevance, answerability, health-seeker intent, and clarity.
+  example: ''
+  scoring: AlignScore compares answers with source-language and English Wikipedia evidence for sentence-level factual
+    consistency, after translating non-English answers and evidence into English. When multiple English passages
+    are aligned with a question, the highest passage score is used; the text does not specify how scores are combined
+    across questions.
+  judge: AlignScore uses a RoBERTa alignment model to score answer consistency with the evidence.
+  scale: Sentence-level factual alignment scores, interpreted as a relative proxy; numerical range and overall aggregation
+    are not specified.
+  validation: For question-quality filtering, ChatGPT-5 decisions were compared with native-speaker annotations
+    on 20 items per language, with agreement ranging from 44% for German to 76% for Turkish; ChatGPT-5 accepted
+    fewer questions than humans.
+  results: ''
+  limitations: The authors state that English-based scoring and translation may introduce artifacts, Wikipedia evidence
+    and model outputs were not independently fact-checked, budget and native-speaker availability limited dataset
+    size and interactions to single turns, and alignment with Wikipedia does not establish clinical correctness.
+  sources:
+  - https://doi.org/10.1007/978-3-032-29532-3_12
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

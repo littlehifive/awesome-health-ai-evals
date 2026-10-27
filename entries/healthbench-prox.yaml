@@ -24,6 +24,22 @@ facets:
   eval_methods: [rubric_llm_judge]
   modality: [text]
   size: 6,825 instances across 13 language splits
+card:
+  task: Respond to a user query in a healthcare consultation scenario in the language of the example.
+  items_built: Li Lab derived the 6,825 instances from HealthBench Professional using GPT-5.4 through Azure OpenAI
+    Service to translate the source examples while preserving their queries, rubrics, physician reference responses,
+    and metadata. No new cases were created, and no human translation check is reported.
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: ''
+  validation: ''
+  results: ''
+  limitations: Translations may lose linguistic nuances, and performance should not be interpreted as clinical competence
+    or suitability for real-world medical decision making.
+  sources:
+  - https://huggingface.co/datasets/li-lab/HealthBench-ProX
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

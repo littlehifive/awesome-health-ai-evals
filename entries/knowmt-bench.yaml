@@ -27,6 +27,30 @@ facets:
   eval_methods: [simulated_multi_turn, automatic_metric]
   modality: [text]
   size: 801 single-turn instances (209 medicine, 579 finance, 278 law; 33.1% multi-domain), each expanded to a multi-turn sequence
+card:
+  task: Answer a sequence of two to five questions using the model's own earlier responses as context, ending with
+    a factual, complete long-form answer to the final question.
+  items_built: The authors collected evidence-backed questions from K-QA, SEC FAQs, FinTextQA and manually annotated
+    finance topics from Google Trends, with authoritative references checked by human experts. LLM-generated preceding
+    questions underwent manual review for logical progression, preservation of the final question's intent and absence
+    of answer leakage, producing 801 question sequences.
+  example: ''
+  scoring: The pipeline splits the final answer into atomic statements and checks each against the reference answer,
+    while checking each manually verified reference fact against the generated answer, assigning entailment, contradiction
+    or neutral labels. These labels yield factual precision, recall and F1, false-claim and misrepresentation rates
+    and their F1, plus token costs per correct fact, contradicted fact and coverage of the reference facts.
+  judge: Qwen2.5-32B-Instruct decomposes answers, and Qwen2.5-14B-Instruct assigns factual-consistency labels.
+  scale: Entailment, contradiction or neutral per comparison; percentage-based factuality and hallucination metrics,
+    plus tokens per fact.
+  validation: On 100 randomly sampled generated answers, decomposition had 18.1% symmetric mean absolute percentage
+    error in statement counts and a 5.9% omission rate. Across 1,687 inference pairs, the evaluator achieved 83.6%
+    F1 against gold labels determined by majority vote among three annotators.
+  results: ''
+  limitations: ''
+  sources:
+  - https://arxiv.org/abs/2509.21856
+  - https://github.com/hardenyu21/KnowMT-Bench
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

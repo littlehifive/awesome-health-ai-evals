@@ -27,6 +27,33 @@ facets:
   eval_methods: [automatic_metric, rubric_llm_judge]
   modality: [text]
   size: 2,225 EMRs (7:1:2 train, validation, test split)
+card:
+  task: Answer five questions across three dialogue rounds about a patient's primary diagnosis and its criteria,
+    differential diagnosis, and final diagnosis and its criteria, using the admission record and later hospital
+    course.
+  items_built: The authors collected medical records from medical websites and manually wrote five seed questions,
+    expanded each with ten GPT-4 variants, and manually checked the wording. Three university students checked the
+    answers, a medical expert reviewed 20% of each batch until batch accuracy reached 95%, and two medically trained
+    students checked GPT-4-extracted criteria key points, leaving 2,225 cases split 7:1:2 for training, validation,
+    and testing.
+  example: '"What is the patient''s primary diagnosis?"'
+  scoring: Diagnosis answers are evaluated against reference answers using entity F1; diagnostic criteria are compared
+    with reference text using ROUGE-L, BERTScore, and BLEU-1, and with annotated key points using Macro-Recall.
+    Reported results are averages of three runs.
+  judge: Automated metrics compare outputs with reference answers and annotated key points; the excerpt does not
+    identify a model grader.
+  scale: Entity F1, ROUGE-L, BERTScore, BLEU-1, and key-point Macro-Recall, reported as percentages averaged over
+    three runs.
+  validation: Two students with specialized medical training checked the annotated key points, with Cohen's kappa
+    of 0.81 for primary diagnostic criteria and 0.79 for final diagnostic criteria.
+  results: The best baseline, glm4 with LoRA, achieved 38.78% final-diagnosis F1, compared with a human baseline
+    of 95.31%. The authors report that their framework improved final-diagnosis F1 by 0.32 percentage points over
+    that baseline.
+  limitations: Limited data sources produced an uneven distribution across departments, and the proposed framework's
+    repeated LLM calls increased inference time compared with direct reasoning.
+  sources:
+  - http://arxiv.org/abs/2408.10039
+  extracted: '2026-10-27'
 signals:
   citations: 2
   citations_source: OpenAlex

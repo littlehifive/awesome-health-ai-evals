@@ -26,6 +26,31 @@ facets:
   eval_methods: [simulated_multi_turn, automatic_metric]
   modality: [text]
   size: 216 cases across 19 specialties (1,728 sessions with 8 LLMs); the preprint used 16 neurology cases and 14 neurologists
+card:
+  task: Request clinical information and diagnostic tests from a simulated nurse, then reach the case's diagnosis
+    within five diagnostic attempts and 50 messages.
+  items_built: The preprint used 16 neurological cases drawn from educational and peer-reviewed sources, with Shahar
+    Shelly reviewing selections for neurological accuracy and Alon Gorenshtein supporting case curation and validation.
+    For requested information missing from the source cases, the nurse returned partial information or generated
+    clinically plausible responses flagged in the session log.
+  example: ''
+  scoring: GPT-4o compares submitted diagnoses with the published case's ground truth using medical knowledge comparison,
+    and accuracy is the percentage of cases solved within the session limits. The platform also tracks diagnostic
+    attempts and message counts, calculates procedure costs from CPT codes and hospital pricing, and estimates diagnostic
+    time from procedure and interpretation durations.
+  judge: OpenAI GPT-4o classifies diagnosis submissions as correct or incorrect against the established ground truth.
+  scale: Correct or incorrect per session; percentage solved, average cost, diagnostic time, diagnostic attempts,
+    and message count.
+  validation: ''
+  results: In the preprint, Gregory achieved 100% accuracy across 16 cases, with average costs of $1,423 and diagnostic
+    time of 23 days. The abstract reports 81% human accuracy across 97 sessions, while the results section reports
+    83% across 95 sessions; human average costs were $3,041 and diagnostic time was 43 days.
+  limitations: The authors identify the need for prospective clinical validation, larger case libraries covering
+    common consultations and other medical domains, and integration of physical examinations and real-time patient
+    interactions.
+  sources:
+  - https://doi.org/10.1101/2025.08.13.25333529
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

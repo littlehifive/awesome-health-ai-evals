@@ -27,6 +27,30 @@ facets:
   eval_methods: [simulated_multi_turn, rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 50 seeker profiles; 4 worst-case metrics (Deep Emotional Understanding, Guided Exploration, Balanced Emotional Support, Authentic and Grounded Support); 17 systems
+card:
+  task: Hold a Chinese emotional support conversation with a simulated seeker who shows low engagement, resistance,
+    limited disclosure, or emotional volatility.
+  items_built: The authors manually selected 50 challenging cases, each containing a seeker profile and counselling
+    situation, from the SimPsyDial test set for both average-case and worst-case simulations. The simulator controls
+    and four additional metrics were derived from conversations and interviews with eight psychological counsellors
+    with doctoral-level psychology training and at least three years of counselling experience.
+  example: ''
+  scoring: Qwen3-Max rates each conversation on ten generic emotional support dimensions and four worst-case dimensions
+    using five-point Likert scales. The framework reports scores under average-case and worst-case simulation and
+    the differences between them; the supplied text does not specify how conversation scores are aggregated.
+  judge: Qwen3-Max grades conversations with its temperature fixed at 0.0.
+  scale: Five-point Likert ratings per conversation and dimension; average-case and worst-case scores and their
+    differences.
+  validation: The authors report checking Spearman correlations between Qwen3-Max scores and expert ratings in Appendix
+    H, but the supplied text gives no correlation values.
+  results: GPT-5.4 performed best overall, but its score is not given in the supplied text. Nearly all systems declined
+    under worst-case interactions, especially on engagement, problem resolution, and mood improvement.
+  limitations: Simulated seekers cannot fully reproduce real counselling interactions, LLM judges can introduce
+    bias or miss subtle failures, findings are limited to Chinese support contexts, and the simulator excludes crisis-seeking
+    scenarios.
+  sources:
+  - https://arxiv.org/abs/2605.28228
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

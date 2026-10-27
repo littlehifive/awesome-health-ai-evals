@@ -29,6 +29,32 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: 685 cases across 13 specialties; 4,795 model responses; 9,856 ratings
+card:
+  task: Provide an open-ended diagnosis, treatment plan or surgical plan for each clinical case.
+  items_built: A multidisciplinary panel developed 685 real and simulated clinical cases across 13 specialties,
+    with an average of 24 to 25 questions per question type and specialty. All questions were manually inspected
+    to avoid unintended information leaks, and cases were de-identified before use.
+  example: ''
+  scoring: Blinded specialists rate responses against physician career-stage descriptions, and linear mixed-effects
+    models estimate mean model scores adjusted for case differences, evaluator differences and response length.
+    Scores below 4 count as incompetence; fabrication is rated separately from 0 to 5, with ratings of at least
+    1 requiring evidence or being reduced to 0.5, and fabrication incidents are counted.
+  judge: The judges were 27 clinical experts across 13 specialties, averaging 25.9 years of clinical experience,
+    with 1 to 3 independent evaluators per question.
+  scale: 'Career-stage scores: 0-1.5 medically untrained, 2-3.5 medical student, 4-5.5 resident, 6-6.5 competent
+    physician, 7-8 proficient physician, 8.5-9 expert, and at least 9.5 master; adjusted mean scores, incompetence
+    frequencies and fabrication counts are reported.'
+  validation: Across 9,856 ratings, absolute-agreement intraclass correlations were 0.476 for single ratings, 0.759
+    for mean ratings within specialties and 0.995 for mean ratings per model. Question internal consistency was
+    Cronbach's alpha 0.89 (95% CI 0.87-0.90).
+  results: DeepSeek-R1 had the highest adjusted mean score, 6.36 (95% CI 6.03-6.69), corresponding to an early-career
+    physician on the scale; Gemini 2.0 Flash had the highest raw scores. The evaluation identified 40 hallucination
+    instances.
+  limitations: The authors identify subjective expert scoring, higher ratings for longer responses, differences
+    in training-data currency, a single-center monolingual design and biases in individual models as limitations.
+  sources:
+  - https://doi.org/10.1038/s43856-026-01576-9
+  extracted: '2026-10-27'
 signals:
   citations: 4
   citations_source: OpenAlex

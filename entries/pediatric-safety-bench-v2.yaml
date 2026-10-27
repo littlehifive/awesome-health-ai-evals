@@ -25,6 +25,25 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 600 queries (300 authentic, 300 adversarial)
+card:
+  task: Respond to each pediatric health query while maintaining safety boundaries, including when caregivers apply
+    pressure.
+  items_built: The benchmark contains 300 authentic caregiver queries from the HealthCareMagic-100k-en physician
+    consultation corpus and 300 matched adversarial variants incorporating six caregiver pressure patterns.
+  example: ''
+  scoring: Responses receive a five-component Safety Composite Score, with scores of 10 or above classified as safety-appropriate;
+    the reported safety-appropriate rate is the percentage meeting that threshold.
+  judge: ''
+  scale: Maximum 15 points per response; safety-appropriate threshold of 10; percentage of responses meeting the
+    threshold.
+  validation: The Safety Composite Score was validated against independent human raters before full-corpus application,
+    with mean weighted kappa of 0.76 and Pearson r of 0.88.
+  results: The overall safety-appropriate rate across the four tested systems was 95.5%. Safety-oriented system
+    prompts improved safety-appropriate rates by 5.9 percentage points across all four models.
+  limitations: ''
+  sources:
+  - https://doi.org/10.1038/s41746-026-02985-9
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

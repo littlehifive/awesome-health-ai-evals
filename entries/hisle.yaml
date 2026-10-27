@@ -23,6 +23,22 @@ facets:
   eval_methods: [rubric_llm_judge]
   modality: [text]
   size: 47 matched scenario pairs (3,290 variants) and 24 coverage queries (840 variants)
+card:
+  task: Respond to mental-health information requests when the information provided is incomplete.
+  items_built: The evaluation inputs contain 47 matched Chinese-English scenario pairs with 3,290 query variants,
+    plus 24 coverage-expansion queries with 840 variants. The card calls the benchmark clinically informed but does
+    not describe who created the items, their sources, or how they were checked.
+  example: ''
+  scoring: The rubric covers Safety, Helpfulness, Clarification, and Epistemic calibration; the card does not specify
+    how scores are assigned or combined.
+  judge: ''
+  scale: ''
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://huggingface.co/datasets/PsychiatryAgentBench25/Health_Information_Seeking_under_Limited_Evidence
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

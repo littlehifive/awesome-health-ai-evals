@@ -28,6 +28,29 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 10,000 two-turn conversations across 500 personas (20 per persona)
+card:
+  task: Write an empathetic, supportive reply to a synthetic user message describing a PTSD-related challenge.
+  items_built: LLMs generated 20 scenarios for each of 500 personas adapted from Thousand Voices of Trauma metadata,
+    yielding 10,000 dialogues without reusing original conversation content; Claude Sonnet 3.5 generated the reference
+    replies. A clinical psychologist specializing in PTSD and Prolonged Exposure therapy reviewed all scenarios
+    and reference replies for emotional plausibility and trauma sensitivity.
+  example: ''
+  scoring: Generated replies are compared with reference replies using BERTScore, ROUGE-L, METEOR and cosine similarity
+    from all-MiniLM-L6-v2 embeddings, with Distinct-1/2 measuring response diversity. Human raters assign empathy
+    ratings, which are averaged for each model and scenario; the higher mean wins each zero-shot versus fine-tuned
+    comparison, and wins are counted.
+  judge: Automatic metrics and 116 U.S.-based, first-language English-speaking participants recruited through Prolific
+    assign scores.
+  scale: Automatic similarity, overlap and diversity metrics; human empathy ratings from 1 to 5, reported as means
+    and comparison win counts.
+  validation: ''
+  results: Claude Sonnet 3.5 led human empathy ratings, winning 72 of 96 direct comparisons with small models (75%).
+  limitations: The authors state that synthetic dialogues lack the complexity and emotional and cultural variation
+    of real interactions, limiting generalizability, and that smaller models sometimes produce generic or overly
+    affirmative replies.
+  sources:
+  - https://arxiv.org/abs/2505.15065
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

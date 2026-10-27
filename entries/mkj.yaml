@@ -25,6 +25,28 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 3,000 questions
+card:
+  task: Judge whether each medical statement expressing a single relationship between two entities is true or false.
+  items_built: The authors constructed 3,000 questions from deduplicated and filtered UMLS triplets selected using
+    keywords from medical QA benchmarks such as LiveQA and ExpertQA, with LLM-generated templates for about 200
+    predicates checked by human experts. Positive statements used the original entities; negatives substituted objects
+    of the same semantic type and were checked against the curated knowledge base to exclude known valid relationships.
+  example: '"Gastrointestinal Tract is primary anatomic site of disease Extrahepatic Bile Duct Tubular Adenoma."
+    Label: True.'
+  scoring: Predicted true/false answers are compared with the dataset labels to calculate accuracy separately for
+    positive and negative statements and across all statements, with one positive and three negatives per datapoint.
+    Calibration is plotted in 20 equal-width probability bins by comparing mean predicted probability with the observed
+    positive rate; ECE is not calculated.
+  judge: Exact match with the dataset's true/false labels.
+  scale: Correct or incorrect per statement; overall, positive, and negative accuracy.
+  validation: ''
+  results: GPT-4O and GPT-4O-MINI achieved the best zero-shot results, but their scores are not given in the supplied
+    text.
+  limitations: The authors state that selecting UMLS concepts through existing medical QA benchmarks may leave some
+    medical entity types insufficiently covered.
+  sources:
+  - https://arxiv.org/abs/2502.14275
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

@@ -27,6 +27,29 @@ facets:
   eval_methods: [automatic_metric, expert_human_rating]
   modality: [text]
   size: 91 question-answer pairs
+card:
+  task: Answer questions about hemophilia using information from scientific publications and clinical guidelines.
+  items_built: GPT-4o-2024-05-13 generated 91 question-answer pairs from the introductions and conclusions of 92
+    open-access papers selected after a review of 20,000 hemophilia papers. Four domain experts and 13 LLMs assessed
+    their quality, and TF-IDF, Word2Vec, and BERT measured alignment with source material.
+  example: ''
+  scoring: 'The reported study evaluates dataset quality: evaluators classify each question into four categories,
+    then rate answers to questions classified as generally answerable by an expert for correctness, completeness,
+    and conciseness using yes/no judgments. Results are reported as counts by evaluator and category, alongside
+    average TF-IDF, Word2Vec, and BERT similarity scores comparing questions, answers, contexts, and source documents.'
+  judge: Four domain experts in bioinformatics specializing in hematology and 13 LLMs, including GPT-4o, assign
+    quality ratings.
+  scale: Question categories 0-3; three yes/no answer criteria; evaluation counts and average semantic similarity
+    scores.
+  validation: The authors report fair-to-moderate inter-rater agreement on factual correctness and lower agreement
+    on completeness and conciseness, but the supplied text gives no numerical agreement values.
+  results: ''
+  limitations: The authors note that completeness and conciseness judgments depend on experts' differing thresholds
+    for detail, and that generated questions require additional validation for alignment with source content.
+  sources:
+  - https://doi.org/10.1007/s13755-026-00458-7
+  - https://github.com/LabIA-UFBA/HemoQAL
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

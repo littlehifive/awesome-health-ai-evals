@@ -25,6 +25,24 @@ facets:
   eval_methods: [automatic_metric, rubric_llm_judge]
   modality: [text]
   size: unknown (a "Core Health Set" built by purposive sampling; counts not seen)
+card:
+  task: Classify a Chinese WeChat article title as potentially misleading or not and explain the judgment using
+    the title alone, without external retrieval.
+  items_built: The benchmark contains expert-annotated Chinese WeChat article titles about traditional Chinese medicine,
+    traditional wellness, folk remedies, health supplements, and disease claims. The Core Health Set was constructed
+    using purposive sampling.
+  example: ''
+  scoring: Classification is measured by accuracy, and explanations are evaluated for relevance, claim-specific
+    details, title grounding, avoidance of unsupported additions, and usefulness for readers of health information.
+  judge: ''
+  scale: ''
+  validation: ''
+  results: The highest reported classification accuracy was 0.822 on the Core Health Set; the abstract does not
+    name the model. Explanations accompanying correct predictions consistently received higher quality scores.
+  limitations: ''
+  sources:
+  - https://doi.org/10.3390/info17100943
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

@@ -29,6 +29,30 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: "1,212 patient questions; 201 with physician answers (1,589 statements)"
+card:
+  task: Write a free-form answer for a layperson to each stand-alone medical question asked by a patient.
+  items_built: After automated filtering, a medical professional reviewed roughly 26,000 questions from de-identified
+    K Health conversations and selected 1,212 stand-alone questions, which were also checked for private medical
+    information. Six physicians wrote answers to 201 questions using medical references, an additional physician
+    reviewed them, and six other doctors edited GPT-4-assisted decompositions into 1,589 statements and agreed on
+    their Must Have or Nice to Have labels.
+  example: '"How do Genital herpes and HPV differ?"'
+  scoring: GPT-4 classifies whether each physician-written statement is entailed by, neutral to, or contradicted
+    by the generated answer. Comprehensiveness measures the fraction of Must Have statements entailed, while hallucination
+    counts contradictions across both statement categories; both metrics are aggregated across assessed questions.
+  judge: GPT-4 assigns the NLI labels using a few-shot chain-of-thought prompt.
+  scale: 'Per answer: comprehensiveness from 0 to 1 and hallucinations from 0 to the number of reference statements;
+    aggregated across questions.'
+  validation: Three physicians labeled 402 statements from 50 randomly selected question-answer pairs. Human pairwise
+    agreement was 83.2%, Fleiss' kappa was 0.70, and GPT-4 agreed with the physicians' majority vote on 83.0% of
+    labels.
+  results: ''
+  limitations: The authors state that relying on LLMs to judge entailment introduces evaluation noise and makes
+    evaluation costly.
+  sources:
+  - https://doi.org/10.18653/v1/2024.bionlp-1.22
+  - https://github.com/Itaymanes/K-QA
+  extracted: '2026-10-27'
 signals:
   citations: 13
   citations_source: OpenAlex

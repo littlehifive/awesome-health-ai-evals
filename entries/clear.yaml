@@ -27,6 +27,29 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: 5 items scored 1 to 5 (total 5 to 25); pilot of 8 statements rated by 32 health professionals
+card:
+  task: Answer a health question with information intended for a lay reader.
+  items_built: The authors developed the framework from a literature review of health information assessment tools,
+    with wording reviewed by an endocrinologist and a gastroenterologist. They wrote eight statements containing
+    deliberately varied quality for pilot testing by 32 health professionals, revised the wording from their feedback,
+    and then applied the tool to responses to five health questions.
+  example: '"If I have diabetes, what can I eat?"'
+  scoring: Two raters independently score each response on the five CLEAR criteria, averaging their ratings for
+    each criterion and summing those averages to produce the response's total score. Scores are then averaged across
+    the five questions for each model.
+  judge: The first and senior authors, Malik Sallam and Mohammed Sallam, independently rated the final chatbot responses.
+  scale: Each criterion ranges from 1 (poor) to 5 (excellent); response totals range from 5 to 25, with model means
+    reported across questions.
+  validation: Pilot internal consistency across eight topics had Cronbach's alpha values of 0.669-0.981. Final inter-rater
+    Cohen's kappa was 0.875 for ChatGPT-3.5, 0.780 for ChatGPT-4, 0.348 for Microsoft Bing, and 0.749 for Google
+    Bard.
+  results: Microsoft Bing had the highest mean CLEAR score, 24.4±0.42 out of 25 across five questions.
+  limitations: The authors cite a small convenience sample of professionals known to them, artificial pilot statements,
+    possible selection bias, no comparison with other validated tools, limited topic coverage, and results that
+    can change with model updates and prompt wording.
+  sources:
+  - https://pmc.ncbi.nlm.nih.gov/articles/PMC10674084/
+  extracted: '2026-10-27'
 signals:
   citations: 64
   citations_source: OpenAlex

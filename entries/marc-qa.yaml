@@ -26,6 +26,25 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 100 questions
+card:
+  task: Select one answer to each USMLE-style multiple-choice clinical question, including scenarios that challenge
+    familiar reasoning patterns.
+  items_built: The authors wrote 100 clinical questions designed to exploit the Einstellung effect, in which prior
+    experience leads to fixation on a familiar solution.
+  example: A 4-year-old boy born without a left arm, who had a right arm below elbow amputation one month ago, presents
+    to your ED with broken legs after a motor vehicle accident. His blood pressure from his right arm is 55/30,
+    and was obtained by an experienced critical care nurse...
+  scoring: Performance is reported as overall answer accuracy.
+  judge: ''
+  scale: Overall accuracy, reported as a percentage.
+  validation: ''
+  results: DeepSeek-R1 leads the repository leaderboard with 52% accuracy. Five physicians achieved an average accuracy
+    of 66%.
+  limitations: ''
+  sources:
+  - https://github.com/bernardolab/mARC-QA
+  - https://doi.org/10.1038/s41598-025-22940-0
+  extracted: '2026-10-27'
 signals:
   citations: 75
   citations_source: OpenAlex

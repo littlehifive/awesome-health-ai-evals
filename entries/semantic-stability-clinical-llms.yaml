@@ -36,6 +36,25 @@ facets:
   modality:
   - text
   size: 200 base prompts (100 MedQA-USMLE, 100 DiagnosisQA) with verified reformulations
+card:
+  task: Select one answer from A-E for each original medical question and its verified meaning-preserving rewrites,
+    with the answer options kept unchanged.
+  items_built: The authors sampled 100 questions each from MedQA-USMLE and DiagnosisQA and used GPT-4o-mini to generate
+    10 question-stem rewrites per question, yielding 2,000 candidates. Rewrites underwent multi-model bidirectional
+    NLI filtering, review by GPT-5.2 and MedLLaMA3, and an independent audit and adjudication by one licensed clinician.
+  example: ''
+  scoring: 'Predictions on each original question are compared with predictions on its verified rewrites: MVS measures
+    prediction changes, while confidence variation measures confidence shifts. WCI uses the ground-truth answer
+    to check whether correctness changes across the original and its rewrites.'
+  judge: Scores use model predictions, confidence values, and ground-truth answer labels.
+  scale: ''
+  validation: One licensed clinician, blinded to the LLM judges' decisions, confirmed semantic preservation with
+    98-99% agreement on NLI-retained samples and also reviewed LLM-rejected samples.
+  results: ''
+  limitations: ''
+  sources:
+  - https://arxiv.org/abs/2605.30646
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

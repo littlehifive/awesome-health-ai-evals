@@ -23,6 +23,22 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 4,609 questions
+card:
+  task: Answer four-option multiple-choice questions from Taiwan's national Traditional Chinese Medicine licensing
+    examinations.
+  items_built: The dataset compiles 4,609 past exam questions with answer keys from Taiwan's Ministry of Examination
+    website, covering ROC years 96 to 111 (2007 to 2022), excluding ROC year 110 (2021). The card describes two
+    subject groups but lists six subject areas without explaining the grouping.
+  example: ''
+  scoring: Accuracy measures whether the model's selected answers match the supplied answer keys.
+  judge: Exact match with the answer key.
+  scale: Correct or incorrect per question; overall accuracy.
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://huggingface.co/datasets/Liavan/Traditional-Chinese-Medicine-Multiple_choice_question
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

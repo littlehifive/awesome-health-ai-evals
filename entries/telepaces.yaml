@@ -26,6 +26,31 @@ facets:
   eval_methods: [expert_human_rating, simulated_multi_turn]
   modality: [voice]
   size: "20 scenarios; one universal rubric (Table 3) and case-specific rubrics over six domains with 0-2 item scores"
+card:
+  task: Conduct a live audio-video consultation with a simulated outpatient, gathering history, guiding a remote
+    physical examination, and explaining the diagnosis, management plan, and triage advice.
+  items_built: The authors created 20 standardized outpatient scenarios requiring real-time auditory and visual
+    reasoning and iteratively adapted PACES to existing telehealth OSCE rubrics. They piloted scenarios with a trained
+    patient actor, refined ambiguous or redundant criteria through structured error review, and fixed a scoring
+    manual after raters scored shared encounters and reconciled differences.
+  example: ''
+  scoring: Immediately after each encounter, the patient actor rated performance against universal and case-specific
+    criteria. Universal ratings were converted to percentages and averaged across scenarios; case-specific item
+    points were summed within domains and across domains, with results reported as percentages of points earned.
+  judge: Ten internal medicine residents acting as patients graded the encounters.
+  scale: 'Universal criteria: 1-5 Likert ratings, reported as mean percentages; case-specific items: 0-2, summed
+    into domain and total percentage scores.'
+  validation: For 10 scenarios completed by two patient actors, case-specific rankings had Kendall's Tau-b values
+    of 0.545-0.915. Universal TelePACES agreement was more variable, with poor reliability for some criteria, including
+    explaining information clearly and addressing patient concerns.
+  results: AI co-clinician was the strongest AI system, scoring 73.33% for differential diagnosis and 81.67% for
+    management plan quality, compared with PCP scores of 84.17% and 90.00%. PCPs achieved the highest mean case-specific
+    score, 85.34%.
+  limitations: The authors relied on patient actors to grade encounters and state that future evaluations should
+    use multiple reviewers to establish rubric reliability.
+  sources:
+  - https://arxiv.org/abs/2605.09272
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

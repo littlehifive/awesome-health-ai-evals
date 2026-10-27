@@ -25,6 +25,23 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 6,912 cases
+card:
+  task: Given a Korean patient's chief complaint, produce ICD-10-coded differential diagnoses, a red, yellow, or
+    green triage flag, a clinical assessment, and recommendations.
+  items_built: The dataset contains 6,912 Korean clinical symptom cases in JSON Lines format; the source does not
+    state who created the cases, what sources they used, or how they were checked.
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: ''
+  validation: ''
+  results: ''
+  limitations: The dataset is restricted to research use, must not replace professional medical advice, diagnosis,
+    or treatment, and requires regulatory review and clinical validation before outputs from models trained on it
+    are deployed clinically.
+  sources:
+  - https://doi.org/10.5281/zenodo.21062721
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

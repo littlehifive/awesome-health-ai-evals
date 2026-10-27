@@ -28,6 +28,37 @@ facets:
   eval_methods: [automatic_metric, rubric_llm_judge, simulated_multi_turn]
   modality: [text]
   size: 16,000 synthetic dialogues (LingxiDiag-16K); 1,709 real clinical cases (LingxiDiag-Clinical)
+card:
+  task: Predict psychiatric diagnoses from Chinese consultation transcripts or through a live consultation with
+    a simulated patient, predict the next doctor question from dialogue context, or respond as a patient using a
+    supplied profile.
+  items_built: The authors curated 1,709 cases from approximately 4,500 Shanghai Mental Health Center outpatients
+    seen in 2023-2024, anonymizing records and manually verifying automated transcriptions. They sampled a knowledge
+    graph of clinical and demographic features to generate 16,000 synthetic EMRs, generated dialogues using a Qwen3-32B
+    doctor and a patient agent, reserved 1,000 cases each for validation and testing, and had two licensed psychiatrists
+    review random samples for privacy risks.
+  example: ''
+  scoring: Predicted diagnoses are compared with case labels using accuracy, macro F1 and weighted F1, plus Top-1
+    and Top-3 accuracy for 12-category diagnosis; predicted follow-up questions are compared with reference questions
+    using BLEU, ROUGE-L and BERTScore. LLM judges rate five doctor-consultation dimensions and six patient-response
+    dimensions, with patient judgments aggregated across three models and the patient Overall score averaged across
+    dimensions.
+  judge: GPT-4o rates doctor consultations; Gemma-3-27B, GPT-OSS-20B and Qwen3-30B-A3B rate patient responses, while
+    diagnostic and question-prediction metrics use reference labels and questions.
+  scale: 'Doctor dimensions: 1-6; patient dimensions: 1-5, averaged for Overall; diagnosis: accuracy and F1, with
+    Top-1/Top-3 accuracy; question prediction: BLEU, ROUGE-L and BERTScore.'
+  validation: ''
+  results: In static synthetic-data diagnosis, Gemini-3-Flash led binary accuracy at 85.4%, while GPT-5-Mini led
+    12-category accuracy at 40.9%. In dynamic consultation with APA-Guided + MRD-RAG, DeepSeek-V3.2 reached 92.3%
+    binary accuracy, and Grok-4.1-Fast led four-category and 12-category accuracy at 43.0% and 28.5%, respectively.
+  limitations: The authors note limited coverage of rare and atypical presentations, imperfect simulation of individual
+    communication styles, limited cross-language generalizability from Chinese prompts, and exclusion of treatment
+    planning, follow-up and longitudinal care.
+  sources:
+  - https://doi.org/10.48550/arxiv.2602.09379
+  - https://huggingface.co/datasets/XuShihao6715/LingxiDiag-16K
+  - https://github.com/Lingxi-mental-health/LingxiDiagBench
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

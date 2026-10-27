@@ -28,6 +28,32 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 534 questions on 37 articles
+card:
+  task: Select all correct options from A to E for each question about a biomedical article's study design, statistics,
+    methodology, limitations or clinical applicability.
+  items_built: The authors collected 534 questions linked to 37 articles from official ECN exams and CNET mock exams,
+    which CNET's educational committee reviewed and approved. They established ECN answers with help from a general
+    practitioner because official keys were unavailable, collected medical professionals' answers and justifications
+    for 204 questions, and had one expert with a general-practice background label the skills each question requires.
+  example: '"What is the main limitation of this study?"'
+  scoring: Predicted answer sets are compared with the reference sets using exact match ratio, F1 and Hamming score.
+    LCA grading awards 1 point for an exact match, 0.5 for one mismatch, 0.25 for two and 0 otherwise, overrides
+    the score to 0 for missing an essential answer or selecting an unacceptable answer, and averages points across
+    questions.
+  judge: Automated comparison with the reference answer sets assigns the scores.
+  scale: Exact match is 0 or 1 per question; LCA points are 0, 0.25, 0.5 or 1; reported metrics are exact match
+    ratio, F1, Hamming score and mean LCA score.
+  validation: ''
+  results: GPT-4.1 ranked highest across evaluation scenarios and reached an exact match ratio of 0.49 with the
+    full article, compared with 0.36 for Qwen3-32B. Human exam results were unavailable.
+  limitations: The authors note that evaluation omitted figures and tables, tested a limited model set with fixed
+    prompts, used few justification annotators, risked contamination from online articles, and covered only a small
+    dataset from French medical LCA exams.
+  sources:
+  - https://doi.org/10.63317/2erqq5fuxpge
+  - https://huggingface.co/datasets/doriab/CareMedEval
+  - https://github.com/bonzid/CareMedEval
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

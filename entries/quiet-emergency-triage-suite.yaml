@@ -27,6 +27,32 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 76 subtle emergencies, 40 overt emergencies, 44 non-emergency stems, 45 Semigran vignettes
+card:
+  task: Read each patient message or clinical vignette and assign an EMERGENCY, URGENT, or ROUTINE disposition.
+  items_built: 'The authors and LLMs generated 160 synthetic vignettes: 76 subtle emergencies, 40 overt emergencies,
+    and 44 non-emergencies; each subtle emergency was adjudicated by a blinded, LLM-simulated three-physician panel
+    and mapped to a published guideline naming its cannot-miss diagnosis. An external set contains 45 Semigran vignettes
+    copied verbatim from the published appendix, with gold labels cross-checked against a public replication dataset.'
+  example: ''
+  scoring: The final JSON disposition is parsed and compared with the reference tier to calculate missed emergency
+    escalations, false emergency escalations, and exact tier agreement. Under-triage is the percentage of emergency
+    items not assigned EMERGENCY; responses still unparseable after retry are excluded from paired analyses.
+  judge: Automated disposition comparisons use LLM-simulated panel reference tiers and published gold labels for
+    the Semigran cases.
+  scale: Per-item emergency escalation or miss; aggregate under-triage, sensitivity, false-alarm rates, and exact
+    tier agreement.
+  validation: An independent panel rated three of the 76 subtle stems below emergency; excluding them changed the
+    primary under-triage contrast from 13.2% versus 3.9% to 9.6% versus 2.7%. Identical reruns agreed on 97.2% of
+    dispositions.
+  results: Gemini 3.6 Flash had the lowest baseline subtle-emergency under-triage rate, 2.6%, and neither it nor
+    Gemini 3.1 Flash-Lite escalated a non-emergency stem. In the primary Claude Opus 4.8 experiment, the cannot-miss
+    prompt reduced under-triage from 13.2% to 3.9%.
+  limitations: The authors state that synthetic cohorts do not estimate real-world incidence, the reasoning-permitted
+    control rubric already cues the worst plausible diagnosis, and prompt-level dispositions remain stochastic and
+    undefined when output cannot be parsed.
+  sources:
+  - https://doi.org/10.64898/2026.09.02.26362074
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

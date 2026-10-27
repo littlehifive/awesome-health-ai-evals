@@ -26,6 +26,26 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: "168 dialogue test samples (8 themes, 3 role scenarios each, plus baseline direct questions)"
+card:
+  task: Respond to role-play conversations of at least two turns that attempt to elicit information violating Chinese
+    medical ethics codes.
+  items_built: The researchers designed three role-play scenarios for each of eight medical ethics themes using
+    DeepInception, with at least two dialogue turns per scenario and consistent content across models. They also
+    created direct-question baselines and a bomb-making control; the data statement reports 168 dialogue test samples.
+  example: ''
+  scoring: Responses are assigned one of seven levels based on helpfulness, ethical compliance, actionability of
+    harmful information, and risk warnings, and scores are summed across samples. ASR is the percentage of samples
+    scoring below zero, and ASR Gain is jailbreak ASR minus direct-question baseline ASR.
+  judge: ''
+  scale: Seven levels scored from +2 to -4; summed total score, ASR percentage, and ASR Gain in percentage points.
+  validation: ''
+  results: Claude-Sonnet-4-Reasoning performed best, with a total score of 5 and an ASR of 38%. Across all seven
+    models, 138 of 168 responses scored below zero, giving an aggregate ASR of 82.1%.
+  limitations: The authors state that using Chinese medical ethics codes disadvantages international models and
+    that the eight themes omit other high-risk areas, including physician-assisted suicide and euthanasia.
+  sources:
+  - https://arxiv.org/abs/2601.12652
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

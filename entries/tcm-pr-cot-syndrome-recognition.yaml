@@ -23,6 +23,28 @@ facets:
   eval_methods: [automatic_metric, rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 700 cases; 5,400 sample-model evaluation records
+card:
+  task: Identify the traditional Chinese medicine syndrome manifestations for each structured clinical case.
+  items_built: The dataset contains 700 structured clinical cases with gold-standard syndrome labels across a primary
+    spleen-stomach task and two zero-shot cross-disease settings covering gynecology and heart-system disorders.
+    It bundles predictions from multiple LLMs, but the description does not state where the cases came from or how
+    the labels were checked.
+  example: ''
+  scoring: Evaluation includes structural parsing using Precision, Recall, F1 score and Jaccard similarity, semantic
+    similarity rated by independent LLMs, and expert review of syndrome differentiation consistency and terminology
+    standardization. The evaluations file contains 5,400 sample-model records; the description does not specify
+    how scores are aggregated.
+  judge: Independent LLMs rate semantic similarity, and experts review syndrome differentiation consistency and
+    terminology standardization; their names and numbers are not stated.
+  scale: Precision, Recall, F1 score and Jaccard similarity, plus semantic similarity and expert-review ratings
+    with unspecified scales.
+  validation: ''
+  results: ''
+  limitations: The description identifies variability in expert scoring, differences in LLM-based semantic evaluation
+    and limitations in structural parsing as potential sources of error.
+  sources:
+  - https://doi.org/10.57760/sciencedb.35044
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

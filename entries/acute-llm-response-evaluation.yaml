@@ -26,6 +26,24 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: 5 criteria with a checklist (Table 2)
+card:
+  task: Generate responses for healthcare tasks, including administrative work and clinical decision support, for
+    assessment with the ACUTE checklist.
+  items_built: The framework applies to LLM outputs in healthcare rather than a fixed set of test items. Jessica
+    D. Workum, Davy van de Sande, Diederik Gommers and Michel E. van Genderen identified five evaluation dimensions
+    to balance comprehensiveness with clinical practicality and converted them into a checklist.
+  example: ''
+  scoring: The checklist asks whether responses meet its criteria, including factual completeness, agreement with
+    source data, reproducibility, source attribution and responsible handling of bias. The authors recommend comparing
+    LLM outputs with clinician outputs for clinical validation but specify no numerical scoring or aggregation procedure.
+  judge: ''
+  scale: ''
+  validation: ''
+  results: ''
+  limitations: The authors call for future validation of the framework across diverse clinical scenarios.
+  sources:
+  - https://doi.org/10.3389/frai.2025.1504805
+  extracted: '2026-10-27'
 signals:
   citations: 25
   citations_source: OpenAlex

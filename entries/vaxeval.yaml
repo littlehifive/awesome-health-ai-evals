@@ -32,6 +32,25 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 1,886 questions (English 1,340, Spanish 250, Chinese 296)
+card:
+  task: Select the correct answer to each multiple-choice question about vaccine knowledge in English, Spanish,
+    or Chinese.
+  items_built: GPT-4 generated the English questions from authoritative health guidance and peer-reviewed articles,
+    followed by review; native speakers reviewed the Spanish and Chinese sets. Across all 1,886 items, reference
+    answers were verified against authoritative guidance and peer-reviewed sources.
+  example: ''
+  scoring: Each selected option is compared with the pre-specified reference option using exact match, and accuracy
+    is the percentage of questions answered correctly.
+  judge: Exact match with the answer key.
+  scale: Correct or incorrect per question; percentage accuracy overall.
+  validation: ''
+  results: 'In the 2025 English-only preprint, GPT-4o scored highest at 88.6% accuracy (95% CI: 87.0-90.3). The
+    multilingual paper reports mean accuracy across models of 86.0% in English, 83.7% in Spanish, and 80.0% in Chinese.'
+  limitations: ''
+  sources:
+  - https://github.com/perrychen1405-boop/VaxEval-code
+  - https://doi.org/10.2196/71216
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

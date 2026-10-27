@@ -23,6 +23,24 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 131 questions
+card:
+  task: Choose the correct answer to difficult French multiple-choice questions on military and trauma medicine
+    intended for final-year university students.
+  items_built: YourBench v0.6.0 used Qwen2.5-72B-Instruct to generate questions from chunks of one source document,
+    producing 131 rows in the prepared_lighteval configuration. The pipeline includes filtering question-answer
+    pairs using overlap-based citation scores.
+  example: Quels Medical Planning Timelines ci-dessous sont corrects pour un patient de Cat A ? • 15 Min pour le
+    First Responder, 60 Min jusqu'au Role 1 et 120 Min jusqu'au Role 2 • 10 Min pour le First Responder, 90 Min
+    jusqu'au Role 2B et 120 Min jusqu'au Role 2E ou Role 3...
+  scoring: ''
+  judge: ''
+  scale: Accuracy.
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://huggingface.co/datasets/alekgomez/MED
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

@@ -25,6 +25,27 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating, automatic_metric]
   modality: [text]
   size: 60 vignettes; 4,200 responses from 7 LLMs; 210 double-coded validation responses
+card:
+  task: Respond to synthetic patient vignettes presented in different emotional framings while the clinical content
+    stays constant.
+  items_built: The study team authored 60 fully synthetic patient vignettes by rewriting 10 clinical scenarios in
+    six emotional framings while holding clinical content constant.
+  example: ''
+  scoring: Responses are scored with deterministic text metrics, a GoEmotions classifier, and an LLM judge applying
+    a 13-item interpersonal-communication rubric with seven worked examples. The scripts compare scores across emotional
+    framings using permutation ANOVA and reactivity analyses.
+  judge: Deepseek-v4-flash assigns the rubric scores; deterministic scripts and a GoEmotions classifier supply additional
+    metrics.
+  scale: ''
+  validation: The judge was checked against independent, blinded ratings from two human raters on 210 responses
+    using the same rubric; agreement values are not provided in the supplied text.
+  results: ''
+  limitations: The authors note that provider-side model updates may change outputs and that scoring-ceiling effects
+    make some odds-ratio estimates and confidence bounds unstable across statsmodels versions.
+  sources:
+  - https://github.com/m-kumpf/llm-framing-reactivity
+  - https://doi.org/10.5281/zenodo.23510630
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

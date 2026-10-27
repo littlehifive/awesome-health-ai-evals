@@ -27,6 +27,25 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 1,200 QA pairs (400 healthcare)
+card:
+  task: Answer questions in healthcare, law, and finance using retrieved source material.
+  items_built: The authors assembled 400 questions from PubMedQA, 400 from Open Australian Legal QA, and 400 finance
+    questions comprising 150 from FinanceBench and 250 from financial-qa-10K.
+  example: ''
+  scoring: DHS combines faithfulness to retrieved context, attribution to that context, and terminology agreement
+    with the reference answer, using weights of 0.40/0.30/0.30 for healthcare, 0.35/0.45/0.20 for legal, and 0.30/0.25/0.45
+    for finance. Text answers use NLI or token overlap, numerical answers use numerical proximity, and entity answers
+    use normalized string matching; results report domain scores and their average.
+  judge: Automated NLI, token-overlap, numerical-proximity, and normalized string-matching methods assign scores.
+  scale: Weighted DHS per answer; domain DHS and average DHS across three domains.
+  validation: ''
+  results: GPT-4o-mini with dense chunk retrieval achieved the highest average DHS, 0.585, with domain scores of
+    0.520 for healthcare, 0.569 for legal, and 0.665 for finance.
+  limitations: ''
+  sources:
+  - https://github.com/abhi6579/tridomrag-bench
+  - https://doi.org/10.21203/rs.3.rs-9859942/v1
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

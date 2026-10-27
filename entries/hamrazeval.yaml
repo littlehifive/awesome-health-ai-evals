@@ -26,6 +26,24 @@ facets:
   eval_methods: [rubric_llm_judge]
   modality: [text]
   size: Evaluation applied to simulated sessions from the HamRaz dataset (dataset size not confirmed)
+card:
+  task: Conduct a multi-turn Persian therapy conversation as a counselor following person-centered therapy principles.
+  items_built: The framework was developed for LLM-generated Persian therapy dialogues by combining six general
+    conversation criteria with the Barrett-Lennard Relationship Inventory to assess the therapeutic relationship.
+  example: ''
+  scoring: GPT-4o judges dialogues in separate pairwise comparisons of HamRaz against Script Mode and Two-Agent
+    Mode, rating six conversational criteria and the BLRI criteria. The paper reports General and BLRI scores and
+    describes a cumulative BLRI score, but does not specify how ratings are aggregated into the reported numbers.
+  judge: GPT-4o assigns the ratings; no human or clinician evaluation was conducted.
+  scale: 'General criteria: 1 to 10; BLRI criteria: -3 to +3; reported General and BLRI scores.'
+  validation: ''
+  results: LLaMA 3.1 8B fine-tuned on HamRaz achieved a BLRI score of 2.85 in both comparisons, with General scores
+    of 9.31 against Script Mode and 9.55 against Two-Agent Mode.
+  limitations: The authors cite reliance on LLM judges without clinician validation, limited applicability beyond
+    Persian person-centered therapy, and potential demographic biases in the web-scraped source material.
+  sources:
+  - https://doi.org/10.26615/978-954-452-106-6-001
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

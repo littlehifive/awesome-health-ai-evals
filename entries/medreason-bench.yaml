@@ -23,6 +23,24 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 100 cases, 200 fairness variants, 6 adversarial cases
+card:
+  task: Choose an answer to each multiple-choice clinical vignette, or abstain when none of the options is correct.
+  items_built: A single author wrote all 100 original cases against standard references, with a written rationale
+    and literature sources for each case. The planned second-reviewer pass was not carried out, no answer key was
+    independently adjudicated, and v1.1.x additions were screened and reviewed only by LLMs.
+  example: '"A 62-year-old man presents with crushing substernal chest pain..." "Which coronary artery is most likely
+    occluded?" Options: A. Left anterior descending; B. Left circumflex; C. Right coronary; D. Left main.'
+  scoring: The harness compares each parsed answer with the answer key and gives credit on adversarial cases only
+    for abstaining. Top-1 accuracy is reported as the number of correct responses divided by the number of items.
+  judge: Automated comparison with the answer key.
+  scale: Correct or incorrect per item; overall top-1 accuracy as a percentage.
+  validation: ''
+  results: ''
+  limitations: The answer key lacks independent adjudication, later additions received only LLM review, and calibration,
+    fairness, hallucination, and reasoning-quality scoring remain unimplemented.
+  sources:
+  - https://github.com/abdullahabdulsami2026-coder/medreason-bench
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

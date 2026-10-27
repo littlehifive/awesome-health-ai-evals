@@ -29,6 +29,35 @@ facets:
   eval_methods: [expert_human_rating, rubric_llm_judge]
   modality: [text]
   size: 100 questions, 2,000 expert evaluations (Eval); 120 adversarial questions (Adv)
+card:
+  task: Write a single-turn counseling response to each real patient question or expert-written adversarial question.
+  items_built: The researchers selected 100 CounselChat questions covering 20 mental health topics and paired each
+    with three model responses and the top-upvoted therapist response, producing 2,000 expert evaluations. Ten returning
+    expert annotators independently wrote 120 adversarial questions, two for each of six failure modes per author,
+    using definitions and examples from the initial evaluations.
+  example: ''
+  scoring: For CounselBench-Eval, five professionals blindly rated each response on six dimensions; scores were
+    averaged first by question and then by model, excluding uncertain ratings, while Medical Advice was reported
+    as the mean per-question percentage of yes ratings. For CounselBench-Adv, GPT-4.1 labeled whether each response
+    exhibited the targeted failure, and results were reported as failure frequencies across three generations per
+    question per model.
+  judge: CounselBench-Eval uses 100 licensed or trained mental health professionals, with five raters per response;
+    CounselBench-Adv uses GPT-4.1, checked by one mental health professional.
+  scale: Five-point ratings except four-point Factual Consistency and categorical Medical Advice; mean dimension
+    scores, medical-advice percentages, and adversarial failure frequencies.
+  validation: The questionnaire was refined through three pilot rounds with eight participants. Expert ratings had
+    Krippendorff's alpha values above 0.7 across measured metrics; GPT-4.1 agreed with one professional on 72.9%
+    of 96 adversarial question-response pairs.
+  results: ''
+  limitations: The authors note that online therapist responses were written with limited patient information and
+    no in-person contact and may not represent the best clinician counseling, while annotator demographics reflect
+    imbalances in the counseling profession.
+  sources:
+  - https://arxiv.org/abs/2506.08584
+  - https://huggingface.co/datasets/izi-ano/CounselBench-Eval
+  - https://huggingface.co/datasets/izi-ano/CounselBench-Adv
+  - https://github.com/llm-eval-mental-health/CounselBench
+  extracted: '2026-10-27'
 signals:
   citations: 3
   citations_source: OpenAlex

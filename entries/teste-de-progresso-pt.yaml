@@ -24,6 +24,26 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 720 questions (240 labelled with a subject area)
+card:
+  task: Select the correct answer to each Portuguese multiple-choice medical question from the Brazilian Teste de
+    Progresso.
+  items_built: The authors extracted question text, answer options and correct answers from publicly available institutional
+    PDF exams using PyPDF2 and pdfplumber, then removed formatting artifacts, incomplete entries and duplicates.
+    After cleaning and validation, the dataset contained 720 questions from 2019-2023, including 240 with medical
+    subject-area annotations.
+  example: ''
+  scoring: Model answers are compared with the correct answers, and accuracy is calculated as the percentage answered
+    correctly across the test and within each medical domain.
+  judge: Answers are checked against the exam answer key.
+  scale: Correct or incorrect per question; percentage accuracy overall and by domain.
+  validation: ''
+  results: GPT-4 answered 108 of 120 questions correctly, achieving 90% accuracy on one test. Domain accuracy ranged
+    from 100% in Internal Medicine to 80% in Public Health.
+  limitations: The authors state that the relatively small test set may limit generalizability and call for more
+    questions covering additional medical domains and subdomains.
+  sources:
+  - https://doi.org/10.1101/2024.12.17.627801
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

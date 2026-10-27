@@ -27,6 +27,34 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 4,320 prompts from 60 seeds; 60 seed checklists; 300 real posts for validation
+card:
+  task: Answer each low-risk health question with medical information, explanations, risk boundaries, and practical
+    next steps.
+  items_built: Medically trained collaborators drafted 60 seed questions across nine ICD-11 categories using medical
+    guidelines and professional sources; all seeds received medical review, with additional review of mental health
+    questions to exclude higher-risk content. Each seed was expanded into 72 variants combining two languages, two
+    registers, two health-literacy signals, three question formats, and three framing conditions.
+  example: '"Age restrictions and immune protection mechanism of the 9-valent HPV vaccine"'
+  scoring: GPT-5.4-mini applies rubrics to score deflection, disclaimer density, underinformative simplification,
+    completeness loss, and actionability loss, using seed-specific medical reference checklists; factual accuracy
+    is reviewed manually. Results include mean scores across conditions by model and matched-condition differences
+    used to measure disparities.
+  judge: GPT-5.4-mini scores five dimensions, and two medically trained co-authors independently assess factual
+    accuracy on a stratified sample.
+  scale: Each dimension uses a 1-5 scale, with higher scores worse; reported metrics include mean scores and between-condition
+    disparities.
+  validation: Judge scores were compared with human annotations on 230 stratified responses, and factual-accuracy
+    disagreements were adjudicated. Across 10 model-by-language groups, correlations with results from 300 real-world
+    health posts were Spearman's rho = 0.71 for underinformative simplification, 0.72 for completeness loss, 0.81
+    for actionability loss, and 0.87 for severe underinformative simplification.
+  results: ''
+  limitations: The authors note limited coverage of natural patient language, preliminary external validation based
+    on 10 aggregate points, reliance on LLM judging and limited expert review, restriction to English and Chinese
+    low-risk questions across five general-purpose models, and model-dependent effects of a single mitigation prompt.
+  sources:
+  - https://arxiv.org/abs/2605.28025
+  - https://github.com/Rainxu09/MIRA
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

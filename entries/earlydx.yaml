@@ -26,6 +26,35 @@ facets:
   eval_methods: [rubric_llm_judge, automatic_metric]
   modality: [text]
   size: 154,834 ED encounters (6,975 test predictions in the judge-agreement check)
+card:
+  task: Generate a set of free-text diagnoses for each emergency department encounter using the patient information
+    recorded up to hospital admission.
+  items_built: The authors combined MIMIC-IV emergency department, hospital and note records for 154,834 encounters
+    resulting in admission, filtered administrative, symptom and overly generic diagnosis titles, and used MiniMax
+    M3 to classify 242,729 labels by evidence support, with an independent re-audit by four clinicians. Retaining
+    encounters with supported or partially supported labels left 120,789 encounters, split by patient into 113,814
+    training and 6,975 test encounters.
+  example: ''
+  scoring: For each encounter, a semantic judge makes one-to-one matches between predicted diagnoses and reference
+    diagnoses; the primary track uses only fully supported references, while secondary tracks include partially
+    supported labels. Matched counts determine precision, recall and F1, reported both by pooling counts across
+    encounters and by averaging encounter scores; complete-match rate is the fraction of encounters whose predicted
+    set exactly matches the reference.
+  judge: Qwen3.5-27B assigns semantic diagnosis matches.
+  scale: Precision, recall and F1 from 0 to 1; complete-match rate as a percentage of encounters.
+  validation: MiniMax M3 and Qwen3.5-27B agreed on matched-pair counts for 89.7% of 6,975 predictions and differed
+    by at most one pair in 99.9%, with per-encounter F1 correlation r=0.81. Manual review of 100 predictions agreed
+    with the judge in 94% of cases, all within one pair.
+  results: Post-trained Qwen3.5-4B reached the best supported-label micro-F1 of 0.51 and approximately 36.3% complete
+    matches. A clinician independently diagnosing 1,000 encounters achieved supported-label F1 of 0.31, recall of
+    0.68 and a complete-match rate of 36.3%.
+  limitations: The authors identify single-center data, text-rendered evidence that omits bedside observations,
+    billing references that penalize reasonable differentials, and an exploratory rationale layer; the repository
+    also notes that event-time filtering can include results finalized after admission.
+  sources:
+  - https://arxiv.org/abs/2607.28788
+  - https://github.com/jimmylihui/EarlyDx
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

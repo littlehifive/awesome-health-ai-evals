@@ -29,6 +29,24 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 1,260 questions (928 case-based, 332 knowledge-based; 76 with images)
+card:
+  task: Choose the single correct answer from five options for each medical exam question in Italian or English,
+    using the accompanying image when present.
+  items_built: Questions were extracted from official examination documents and verified against the source; Claude
+    (claude-opus-4-8) drafted the English translations, which a senior bilingual physician fully reviewed against
+    the Italian originals. Claude Opus 4.8 and GPT-5.5 assigned specialty labels with independent adjudication by
+    two physicians, while two medical specialists jointly classified 928 questions as case-based and 332 as knowledge-based.
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: ''
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://github.com/LM-Healthcare/ITAMed
+  - https://huggingface.co/datasets/Filo-White/ITAMed
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

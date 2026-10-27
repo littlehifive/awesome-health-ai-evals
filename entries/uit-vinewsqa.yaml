@@ -26,6 +26,25 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 22,057 question-answer pairs on 4,416 articles
+card:
+  task: Read a Vietnamese health news article and answer its question by extracting a continuous span from the article.
+  items_built: Trained crowd-workers who passed a reading comprehension test wrote 22,057 question-answer pairs
+    from 4,416 VnExpress health news articles. The authors inspected 1,183 pairs, found 335 with errors, and required
+    annotators to check and correct errors in questions, answers and span boundaries.
+  example: '"Hút thuốc lá có hại như thế nào đối với con người?" (How harmful is smoking for humans?)'
+  scoring: Predicted answers are compared with human reference answers after ignoring punctuation and white spaces;
+    EM reports the proportion of exact matches. Token-overlap F1 is calculated against each reference, the highest
+    F1 is retained for each question, and these scores are averaged across questions.
+  judge: An automated evaluation system compares predictions with human-written reference answers.
+  scale: Exact match per question and token-overlap F1; overall EM and macro-average F1 reported as percentages.
+  validation: ''
+  results: ALBERTBase_Uncased achieved the best test scores, with 65.26% EM and 84.89% F1. The human baseline exceeded
+    it by 14.53 percentage points in EM and 10.90 percentage points in F1.
+  limitations: The authors identify ambiguous questions with multiple valid answer spans and note that exact match
+    rejects some answers with small boundary differences that could be accepted as correct.
+  sources:
+  - https://arxiv.org/abs/2006.11138
+  extracted: '2026-10-27'
 signals:
   citations: 35
   citations_source: OpenAlex

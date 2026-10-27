@@ -24,6 +24,21 @@ facets:
   eval_methods: [mcq_exact_match, expert_human_rating]
   modality: [text]
   size: 1,170 questions (592 MCQ, 578 open-ended)
+card:
+  task: Answer a multiple-choice or open-ended medical question and provide reasoning for the answer.
+  items_built: The 1,170 examples were compiled and harmonized from resources including JAMA Clinical Challenge,
+    Medbullets, MMedBench, nephSAP, LiveQA, and PubMedQA. They were standardized into a unified JSONL schema with
+    reference reasoning steps and key-point annotations.
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: ''
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://huggingface.co/datasets/medreason/llm-medical-reasoning-steps-benchmark
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

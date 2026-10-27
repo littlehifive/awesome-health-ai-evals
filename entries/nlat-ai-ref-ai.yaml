@@ -27,6 +27,28 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: "8 questions; 7 urologists rated with NLAT-AI, 4 reviewers used the adapted PEMAT-AI, DISCERN-AI and Global Quality Score"
+card:
+  task: Answer patient questions about prostate cancer and provide references supporting each answer.
+  items_built: The researchers formulated 8 questions inductively from patient information topics in peer-reviewed
+    literature and Google Trends data. They developed NLAT-AI to assess patient education responses and REF-AI to
+    assess their references, testing reliability on similar breast cancer and bowel cancer question sets.
+  example: ''
+  scoring: Seven urologists rated each response on five NLAT-AI domains, with pooled means and standard deviations
+    reported for each domain. For REF-AI, reviewers checked each reference through its supplied link or a Google
+    search, scored its existence, relevance and source quality, and averaged scores for each evaluation axis.
+  judge: Seven independent experienced urologists scored NLAT-AI; the REF-AI reviewers were not specified.
+  scale: 'NLAT-AI: 1 (strongly disagree) to 5 (strongly agree) per domain, reported as pooled domain means; REF-AI:
+    1 to 3 per criterion, reported as mean axis scores.'
+  validation: NLAT-AI internal reliability was Cronbach α=0.906. REF-AI reliability testing on similar breast cancer
+    and bowel cancer question sets yielded 0.81.
+  results: ChatGPT-4 had pooled NLAT-AI means of 3.96 for accuracy, 4.32 for safety, 4.45 for appropriateness, 4.05
+    for actionability and 4.09 for effectiveness, all out of 5. REF-AI identified 2 hallucinated references, while
+    28 of 30 references appropriately supported the text.
+  limitations: The authors state that the small assessor sample and experts' potential bias toward or against ChatGPT-4
+    limit the evaluation, and that the exploratory tools require further validity testing.
+  sources:
+  - https://doi.org/10.2196/55939
+  extracted: '2026-10-27'
 signals:
   citations: 122
   citations_source: OpenAlex

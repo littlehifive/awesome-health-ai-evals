@@ -25,6 +25,32 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: "94,739 ICD-10-CM diagnoses at the finest level; 199 base admission cases for counterfactual swaps"
+card:
+  task: Assign probabilities to names following a diagnosis prompt, and predict diagnoses from clinical notes with
+    original or swapped demographic information.
+  items_built: The authors paired all 94,739 ICD-10-CM diagnoses with the five most popular names in each of eight
+    sex-by-ethnicity groups from the Popular Baby Names dataset, identifying 3,116 female-only and 529 male-only
+    diagnoses using ICD-10-CM definitions. For diagnosis prediction, they selected 199 white male cases with "other"
+    insurance from CliBench and replaced demographic fields, also changing pronouns and gendered honorifics when
+    swapping sex.
+  example: '"{d_i} is related to the name:"'
+  scoring: AssocMAD measures the mean absolute deviation of demographic-group name probabilities relative to their
+    mean; correctness of sex preference is the fraction of sex-specific diagnoses assigned a higher association
+    with the correct sex. For clinical cases, predicted diagnoses are mapped to ICD codes by highest description
+    cosine similarity and compared with reference diagnoses to calculate recall differences between original and
+    counterfactual inputs, averaged across diagnostic levels and demographic placement before or after the notes.
+  judge: Automated calculations use model probabilities and ICD-code matching.
+  scale: Relative association disparity per diagnosis; correct sex-preference proportion from 0 to 1; change in
+    recall averaged across diagnostic levels.
+  validation: The authors repeated AssocMAD calculations using the top 1, 2, 3 and 4 names by frequency and reported
+    that the key observations remained consistent.
+  results: ''
+  limitations: The authors state that findings depend on the selected cases and definition of bias, cover limited
+    demographic attributes, and can hide larger instance-level biases through aggregation; the overall extrinsic-bias
+    results were not statistically significant.
+  sources:
+  - http://arxiv.org/abs/2407.05250
+  extracted: '2026-10-27'
 signals:
   citations: 2
   citations_source: OpenAlex

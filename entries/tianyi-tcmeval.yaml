@@ -26,6 +26,31 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric, expert_human_rating]
   modality: [text]
   size: "sizes mostly not stated; the human-rated test used 5 clinical records per model with 3 questions each (120 QA pairs across models), and the retrospective trial set has 108 records"
+card:
+  task: Answer TCM exam and domain questions, predict syndromes, treatment principles and prescriptions from clinical
+    records, explain clinical reasoning, and predict clinical-trial outcomes.
+  items_built: The authors sampled 20% of multiple-choice questions extracted from TCM exam books and materials,
+    collected historical clinical records, and assembled domain question-answer pairs covering TCM disciplines.
+    For physician evaluation, they randomly selected five clinical records and asked three sequential questions
+    per model, producing 120 question-answer pairs.
+  example: ''
+  scoring: Regular tasks compare outputs with reference answers using accuracy, prescription F1 and domain-QA label-token
+    overlap; the results section calls the domain-QA metric Rouge-L and separately describes averaging F1 across
+    the three clinical-record tasks. Physicians' ratings are averaged by evaluation aspect, while clinical-trial
+    predictions are scored by the proportion matching observed outcomes or fever-reduction time bands.
+  judge: Automatic reference-based metrics and 10 experienced TCM clinical doctors, including five with senior professional
+    qualifications, assign scores; the doctors are blinded to model identity and did not participate in Tianyi's
+    design or training.
+  scale: Human criteria use 1-5 ratings reported as averages; automatic metrics include accuracy, F1 and token overlap.
+  validation: ''
+  results: Tianyi led clinical-record tasks with 81.21% F1 and domain QA with 46.83% Rouge-L. Qwen2-7B achieved
+    the highest reported exam accuracy, 90.7%, compared with Tianyi's 75.38%.
+  limitations: The authors note possible overlap between regular benchmark samples and model training distributions,
+    the cost-driven use of only five physician-evaluated cases, and subjective physician judgments on answers without
+    confirmed labels.
+  sources:
+  - https://doi.org/10.1016/j.inffus.2025.103663
+  extracted: '2026-10-27'
 signals:
   citations: 14
   citations_source: OpenAlex

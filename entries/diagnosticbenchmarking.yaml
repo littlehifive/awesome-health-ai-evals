@@ -35,6 +35,24 @@ facets:
   modality:
   - text
   size: 349 case challenges
+card:
+  task: Read a redacted neurology or psychiatry clinical vignette and provide a ranked top-five differential diagnosis
+    and the best next step.
+  items_built: The pipeline harvested peer-reviewed, open-access CC-BY case reports with established diagnoses and
+    refined them into 349 validated case challenges. A per-case determinacy audit checked whether the diagnosis
+    was reachable from the prompt, appended the source's deciding result verbatim to repair underdetermined cases,
+    and dropped cases that could not be repaired.
+  example: ''
+  scoring: The README suggests using an LLM judge to compare the ranked diagnoses with the gold diagnosis for semantic
+    equivalence and reporting pass@1 through pass@5. It does not specify how case-level scores are aggregated.
+  judge: An unspecified LLM judge assesses semantic equivalence.
+  scale: Gold diagnosis matched within the top k ranked diagnoses; pass@1 through pass@5.
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://github.com/Santosh-Gupta/DiagnosticBenchmarking
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

@@ -31,6 +31,31 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 2,665 questions (1,000 PubMedQA-Swedish, 535 SMDT, 464 emergency medicine, 666 general medicine)
+card:
+  task: Select the correct answer to each Swedish medical question from the supplied options, including yes, no
+    or maybe for PubMedQA-Swedish.
+  items_built: Birger Moëll, Fabian Farestam and Jonas Beskow assembled 1,000 PubMedQA questions translated into
+    Swedish with GPT-4 and human review, 535 questions adapted from Swedish clinical exams for doctors, 464 emergency
+    medicine specialist questions and 666 general medicine specialist questions. Medical review remains incomplete,
+    and not all questions have been reviewed by a medical professional.
+  example: ''
+  scoring: The software compares each response with the answer key after removing whitespace and converting text
+    to lowercase; malformed responses are counted as incorrect. Accuracy is calculated for each sub-benchmark, and
+    the overall SMLB score weights each sub-benchmark by its number of questions.
+  judge: Exact match with the answer key.
+  scale: Correct or incorrect per question; percentage accuracy per sub-benchmark and a question-weighted overall
+    score from 0 to 100.
+  validation: 'SMDT scores correlated with MMLU scores across evaluated models: Pearson''s r = 0.87 (p = 0.0004)
+    and Spearman''s correlation = 0.99 (p = 2 × 10⁻⁸).'
+  results: The paper reports GPT-4-turbo at 75.57% overall accuracy and Claude-3.5 at 75.20%, and also identifies
+    o3 among the top performers. On general medicine, o3 achieved 97% accuracy.
+  limitations: The authors report incomplete medical review, translation artifacts and answer-label bias in PubMedQA-Swedish,
+    saturation on clinical sub-benchmarks, and sensitivity to prompting, and state that multiple-choice accuracy
+    neither directly measures hallucinations nor establishes clinical readiness.
+  sources:
+  - https://doi.org/10.3389/frai.2025.1557920
+  - https://github.com/BirgerMoell/swedish-medical-benchmark
+  extracted: '2026-10-27'
 signals:
   citations: 10
   citations_source: OpenAlex

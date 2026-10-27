@@ -27,6 +27,33 @@ facets:
   eval_methods: [automatic_metric, expert_human_rating]
   modality: [text]
   size: 600 situation-thought-reframe triples
+card:
+  task: Given a situation and a negative thought, generate a more hopeful reframed thought that offers an alternative
+    perspective.
+  items_built: The authors manually curated 180 situation and negative-thought pairs from the Thought Records Dataset,
+    which contains hypothetical and real-world reports from Amazon Mechanical Turk workers. Fifteen mental health
+    practitioners and clinical psychology graduate students with substantial reframing experience wrote two reframes
+    per assigned pair, labeled the thinking traps addressed and compared six other attributes, producing 600 annotated
+    reframes split 70:30 for training and testing.
+  example: 'Situation: "I participated in a hackathon and I lost"; Thought: "I''ll never become a successful programmer".'
+  scoring: Generated reframes are compared with expert-written references using BLEU, ROUGE-1, ROUGE-L and BERTScore,
+    while three mental health practitioners rate relatability and helpfulness. Separate automated measures assess
+    the seven linguistic attributes; the paper reports these measures separately rather than as one combined score.
+  judge: Three mental health practitioners rate outputs; automated assessment uses reference-based metrics, GPT-3
+    and RoBERTa-based classifiers.
+  scale: 'Human ratings: 1 to 5 for relatability and helpfulness; separate BLEU, ROUGE-1, ROUGE-L and BERTScore
+    results and attribute-specific scores.'
+  validation: Pearson correlations between automated attribute measures and expert judgments were 0.680 for addressing
+    thinking traps, 0.647 for actionability, 0.448 for rationality, 0.550 for positivity, 0.575 for empathy, 0.427
+    for specificity and 0.331 for readability.
+  results: 'The authors'' retrieval-enhanced GPT-3 model led with BLEU 27.8, ROUGE-1 26.0, ROUGE-L 19.9 and BERTScore
+    88.6. It also received the highest practitioner ratings: 3.10 for relatability and 4.11 for helpfulness on 1-to-5
+    scales.'
+  limitations: The authors did not assess clinical outcomes.
+  sources:
+  - https://arxiv.org/abs/2305.02466
+  - https://github.com/behavioral-data/Cognitive-Reframing-of-Negative-Thoughts
+  extracted: '2026-10-27'
 signals:
   citations: 6
   citations_source: OpenAlex

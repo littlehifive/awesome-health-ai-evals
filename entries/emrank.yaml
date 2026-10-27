@@ -26,6 +26,30 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: unknown
+card:
+  task: Write an empathetic reply to each patient-portal message from a patient with prostate cancer.
+  items_built: The researchers randomly selected 491 patient advice requests and their physician replies from Mayo
+    Clinic portal conversations involving men who underwent radical prostatectomy between December 2018 and October
+    2023. Medical students and a postgraduate year 3 urology resident reviewed each message and reply to remove
+    or anonymize identifying information.
+  example: ''
+  scoring: LLaMA chooses the more empathetic response in each model-versus-physician pair, and results are reported
+    as the percentage of pairs won by each source. One-shot evaluation takes a majority vote across three demonstration
+    examples, while few-shot evaluation takes a majority vote across three example orderings; patient judgments
+    also use majority voting.
+  judge: LLaMA assigns automatic rankings, and three male patients with prostate cancer who had undergone radical
+    prostatectomy provide human rankings.
+  scale: Pairwise empathy preference per message; percentage of comparisons won.
+  validation: All three patients rated 70 questions, with Fleiss' kappa of -0.15. Pearson correlations with majority
+    patient judgments were 0.23 for one-shot voting and 0.20 for few-shot voting; the ensemble had the closest alignment
+    with patient judgments.
+  results: ChatGPT won 91.85% of comparisons under the ensemble metric, versus 8.15% for physicians. Patients preferred
+    ChatGPT in 72.85% of comparisons and physicians in 27.15%.
+  limitations: The authors report that zero-shot grading sometimes fails to choose a response, one-shot results
+    depend on the demonstration used, and few-shot results depend on example order.
+  sources:
+  - https://arxiv.org/abs/2405.16402
+  extracted: '2026-10-27'
 signals:
   citations: 36
   citations_source: OpenAlex

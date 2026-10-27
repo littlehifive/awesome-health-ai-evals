@@ -28,6 +28,26 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric]
   modality: [text]
   size: 18 tasks across five dimensions (total item count not read)
+card:
+  task: Follow each clinical instruction using the supplied text, medical images, records or documents to produce
+    an answer, calculation or data analysis.
+  items_built: The authors assembled existing public medical datasets and grouped them by the capabilities required
+    of clinical agents. Named sources include MedQA, MMLU, BioASQ, PubMedQA, VQA-RAD, SLAKE, OmniMedQA, MedCalc,
+    EHRSQL, MIMIC-III, eICU, MedMentions, emrQA and LongHealthQA.
+  example: ''
+  scoring: Predicted answers are evaluated against ground-truth answers using accuracy. Results are reported for
+    individual tasks and as averages within dimensions.
+  judge: ''
+  scale: Percentage accuracy per task, with dimension averages.
+  validation: ''
+  results: ''
+  limitations: The authors state that CAB does not fully capture the complexity of evolving clinical scenarios and
+    needs ongoing updates, and that its collected medical tools do not perfectly match the evaluation tasks.
+  sources:
+  - https://arxiv.org/abs/2410.17657
+  - https://huggingface.co/datasets/BlueZeros/ClinicalAgentBench
+  - https://github.com/BlueZeros/ReflecTool
+  extracted: '2026-10-27'
 signals:
   citations: 7
   citations_source: OpenAlex

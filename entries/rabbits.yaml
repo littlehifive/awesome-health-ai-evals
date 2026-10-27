@@ -28,6 +28,29 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: transformed MedQA and MedMCQA test items containing drug names (counts in paper appendix, not recorded here)
+card:
+  task: Select the correct answer to medical multiple-choice questions in their original form and with brand and
+    generic drug names exchanged.
+  items_built: The authors extracted 2,271 generic drugs mapped to 6,961 brands from RxNorm, refined these into
+    one-to-one pairs through expert annotation, and used regular expressions to replace drug names in MedQA and
+    MedMCQA questions and answer choices. Two physician authors, Jack Gallifant and Danielle S. Bitterman, repeatedly
+    reviewed the transformed items and removed replacements that introduced inaccuracies, ambiguities or logical
+    inconsistencies.
+  example: '"PGE1 analogue is ?" Options after substitution: "hemabate", "caverject", "flolan", "cervidil".'
+  scoring: The EleutherAI lm-evaluation harness measures answer accuracy on the filtered original questions and
+    their transformed versions. The paper compares these accuracies and reports the performance drop for generic-to-brand
+    substitutions, with brand-to-generic results omitted because there were few such swaps.
+  judge: Automated scoring uses the EleutherAI lm-evaluation harness.
+  scale: Answer accuracy as a percentage, compared between original and transformed questions.
+  validation: ''
+  results: ''
+  limitations: The authors note that the dataset is small and restricted to pharmaceutical terminology in biomedical
+    benchmarks, and that the pre-training corpora examined are proxies for internet text rather than the evaluated
+    models' known training data.
+  sources:
+  - https://doi.org/10.18653/v1/2024.findings-emnlp.726
+  - https://github.com/BittermanLab/RABBITS
+  extracted: '2026-10-27'
 signals:
   citations: 19
   citations_source: OpenAlex

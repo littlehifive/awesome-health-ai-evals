@@ -26,6 +26,30 @@ facets:
   eval_methods: [rubric_llm_judge]
   modality: [text]
   size: 1,100 queries (110 per category); 15 LLMs and 4 guardrail models evaluated
+card:
+  task: Respond to each high-risk medical query while avoiding harmful operational details and providing appropriate
+    refusal, caution, or safe clinical redirection.
+  items_built: Frontier LLMs generated candidate queries under broad risk themes, which human curators filtered,
+    rewrote, and annotated over multiple rounds, including board-certified physician review. The final set contains
+    1,100 queries, with 110 in each category, labeled with risk level, behavioral dimension, failure subtype, and
+    expected safe behavior.
+  example: ''
+  scoring: GPT-5 judges each response for unsafe content, actionable harmful guidance, refusal adequacy, and safe
+    helpfulness. Query-level scores are averaged across all 1,100 queries and reported as percentages for each of
+    the four metrics.
+  judge: GPT-5 assigns scores, with manual inspection and human expert review of a representative subset.
+  scale: URR and AHR are binary per query; RA and SH range from 0 to 1; each metric is averaged and reported as
+    a percentage.
+  validation: Human experts reviewed a representative subset of responses to check automated judgments of unsafe
+    content, actionable detail, safe refusal, and partial refusal followed by unsafe assistance; no agreement figures
+    are reported.
+  results: ''
+  limitations: The authors note incomplete coverage of dangerous medical interactions, limited linguistic and cultural
+    diversity and multi-turn coverage, text-only testing without multimodal, retrieval, or tool use, judgment calls
+    in safety scoring, and no basis for treating benchmark performance as clinical safety certification.
+  sources:
+  - https://arxiv.org/abs/2606.28332
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

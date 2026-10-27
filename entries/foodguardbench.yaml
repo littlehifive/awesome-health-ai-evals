@@ -27,6 +27,29 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: "20,116 queries (2,124 malicious seeds, 16,992 jailbreak variants, 1,000 benign) across five food-safety risk categories"
+card:
+  task: Respond safely to each food-related query, or classify it as safe or unsafe when testing a guardrail.
+  items_built: The authors used GPT-5 to generate five queries per seed policy from 356 FDA-grounded safety policies,
+    filtered near-duplicates with all-MiniLM-L6-v2, and manually inspected 100 samples at each of the policy-selection
+    and query-generation stages, with 98% and over 90% passing review, respectively. The expanded release preserves
+    the synthetic questions and labels and pairs each of 2,124 malicious seeds with eight jailbreak variants.
+  example: ''
+  scoring: An LLM response counts as a successful attack if it contains none of the curated refusal prefixes; attack
+    success rate is the percentage of responses meeting that rule. Guardrail classifications are compared with the
+    binary safety annotations and reported as accuracy, F1, false positive rate and false negative rate.
+  judge: Automated refusal-prefix matching scores LLM responses, and binary safety annotations determine guardrail
+    classification scores.
+  scale: Binary attack success per response, aggregated as ASR (%); guardrail accuracy, F1, FPR and FNR (%).
+  validation: ''
+  results: In the paper's evaluation, Claude-3.7-Sonnet had the lowest overall attack success rate at 34.59%. FoodGuard-4B
+    led the guardrails with 95.24% accuracy and 97.10% F1.
+  limitations: The authors state that the synthetic, English-focused corpus does not represent all real-world food
+    interactions, its safety labels do not establish factual correctness, and the evaluation does not cover multi-agent,
+    embodied or personalized safety settings.
+  sources:
+  - https://arxiv.org/abs/2604.01444
+  - https://huggingface.co/datasets/EddyLuo/FoodGuardBench
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

@@ -24,6 +24,23 @@ facets:
   eval_methods: [rubric_llm_judge]
   modality: [text]
   size: not stated (sample_dataset.json holds 3 items)
+card:
+  task: 'Generate a medical explanation of a clinical scenario for a specified audience: physicians, nurses, patients,
+    or caregivers.'
+  items_built: The framework is intended for evaluating audience-adapted medical explanations from clinical scenarios.
+    It was developed as part of Google Summer of Code 2025, mentored by Google DeepMind.
+  example: ''
+  scoring: An ensemble of LLM judges evaluates explanations across six dimensions, with factual claims grounded
+    against UMLS, RxNorm, and SNOMED-CT. The weighted score assigns 25% to factual accuracy, 15% to terminology,
+    20% to completeness, 15% to actionability, 15% to safety, and 10% to empathy and tone.
+  judge: The architecture lists GPT-5.2, Claude 4.5, Gemini 3, and DeepSeek-V3.2 as ensemble judges.
+  scale: Weighted score across six dimensions; per-dimension scale and dataset-level aggregation are not specified.
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://github.com/heilcheng/medexplain-evals
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

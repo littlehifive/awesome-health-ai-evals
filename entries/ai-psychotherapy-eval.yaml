@@ -27,6 +27,30 @@ facets:
   eval_methods: [simulated_multi_turn, rubric_llm_judge]
   modality: [text]
   size: 15 simulated patient personas, 6 AI therapist agents, 369 simulated sessions
+card:
+  task: Conduct multiple text-based psychotherapy sessions with a simulated patient with Alcohol Use Disorder.
+  items_built: The authors generated 15 patient personas from empirically derived Alcohol Use Disorder phenotypes
+    and checked 26 persona characteristics against validated clinical instruments. Six psychology professionals
+    and three psychology or nursing graduate students assessed clinical realism; the companion data contains logs
+    and evaluations from 369 simulated sessions rather than a held-out test set.
+  example: ''
+  scoring: LLM evaluators complete patient-role surveys for progress and alliance, count therapeutic behaviors,
+    rate session quality, detect crises, and mark whether each of four crisis-response steps occurred. Behavior
+    counts and ratings produce summary indices compared with competency benchmarks, while crisis events and therapy-attributed
+    adverse outcomes are counted to form separate quality and risk profiles.
+  judge: LLM evaluators and LLMs role-playing the simulated patients assign scores; their model names are not specified.
+  scale: Psychological constructs use 1-5 intensity scales; outputs include survey scores, behavior and event counts,
+    Likert quality ratings, and crisis-step presence or absence.
+  validation: Crisis detection was checked on 40 proxy crisis statements and achieved 93% classification accuracy;
+    crisis-response assessment was checked on 48 synthetic protocol-adherence examples and achieved near-perfect
+    precision and recall.
+  results: ''
+  limitations: The authors warn that automated metrics can encourage learning to the test and unjustified safety
+    claims, so clinicians must review simulation patterns and data rather than use these evaluations in isolation.
+  sources:
+  - http://arxiv.org/abs/2602.19948
+  - https://huggingface.co/datasets/IanSteenstra/AI-Psychotherapy-Eval
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

@@ -26,6 +26,30 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [voice]
   size: "307,000+ evaluated calls; 6,234 clinician testers (5,969 nurses, 265 physicians)"
+card:
+  task: Hold a voice conversation with a clinician testing a patient scenario and provide non-diagnostic patient
+    education, follow-up, or administrative support.
+  items_built: The framework was developed from healthcare safety principles and red teaming methods to evaluate
+    AI interactions with patients. Standardized question sets were developed for consistent testing, human-to-human
+    conversations established communication standards, and algorithmic review plus human oversight checked interaction
+    quality.
+  example: ''
+  scoring: Clinicians flag potential errors, rate them, and explain their concerns; specially trained internal nurses
+    validate the errors, and independent physicians validate severity through consensus review. Results are reported
+    as percentages of correct medical advice and advice with potential minor or severe harm, although the calculation
+    rules are not specified.
+  judge: The evaluation involved 5,969 US registered nurses and 265 US physicians, with internal nurse review and
+    independent emergency medicine or primary care physician adjudication.
+  scale: Categorical error severity per interaction; percentage correct medical advice and percentage with potential
+    minor or severe harm.
+  validation: ''
+  results: Polaris 3.0 achieved 99.38% correct medical advice, a 0.07% potential minor harm rate, and a 0.00% severe
+    harm rate.
+  limitations: The clinician pool primarily represented US healthcare practices and standards, and the substantial
+    resource requirements create implementation challenges for smaller organizations and resource-constrained settings.
+  sources:
+  - https://doi.org/10.1101/2025.03.17.25324157
+  extracted: '2026-10-27'
 signals:
   citations: 13
   citations_source: OpenAlex

@@ -27,6 +27,30 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: "4,481 individual questions (721 from past exams, 3,760 practice) plus progressive-question cases; 4,967 questions in total"
+card:
+  task: Mark each of five propositions as true or false for a standalone medical question or a successive question
+    within a progressive clinical case.
+  items_built: The authors collected 4,481 individual questions and 1,050 progressive-case subquestions from FreeCN
+    with permission; the individual questions include 721 past exam questions and 3,760 practice questions created
+    by the FreeCN team. All questions and answers were translated from French into English using the Azure AI Translation
+    API, and the dataset was split 90% for training and 10% for testing.
+  example: '"A woman of Martinican origin has just given birth. The child''s father is also of Martinican origin.
+    The child has a cleft lip and palate. With regard to regulatory newborn screening of this child, what is the
+    exact proposal(s)?"'
+  scoring: Each true-or-false prediction is compared with the reference answer and receives 0 or 1; the five proposition
+    scores are averaged for each question, and accuracy is reported across the evaluation set. Blocked GPT responses
+    are counted as incorrect.
+  judge: Automated comparison with the reference true-or-false answers assigns the scores.
+  scale: Each proposition scores 0 or 1; question accuracy ranges from 0 to 1 in steps of 0.2, with overall accuracy
+    reported as a percentage.
+  validation: ''
+  results: GPT-4-32k with five few-shot examples achieved the highest reported accuracy, 81.42%.
+  limitations: The authors state that the model was trained on student examination questions rather than real clinical
+    cases, its generalization to clinical settings is unknown, and it should not be used on real patients.
+  sources:
+  - https://arxiv.org/abs/2405.14654
+  - https://github.com/raidium-med/MQG
+  extracted: '2026-10-27'
 signals:
   citations: 4
   citations_source: OpenAlex

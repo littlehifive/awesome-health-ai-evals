@@ -25,6 +25,25 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: metric evaluated on five existing medical QA benchmarks
+card:
+  task: Answer a multiple-choice medical question using the patient case and explain the answer.
+  items_built: The framework was developed to evaluate how medical answers retain entities from patient backgrounds
+    and diagnostic questions. The authors tested it using existing USMLE Step 1, Step 2 and Step 3 cases (94, 109
+    and 122), 1,273 English MedQA questions and 125 MedExpQA cases from the Spanish national residency medical exam.
+  example: ''
+  scoring: Biomedical entities are extracted from the background, question and response, deduplicated, and matched
+    using semantic and lexical thresholds. Separate scores measure the fraction of background entities and question
+    entities matched in the response, and scores are averaged for each model on each benchmark.
+  judge: Automated biomedical named entity recognition and semantic and lexical matching assign the scores.
+  scale: Two per-response coverage fractions from 0 to 1; mean background and question coverage per model and benchmark.
+  validation: Across seven Qwen 2.5 Instruct models, background coverage correlated with model accuracy at Spearman
+    0.9286 and Kendall 0.8095 on MedExpQA and USMLE Step 3. Case-level point-biserial correlation reached 0.0926
+    on MedExpQA (p < 0.01), and Spearman correlation with model scaling reached 0.252.
+  results: ''
+  limitations: ''
+  sources:
+  - https://doi.org/10.1371/journal.pdig.0001752
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

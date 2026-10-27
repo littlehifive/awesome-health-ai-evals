@@ -24,6 +24,23 @@ facets:
   eval_methods: [rubric_llm_judge]
   modality: [text]
   size: 124 questions (72 hard, 52 very hard)
+card:
+  task: Answer open-ended clinical questions about the menopausal endocrine transition, including surgical menopause,
+    premature ovarian insufficiency and chemotherapy-induced menopause.
+  items_built: The set contains 124 clinician-anchored items across hard and very hard difficulty tiers, with patient,
+    clinician and evidence-policy queries; each item cites named studies and guidelines as required knowledge anchors.
+    The text does not identify the item writers, and plausible but unconfirmed specifics are flagged [VERIFY].
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: ''
+  validation: ''
+  results: ''
+  limitations: The release contains only question stems and metadata, with gold answers withheld pending clinical
+    validation and available to collaborators on request.
+  sources:
+  - https://doi.org/10.5281/zenodo.20973599
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

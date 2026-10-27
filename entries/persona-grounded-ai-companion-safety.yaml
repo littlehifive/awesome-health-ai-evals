@@ -27,6 +27,32 @@ facets:
   eval_methods: [simulated_multi_turn, rubric_llm_judge]
   modality: [text]
   size: 9 personas, 25 scenarios, 1,674 persona-Replika utterance pairs
+card:
+  task: Hold a multi-turn conversation with a simulated user whose persona and scenario introduce high-risk disclosures,
+    beliefs, or intentions.
+  items_built: ChatGPT, Gemini, and Mistral generated candidate persona cards; a doctoral-level clinical psychologist
+    with over five years of practice selected nine GPT-generated cards, which were then checked using standardized
+    psychometric instruments. Drawing on prior literature and these cards, GPT-4o generated 20 persona-specific
+    scenarios and five universal scenarios, with each scenario conversation capped at 15 turns.
+  example: ''
+  scoring: GPT-5 classifies each companion response as harmful or non-harmful in relation to the preceding persona
+    utterance and conversational context, and separately labels its response strategy. The reported harm rate is
+    the percentage of responses labeled harmful, calculated overall and by scenario, persona type, and utterance
+    category.
+  judge: GPT-5 assigns harm and utterance-category labels using few-shot prompts.
+  scale: Binary harmful or non-harmful per response; percentage of harmful responses overall and within groups.
+  validation: Against manual annotations of 100 dialogue pairs, GPT-5 achieved 72% exact-match accuracy for multi-label
+    persona categories and 84% for companion response types. Safety-label accuracy was 86.8% on 250 manually annotated
+    pairs; separately, PACE persona-adherence decisions achieved F1 greater than 0.90 against human judgments.
+  results: Replika had a lower overall harmful-response rate at 15.2%, compared with 35.7% for Character.ai. Replika's
+    harm rate reached 62.5% in both eating-disorder compensatory-behavior and social-judgment scenarios.
+  limitations: The authors state that simulated personas cannot fully capture lived experience, coverage is limited
+    to five persona types and a small scenario set, binary harm labels omit severity, and platform behavior can
+    change over time.
+  sources:
+  - https://arxiv.org/abs/2605.00227
+  - https://github.com/prernajuneja/ai-companion-eval-framework
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

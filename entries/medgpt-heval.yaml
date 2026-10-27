@@ -25,6 +25,28 @@ facets:
   eval_methods: [automatic_metric, rubric_llm_judge]
   modality: [text]
   size: 6,233 MedGPTs crawled; 1,500 evaluated with 5 repeated responses per MedQA-based question; 10 open-source LLMs
+card:
+  task: Answer a diagnostic question presented in a clinical vignette five times so that factual alignment and response
+    consistency can be assessed.
+  items_built: The authors extracted diagnostic questions from MedQA and framed them within clinical vignettes,
+    repeating each question five times. The framework was applied to 1,500 sampled MedGPTs and 10 open-source medical
+    LLMs.
+  example: ''
+  scoring: Gemini 3.1 Pro scores each response on five G-Eval criteria, with rubric scores averaged across components
+    and responses. Separate metrics measure response likelihood given the clinical input using BARTScore, semantic
+    alignment using BioBERT cosine similarity, and variability across repeated answers using semantic entropy.
+  judge: Gemini 3.1 Pro assigns G-Eval scores; pretrained BART and BioBERT compute BARTScore and cosine similarity.
+  scale: 'G-Eval and cosine similarity: 0 to 1, higher is better; BARTScore: log-probability, higher is better;
+    semantic entropy: lower is better.'
+  validation: Human reviewers independently assessed responses from 300 MedGPTs, comprising 200 top-tier and 50
+    each middle- and bottom-tier models, and resolved discrepancies by consensus. Agreement with automated scoring
+    was 90.5-94.0%, with Cohen's kappa of 0.8163.
+  results: Among the 10 open-source models, Galactica had the highest G-Eval score at 0.6480. MedAlpaca and Apollo
+    tied for the highest reported cosine similarity at 0.4863 and BARTScore at -1.6549.
+  limitations: ''
+  sources:
+  - https://arxiv.org/abs/2605.20591
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

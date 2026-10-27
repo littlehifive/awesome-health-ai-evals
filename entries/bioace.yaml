@@ -27,6 +27,34 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: Evaluation package; experiments on 65 BioGen questions (45 validation, 20 training)
+card:
+  task: Answer a biomedical question and cite biomedical literature supporting the facts in the answer.
+  items_built: The framework was developed for biomedical answers and citations using the 65-question BioGen collection,
+    split into 40 test questions from MedAESQA, five validation questions, and 20 training questions. Medical informatics
+    experts supplied ground-truth answers and factual nuggets, sentence relevance labels, and annotations of supporting
+    evidence.
+  example: ''
+  scoring: Generated factual nuggets are compared with expert-written nuggets for precision and recall, while sentence
+    classifiers determine completeness as the proportion labeled Required and correctness as the average of sentence-level
+    correctness decisions against evidence. Citation graders classify answer-document pairs as attributable or not
+    attributable, or assign support, contradiction, and neutral labels; the framework reports separate metrics rather
+    than one combined score.
+  judge: Automated graders include Llama-3.3-70B-Instruct for completeness and citation assessment, all-MiniLM-L6-v2
+    for nugget matching, and BERTLarge for correctness against retrieved documents.
+  scale: Sentence-level relevance and correctness labels and citation-support labels; answer-level proportions and
+    nugget precision and recall.
+  validation: Rankings of 30 answer-generation systems were compared with human-assessed rankings using Spearman
+    and Kendall tau correlations. With expert-supported citations, the correctness models achieved Supp(CS) scores
+    of 92-93, while citation-based system rankings showed low correlation with medical informatics experts' rankings.
+  results: For the framework's grading tasks, zero-shot Llama-3.3-70B-Instruct achieved the highest completeness
+    weighted F1-score of 76.20. RoBERTaLarge achieved the highest reported correctness macro F1-score of 97.65.
+  limitations: The authors report low agreement with expert-based system rankings for citation evaluation, an excess
+    of positive citation examples that favors attributable predictions, and limited gains from fine-tuning on the
+    small training set.
+  sources:
+  - https://arxiv.org/abs/2602.04982
+  - https://github.com/deepaknlp/BioACE
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

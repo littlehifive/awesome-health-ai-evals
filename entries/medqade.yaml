@@ -27,6 +27,34 @@ facets:
   eval_methods: [expert_human_rating, rubric_llm_judge]
   modality: [text]
   size: 3,800 question-answer sets (200 rated by all ten physicians, 3,600 by two each); drawn from 26,598 single-cloze items
+card:
+  task: Judge each of five model-generated answers to a German clinical question as Correct, Incorrect, or Abstain
+    when unable to judge confidently.
+  items_built: The authors filtered 44,185 peer-reviewed Ankizin v5 flashcards to 26,598 single-cloze items, generated
+    answers with five models, and selected 3,800 items using an 80:20 split between items with no lexical match
+    and those with at least one match. Nine practising neurologists rated a shared 200-item core and two physicians
+    rated each remaining item, with a tenth physician, a paediatrician, adjudicating conflicting correctness ratings.
+  example: ''
+  scoring: Each answer receives a correctness label based on medical accuracy and completeness; physician consensus
+    uses a majority of non-abstaining ratings, excluding unresolved ties. Evaluator labels are compared with physician
+    consensus on the 200-item core using percent agreement, Cohen's kappa and PABAK, while answer-generation accuracy
+    is the proportion of responses labelled Correct.
+  judge: Nine LLM evaluators are assessed against nine practising neurologists and a tenth physician, a paediatrician,
+    who adjudicates disagreements.
+  scale: Correct, Incorrect, or Abstain per answer; aggregate accuracy, percent agreement, Cohen's kappa, PABAK
+    and abstention rate.
+  validation: On the 200-item core, mean pairwise physician Cohen's kappa was 0.61 and mean Krippendorff's alpha
+    was approximately 0.60. The leave-one-out physician ceiling was kappa 0.709; Gemini 3 Flash reached 0.694 with
+    a bootstrapped 95% confidence interval of 0.619 to 0.754.
+  results: Gemini 3 Flash was the best evaluator, with Cohen's kappa of 0.694 against physician consensus, compared
+    with the leave-one-out physician ceiling of 0.709. Frontier evaluators issued definitive correctness labels
+    in every case despite having an abstention option.
+  limitations: The authors state that wide confidence intervals limit interpretation of physician-level alignment,
+    the human gold standard has inherent variability, and automated judges exhibit overconfidence and preference
+    for answers from their own model family.
+  sources:
+  - https://arxiv.org/abs/2607.01103
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

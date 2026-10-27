@@ -24,6 +24,20 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 2,000 test rows (test instances each paired with 10 instructions; number of unique claims not stated)
+card:
+  task: Fact-check health-related claims in Turkish.
+  items_built: The items were automatically translated from the English HealthVer dataset, cited as Sarrouti et
+    al. (2021). Each test instance was paired with 10 different instructions for multi-prompt evaluation.
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: ''
+  validation: ''
+  results: ''
+  limitations: The dataset card states that the automatic translations can be inaccurate.
+  sources:
+  - https://huggingface.co/datasets/Holmeister/HealthVer-TR
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

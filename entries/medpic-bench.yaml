@@ -26,6 +26,31 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 467 questions
+card:
+  task: Read a patient vignette and select all correct options for a medication-safety question based on the patient's
+    information.
+  items_built: The authors used deterministic scripts to generate 467 questions from manually source-verified rules
+    drawn from the AGS Beers Criteria, PLLR, the TGA pregnancy prescribing database, and the 2025 KID's List. Experts
+    reviewed every question for source alignment, patient-context correctness, answer completeness, distractor validity,
+    and counterfactual consistency, excluding failed or unresolved items.
+  example: '"For this patient, which of the following drugs should be avoided?"'
+  scoring: A question is correct only if the selected option set exactly matches the ground-truth set; correct answers
+    are averaged into overall, guideline-following, and counterfactual accuracy, with the guideline-following minus
+    counterfactual gap also reported. Pair accuracy is the percentage of 89 linked pairs for which both questions
+    are answered correctly.
+  judge: Exact match with the answer key.
+  scale: Each question is correct or incorrect; accuracy and pair accuracy are percentages.
+  validation: Initial agreement on item validity was 85.3% among reviewers using the shared expert-validation protocol.
+  results: Gemini-3.1-Pro was the strongest counterfactual model and answered both questions correctly in 48.3%
+    of linked pairs. Across 28 models, mean accuracy fell from 63.6% on guideline-following questions to 45.1% on
+    counterfactual questions, with every model declining.
+  limitations: The synthetic vignettes cover limited medication-safety rules and populations and omit the uncertainty,
+    patient preferences, local guidance, and clinician judgment involved in real prescribing, so benchmark performance
+    does not establish clinical readiness.
+  sources:
+  - https://arxiv.org/abs/2608.03028
+  - https://huggingface.co/datasets/TIM0927/MedPIC-Bench
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

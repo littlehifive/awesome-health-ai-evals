@@ -26,6 +26,30 @@ facets:
   eval_methods: [rubric_llm_judge, simulated_multi_turn]
   modality: [text]
   size: Unified library of existing simulators and evaluators; no fixed test set
+card:
+  task: Conduct a dialogue as a patient following a supplied profile, or as a therapist or supporter interacting
+    with a simulated patient.
+  items_built: The authors developed the framework by integrating existing simulation methods and evaluation approaches
+    rather than defining a fixed test set. For the case studies, they generated 20 profiles from 20 randomly sampled
+    human emotional-support conversations in ESC, assessed the profiles with an extraction-based LLM judge, and
+    ran 280 conversation sessions.
+  example: ''
+  scoring: Evaluators assess profiles or dialogue histories against user-defined rubrics using pass/fail judgments,
+    numerical ratings, categories, or extracted evidence of problems. In the simulator case studies, GPT-4o rated
+    generated conversations on a 5-point Likert scale across consistency, realism, and pedagogical utility criteria;
+    the text does not specify how ratings were combined.
+  judge: GPT-4o assigned all reported rubric-based evaluation scores.
+  scale: 'Case studies: 5-point Likert ratings per criterion; average response tokens, tokens per turn, and API
+    cost per session are also reported.'
+  validation: ''
+  results: ''
+  limitations: The authors report limited coverage of 20 synthetic profiles and 280 sessions, possible self-preference
+    and rubric sensitivity in GPT-4o judgments, no expert-clinician validation, and missing support for multi-party
+    care, long-term follow-up, crisis intervention, and tool-augmented clinicians.
+  sources:
+  - https://arxiv.org/abs/2602.11684
+  - https://github.com/Sahandfer/PatientHub
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

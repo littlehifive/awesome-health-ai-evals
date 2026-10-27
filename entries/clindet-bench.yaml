@@ -27,6 +27,32 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: "94 clinical decision cases plus 16 scoring-system explanation tasks"
+card:
+  task: Read a clinical case and select 'Met', 'Not met', or 'Unable to determine' for a criterion defined by a
+    named clinical scoring system.
+  items_built: One board-certified physician with ten years of clinical experience created and verified 94 synthetic
+    cases and their labels using 16 publicly available scoring systems included in official guidelines. Complete
+    cases were progressively stripped of information, with labels determined by whether the possible score range
+    crossed the decision threshold.
+  example: ''
+  scoring: A physician first checks whether each model correctly explains each scoring system's components and rules,
+    and clinical decisions are evaluated only for systems the model explains correctly. Decisions are compared with
+    ground-truth labels, and accuracy is reported as the proportion correct for each information condition and prompting
+    setting.
+  judge: Clinical decisions are compared with physician-verified labels; one board-certified physician with ten
+    years of clinical experience grades the explanations.
+  scale: Each decision is correct or incorrect; accuracy is the proportion correct, from 0 to 1.
+  validation: ''
+  results: Llama 4 Maverick achieved the highest incomplete-undeterminable accuracy, 0.86 with the Safe prompt,
+    but scored 0.62 on incomplete-determinable cases in that setting. Human performance was described as theoretically
+    100%, with no measured human baseline.
+  limitations: The authors cite limited scoring systems and cases, untested generalization to diagnostic reasoning,
+    untested prompting and training approaches, a fixed temperature of 1.0, and error analysis restricted to incorrect
+    answers.
+  sources:
+  - https://arxiv.org/abs/2602.22771
+  - https://github.com/yusukewatanabe1208/ClinDet_Benchmark
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

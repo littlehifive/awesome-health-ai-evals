@@ -28,6 +28,32 @@ facets:
   eval_methods: [automatic_metric, expert_human_rating]
   modality: [text]
   size: "600 test and 420 development examples; about 4,000 ensemble-labeled training instances"
+card:
+  task: Identify all applicable crisis categories in each Reddit post, mark each as ongoing or past, and assign
+    no crisis when none applies.
+  items_built: Four mental health professionals, including two licensed psychologists, a PhD clinical postdoctoral
+    resident, and a licensed clinical social worker, annotated 600 test posts and 420 development posts sampled
+    from crisis-related and broader mental health subreddits. Guidelines were refined over ten rounds, with independent
+    double annotation in the first three rounds and a senior psychologist's final quality review; a board-certified
+    psychologist also adjudicated 131 test posts where human labels differed from GPT and Claude predictions.
+  example: '"Why does it hurt us even when there was no violence? Why does rape and sexual assault hurt so much?
+    I know it''s wrong, but is it really THAT bad? Some guy came in/on me without my permission, but so what. Why
+    does this one incident stick with me so much?"'
+  scoring: Predicted label sets are compared with clinician annotations using Exact Match, Jaccard, micro and macro
+    F1, and micro and macro recall. Exact Match reports the proportion of posts with fully matching label sets;
+    the other metrics measure label overlap and classification performance across posts and categories.
+  judge: Scores compare model predictions with clinician-annotated reference labels.
+  scale: Exact label-set match or mismatch per post; aggregate Exact Match, Jaccard, F1, and recall range from 0
+    to 1.
+  validation: ''
+  results: Claude-4-Sonnet had the highest individual-model Exact Match at 0.8217, while GPT-5 had the highest macro
+    F1 at 0.8163. A majority-vote ensemble of GPT-5, Claude-4-Sonnet, and Gemini-2.5-Pro achieved Exact Match of
+    0.8450 and Jaccard of 0.8794.
+  limitations: The authors note that the ensemble increases cost and inference time, the proposed interaction between
+    model size and supervision quality remains unconfirmed, and fine-tuned Llama showed a modest decrease in recall.
+  sources:
+  - https://arxiv.org/abs/2510.23845
+  extracted: '2026-10-27'
 signals:
   citations: 2
   citations_source: OpenAlex

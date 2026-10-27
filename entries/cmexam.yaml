@@ -27,6 +27,27 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric]
   modality: [text]
   size: "68,119 questions (54,497 train, 6,811 validation, 6,811 test)"
+card:
+  task: Select the correct answer or answers from five options for Chinese medical licensing exam questions and
+    generate solution explanations.
+  items_built: The authors collected 96,161 past exam questions from the Internet and retained 68,119 after removing
+    duplicates and questions requiring non-textual information, with explanations sourced from online medical exam
+    preparation platforms. GPT-4 produced initial annotations that two medical professionals reviewed and manually
+    verified; the data were split into 54,497 training, 6,811 validation and 6,811 test questions.
+  example: ''
+  scoring: Predicted answers are compared with the answer key to calculate accuracy and weighted F1 across questions.
+    Generated explanations are compared with reference explanations using BLEU-1, BLEU-4, ROUGE-1, ROUGE-2 and ROUGE-L.
+  judge: Automated answer-key comparison and BLEU and ROUGE metrics assign the scores.
+  scale: Correct or incorrect answers; overall accuracy, weighted F1, BLEU-1/4 and ROUGE-1/2/L.
+  validation: ''
+  results: GPT-4 led answer prediction with 61.6% accuracy and a weighted F1 of 0.617, compared with human accuracy
+    of 71.6%.
+  limitations: The authors state that excluding non-textual questions may bias the dataset and that BLEU and ROUGE
+    do not adequately assess whether explanations are reasonable.
+  sources:
+  - http://arxiv.org/abs/2306.03030
+  - https://github.com/williamliujl/CMExam
+  extracted: '2026-10-27'
 signals:
   citations: 36
   citations_source: OpenAlex

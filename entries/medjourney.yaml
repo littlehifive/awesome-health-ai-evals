@@ -25,6 +25,24 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric]
   modality: [text]
   size: 12 datasets across 12 tasks (for example 500 department-recommendation complaints)
+card:
+  task: Given a Chinese patient complaint, dialogue, clinical case or question, recommend a department, summarize
+    information, generate a doctor's next response, predict examinations, diseases, treatments or medications, or
+    answer hospital, drug, insurance or mental health questions.
+  items_built: 'The benchmark contains 12 datasets: five new datasets processed by professional doctors and seven
+    rebuilt from public sources.'
+  example: ''
+  scoring: Classification and multiple-choice outputs are scored by accuracy; summarization and generation outputs
+    are evaluated with BLEU, ROUGE-style metrics and entity-level evaluation.
+  judge: ''
+  scale: Accuracy for classification and multiple-choice tasks; BLEU, ROUGE-style and entity-level metrics for summarization
+    and generation.
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://github.com/Medical-AI-Learning/MedJourney
+  extracted: '2026-10-27'
 signals:
   citations: 4
   citations_source: OpenAlex

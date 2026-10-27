@@ -26,6 +26,30 @@ facets:
   eval_methods: [automatic_metric, simulated_multi_turn]
   modality: [text]
   size: "Protocol with 5-field episode schema and 4 task templates; no episodes released"
+card:
+  task: Complete a short healthcare workflow episode by responding to new information or an interruption with an
+    allowed action, while preserving relevant facts, grounding claims, and escalating or handing off when required.
+  items_built: The framework specifies episodes built from de-identified or synthetic artifacts, with an initial
+    context, a state-changing event, allowed actions, reference decisions, and a scoring rubric; it does not release
+    test items. Two qualified annotators independently prepare reference decisions using an episode guide, and a
+    third reviewer resolves disagreements.
+  example: '"Consider a patient message reporting worsening shortness of breath after a recent medication change."'
+  scoring: 'Outputs are compared with atomic reference annotations: required facts retained or revised, claims linked
+    to admissible sources, and correct handoff fields, with penalties for contradictions, stale facts, and unsupported
+    citations. Escalation is scored using sensitivity, specificity, and a predeclared utility that rewards correct
+    decisions and penalizes missed and unnecessary escalation; results are reported separately by task class and
+    evidence level rather than as one leaderboard score.'
+  judge: Two qualified annotators create reference labels, and a third reviewer adjudicates disagreements; the output
+    scorer is not specified.
+  scale: Fractions of required facts, sourced claims, and correct handoff fields, with penalties; escalation sensitivity,
+    specificity, and cost-weighted utility; separate scores rather than one overall metric.
+  validation: ''
+  results: ''
+  limitations: The protocol does not reproduce institutional implementation or measure clinical outcomes, time saved,
+    clinician workload, patient safety, or adoption, which require prospective workflow studies.
+  sources:
+  - https://arxiv.org/abs/2609.00296
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

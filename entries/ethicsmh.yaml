@@ -27,6 +27,27 @@ facets:
   eval_methods: [mcq_exact_match, expert_human_rating]
   modality: [text]
   size: 125 scenarios
+card:
+  task: Choose among four decision options for each mental health ethical dilemma and explain the decision in light
+    of professional norms and stakeholder perspectives.
+  items_built: ChatGPT generated 125 synthetic scenarios from prompts specifying ethical themes and schema requirements,
+    with 25 scenarios in each of five categories chosen in consultation with mental health professionals. One mental
+    health professional reviewed every batch for realism, ethical trade-offs, and stakeholder perspectives, providing
+    feedback for repeated refinement and regeneration.
+  example: ''
+  scoring: The structured annotations support evaluating decision selection, explanations, and professional alignment
+    against expected reasoning, recommended behavior, and stakeholder viewpoints. The paper does not specify a scoring
+    procedure or how scores are combined.
+  judge: ''
+  scale: ''
+  validation: ''
+  results: ''
+  limitations: The authors state that the small sample prevents robust benchmarking or statistical generalization,
+    synthetic scenarios retain risks of oversimplification and bias despite expert review, cultural and ethical
+    coverage is limited, and no baseline model evaluations are included.
+  sources:
+  - http://arxiv.org/abs/2509.11648
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

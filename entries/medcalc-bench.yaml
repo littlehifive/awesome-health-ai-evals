@@ -28,6 +28,31 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: "1,100 test and 10,543 training instances in v1.2 (1,047 test in the paper); 55 calculators"
+card:
+  task: Read a patient note, extract the relevant patient attributes, and calculate the clinical value requested
+    in the question.
+  items_built: The authors selected 55 popular MDCalc calculators and built 1,047 original evaluation items from
+    Open-Patients notes, clinician-written notes, and templates, using GPT-3.5-Turbo to select eligible notes and
+    GPT-4 to extract attributes that medical professionals verified and corrected. Open-Patients combined PMC-Patients,
+    MedQA-USMLE, and TREC cases; the later v1.2 dataset contains 10,543 training items and 1,100 test items.
+  example: '"What is the patient''s LDL cholesterol concentration? Please output your answer in terms of mg/dL."'
+  scoring: 'Predicted answers are compared with ground-truth values: rule-based answers and dates must match exactly,
+    while decimal equation-based answers must fall within 5% of the reference value. Accuracy is the percentage
+    of items answered correctly.'
+  judge: Answer matching against the ground-truth answer, with a 5% tolerance for decimal equation-based outputs.
+  scale: Correct or incorrect per item; overall accuracy as a percentage.
+  validation: For the separate error analysis, GPT-4 classified error types with 89% accuracy against manual review
+    of 200 randomly sampled explanation errors.
+  results: GPT-4 achieved the best original-release result, with 50.91% accuracy on 1,047 items using one-shot chain-of-thought
+    prompting.
+  limitations: The authors identify the small original dataset, ambiguity when patient attributes appear multiple
+    times across visits, and the labor needed to create additional examples for few-shot evaluation as limitations.
+  sources:
+  - https://doi.org/10.52202/079017-2690
+  - https://huggingface.co/datasets/ncbi/MedCalc-Bench-v1.2
+  - https://huggingface.co/datasets/ncbi/MedCalc-Bench
+  - https://github.com/ncbi-nlp/MedCalc-Bench
+  extracted: '2026-10-27'
 signals:
   citations: 16
   citations_source: OpenAlex

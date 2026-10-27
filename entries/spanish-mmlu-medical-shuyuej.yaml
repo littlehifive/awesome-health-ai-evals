@@ -29,6 +29,22 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 810 questions across four test splits (265, 173, 100, 272)
+card:
+  task: Answer multiple-choice medical questions in Spanish.
+  items_built: The items are Spanish translations of four MMLU medical test subsets uploaded by shuyuej. The dataset
+    cards provide loading instructions but do not describe who translated the questions, the translation method,
+    or any checks.
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: Accuracy.
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://huggingface.co/datasets/shuyuej/Spanish-MMLU-Clinical-Knowledge-Benchmark
+  - https://huggingface.co/datasets/shuyuej/Spanish-MMLU-College-Medicine-Benchmark
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

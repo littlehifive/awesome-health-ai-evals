@@ -26,6 +26,27 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 59 QA pairs over 48 health topics; four-component weighted score
+card:
+  task: Answer a patient-facing public health question with accurate, clear information suitable for a general audience.
+  items_built: The authors scraped FAQ sections and main content from CDC, WHO, NHS and Mayo Clinic pages to create
+    59 question-answer pairs across 48 topics, then manually checked extraction quality. GPT-4 corrected grammar
+    while preserving medical facts, and all reference data was cross-checked against authoritative medical literature.
+  example: '"What is hypertension blood pressure?"'
+  scoring: Generated answers are compared with authoritative references using medical entity F1, embedding cosine
+    similarity, contradiction detection and Jaccard overlap of extracted lists. The four normalized scores are weighted
+    0.30, 0.30, 0.25 and 0.15 respectively to produce each answer's VB-Score, with mean scores reported across answers.
+  judge: Automated scoring uses spaCy en_core_sci_md, sentence-transformers/all-MiniLM-L6-v2, roberta-large-mnli
+    and regex-based list extraction.
+  scale: Components and weighted VB-Score range from 0 to 1; mean VB-Scores are also reported as percentages.
+  validation: On 20 samples containing 127 manually identified key medical entities, the extraction pipeline detected
+    78, giving 61% recall.
+  results: Gemini 2.5 Flash ranked highest, with a reported average VB-Score of about 34%.
+  limitations: The authors report no clinician annotation, limited coverage of 48 topics, possible NLI scoring bias
+    and entity matching that misses synonyms or paraphrases, limiting generalization and potentially underestimating
+    clinically equivalent answers.
+  sources:
+  - https://arxiv.org/abs/2604.19281
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

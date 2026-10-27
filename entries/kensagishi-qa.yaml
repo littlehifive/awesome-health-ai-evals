@@ -25,6 +25,26 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: "800 questions (2020-2023); 200 more from the 71st exam (2025) used for a post-cutoff check"
+card:
+  task: Select all correct answer options for each Japanese clinical laboratory technician examination question,
+    using the attached image when one is provided.
+  items_built: The study authors compiled 800 questions from the 2020-2023 Japanese National Examination for Clinical
+    Laboratory Technicians into standardized JSON, including text-only and image-attached items. They also evaluated
+    generalization using 200 questions from the 71st examination in 2025, released after the models' knowledge cutoffs.
+  example: ''
+  scoring: A response counts as correct only if its selected options exactly match all correct options. Accuracy
+    is the percentage of questions answered correctly, reported overall, by item type, and by medical subfield.
+  judge: Exact match with the answer key.
+  scale: Correct or incorrect per question; percentage accuracy.
+  validation: ''
+  results: GPT-5 achieved the highest accuracy at 93.8% with images and 88.0% without images. It scored 92.7% on
+    the separate 2025 examination.
+  limitations: The authors identify additional quality metrics, including factuality, instruction following, safety,
+    and Japanese medical terminology, as areas for future evaluation.
+  sources:
+  - https://github.com/bioinfo-tsukuba/KensagishiQA
+  - https://doi.org/10.2196/preprints.84266
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

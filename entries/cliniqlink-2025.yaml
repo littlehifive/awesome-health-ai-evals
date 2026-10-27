@@ -26,6 +26,31 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric, expert_human_rating]
   modality: [text]
   size: "4,978 test items (5,118 verified pairs at freeze)"
+card:
+  task: Answer medical questions by selecting answers, listing correct elements, giving concise facts, explaining
+    why a supplied answer is wrong, providing multi-step reasoning, or identifying a faulty reasoning step.
+  items_built: A neuro-symbolic pipeline using Llama 3.3-70B-Instruct generated roughly 20,000 question-answer pairs
+    from open-source medical texts, each linked to a supporting passage. Paid medical students checked factual accuracy
+    and general-practitioner relevance; 2,505 of 5,118 verified pairs received two reviews, disagreements triggered
+    adjudication, and 4,978 pairs with the highest relevance rating were retained for testing.
+  example: ''
+  scoring: Automatic scoring compares responses with reference answers using exact-match accuracy for true/false
+    and multiple choice, macro and micro F1 for lists, and semantic similarity plus BLEU, ROUGE and METEOR for free
+    text. Semantic similarity weights token, sentence and paragraph layers by 0.4, 0.4 and 0.2, adjusts for baseline
+    similarity and incorrect reasoning steps, and determines leaderboard rankings alongside the closed-ended metrics;
+    a separate human study ranks seven systems' answers and the reference answer and tags each as good, okay or
+    bad.
+  judge: An automatic scoring script assigns leaderboard scores, and paid medical students assign preference rankings
+    and quality tags.
+  scale: Accuracy, list macro and micro F1, and semantic similarity from 0 to 1; secondary n-gram metrics and human
+    best-to-worst rankings with good/okay/bad tags.
+  validation: ''
+  results: ''
+  limitations: The authors found that automatic open-ended metrics did not effectively evaluate responses or distinguish
+    strong models from mediocre ones, and that output-format violations could lower scores despite adequate comprehension.
+  sources:
+  - https://pmc.ncbi.nlm.nih.gov/articles/PMC12306836/
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

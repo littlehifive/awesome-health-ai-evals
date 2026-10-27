@@ -26,6 +26,32 @@ facets:
   eval_methods: [simulated_multi_turn, expert_human_rating]
   modality: [text]
   size: 400 clinical vignettes across 14 specialties
+card:
+  task: Converse with a simulated patient to gather symptoms, suggest the two most likely diagnoses, and recommend
+    an appropriate medical specialty.
+  items_built: The authors selected 400 validated clinical vignettes from Hammoud et al. across 14 medical specialties
+    and used them to create LLM patient actors, with communication styles informed by anonymized conversations between
+    a health AI and actual users. They reviewed and revised the actors' outputs and checked their messages during
+    the final evaluation for adherence to the vignette and conversation rules.
+  example: ''
+  scoring: Doctors compared explicit diagnostic suggestions with the vignette's reference diagnosis, accepting exact
+    matches, alternative names, more specific diagnoses, and equivalent clinical descriptions, then reported the
+    percentage of cases with a correct first diagnosis or a correct diagnosis among the first two suggestions. They
+    also assessed whether the recommended specialty was correct and reported its accuracy, alongside the mean number
+    of questions asked.
+  judge: Qualified human doctors assigned the scores; their number was not reported.
+  scale: Correct or incorrect per case for top-one diagnosis, top-two diagnoses, and specialty referral; aggregate
+    percentage accuracy and mean questions asked.
+  validation: ''
+  results: August achieved 81.8% top-one accuracy (327/400), 85.0% top-two accuracy (340/400), and 95.8% specialty
+    referral accuracy, with a mean of 16 questions. Three family medicine doctors achieved top-one accuracies of
+    49.7%, 61.3%, and 72.5%; one had more than 30 years of experience and two had more than 10 years.
+  limitations: The authors state that scripted patient actors do not reflect incomplete or inaccurate patient reports,
+    that physical examinations and diagnostic tests are absent, and that limited vignette diversity restricts applicability
+    to real patients and comparisons with clinicians.
+  sources:
+  - http://arxiv.org/abs/2412.12538
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

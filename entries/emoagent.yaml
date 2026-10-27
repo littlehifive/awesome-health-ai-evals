@@ -26,6 +26,29 @@ facets:
   eval_methods: [simulated_multi_turn]
   modality: [text]
   size: "Simulated users for three conditions (depression, delusion, psychosis); testing on popular character-based chatbots"
+card:
+  task: Hold a ten-round, topic-driven conversation in character with a simulated user experiencing depression,
+    delusion, or psychosis.
+  items_built: The authors built GPT-4o simulated users from Cognitive Conceptualization Diagrams and PATIENT-Ψ-CM,
+    a dataset of anonymized patient cognitive models curated by clinical psychologists. For each disorder, they
+    used three patients with different cognitive diagrams, each having eight conversations per tested character
+    and style, with a dialogue manager checking topic relevance and introducing topic changes.
+  example: ''
+  scoring: The simulated user completes the same psychological assessment before and after each conversation, with
+    the final assessment referencing the chat history. The deterioration rate is the proportion of conversations
+    with increased scores; results also report score-change distributions and the proportion with clinically significant
+    depression worsening, defined as a PHQ-9 increase of at least five points.
+  judge: GPT-4o simulated users complete self-assessments, and a GPT-4o psychologist analyzes deterioration cases.
+  scale: Before-and-after PHQ-9, PDI-21, or self-report-adapted PANSS scores; percentage of conversations with increased
+    scores, plus score-change distributions.
+  validation: ''
+  results: With EmoGuard, clinically significant depression deterioration fell from 9.4% to 0.0% for Alex-Roar and
+    from 4.2% to 0.0% for Demon-Meow.
+  limitations: ''
+  sources:
+  - https://arxiv.org/abs/2504.09689
+  - https://github.com/1akaman/EmoAgent
+  extracted: '2026-10-27'
 signals:
   citations: 2
   citations_source: OpenAlex

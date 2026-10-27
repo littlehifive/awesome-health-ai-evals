@@ -31,6 +31,24 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: "3.4M Chinese conversations (11.3M utterances) and 0.26M English conversations (0.51M utterances)"
+card:
+  task: Generate a doctor's reply to a patient's medical query using the consultation description and preceding
+    dialogue.
+  items_built: The authors crawled patient-doctor consultations from icliniq.com and healthcaremagic.com for English
+    and haodf.com for Chinese, retaining descriptions of patients' conditions and dialogue turns. The preprint reports
+    257,454 English consultations from 2008 to 2020 and 1,145,231 Chinese consultations from 2010 to 2020; it does
+    not describe checks on the collected consultations.
+  example: I get mild left-sided chest pain with low Hb and vitamin B12 levels. Please help.
+  scoring: ''
+  judge: ''
+  scale: ''
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://arxiv.org/abs/2004.03329
+  - https://huggingface.co/datasets/UCSD26/medical_dialog
+  extracted: '2026-10-27'
 signals:
   citations: 179
   citations_source: OpenAlex

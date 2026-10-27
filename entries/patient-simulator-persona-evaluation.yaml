@@ -26,6 +26,34 @@ facets:
   eval_methods: [simulated_multi_turn, rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: "20 simulator parameters; 1,164 clinical cases simulated under 5 personas"
+card:
+  task: 'Interview a simulated patient and assign one of three urgency levels: self-care, follow-up with a clinician,
+    or emergency care.'
+  items_built: The triage evaluation uses 770 synthetic vignettes manually curated with clinicians from Telephone
+    Triage Protocols for Nurses and 394 additional vignettes, each presented under five patient personae. Five US
+    board-certified emergency or internal medicine physicians annotated each protocol-based case, and two to three
+    US internal medicine physicians annotated each additional case; the paper inconsistently describes the latter
+    cases as EHR-derived and as synthetic without EHR sources.
+  example: '"58-year-old woman with a headache and fever (39°C), chills, and malaise. Reported pain at 8/10. She
+    explicitly denies neck stiffness and cardiopulmonary symptoms. High hypertension. Daily Isoprost. No allergies."'
+  scoring: Triage predictions are compared with clinician labels to calculate accuracy and over-triage and under-triage
+    proportions across cases for each model and persona. Simulator checks report the fraction of paired conversations
+    correctly identified by activated parameter, mean accuracy and plausibility ratings for clinical claims, and
+    graders' accuracy in distinguishing real from simulated conversations.
+  judge: Claude Opus 4.6 grades parameter adherence and clinical fidelity; Claude Opus 4.6, GPT-5.4 and 15 human
+    graders assess realism, while triage uses clinician-assigned reference labels.
+  scale: Three ordered triage classes; accuracy and error proportions; adherence from 0 to 1; clinical claims rated
+    1 to 4; realism measured by classification accuracy, with 50% indicating chance.
+  validation: Reference-label agreement was Fleiss' κ = 0.580 for the five-physician dataset and Cohen's κ = 0.536
+    for the dataset rated by two to three physicians.
+  results: ''
+  limitations: The authors identify the single urgency-assessment task and three-level outcome, possible new clinical
+    facts weakening reference labels, reliance on LLM judges, and the narrower range of behaviour produced by a
+    single simulator as limitations.
+  sources:
+  - https://arxiv.org/abs/2607.08625
+  - https://github.com/joamats/conversational_ai
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

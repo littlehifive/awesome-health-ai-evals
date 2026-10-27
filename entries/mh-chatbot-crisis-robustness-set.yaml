@@ -24,6 +24,23 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 258 held-out probes (robust_test.csv) and 218 curated examples (train_curated_v8.csv)
+card:
+  task: 'Assign each message one of four intent labels: crisis, support, smalltalk, or out_of_scope.'
+  items_built: The research team created 258 held-out probe messages across 10 stress categories, comprising 41
+    initial seed messages and 217 author-written extensions, alongside 218 curated training examples covering 22
+    risk-related keyword groups. Some samples were generated with Claude or expanded programmatically through paraphrasing,
+    noise injection, or templates; the authors manually reviewed and labeled them.
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: ''
+  validation: ''
+  results: ''
+  limitations: The authors state that the dataset is not a clinical resource and must not be used to train systems
+    that provide diagnosis or replace professional mental-health care.
+  sources:
+  - https://doi.org/10.5281/zenodo.23247787
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

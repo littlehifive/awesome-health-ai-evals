@@ -27,6 +27,30 @@ facets:
   eval_methods: [simulated_multi_turn, rubric_llm_judge, automatic_metric]
   modality: [text]
   size: "96 digital patient profiles; 242 MI-TAGS reference sessions (6,652 fragments) for the text-similarity baseline"
+card:
+  task: Conduct a text-based motivational interviewing session with a simulated patient until either participant
+    ends the session.
+  items_built: The authors combined all options for six patient characteristics into 96 patient prompts and generated
+    288 conversations with poor, average, and expert therapist agents. An experienced motivational interviewing
+    clinician iteratively checked and refined the three therapist profiles using 10 conversations per profile.
+  example: ''
+  scoring: A fresh patient LLM reads the full transcript and, prompted to act as a professional therapist, answers
+    five session-satisfaction questions and 17 working-alliance questions. Reverse-worded items are recoded, ratings
+    are averaged within each questionnaire, and results are summarized across conversations.
+  judge: A separate patient LLM assigns the ratings; its model name is not given in the supplied text.
+  scale: Each question is rated from 1 to 5; questionnaire scores are mean ratings, with higher scores indicating
+    better quality.
+  validation: Three blinded raters, one clinical psychologist with motivational interviewing expertise and two social
+    psychology PhD candidates trained by that expert, evaluated 30 randomly selected sessions for comparison with
+    the LLM. Human inter-rater Krippendorff's alpha was 0.63 for satisfaction and 0.67 for working alliance; LLM
+    questionnaire internal consistency across the 288 conversations had Cronbach's alpha values of 0.97 and 0.98.
+  results: ''
+  limitations: The authors note that evaluation covers only two dimensions and three therapist-quality levels, digital-patient
+    ratings have low variance compared with human responses, and the fine-tuned therapist results were not manually
+    validated.
+  sources:
+  - https://pmc.ncbi.nlm.nih.gov/articles/PMC12433451/
+  extracted: '2026-10-27'
 signals:
   citations: 3
   citations_source: OpenAlex

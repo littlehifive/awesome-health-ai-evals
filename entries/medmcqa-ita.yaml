@@ -28,6 +28,25 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: "192,155 questions on the card (182,822 train, 4,183 validation, 6,150 test)"
+card:
+  task: Select the correct answer or answers from the supplied options for each Italian medical entrance exam question.
+  items_built: Tommaso Mario Buoncore, Simone Rancati and Enea Parimbelli at the University of Pavia created the
+    items by applying neural machine translation to MedMCQA. They report discarding 12.5% of the training set and
+    47% of the evaluation set for translation errors, leaving about 169,000 Italian question-answer pairs, but do
+    not describe how those errors were identified.
+  example: ''
+  scoring: Selected answers are compared with the reference answers to calculate accuracy across questions; the
+    results table calls this normalized accuracy but does not explain the normalization.
+  judge: Answers are scored against the dataset's reference answers.
+  scale: Accuracy percentage, reported as normalized accuracy.
+  validation: ''
+  results: Igea 3B achieved the highest reported zero-shot normalized accuracy at 31.3%, compared with 29.3% for
+    the best Minerva 3B base checkpoint.
+  limitations: ''
+  sources:
+  - https://arxiv.org/abs/2407.06011
+  - https://huggingface.co/datasets/Detsutut/medmcqa-ita
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

@@ -25,6 +25,24 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 1,200 inputs (400 intents x 3 language variants)
+card:
+  task: Detect whether each English, mixed Roman Urdu, or purely transliterated Roman Urdu input contains safety-relevant
+    intent.
+  items_built: The authors created 400 distinct safety-relevant intents, each expressed in three semantically aligned
+    language variants, yielding 1,200 inputs across passive suicidal ideation, psychological distress, threat or
+    intimidation, and coercion or emotional manipulation. Three bilingual Urdu-English speakers reviewed the items.
+  example: ''
+  scoring: Models are evaluated using recall-based safety metrics.
+  judge: ''
+  scale: Safety-detection recall.
+  validation: ''
+  results: Across seven models from OpenAI, Anthropic, and xAI, safety detection consistently degraded on Roman
+    Urdu inputs, with particularly pronounced drops for passive suicidal ideation. Instruction-tuned and reasoning-capable
+    models showed improved robustness.
+  limitations: ''
+  sources:
+  - https://doi.org/10.18653/v1/2026.abjadnlp-1.37
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

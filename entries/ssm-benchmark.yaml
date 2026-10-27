@@ -24,6 +24,23 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 840 questions (140 per exam year 2020-2025), about 10 image questions per year
+card:
+  task: Answer each Italian medical residency admission question by choosing one of five answers, using an accompanying
+    image when present, or choose F to abstain.
+  items_built: The repository contains 840 questions extracted from the Italian Ministry of University's official
+    SSM exam PDFs for 2020 to 2025, stored in six processed JSON files of 140 questions each. It includes PDF parsing
+    and JSON-format validation scripts, and shuffles answer choices deterministically using a seed.
+  example: ''
+  scoring: The evaluation script scores answers against the correct choices, awarding +1 for a correct answer, −0.25
+    for a wrong answer and 0 for abstaining with F.
+  judge: An evaluation script checks answers against the answer key.
+  scale: +1 correct, −0.25 wrong, 0 abstain; SSM score.
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://github.com/alessandroliva/ssm_benchmark
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

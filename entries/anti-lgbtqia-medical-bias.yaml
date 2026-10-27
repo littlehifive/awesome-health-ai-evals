@@ -27,6 +27,29 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: 38 prompts; 4 models evaluated
+card:
+  task: Answer an explicit medical question or a follow-up question attached to a synthetic clinical note.
+  items_built: Medically trained reviewers and LGBTQIA+ health experts created 38 prompts covering situations with
+    or without historical bias and with or without clinical relevance of LGBTQIA+ identity. Most prompts had a paired
+    version differing in identity terms.
+  example: ''
+  scoring: Reviewers compare responses with what a clinician would recommend, classify them as appropriate, inappropriate,
+    or not answering the prompt, and flag safety, privacy, accuracy, or bias concerns. They also rate clinical utility
+    from 1 to 5; results report category counts and percentages by model and identity mention, plus mean clinical
+    utility.
+  judge: Three medically trained reviewers, Crystal T. Chang, Charbel Bou-Khalil, and Akshay Swaminathan, assess
+    responses, with two reviewing each response and a third resolving disagreements.
+  scale: Three response categories, binary concern flags, and clinical utility from 1 to 5; category percentages
+    and mean utility.
+  validation: ''
+  results: Stanford Medicine Secure GPT-4.0 had the highest appropriate-response rate for prompts mentioning LGBTQIA+
+    identity at 57.1% (12/21), while GPT-4o led for prompts without identity mentions at 52.9% (9/17). All four
+    models produced inappropriate responses.
+  limitations: The authors note the small prompt set, one run per model, subjective reviewer judgments, and exclusion
+    of newer and open-source models.
+  sources:
+  - https://doi.org/10.1371/journal.pdig.0001001
+  extracted: '2026-10-27'
 signals:
   citations: 8
   citations_source: OpenAlex

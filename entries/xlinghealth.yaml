@@ -28,6 +28,38 @@ facets:
   eval_methods: [rubric_llm_judge, automatic_metric, expert_human_rating]
   modality: [text]
   size: "2,070 English questions (1,134 HealthQA dev, 246 LiveQA, 690 MedicationQA) in four languages"
+card:
+  task: Answer health questions in English, Spanish, Chinese, and Hindi repeatedly to test answer stability, and
+    classify supplied question-answer pairs as correct or incorrect.
+  items_built: The authors machine-translated 1,134 HealthQA questions based on Patient articles, 246 LiveQA pairs
+    from NIH-associated FAQs, and 690 MedicationQA examples from anonymized MedlinePlus consumer queries, with expert-curated
+    answers, into Spanish, Chinese, and Hindi and checked translation quality through human evaluation. For verification,
+    HealthQA supplies nine incorrect answers per question; the authors sampled four answers from elsewhere in each
+    dataset as negative examples for LiveQA and MedicationQA.
+  example: ''
+  scoring: GPT-3.5 compares each generated answer with the expert answer and assigns one of four correctness labels,
+    reported as counts by dataset and language. Consistency uses lexical, semantic, and topic similarity across
+    10 responses per question, while verification predictions are compared with ground truth using macro-precision,
+    macro-recall, macro-F1, accuracy, and AUC.
+  judge: GPT-3.5 grades correctness; automated similarity metrics score consistency, and ground-truth labels score
+    verification.
+  scale: Four correctness categories reported as counts; separate consistency metrics and verification macro-precision,
+    macro-recall, macro-F1, accuracy, and AUC.
+  validation: Medical experts checked GPT-3.5's reasoning and labels on 103 instances per language, with three annotators
+    per batch for English and Spanish, two for Chinese, and one for Hindi. Reported average correlations with human
+    labels were 94.20% for English, 95.14% for Spanish, 77.61% for Chinese, and 84.47% for Hindi; all three English
+    annotators agreed with GPT-3.5 on 74.74% of instances.
+  results: GPT-3.5 achieved HealthQA verification macro-F1 of 0.85 in English and Spanish at temperature 1.0, compared
+    with 0.73 in Chinese and 0.65 in Hindi. Across the three datasets, it produced 18.12% fewer more comprehensive
+    and appropriate answers in non-English languages than in English and was 5.82 times as likely to produce incorrect
+    responses.
+  limitations: The authors lacked an openly accessible general-purpose multilingual model comparable in size to
+    GPT-3.5, requiring comparison with the smaller healthcare-focused MedAlpaca, and relied on machine translation
+    because multilingual healthcare datasets were unavailable.
+  sources:
+  - https://doi.org/10.1145/3589334.3645643
+  - https://github.com/claws-lab/XLingEval
+  extracted: '2026-10-27'
 signals:
   citations: 79
   citations_source: OpenAlex

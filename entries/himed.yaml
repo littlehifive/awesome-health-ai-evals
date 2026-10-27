@@ -29,6 +29,30 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: "HiMed-Trad Bench 6,010; HiMed-West Bench 2,254 (MMLU-Pro-Biology 717, MMLU-Pro-Health 818, GPQA-med 249 plus others); HiMed-West Exam 470"
+card:
+  task: Answer Hindi multiple-choice medical questions covering Western medicine and seven Indian systems of medicine.
+  items_built: The authors used DeepSeek-OCR to digitize medical documents, then used LLMs to filter passages and
+    generate HiMed-Trad questions, keeping passages separate between training and testing; expert audits accepted
+    98.0% of 200 OCR segments and 99.5% of 200 generated items. HiMed-West uses NLLB-200-3.3B with an expert-reviewed
+    English-Hindi medical lexicon to translate existing benchmarks, plus NEET-UG examination questions; the translation
+    pipeline achieved 97.0% acceptance in expert audits.
+  example: ''
+  scoring: An automated procedure extracts the selected answer using progressively relaxed matching, from strict
+    patterns to similarity-based selection, and compares it with the correct option to calculate accuracy. Reported
+    results average three runs, and paired English and Hindi evaluations also report English accuracy minus Hindi
+    accuracy.
+  judge: Automated answer extraction and comparison with the correct option assign benchmark scores.
+  scale: Correct or incorrect per question; percentage accuracy averaged over three runs, with English-Hindi accuracy
+    gaps in percentage points.
+  validation: ''
+  results: ''
+  limitations: The authors state that benchmark-style evaluation does not fully capture complex, ambiguous or multi-turn
+    clinical interactions, and that performance on Indian medicine questions reflects educational curricula rather
+    than clinical validity or therapeutic effectiveness.
+  sources:
+  - https://arxiv.org/abs/2605.24635
+  - https://github.com/FreedomIntelligence/HiMed
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

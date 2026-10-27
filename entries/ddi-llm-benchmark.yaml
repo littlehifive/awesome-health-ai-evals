@@ -25,6 +25,28 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: 200 drug pairs, 5,400 responses
+card:
+  task: Identify whether each drug pair interacts and classify its severity in response to prompts in English, French
+    and Arabic.
+  items_built: A frozen list of 200 drug pairs was drawn by stratified random sampling from a reference interaction
+    database, including 120 documented interactions across severity levels and 80 pairs with none. The investigator
+    who generated the list and ran the queries did not rate responses.
+  example: ''
+  scoring: Two raters assess each response's assertions using a predefined rubric, blinded to the model and the
+    reference interaction status; their ratings are then compared programmatically with the reference database.
+    Reported outcomes include sensitivity, specificity, fabrication rate, severity classification accuracy and direction
+    of error, instability across three runs, and unsafe statement rate, with analyses accounting for clustering
+    by drug pair.
+  judge: Two raters assess assertions, followed by programmatic comparison with the reference database.
+  scale: Sensitivity, specificity, fabrication rate, severity classification accuracy, response instability and
+    unsafe statement rate.
+  validation: ''
+  results: ''
+  limitations: The authors state that the reference database is a documentary standard rather than a clinical gold
+    standard.
+  sources:
+  - https://doi.org/10.17605/osf.io/czh28
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

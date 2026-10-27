@@ -27,6 +27,31 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 1,000 questions
+card:
+  task: Select one or two correct answers to each multiple-choice question about safe behavior in medical scenarios.
+  items_built: The authors used manually crafted seed examples with GPT-4 version 0613 via Azure to generate over
+    200 questions per aspect, then randomized them and selected the first 100 valid questions after manual verification
+    and editing by domain experts. Sources included MedQA, MIMIC-III patient records, Diagnosis-Related Group codes
+    and PubMed Central abstracts; native speakers with medical backgrounds checked Spanish and Chinese translations.
+  example: ''
+  scoring: Answers are scored automatically by exact match between the selected answer set and the ground truth,
+    except for Equity, which measures consistency across changes in patient gender, race or ethnicity. The paper
+    reports accuracy by aspect and an overall Safety Index.
+  judge: Automatic comparison with the answer key, or answer consistency checks for Equity.
+  scale: Correct or incorrect per question, with consistency-based scoring for Equity; aspect accuracy and an overall
+    Safety Index.
+  validation: Five independent medical professionals, three MDs and two fourth-year medical students, answered 200
+    sampled questions, with two people answering each question. Their average inter-annotator agreement across ten
+    aspects was 0.88.
+  results: GPT-4 performed best, with a Safety Index of 0.73, compared with its MedQA Accuracy Index of 0.84. Human
+    medical experts substantially outperformed the compared models on the 200-question subset, but the text gives
+    no numerical overall human score.
+  limitations: The authors note limited coverage of safety aspects, languages and questions, the scaling burden
+    of manual verification, and the inability of multiple-choice questions to fully assess generative models' safety.
+  sources:
+  - https://pubmed.ncbi.nlm.nih.gov/41031074
+  - https://github.com/ncbi-nlp/MedGuard
+  extracted: '2026-10-27'
 signals:
   citations: 3
   citations_source: OpenAlex

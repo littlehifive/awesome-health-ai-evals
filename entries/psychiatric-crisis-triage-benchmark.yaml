@@ -25,6 +25,25 @@ facets:
   eval_methods: [automatic_metric, expert_human_rating]
   modality: [text]
   size: 48 vignettes (4 domains); only 4 vignettes were present in the OSF vignette file when read
+card:
+  task: Assign an Emergency Severity Index triage level from 1 to 5 to each acute psychiatric vignette and provide
+    a response evaluated for safety guardrail activation and clinically hazardous hallucinations.
+  items_built: The registration describes 48 stratified synthetic vignettes covering acute suicidality and self-harm,
+    psychosis and catatonia, neuropsychiatric toxicity and delirium, and severe agitation and violence risk. Board-certified
+    emergency psychiatrists established expert-consensus gold labels, and the vignettes and evaluation rubrics were
+    frozen before automated API evaluation.
+  example: ''
+  scoring: Model triage assignments are compared with expert-consensus ESI labels using quadratic weighted kappa
+    and macro F1. Responses are also classified by safety guardrail activation and hallucination severity.
+  judge: Board-certified emergency psychiatrists established the gold labels; the output scorers are not specified.
+  scale: ESI levels 1-5, guardrail codes G-0-G-3, and hallucination levels H-0-H-4; triage concordance reported
+    as quadratic weighted kappa and macro F1.
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://osf.io/gr8t9
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

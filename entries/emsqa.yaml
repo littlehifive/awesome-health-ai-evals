@@ -27,6 +27,26 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: "24,271 questions (18,602 public, 5,669 private); public split 13,021 train, 1,860 validation, 3,721 test; private used only for testing"
+card:
+  task: Select the correct answer or answers from the options for each text-only emergency medical services question.
+  items_built: The authors collected 24,271 practice questions from 17 websites targeting the NREMT exam, with 18,602
+    public-source questions split into 13,021 training, 1,860 validation and 3,721 test questions, and 5,669 private-source
+    questions reserved for testing. They excluded image and table questions, removed duplicates using a Levenshtein
+    similarity threshold above 0.9, manually labeled subject areas and proofread questions and options; an EMT expert
+    further checked a sample of 100 questions and knowledge-base documents.
+  example: ''
+  scoring: Selected answers are compared with the answer key, and exact-match accuracy is reported across questions
+    separately for the public and private test sets. Because some questions have multiple correct answers, the benchmark
+    also reports sample-based F1.
+  judge: Exact match with the answer key.
+  scale: Correct or incorrect per question; aggregate exact-match accuracy and sample-based F1, reported as percentages.
+  validation: ''
+  results: OpenAI-o3 achieved the highest public-test accuracy and F1, both 92.39%, with zero-shot prompting. Its
+    private-test results were not reported.
+  limitations: ''
+  sources:
+  - https://arxiv.org/abs/2511.10900
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

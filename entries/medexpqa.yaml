@@ -33,6 +33,29 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 622 questions per language (125 test)
+card:
+  task: Read a clinical case and select the requested multiple-choice option, giving its number and full answer
+    text.
+  items_built: The authors used 622 commented Spanish MIR exam questions from Antidote CasiMedicos, cleaned and
+    structured them, and manually linked passages in doctors' explanations to the correct and incorrect options
+    before generating parallel translated versions. They also used GPT-4 (gpt-4-1106-preview) to mask explicit answer
+    clues in the explanations for a separate evaluation setting.
+  example: ''
+  scoring: The first generated character after "The correct answer is:" is compared with the answer-key option number,
+    and accuracy is the proportion of matching predictions. The authors checked that this character always corresponded
+    to an available option.
+  judge: Exact match with the answer key.
+  scale: Correct or incorrect per question; percentage accuracy over the test set.
+  validation: ''
+  results: ''
+  limitations: Some gold explanations contain irrelevant comments, around 5% do not explicitly explain the correct
+    answer, and the evaluation does not assess the quality of model-generated explanations.
+  sources:
+  - https://doi.org/10.1016/j.artmed.2024.102938
+  - https://huggingface.co/datasets/HiTZ/MedExpQA
+  - https://huggingface.co/datasets/shuyuej/Spanish-MedExpQA-Benchmark
+  - https://github.com/hitz-zentroa/MedExpQA
+  extracted: '2026-10-27'
 signals:
   citations: 61
   citations_source: OpenAlex

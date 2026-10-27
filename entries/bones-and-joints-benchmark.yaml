@@ -28,6 +28,37 @@ facets:
   eval_methods: [mcq_exact_match, rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 1,245 questions across 7 tasks plus a text-image inconsistency task; 42 musculoskeletal diseases
+card:
+  task: Choose one of five answers or write a diagnosis, treatment plan, or supporting rationale from the supplied
+    clinical information, and identify text-image contradictions in the additional mismatch task.
+  items_built: The authors selected orthopedic questions from China's National Medical Licensing Examination and
+    Orthopedic Attending Physician Qualification Examination and prospectively collected cases from eight medical
+    centers to construct 1,245 questions. Seven senior orthopedic and sports-medicine experts with over ten years
+    of clinical experience revised exam answers against current guidelines and annotated case answers, with independent
+    second-expert review and discussion to resolve disagreements.
+  example: ''
+  scoring: Multiple-choice answers are checked against the answer key; GPT-4o compares open-ended answers with expert
+    references for core semantic agreement, labels them Correct, Incorrect, or Unclear, and averages three independent
+    assessments before reporting accuracy. The additional text-image task counts a response as successful only when
+    it identifies the contradiction between the text and image.
+  judge: GPT-4o grades open-ended answers, with a 120-item sample independently rated by two senior orthopedic physicians
+    with over ten years of experience who did not build the benchmark.
+  scale: Correct, Incorrect, or Unclear for automated open-ended grading; binary human judgments; final accuracy
+    reported as a percentage.
+  validation: Two physicians independently assessed 120 randomly sampled open-ended items, 30 each from diagnosis
+    generation, diagnostic reasoning, treatment planning, and treatment reasoning, with model identities concealed.
+    Their Cohen's kappa was 0.95, and disagreements were resolved through discussion chaired by a third expert.
+  results: MedGPT reached 96.0% accuracy on clinical note interpretation and 83.3% on diagnosis generation when
+    images were replaced with clinician-written radiology reports. The best-performing VLMs, including GPT-4o and
+    Claude 3.5 Sonnet, remained below 60% on open-ended multimodal tasks.
+  limitations: The authors state that static 2D images lose critical spatial information from volumetric scans and
+    that textbook-like cases omit atypical presentations and contradictory evidence, potentially overestimating
+    model performance.
+  sources:
+  - https://doi.org/10.1038/s41746-026-03191-3
+  - https://huggingface.co/datasets/PUTH2025/Bones_and_Joints_Benchmark
+  - https://github.com/yzm1015/Bones-and-Joints-Benchmark
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

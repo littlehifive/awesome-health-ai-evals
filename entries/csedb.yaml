@@ -27,6 +27,29 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 2,069 questions; 30 criteria (17 safety, 13 effectiveness); questions weighted 1 to 5 by clinical severity
+card:
+  task: Answer each Chinese clinical scenario question in free text with clinical decisions or recommendations.
+  items_built: Thirty-two specialist physicians developed and reviewed 2,069 scenario questions across 26 departments
+    using 30 expert-consensus criteria, and produced reference answers and scoring rules. The questions were synthesized
+    to reflect clinical cases using publicly available sources and were anonymized.
+  example: ''
+  scoring: DeepSeek-R1 compares each response with specialist-developed reference answers and rules, assigning binary
+    scores or summing rule points weighted from 1 to 5 and normalizing to 0-1. Case scores are averaged across three
+    evaluations, then combined using clinical-risk weights of 1-5 to report safety, effectiveness, and overall weighted
+    averages.
+  judge: DeepSeek-R1 assigns scores using standards developed and reviewed by 32 clinical specialists.
+  scale: Binary 0 or 1, or weighted rule scores normalized to 0-1; risk-weighted safety, effectiveness, and overall
+    scores.
+  validation: On 411 oncology criteria rated by five oncologists, DeepSeek-R1 achieved macro-F1 of 0.601 against
+    physician judgments, compared with a physician consensus baseline of 0.625.
+  results: MedGPT ranked highest with an overall score of 0.8952, a safety score of 0.9119, and an effectiveness
+    score of 0.8610.
+  limitations: The assessment covers only Chinese clinical question-answering scenarios and lacks cross-linguistic
+    validation across multiple countries.
+  sources:
+  - https://doi.org/10.1038/s41746-025-02277-8
+  - https://github.com/Medlinker-MG/CSEDB
+  extracted: '2026-10-27'
 signals:
   citations: 23
   citations_source: OpenAlex

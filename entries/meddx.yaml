@@ -26,6 +26,27 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 1,769 questions
+card:
+  task: Answer each biomedical question by selecting one of four candidate answers, or by generating an answer with
+    the choices hidden in the open-ended setting.
+  items_built: The authors collected 1,769 questions and their answers from STaRK-Prime and added the three entities
+    with the highest semantic similarity as distractors for each question. They assigned difficulty levels using
+    the standard deviation of semantic similarity between the candidate answers and the correct answer.
+  example: '"Which gene interacts with the Heat Shock Protein 70 family that acts as a molecular chaperone and is
+    implicated in Retinitis Pigmentosa 59 due to DHDDS mutation?" Options: HSPA4, HSPA8, HSPA1B, HSPA1A.'
+  scoring: Performance is reported as accuracy against the correct answers for each difficulty level. Multiple-choice
+    results include standard deviations across three runs, while open-ended results include the change in accuracy
+    from the multiple-choice setting.
+  judge: ''
+  scale: Correct or incorrect answers; accuracy by difficulty level.
+  validation: ''
+  results: ''
+  limitations: The authors state that benchmark performance does not remove the risks of hallucinations and biased
+    medical recommendations in real-world use, which requires human oversight.
+  sources:
+  - https://arxiv.org/abs/2410.04660
+  - https://github.com/mims-harvard/KGARevion
+  extracted: '2026-10-27'
 signals:
   citations: 4
   citations_source: OpenAlex

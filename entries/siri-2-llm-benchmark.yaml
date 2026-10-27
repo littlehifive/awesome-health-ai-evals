@@ -24,6 +24,27 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: "24 scenarios with 48 scored helper responses (25 scenarios, 50 responses in the run; item 14 excluded); expert consensus scores"
+card:
+  task: Rate the appropriateness of two helper responses to each suicide-intervention scenario.
+  items_built: The repository reuses the existing SIRI-2 instrument and its original expert panel consensus scores
+    rather than creating new scenarios. It lists 24 scenarios with 48 helper responses in the instrument directory,
+    but describes 25 scenarios with 50 responses in the experiment design, with Item 14 excluded and 48 responses
+    scored.
+  example: ''
+  scoring: The scoring code sums the absolute differences between model ratings and expert panel mean ratings across
+    48 validated responses. Lower totals indicate closer alignment with expert suicidologists.
+  judge: Code compares model ratings with the original expert suicidologist panel's mean ratings.
+  scale: Absolute deviation per response; summed SIRI-2 total across 48 responses, with lower scores better.
+  validation: ''
+  results: Claude Opus 4 achieved the best score of 19.5 with the detailed prompt at temperature 0, compared with
+    the expert panel baseline of 32.5. All nine models rated clinically inappropriate responses more favorably than
+    experts did.
+  limitations: The authors state that SIRI-2 is approaching ceiling effects for the most capable models and cannot
+    distinguish further improvement in the top-performing configuration, requiring harder instruments for frontier
+    evaluation.
+  sources:
+  - https://github.com/MattMatt27/mental-health-benchmark-tutorial
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

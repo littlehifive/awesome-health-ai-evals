@@ -28,6 +28,31 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: "1,407 cases, 6,605 MCQs (2025_H1 release; 3-6 MCQs per case)"
+card:
+  task: Answer 3-6 sequential, ten-option multiple-choice questions per clinical case, using evolving clinical information,
+    medical images and tables to make decisions from initial assessment through treatment and follow-up.
+  items_built: An o3-powered Generator-Critic system transformed 2,150 sampled contemporary, peer-reviewed case
+    reports into progressive question sets, followed by AI screening and verification by 239 licensed physicians.
+    Attending physicians checked factual alignment and logical solvability, senior physicians reviewed their decisions,
+    and stratified sampling produced 1,407 cases containing 6,605 questions.
+  example: ''
+  scoring: Selected answers are compared with the correct option letters. Question Accuracy is the percentage of
+    questions answered correctly; the primary metric, Case Accuracy, is the percentage of cases in which every sequential
+    question is answered correctly.
+  judge: Exact match with the answer key.
+  scale: Correct or incorrect per question; Question Accuracy and all-questions-correct Case Accuracy are reported
+    as percentages.
+  validation: ''
+  results: The highest Case Accuracy among 26 models was 35.7%, with o3 and GPT-5 identified as the leading models.
+    Chief Physicians outperformed both, while both models marginally exceeded Attending Physicians on a 100-case
+    human comparison.
+  limitations: The authors acknowledge that case reports overrepresent rare conditions and that PubMed underrepresents
+    low-resource regions because of publication patterns, language barriers and indexing criteria.
+  sources:
+  - https://arxiv.org/abs/2602.16747
+  - https://huggingface.co/datasets/AQ-MedAI/LiveClin
+  - https://github.com/AQ-MedAI/LiveClin
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

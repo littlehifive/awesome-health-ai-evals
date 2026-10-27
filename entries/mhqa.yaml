@@ -25,6 +25,26 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 2,475 gold questions; about 56,100 pseudo-labeled (about 58.6k in the intro)
+card:
+  task: Choose the single correct answer from four options for each mental-health question.
+  items_built: GPT-4o-mini generated questions from about 471,000 PubMed abstracts published in 2000-2024, selected
+    using expert-curated keywords, and filtered questions for validity against the source snippets. Three trained
+    professional psychologists annotated and verified 2,475 gold questions, while about 56,100 additional questions
+    received pseudo-labels checked against retrieved medical references.
+  example: ''
+  scoring: The model's chosen option is matched against the known correct answer. Accuracy and F1 percentages are
+    reported across MHQA-Gold, both overall and by question type and topic.
+  judge: Exact match with the answer key.
+  scale: Correct or incorrect per question; overall accuracy and F1 percentages.
+  validation: The two primary psychologist annotators agreed with the initial gold labels on 97.0% and 97.9% of
+    questions, respectively, with Cohen's kappa of 0.44 between annotators; a third psychologist resolved disagreements.
+  results: BioBERT fine-tuned on MHQA-B achieved the highest reported overall F1 and accuracy, both 81.0%. GPT-4o
+    led the large language models with 79.8% F1 in the zero-shot setting.
+  limitations: Pseudo-label verification covers only questions with retrieved-reference similarity scores of at
+    least 0.7 and depends on relevant reference content, and the dataset covers only four mental-health domains.
+  sources:
+  - https://arxiv.org/abs/2502.15418
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

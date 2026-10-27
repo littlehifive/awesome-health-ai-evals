@@ -24,6 +24,24 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 1,066 questions
+card:
+  task: Compute the requested numeric medical value from each clinical vignette using remembered formulas and inline
+    arithmetic without calculator tools, and return it in a JSON object.
+  items_built: Eka Care provides questions covering all calculators listed on Omni Calculator , Health, with 729
+    easy questions and 337 medium questions requiring standard clinical scores with 3 to 7 parameters.
+  example: '"patient ka weight 80kg hai, sugar fasting 140 aaya hai"'
+  scoring: Parse the model's JSON response and award 1 if its primary_field value differs from the corresponding
+    ground-truth value by no more than the item's tolerance; award 0 otherwise, including when JSON parsing fails.
+    Report overall accuracy and accuracy by difficulty tier, category, language style and input type.
+  judge: Automated numeric comparison with the ground-truth primary_field value using each item's tolerance assigns
+    the score.
+  scale: Each item scores 0 or 1; final metrics are overall and stratified accuracy.
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://huggingface.co/datasets/ekacare/medical_calculator_eval
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

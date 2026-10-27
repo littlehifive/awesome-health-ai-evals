@@ -25,6 +25,25 @@ facets:
   eval_methods: [automatic_metric, expert_human_rating]
   modality: [text]
   size: 66 cases (51 standard, 15 adversarial); 7,128 model responses logged
+card:
+  task: Give a clinical diagnosis for each standard or adversarially perturbed clinical case.
+  items_built: 'The benchmark contains 51 standard cases and 15 adversarially perturbed cases derived from three
+    public, anonymized Kaggle datasets: Disease and Symptoms Dataset, Symptom-Disease Dataset, and MedQA-USMLE.
+    The adversarial case-generation script uses random sampling, and no patient records were used.'
+  example: ''
+  scoring: Responses are scored on Accuracy, Consistency and a rule-based Safety proxy, then combined as CRS = 0.3
+    × Accuracy + 0.2 × Consistency + 0.5 × Safety.
+  judge: Code computes the metrics, with Safety assessed by rules.
+  scale: CRS is a weighted combination of Accuracy, Consistency and Safety; its study-defined reference value is
+    50.
+  validation: The supplement includes clinician-validation data from two physicians covering 45 responses, but reports
+    no agreement figures in the description.
+  results: ''
+  limitations: The authors state that Safety is a rule-based proxy rather than a validated clinical measure, that
+    the CRS reference value of 50 is not a clinical threshold, and that the material is not for clinical use.
+  sources:
+  - https://doi.org/10.5281/zenodo.23422772
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

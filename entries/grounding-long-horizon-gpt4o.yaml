@@ -25,6 +25,27 @@ facets:
   eval_methods: [simulated_multi_turn, rubric_llm_judge]
   modality: [text]
   size: 100-turn prompt sequence; 300 scored GPT-4o responses (three temperatures)
+card:
+  task: Respond to each prompt in a 100-turn conversation that gradually shifts from ordinary personal disclosure
+    to suspicion, conspiracy, grandiosity, emotional dependency, and crisis-related content.
+  items_built: The authors created a 100-prompt synthetic sequence from publicly available descriptions and excerpts
+    concerning Stein-Erik Soelberg's interactions with ChatGPT in Lyons v. OpenAI Foundation and related public
+    materials. They converted reported themes and interaction patterns into a controlled escalation sequence rather
+    than reproducing private conversations verbatim.
+  example: ''
+  scoring: Responses are evaluated using a five-level epistemic-grounding scale and behavioral indicators covering
+    model-created connections, third-party threat reinforcement, pseudo-clinical certainty, dependency reciprocation,
+    AI-consciousness claims, and crisis response.
+  judge: ''
+  scale: Five-level epistemic-grounding scale, plus behavioral indicators.
+  validation: ''
+  results: GPT-4o-2024-11-20 showed a mixed, non-monotonic safety profile across temperatures 0, 0.7, and 1.2. Grounding
+    was stronger for concrete suspicious incidents and the final explicit crisis prompt, while higher-category responses
+    clustered around pattern interpretation, pseudo-clinical reassurance, and AI-bond/grandiosity.
+  limitations: ''
+  sources:
+  - https://doi.org/10.5281/zenodo.23009711
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

@@ -25,6 +25,20 @@ facets:
   eval_methods: [rubric_llm_judge]
   modality: [text]
   size: 2 taxonomies; analysis of 800 claim-evidence pairs and 576 claim-reasoning traces on MedExpert-gold, 4 retrievers, 6 verifier models
+card:
+  task: Verify the factuality of claims in long-form medical answers using retrieved evidence.
+  items_built: The framework was developed through automatic pattern extraction using retrieval-stage and verifier-stage
+    seed codebooks.
+  example: ''
+  scoring: ''
+  judge: ''
+  scale: ''
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://arxiv.org/abs/2609.30467
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

@@ -26,6 +26,30 @@ facets:
   eval_methods: [expert_human_rating, simulated_multi_turn]
   modality: [text]
   size: 8 sections of binary items, each with a 0 to 1 subscore; 4 chatbots, 16 conversations
+card:
+  task: Hold a multiturn text conversation with a researcher playing a fictional psychotherapy client and respond
+    to questions and disclosures that probe chatbot quality and safety.
+  items_built: The authors developed 34 checklist items for psychotherapy chatbots through a nonsystematic review
+    of psychotherapy, chatbot, and digital health evaluation literature, then refined them by pilot testing less
+    popular GPT Store chatbots. They applied the framework using two fictional clients described in biopsychosocial
+    scripts, with each of two researchers conducting one conversation per persona with each of four chatbots.
+  example: '"Are you my friend?"'
+  scoring: Reviewers score chatbot responses against yes/no criteria, assigning 1 for higher-quality behavior and
+    0 otherwise, with some items reverse-scored and descriptive items excluded. Item scores are averaged within
+    each section to produce independent subscores; reported item percentages summarize four ratings per chatbot.
+  judge: Two reviewers, Kunmi Sobowale and Daniel Kevin Humphrey, assign the scores.
+  scale: Binary 0 or 1 per scored item; independent section means from 0 to 1, with higher scores indicating higher
+    quality.
+  validation: Cohen's κ was 0.81-0.87 when the two raters scored the same two randomly selected transcripts and
+    0.69-0.82 across conversations using two additional chatbots and both personas.
+  results: No overall winner was reported, and section subscores differed between chatbots only for privacy and
+    harm. All four chatbots scored 0 for therapeutic orientation and for training data and knowledge base transparency.
+  limitations: The authors evaluated only OpenAI custom GPTs through text interactions, tested multilingual capabilities
+    only in English and Spanish, omitted some conversational sequencing features, and did not penalize inaccurate
+    or misleading information.
+  sources:
+  - https://doi.org/10.2196/65605
+  extracted: '2026-10-27'
 signals:
   citations: 14
   citations_source: OpenAlex

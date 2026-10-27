@@ -27,6 +27,31 @@ facets:
   eval_methods: [simulated_multi_turn, rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 7 target disorders; 24 construct elements; 20 PACA evaluations for expert-score validation
+card:
+  task: Interview a simulated psychiatric patient and then report the patient's profile, history, and behavior by
+    answering questions about each assessed element.
+  items_built: The framework sequentially generates a patient profile, history, and behavior for a user-selected
+    mental disorder, then uses GPT-4o to simulate that patient. Ten board-certified psychiatrists who were not involved
+    in development checked the clinical appropriateness of simulations across seven disorders, and a board-certified
+    psychiatrist also reviewed patient utterances qualitatively.
+  example: '"What is the patient''s Mood?"'
+  scoring: The reported patient elements are compared with the corresponding values in the simulated patient's construct
+    using binary correctness, element-specific partial-credit rubrics, or GPT-based G-Eval for open-ended answers.
+    Scores are summed with weights of 5 for impulsivity, 2 for behavior, and 1 for subjective elements; underestimating
+    self-mutilation or homicide risk receives zero.
+  judge: Rubric-based comparisons and GPT-based G-Eval assign scores; the GPT grader version is not specified.
+  scale: Binary 0 or 1 for some elements and element-specific partial credit for others; weighted sum reported as
+    PSYCHE SCORE.
+  validation: Across 20 interviews, PSYCHE SCORE correlated with scores from a blinded psychiatrist at r = 0.8486
+    (p < 0.0001) and with the same psychiatrist's PIQSCA ratings at r = 0.6367 (p = 0.0025). Correlations with expert
+    scores remained at least r = 0.7802 across the tested weight configurations.
+  results: ''
+  limitations: 'The simulated patients did not consistently reproduce some clinical features: all psychiatrists
+    judged bipolar-disorder homicide risk non-conforming, and only half judged obsessive-compulsive-disorder insight
+    conforming.'
+  sources:
+  - http://arxiv.org/abs/2501.01594
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

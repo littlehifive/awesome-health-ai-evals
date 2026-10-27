@@ -41,6 +41,30 @@ facets:
   modality:
   - text
   size: 550 test items; 74 multi-turn conversations; about 92K training items
+card:
+  task: Respond to doctors' clinical workflow requests in Chinese with open-ended answers, either in a single exchange
+    or across three conversational turns.
+  items_built: Doctors drafted instructions for 22 tasks using Medtiku examination questions, online resources,
+    encyclopedia entries and PromptCBLUE, and GPT-4 generated reference-based answers; three medical professionals
+    checked 1,050 responses, and 25 items per task were selected for DoctorFLAN-test. Medical professionals created
+    DotaBench's 74 three-turn conversations by rephrasing questions from CMB-Clin's complex medical records for
+    continuity, without LLM generation, retaining the original answers as evaluation references.
+  example: ''
+  scoring: GPT-4 grades responses using contextual references and defined criteria following the MT-Bench evaluation
+    method, and results are reported as average scores. Medical experts also grade selected models on both benchmarks
+    and report average scores.
+  judge: GPT-4-0125-preview grades automatically; six medical experts rate six models on DoctorFLAN-test, and three
+    medical experts rate three models on DotaBench.
+  scale: Average scores are reported; the per-item scale is not specified in the excerpts.
+  validation: Human and automatic evaluations had a task-level Pearson correlation of 0.84 across 132 data points
+    on DoctorFLAN-test.
+  results: GPT-4 had the highest reported human evaluation score on DoctorFLAN-test at 8.06. DotaGPT (Baichuan2-7B-Base)
+    led the three models rated by humans on DotaBench with 8.54.
+  limitations: The authors identify potential credibility problems in DotaGPT-generated content and the need to
+    prevent misuse and protect medical data.
+  sources:
+  - https://arxiv.org/abs/2406.18034
+  extracted: '2026-10-27'
 signals:
   citations: 3
   citations_source: OpenAlex

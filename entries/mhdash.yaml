@@ -28,6 +28,31 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 1,000 dialogues of 10 rounds (700 train, 150 validation, 150 test); 8 intents, 7 concern types, 6 risk levels
+card:
+  task: Read each 10-round mental-health support dialogue and classify its concern type into seven categories and
+    its risk level into six categories.
+  items_built: GPT-4o generated 1,000 dialogues from public Reddit mental-health posts and assigned dialogue intents;
+    psychology experts annotated source samples using a C-SSRS-inspired protocol with multiple review rounds. Each
+    dialogue contains 10 user utterances and 10 supporter responses, and generations were discarded if their SentenceBERT
+    similarity to the source post fell more than three standard deviations below the mean.
+  example: '"I am struggling to manage my anxiety. What should I do?"'
+  scoring: Predicted labels are compared with annotated labels on 150 held-out test dialogues to calculate accuracy
+    and macro-averaged precision, recall and F1 for each task, joint accuracy, and the mean macro-F1 across both
+    tasks. Additional metrics measure high-risk recall and false-negative rates for Severe/Moderate risk and Attempt/Ideation/Behavior
+    concerns, plus Kendall's tau for severity ordering.
+  judge: Classification metrics compare model predictions with reference labels derived from expert annotation.
+  scale: Categorical predictions; accuracy, macro precision, recall and F1, joint accuracy, average F1, high-risk
+    recall, false-negative rate and Kendall's tau.
+  validation: ''
+  results: RoBERTa achieved the best overall results, with concern-type accuracy of 0.7667, joint accuracy of 0.6400
+    and average F1 of 0.2395. GPT-4o-mini achieved perfect severe-case recall, while RoBERTa-HA had zero severe-case
+    recall despite the highest Kendall's tau of 0.656.
+  limitations: The dataset is English-only and text-only, reflects Reddit community patterns and annotator judgment,
+    and uses synthetic dialogues that may not capture all real-world conversation dynamics.
+  sources:
+  - https://doi.org/10.1109/southeastcon63549.2026.11476505
+  - https://huggingface.co/datasets/IkeZhang/MHDialog
+  extracted: '2026-10-27'
 signals:
   citations: 2
   citations_source: OpenAlex

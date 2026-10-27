@@ -28,6 +28,34 @@ facets:
   eval_methods: [simulated_multi_turn, automatic_metric]
   modality: [text]
   size: 1,762 vignettes per the abstract (the Hugging Face card says 1,152)
+card:
+  task: Gather history and examination findings, give a provisional diagnosis with confidence, then order investigations
+    and give a final diagnosis.
+  items_built: Automated NLP and LLM processing extracted and structured cases from public clinical sources, with
+    physicians checking accuracy, annotating diagnoses and filling missing information. The paper reports 990 physician-reviewed
+    PubMed cases retained from 1,952 generated cases, while its abstract, dataset card and repository README report
+    1,152 vignettes.
+  example: ''
+  scoring: 'Provisional and final diagnoses are compared with reference diagnoses using top-1 through top-5 accuracy:
+    exact matches follow the ICD-10 hierarchy, while approximate matches include accepted differentials, shared
+    upper ICD-10 levels or high semantic similarity. Reported measures also include confidence-weighted accuracy,
+    information-gathering precision and recall for all available and diagnosis-relevant information, and average
+    interaction turns per case.'
+  judge: Automated evaluation code compares predictions with reference diagnoses using ICD-10 matching and semantic
+    similarity.
+  scale: Correct or incorrect per case at each k; aggregate accuracy, precision and recall; confidence-weighted
+    scores from -1 to 1.
+  validation: ''
+  results: Gemini 2.5 Pro led the evaluated models, with 35% top-1 final diagnostic accuracy after interactive information
+    gathering and 69% with full information.
+  limitations: The authors cite the modest case-report dataset, limited realism of deterministic retrieval, nondeterminism
+    in LLM-based retrieval, a single evaluation run per model and the simplified representation of real patient
+    encounters.
+  sources:
+  - https://arxiv.org/abs/2510.10278
+  - https://huggingface.co/datasets/chychiu/VivaBench
+  - https://github.com/chy-chiu/vivabench
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

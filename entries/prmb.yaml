@@ -26,6 +26,32 @@ facets:
   eval_methods: [automatic_metric, expert_human_rating]
   modality: [text]
   size: 13,893 prompts (6,948 pairwise pairs, 6,945 best-of-N queries) from 118 cases
+card:
+  task: Select the preferred counselor response from a pair or select the best response from a reference response
+    and four negative alternatives, using the counseling context.
+  items_built: The authors constructed 13,893 prompts from 118 screened six-session CBT cases drawn from the American
+    Psychological Association website, CBT textbooks, and DiaCBT, compressing earlier dialogue into summaries. Original
+    counselor responses became preferred answers, while ten LLMs generated subtly harmful alternatives across 21
+    negative experience categories; trivially poor pairs were discarded, and three licensed CBT practitioners checked
+    200 sampled pairs.
+  example: ''
+  scoring: A pairwise judgment is correct when the reward model scores or selects the reference response above the
+    rejected response; a Best-of-N judgment is correct when it selects the reference over all four negative alternatives.
+    Accuracy is calculated for each task, and the leaderboard ranks models by the average of pairwise and Best-of-N
+    accuracy.
+  judge: Selections or reward scores from the model under test are compared with the benchmark's designated reference
+    answers.
+  scale: Correct or incorrect per item; percentage accuracy for each task and their average.
+  validation: On 200 sampled pairs, three licensed CBT practitioners selected the designated preferred response
+    in 86%, 92%, and 94% of cases; all three agreed on 84%, and majority vote matched the labels on 96%. PRMB rankings
+    correlated with downstream response-quality rankings at Spearman's ρ = 0.700 (p ≈ 0.036), using average BERTScore
+    across four policy models.
+  results: ''
+  limitations: The authors acknowledge that reference-based choices do not capture all valid therapeutic strategies
+    and that BERTScore, used for downstream validation, does not fully capture therapeutic appropriateness.
+  sources:
+  - http://arxiv.org/abs/2603.11494
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

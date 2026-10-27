@@ -31,6 +31,30 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 11,588 questions across 10 professions; some are image-based
+card:
+  task: Answer each licensing-exam question by selecting one or more options, calculating a numerical answer, or
+    filling in a blank.
+  items_built: The authors used Claude-3.5-Sonnet to extract structured questions from official Ministry of Health,
+    Labour and Welfare exam PDFs, producing over 11,588 questions and aligning them with official answer tables.
+    Claude and scripts checked missing or duplicate entries and formatting, while human annotators reviewed selected
+    samples for logical consistency and semantic correctness.
+  example: ''
+  scoring: Evaluation scripts compare responses with official answers under strict correctness rules, requiring
+    an exact set match for multiple-choice items and giving higher weights to scenario-based nursing and midwifery
+    questions. The reports include per-type accuracy, raw exam scores, and the number of exams passed using official
+    sectional and overall thresholds, including forbidden-option rules.
+  judge: Evaluation scripts score responses against official answer keys.
+  scale: Correct or incorrect per item with exam-specific point weights; accuracy, raw exam scores, and pass count
+    or percentage across 50 exams.
+  validation: ''
+  results: GPT-4o passed 70% of exams. In text-only medicine exams, it scored 433.40 ± 3.50 points across five years.
+  limitations: The authors state that clinical alignment and real-world applicability need strengthening and that
+    the dataset should not be used for clinical decision-making.
+  sources:
+  - https://doi.org/10.1007/978-3-032-06004-4_30
+  - https://huggingface.co/datasets/humanalysis-square/KokushiMD-10
+  - https://github.com/juniorliu95/KokushiMD-10
+  extracted: '2026-10-27'
 signals:
   citations: 3
   citations_source: OpenAlex

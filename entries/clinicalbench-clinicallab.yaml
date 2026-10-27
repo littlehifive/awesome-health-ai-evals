@@ -27,6 +27,33 @@ facets:
   eval_methods: [automatic_metric, expert_human_rating]
   modality: [text]
   size: 1,500 cases (150 diseases x 10), 24 departments, 8 tasks
+card:
+  task: Use each case's clinical information to choose a department and generate preliminary and final diagnoses,
+    diagnostic reasoning, differential diagnoses, treatment principles and plans, and an interpretation of a textual
+    imaging report.
+  items_built: Three senior clinicians and two AI researchers manually created the cases from hospital case databases
+    authorized for research, selecting representative cases for each disease. Doctors checked diagnoses, treatment
+    processes and outcomes and independently reviewed privacy twice; the AI researchers checked completeness, task
+    suitability and ethical compliance.
+  example: ''
+  scoring: Automatic evaluation scores preliminary and final diagnoses by accuracy and other diagnostic outputs
+    by the mean of BLEU, ROUGE and BERTScore against reference answers; overall performance averages nine scores
+    across eight tasks. Additional metrics measure department rankings and instruction following, jointly correct
+    department and diagnosis predictions, and acceptability, which multiplies joint correctness by mean diagnostic
+    text scores.
+  judge: Automatic metrics assign the main scores; human experts and GPT-4o provide additional evaluations.
+  scale: Correctness indicators are 0 or 1; the overall score averages nine task scores.
+  validation: ''
+  results: InternLM2 led standalone LLMs with an overall average of 51.98 and Department Win Rate of 14.91; GPT-4
+    led joint department-and-diagnosis accuracy at 33.27% and acceptability at 11.37. ClinicalAgent's Agent#3@1
+    configuration achieved an overall average of 54.46, while Agent#1@3 achieved joint accuracy of 54.00% and acceptability
+    of 18.22.
+  limitations: The authors report that evaluation metrics produce inconsistent trends and that high costs prevented
+    repeating experiments on the English version.
+  sources:
+  - https://arxiv.org/abs/2406.13890
+  - https://github.com/WeixiangYAN/ClinicalLab
+  extracted: '2026-10-27'
 signals:
   citations: 2
   citations_source: OpenAlex

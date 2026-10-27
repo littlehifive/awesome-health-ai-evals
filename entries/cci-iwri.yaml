@@ -25,6 +25,21 @@ facets:
   eval_methods: [rubric_llm_judge, automatic_metric]
   modality: [text]
   size: 500 queries (366 forum questions plus 134 perturbed variants)
+card:
+  task: Answer physical and mental health questions with clinically safe, factual and empathetic responses.
+  items_built: The framework was developed in J. Thapa's master's thesis at Algoma University in Canada and applied
+    to five LLMs on 500 queries built from Reddit AskDocs and PatientsLikeMe.
+  example: ''
+  scoring: CCI and IWRI combine an adversarial safety gate, clinical integrity based on factual recall and referral
+    quality, and empathy terms using adjustable weights.
+  judge: LLM auditing is used.
+  scale: ''
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://hdl.handle.net/20.500.14472/69
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

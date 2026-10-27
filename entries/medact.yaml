@@ -26,6 +26,25 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 100 cases, 4,854 scored actions
+card:
+  task: Select next-step clinical actions for each eConsult-style case from a list of plausible actions.
+  items_built: A multi-stage language-model pipeline grounded in clinical practice guidelines generated 100 cases
+    across ten specialties and 4,854 actions, with GPT-4o synthetic consensus ratings labeling actions Appropriate
+    or Inappropriate rather than physician annotations. Of the 100 cases, 83 passed all five automated structural
+    checks, and answer-leaking language appeared in 0.06% of actions.
+  example: ''
+  scoring: Deterministic code compares the model's action choices with the rubric labels to score omission and commission
+    harm using NOHARM's Safety, Completeness, Restraint, and Overall rules.
+  judge: Deterministic scoring code assigns scores without a judge model or human rater.
+  scale: Actions are labeled Appropriate or Inappropriate; reported metrics are Safety, Completeness, Restraint,
+    and Overall.
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://github.com/arjun-krishna1/medact
+  - https://doi.org/10.18653/v1/2026.gem-main.24
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

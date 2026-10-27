@@ -28,6 +28,31 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric]
   modality: [text]
   size: 25,620 items in Full (13 tasks), 5,200 in Hard
+card:
+  task: Answer choice and fill-in-the-blank questions, extract entities from texts, or produce syndromes, treatment
+    methods, herbal prescriptions and dosages from clinical cases, depending on the item.
+  items_built: The authors curated items from official examinations, classical texts, de-identified clinical records
+    and structured knowledge resources; the clinical decision tasks draw on more than 13,000 case records authored
+    by over 300 TCM physicians. Licensed TCM practitioners reviewed items, and experts checked answers against authoritative
+    references, revised ambiguous questions and options, and discarded items that could not be repaired.
+  example: ''
+  scoring: Automated scoring compares outputs with reference answers using choice accuracy, character-level F1,
+    entity or clinical-label precision, recall and F1, and dosage error and cosine similarity; synonym-tolerant
+    clinical matching uses one-to-one label alignment with a character-F1 threshold of 0.7. Scores are macro-averaged
+    within subtasks, then averaged within task types and equally across task types for the overall score, excluding
+    mean absolute error.
+  judge: Evaluation code compares predictions with expert-verified reference answers.
+  scale: Accuracy, precision, recall, F1 and cosine similarity; dosage mean absolute error is reported separately
+    and excluded from the overall average.
+  validation: ''
+  results: ''
+  limitations: The benchmark is text-only and excludes tongue images, facial and complexion signals, and pulse waveforms,
+    limiting assessment of how models connect perception with clinical reasoning.
+  sources:
+  - https://arxiv.org/abs/2602.01779
+  - https://huggingface.co/datasets/TCMLLM/LingLan
+  - https://github.com/TCMAI-BJTU/LingLan
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

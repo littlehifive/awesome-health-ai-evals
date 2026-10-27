@@ -27,6 +27,29 @@ facets:
   eval_methods: [expert_human_rating]
   modality: [text]
   size: 80 questions
+card:
+  task: Answer open-ended expert-level clinical questions using current biomedical literature and critically assess
+    the strength and validity of the evidence.
+  items_built: The authors developed 80 questions, with 20 each in pediatrics, internal medicine, psychiatry, and
+    neurology, covering current treatment guidelines and clinical research. Twenty-one clinical practitioners, residents,
+    and fellows validated the questions on ten dimensions using 1-to-5 ratings.
+  example: ''
+  scoring: Clinicians rate each answer for factual accuracy, adequacy, formatting, clarity and precision, and citation
+    relevance and appropriateness. Results are reported as distributions of median ratings by criterion and specialty,
+    with binomial tests for ratings of 4 or 5 rather than a single overall score.
+  judge: Twenty-one clinical practitioners, residents, and fellows rated answers, with four to seven evaluators
+    per specialty.
+  scale: Each criterion is rated from 1 (Not Very) to 5 (Very Much); median ratings are reported by criterion and
+    specialty.
+  validation: For question validation across ten dimensions, the Spearman-Brown corrected split-half correlation
+    was 0.91 with 21 raters; these same raters evaluated BooksMed answers.
+  results: BooksMed received favorable ratings of 4 or 5 across all five answer criteria in all four specialties,
+    with q-values below 0.0001. No significant differences in median ratings were found across specialties (q-values
+    above 0.46).
+  limitations: ''
+  sources:
+  - http://arxiv.org/abs/2310.11266
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

@@ -27,6 +27,32 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric, expert_human_rating]
   modality: [text]
   size: "33,735 questions across 14 scenarios"
+card:
+  task: Answer Chinese clinical questions by selecting an option, ordering clinical or surgical steps, or generating
+    the requested diagnosis, treatment advice, summary, keywords, or assessment of medical text.
+  items_built: The authors constructed 33,735 items using hospital EHRs from January through March 2023, NM-LEC
+    2023 examination questions, and supplementary medical literature and consultations. Under medical-expert guidelines,
+    one LLM generated questions and distractors from EHR segments, a second audited them, and iterative dual expert
+    review confirmed that at least 90% met quality standards.
+  example: ''
+  scoring: Multiple-choice answers are scored by accuracy, and predicted sequences are compared with reference orders
+    using Kendall's tau. Open-ended responses receive expert ratings for medical correctness, completeness, fluency,
+    and friendliness, supplemented by ROUGE-1 for discharge summaries and medically fine-tuned SimCSE similarity
+    to references for wrong-treatment assessment; results include average scores across scenarios.
+  judge: Automatic metrics and medical experts assign scores; the number of experts is not stated.
+  scale: Multiple-choice accuracy, Kendall's tau, ROUGE-1, and SimCSE similarity; average scenario scores are reported,
+    but human-rating scales are not specified.
+  validation: The CliMedBench and MedBench leaderboards had an overall Spearman correlation of 0.943, with correlations
+    for subdivisions no lower than 0.657. Medical professionals also rated benchmark medical accuracy, assessment
+    effectiveness, and language proficiency as acceptable, defined as 3 points, or higher.
+  results: ERNIE-Bot 4.0 achieved the highest reported average score of 69.2, followed by GPT-4 at 69.0 and Qwen
+    at 68.5. The best medical-specific model, MedicalGPT, scored 38.7.
+  limitations: The authors state that real-world records can contain recording and formatting errors, automatic
+    extraction can introduce inaccuracies, and legal restrictions limit data access to research purposes.
+  sources:
+  - http://dx.doi.org/10.18653/v1/2024.emnlp-main.480
+  - https://github.com/Optifine-TAT/CliMedBench
+  extracted: '2026-10-27'
 signals:
   citations: 11
   citations_source: OpenAlex

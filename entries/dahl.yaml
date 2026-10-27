@@ -26,6 +26,31 @@ facets:
   eval_methods: [rubric_llm_judge]
   modality: [text]
   size: 8,573 questions
+card:
+  task: Write a long-form answer to each biomedical research question.
+  items_built: GPT-4-1106-preview generated examination questions from the titles and full texts of 2,519 PubMed
+    Central papers, yielding 8,573 retained questions across 29 categories. Regular expressions and manual review
+    filtered questions requiring outside context, and human annotators reviewed category assignments and removed
+    misclassified questions.
+  example: ''
+  scoring: GPT-4o splits cleaned responses into atomic facts, which GPT-4 checks using Perplexity retrieval; each
+    response receives the fraction of its facts judged true, and these fractions are averaged into the DAHL Score.
+    Noncommittal answers are excluded, as are responses containing unknown factuality labels or mismatched counts
+    of facts and labels.
+  judge: GPT-4 checks factuality using Perplexity retrieval, after GPT-4o splits responses into atomic facts.
+  scale: Atomic facts are true, false or unknown; the DAHL Score is the mean fraction of true facts across eligible
+    responses.
+  validation: Two human annotators independently evaluated 99 responses covering all 29 categories, consulting trustworthy
+    biomedical sources; automated and human scores had Pearson correlation 0.5508, with p = 3.4927 × 10⁻⁹. A t-test
+    comparing GPT-4o and human atomic-unit counts found no significant difference, with p > 0.05.
+  results: ''
+  limitations: The authors state that DAHL addresses fact-conflicting hallucinations rather than conflicts with
+    user input or prior context, does not assess helpfulness or understanding of users' needs, and cannot establish
+    that a model is safe to rely on for clinical advice.
+  sources:
+  - https://arxiv.org/abs/2411.09255
+  - https://github.com/seemdog/DAHL
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

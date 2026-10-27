@@ -26,6 +26,26 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 3,451 questions (2,851 train, 600 test)
+card:
+  task: Choose the correct answer from five options for each Chinese medical examination question, including grouped
+    questions with shared clinical histories or answer options.
+  items_built: The authors collected questions and explanations from reference books and TCM enthusiasts, including
+    questions from actual examinations, converted PDF materials with optical character recognition, and used human
+    and program checks before deduplication and medical expert review. Experts labeled subjects, and questions were
+    dropped or added to match the official examination manual's subject distribution.
+  example: ''
+  scoring: Predicted answers are compared with the correct answers to report accuracy overall and by medical realm
+    and question type. For robustness, each question has 120 option permutations, and consistency is the frequency
+    of the most common predicted answer divided by 120, with summary statistics reported across questions.
+  judge: Answers are scored against the answer key.
+  scale: Correct or incorrect per answer; overall accuracy from 0 to 1 and consistency from 0 to 1.
+  validation: ''
+  results: Moonshot-v1-8k with chain-of-thought achieved the highest accuracy, 0.768. The best open-source model
+    was InternLM2-Chat-20B with chain-of-thought, at 0.655.
+  limitations: Resource limits restricted the robustness evaluation to eight open-source models below 14B parameters.
+  sources:
+  - http://arxiv.org/abs/2406.04941
+  extracted: '2026-10-27'
 signals:
   citations: 3
   citations_source: OpenAlex

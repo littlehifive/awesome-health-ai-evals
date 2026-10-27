@@ -40,6 +40,31 @@ facets:
   - text
   - voice
   size: 1,515 patient calls; 10,274 host-doctor exchanges; 557.63 hours
+card:
+  task: Assign one of four care-urgency categories from a Bengali patient profile, classify a proposed action as
+    safe or harmful for that profile, or extract medical entity spans and their categories from a conversation.
+  items_built: The BUET authors derived 1,515 triage samples, 8,689 advice-safety samples containing 29,957 labeled
+    advice units, and 11,239 medical entity recognition samples from YouTube subtitles of 1,934 Bangladeshi television
+    telemedicine videos featuring board-certified physicians. Gemini-2.5-Flash generated annotations after five
+    rounds of prompt refinement; three independent annotators reviewed every sample, and a separate annotator corrected
+    the 17 samples that at least two reviewers rated poor.
+  example: For a patient with fever and dehydration, "drink adequate fluids" would be labeled as a safe action,
+    whereas "ignore persistent breathing difficulty and remain at home" would be labeled as harmful.
+  scoring: Predicted triage and advice-safety labels are compared with the reference labels, and class-wise F1 scores
+    are averaged without weighting for each task. Medical entity extraction uses the same macro averaging, counting
+    an entity as correct only when both its span boundaries and category exactly match the reference annotation.
+  judge: Automated comparison with human-validated reference annotations assigns the scores.
+  scale: Categorical predictions per item; task-level macro F1 from 0 to 1, with strict span-and-category matching
+    for entities.
+  validation: ''
+  results: Llama 3 70B Instruct led triage with 0.463 macro F1 under zero-shot prompting, while GPT-4o led advice
+    safety with 0.976 under few-shot prompting. Qwen 3.5 Flash led medical entity recognition with 0.743 strict
+    macro F1 under zero-shot prompting.
+  limitations: The study evaluates text only, using zero-shot prompting, few-shot prompting and encoder fine-tuning,
+    without testing the paired audio, advice generation or broader tool-assisted reasoning.
+  sources:
+  - https://arxiv.org/abs/2608.27110
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

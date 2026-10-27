@@ -25,6 +25,24 @@ facets:
   eval_methods: [rubric_llm_judge]
   modality: [text]
   size: 4,695 samples; 20,288 rubric items; 14 hallucination trap subtypes in 5 clusters
+card:
+  task: Respond to an adversarial multi-turn medical dialogue or answer a question about a clinical case report
+    without falling for the embedded hallucination traps.
+  items_built: The authors created adversarial cases by injecting hallucination traps into realistic doctor-patient
+    dialogues and clinical case reports, guided by a taxonomy of clinical errors. The 4,695 samples and 20,288 evaluation
+    rubrics underwent two-stage validation by 60 licensed physicians from top-tier hospitals.
+  example: ''
+  scoring: An LLM judge checks each response against the sample's expert rubrics and marks each criterion as met
+    or unmet. The reported hallucination rate is the total number of unmet rubrics divided by the total number of
+    rubrics.
+  judge: An LLM judge selected by the evaluator assigns the scores; no specific judge model is named.
+  scale: Each rubric is met or unmet; the final metric is the proportion of rubrics unmet, with lower scores better.
+  validation: ''
+  results: Claude-4-Sonnet performed best with a hallucination rate of 29.1%; some open-source models exceeded 57.0%.
+  limitations: ''
+  sources:
+  - https://github.com/AQ-MedAI/MHB
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

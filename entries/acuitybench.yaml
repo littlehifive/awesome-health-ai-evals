@@ -26,6 +26,32 @@ facets:
   eval_methods: [mcq_exact_match, rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 914 cases (697 consensus, 217 ambiguous)
+card:
+  task: Choose the appropriate urgency of care for each medical presentation, either by selecting one of four care
+    levels or by communicating that urgency in a free-form response.
+  items_built: The authors combined cases from HealthBench, Semigran, Ramaswamy, PMR-Synthetic, and PMR-Reddit,
+    retaining 914 of 998 source cases after screening and exclusions. They mapped 247 labels directly and retained
+    667 physician-annotated cases, each independently rated by five of 20 board-certified emergency medicine attending
+    physicians using single-level or adjacent-boundary labels.
+  example: ''
+  scoring: On 527 clear consensus cases, five predictions per case are reduced to the most frequent label, with
+    ties resolved toward greater urgency, then compared with the reference label to report exact-match accuracy
+    and over- and under-triage rates; GPT-4.1 extracts the communicated label from conversational responses. Boundary
+    cases are assessed against their accepted label sets, while ambiguous cases are assessed by comparing model
+    and physician label distributions using JSD and Wasserstein-1 distance and by measuring changes in panel agreement
+    and consensus when a model replaces a physician.
+  judge: QA uses exact match with reference labels; GPT-4.1 at temperature 0 grades conversational urgency.
+  scale: 'A: monitor at home; B: doctor within weeks; C: doctor within 24-48 hours; D: emergency department now;
+    final metrics include accuracy percentages and distributional distances.'
+  validation: Physician inter-rater agreement, measured with set-overlap Krippendorff's alpha, was 0.863 for the
+    450 annotated consensus cases and 0.041 for the 217 ambiguous cases.
+  results: Claude Opus 4.7 achieved the highest QA exact-match accuracy, 85.3%, across 12 models. No model closely
+    matched physician judgment distributions on ambiguous cases.
+  limitations: The authors state that the four-level framework, physician-derived labels, and rubric-based conversational
+    judging do not capture the full complexity of clinical care, deployment context, or patient outcomes.
+  sources:
+  - https://arxiv.org/abs/2605.11398
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

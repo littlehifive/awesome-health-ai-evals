@@ -42,6 +42,33 @@ facets:
   modality:
   - text
   size: 1,113 cases in the paper; 915 test items released
+card:
+  task: Read a patient's history, physical examination findings and diagnostic test results, then give five possible
+    diagnoses ranked by confidence or choose the diagnosis from four options.
+  items_built: The authors collected 4,175 journal case reports, removed treatment and follow-up information, and
+    used Claude-3.5-Sonnet to structure the diagnostic content. They filtered out cases solved by Baichuan-M1, DeepSeek-V3
+    or GPT-4o, checked the remaining cases with AI reviewers, eight DeepSeek-R1 sampling attempts and board-certified
+    physicians, and reported 1,113 final cases; 915 were released after excluding 2025 data and copyright-restricted
+    material.
+  example: ''
+  scoring: GPT-4o compares each predicted diagnosis with the reference diagnosis and labels it identical, relevant
+    or irrelevant; only identical counts as correct, and top-1 and top-5 accuracy report the proportion of cases
+    with a correct diagnosis within those ranks. For multiple-choice answers, rule-based extraction compares the
+    selected option with the answer key and reports the proportion correct.
+  judge: GPT-4o grades open-ended diagnoses; rule-based comparison with the answer key grades multiple-choice answers.
+  scale: Identical, relevant or irrelevant per diagnosis; top-1 and top-5 accuracy and multiple-choice accuracy
+    as percentages.
+  validation: ''
+  results: The best-performing model, o3, achieved 51.12% accuracy on the open-ended benchmark. In the multiple-choice
+    version, o1 achieved 61.90%.
+  limitations: The authors state that predefined multiple-choice options simplify diagnosis and provide shortcuts
+    that do not reflect the full reasoning required in clinical practice.
+  sources:
+  - https://arxiv.org/abs/2505.14107
+  - https://huggingface.co/datasets/SII-SPIRAL-MED/DiagnosisArena
+  - https://huggingface.co/datasets/shzyk/DiagnosisArena
+  - https://github.com/SPIRAL-MED/DiagnosisArena
+  extracted: '2026-10-27'
 signals:
   citations: 3
   citations_source: OpenAlex

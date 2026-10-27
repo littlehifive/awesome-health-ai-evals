@@ -26,6 +26,28 @@ facets:
   eval_methods: [rubric_llm_judge]
   modality: [text]
   size: 1,200 test cases
+card:
+  task: Respond to a text expressing implicit suicidal ideation by recognizing the distress and providing safe,
+    empathetic support.
+  items_built: The authors used an LLM to generate 1,308 texts from D/S-IAT cognitive patterns, Automatic Negative
+    Thoughts, 12 psychological conditions and social triggers, and scenarios extracted from Reddit suicide-related
+    posts originally annotated by four practicing psychiatrists. Two annotators independently checked each generated
+    text, retaining it only when both agreed that it contained suicidal ideation.
+  example: ''
+  scoring: GPT-4 scores responses against five criteria covering emotional sensitivity, relevance and depth, safe
+    guidance, constructiveness, and clarity and empathy, and separately marks suitability under strict support and
+    safety requirements. The reported metrics are the percentage marked suitable (ARSR), the percentage scoring
+    below 60 (HRR), and the mean response score (ARS).
+  judge: GPT-4 assigns response quality scores and suitability judgments.
+  scale: 'Response quality: 100-point scale; suitability: yes or no; final metrics: ARSR, HRR, and mean response
+    score.'
+  validation: Two independent annotators manually labeled a sample of responses to check GPT-4 judgments against
+    human annotations; agreement figures are not given in the excerpts.
+  results: ''
+  limitations: ''
+  sources:
+  - https://doi.org/10.18653/v1/2025.findings-emnlp.998
+  extracted: '2026-10-27'
 signals:
   citations: 8
   citations_source: OpenAlex

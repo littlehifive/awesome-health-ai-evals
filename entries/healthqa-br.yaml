@@ -30,6 +30,28 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 5,632 questions (Revalida 1,777; Enare Medica 2,691; Enare Multiprofissional 1,164)
+card:
+  task: Select the single correct answer to each Portuguese healthcare exam question and return its option letter.
+  items_built: 'Andrew Maranhão Ventura D''addario curated 5,632 questions from public exam PDFs: 1,777 from Revalida,
+    2,691 from Enare medical residency exams and 1,164 from Enare allied health residency exams. Questions were
+    checked against official answer keys and corrections, nullified or answer-amended questions were removed, and
+    exact and semantic duplicates were removed using hashing, similarity models and manual expert review; a final
+    manual audit of 82 stratified random questions found no inconsistencies.'
+  example: ''
+  scoring: The selected answer is compared with the official answer key, and accuracy is the proportion of questions
+    answered correctly. Results are reported overall, by examination source and by specialty.
+  judge: Exact match with the official answer key.
+  scale: Each answer is correct or incorrect; final accuracy is the proportion correct, reported as a fraction or
+    percentage.
+  validation: ''
+  results: GPT 4.1 achieved the highest overall accuracy at 86.61%. Its specialty scores included 100% in Phoniatrics,
+    60.0% in Neurosurgery and 68.4% in Social Work.
+  limitations: The authors state that the Brazilian SUS focus may not represent other countries and that multiple-choice
+    accuracy does not fully assess real-world clinical workflows, patient interaction or fairness.
+  sources:
+  - http://arxiv.org/abs/2506.21578
+  - https://huggingface.co/datasets/Larxel/healthqa-br
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

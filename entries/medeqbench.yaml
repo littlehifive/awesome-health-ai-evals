@@ -24,6 +24,23 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: "400 scenarios; about 8,000 rubric items; 22 dimensions"
+card:
+  task: Respond to a medical dialogue scenario with emotionally aware, empathic, safe and context-appropriate language.
+  items_built: Multiple medical and psychology experts co-authored dialogues derived from real-world medical interactions,
+    including anonymized counseling and clinical snippets from 51 departments. Psychology and healthcare experts
+    designed and cross-checked 400 scenarios and 8,000 rubric items, adapting existing emotional intelligence measures
+    to medical contexts.
+  example: 三岁小朋友没发烧，流清涕，要吃什么药？
+  scoring: Each response is assessed against 15-22 independent rubrics covering 22 dimensions, with optional LLM
+    grading. Scripts aggregate the LLM scores, but the README does not specify the aggregation formula.
+  judge: Optional LLM judges are used, but their model names are not specified.
+  scale: Rubric items use anchored 0-4 or 0-5 levels; the final reported metric is a score.
+  validation: ''
+  results: Qwen3-235B-A22B-Thinking-2507 has the highest MedEQBench score in the supplied results excerpt, at 69.95.
+  limitations: ''
+  sources:
+  - https://github.com/AQ-MedAI/MedEQBench
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

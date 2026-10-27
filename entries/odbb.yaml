@@ -28,6 +28,31 @@ facets:
   eval_methods: [automatic_metric, expert_human_rating]
   modality: [text]
   size: 2,005 decision points (1,586 NCCN, 419 CRC cases)
+card:
+  task: Given a structured oncology scenario, return a structured decision and recommended next step for guideline
+    navigation or case-specific therapy.
+  items_built: The authors used an automated, LLM-augmented pipeline to generate 1,586 structured items from NCCN
+    guideline workspaces and 419 therapy items from published colorectal cancer case reports. Two independent board-certified
+    oncologists audited gold answers for 80 items that no evaluated model answered correctly, checking clinical
+    correctness and traceability to the source guidelines.
+  example: ''
+  scoring: A deterministic Python pipeline validates and repairs the output schema, checks decision alignment against
+    the gold answer, and scores slot-level and pathway-level content, with additional therapy-regimen scoring for
+    colorectal cancer cases. It assigns correct, partial, or incorrect verdicts and typed failure labels; reported
+    strict concordance is the percentage of items answered correctly.
+  judge: A deterministic Python scoring engine assigns scores without LLM inference.
+  scale: Correct, partial, or incorrect per item; content score from 0 to 1; strict concordance reported as a percentage.
+  validation: Two board-certified oncologists reviewed a stratified 225-item sample, yielding 93.1% scorer agreement
+    across 245 evaluable reviewer-item pairs and weighted kappa values of 0.939 and 0.790. On 25 overlapping items,
+    clinician agreement was 88.0%, with weighted kappa 0.757. In a separate 80-item gold-answer audit, two different
+    oncologists both found 76 answers traceable and both marked 2 answers wrong.
+  results: ''
+  limitations: The authors state that the scorer can reject genuinely correct answers that differ from the gold
+    standard, so some collective failures can reflect scoring stringency rather than model inability.
+  sources:
+  - https://arxiv.org/abs/2608.28592
+  - https://github.com/dcszhang/Benchmark
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

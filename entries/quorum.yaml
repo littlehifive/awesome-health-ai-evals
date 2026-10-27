@@ -27,6 +27,30 @@ facets:
   eval_methods: [expert_human_rating, real_user_data]
   modality: [text]
   size: "Framework with 4 user, 3 expert and developer claim-level statements; case study of 19 user ratings, 50 expert-rated query-response pairs, 66 claims and 31 contextualisation statements rated by 2 developers"
+card:
+  task: Generate personalised lifestyle counselling in response to a user's question about their diary data.
+  items_built: The framework was developed to assess health counselling through user relevance, medical expert quality
+    and developer reliability, using statements informed by these stakeholders' different concerns. Its case study
+    collected 19 user-rated query-response pairs, 50 randomly selected pairs for expert review, and 10 randomly
+    selected pairs containing 66 user-data claims and 31 contextualisation statements for developer review.
+  example: '"What is going well and what can be improved?"'
+  scoring: Users and experts rate statements about responses, and scores are averaged by variable and then across
+    variables for relevance and quality. Developers check claims against diary data, retrieved variables and knowledge-base
+    passages, discuss disagreements to consensus, and report proportions for faithfulness, completeness and hallucination.
+  judge: Nineteen users, six cancer information specialists from kanker.nl, and two developers assign the ratings.
+  scale: 'User and expert ratings: 1 (strongly disagree) to 5 (strongly agree), reported as means; developer judgments:
+    binary, reported as claim-level proportions.'
+  validation: Expert Krippendorff's alpha was 0.602 for correctness, 0.150 for tone and 0.272 for length across
+    50 responses rated twice. Developer Cohen's kappa was 0.58 across faithfulness, completeness and hallucination
+    before consensus discussion.
+  results: The GPT-4o-based COACH pipeline received mean user alignment and follow-up ratings of 3.90/5 and expert
+    correctness of 4.02/5. Developer evaluation reported faithfulness of 0.79, completeness of 0.97 and a hallucination
+    rate of 0.22.
+  limitations: The authors tested only one use case with a limited response sample, especially for hallucination
+    assessment, used fewer than 21 days of diary data, and evaluated only the proprietary GPT-4o model.
+  sources:
+  - https://doi.org/10.63317/4x7koa8w32ny
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

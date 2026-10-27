@@ -30,6 +30,22 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 7,663 questions in three parallel versions (English, Urdu, Roman Urdu)
+card:
+  task: Choose the correct answer to each multiple-choice medical question in Urdu or Roman Urdu.
+  items_built: 'The benchmark translates 7,663 English MIRAGE questions: 1,273 from MedQA, 4,183 from MedMCQA, 500
+    from PubMedQA, 618 from BioASQ and 1,089 from medical MMLU subsets. Back-translation checks on 500 questions
+    produced a ROUGE-L F1 score of 0.75.'
+  example: ''
+  scoring: Model answers are scored by accuracy, the percentage of questions answered correctly.
+  judge: ''
+  scale: Correct or incorrect per question; overall percentage accuracy.
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://github.com/AliFaheem/U-Mirage
+  - https://doi.org/10.18653/v1/2026.abjadnlp-1.55
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

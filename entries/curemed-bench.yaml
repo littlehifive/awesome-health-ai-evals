@@ -25,6 +25,28 @@ facets:
   eval_methods: [rubric_llm_judge]
   modality: [text]
   size: 15,774 questions across 13 languages (80% train, 20% held-out test)
+card:
+  task: Answer each open-ended medical question with the single correct answer in the question's language.
+  items_built: GPT-4o drafted four-option questions from MedlinePlus, filtered out trivial, ambiguous, and cross-linguistically
+    inconsistent items, and converted the retained questions into 15,774 open-ended items with reference answers
+    and reasoning traces. Native speakers and medical experts, including physicians, advanced medical students,
+    and nursing PhD candidates, checked every item for clinical correctness, linguistic fidelity, and cultural appropriateness;
+    20% of the dataset was held out for testing.
+  example: ''
+  scoring: GPT-4o compares each final answer with the reference answer for clinical accuracy and checks whether
+    it is in the question's target language. Logical accuracy and language consistency are reported separately as
+    percentages averaged across 13 languages, with evaluation conducted over three independent runs.
+  judge: GPT-4o grades the held-out test responses.
+  scale: Final-answer clinical accuracy and target-language consistency; separate percentage scores averaged across
+    13 languages.
+  validation: ''
+  results: CURE-MED-32B led all 28 baseline models with 70.04% logical accuracy and 94.96% language consistency.
+  limitations: The authors report uneven coverage and difficulty caused by limited reliable source material across
+    languages, exclusion of longitudinal care, multi-visit decisions, and multimodal evidence, and cost and reproducibility
+    barriers from proprietary APIs.
+  sources:
+  - https://arxiv.org/abs/2601.13262
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

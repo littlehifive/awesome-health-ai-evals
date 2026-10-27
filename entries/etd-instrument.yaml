@@ -26,6 +26,26 @@ facets:
   eval_methods: [rubric_llm_judge]
   modality: [text]
   size: 24 designed outputs; 1,296 scoring events
+card:
+  task: Produce clinical decision-support text that can be assessed for empathy, clinical trust, and data protection.
+  items_built: The authors created 24 outputs across virtual triage, mental-health chatbot, and readmission-risk
+    prediction vignettes, with eight variants per vignette varying empathy, clinical trust, and data protection
+    independently. Clinical content, disposition, and stated model confidence were held constant within each vignette;
+    governance levels were author-assigned, and a blind human manipulation check is pending.
+  example: ''
+  scoring: Each text was scored by six judge configurations under India's DPDP Act 2023, HIPAA, and GDPR, with three
+    repetitions per combination, producing 1,296 scoring events with no failures or missing data.
+  judge: Six LLM judge configurations span Anthropic, OpenAI, Google, and Meta model families, including two within-family
+    pairs.
+  scale: ''
+  validation: The factorial design supplies author-assigned criterion ground truth for validation; the analysis
+    code computes discrimination, axis separability, ICC(2,k), Krippendorff's alpha, regime sensitivity, and test-retest
+    stability, but no numerical validation results are reported in the abstract.
+  results: ''
+  limitations: The corpus governance levels are author-assigned, and a blind human manipulation check is pending.
+  sources:
+  - https://doi.org/10.5281/zenodo.22172343
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

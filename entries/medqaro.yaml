@@ -28,6 +28,29 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 105,880 QA pairs (102,646 unique) over 1,242 patients
+card:
+  task: Answer Romanian questions about a patient's clinical summary using yes/no responses, information extracted
+    from the record, or reasoning across clinical clues.
+  items_built: Two experienced physicians wrote 48 reference questions for breast cancer and 61 for lung cancer,
+    and five residents produced 8 to 10 reformulations, extracted answers from clinical summaries, and had their
+    work checked by two board-certified medical oncology specialists. The paper describes 102,646 pairs from 1,011
+    patients, sampling two question variants per patient-question pair; the repository adds 3,234 pairs from 231
+    patients with other diagnoses.
+  example: ''
+  scoring: Predicted answers are compared with physician-written reference answers using token-level F1, exact match,
+    BLEU n-gram overlap, and METEOR. Exact match reports the percentage of predictions that match the reference
+    answer perfectly; the text does not specify how the other item scores are aggregated.
+  judge: Automatic metrics compare predictions with physician-written reference answers.
+  scale: Token-level F1, exact-match proportion, BLEU, and METEOR.
+  validation: Five physician annotators independently annotated 350 QA pairs, with an average pairwise Cohen's kappa
+    of 0.9562; this checks reference annotation agreement rather than automatic scoring.
+  results: In the paper's evaluation, fine-tuned Phi-4-mini-instruct performed best, with a test F1 of 0.667.
+  limitations: The authors report that context trimming can remove important clinical clues and that METEOR is sensitive
+    to Romanian medical word variations and biased against short answers.
+  sources:
+  - https://doi.org/10.1038/s41746-026-02465-0
+  - https://github.com/ana-rogoz/MedQARo
+  extracted: '2026-10-27'
 signals:
   citations: 3
   citations_source: OpenAlex

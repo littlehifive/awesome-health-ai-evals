@@ -26,6 +26,30 @@ facets:
   eval_methods: [automatic_metric, expert_human_rating]
   modality: [text]
   size: 87 answer-extraction questions and 60 end-to-end questions, each at expert and public level
+card:
+  task: Return a ranked list of up to 1,000 passages answering each COVID-19 question at the requested expert or
+    general-public level, using supplied relevant documents for answer extraction or searching the collection for
+    end-to-end answering.
+  items_built: The authors adapted TREC-COVID topics into 45 expert and 42 public answer-extraction questions and
+    developed 30 new expert and 30 new public end-to-end questions, drawing on MedlinePlus users, NIH discussions,
+    clinicians and a public call for questions. Seventeen National Library of Medicine medical indexers with 5 to
+    30 years of experience created answer-nugget keys from pooled system results and document searches, then annotated
+    sentences in roughly 45 to 60 passages per question against those keys.
+  example: '"Which COVID-19 vaccine trials were paused and what were the health safety concerns?"'
+  scoring: Submitted passage rankings are evaluated with the supplied script using Normalized Discount Novelty Score
+    (NDNS), based on the manual sentence-level answer-nugget annotations. The provided text does not specify the
+    scoring formula or how scores are combined across questions.
+  judge: The evaluation script scores rankings using annotations from 17 experienced National Library of Medicine
+    medical indexers.
+  scale: Normalized Discount Novelty Score (NDNS).
+  validation: ''
+  results: ''
+  limitations: Because of time and budget restrictions, only 21 expert and 17 general-public answer-extraction questions
+    were fully annotated with answers, and the answer keys were not intended to exhaustively cover every possible
+    nugget or establish factual accuracy.
+  sources:
+  - https://pmc.ncbi.nlm.nih.gov/articles/PMC9302224/
+  extracted: '2026-10-27'
 signals:
   citations: 4
   citations_source: OpenAlex

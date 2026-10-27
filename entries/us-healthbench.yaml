@@ -26,6 +26,26 @@ facets:
   eval_methods: [rubric_llm_judge, automatic_metric]
   modality: [text]
   size: "2,020 items (v0.9-provisional); not fit for scoring"
+card:
+  task: Answer consumer-facing U.S. public-health questions in English or Spanish, including factual questions,
+    requests for action, and prompts containing false health claims, using official guidance.
+  items_built: The 2,020 items were template-generated from official CDC, NIH, FDA, and CMS guidance. All passed
+    schema and source-existence validation, but a post-freeze audit found contradictory answers to duplicate questions,
+    corrupted text, splice contamination, and source pollution.
+  example: ''
+  scoring: The released heuristic scorer scores system answers against the frozen items, and the statistics code
+    reports a mean Grounded Safety Score for each system. The supplied text does not specify the per-item calculation
+    or how the rubric dimensions are combined.
+  judge: The released heuristic scoring code assigns scores.
+  scale: The reported system metric is the mean Grounded Safety Score.
+  validation: ''
+  results: ''
+  limitations: The authors state that the provisional item set is unfit for scoring because its defects make aggregate
+    scores uninterpretable, and that retrieval baselines cannot be rerun because the source corpus is not redistributed.
+  sources:
+  - https://github.com/williamDalston/us-healthbench
+  - https://doi.org/10.5281/zenodo.22086136
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

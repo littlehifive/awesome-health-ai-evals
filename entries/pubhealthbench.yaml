@@ -27,6 +27,33 @@ facets:
   eval_methods: [mcq_exact_match, rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 8,090 MCQA questions; 760 reviewed questions also used free-form
+card:
+  task: Answer questions about UK Government public health guidance by choosing one of seven options or giving a
+    free-form answer without the options.
+  items_built: The UK Health Security Agency curated LLM-generated questions from individual text chunks of 687
+    government guidance documents collected on 8 January 2025 across 10 topic areas, with 7,929 test questions and
+    161 validation questions. Experts reviewed a sample of 800 questions, yielding a 760-question reviewed subset
+    also used for free-form evaluation.
+  example: ''
+  scoring: Multiple-choice accuracy is the proportion of answers matching the answer key. In the follow-up free-form
+    evaluation, GPT-OSS-120B assesses each answer against the relevant guidance chunk and reference answer for faithfulness,
+    completeness, factual consistency and clarity, reporting the proportion of answers passing each criterion.
+  judge: The answer key determines multiple-choice correctness; GPT-OSS-120B grades free-form responses in the follow-up
+    evaluation.
+  scale: 'Multiple-choice: correct or incorrect, reported as percentage accuracy; free-form: pass or fail per criterion,
+    reported as pass rates from 0 to 1.'
+  validation: Two human expert reviewers independently scored 100 free-form responses in the follow-up study. Overall
+    human-human agreement was Cohen's κ = 0.56 and macro-F1 = 0.78; judge-human agreement was κ = 0.42 and 0.55
+    and macro-F1 = 0.71 and 0.78, with factual-consistency κ of only 0.06 and 0.17.
+  results: At release, GPT-4.5 achieved the best multiple-choice accuracy of 92.5%, compared with 88% for five non-specialists
+    allowed search access but no AI. No model exceeded 75% on free-form questions.
+  limitations: The authors warn that questions may contain errors or outdated information, multiple-choice options
+    can inflate performance, single-chunk grounding can penalize valid information supported elsewhere, and the
+    benchmark does not test multi-chunk reasoning or queries outside the corpus.
+  sources:
+  - https://arxiv.org/abs/2607.06641
+  - https://huggingface.co/datasets/Joshua-Harris/PubHealthBench
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

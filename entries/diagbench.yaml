@@ -41,6 +41,30 @@ facets:
   modality:
   - text
   size: 750 cases; 99 with 973 rubrics
+card:
+  task: Recommend the next examination or give a final diagnosis from the available patient information, either
+    at a single reference step or through a complete multi-turn diagnostic interaction.
+  items_built: DeepSeek-v3 generated 957 candidate cases from restructured MIMIC-IV records and discharge notes;
+    a physician reviewed each case's analyses, examination recommendations and overall plausibility, retaining 750.
+    For 100 sampled cases, two physicians independently wrote process rubrics, a third reviewed coverage and excluded
+    one case, and a fourth assigned importance weights from 0 to 10, yielding 973 rubrics across 99 cases.
+  example: ''
+  scoring: Recommended examinations are compared with the reference trajectory using single-turn hit ratio and end-to-end
+    precision, recall and F1, while final diagnoses are compared with the confirmed diagnoses for accuracy. GPT-4o
+    checks whether each physician-written rubric is satisfied, and the satisfied criteria contribute their importance
+    weights to the aggregate weighted proportion reported as a percentage.
+  judge: GPT-4o grades rubric satisfaction; automatic comparisons score examination recommendations and final diagnoses.
+  scale: Rubrics are met or not met, with importance weights of 0 to 10; results include weighted satisfaction percentage,
+    diagnostic accuracy, examination hit ratio, precision, recall, F1 and average conversation turns.
+  validation: ''
+  results: DiagAgent-14B achieved the highest end-to-end diagnostic accuracy at 61.63% and examination F1 at 47.89.
+    Its weighted rubric score was 32.86%.
+  limitations: The authors state that the rubrics award points for immediate treatment and patient management actions
+    even though their framework focuses on diagnosis and does not train agents for those interventions.
+  sources:
+  - https://arxiv.org/abs/2510.24654
+  - https://github.com/MAGIC-AI4Med/DiagGym
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

@@ -29,6 +29,37 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 2,252 user inputs (206 validation, 2,046 test) plus ratings of 5 LLMs
+card:
+  task: Classify each user message into one of six mental health crisis categories or no crisis, or write a reply
+    that provides appropriate and safe support.
+  items_built: The authors sampled 2,252 inputs from over 239,000 inputs drawn from counseling transcripts, support
+    forums, synthetic conversations, and mixed human-AI interactions in 12 Hugging Face datasets, discarding the
+    original labels. Four experts labeled the 206 validation inputs; gpt-4o-mini labeled the 2,046 test inputs by
+    majority vote across three runs, with two inputs discarded because all three labels differed.
+  example: ''
+  scoring: For classification, model labels are compared with independent expert labels using Cohen's kappa, averaged
+    across three runs and four experts. For response quality, gpt-4o-mini scores each reply three times against
+    the expert-designed criteria for its crisis category; these scores are averaged per reply and then across replies
+    for each model, with harmful-response rates and score distributions also reported.
+  judge: gpt-4o-mini grades response appropriateness; four experts with backgrounds in psychology, mental health,
+    and lived experience provide validation labels for classification.
+  scale: Response ratings from 1 (harmful/unacceptable) to 5 (fully appropriate), averaged per reply and model;
+    classification agreement measured by Cohen's kappa.
+  validation: Classification experts had Fleiss' kappa of 0.55; gpt-4o-mini had the highest mean agreement with
+    them, with Cohen's kappa of 0.645. Repeated response-quality judgments had mean within-response standard deviations
+    below 0.05 for all five models.
+  results: gpt-5-nano achieved the highest mean response-appropriateness score, 4.936 out of 5, with a reported
+    95% confidence interval of ±0.008. gpt-4o-mini had the highest classification agreement with experts, with mean
+    Cohen's kappa of 0.645.
+  limitations: The authors state that the dataset does not capture the full diversity of real-world crises, covers
+    only English and five general-purpose models, and does not assess ongoing follow-up, user trust, longitudinal
+    outcomes, or integration with real-world intervention pathways.
+  sources:
+  - https://doi.org/10.2196/88435
+  - https://huggingface.co/datasets/arnaiztech/llms-mental-health-crisis-benchmark
+  - https://huggingface.co/datasets/arnaiztech/llms-mental-health-crisis-responses
+  - https://github.com/ellisalicante/LLMs-Mental-Health-Crisis
+  extracted: '2026-10-27'
 signals:
   citations: 15
   citations_source: OpenAlex

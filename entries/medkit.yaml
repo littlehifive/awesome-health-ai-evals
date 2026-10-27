@@ -28,6 +28,28 @@ facets:
   eval_methods: [mcq_exact_match, rubric_llm_judge]
   modality: [text]
   size: 6,196 factual updates, each with 7 probes
+card:
+  task: After integrating a clinical update, classify treatment comparisons, answer open-ended comparison questions,
+    recommend treatments, and answer an unrelated comparison to test knowledge preservation.
+  items_built: The authors constructed 6,196 updates from all eligible comparisons in a fixed HemOnc.org snapshot
+    dated March 12, 2026, using preprocessing, canonicalization, and linked PubMed evidence covering 5,666 unique
+    publications. They retained 154 comparisons with conflicting labels in the release but excluded them from the
+    main experiments.
+  example: ''
+  scoring: Closed-form responses are matched deterministically to the correct label, with an LLM judge available
+    for unresolved responses; open-form responses are judged against the ground-truth comparison and clinical context.
+    Each task's reported result is its post-integration score minus its pre-integration score.
+  judge: Deterministic label matching and an unnamed LLM judge assign scores.
+  scale: Closed-form label correctness and open-form semantic scores; task-level change Δ = s_post − s_pre.
+  validation: The dataset card reports checks of inter-judge robustness, agreement with clinician judgments, and
+    intra-judge consistency, but gives no numerical results.
+  results: ''
+  limitations: ''
+  sources:
+  - https://arxiv.org/abs/2609.38543
+  - https://huggingface.co/datasets/bethgelab/MedKIT
+  - https://github.com/bethgelab/MedKIT
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

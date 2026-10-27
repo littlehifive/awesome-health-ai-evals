@@ -26,6 +26,27 @@ facets:
   eval_methods: [automatic_metric, rubric_llm_judge]
   modality: [text]
   size: "1,143 main instances (585 equation, 396 rule, 162 semantic); 401 faithful-reasoning instances"
+card:
+  task: Use a Chinese patient note to calculate the requested clinical value, score or grade, and refuse to calculate
+    when required information is missing or contradictory.
+  items_built: The main set contains 585 equation-based, 396 rule-based and 162 semantic-based cases drawn from
+    real-world Chinese clinical cases. A separate set contains 401 uncomputable cases with missing or contradictory
+    evidence.
+  example: ''
+  scoring: Answers are compared with reference answers using ±5% relative tolerance for numerical equation-based
+    tasks and exact match for date-related, rule-based and semantic-based tasks; uncomputable cases count as correct
+    when the model refuses to calculate. Optional LLM judging evaluates knowledge acquisition, parameter extraction,
+    unit conversion and calculation or comprehension, with an earlier-stage error invalidating later stages.
+  judge: Reference-answer comparison determines answer correctness, and an unspecified LLM optionally judges the
+    four reasoning stages.
+  scale: Correct or incorrect per answer; answer accuracy and refusal accuracy.
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://github.com/Zhihong-Zhu/CMedCalc-Bench
+  - https://doi.org/10.18653/v1/2025.emnlp-main.1302
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex

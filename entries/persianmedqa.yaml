@@ -28,6 +28,26 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: "20,785 questions (14,549 train, 1,000 validation, 5,236 test)"
+card:
+  task: Select the correct answer from four options for each medical examination question in Persian or its English
+    translation.
+  items_built: The authors collected 20,785 questions written by the official Iranian medical board, removed exact
+    and near duplicates and image-dependent items, and reviewed answer keys to remove missing, conflicting or implausible
+    keys. They split the dataset into 14,549 training, 1,000 validation and 5,236 test items, with Gemini-2.5-Flash
+    providing the default English translations.
+  example: ''
+  scoring: The selected option is compared with the supplied answer key, and accuracy is the percentage of test
+    questions answered correctly, reported separately for Persian and English.
+  judge: Answers are scored against the examination answer key.
+  scale: Correct or incorrect per question; percentage accuracy across the test set.
+  validation: ''
+  results: GPT-4.1 had the highest zero-shot accuracy at 83.09% in Persian and 80.71% in English. The paper reports
+    a human baseline of 75% and a top-three-model ensemble accuracy of 83.4%.
+  limitations: The authors state that commercial API costs and rate limits restricted evaluation runs and chain-of-thought
+    variants, while copyright restrictions prevented use of larger multilingual biomedical corpora.
+  sources:
+  - https://doi.org/10.63317/3yixio7ngbkh
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

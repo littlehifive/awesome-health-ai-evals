@@ -36,6 +36,27 @@ facets:
   modality:
   - text
   size: 36 questions; 108 model-question pairs per model
+card:
+  task: Answer integrated questions about tremor-related specialist knowledge in a single turn without prior context.
+  items_built: Five movement-disorders chief physicians developed 36 questions through a modified Delphi process.
+    Before scoring, they finalised a written answer key for each question specifying required elements, critical
+    omissions and safety-critical items.
+  example: ''
+  scoring: Three blinded chief physicians independently scored responses against the pre-specified answer keys for
+    professional competence and, on the six treatment questions, treatment safety. Ratings were averaged, and results
+    were reported as means and standard deviations across questions; an unsafe medication recommendation received
+    an automatic safety score of zero.
+  judge: Three chief physicians, different from the question developers and blinded to model identity, independently
+    scored the responses.
+  scale: 0-10 for professional competence and treatment safety; mean scores across questions.
+  validation: Inter-rater reliability was ICC(2,k)=0.94 for averaged scores (95% CI 0.91-0.96) and ICC(2,1)=0.83
+    for single-rater scores (95% CI 0.78-0.88).
+  results: DeepSeek-R1-671B scored highest, with mean professional competence of 9.13/10 (SD 0.23) and treatment
+    safety of 8.61/10 (SD 0.92).
+  limitations: ''
+  sources:
+  - https://doi.org/10.2196/preprints.112289
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

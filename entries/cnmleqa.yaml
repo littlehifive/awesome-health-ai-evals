@@ -26,6 +26,28 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: "9,890 questions (10k set); 2,949 questions (3k set)"
+card:
+  task: Select the single correct answer from five options for each Chinese National Medical Licensing Examination
+    question.
+  items_built: The authors extracted question stems, five options and answer keys from PubMed-linked publications,
+    GitHub repositories and MedExamLLM, then standardized formatting and removed duplicates by question stem and
+    options. Qwen2.5-16B generated knowledge-based or case-based labels, which an experienced neurologist and a
+    preventive medicine clinician independently reviewed and corrected, with disagreements resolved through discussion
+    with a biomedical informatics researcher.
+  example: ''
+  scoring: The predicted answer is automatically compared with the source answer key using exact matching, and accuracy
+    is the percentage of test questions answered correctly, with no partial credit. An overall accuracy of at least
+    60% counts as passing.
+  judge: Exact match with the answer key.
+  scale: Correct or incorrect per question; overall accuracy from 0% to 100%, with a 60% passing threshold.
+  validation: ''
+  results: Among the eight baseline models, Qwen2.5-32B led CNMLEQA-10k at 90.88% accuracy and DeepSeek-R1 led CNMLEQA-3k
+    at 91.59%. Fine-tuned Qwen2.5-7B-LoRA reached 91.43% on CNMLEQA-10k and 88.91% on CNMLEQA-3k.
+  limitations: The authors note that performance can depend on prompt wording and that the educational questions
+    are not intended to provide clinical decision-making advice.
+  sources:
+  - https://doi.org/10.1038/s41597-026-07261-9
+  extracted: '2026-10-27'
 signals:
   citations: 7
   citations_source: OpenAlex

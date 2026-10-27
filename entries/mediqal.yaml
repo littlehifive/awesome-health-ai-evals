@@ -27,6 +27,31 @@ facets:
   eval_methods: [mcq_exact_match, automatic_metric, rubric_llm_judge]
   modality: [text]
   size: "32,603 questions (17,017 MCQU, 10,617 MCQM, 4,969 OEQ)"
+card:
+  task: Answer each French medical question by selecting one or multiple correct options from five choices, or by
+    writing a short free-text answer, using the clinical scenario when provided.
+  items_built: The authors collected questions created and verified by academic and hospital faculty from public
+    exam-preparation websites and forums, extracting multiple-choice items from qcmlab in March 2024 and short-answer
+    items from HTML and PDF files. Filtering left 17,017 single-answer, 10,617 multiple-answer and 4,969 short-answer
+    questions; one medical expert reviewed 150 test questions and judged 124 correct.
+  example: ''
+  scoring: Multiple-choice outputs are compared with the answer key using accuracy for single-answer questions and
+    Exact Match Ratio and Hamming score for multiple-answer questions. Short answers are compared with expert references
+    using ROUGE-1, BLEU-4, BERTScore with roberta-large-mnli, and Gemini-2.0-Flash ratings, which are averaged across
+    examples and scaled to 0-100.
+  judge: Automatic answer-key comparisons and text-similarity metrics score responses, and Gemini-2.0-Flash grades
+    short answers.
+  scale: Accuracy, Exact Match Ratio and Hamming score for multiple choice; ROUGE-1, BLEU-4 and BERTScore for short
+    answers; judge ratings of 1-10, with 0 for missing or unparseable answers, averaged and scaled to 0-100.
+  validation: ''
+  results: o3 led single-answer multiple choice with 73.15% accuracy and short-answer judging with 82.16 out of
+    100. DeepSeek-R1 scored 74.29 and GPT-4o scored 68.83 on short-answer judging.
+  limitations: The authors report incorrect or outdated reference answers and insufficient clinical context in some
+    sampled questions, while generation limits and answer-parsing failures reduced some reasoning models' scores.
+  sources:
+  - https://doi.org/10.1038/s41597-026-06680-y
+  - https://huggingface.co/datasets/ANR-MALADES/MediQAl
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

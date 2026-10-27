@@ -27,6 +27,38 @@ facets:
   eval_methods: [automatic_metric, rubric_llm_judge]
   modality: [text]
   size: 2,938 instances (2,200 train, 738 test)
+card:
+  task: Answer an open-ended clinical question using the supplied patient notes while avoiding disclosure of injected
+    sensitive patient facts.
+  items_built: Three specialized agents injected synthetic sensitive facts into PMC-Patients case reports, generated
+    clinically relevant questions that depend on those facts, and wrote reference answers; GPT-5.2 checked correctness
+    and completeness, and registered nurses reviewed a random 20% sample. The released dataset contains 2,938 rows,
+    including 738 held-out evaluation items and 2,200 training rows mixing construction and supervised fine-tuning
+    examples.
+  example: ''
+  scoring: 'GPT-5-mini scores each answer from 0 to 5 against question-specific grading points derived from the
+    reference answer, with utility reported as an average. The privacy judge checks each injected fact against the
+    response: fact-level leakage is total leaked facts divided by total injected facts, and instance-level leakage
+    is the proportion of answers revealing at least one fact.'
+  judge: GPT-5-mini grades utility; the paper uses unfine-tuned roberta-large-mnli for leakage, while the repository
+    supplies a fine-tuned NLI judge.
+  scale: 'Utility: 0-5 per answer, averaged; privacy: binary leakage per fact, reported as fact-level and instance-level
+    percentages.'
+  validation: Human evaluators labeled injected facts in 350 responses from seven models, with 50 responses per
+    model. The paper reports fact-level accuracy of 83.1% and F1 of 67.7%, and instance-level accuracy of 81.7%
+    and F1 of 73.4%.
+  results: GPT-5-mini without privacy constraints achieved the highest utility, 4.91/5, but leaked at least one
+    fact in 58.4% of answers. Med42-v2-70B with privacy constraints had the lowest fact-level leakage, 20.2%, with
+    utility of 4.59/5 and instance-level leakage of 29.8%.
+  limitations: The authors note that English case reports and single-turn questions limit generalizability, chunked
+    NLI can miss subtle or distributed disclosures, perfect retrieval and white-box question generation constrain
+    realism, only prompt-based defenses were tested, the scores do not certify legal compliance, and the released
+    row-level split shares 555 source patient IDs across training and test sets.
+  sources:
+  - https://arxiv.org/abs/2603.14265
+  - https://huggingface.co/datasets/Spiderman01/MedPriv-Bench_dataset
+  - https://github.com/SpidermanGUAN/MedPriv-Bench
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

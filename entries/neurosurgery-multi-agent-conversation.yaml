@@ -26,6 +26,31 @@ facets:
   eval_methods: [simulated_multi_turn]
   modality: [text]
   size: 608 first-order diagnosis questions (218 text, 390 image-based)
+card:
+  task: Identify the diagnosis, lesion location, or pathology from a neurosurgical vignette or by questioning simulated
+    patient and clinical-data agents, then give a multiple-choice or free-response answer.
+  items_built: The authors used GPT-4o to select 608 first-order diagnosis questions from SANS, comprising 218 text-based
+    and 390 image-based questions, excluding next-step and higher-order reasoning questions. They adapted CRAFT-MD
+    to turn these vignettes into conversations, separating patient-reported information from objective clinical
+    data.
+  example: ''
+  scoring: Multiple-choice answers are scored by matching the answer letter to the reference, while a separate GPT-4o
+    instance checks free-response answers for diagnostic equivalence with reference answers. Each model question
+    is tested five times, and accuracy is the proportion of correct responses within each format; conversation message
+    counts are reported as mean and standard deviation.
+  judge: Automatic letter matching grades multiple-choice answers, and a separate GPT-4o Evaluator AI grades free-response
+    answers.
+  scale: Correct or incorrect per response; percentage accuracy by format with 95% Wilson confidence intervals.
+  validation: ''
+  results: GPT-4o scored 89.0% on text-based multiple-choice vignettes, compared with 67.4% in patient-plus-system
+    conversations; free-response scores were 78.4% and 61.8%, respectively. On the eight-question human comparison
+    subset, ten PGY2-7 neurosurgery residents achieved 70.0% free-response accuracy versus GPT-4o's 28.3%.
+  limitations: The resident benchmark had only 8 questions from a single center, which limits the precision and
+    generalizability of the human comparison, and the system is constrained by the information in the original SANS
+    questions.
+  sources:
+  - https://doi.org/10.1227/neuprac.0000000000000217
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

@@ -28,6 +28,30 @@ facets:
   eval_methods: [mcq_exact_match]
   modality: [text]
   size: 1,438 unified questions (indices only) plus 149 caregiving questions
+card:
+  task: Select the correct option for an ADRD clinical or caregiving question, judge a statement as true or false,
+    or identify a sentence containing a factual error.
+  items_built: The authors extracted questions using ADRD keywords from PubMedQA, HEAD-QA, MedBullets, MedMCQA,
+    MedQA, MEDEC and MedHallu, retaining the original content unchanged; the paper reports 1,352 questions, while
+    the repository and dataset card report 1,438. They also created 149 caregiving questions from de-identified
+    Aging Brain Care education materials and caregiver handouts, all reviewed and refined for accuracy, clarity
+    and appropriateness by a senior clinician who led the program's design and had worked on it for two decades.
+  example: '"The Alzheimer''s patient is unable to perform basic activities of daily living." Answer: False.'
+  scoring: A prediction is correct only when the selected option exactly matches the ground-truth label. Accuracy
+    is reported separately for each set and overall across all questions, with each question equally weighted.
+  judge: Exact match with the answer key.
+  scale: Correct or incorrect per item; proportion correct from 0 to 1 for each set and overall.
+  validation: ''
+  results: Among 33 evaluated models, Llama-3.1-70B-Instruct achieved the highest ADRD Unified QA accuracy at 0.9334.
+    The highest reported ADRD Caregiving QA accuracy was 0.9664, but the supplied text does not identify that model.
+  limitations: The authors identify possible training-data overlap, guessing and answer cues in discrete-choice
+    questions, no assessment of open-ended responses, empathy or multi-turn interaction, and an English-language,
+    U.S.-focused caregiving basis that limits generalizability.
+  sources:
+  - https://arxiv.org/abs/2602.11460
+  - https://huggingface.co/datasets/IIRL-NotreDame/ADRD-Bench
+  - https://github.com/IIRL-ND/ADRD-Bench
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

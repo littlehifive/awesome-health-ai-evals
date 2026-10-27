@@ -26,6 +26,30 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 920 instances (question, factual answer, two contradictory documents), each tested under five prompt templates
+card:
+  task: Answer health questions with YES or NO, either without documents or with correct, incorrect, or contradictory
+    documents supplied as context.
+  items_built: The authors filtered 130 expert-annotated questions from the TREC Health Misinformation Tracks of
+    2019, 2021, and 2022 into 81 questions and 920 contradictory document pairs, using ClueWeb12-B13 and C4 no-clean
+    documents without reusing any document. TREC experts supplied evidence-backed answers, and NIST assessors judged
+    the documents under official guidelines; the authors selected relevant, credible documents and standardized
+    their stance labels to yes or no.
+  example: '"Can coffee help you lose weight?"'
+  scoring: Predicted yes/no labels are compared with the evidence-backed answer key separately for each context
+    setting. Accuracy is the proportion of correct predictions, and macro F1 is the average of the F1 scores for
+    the yes and no classes.
+  judge: Exact match with the expert-annotated answer key.
+  scale: Correct or incorrect per item; accuracy and macro F1 reported as percentages.
+  validation: ''
+  results: GPT-4O performed best across the contextual prompts, but its scores are not given in the supplied text.
+    MEDITRON3-8B achieved 91.1% accuracy with correct context, an 8.7 percentage-point improvement over its no-context
+    performance.
+  limitations: The authors cite resource limits on testing larger models, limited access to human evaluators and
+    clinicians, no clinical risk analysis, incomplete analysis of reasoning processes, prompt-format differences,
+    and TREC coverage that does not fully capture evolving public health issues.
+  sources:
+  - https://arxiv.org/abs/2512.02299
+  extracted: '2026-10-27'
 signals:
   citations: 5
   citations_source: OpenAlex

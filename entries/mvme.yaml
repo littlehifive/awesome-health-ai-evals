@@ -28,6 +28,29 @@ facets:
   eval_methods: [simulated_multi_turn, rubric_llm_judge, automatic_metric]
   modality: [text]
   size: 506 medical records (surgery 180, internal medicine 153, obstetrics and gynecology 94, pediatrics 29, otorhinolaryngology 23, others 27)
+card:
+  task: Conduct a consultation with a simulated patient and examiner, then write a report covering symptoms, examination
+    results, diagnosis, diagnostic reasoning, and treatment.
+  items_built: The authors collected Chinese medical records from iiyi online, and professional physicians screened
+    out deficient records, leaving 506 cases. Specialists reviewed five randomly selected cases from each of 10
+    departments and judged 94% correct across diagnosis, diagnostic reasoning, and treatment.
+  example: ''
+  scoring: GPT-4 compares each of the report's five sections with the complete medical record and assigns a score
+    from 1 to 4, with reported scores normalized to 0 to 100. Separately, disease entities extracted from the predicted
+    and reference diagnoses are linked to standardized entities and compared using set-level precision, recall,
+    and F1.
+  judge: GPT-4 acts as Chief Physician, alongside automated disease-entity overlap scoring.
+  scale: Each report section receives 1 to 4, from poorest to excellent; reported metrics are normalized to 0 to
+    100, with separate disease-entity precision, recall, and F1.
+  validation: ''
+  results: ''
+  limitations: The authors identify limited generalizability beyond Chinese healthcare, incomplete coverage of real-world
+    complexity and rare diseases, differences between simulated and human interactions, treatment scoring that overlooks
+    valid alternatives, and the environmental burden of extensive OpenAI API use.
+  sources:
+  - http://arxiv.org/abs/2402.09742
+  - https://github.com/LibertFan/AI_Hospital
+  extracted: '2026-10-27'
 signals:
   citations: 6
   citations_source: OpenAlex

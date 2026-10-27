@@ -30,6 +30,29 @@ facets:
   modality: [text]
   size: 10,935 translated conversations (1,215 per language, 9 languages)
 adapted_from: [mentalhealthbench]
+card:
+  task: Produce the next assistant reply to the final user message in a translated mental health conversation, retaining
+    any supplied English system context.
+  items_built: Claude Opus 5 and GPT-6 Sol translated the source conversations, which were synthetic and developed
+    with more than 80 licensed psychologists and psychiatrists from 22 countries alongside 5,262 expert-written
+    rubric criteria. Automated checks covered message completeness, truncation, language leakage and formatting,
+    with flagged conversations retranslated; no human translators or clinicians reviewed or edited the translations.
+  example: ''
+  scoring: 'A grader model judges each original English rubric criterion independently against the next assistant
+    response: meeting a positive criterion earns its assigned points, while meeting a negative criterion incurs
+    its penalty. The card recommends reporting the fraction of positive points earned and the penalty burden alongside
+    the task-clipped score, but does not define how that score is calculated.'
+  judge: An unspecified grader model judges responses across languages using English rubric criteria.
+  scale: Signed integer points per criterion; task-clipped score, fraction of positive points earned and penalty
+    burden.
+  validation: ''
+  results: ''
+  limitations: The authors note unverified machine translations, stylistic differences between translation models,
+    ambiguities resolved differently across languages, unadapted cultural context and crisis resources, synthetic
+    topics that do not reflect real-world prevalence, and unvalidated cross-language grading reliability.
+  sources:
+  - https://huggingface.co/datasets/li-lab/MentalHealthBenchX
+  extracted: '2026-10-27'
 signals:
   citations: null
   citations_source: OpenAlex

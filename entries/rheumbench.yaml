@@ -26,6 +26,24 @@ facets:
   eval_methods: [rubric_llm_judge, expert_human_rating]
   modality: [text]
   size: 100 cases, 1,020 rubric criteria
+card:
+  task: Give an open-ended diagnostic or clinical management response to each rheumatology case.
+  items_built: The authors developed 100 clinical cases, comprising 70 diagnostic and 30 clinical management cases,
+    with 1,020 case-specific rubric criteria. Two board-certified rheumatologists independently reviewed and weighted
+    the criteria for clinical appropriateness and potential harm.
+  example: ''
+  scoring: A three-LLM judge panel scored responses against case-specific rubric criteria, producing 50,553 rubric-level
+    evaluations. Overall performance was reported as a RheumBench percentage score, but the abstract does not state
+    how rubric scores were combined.
+  judge: A panel of three LLM judges assigned response scores; their model names are not given.
+  scale: 'Overall RheumBench score: 0-100%; per-criterion scale not stated.'
+  validation: The LLM judge panel had agreement of Cohen's κ = 0.91 with rheumatologist consensus.
+  results: Claude Fable 5 achieved the highest overall RheumBench score of 54.0%. GPT-5.6 Sol achieved the highest
+    reported management score of 72.9% with thorough prompting.
+  limitations: ''
+  sources:
+  - https://doi.org/10.21203/rs.3.rs-10825548/v1
+  extracted: '2026-10-27'
 signals:
   citations: 0
   citations_source: OpenAlex

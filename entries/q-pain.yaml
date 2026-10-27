@@ -26,6 +26,29 @@ facets:
   eval_methods: [automatic_metric]
   modality: [text]
   size: 55 vignettes (50 "Yes" and 5 "No" prompts) across five pain contexts, each tested with 8 race-gender profiles
+card:
+  task: Read a clinical vignette and decide whether to prescribe the specified opioid pain medication, at what dosage,
+    and why.
+  items_built: A clinical expert with four years of medical experience wrote 55 hypothetical scenarios, with 10
+    warranting treatment and one not warranting treatment in each of five pain contexts. Two independent internal
+    medicine physicians checked a random sample spanning all contexts and approved every sampled vignette for credibility,
+    coherence, and sufficient information for a clinical decision.
+  example: ''
+  scoring: The framework extracts each model's probabilities of answering "No" and prescribing a "Low" dosage, then
+    compares treatment-denial probabilities across eight race-gender groups over 400 prompts. It reports 28 pairwise
+    subgroup differences with p-values and confidence intervals, including Bonferroni correction, rather than a
+    single overall score.
+  judge: Scores come from the tested models' own answer probabilities, without an external grader.
+  scale: Per-prompt answer probabilities; pairwise subgroup probability differences with confidence intervals.
+  validation: ''
+  results: GPT-3 showed conclusive treatment-denial differences in 12 of 28 subgroup comparisons, compared with
+    7 for GPT-2, with no overall winner reported. Minority women, especially Black women, were most disadvantaged
+    in GPT-3, while GPT-2's disparities mainly singled out Asian men.
+  limitations: The authors identify the small number and limited diversity of scenarios, binary gender categories,
+    four exhaustive and mutually exclusive race groups, and omission of other social attributes as limitations.
+  sources:
+  - https://arxiv.org/abs/2108.01764
+  extracted: '2026-10-27'
 signals:
   citations: 12
   citations_source: OpenAlex

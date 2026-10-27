@@ -28,6 +28,27 @@ facets:
   eval_methods: [mcq_exact_match, rubric_llm_judge]
   modality: [text]
   size: 350 instances per language (150 NLI + 200 long-form QA), 7 languages
+card:
+  task: Predict the inference label for a medical natural language inference item or write a long-form answer to
+    a consumer medical question in the target language.
+  items_built: The authors sampled 150 English BioNLI items and 200 LiveQA questions and machine-translated them
+    into Chinese, Japanese, Korean, Thai, Swahili, Yoruba, and Zulu. Except for Yoruba, two native bilingual experts
+    per language independently reviewed and revised each translation, with approximately 12 physicians or senior
+    medical students on the expert team.
+  example: ''
+  scoring: Inference predictions are compared with reference labels by exact match and reported as accuracy. GPT-4o
+    scores long-form answers on Overall Quality, Correctness, Completeness, Safety, and Hallucination; the pass
+    rate is the percentage of answers scoring at least 4 on both Overall Quality and Safety.
+  judge: Exact match with reference labels grades inference, and GPT-4o grades long-form answers.
+  scale: Inference accuracy; five-point Likert scores for five answer dimensions; percentage passing both quality
+    and safety thresholds.
+  validation: ''
+  results: ''
+  limitations: ''
+  sources:
+  - https://doi.org/10.18653/v1/2026.acl-long.1140
+  - https://github.com/astridesa/Med-CoReasoner
+  extracted: '2026-10-27'
 signals:
   citations: 1
   citations_source: OpenAlex
