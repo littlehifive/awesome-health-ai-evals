@@ -1,13 +1,66 @@
-// Shared interface pieces: the popover (glossary tips and compare details), the compare
-// store and tray, compare marks, the world map, and small motion helpers.
+// Shared interface pieces: page heads and document layout, the popover (label help, glossary
+// terms, compare details), the compare store and tray, compare marks, and the world map.
 
 import { D, countryName } from "./data.js";
-import { gloss } from "./labels.js";
-import { $, $$, esc, fmt, reducedMotion } from "./util.js";
+import { gloss, term } from "./labels.js";
+import { $, $$, esc, fmt } from "./util.js";
+
+// ---------- Page pieces ----------
+// crumbs: [{href, text}] or strings; the last one is the current page.
+export function crumbs(items) {
+  if (!items || !items.length) return "";
+  return `<ol class="crumbs" aria-label="Breadcrumb">${items.map((c, i) => (typeof c === "string" || i === items.length - 1
+    ? `<li aria-current="page">${esc(c.text || c)}</li>`
+    : `<li><a href="${esc(c.href)}">${esc(c.text)}</a></li>`)).join("")}</ol>`;
+}
+
+export function pageHead({ title, lede = "", actions = "", crumbs: cr = null, extra = "" }) {
+  return `${cr ? crumbs(cr) : ""}<div class="page-head"><h1>${title}</h1>${lede ? `<p class="lede">${lede}</p>` : ""}${actions ? `<div class="actions">${actions}</div>` : ""}${extra}</div>`;
+}
+
+export function chart({ title, sub = "", body, legend = "", note = "" }) {
+  return `<figure class="chart">${title ? `<figcaption class="chart-title">${title}${sub ? `<small>${sub}</small>` : ""}</figcaption>` : ""}${body}${legend}${note ? `<p class="chart-note">${note}</p>` : ""}</figure>`;
+}
+
+// rows: [label, valueHtml, subHtml?]; empty values are left out.
+export function facts(rows, cls = "facts") {
+  const kept = rows.filter((r) => r && r[1]);
+  if (!kept.length) return "";
+  return `<dl class="${cls}">${kept.map(([k, v, sub]) => `<div><dt>${k}</dt><dd>${v}${sub ? `<span class="sub">${sub}</span>` : ""}</dd></div>`).join("")}</dl>`;
+}
+
+// A document page: title block, sticky rail (details panel plus table of contents), sections.
+export function docPage({ crumbs: cr, titleBlock, details = "", sections }) {
+  const secs = sections.filter((s) => s && s.body);
+  return `${crumbs(cr)}<div class="doc"><header class="title-block">${titleBlock}</header>
+    <div class="doc-grid">
+      <aside class="rail" aria-label="Details and contents"><div class="rail-inner">${details}
+        <nav class="toc" aria-labelledby="toc-h"><h2 id="toc-h">On this page</h2><ol>${secs.map((s) => `<li><a href="#${s.id}" data-sec="${s.id}">${esc(s.title)}</a></li>`).join("")}</ol></nav></div></aside>
+      <article class="sections">${secs.map((s) => `<section id="${s.id}" aria-labelledby="${s.id}-h"><h2 id="${s.id}-h">${esc(s.title)}</h2>${s.body}</section>`).join("")}</article>
+    </div></div>`;
+}
+
+// In-page anchors inside the hash router: scroll instead of navigating. Highlights the current one.
+export function bindToc(root) {
+  const links = $$(".toc a[data-sec], .dom-nav a[data-sec]", root);
+  links.forEach((a) => a.addEventListener("click", (ev) => {
+    ev.preventDefault();
+    const el = $(`#${CSS.escape(a.dataset.sec)}`, root);
+    if (el) { el.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" }); el.setAttribute("tabindex", "-1"); el.focus({ preventScroll: true }); }
+  }));
+  if (!("IntersectionObserver" in window) || !links.length) return;
+  const io = new IntersectionObserver((items) => items.forEach((it) => {
+    if (it.isIntersecting) links.forEach((l) => l.classList.toggle("on", l.dataset.sec === it.target.id));
+  }), { rootMargin: "-10% 0px -70% 0px" });
+  links.forEach((a) => { const el = $(`#${CSS.escape(a.dataset.sec)}`, root); if (el) io.observe(el); });
+}
+
+export const tag = (text, cls = "") => `<span class="tag${cls ? ` ${cls}` : ""}">${esc(text)}</span>`;
 
 // ---------- Popover ----------
-// Anything with data-gloss="<glossary id>" or data-pop="<registry key>" opens it on hover,
-// focus, or tap. Clicking pins it open until a click elsewhere or Escape.
+// Anything with data-help="<label id>" (site label help), data-term="<glossary id>" (a domain
+// term), or data-pop="<registry key>" opens it on hover, focus, or tap. Clicking pins it open
+// until a click elsewhere or Escape.
 const pop = () => $("#pop");
 const registry = new Map();
 let anchor = null, pinned = false, showT, hideT;
@@ -16,9 +69,15 @@ export const registerPop = (key, fn) => registry.set(key, fn);
 export const clearPops = () => registry.clear();
 
 function contentFor(el) {
-  if (el.dataset.gloss) {
-    const g = gloss(el.dataset.gloss);
-    return g ? `<b>${esc(g.term)}</b><div>${esc(g.short)}</div><a class="pop-more" href="#/glossary/${g.id}">More in the glossary</a>` : "";
+  if (el.dataset.help) {
+    const g = gloss(el.dataset.help);
+    if (!g) return "";
+    const more = g.term && term(g.term) ? `<a class="pop-more" href="#/glossary/${g.term}">${esc(term(g.term).term)} in the glossary</a>` : "";
+    return `<b>${esc(g.name)}</b><div>${esc(g.short)}</div>${g.long ? `<div class="pop-long">${esc(g.long)}</div>` : ""}${more}`;
+  }
+  if (el.dataset.term) {
+    const t = term(el.dataset.term);
+    return t ? `<b>${esc(t.term)}</b><div>${esc(t.short)}</div><a class="pop-more" href="#/glossary/${t.id}">More in the glossary</a>` : "";
   }
   const fn = registry.get(el.dataset.pop);
   return fn ? fn() : "";
@@ -66,7 +125,7 @@ export function showPopAt(x, y, html) {
 }
 
 export function initPop() {
-  const trigger = (t) => t && t.closest && t.closest("[data-gloss],[data-pop]");
+  const trigger = (t) => t && t.closest && t.closest("[data-help],[data-term],[data-pop]");
   document.addEventListener("mouseover", (ev) => {
     if (matchMedia("(hover: none)").matches || pinned) return;
     const t = trigger(ev.target);
@@ -101,7 +160,7 @@ export function initPop() {
 }
 
 // ---------- Compare store and tray ----------
-// Three fixed slots. A slot keeps its color and shape when another slot is emptied, so an
+// Three fixed slots. A slot keeps its colour and shape when another slot is emptied, so an
 // entry's mark never changes under the reader. Saved in this browser only.
 const KEY = "compare.slots";
 export const MAX_COMPARE = 3;
@@ -124,17 +183,17 @@ export function setSlots(slots) {
 }
 export const slotsParam = (slots) => normalizeSlots(slots).join(",").replace(/,+$/, "");
 
-export function compareBtn(id) {
+export function compareBtn(id, cls = "btn small quiet") {
   const on = getCompare().includes(id);
-  return `<button type="button" class="cmp-toggle" data-compare="${id}" aria-pressed="${on}"><i class="ph ph-${on ? "check" : "plus"}"></i><span>${on ? "In compare" : "Compare"}</span></button>`;
+  return `<button type="button" class="${cls} cmp-toggle" data-compare="${id}" aria-pressed="${on}"><i class="ph ph-${on ? "check" : "plus"}" aria-hidden="true"></i><span>${on ? "In compare" : "Compare"}</span></button>`;
 }
 
-// Each compare slot has its own color and shape, so marks never rely on color alone.
+// Each compare slot has its own colour and shape, so marks never rely on colour alone.
 export function mark(i, size = 14) {
   const fill = `var(--s${i + 1})`;
   const shape = [
     `<circle cx="7" cy="7" r="6" fill="${fill}"/>`,
-    `<rect x="1.5" y="1.5" width="11" height="11" rx="2" fill="${fill}"/>`,
+    `<rect x="1.5" y="1.5" width="11" height="11" rx="1.5" fill="${fill}"/>`,
     `<path d="M7 1 13.4 12.6H.6z" fill="${fill}" stroke="${fill}" stroke-linejoin="round" stroke-width="1"/>`,
   ][i];
   return `<svg class="mark" width="${size}" height="${size}" viewBox="0 0 14 14" aria-hidden="true">${shape}</svg>`;
@@ -151,8 +210,8 @@ export function renderTray() {
   tray.innerHTML = `<div class="tray" role="status">
     ${trayMsg ? `<span>${esc(trayMsg)}</span>` : ""}
     ${n ? `<span class="marks">${slots.map((id, i) => (id ? mark(i) : "")).join("")}</span>
-      <a href="#/compare?ids=${slotsParam(slots)}">Compare ${n}<i class="ph ph-arrow-right"></i></a>
-      <button type="button" data-tray-clear aria-label="Clear the compare list"><i class="ph ph-x"></i></button>` : ""}</div>`;
+      <a href="#/compare?ids=${slotsParam(slots)}">Compare ${n}<i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+      <button type="button" data-tray-clear aria-label="Clear the compare list"><i class="ph ph-x" aria-hidden="true"></i></button>` : ""}</div>`;
 }
 
 export function initCompare() {
@@ -180,7 +239,7 @@ export function initCompare() {
     $$("[data-compare]").forEach((b) => {
       const on = ids.includes(b.dataset.compare);
       b.setAttribute("aria-pressed", on);
-      b.innerHTML = `<i class="ph ph-${on ? "check" : "plus"}"></i><span>${on ? "In compare" : "Compare"}</span>`;
+      b.innerHTML = `<i class="ph ph-${on ? "check" : "plus"}" aria-hidden="true"></i><span>${on ? "In compare" : "Compare"}</span>`;
     });
     renderTray();
   });
@@ -190,12 +249,9 @@ export function initCompare() {
 // ---------- Map ----------
 export const BINS = [["1", 1], ["2 to 5", 5], ["6 to 15", 15], ["16 to 50", 50], ["51 or more", Infinity]];
 export const bin = (n) => (!n ? 0 : BINS.findIndex(([, max]) => n <= max) + 1);
-export const heat = (n) => `var(--heat-${bin(n)})`;
-export const heatInk = (n) => (bin(n) >= 3 ? "var(--on-heat-high)" : "var(--on-heat-low)");
 
-export function legendHtml(title = "Entries per country") {
-  return `<div class="legend" aria-hidden="true">${esc(title)} <i style="background:var(--heat-0)"></i>0
-    ${BINS.map(([label], i) => `<i style="background:var(--heat-${i + 1})"></i>${label}`).join(" ")}</div>`;
+export function legendHtml() {
+  return `<ul class="legend" aria-label="Entries per country"><li style="--sw:var(--m0)">None</li>${BINS.map(([label], i) => `<li style="--sw:var(--m${i + 1})">${label}</li>`).join("")}</ul>`;
 }
 
 let geo;
@@ -211,66 +267,49 @@ function loadGeo() {
 }
 
 // Draws a choropleth of `counts` (ISO3 -> entries) into `box`. Clicking a country with entries
-// goes to href(iso3).
-export async function drawMap(box, { counts, href, label = "World map of where entries' questions come from" }) {
+// goes to href(iso3). Returns {highlight(iso3)} for the map page's search.
+export async function drawMap(box, { counts, href, label = "World map shaded by the number of catalog entries whose questions come from each country" }) {
   try {
     const { d3, features } = await loadGeo();
     const byNumeric = {};
     Object.entries(D.countries).forEach(([iso3, c]) => { if (c.numeric) byNumeric[String(Number(c.numeric))] = iso3; });
-    const w = 760, h = 370;
+    const w = 960, h = 460;
     const proj = d3.geoEqualEarth().fitSize([w, h], { type: "FeatureCollection", features });
     const path = d3.geoPath(proj);
     box.innerHTML = `<svg viewBox="0 0 ${w} ${h}" role="img" aria-label="${esc(label)}">${features.map((f) => {
       const iso = byNumeric[String(Number(f.id))];
       const n = (iso && counts.get(iso)) || 0;
-      return `<path class="country${n ? " has" : ""}" d="${path(f)}" fill="${heat(n)}" data-iso="${iso || ""}" data-n="${n}" data-name="${esc(iso ? countryName(iso) : f.properties.name)}"></path>`;
-    }).join("")}</svg>${legendHtml()}`;
+      return `<path class="country b${bin(n)}${n ? " has" : ""}" d="${path(f)}" data-iso="${iso || ""}" data-n="${n}" data-name="${esc(iso ? countryName(iso) : f.properties.name)}"></path>`;
+    }).join("")}</svg>`;
     const svg = box.querySelector("svg");
     svg.addEventListener("mousemove", (ev) => {
       const p = ev.target.closest("path.country");
       if (!p) return hidePop();
       const iso = p.dataset.iso, n = Number(p.dataset.n);
       const inc = iso && D.countries[iso] ? D.countries[iso].income : "";
-      showPopAt(ev.clientX, ev.clientY, `<b>${p.dataset.name}</b><div>${n ? `${fmt(n)} ${n === 1 ? "entry" : "entries"}` : "No entries"}${inc ? `, ${inc.replace("-", " ")} income` : ""}</div>${n ? "<div>Click to see them</div>" : ""}`);
+      showPopAt(ev.clientX, ev.clientY, `<b>${p.dataset.name}</b><div>${n ? `${fmt(n)} ${n === 1 ? "entry" : "entries"}` : "No entries"}${inc ? `, ${inc.replace("-", " ")} income` : ""}</div>${n ? "<div class=\"muted\">Click to see them</div>" : ""}`);
     });
     svg.addEventListener("mouseleave", hidePop);
     svg.addEventListener("click", (ev) => {
       const p = ev.target.closest("path.country.has");
       if (p && p.dataset.iso) location.hash = href(p.dataset.iso);
     });
+    return {
+      highlight(iso) {
+        $$("path.country.hl", svg).forEach((p) => p.classList.remove("hl"));
+        const p = iso && svg.querySelector(`path.country[data-iso="${CSS.escape(iso)}"]`);
+        if (p) { p.classList.add("hl"); p.parentNode.appendChild(p); }
+      },
+    };
   } catch (err) {
     const list = [...counts.entries()].filter(([c]) => c.length === 3 && c !== "UNKNOWN").sort((a, b) => b[1] - a[1]);
     box.innerHTML = `<p class="muted">The map couldn't load. Here are the countries instead:</p>
       <p>${list.map(([c, n]) => `<a href="${href(c)}">${esc(countryName(c))}</a> <span class="num">${n}</span>`).join(", ")}</p>`;
+    return { highlight() {} };
   }
 }
 
-// ---------- Motion ----------
-// Numbers count up once when they scroll into view. Under reduced motion they just show.
-export function countUp(root) {
-  if (reducedMotion() || !("IntersectionObserver" in window)) return;
-  const io = new IntersectionObserver((items) => items.forEach((it) => {
-    if (!it.isIntersecting) return;
-    io.unobserve(it.target);
-    const el = it.target, to = Number(el.dataset.count), t0 = performance.now(), dur = 900;
-    const step = (t) => {
-      const p = Math.min(1, (t - t0) / dur);
-      el.textContent = fmt(Math.round(to * (1 - Math.pow(1 - p, 3))));
-      if (p < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
-  }), { threshold: 0.4 });
-  $$("[data-count]", root).forEach((el) => { el.textContent = "0"; io.observe(el); });
-}
-
-export function reveal(root) {
-  if (reducedMotion() || !("IntersectionObserver" in window)) return;
-  const io = new IntersectionObserver((items) => items.forEach((it) => {
-    if (it.isIntersecting) { it.target.classList.add("in"); io.unobserve(it.target); }
-  }), { threshold: 0.12 });
-  $$(".reveal", root).forEach((el) => io.observe(el));
-}
-
+// ---------- Copy buttons ----------
 export function initCopy() {
   document.addEventListener("click", async (ev) => {
     const b = ev.target.closest("[data-copy]");
@@ -278,8 +317,8 @@ export function initCopy() {
     const text = $(b.dataset.copy).textContent.trim();
     try {
       await navigator.clipboard.writeText(text);
-      b.innerHTML = `<i class="ph ph-check"></i><span class="sr-only">Copied</span>`;
-      setTimeout(() => (b.innerHTML = `<i class="ph ph-copy"></i><span class="sr-only">Copy</span>`), 1600);
+      b.innerHTML = `<i class="ph ph-check" aria-hidden="true"></i><span class="vh">Copied</span>`;
+      setTimeout(() => (b.innerHTML = `<i class="ph ph-copy" aria-hidden="true"></i><span class="vh">Copy</span>`), 1600);
     } catch (e) { /* clipboard blocked: the text is still selectable */ }
   });
 }

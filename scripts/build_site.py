@@ -4,9 +4,10 @@ Writes three data files and copies the app shell from site/src:
 
 - data/entries.json: entries with derived labels but no terms, plus everything the
   site needs up front (countries, taxonomy, families, glossary, pipeline counts).
-  Home, Catalog, Map and Coverage load only this.
-- data/details.json: each entry's terms (with their construct mappings) and extraction
-  notes, loaded only by views that need them (entry pages, Constructs, Compare).
+  Home and Catalog load only this.
+- data/details.json: each entry's terms (with their construct mappings), its card (the
+  prose facts from scripts/build_cards.py) and extraction notes, loaded only by views
+  that need them (entry pages, construct pages, Compare).
 - data/catalog.json: both combined, as the single-file download.
 
 The site is plain HTML, CSS, and JavaScript; Vercel serves site/dist as-is (see vercel.json).
@@ -28,6 +29,7 @@ import pycountry
 import yaml
 
 from common import ROOT, load_yaml, search_stats
+from counts import catalog_counts, fill, load_terms
 from derive import country_name, grounding, income_groups, item_countries, research_or_practice, who_regions
 from validate import load_entries
 
@@ -51,12 +53,6 @@ def countries() -> dict[str, dict]:
     return out
 
 
-def load_terms() -> dict[str, list[dict]]:
-    terms = {}
-    for path in sorted((ROOT / "terms").glob("*.yaml")):
-        doc = load_yaml(path.read_text()) or {}
-        terms[path.stem] = doc.get("terms") or []
-    return terms
 
 
 def load_data_yaml(name: str) -> dict:
@@ -82,6 +78,8 @@ def main() -> None:
     taxonomy = load_data_yaml("taxonomy/constructs.yaml")
     related = load_data_yaml("data/related.yaml")
     glossary = load_data_yaml("data/glossary.yaml")
+    labels = load_data_yaml("data/labels.yaml")
+    about = load_data_yaml("data/about.yaml")
     # term mappings: (entry id, term) -> [{construct, relationship, status}]
     mapped = {}
     for m in taxonomy.get("mappings", []):
@@ -93,8 +91,11 @@ def main() -> None:
     for eid, e in sorted(entries.items()):
         codes = item_countries(e)
         geo, origin, facets = e["geography"], e["origin"], e["facets"]
-        entry_terms = [{**t, "constructs": mapped.get((eid, t["term"]), [])} for t in terms.get(eid, [])]
-        details[eid] = {"terms": entry_terms, "notes": e["provenance"].get("notes") or ""}
+        tdoc = terms.get(eid) or {"terms": [], "sources": [], "extracted": ""}
+        entry_terms = [{**t, "constructs": mapped.get((eid, t["term"]), [])} for t in tdoc["terms"]]
+        details[eid] = {"terms": entry_terms, "notes": e["provenance"].get("notes") or "",
+                        "sources": tdoc["sources"], "terms_extracted": tdoc["extracted"],
+                        "card": e.get("card") or {}}
         rows.append({
             "id": eid, "name": e["name"], "kind": e["kind"], "year": e["year"], "summary": e["summary"],
             "section": e["readme_section"], "featured": bool(e.get("featured")),
@@ -113,6 +114,7 @@ def main() -> None:
             "methods": facets["eval_methods"], "modality": facets["modality"], "size": facets.get("size") or "",
             "signals": e.get("signals") or {},
             "confidence": e["provenance"]["confidence"], "read_full_text": e["provenance"].get("read_full_text"),
+            "extracted": str(e["provenance"].get("extracted") or ""),
             "n_terms": len(entry_terms),
             "constructs": sorted({m["construct"] for t in entry_terms for m in t["constructs"]}),
         })
@@ -126,6 +128,7 @@ def main() -> None:
                 families.setdefault(parent, []).append(r["id"])
 
     stats = search_stats()
+    shared = catalog_counts(entries, terms, taxonomy)
     meta = {
         "built": date.today().isoformat(),
         "site_url": SITE_URL,
@@ -134,12 +137,13 @@ def main() -> None:
         "domains": taxonomy.get("domains", []),
         "families": families,
         "glossary": glossary,
+        "labels": labels,
+        "about": fill(about, shared),
         "related": {"guidance": top_related(related.get("guidance", [])),
                     "surveys": top_related(related.get("surveys", [])),
                     "counts": {k: len(v) for k, v in related.items()}},
-        "counts": {"entries": len(rows), "terms": sum(r["n_terms"] for r in rows),
-                   "entries_with_terms": sum(1 for d in details.values() if d["terms"]), "constructs": len(taxonomy.get("constructs", [])),
-                   "domains": len(taxonomy.get("domains", [])), "by_section": Counter(r["section"] for r in rows)},
+        "counts": {**{k: v for k, v in shared.items() if k not in ("site", "repo")},
+                   "by_section": Counter(r["section"] for r in rows)},
         "pipeline": stats,
     }
 

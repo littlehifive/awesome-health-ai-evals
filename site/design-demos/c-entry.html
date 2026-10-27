@@ -1,0 +1,443 @@
+<!doctype html>
+<!--
+  Direction C: "Evidence first". Design as the best-suited studio would, from first principles.
+
+  Designer chosen: the Our World in Data design team (the group behind Max Roser and Hannah Ritchie's
+  data publication). Their philosophy: the chart is the argument and the prose explains it, so every
+  data mark carries its title, its source and a download link, and the reader can check the work.
+  Colour is spent only on data and on the few things you can click; everything else is ink on paper,
+  set in a serif-and-sans pairing that reads like a well-edited reference rather than a product.
+  It fits this catalog because the site exists to make one evidence-based point (how much health-AI
+  evaluation evidence comes from low- and middle-income countries) to the same readers they serve:
+  researchers, implementers and funders who want numbers they can trust, on a laptop at work or a
+  phone in the field.
+
+  Design read: Reading this as: a public reference catalog for health researchers and implementers,
+  with Our World in Data's evidence-first, plain-spoken language, built with native CSS.
+  Dials: layout variance low (one grid, one rail), motion low (hover only, reduced-motion respected),
+  density medium-high (a reference work, with air between facts).
+
+  Fonts: Source Serif 4 (headings, ledes, term names) and Source Sans 3 (body and interface),
+  both open source, loaded from Google Fonts for the mockup.
+  Accent: #1F5A86 (deep blue) for links, buttons and selected states; hover #17466A.
+  Radius system: one value, 3px, on every control, chip and panel; tables stay square.
+  Shadows: none; hairlines do the separating.
+
+  Why this direction fits a public health-evaluation catalog: an entry page is a model card, and a model
+  card is only useful if every fact can be traced. So the page is a documentation page in the plain sense:
+  details panel on the right, sections in a fixed order, each scoring term quoted from the source with
+  where it appears, and a Sources section that names the documents and the date they were read.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HealthBench, awesome health ai evals</title>
+<meta name="description" content="HealthBench: a benchmark of 5,000 multi-turn health conversations scored with physician-written rubric criteria, as recorded in the awesome health ai evals catalog.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css">
+<style>
+:root{
+  --bg:#fcfbf8;
+  --surface:#ffffff;
+  --ink:#1c1b19;
+  --ink-2:#4a4844;
+  --muted:#6b6862;
+  --line:#e2dfd8;
+  --line-strong:#c9c5bc;
+  --accent:#1f5a86;
+  --accent-ink:#17466a;
+  --accent-soft:#e6eef5;
+  --radius:3px;
+  --sans:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  --serif:"Source Serif 4",Georgia,"Times New Roman",serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#151617; --surface:#1d1f21; --ink:#ebe9e4; --ink-2:#c9c6bf; --muted:#a39f97;
+    --line:#2e3135; --line-strong:#454950; --accent:#8bbbe3; --accent-ink:#a9cdeb; --accent-soft:#1f2c38;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#151617; --surface:#1d1f21; --ink:#ebe9e4; --ink-2:#c9c6bf; --muted:#a39f97;
+  --line:#2e3135; --line-strong:#454950; --accent:#8bbbe3; --accent-ink:#a9cdeb; --accent-soft:#1f2c38;
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:auto}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.5}
+a{color:var(--accent);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px;transition:color .15s}
+a:hover{color:var(--accent-ink)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:500;line-height:1.15;margin:0;letter-spacing:-.005em}
+p{margin:0}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+@media (max-width:640px){.wrap{padding:0 16px}}
+@media (prefers-reduced-motion: reduce){*{transition:none !important}}
+
+/* Header */
+.site{border-bottom:1px solid var(--line)}
+.site .wrap{display:flex;align-items:center;gap:28px;min-height:60px}
+.brand{display:inline-flex;align-items:center;gap:10px;font-family:var(--serif);font-size:19px;color:var(--ink);text-decoration:none;white-space:nowrap}
+.brand:hover{color:var(--ink)}
+.mark{width:14px;height:14px;border:2px solid var(--accent);border-radius:50%;position:relative;flex:none}
+.mark::after{content:"";position:absolute;inset:2px;background:var(--accent);border-radius:50%}
+.nav{display:flex;gap:2px;margin-left:auto}
+.nav a{color:var(--ink-2);text-decoration:none;padding:6px 10px;border-radius:var(--radius);font-size:16px;transition:background-color .15s,color .15s}
+.nav a:hover{color:var(--ink);background:var(--accent-soft)}
+.nav a[aria-current="page"]{color:var(--ink);box-shadow:inset 0 -2px 0 var(--accent);border-radius:0}
+.tools{display:flex;gap:2px;align-items:center}
+.icon-btn{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border:0;background:none;color:var(--ink-2);border-radius:var(--radius);cursor:pointer;font-size:20px;text-decoration:none;transition:background-color .15s,color .15s}
+.icon-btn:hover{background:var(--accent-soft);color:var(--ink)}
+.menu-btn{display:none}
+.ic-sun{display:none}
+:root[data-theme="dark"] .ic-sun{display:inline}
+:root[data-theme="dark"] .ic-moon{display:none}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .ic-sun{display:inline}
+  :root:not([data-theme="light"]) .ic-moon{display:none}
+}
+@media (max-width:900px){
+  .site .wrap{flex-wrap:wrap;gap:12px}
+  .tools{margin-left:auto}
+  .menu-btn{display:inline-flex}
+  .nav{display:none;order:3;width:100%;flex-direction:column;gap:0;border-top:1px solid var(--line);padding:6px 0 10px;margin:0}
+  .nav.open{display:flex}
+  .nav a{padding:9px 6px;font-size:17px}
+}
+
+/* Buttons and tags */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border:1px solid var(--accent);border-radius:var(--radius);font:inherit;font-weight:500;font-size:16px;line-height:1.2;color:var(--accent);background:transparent;text-decoration:none;cursor:pointer;transition:background-color .15s,color .15s}
+.btn:hover{background:var(--accent-soft);color:var(--accent-ink)}
+.btn.primary{background:var(--accent);color:#fff}
+.btn.primary:hover{background:var(--accent-ink);color:#fff}
+.btn.small{padding:6px 12px;font-size:15px}
+.tag{display:inline-block;padding:2px 8px;border:1px solid var(--line-strong);border-radius:var(--radius);font-size:13.5px;line-height:1.4;color:var(--ink-2);white-space:nowrap}
+.tag.accent{border-color:transparent;background:var(--accent-soft);color:var(--accent)}
+
+/* Document layout */
+.doc{padding:22px 0 0}
+.crumbs{font-size:14.5px;color:var(--muted);margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:4px 0}
+.crumbs li+li::before{content:"/";margin:0 8px;color:var(--line-strong)}
+.crumbs a{color:var(--muted)}
+.crumbs a:hover{color:var(--accent)}
+.title-block{padding:18px 0 28px;border-bottom:1px solid var(--line);max-width:860px}
+.title-block h1{font-size:clamp(32px,3.4vw,44px)}
+.meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0 0;font-size:15.5px;color:var(--ink-2)}
+.lede{font-family:var(--serif);font-size:20px;line-height:1.45;margin:18px 0 0;color:var(--ink)}
+.links{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;margin:20px 0 0;font-size:16px}
+.links a{display:inline-flex;align-items:center;gap:6px}
+.links .ph{font-size:17px}
+.doc-grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:40px 64px;padding-top:32px}
+.rail{order:2;min-width:0}
+.sections{order:1;min-width:0;max-width:760px}
+.rail-inner{position:sticky;top:16px}
+@media (max-width:960px){
+  .doc-grid{grid-template-columns:1fr;gap:28px}
+  .rail{order:1}
+  .sections{order:2}
+  .rail-inner{position:static}
+}
+
+/* Details panel */
+.details{margin:0;padding:16px 18px 6px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}
+.details dt{font-size:13.5px;color:var(--muted);margin-top:0}
+.details dd{margin:1px 0 12px;font-size:15.5px;line-height:1.4}
+.details .sub{display:block;color:var(--muted);font-size:14px}
+@media (max-width:960px){
+  .details{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 20px}
+  .details dt{grid-column:auto}
+}
+@media (max-width:560px){.details{grid-template-columns:1fr}}
+.toc{margin-top:26px;border-top:1px solid var(--line);padding-top:14px}
+.toc h2{font-family:var(--sans);font-size:14px;font-weight:600;color:var(--muted);margin:0 0 6px}
+.toc ol{list-style:none;margin:0;padding:0}
+.toc a{display:block;padding:4px 10px;color:var(--ink-2);text-decoration:none;font-size:15px;border-left:2px solid var(--line);transition:color .15s,border-color .15s}
+.toc a:hover{color:var(--accent);border-left-color:var(--accent)}
+@media (max-width:960px){
+  .toc ol{display:flex;flex-wrap:wrap;gap:4px 14px}
+  .toc a{border-left:0;padding:2px 0;text-decoration:underline;text-decoration-color:var(--line-strong);text-underline-offset:3px}
+}
+
+/* Sections */
+.sections section{padding-bottom:36px;margin-bottom:36px;border-bottom:1px solid var(--line);scroll-margin-top:16px}
+.sections section:last-child{border-bottom:0}
+.sections h2{font-size:27px;margin-bottom:16px}
+.sections h3{font-size:21px;margin:26px 0 10px}
+.sections p{margin:0 0 12px}
+.sections p:last-child{margin-bottom:0}
+.facts{display:grid;grid-template-columns:190px minmax(0,1fr);gap:8px 20px;margin:0 0 14px}
+.facts dt{color:var(--muted);font-size:15.5px}
+.facts dd{margin:0}
+.facts .sub{color:var(--muted);font-size:14.5px}
+@media (max-width:560px){.facts{grid-template-columns:1fr;gap:2px}.facts dt{margin-top:10px}}
+.note{color:var(--ink-2);font-size:15.5px}
+.ids{color:var(--muted);font-size:14px;margin-left:8px}
+.ids code{font-family:inherit}
+
+/* Scoring terms */
+.terms-intro{color:var(--ink-2);font-size:16px;max-width:66ch}
+.term-group{margin-top:22px}
+.term-group h4{font-family:var(--sans);font-size:14.5px;font-weight:600;color:var(--ink-2);margin:0;padding:0 0 8px;border-bottom:1px solid var(--line-strong)}
+.term-group h4 span{font-weight:400;color:var(--muted)}
+.term{display:grid;grid-template-columns:190px minmax(0,1fr);gap:4px 24px;padding:18px 0;border-bottom:1px solid var(--line)}
+.term:last-child{border-bottom:0}
+.term-group.nested .term{padding-left:16px}
+.term h5{font-family:var(--serif);font-size:19px;font-weight:500;margin:0;line-height:1.25}
+.term .tmeta{font-size:13.5px;color:var(--muted);margin-top:6px;line-height:1.45}
+.term .tmeta span{display:block}
+.term blockquote{margin:0;font-size:16px;line-height:1.5;padding-left:14px;border-left:2px solid var(--line-strong);color:var(--ink)}
+.term .para{font-size:13px;color:var(--muted);margin-left:6px;font-style:normal}
+.constructs{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.constructs li{display:inline-flex;border:1px solid var(--line-strong);border-radius:var(--radius);font-size:13.5px;overflow:hidden;line-height:1.4}
+.constructs a{padding:3px 8px;text-decoration:none;color:var(--accent)}
+.constructs a:hover{text-decoration:underline}
+.constructs em{font-style:normal;padding:3px 8px;background:var(--accent-soft);color:var(--ink-2);border-left:1px solid var(--line-strong)}
+@media (max-width:640px){
+  .term{grid-template-columns:1fr;gap:8px}
+  .term-group.nested .term{padding-left:0}
+  .term .tmeta{margin-top:2px}
+}
+
+/* Related and sources */
+.family{list-style:none;margin:0;padding:0}
+.family li{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px;padding:9px 0;border-bottom:1px solid var(--line);font-size:16px}
+.family li:last-child{border-bottom:0}
+.family .yr{color:var(--muted);font-size:15px}
+.src{display:grid;grid-template-columns:190px minmax(0,1fr);gap:10px 20px;margin:0 0 16px;font-size:16px}
+.src dt{color:var(--muted);font-size:15.5px}
+.src dd{margin:0;overflow-wrap:anywhere}
+@media (max-width:560px){.src{grid-template-columns:1fr;gap:2px}.src dt{margin-top:10px}}
+details.notes{border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:0 16px;margin-top:8px}
+details.notes summary{cursor:pointer;padding:12px 0;font-weight:500;list-style:none;display:flex;align-items:center;gap:8px}
+details.notes summary::-webkit-details-marker{display:none}
+details.notes summary .ph{transition:transform .15s}
+details.notes[open] summary .ph{transform:rotate(180deg)}
+details.notes p{padding:0 0 14px;color:var(--ink-2);font-size:15.5px;line-height:1.5}
+
+/* Footer */
+.foot{border-top:1px solid var(--line);margin-top:64px;padding:26px 0 44px;font-size:14.5px;color:var(--muted);line-height:1.5}
+.foot .wrap{display:flex;flex-wrap:wrap;gap:8px 32px;justify-content:space-between}
+.foot a{color:var(--ink-2)}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="c-home.html"><span class="mark" aria-hidden="true"></span>awesome health ai evals</a>
+    <nav class="nav" id="nav" aria-label="Site">
+      <a href="c-catalog.html" aria-current="page">Catalog</a>
+      <a href="c-home.html#map">Map</a>
+      <a href="#">Constructs</a>
+      <a href="#">Compare</a>
+      <a href="#">Glossary</a>
+      <a href="#">About</a>
+    </nav>
+    <div class="tools">
+      <a class="icon-btn" href="https://github.com/" aria-label="GitHub repository"><i class="ph ph-github-logo" aria-hidden="true"></i></a>
+      <button class="icon-btn" id="theme" type="button" aria-label="Switch between light and dark"><i class="ph ph-moon ic-moon" aria-hidden="true"></i><i class="ph ph-sun ic-sun" aria-hidden="true"></i></button>
+      <button class="icon-btn menu-btn" id="menu" type="button" aria-expanded="false" aria-controls="nav" aria-label="Menu"><i class="ph ph-list" aria-hidden="true"></i></button>
+    </div>
+  </div>
+</header>
+
+<main class="doc">
+  <div class="wrap">
+    <ol class="crumbs" id="crumbs" aria-label="Breadcrumb"></ol>
+    <header class="title-block" id="title-block"></header>
+    <div class="doc-grid">
+      <aside class="rail" aria-label="Details and contents">
+        <div class="rail-inner">
+          <dl class="details" id="details"></dl>
+          <nav class="toc" aria-labelledby="toc-h">
+            <h2 id="toc-h">On this page</h2>
+            <ol id="toc"></ol>
+          </nav>
+        </div>
+      </aside>
+      <article class="sections" id="sections"></article>
+    </div>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p>An exploratory catalog, built with LLM help and checked by one person. If something is wrong, <a href="https://github.com/">report it on GitHub</a>.</p>
+    <p><a href="#">Download the data</a></p>
+    <p>Code MIT, content CC BY 4.0</p>
+  </div>
+</footer>
+
+<script src="data.js"></script>
+<script>
+(function(){
+  const D = window.DEMO, L = D.labels, E = D.healthbench;
+  const esc = s => String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+  const fmt = n => Number(n).toLocaleString("en-US");
+  const lab = (map, v) => (L[map] && L[map][v]) || v;
+  const list = (arr, map) => arr.map(v => esc(map ? lab(map, v) : v));
+  const joinList = (arr, map) => list(arr, map).join(", ");
+  const kindLabel = lab("kind", E.kind);
+  const originLabel = lab("origin", E.origin);
+  const sectionLabel = lab("section", E.section);
+  const incomeRegion = [...E.income.map(v => lab("income", v)), ...E.regions.map(v => lab("regions", v))].join(", ");
+  const repo = "https://github.com/";
+
+  // Breadcrumb
+  document.getElementById("crumbs").innerHTML =
+    `<li><a href="c-catalog.html">Catalog</a></li><li><a href="c-catalog.html">${esc(sectionLabel)}</a></li><li aria-current="page">${esc(E.name)}</li>`;
+
+  // Title block
+  const links = [];
+  if (E.links.paper) links.push(`<a href="${esc(E.links.paper)}"><i class="ph ph-file-text" aria-hidden="true"></i>Paper</a>`);
+  if (E.links.huggingface && E.links.huggingface.length) links.push(`<a href="https://huggingface.co/datasets/${esc(E.links.huggingface[0])}"><i class="ph ph-database" aria-hidden="true"></i>Dataset (Hugging Face)</a>`);
+  if (E.links.code) links.push(`<a href="${esc(E.links.code)}"><i class="ph ph-code" aria-hidden="true"></i>Code</a>`);
+  if (E.links.website) links.push(`<a href="${esc(E.links.website)}"><i class="ph ph-globe" aria-hidden="true"></i>Website</a>`);
+  links.push(`<button class="btn small" type="button">Compare</button>`);
+  document.getElementById("title-block").innerHTML = `
+    <h1>${esc(E.name)}</h1>
+    <p class="meta"><span class="tag">${esc(kindLabel)}</span><span>${E.year}</span><span class="tag">${esc(originLabel)}</span>${E.featured ? '<span class="tag accent">Featured</span>' : ""}</p>
+    <p class="lede">${esc(E.summary)}</p>
+    <p class="links">${links.join("")}</p>`;
+
+  // Details panel
+  const details = [
+    ["Type", esc(kindLabel)],
+    ["Year", String(E.year)],
+    ["Size", esc(E.size)],
+    ["How it's scored", joinList(E.methods, "methods")],
+    ["Who it's for", joinList(E.users, "users")],
+    ["Languages", joinList(E.languages)],
+    ["Where the questions come from", joinList(E.country_names) + (incomeRegion ? `<span class="sub">${esc(incomeRegion)}</span>` : "")],
+    ["Health areas", joinList(E.health_areas, "health_areas")],
+    ["Data access and license", esc(lab("open_data", E.open_data)) + (E.license ? `, ${esc(E.license)}` : "")],
+    ["Built by", joinList(E.builders, "builders") + (E.lead_country_names.length ? `<span class="sub">${joinList(E.lead_country_names)}</span>` : "")],
+  ];
+  document.getElementById("details").innerHTML = details.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join("");
+
+  // Sections
+  const sections = [];
+  const sec = (id, title, body) => sections.push({ id, title, body });
+
+  sec("purpose", "Purpose and who it's for", `
+    <dl class="facts">
+      <dt>Intended users</dt><dd>${joinList(E.users, "users")}</dd>
+      <dt>Health areas</dt><dd>${joinList(E.health_areas, "health_areas")}</dd>
+      <dt>Main focus</dt><dd>${esc(sectionLabel)}</dd>
+    </dl>
+    <p>${esc(E.name)} is made for testing chatbots that answer ${list(E.users, "users").map(s => s.toLowerCase()).join(" and ")}, in ${list(E.health_areas, "health_areas").map(s => s.toLowerCase()).join(", ")}. In this catalog its main focus is ${esc(sectionLabel.toLowerCase())}.</p>`);
+
+  sec("contents", "What's in it", `
+    <dl class="facts">
+      <dt>Size</dt><dd>${esc(E.size)}</dd>
+      <dt>How the questions were made</dt><dd>${joinList(E.provenance, "provenance")}</dd>
+      <dt>Languages</dt><dd>${joinList(E.languages)}</dd>
+      <dt>Where the questions come from</dt><dd>${joinList(E.country_names)}${incomeRegion ? ` <span class="sub">${esc(incomeRegion)}</span>` : ""}</dd>
+      ${E.subsets && E.subsets.length ? `<dt>Subsets</dt><dd>${E.subsets.map(s => `${esc(s.name)} (${joinList(s.languages)})`).join("; ")}</dd>` : ""}
+      <dt>Made for this setting?</dt><dd>${esc(lab("localization", E.localization))}</dd>
+    </dl>
+    ${E.origin_note ? `<p class="note">${esc(E.origin_note)}</p>` : ""}`);
+
+  // Scoring terms
+  const rel = r => lab("relationship", r).toLowerCase();
+  const termHtml = t => `
+    <div class="term">
+      <div>
+        <h5>${esc(t.term)}</h5>
+        <div class="tmeta">
+          <span>${esc(t.level.charAt(0).toUpperCase() + t.level.slice(1))}</span>
+          ${t.location ? `<span>${esc(t.location)}</span>` : ""}
+          ${t.scale ? `<span>Scale: ${esc(t.scale)}</span>` : ""}
+        </div>
+      </div>
+      <div>
+        <blockquote>${esc(t.definition)}${t.definition_verbatim ? "" : '<span class="para">Paraphrased</span>'}</blockquote>
+        <ul class="constructs" aria-label="Matched constructs">${t.constructs.map(c =>
+          `<li><a href="#" title="${esc(c.domainName)}">${esc(c.name)}</a><em>${esc(rel(c.relationship))}</em></li>`).join("")}</ul>
+      </div>
+    </div>`;
+  const topLevel = E.terms.filter(t => !t.parent);
+  const parents = [...new Set(E.terms.filter(t => t.parent).map(t => t.parent))];
+  const levelPlural = { axis: "Axes", category: "Categories", dimension: "Dimensions", metric: "Metrics" };
+  const byLevel = {};
+  for (const t of topLevel) (byLevel[t.level] = byLevel[t.level] || []).push(t);
+  let termsBlock = Object.entries(byLevel).map(([lvl, ts]) =>
+    `<div class="term-group"><h4>${esc(levelPlural[lvl] || lvl)} <span>${ts.length}</span></h4>${ts.map(termHtml).join("")}</div>`).join("");
+  termsBlock += parents.map(p => {
+    const ts = E.terms.filter(t => t.parent === p);
+    return `<div class="term-group nested"><h4>${esc(p.charAt(0).toUpperCase() + p.slice(1))} <span>${ts.length}, nested under this label in the source</span></h4>${ts.map(termHtml).join("")}</div>`;
+  }).join("");
+
+  sec("judged", "How answers are judged", `
+    <dl class="facts">
+      <dt>Scoring method</dt><dd>${joinList(E.methods, "methods")}</dd>
+      ${E.rater_country_names && E.rater_country_names.length ? `<dt>Raters based in</dt><dd>${joinList(E.rater_country_names)}</dd>` : ""}
+    </dl>
+    <h3>Scoring terms</h3>
+    <p class="terms-intro">${E.terms.length} terms, quoted from the source with where each appears. Each term is matched to one or more of the catalog's constructs; the match says whether the term means the same idea as the construct, something narrower, something broader, or overlaps it.</p>
+    ${termsBlock}`);
+
+  sec("access", "Access and license", `
+    <dl class="facts">
+      <dt>Data access</dt><dd>${esc(lab("open_data", E.open_data))}</dd>
+      ${E.license ? `<dt>License</dt><dd>${esc(E.license)}</dd>` : ""}
+      ${E.links.huggingface && E.links.huggingface.length ? `<dt>Hugging Face dataset</dt><dd>${E.links.huggingface.map(h => `<a href="https://huggingface.co/datasets/${esc(h)}">${esc(h)}</a>`).join(", ")}</dd>` : ""}
+      ${E.links.code ? `<dt>Code</dt><dd><a href="${esc(E.links.code)}">${esc(E.links.code.replace(/^https?:\/\//, ""))}</a></dd>` : ""}
+    </dl>`);
+
+  const sig = E.signals || {};
+  const sigParts = [];
+  if (sig.citations != null) sigParts.push(`${fmt(sig.citations)} citations${sig.citations_source ? ` (${esc(sig.citations_source)})` : ""}`);
+  if (sig.hf_downloads != null) sigParts.push(`${fmt(sig.hf_downloads)} Hugging Face downloads`);
+  if (sig.github_stars != null) sigParts.push(`${fmt(sig.github_stars)} GitHub stars`);
+  sec("built", "Who built it", `
+    <dl class="facts">
+      <dt>Builder</dt><dd>${joinList(E.builders, "builders")}</dd>
+      ${E.lead_country_names.length ? `<dt>Lead institutions in</dt><dd>${joinList(E.lead_country_names)}</dd>` : ""}
+      <dt>Published as</dt><dd>${esc(lab("venue", E.venue))}</dd>
+      ${sigParts.length ? `<dt>Uptake</dt><dd>${sigParts.join("; ")}${sig.updated ? ` <span class="sub">as of ${esc(sig.updated)}</span>` : ""}</dd>` : ""}
+    </dl>`);
+
+  if (E.family && E.family.length) sec("related", "Related entries", `
+    <p class="note">Entries in this catalog that adapt or extend ${esc(E.name)}.</p>
+    <ul class="family">${E.family.map(f =>
+      `<li><a href="#">${esc(f.name)}</a><span class="yr">${f.year}</span><span class="tag">${esc(lab("origin", f.origin))}</span></li>`).join("")}</ul>`);
+
+  const srcRows = [];
+  if (E.links.paper) srcRows.push(["Paper", `<a href="${esc(E.links.paper)}">${esc(E.links.paper.replace(/^https?:\/\//, ""))}</a>${E.links.doi ? `<span class="ids">DOI ${esc(E.links.doi)}</span>` : ""}${E.links.arxiv ? `<span class="ids">arXiv ${esc(E.links.arxiv)}</span>` : ""}`]);
+  if (E.links.huggingface && E.links.huggingface.length) srcRows.push(["Dataset card", E.links.huggingface.map(h => `<a href="https://huggingface.co/datasets/${esc(h)}">huggingface.co/datasets/${esc(h)}</a>`).join(", ")]);
+  if (E.links.code) srcRows.push(["Code", `<a href="${esc(E.links.code)}">${esc(E.links.code.replace(/^https?:\/\//, ""))}</a>`]);
+  if (E.links.website) srcRows.push(["Website", `<a href="${esc(E.links.website)}">${esc(E.links.website.replace(/^https?:\/\//, ""))}</a>`]);
+  if (E.termsSources && E.termsSources.length) srcRows.push(["Scoring terms copied from", E.termsSources.map(u => `<a href="${esc(u)}">${esc(u.replace(/^https?:\/\//, ""))}</a>`).join(", ") + (E.termsExtracted ? `<span class="ids">read ${esc(E.termsExtracted)}</span>` : "")]);
+  srcRows.push(["Catalog files", `<a href="${repo}">entries/${esc(E.id)}.yaml</a>, <a href="${repo}">terms/${esc(E.id)}.yaml</a> <span class="ids">on GitHub</span>`]);
+  srcRows.push(["Something wrong?", `<a href="${repo}">Report a mistake</a>`]);
+  sec("sources", "Sources", `
+    <p>Facts on this page were taken from the documents below on ${esc(E.extracted)}.${E.read_full_text ? " The full text was read." : ""}</p>
+    <dl class="src">${srcRows.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("")}</dl>
+    ${E.notes ? `<details class="notes"><summary><i class="ph ph-caret-down" aria-hidden="true"></i>Notes from extraction</summary><p>${esc(E.notes)}</p></details>` : ""}`);
+
+  document.getElementById("sections").innerHTML = sections.map(s =>
+    `<section id="${s.id}" aria-labelledby="${s.id}-h"><h2 id="${s.id}-h">${s.title}</h2>${s.body}</section>`).join("");
+  document.getElementById("toc").innerHTML = sections.map(s => `<li><a href="#${s.id}">${s.title}</a></li>`).join("");
+
+  // Theme and menu.
+  const root = document.documentElement;
+  document.getElementById("theme").addEventListener("click", () => {
+    const dark = root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+    root.dataset.theme = dark ? "light" : "dark";
+  });
+  const menu = document.getElementById("menu"), nav = document.getElementById("nav");
+  menu.addEventListener("click", () => {
+    const open = nav.classList.toggle("open");
+    menu.setAttribute("aria-expanded", String(open));
+  });
+})();
+</script>
+</body>
+</html>
