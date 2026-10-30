@@ -54,6 +54,19 @@ function scrollToAnchor(anchor) {
 
 let current = { name: null, mod: null, arg: null };
 
+// Vercel Web Analytics only counts a page view when the pathname changes, and this site routes by
+// hash, so each view reports itself when it mounts (not on in-place filter changes). The path is
+// the hash route without its query, so filters and search text stay out of the analytics; the
+// route groups entry, construct and glossary pages the way Vercel's dashboard expects.
+const PATHS = { home: "/", catalog: "/catalog", entry: "/e", constructs: "/constructs", construct: "/c",
+  compare: "/compare", glossary: "/glossary", about: "/about" };
+function trackView(name, arg) {
+  if (typeof window.va !== "function") return;
+  const base = PATHS[name] || "/";
+  const withId = Boolean(arg) && (name === "entry" || name === "construct" || name === "glossary");
+  window.va("pageview", { path: withId ? `${base}/${arg}` : base, route: withId ? `${base}/[id]` : base });
+}
+
 async function route() {
   const { parts, query, anchor } = parse();
   const [first, arg] = parts;
@@ -72,6 +85,7 @@ async function route() {
     scrollToAnchor(anchor);
     return;
   }
+  trackView(name, arg);
   try {
     const mod = await VIEWS[name]();
     if (current.mod && current.mod.unmount) current.mod.unmount();

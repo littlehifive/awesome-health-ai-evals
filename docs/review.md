@@ -4,7 +4,7 @@ Pass-1 agents worked fast and in parallel, so some entries rest on abstracts, so
 
 ## For each entry
 
-1. **Scope.** Re-read "What counts as an entry" and "Scope" in `docs/plan.md`. Drop the entry if it is:
+1. **Scope.** Re-read the scope and the two entry kinds in step 2 of `docs/extraction.md`. Drop the entry if it is:
    - a one-off study whose items aren't released or described for reuse (`study_no_release`);
    - mainly out of scope: EHR documentation or coding, imaging, biomedical NLP, agent workflow or tool-use tasks with no health question answering or conversation, or a domain-general benchmark where health is a minor slice (`out_of_scope`);
    - a corpus, training set, model-output dump, or copy of another benchmark (`training_data`, `mirror`);

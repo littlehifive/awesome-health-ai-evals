@@ -13,6 +13,13 @@
   <script>
     try { const t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
   </script>
+  <!-- Vercel Web Analytics (cookieless). Auto-tracking is off because the site routes by hash;
+       main.js reports each view with a clean path instead. The script only exists on Vercel. -->
+  <script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    window.va("beforeSend", (e) => ({ ...e, url: e.url.split("#")[0] }));
+  </script>
+  <script defer src="/_vercel/insights/script.js" data-disable-auto-track="1"></script>
 </head>
 <body>
   <a class="skip" href="#app">Skip to content</a>

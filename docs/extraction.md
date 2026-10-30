@@ -11,7 +11,7 @@ These are the instructions given to each Claude extraction agent. Each agent get
    - GitHub repos: `gh api repos/<owner>/<repo>/readme -H "Accept: application/vnd.github.raw" | head -150`.
    - `$PC` is `uv run -q --no-project --python 3.12 --with requests,pyyaml,click,rookiepy python ~/.local/bin/paperclip`. If paperclip reports a rate limit, wait 60 seconds and retry.
 
-2. **Decide.** It is an entry if it is in scope (see `docs/plan.md`) and is either
+2. **Decide.** It is an entry if it is in scope (a model answers health questions or converses about health in natural language, in text or voice, for patients, the public, community health workers, nurses, midwives, or clinicians; not radiology or pathology image question answering, EHR documentation and coding, biomedical NLP, or drug discovery) and is either
    - a **benchmark**: test items plus a scoring method, released or described for reuse; or
    - an **evaluation framework**: a framework or rubric for judging a model's health outputs.
 
