@@ -37,7 +37,7 @@ Every step left files in the repository, so you can check any decision.
 5. **Constructs.** The terms were embedded and clustered. One agent proposed constructs from the clusters, and a second argued against the draft from the view of a primary-care clinician in a low-resource setting. The reconciled result and every decision are in [taxonomy/](taxonomy/), and each term is mapped to constructs with a match type (same idea, narrower, broader, or overlapping).
 6. **Labels.** Entries record facts: languages, countries, who built the set, how questions were made and how answers are scored. Labels such as income group and origin are derived from those facts at build time, using the World Bank classification pinned in [data/countries.csv](data/countries.csv).
 
-Scope and decisions are in [docs/plan.md](docs/plan.md).
+To add new benchmarks or re-run a stage, follow [docs/updating.md](docs/updating.md).
 
 ## Start here
 
@@ -81,7 +81,7 @@ Widely used benchmarks and ones built in low- and middle-income countries. Every
 | [`scripts/`](scripts/) | Search, screening, validation and build scripts. |
 | [`site/`](site/) | The website (plain HTML, CSS and JavaScript). |
 | [`skills/`](skills/) | Claude Code skills that use the catalog. |
-| [`docs/`](docs/) | The plan and the instructions given to agents. |
+| [`docs/`](docs/) | How to re-run each stage, and the instructions given to the extraction, review, term and taxonomy agents. |
 
 ## How not to use it
 
@@ -108,4 +108,4 @@ Open an issue to add a benchmark or correct an entry, or send a pull request tha
 
 Code: MIT. Content (entries, data, README): CC BY 4.0. Datasets are linked, not re-hosted; each keeps its own license.
 
-_Last built 2026-10-27._
+_Last built 2026-10-30._
