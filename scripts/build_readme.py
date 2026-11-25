@@ -29,7 +29,15 @@ def main() -> None:
     taxonomy = yaml.safe_load((ROOT / "taxonomy" / "constructs.yaml").read_text())
     n = catalog_counts(entries, terms, taxonomy)
     about = fill(yaml.safe_load((ROOT / "data" / "about.yaml").read_text()), n)
-    featured = sorted((e for e in entries.values() if e.get("featured")), key=lambda e: (-e["year"], e["name"].lower()))
+    collections = about.get("collections") or []
+    grouped = {eid for c in collections for eid in c["entries"]}
+    featured = sorted((e for e in entries.values() if e.get("featured") and e["id"] not in grouped),
+                      key=lambda e: (-e["year"], e["name"].lower()))
+    item = lambda e: f"- [{e['name']}]({SITE}/#/e/{e['id']}) ({e['year']}). {e['summary']}"  # noqa: E731
+    sets = "".join(
+        f"\n### {c['title']}\n\n{c['text']} [{c.get('link_text') or c['url']}]({c['url']})\n\n"
+        + "\n".join(item(entries[eid]) for eid in c["entries"]) + "\n"
+        for c in collections)
 
     steps = "\n".join(f"{i}. **{s['title']}.** {s['text']}" for i, s in enumerate(about["built"]["steps"], 1))
     uses = []
@@ -61,6 +69,7 @@ flowchart LR
   B --> C["Two LLM screening passes<br>{n['kept']:,} kept"]
   C --> D["Merged and read in full<br>{n['candidates']:,} candidates"]
   D --> E["{n['entries']:,} entries"]
+  M["Added by hand<br>{n['manual']:,} entries"] --> E
   E --> F["{n['terms']:,} scoring terms<br>copied from sources"]
   F --> G["Clustered, then a proposer and<br>a challenger agent drafted constructs"]
   G --> H["{n['constructs']} constructs<br>in {n['domains']} domains"]
@@ -78,8 +87,8 @@ flowchart LR
 
 Widely used benchmarks and ones built in low- and middle-income countries. Everything else is on the [website]({SITE}/#/catalog).
 
-{chr(10).join(f"- [{e['name']}]({SITE}/#/e/{e['id']}) ({e['year']}). {e['summary']}" for e in featured)}
-
+{chr(10).join(item(e) for e in featured)}
+{sets}
 ## Use it
 
 {chr(10).join(uses)}
@@ -109,7 +118,7 @@ Widely used benchmarks and ones built in low- and middle-income countries. Every
 _Last built {date.today().isoformat()}._
 """
     (ROOT / "README.md").write_text(out)
-    print(f"README.md: {n['entries']} entries, {len(featured)} featured")
+    print(f"README.md: {n['entries']} entries, {len(featured) + len(grouped)} featured")
 
 
 if __name__ == "__main__":

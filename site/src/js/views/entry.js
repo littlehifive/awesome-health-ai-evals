@@ -245,6 +245,7 @@ function sectionsFor(e, det) {
     ]) },
     { id: "built", title: "Who built it", body: facts([
       ["Built by", list("builders", e.builders)],
+      ["Part of", e.collection ? `${link(e.collection.url, e.collection.title)}<span class="ids"><a href="#/catalog?q=${encodeURIComponent(e.collection.title)}">all entries in this set</a></span>` : ""],
       ["Lead institutions in", e.lead_countries.length ? esc(join(names(e.lead_countries))) : ""],
       ["Published as", esc(lab("venue", e.venue))],
       ["Year", String(e.year)],

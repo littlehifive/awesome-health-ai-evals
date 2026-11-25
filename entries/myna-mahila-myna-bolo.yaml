@@ -1,0 +1,110 @@
+id: myna-mahila-myna-bolo
+name: Myna Bolo benchmark (Myna Mahila)
+kind: benchmark
+year: 2026
+featured: true
+summary: 1,200 question-and-answer pairs (300 sexual and reproductive health questions, each asked in Hindi, Marathi
+  and both typed in Latin script) from Myna Mahila's chatbot for women in low-income Mumbai neighbourhoods, rated
+  on 11 dimensions by doctors, social workers, a community member and an LLM judge.
+readme_section: multilingual_regional
+links:
+  paper: https://globalhealthbench.org/reports/myna_mahila.pdf
+  website: https://globalhealthbench.org/myna_mahila/
+license: null
+open_data: closed
+geography:
+  item_languages: [Hindi, Marathi]
+  item_origin_countries: [IND]
+  item_origin_note: Questions were written for the benchmark by 100 RANI workers, women from one urban neighbourhood
+    in Mumbai who are trained and paid by Myna Mahila; doctors wrote some of the high-risk ones. The same 300 questions
+    are asked in Hindi, Marathi, Hinglish (Hindi in Latin script) and Minglish (Marathi in Latin script).
+  rater_countries: [IND]
+  localization: native
+  lead_institution_countries: [IND]
+  subsets:
+  - name: Hindi
+    languages: [Hindi]
+    countries: [IND]
+    localization: native
+  - name: Hinglish (Hindi in Latin script)
+    languages: [Hindi]
+    countries: [IND]
+    localization: native
+  - name: Marathi
+    languages: [Marathi]
+    countries: [IND]
+    localization: native
+  - name: Minglish (Marathi in Latin script)
+    languages: [Marathi]
+    countries: [IND]
+    localization: native
+origin:
+  builder_types: [implementer_ngo]
+  item_provenance: [community_written, clinician_written]
+  venue: grey_literature
+facets:
+  health_areas: [srh, maternal_newborn]
+  intended_users: [patient_public]
+  eval_methods: [expert_human_rating, rubric_llm_judge]
+  modality: [text]
+  size: 1,200 question-answer pairs (300 questions in each of 4 language forms); a spoken set of 1,200 questions
+    also exists
+card:
+  task: 'Answer a woman''s typed question about sexual or reproductive health in the language she wrote in: Hindi,
+    Marathi, Hinglish or Minglish.'
+  items_built: 100 RANI workers, women from the community the chatbot serves who are trained and paid by Myna Mahila,
+    were picked from a list of 8,000 and balanced on religion, age group and marital status. Each was given a short
+    story about a woman and wrote the questions that woman would want to ask; doctors wrote some of the high-risk
+    ones. Questions shorter than 5 words were dropped, and 300 were sampled with high- and medium-risk questions
+    taken first (106 high, 98 medium and 96 low risk). The same 300 questions are asked in all 4 languages, and
+    the answer the Myna Bolo chatbot gives to each is what gets scored.
+  example: Vaginal discharge mein blood aa raha hai aur severe weakness feel ho rahi hai. Kya emergency hai? (There
+    is blood in my vaginal discharge and I am feeling very weak. Is this an emergency?)
+  scoring: 'Each answer is rated on 11 dimensions: accuracy, completeness, avoiding harmful advice, escalation,
+    detection of violence or coercion, bias and judgement, privacy, usefulness, clarity, empathy and context awareness.
+    A dimension''s score is the share of answers a rater group marked good on it. Escalation and violence detection
+    are left out of the average where they are not needed. Latency is timed but not scored.'
+  judge: Seven people (3 doctors with 4 to 13 years of experience, 3 social workers with 10 to 11 years, and 1 woman
+    from the community) and an LLM judge, Gemma 4, which scored all 1,200 answers on all 11 dimensions and returned
+    its reasoning. The social workers did not score accuracy.
+  scale: Yes or no on most dimensions, with a 'not needed' option for escalation and violence detection; 3 points
+    for completeness, clarity, empathy and context awareness (for example complete, partly complete, incomplete).
+  validation: 'Four candidate judge models scored the same 40 answers and were compared with the people''s scores.
+    Gemma 4 was closest (mean distance 0.250, exact agreement 63.7%). On the full set it was far stricter than every
+    human group on two dimensions: bias and judgement (46% against 98 to 100%) and escalation (16% against 93 to
+    95%), so the team says it cannot stand in for a person on those two. Paired labellers agreed least on completeness
+    (42 to 80%) and context awareness (41 to 67%), and almost always on harm avoidance, bias and privacy.'
+  score_meaning: Each percentage is the share of answers a rater group marked good on that dimension, reported overall
+    and per language. The team first tried a 1 to 5 scale and dropped it because labellers could not tell neighbouring
+    points apart, then found yes or no too blunt for some dimensions and settled on 3 points. A third of the questions
+    are high risk on purpose, so the scores describe a deliberately hard set, not typical use.
+  annotation_process: One doctor, one social worker and the community member scored all 1,200 answers. The other
+    two doctors and two social workers took two languages each (600 answers), so each language had a fixed pair
+    from each group. Everyone was taken through the 11 dimensions on a live call with definitions, scales and worked
+    examples, then scored 10 practice questions that were discussed before the real scoring began. Where two people
+    disagreed, their scores were averaged.
+  results: The chatbot (a set of OpenAI models behind Myna Bolo, last updated 19 February 2026) was rated 94% on
+    accuracy and 85% on completeness by doctors, and 98 to 100% on avoiding harmful advice by every human group.
+    Doctors rated accuracy 98.2% in Hindi but 85.3% in Minglish on the same 300 questions. Context awareness (54%
+    from doctors, 77% from social workers) and completeness were the weakest dimensions.
+  limitations: Only four language forms are covered. The questions are realistic ones written for the benchmark
+    from short stories, not real user messages or adversarial ones, so they lack a real woman's history and context.
+    The writers all come from one urban neighbourhood in Mumbai; most are 26 to 35 and live with their husbands.
+    Only one model was used as the judge, and response time is the only technical measure.
+  sources:
+  - https://globalhealthbench.org/myna_mahila/
+  - https://globalhealthbench.org/reports/myna_mahila.pdf
+  extracted: '2026-11-25'
+provenance:
+  records: []
+  extracted: '2026-11-25'
+  read_full_text: true
+  confidence: high
+  notes: Added by hand on 2026-11-25 from the Global Health AI Benchmarks site, an initiative of The Agency Fund
+    and Endless Health, so it has no screening record. Facts come from the benchmark's page on that site and the
+    team's report PDF. The site says the complete datasets stay with each organisation. The report plans a public
+    sample of about 200 questions (50 per language) on Hugging Face under CC-BY-NC-SA-4.0; none was found on 2026-11-25,
+    so open_data is closed and license is null. The report names a code repository (github.com/shahmeet18/myna-bolo-health-ai-benchmarking)
+    that was not reachable. Results on the site are for the typed set; a spoken set of 1,200 questions (300 per
+    language) also exists. Lead institution and rater countries are taken from where the service and its labellers
+    work; the report does not give a head office.

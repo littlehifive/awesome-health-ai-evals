@@ -1,0 +1,87 @@
+id: voices-of-care-hausa
+name: Voices of Care (eHealth Africa)
+kind: benchmark
+year: 2026
+featured: true
+summary: 30,000 recordings of about 50 native Hausa speakers reading 15,000 clinician-written community health sentences,
+  with transcripts and 11 intent labels, for testing Hausa speech-to-text and intent recognition for community health
+  worker tools in northern Nigeria.
+readme_section: voice
+links:
+  paper: https://globalhealthbench.org/reports/ehealth_africa.pdf
+  website: https://globalhealthbench.org/ehealth_africa/
+license: CC-BY-4.0
+open_data: closed
+geography:
+  item_languages: [Hausa]
+  item_origin_countries: [NGA]
+  item_origin_note: Scripted sentences read aloud by about 50 native Hausa speakers from the Kano, Zaria, Katsina
+    and Sokoto areas, covering four dialects (Kananci, Zazzaganci, Katsinanci and Sakkwatanci).
+  rater_countries: [NGA]
+  localization: native
+  lead_institution_countries: [NGA]
+origin:
+  builder_types: [implementer_ngo]
+  item_provenance: [clinician_written, llm_generated]
+  venue: grey_literature
+facets:
+  health_areas: [primary_care, public_health]
+  intended_users: [chw]
+  eval_methods: [automatic_metric]
+  modality: [voice]
+  size: 30,000 recordings of about 15,000 sentences (about 50 hours); test sets of 5,375 recordings and 749 sentences
+card:
+  task: 'Two tasks on Hausa speech: transcribe a recording of a community health sentence into written Hausa, and
+    sort a sentence into one of 11 intent groups such as symptom reporting, referral or medication concern.'
+  items_built: Clinicians wrote 15,000 sentences, with help from AI, to read like conversations between community
+    health workers and patients across 10 health topics. Duplicates were removed, and native-Hausa reviewers with
+    community health experience checked the Hausa. About 50 native speakers (25 men and 25 women, from four dialect
+    areas and three age bands) each made about 600 recordings, so every sentence was read by one man and one woman.
+    Trained Hausa-speaking labellers gave each sentence its intent group. The data is split so that no speaker and
+    no sentence is in both the training and the test set.
+  example: tari na ya ƙaru tun da hayaƙi ya fara a kewayen gidana
+  scoring: Transcription is scored by word error rate and character error rate against the sentence the speaker
+    read, after a fixed clean-up step. Intent recognition is scored by accuracy and macro-F1 over the 11 groups,
+    on the written sentence and again on a transcript produced by a speech model. Word error rate is also broken
+    out by gender, dialect and age band.
+  judge: 'No model or human judge: outputs are compared with the reference sentence and the intent label.'
+  scale: Word and character error rate as percentages (lower is better); accuracy and macro-F1 from 0 to 100% (higher
+    is better).
+  validation: Ten trained native-Hausa reviewers checked the written sentence against every recording, and clinicians
+    checked that the sentences were medically appropriate. Results are averages of 4 or 5 training runs with their
+    spread. Any speaker group with fewer than 30 recordings or 3 speakers is reported as a range only and left out
+    of rankings.
+  score_meaning: Word error rate is the number of words wrong per 100 words read. Character error rate is scored
+    on its own because a single Hausa letter, such as a hooked consonant, can change what a word means. Macro-F1
+    counts a rare intent group as much as a common one, so the gap between accuracy and macro-F1 shows how much
+    worse the rare groups are recognised.
+  annotation_process: Clinicians reviewed the sentences across the 10 health topics, native-Hausa reviewers with
+    at least 5 years of community health experience checked the language, 10 reviewers checked each recording against
+    its sentence, and trained labellers with community health backgrounds assigned the intent groups.
+  results: Whisper Large-v3 (15.14% word error rate) and XLSR-53 (15.59%) were the best speech models after training
+    on the data and could not be separated. Afro-XLMR-large put 87.34% of written sentences in the right intent
+    group (macro-F1 68.98%), falling to 79.43% when Whisper had to transcribe the audio first. Treatment, follow-up
+    and medication concern were not reliably recognised, and word error rate was 13.3% for women against 18.6% for
+    men among the 9 test speakers.
+  limitations: Speakers read scripted sentences aloud, so the scores are the best these models could do on real
+    conversation. Headline numbers come from 9 test speakers, recordings were not made on the phones and networks
+    health workers use, and some intent groups have almost no test sentences (medication concern has 1). The benchmark
+    does not judge whether advice is medically right, avoids harm or escalates when it should.
+  sources:
+  - https://globalhealthbench.org/ehealth_africa/
+  - https://globalhealthbench.org/reports/ehealth_africa.pdf
+  extracted: '2026-11-25'
+provenance:
+  records: []
+  extracted: '2026-11-25'
+  read_full_text: true
+  confidence: high
+  notes: 'Added by hand on 2026-11-25 from the Global Health AI Benchmarks site, an initiative of The Agency Fund
+    and Endless Health, so it has no screening record. Facts come from the benchmark''s page on that site and the
+    team''s report PDF. The site says the complete datasets stay with each organisation. The report (version 1.2,
+    5 November 2026) says the dataset went live on Hugging Face (eHealthAfrica/voices-of-care-hausa, CC BY 4.0)
+    on 9 August 2026 and was then made private at the programme''s request, pending a comparison of frontier models;
+    it says public access will be restored afterwards and reviewers can ask for access. The dataset page returned
+    401 and the code repository (github.com/eHealthAfrica/voices-of-care, Apache-2.0) 404 on 2026-11-25, so open_data
+    is closed and neither is listed as a link. The technical partner is Data Science Nigeria / EqualyzAI. Scope:
+    this tests speech recognition and intent recognition, not the quality of health answers.'

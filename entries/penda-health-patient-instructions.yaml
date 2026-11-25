@@ -1,0 +1,89 @@
+id: penda-health-patient-instructions
+name: Penda Health patient instructions benchmark
+kind: benchmark
+year: 2026
+featured: true
+summary: 1,000 outpatient visit records from 18 Penda Health clinics in Nairobi, each with AI-written English and
+  Swahili instructions on medicines, vital signs and lab results, rated for accuracy, safety and clarity by 21 clinical
+  officers and pharmaceutical technologists.
+readme_section: multilingual_regional
+links:
+  paper: https://globalhealthbench.org/reports/penda_health.pdf
+  website: https://globalhealthbench.org/penda_health/
+license: null
+open_data: closed
+geography:
+  item_languages: [English, Swahili]
+  item_origin_countries: [KEN]
+  item_origin_note: Structured records of real outpatient visits at Penda Health's 18 medical centres in Nairobi,
+    created on or after 1 January 2026. Each visit has one set of instructions in English and one in Swahili.
+  rater_countries: [KEN]
+  localization: native
+  lead_institution_countries: [KEN]
+origin:
+  builder_types: [implementer_ngo]
+  item_provenance: [real_user_queries]
+  venue: grey_literature
+facets:
+  health_areas: [primary_care, pharmacy_medication]
+  intended_users: [patient_public]
+  eval_methods: [expert_human_rating, real_user_data]
+  modality: [text]
+  size: 1,000 visit records, each with English and Swahili instructions for medicines, vital signs and lab results
+card:
+  task: From a clinic visit's structured record, write instructions a patient can follow at home on the medicines
+    prescribed, the vital signs taken and the lab results, once in English and once in Swahili, in the form of a
+    WhatsApp message.
+  items_built: The 1,000 most recent eligible outpatient visits created on or after 1 January 2026, one per patient,
+    were drawn from Penda Health's 18 medical centres in Nairobi in proportion to each centre's volume (at least
+    30 from small centres) and to age group and gender. Prescription and dispensing rows were lined up, repeated
+    vital signs cut to the latest reading, and brand names put first with the generic name in brackets. Diagnosis
+    was deliberately left out of what the model is given. GPT-4.1 wrote the instructions.
+  example: 'Medications given to the model: Cefuroxime 500mg — 1 tablet, twice daily after food for 5 days; Paracetamol
+    1000mg — 1 tablet, three times daily after food for 4 days; Ondansetron 4mg — 1 tablet, three times daily as
+    directed for 3 days.'
+  scoring: Clinicians compare each output with the original record and label its accuracy (completely accurate,
+    minor error or major error, with an error type), whether it contains an error that could plausibly harm the
+    patient, whether omissions or ambiguity could lead to unsafe use, and how well an average Kenyan adult would
+    understand it in English and in Swahili, including whether the Swahili reads naturally. Results are the share
+    of outputs at each label, by kind of instruction and language.
+  judge: '21 Kenyan clinical officers and pharmaceutical technologists: 19 labellers, plus a clinical co-in-charge
+    and a pharmaceutical technologist in-charge who reviewed their work. The team chose not to use an LLM judge.'
+  scale: Three levels for accuracy and for clarity, yes or no for harm, three levels for unsafe use (no, minor risk,
+    significant risk), and yes, somewhat or no for Swahili naturalness.
+  validation: A second person scored 10% of the cases, and the two in-charges sent back cases they disagreed with,
+    with a written reason, for the labeller to redo. When the most experienced labellers re-checked samples of the
+    commonest error types with the model's instructions in front of them, most flagged errors were not real (2 of
+    9 medication cases and 3 of 18 lab-label cases were). First-round reviewers had judged vital-sign ranges from
+    their own practice, not from the thresholds the model was given.
+  score_meaning: A minor accuracy error does not change the clinical meaning; a major one does, or something is
+    missing or added. Labellers judged against the original prescription data only, not whether the prescription
+    itself was right. The first-round labels remain the official numbers, so the reported error and harm rates are
+    likely too high.
+  annotation_process: 'Labellers used an annotation platform that showed the visit record beside the English and
+    Swahili outputs. All went through training slides with worked examples and edge cases, then a practice set with
+    agreed answers. There were no discussion meetings: a disputed case went back to the labeller with the reviewer''s
+    reason.'
+  results: With GPT-4.1, medication instructions were completely accurate in 84.8% of English and 86.0% of Swahili
+    outputs, lab results in 71.0% and vital signs in 60.95%. An error that could lead to harm was flagged in 12.4%
+    of English medication outputs, 10.6% of lab outputs and 28.4% of vital-sign outputs. English medication instructions
+    were clearly understandable in 94.6% of cases, and Swahili ones read naturally in 78.4%.
+  limitations: The clinics are urban and peri-urban, so rural care and record-keeping are not represented, and variation
+    outside Nairobi is limited. Prescription and dispensing records sometimes disagree. Leaving out diagnosis means
+    the set cannot separate short-term illness from long-term conditions. Labellers can differ on borderline cases
+    of clarity, naturalness and clinical significance.
+  sources:
+  - https://globalhealthbench.org/penda_health/
+  - https://globalhealthbench.org/reports/penda_health.pdf
+  extracted: '2026-11-25'
+provenance:
+  records: []
+  extracted: '2026-11-25'
+  read_full_text: true
+  confidence: high
+  notes: 'Added by hand on 2026-11-25 from the Global Health AI Benchmarks site, an initiative of The Agency Fund
+    and Endless Health, so it has no screening record. Facts come from the benchmark''s page on that site and the
+    team''s report PDF. The site says the complete datasets stay with each organisation. The report plans a public
+    release on Hugging Face under CC BY-NC 4.0; none was found on 2026-11-25, so open_data is closed and license
+    is null. Items are structured visit records, not questions typed by users; real_user_queries is the nearest
+    code for data from a running service. The tool is pre-deployment: patients do not yet receive these messages.'

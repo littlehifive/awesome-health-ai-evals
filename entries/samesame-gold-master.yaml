@@ -1,0 +1,92 @@
+id: samesame-gold-master
+name: SameSame Gold Master
+kind: benchmark
+year: 2026
+featured: true
+summary: 1,359 WhatsApp messages to a mental health service for queer young people in South Africa and Zimbabwe,
+  each given a suicide-risk level from 0 to 8 by two labellers, for testing how accurately a model grades self-harm
+  risk.
+readme_section: mental_health
+links:
+  paper: https://globalhealthbench.org/reports/samesame.pdf
+  dataset: https://github.com/samesameinc/ai-benchmarking/tree/main/data
+  code: https://github.com/samesameinc/ai-benchmarking
+  website: https://globalhealthbench.org/samesame/
+license: null
+open_data: open
+geography:
+  item_languages: [English]
+  item_origin_countries: [ZAF, ZWE]
+  item_origin_note: Real messages come from WhatsApp conversations with about 17,000 users who agreed to research
+    use; the service mainly serves people aged 18 to 30 in South Africa and Zimbabwe. Messages were also written
+    for risk levels that had few real examples.
+  rater_countries: [ZAF]
+  localization: native
+  lead_institution_countries: [ZAF]
+origin:
+  builder_types: [implementer_ngo]
+  item_provenance: [real_user_queries, llm_generated]
+  venue: grey_literature
+facets:
+  health_areas: [mental_health]
+  intended_users: [patient_public]
+  eval_methods: [automatic_metric, real_user_data]
+  modality: [text]
+  size: 1,359 labelled messages as of August 2026; the set grows with each benchmarking run
+card:
+  task: Read one message from a user of a mental health chat service and give it a suicide-risk level from 0 (no
+    ideation) to 8 (attempt or imminent risk).
+  items_built: Messages come from WhatsApp conversations with about 17,000 users who agreed, in a separate consent
+    step, to research use; identifiers and phone numbers were removed by hand. Because high-risk messages are rare,
+    the team wrote synthetic messages in the style of real ones for the levels with few examples and reviewed them
+    the same way. After each benchmarking run a person reads the messages where the tested model and the Gold Master-augmented
+    judge disagree, and confirmed errors are added with the correct level, so the set keeps growing.
+  example: “I don’t see the point in anything anymore.” Level 2, ambiguous risk.
+  scoring: The model's level is compared with the Gold Master label. Risk accuracy is the share of messages given
+    the exact level. Severity accuracy is the share placed in the right band (low for levels 0 and 1, moderate for
+    2, high for 3 to 7, critical for 8), which is what decides the service's response. Cohen's kappa and weighted
+    kappa are reported for both, along with latency and cost.
+  judge: 'No judge scores free text: labels are compared directly. Gold Master labels come from two people per message,
+    an internal team member who reviews user conversations and an external clinical expert. For large runs on unlabelled
+    archives, the reference is the same model with Gold Master examples added to its prompt.'
+  scale: Nine risk levels (0 to 8) built on the Columbia Suicide Severity Rating Scale, with levels 1 (emotional
+    distress) and 2 (ambiguous risk) added by SameSame, grouped into four severity bands.
+  validation: Two labellers rate each message without seeing the other's answer. Where they agree the label goes
+    into the Gold Master; where they differ the message is marked in dispute and they discuss it until they agree.
+  score_meaning: Level 0 is no ideation, 1 emotional distress, 2 ambiguous risk, 3 passive wish to be dead, 4 active
+    ideation with no method, 5 method without intent, 6 method and intent, 7 plan and intent, 8 attempt or imminent
+    risk. Low-band messages trigger nothing, moderate ones are flagged for a person, high ones get an automatic
+    reply with crisis resources, and critical ones stop the conversation so staff can reach the person directly.
+  annotation_process: Each message is labelled independently by the two labellers, and disagreements are settled
+    by discussion. Disagreements between a tested model and the Gold Master-augmented judge are reviewed by a person
+    and feed new labelled messages into the set.
+  results: With the base prompt and no examples, the best models scored about 72 to 73% on an aggregate of six measures
+    against Gold Master labels (gemini-3.5-flash 73.00%, gpt-5.5 71.69%). Model-family averages were 60.5 to 63.5%
+    for the exact risk level and 70.5 to 73.5% for the severity band. On SameSame's own archive of 899,635 messages,
+    Gemini 3.1 Flash Lite agreed with its Gold Master-augmented version on 94.70% of risk levels and 99.38% of severity
+    bands.
+  limitations: The Gold Master was built in South Africa, in English, in text only and with a focus on the queer
+    community, so how it holds up in other regions or in translation is not known. Handling of emoji that could
+    read as harm statements is uncertain. The clinical scale it builds on was designed for assessing someone in
+    person, not for reading text. Running a benchmark still needs SameSame's involvement.
+  sources:
+  - https://globalhealthbench.org/samesame/
+  - https://globalhealthbench.org/reports/samesame.pdf
+  extracted: '2026-11-25'
+provenance:
+  records: []
+  extracted: '2026-11-25'
+  read_full_text: true
+  confidence: high
+  notes: 'Added by hand on 2026-11-25 from the Global Health AI Benchmarks site, an initiative of The Agency Fund
+    and Endless Health, so it has no screening record. Facts come from the benchmark''s page on that site and the
+    team''s report PDF. The site says the complete datasets stay with each organisation. The Gold Master is data/knowledge_base.json
+    in the public GitHub repository (seen on 2026-11-25), so open_data is open. The code is GPL-3.0; the report
+    says a Creative Commons licence for the dataset is still being finalised, so license is null. The benchmarks
+    index gives 824 messages and the benchmark page 1,359 as of August 2026; the set grows. The repository README
+    groups levels into bands differently from the site (3 as moderate, 4 and 5 as high, 6 to 8 as critical); the
+    site''s bands are used here. The repository also has an optional LLM judge for safety and communication quality
+    of responses, which the site''s results do not use. The site calls the added messages generated and the report
+    calls them synthetic; llm_generated is the nearest code. Scope: this tests risk classification of user messages,
+    not answers. Lead institution and rater countries are taken from the statement that the Gold Master was built
+    in South Africa.'

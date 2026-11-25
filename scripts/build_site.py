@@ -87,6 +87,10 @@ def main() -> None:
             {"construct": m["construct"], "relationship": m.get("relationship", "same"),
              "status": m.get("status", "agreed")})
 
+    # entry id -> the featured set it belongs to (data/about.yaml `collections`)
+    collection_of = {eid: {"id": c["id"], "title": c["title"], "url": c["url"]}
+                     for c in about.get("collections") or [] for eid in c["entries"]}
+
     rows, details = [], {}
     for eid, e in sorted(entries.items()):
         codes = item_countries(e)
@@ -99,6 +103,7 @@ def main() -> None:
         rows.append({
             "id": eid, "name": e["name"], "kind": e["kind"], "year": e["year"], "summary": e["summary"],
             "section": e["readme_section"], "featured": bool(e.get("featured")),
+            "collection": collection_of.get(eid),
             "links": e.get("links") or {}, "license": e.get("license"), "open_data": e["open_data"],
             "adapted_from": e.get("adapted_from") or [],
             "languages": geo["item_languages"], "countries": codes,

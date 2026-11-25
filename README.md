@@ -7,9 +7,9 @@
 
 ## What's inside
 
-- 994 benchmarks and evaluation frameworks (795 benchmarks, 199 frameworks) for judging how a model answers health questions or talks with people about their health.
-- Questions from 72 countries in 75 languages. 177 entries have questions written in low- and middle-income countries, and 6 include questions from a low-income country.
-- 5,950 scoring terms copied from 818 sources, matched to 76 shared constructs in 13 domains, so you can compare benchmarks that use different words for the same thing.
+- 1,003 benchmarks and evaluation frameworks (804 benchmarks, 199 frameworks) for judging how a model answers health questions or talks with people about their health.
+- Questions from 72 countries in 78 languages. 186 entries have questions written in low- and middle-income countries, and 7 include questions from a low-income country.
+- 6,054 scoring terms copied from 827 sources, matched to 76 shared constructs in 13 domains, so you can compare benchmarks that use different words for the same thing.
 
 This is an exploratory catalog, not a systematic review, and language models did most of the reading. Some facts will be wrong. Each entry lists its sources so you can check them.
 
@@ -20,8 +20,9 @@ flowchart LR
   A["Search<br>OpenAlex, paperclip,<br>Hugging Face, GitHub"] --> B["27,837 titles and<br>abstracts screened"]
   B --> C["Two LLM screening passes<br>2,429 kept"]
   C --> D["Merged and read in full<br>2,183 candidates"]
-  D --> E["994 entries"]
-  E --> F["5,950 scoring terms<br>copied from sources"]
+  D --> E["1,003 entries"]
+  M["Added by hand<br>9 entries"] --> E
+  E --> F["6,054 scoring terms<br>copied from sources"]
   F --> G["Clustered, then a proposer and<br>a challenger agent drafted constructs"]
   G --> H["76 constructs<br>in 13 domains"]
   E --> I["Website, README<br>and skills"]
@@ -32,7 +33,7 @@ Every step left files in the repository, so you can check any decision.
 
 1. **Search.** Queries to OpenAlex (keywords, papers citing anchor benchmarks such as MedQA and HealthBench, and the reference lists of surveys), paperclip (arXiv, medRxiv, PubMed Central and an abstracts corpus), Hugging Face and GitHub. 212 logged queries returned 27,750 unique records after removing duplicates by DOI, arXiv ID and title. Queries are in [search/queries.yaml](search/queries.yaml) and hit counts in [search/log.csv](search/log.csv).
 2. **Screening.** A small OpenAI model screened 27,837 titles and abstracts against the inclusion criteria and kept anything uncertain. A larger model rescreened what it kept with a stricter prompt, leaving 2,429 records ([search/screening.csv](search/screening.csv)).
-3. **Reading.** Records about the same benchmark were merged into 2,183 candidates ([search/candidates.csv](search/candidates.csv)). Claude agents read the full text, dataset card or README of each, then wrote an entry with its facts or logged why not ([search/extraction/](search/extraction/)). Review agents rechecked the weakest entries.
+3. **Reading.** Records about the same benchmark were merged into 2,183 candidates ([search/candidates.csv](search/candidates.csv)). Claude agents read the full text, dataset card or README of each, then wrote an entry with its facts or logged why not ([search/extraction/](search/extraction/)). Review agents rechecked the weakest entries. 9 entries were added by hand from sources the search does not reach, such as a program's own website ([docs/updating.md](docs/updating.md)).
 4. **Terms.** For every entry, agents copied each term it scores answers on (an axis, criterion, metric and so on) with its definition in the source's words ([terms/](terms/)). A later pass with the OpenAI API wrote each entry's card from the paper, dataset card or README: what the model has to do, how the items were made, how an output becomes a score and what the score means, who judges it and how, and the headline result ([scripts/build_cards.py](scripts/build_cards.py)).
 5. **Constructs.** The terms were embedded and clustered. One agent proposed constructs from the clusters, and a second argued against the draft from the view of a primary-care clinician in a low-resource setting. The reconciled result and every decision are in [taxonomy/](taxonomy/), and each term is mapped to constructs with a match type (same idea, narrower, broader, or overlapping).
 6. **Labels.** Entries record facts: languages, countries, who built the set, how questions were made and how answers are scored. Labels such as income group and origin are derived from those facts at build time, using the World Bank classification pinned in [data/countries.csv](data/countries.csv).
@@ -56,6 +57,20 @@ Widely used benchmarks and ones built in low- and middle-income countries. Every
 - [MultiMedQA](https://awesome-health-ai-evals-iota.vercel.app/#/e/multimedqa) (2022). A suite of seven English medical QA datasets (MedQA, MedMCQA, PubMedQA, MMLU clinical topics, LiveQA, MedicationQA, and the new HealthSearchQA of 3,173 commonly searched consumer questions), with a human evaluation framework for long-form answers rated by clinicians and lay users.
 - [MedQA](https://awesome-health-ai-evals-iota.vercel.app/#/e/medqa) (2020). About 61,000 multiple-choice questions from medical licensing exams in the United States (USMLE, English), mainland China (simplified Chinese), and Taiwan (traditional Chinese), with a textbook corpus for retrieval; scored by accuracy.
 - [PubMedQA](https://awesome-health-ai-evals-iota.vercel.app/#/e/pubmedqa) (2019). Biomedical research questions taken from PubMed article titles, answered yes, no, or maybe from the abstract; 1,000 expert-annotated test items plus 61,200 unlabeled and 211,300 automatically generated items; scored by accuracy and macro-F1.
+
+### Global Health AI Benchmarks
+
+Nine benchmarks built in 2026 by organizations that run health services in India and Africa, each from its own cases and scored against standards set by its own experts. An initiative of The Agency Fund and Endless Health. The methods, rubrics and results are public, and most of the datasets stay with the organizations. [globalhealthbench.org](https://globalhealthbench.org/about/)
+
+- [Myna Bolo benchmark (Myna Mahila)](https://awesome-health-ai-evals-iota.vercel.app/#/e/myna-mahila-myna-bolo) (2026). 1,200 question-and-answer pairs (300 sexual and reproductive health questions, each asked in Hindi, Marathi and both typed in Latin script) from Myna Mahila's chatbot for women in low-income Mumbai neighbourhoods, rated on 11 dimensions by doctors, social workers, a community member and an LLM judge.
+- [PROMPTS UlizaMama benchmark (Jacaranda Health)](https://awesome-health-ai-evals-iota.vercel.app/#/e/jacaranda-prompts-ulizamama) (2026). 528 real questions texted by Kenyan mothers to the PROMPTS maternal health helpline in English, Swahili or a mix of the two, with the AI's replies scored by four Jacaranda Health staff on clinical safety, tone and cultural fit, and used to test nine LLM judges and their danger-sign detection.
+- [SameSame Gold Master](https://awesome-health-ai-evals-iota.vercel.app/#/e/samesame-gold-master) (2026). 1,359 WhatsApp messages to a mental health service for queer young people in South Africa and Zimbabwe, each given a suicide-risk level from 0 to 8 by two labellers, for testing how accurately a model grades self-harm risk.
+- [ANM assistant benchmark (ARMMAN)](https://awesome-health-ai-evals-iota.vercel.app/#/e/armman-anm-assistant) (2026). 1,010 real questions typed by auxiliary nurse midwives in Uttar Pradesh and Telangana about high-risk pregnancy, in Hindi and Telugu mixed with English, with chatbot answers scored yes or no on factual correctness, completeness and clarity by an LLM judge checked against clinicians.
+- [AfriHealth MultiBench (Intron Health)](https://awesome-health-ai-evals-iota.vercel.app/#/e/afrihealth-multibench) (2026). About 5,200 audio clips of African health workers in 20 languages for three tasks: speech to text, speech translation into English, and answering 385 spoken clinical questions from Nigerian community health extension workers; scored by error rates, translation metrics and a 13-item expert rating.
+- [Voices of Care (eHealth Africa)](https://awesome-health-ai-evals-iota.vercel.app/#/e/voices-of-care-hausa) (2026). 30,000 recordings of about 50 native Hausa speakers reading 15,000 clinician-written community health sentences, with transcripts and 11 intent labels, for testing Hausa speech-to-text and intent recognition for community health worker tools in northern Nigeria.
+- [Pinky Promise copilot benchmark](https://awesome-health-ai-evals-iota.vercel.app/#/e/pinky-promise-copilot) (2026). 996 AI-drafted replies to patients' follow-up questions at an Indian online gynaecology clinic, in English and Hindi, scored on eight metrics by two doctors and an LLM judge; in the service a doctor edits each draft before it is sent.
+- [Ayu 2.0 benchmark (Intelehealth)](https://awesome-health-ai-evals-iota.vercel.app/#/e/intelehealth-ayu) (2026). 1,000 real telemedicine case histories from rural Maharashtra, each with a doctor-confirmed diagnosis, for scoring an AI's ranked list of up to five diagnoses and its treatment plan with top-k accuracy, doctor ratings and LLM judges.
+- [Penda Health patient instructions benchmark](https://awesome-health-ai-evals-iota.vercel.app/#/e/penda-health-patient-instructions) (2026). 1,000 outpatient visit records from 18 Penda Health clinics in Nairobi, each with AI-written English and Swahili instructions on medicines, vital signs and lab results, rated for accuracy, safety and clarity by 21 clinical officers and pharmaceutical technologists.
 
 ## Use it
 
@@ -108,4 +123,4 @@ Open an issue to add a benchmark or correct an entry, or send a pull request tha
 
 Code: MIT. Content (entries, data, README): CC BY 4.0. Datasets are linked, not re-hosted; each keeps its own license.
 
-_Last built 2026-10-30._
+_Last built 2026-11-25._

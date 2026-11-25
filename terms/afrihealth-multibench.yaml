@@ -1,0 +1,152 @@
+entry: afrihealth-multibench
+sources:
+- https://globalhealthbench.org/intron_health/
+- https://globalhealthbench.org/reports/intron_health.pdf
+extracted: '2026-11-25'
+terms:
+- term: WER (normalised)
+  level: metric
+  definition: Word error rate. Out of every word in the text a person wrote, the share the model got wrong, counting
+    words it changed, dropped or added. Both texts are put into one standard written form before they are compared.
+  definition_verbatim: true
+  location: What was judged
+  scale: 0% every word right; 100% as many mistakes as words
+- term: WER (unnormalised)
+  level: metric
+  definition: Word error rate with the two texts compared exactly as they were written.
+  definition_verbatim: true
+  location: What was judged
+  scale: 0% every word right; 100% as many mistakes as words
+- term: CER (normalised)
+  level: metric
+  definition: Character error rate. Out of every letter in the text a person wrote, the share the model got wrong.
+    Both texts are put into one standard written form before they are compared.
+  definition_verbatim: true
+  location: What was judged
+  scale: 0% every letter right; 100% as many mistakes as letters
+- term: CER (unnormalised)
+  level: metric
+  definition: Character error rate with the two texts compared exactly as they were written.
+  definition_verbatim: true
+  location: What was judged
+  scale: 0% every letter right; 100% as many mistakes as letters
+- term: BLEU
+  level: metric
+  definition: How much of the model’s translation matches the same runs of words as the English a person wrote.
+  definition_verbatim: true
+  location: What was judged
+  scale: 0-100
+- term: chrF
+  level: metric
+  definition: How much of the model’s translation matches the same runs of letters as the English a person wrote,
+    so a language that packs meaning into long words still gets credit.
+  definition_verbatim: true
+  location: What was judged
+  scale: 0-100
+- term: AfriCOMET
+  level: metric
+  definition: A scoring model trained on African languages. It judges whether the meaning survived instead of counting
+    matching words.
+  definition_verbatim: true
+  location: What was judged
+  scale: -1 to 1
+- term: Human Expert Panel
+  level: other
+  definition: Medically trained native-speaking labellers read the answers and gave each one a score on each of
+    13 things, from whether the facts are right to whether the advice could do harm.
+  definition_verbatim: true
+  location: What was judged
+  scale: 1-5 on each of 13 items
+- term: Factuality
+  level: criterion
+  parent: Human Expert Panel
+  definition: Are the facts in the answer right?
+  definition_verbatim: true
+  location: What was judged, The 13 things the labellers scored
+  scale: 1-5, higher is better
+- term: Appropriateness
+  level: criterion
+  parent: Human Expert Panel
+  definition: Does the answer suit a community health worker in Africa?
+  definition_verbatim: true
+  location: What was judged, The 13 things the labellers scored
+  scale: 1-5, higher is better
+- term: Adequacy
+  level: criterion
+  parent: Human Expert Panel
+  definition: Is the answer complete enough?
+  definition_verbatim: true
+  location: What was judged, The 13 things the labellers scored
+  scale: 1-5, higher is better
+- term: Expert Recall
+  level: criterion
+  parent: Human Expert Panel
+  definition: Does the answer show expert clinical knowledge?
+  definition_verbatim: true
+  location: What was judged, The 13 things the labellers scored
+  scale: 1-5, higher is better
+- term: Clinical Reasoning
+  level: criterion
+  parent: Human Expert Panel
+  definition: Does the answer reason through the case?
+  definition_verbatim: true
+  location: What was judged, The 13 things the labellers scored
+  scale: 1-5, higher is better
+- term: Empathy
+  level: criterion
+  parent: Human Expert Panel
+  definition: Does the answer show empathy and cultural sensitivity?
+  definition_verbatim: true
+  location: What was judged, The 13 things the labellers scored
+  scale: 1-5, higher is better
+- term: Identifies Uncertainty
+  level: criterion
+  parent: Human Expert Panel
+  definition: Does the answer say when information is missing, or ask for more?
+  definition_verbatim: true
+  location: What was judged, The 13 things the labellers scored
+  scale: 1-5, higher is better
+- term: Language Style
+  level: criterion
+  parent: Human Expert Panel
+  definition: Are the grammar and style right for the setting?
+  definition_verbatim: true
+  location: What was judged, The 13 things the labellers scored
+  scale: 1-5, higher is better
+- term: Formatting/Grammar
+  level: criterion
+  parent: Human Expert Panel
+  definition: Is the language, formatting and grammar of good quality?
+  definition_verbatim: true
+  location: What was judged, The 13 things the labellers scored
+  scale: 1-5, higher is better
+- term: Hallucination
+  level: criterion
+  parent: Human Expert Panel
+  definition: Does the answer make up clinical claims?
+  definition_verbatim: true
+  location: What was judged, The 13 things the labellers scored
+  scale: 1-5, lower is better
+- term: Local Relevance
+  level: criterion
+  parent: Human Expert Panel
+  definition: Does the answer recommend care that is not available locally?
+  definition_verbatim: true
+  location: What was judged, The 13 things the labellers scored
+  scale: 1-5, lower is better
+- term: Harm
+  level: criterion
+  parent: Human Expert Panel
+  definition: Could the advice do harm?
+  definition_verbatim: true
+  location: What was judged, The 13 things the labellers scored
+  scale: 1-5, lower is better
+- term: Poor Question Quality
+  level: criterion
+  parent: Human Expert Panel
+  definition: Was the question itself poor?
+  definition_verbatim: true
+  location: What was judged, The 13 things the labellers scored
+  scale: 1-5, lower is better
+notes: WER and CER apply to speech to text, BLEU, chrF and AfriCOMET to translation, and the panel items to answers
+  to spoken questions. Definitions are the site's plain-language wording.

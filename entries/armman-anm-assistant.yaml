@@ -1,0 +1,86 @@
+id: armman-anm-assistant
+name: ANM assistant benchmark (ARMMAN)
+kind: benchmark
+year: 2026
+featured: true
+summary: 1,010 real questions typed by auxiliary nurse midwives in Uttar Pradesh and Telangana about high-risk pregnancy,
+  in Hindi and Telugu mixed with English, with chatbot answers scored yes or no on factual correctness, completeness
+  and clarity by an LLM judge checked against clinicians.
+readme_section: multilingual_regional
+links:
+  paper: https://globalhealthbench.org/reports/armman.pdf
+  website: https://globalhealthbench.org/armman/
+license: null
+open_data: closed
+geography:
+  item_languages: [Hindi, Telugu]
+  item_origin_countries: [IND]
+  item_origin_note: Production questions from auxiliary nurse midwives in Uttar Pradesh (Hindi) and Telangana (Telugu),
+    January to March 2026. English is mixed in for numbers and medical terms.
+  localization: native
+  lead_institution_countries: [IND]
+  subsets:
+  - name: Hindi (805 questions)
+    languages: [Hindi]
+    countries: [IND]
+    localization: native
+  - name: Telugu (205 questions)
+    languages: [Telugu]
+    countries: [IND]
+    localization: native
+origin:
+  builder_types: [implementer_ngo]
+  item_provenance: [real_user_queries]
+  venue: grey_literature
+facets:
+  health_areas: [maternal_newborn]
+  intended_users: [nurse_midwife]
+  eval_methods: [rubric_llm_judge, expert_human_rating, real_user_data]
+  modality: [text]
+  size: 1,010 questions (805 Hindi, 205 Telugu); 100 answers labelled by clinicians
+card:
+  task: Answer a clinical question typed by an auxiliary nurse midwife about high-risk pregnancy, in Hindi or Telugu
+    mixed with English.
+  items_built: '1,010 questions were sampled from production use of ARMMAN''s chatbot for auxiliary nurse midwives
+    in Uttar Pradesh and Telangana between January and March 2026. They come from six topics that make up more than
+    80% of what nurse midwives ask: general antenatal care, general high-risk pregnancy, anaemia, pregnancy-induced
+    hypertension, gestational diabetes and fever in pregnancy. Questions shorter than 10 characters were left out.
+    Each question has its own answer checklist, written by the judge model from answers the clinicians had marked.'
+  example: Pw ko iron calcium kitni deni h (How much iron and calcium should a pregnant woman be given?)
+  scoring: Each answer gets a yes or no on factual correctness, completeness and clarity, judged against a checklist
+    written for that question. The score on each dimension is the share of answers marked yes.
+  judge: gpt-5.4 as an LLM judge, which reads the question, the answer and that question's checklist and returns
+    a verdict with its reasoning. Four clinicians (2 gynaecologists, a doctor and a nurse trainer with public health
+    experience) labelled a sample of 100 question-answer pairs.
+  scale: Yes or no on each of 3 dimensions.
+  validation: Two clinicians labelled each of 100 question-answer pairs, 50 per language. They agreed on factual
+    correctness 100% of the time in Hindi and 90% in Telugu, on completeness 96% and 76%, and on clarity 84% and
+    80%. The team read 50 questions and checklists per language by hand, rewrote the judge's instructions, and after
+    the full run softened the checklist or the judge where it was stricter than the clinicians.
+  score_meaning: 'A no on completeness means the answer left out something the question''s checklist says must be
+    there, even a gap a clinician would accept. The team calls the benchmark harsh: it fails answers for small omissions
+    and almost never passes an answer that is wrong. It started with seven criteria and cut them to three because
+    they overlapped.'
+  annotation_process: The clinicians worked from written guidelines. Each sampled pair was scored by two clinicians,
+    who added a comment whenever they marked an answer down. Those judgements were turned into the per-question
+    checklists the judge uses.
+  results: The production chatbot (gpt-4.1) scored 73.83% on factual correctness, 42.08% on completeness and 86.63%
+    on clarity. Most failures were omissions, usually the signs that mean the woman needs to see a doctor, which
+    the clinicians did not count as serious mistakes.
+  limitations: Only typed questions were included, which may leave out nurse midwives who are less comfortable typing
+    and prefer to send voice notes.
+  sources:
+  - https://globalhealthbench.org/armman/
+  - https://globalhealthbench.org/reports/armman.pdf
+  extracted: '2026-11-25'
+provenance:
+  records: []
+  extracted: '2026-11-25'
+  read_full_text: true
+  confidence: high
+  notes: Added by hand on 2026-11-25 from the Global Health AI Benchmarks site, an initiative of The Agency Fund
+    and Endless Health, so it has no screening record. Facts come from the benchmark's page on that site and the
+    team's report PDF. The site says the complete datasets stay with each organisation. The report says no data
+    is being released publicly, so open_data is closed. It names a code repository (github.com/armman-ngo/ANM_Assistant_Benchmarking)
+    that was not reachable on 2026-11-25. Rater countries are not stated. Lead institution country is taken from
+    where the service runs.

@@ -1,0 +1,95 @@
+id: intelehealth-ayu
+name: Ayu 2.0 benchmark (Intelehealth)
+kind: benchmark
+year: 2026
+featured: true
+summary: 1,000 real telemedicine case histories from rural Maharashtra, each with a doctor-confirmed diagnosis,
+  for scoring an AI's ranked list of up to five diagnoses and its treatment plan with top-k accuracy, doctor ratings
+  and LLM judges.
+readme_section: multilingual_regional
+links:
+  paper: https://globalhealthbench.org/reports/intelehealth.pdf
+  website: https://globalhealthbench.org/intelehealth/
+license: null
+open_data: closed
+geography:
+  item_languages: [English, Marathi]
+  item_origin_countries: [IND]
+  item_origin_note: Real teleconsultations from the Peth and Surgana blocks of Nashik district, Maharashtra. Health
+    workers fill in the history form in Marathi; the app turns the multiple-choice answers into English and keeps
+    free-text notes in Marathi.
+  rater_countries: [IND]
+  localization: native
+  lead_institution_countries: [IND]
+origin:
+  builder_types: [implementer_ngo]
+  item_provenance: [real_user_queries]
+  venue: grey_literature
+facets:
+  health_areas: [primary_care]
+  intended_users: [clinician, chw]
+  eval_methods: [automatic_metric, rubric_llm_judge, expert_human_rating, real_user_data]
+  modality: [text]
+  size: 1,000 patient case histories, each with one confirmed diagnosis (40 diagnoses in all)
+card:
+  task: From a patient's case history and vital signs taken by a health worker, list up to 5 diagnoses with the
+    most likely first, give the reasoning, and suggest medicines, tests, advice and referral.
+  items_built: 1,000 real teleconsultations from Intelehealth's programme in the Peth and Surgana blocks of Nashik
+    district, Maharashtra (visits from 2022, 2023 and 2025), picked to mirror the local mix of illnesses. Cases
+    with more than one recorded diagnosis, histories too vague to match the diagnosis, and cases that depend on
+    looking at the patient (about 15.8%) were left out. One doctor set the confirmed diagnosis and a second, more
+    senior doctor checked it. Names, birthdates, addresses, phone numbers and images were removed automatically,
+    and patient numbers were replaced with codes.
+  example: 'Female, 43. Fever for 1 day, all day, in the evening and at night, low severity. Pain in the right leg,
+    hip and knee for 2 months, dull and aching with tingling numbness and sharp, burning pain. Confirmed diagnosis:
+    Viral Fever.'
+  scoring: The diagnosis list is compared with the confirmed diagnosis to give top-1 accuracy, top-5 accuracy and
+    mean reciprocal rank. Doctors and an LLM judge also rate the quality of the case history, the appropriateness
+    and comprehensiveness of the diagnosis list, and its clinical depth. For the treatment plan, each medicine is
+    scored on the 10 weighted questions of the Medication Appropriateness Index, and the completeness of the medication
+    list and the appropriateness of tests, advice and referral are rated.
+  judge: 'Doctors, and two LLM judges: one reviews where the confirmed diagnosis sits in the list and the reasoning
+    behind it, and the other scores each part of the treatment plan and each medicine. Scoring all 1,000 cases with
+    the judges costs about $3 to $4.'
+  scale: Top-1 and top-5 accuracy as percentages; mean reciprocal rank from 0 to 1; ratings on 5-point scales; Medication
+    Appropriateness Index answers of 0 (appropriate), 1 (marginally appropriate) or 2 (inappropriate) per question,
+    where lower is better.
+  validation: The LLM judge and the doctors gave similar diagnosis scores (top-1 accuracy 77% against 70.7%, top-5
+    95% against 92.9%). Gemini-3-Flash was run over the labels themselves and flagged 41 cases where the confirmed
+    diagnosis looked wrong and 30 with unclear notes or presentation, so about 7% of labels may be questionable.
+    A second labelling round, with 6 doctors working in groups of 3, is replacing the single confirmed diagnosis
+    with sets of reasonable diagnoses and treatment plans.
+  score_meaning: Top-1 accuracy is the share of cases where the confirmed diagnosis is named first, and top-5 the
+    share where it appears anywhere in the list. Mean reciprocal rank counts 1 when it is first, a half when second
+    and 0 when missing. On comprehensiveness, 5 means the confirmed diagnosis is in the list and 0 means nothing
+    in the list is related. A Medication Appropriateness Index of 0 means the medicine was appropriate on all 10
+    questions.
+  annotation_process: In the first round one doctor set the confirmed diagnosis for each case and a second, more
+    senior doctor checked it, with disagreements discussed. In the second round, still under way, 3 doctors review
+    each case without seeing the original label, then see each other's answers with names hidden and revise, then
+    settle their differences in a moderated discussion.
+  results: By the doctors' scoring, the piloted model named the confirmed diagnosis first in 70.7% of cases and
+    within its 5 in 92.9% (77% and 95% by the LLM judge; mean reciprocal rank 0.80 and 0.85). Doctors rated the
+    diagnosis list highly suitable in 90.8% of cases. In a paired comparison of 20 doctors, diagnostic accuracy
+    was 71.7% with the model against 59.7% without it, and mean consultation time fell from 4.58 to 2.41 minutes.
+  limitations: First-round labels rest mainly on 2 doctors and allow one diagnosis per case, although some patients
+    have more than one. All cases come from Peth and Surgana, common illnesses dominate, and cases that need a visual
+    examination are left out. Histories depend on what patients can describe and what health workers type. The scores
+    do not show how doctors behave in practice or what happens to patients.
+  sources:
+  - https://globalhealthbench.org/intelehealth/
+  - https://globalhealthbench.org/reports/intelehealth.pdf
+  extracted: '2026-11-25'
+provenance:
+  records: []
+  extracted: '2026-11-25'
+  read_full_text: true
+  confidence: high
+  notes: Added by hand on 2026-11-25 from the Global Health AI Benchmarks site, an initiative of The Agency Fund
+    and Endless Health, so it has no screening record. Facts come from the benchmark's page on that site and the
+    team's report PDF. The site says the complete datasets stay with each organisation. The report says a request
+    form for the full dataset will be provided and may involve a licence and a non-disclosure agreement; no form
+    was found on 2026-11-25, so open_data is closed. The judge code is in private repositories. The site says Llama4-Maverick
+    was chosen for the first phase of the pilot and that MedGemma-27b-it now does better on top-1 accuracy; it does
+    not say which model produced each headline number. Lead institution and rater countries are taken from where
+    the programme and its doctors work.

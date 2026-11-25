@@ -10,8 +10,13 @@ by average-linkage cosine distance, and writes:
 - search/work/cluster_digest.txt: a compact view of the clusters for the proposer
   and challenger agents (multi-entry clusters in full, singletons one per line).
 
+Re-clustering renumbers the clusters, and taxonomy/decisions.md and the `clusters` lists in
+constructs.yaml cite them by id. When only a few entries were added, run with --append: it adds
+the terms that are not yet in taxonomy/terms.jsonl, with no cluster, and leaves the clusters
+alone, so scripts/map_terms.py can map them.
+
 Usage:
-    uv run scripts/cluster_terms.py [--threshold 0.45]
+    uv run scripts/cluster_terms.py [--threshold 0.45] [--append]
 """
 
 from __future__ import annotations
@@ -83,9 +88,21 @@ def write_digest(clusters: list[dict]) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--threshold", type=float, default=0.45)
+    parser.add_argument("--append", action="store_true",
+                        help="add terms missing from taxonomy/terms.jsonl without re-clustering")
     args = parser.parse_args()
 
     rows = collect()
+    if args.append:
+        path = ROOT / "taxonomy" / "terms.jsonl"
+        have = {(r["entry"], r["term"]) for r in map(json.loads, path.read_text().splitlines())}
+        new = [r for r in rows if (r["entry"], r["term"]) not in have]
+        with path.open("a") as f:
+            for r in new:
+                f.write(json.dumps({**r, "cluster": None}, ensure_ascii=False) + "\n")
+        print(f"appended {len(new)} terms from {len({r['entry'] for r in new})} entries; clusters unchanged",
+              file=sys.stderr)
+        return
     X = embed([text_of(r) for r in rows])
     X /= np.linalg.norm(X, axis=1, keepdims=True)
     labels = fcluster(linkage(X, method="average", metric="cosine"), t=args.threshold, criterion="distance")
