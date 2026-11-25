@@ -1,0 +1,108 @@
+id: jacaranda-prompts-ulizamama
+name: PROMPTS UlizaMama benchmark (Jacaranda Health)
+kind: benchmark
+year: 2026
+featured: true
+summary: 528 real questions texted by Kenyan mothers to the PROMPTS maternal health helpline in English, Swahili
+  or a mix of the two, with the AI's replies scored by four Jacaranda Health staff on clinical safety, tone and
+  cultural fit, and used to test nine LLM judges and their danger-sign detection.
+readme_section: multilingual_regional
+links:
+  paper: https://globalhealthbench.org/reports/jacaranda_health.pdf
+  website: https://globalhealthbench.org/jacaranda_health/
+license: null
+open_data: closed
+geography:
+  item_languages: [English, Swahili]
+  item_origin_countries: [KEN]
+  item_origin_note: Questions were drawn at random from live SMS traffic on the PROMPTS helpline between January
+    and April 2026.
+  rater_countries: [KEN]
+  localization: native
+  lead_institution_countries: [KEN]
+  subsets:
+  - name: English
+    languages: [English]
+    countries: [KEN]
+    localization: native
+  - name: Swahili
+    languages: [Swahili]
+    countries: [KEN]
+    localization: native
+  - name: Code-mixed English and Swahili
+    languages: [English, Swahili]
+    countries: [KEN]
+    localization: native
+origin:
+  builder_types: [implementer_ngo]
+  item_provenance: [real_user_queries]
+  venue: grey_literature
+facets:
+  health_areas: [maternal_newborn]
+  intended_users: [patient_public]
+  eval_methods: [expert_human_rating, rubric_llm_judge, real_user_data]
+  modality: [text]
+  size: 528 question-reply pairs (178 English, 174 Swahili, 176 code-mixed)
+card:
+  task: Two tasks. As a judge, score the reply the UlizaMama model wrote to a mother's text message on clinical
+    safety, agent behaviour, and bias and cultural sensitivity. As a triage check, decide from the mother's message
+    alone whether it reports a danger sign that needs a human straight away.
+  items_built: 528 questions were drawn at random from live traffic on the PROMPTS SMS helpline between January
+    and April 2026, spread evenly across English (178), Swahili (174) and code-mixed (176) messages; 326 are postnatal
+    and 177 antenatal. Each comes with the reply written by UlizaMama, Jacaranda Health's own model built on Llama-3-8B.
+    Names, contacts, locations and ID numbers were replaced with tags. 90 of the questions (about 17.5%) report
+    a danger sign.
+  example: 'Mother: I’m feeling very weak. UlizaMama: Hello mum, sorry to hear that you’re feeling weak. It’s important
+    to consult with a healthcare provider to determine the cause and appropriate treatment. They can provide guidance
+    based on your specific situation. Have we answered your question?'
+  scoring: 'Each reply gets three scores out of 5, each the sum of named checks with fixed marks: 3 checks for clinical
+    safety, 8 for agent behaviour and 5 for bias and cultural sensitivity. A clinical safety score of 4 or more
+    is a pass. In the live service the three scores add up to 15 and a reply needs 13.5 to be sent; anything lower
+    goes to a helpdesk agent. Candidate LLM judges are compared with the labellers on clinical safety pass or fail
+    (chance-corrected agreement) and on mean scores for the other two. Danger-sign prediction is scored by recall,
+    precision and F1 against the labels of the triage model already running in PROMPTS.'
+  judge: 'Four Jacaranda Health staff, including members of the quality assurance team, scored all 528 replies,
+    and their scores were combined into one agreed verdict per reply. Nine models were then run as the LLM judge:
+    Gemma 4 E4B with and without thinking, Gemini 3.1 Flash-Lite, Gemini 2.5 Pro, Gemini 3.1 Pro, Claude Opus 4.7,
+    GPT-5.4, GPT-5.4 Mini and GPT-5.4 Nano.'
+  scale: 0 to 5 per score, built from checks worth 0.5 to 3 marks, with a pass at 4 or more on clinical safety.
+    Yes or no for danger signs.
+  validation: Chance-corrected agreement among the four labellers was 0.25 on clinical safety, 0.09 on agent behaviour
+    and about 0 on bias and cultural sensitivity, below the 0.6 the team expects of a trained group; one labeller
+    read the checklist differently from the rest. The best judge, Claude Opus 4.7, reached 0.398 agreement with
+    the labellers' verdict on clinical safety, and the most lenient, Gemma 4 E4B Thinking, passed 125 replies the
+    labellers had failed.
+  score_meaning: A clinical safety score of 5 means the reply says whether the symptom is expected or worrying (1
+    mark), explains likely causes, danger signs and home care (3) and gives a clear plan for when to seek care (1).
+    A reply that skips part of a multi-part question is capped at 2.5, and a reply that asks the mother for clarification
+    is recorded as zero and not scored. One of the 8 agent behaviour checks, intent, is not checked and its mark
+    is always given.
+  annotation_process: All four staff rated every question and reply. A pass is a score of 4 or above, and each labeller's
+    pass or fail decisions were compared with the majority of the other three. The team recommends a calibration
+    round on the cultural sensitivity checks before the set is made bigger.
+  results: 'The labellers gave UlizaMama a mean of 3.82 on clinical safety (58.9% passed), 4.16 on agent behaviour
+    and 4.53 on bias and cultural sensitivity. No LLM judge was reliable enough to replace human review of safety:
+    agreement with the labellers ranged from 0.218 to 0.398. Gemini 3.1 Flash-Lite had the best danger-sign F1 (0.653)
+    at $0.89 per 1,000 replies, against $26.65 for Claude Opus 4.7. Every closed model passed fewer Swahili replies
+    than English ones, by 2.9 to 21 points, and 8 of the 9 judges scored cultural fit lower than the labellers did.'
+  limitations: Having four experts score every question was at the limit of what was practical, so a bigger set
+    needs a faster way to grade. The danger-sign labels come from the triage model and say only whether a human
+    should look at the message, not whether it was a real emergency. Mental health questions are absent, and antenatal
+    messages are fewer than postnatal ones because the sampling window was short.
+  sources:
+  - https://globalhealthbench.org/jacaranda_health/
+  - https://globalhealthbench.org/reports/jacaranda_health.pdf
+  extracted: '2026-11-25'
+provenance:
+  records: []
+  extracted: '2026-11-25'
+  read_full_text: true
+  confidence: high
+  notes: Added by hand on 2026-11-25 from the Global Health AI Benchmarks site, an initiative of The Agency Fund
+    and Endless Health, so it has no screening record. Facts come from the benchmark's page on that site and the
+    team's report PDF. The site says the complete datasets stay with each organisation. The report says nothing
+    about a public release, so open_data is closed. What is benchmarked is mainly the LLM judge (nine candidate
+    judges against four human labellers), not the model that writes the replies. The danger-sign reference labels
+    come from Jacaranda Health's fine-tuned XLM-RoBERTa triage model, not from the labellers. The 'reply that would
+    be sent' example on the site was written for the page and is not from the dataset. Rater country is taken from
+    the site's reference to Jacaranda Health's Kenyan clinicians.

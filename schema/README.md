@@ -78,7 +78,7 @@ provenance:
 
 **origin**
 - `builder_types`: `academic`, `industry_lab` (AI companies and their research labs), `implementer_ngo` (organizations that run health programs or deploy chatbots), `government`, `multilateral` (WHO, UNICEF, World Bank, etc.).
-- `item_provenance`: where the items came from: `real_user_queries` (from a deployed service), `clinician_written`, `exam_questions`, `llm_generated`, `adapted_dataset`, `web_forum` (public Q&A sites), `literature` (papers, guidelines, textbooks), `not_applicable` (frameworks with no items), `unknown`.
+- `item_provenance`: where the items came from: `real_user_queries` (from a deployed service), `clinician_written`, `community_written` (written for the benchmark by people from the community the service is for, such as lay health workers or intended users), `exam_questions`, `llm_generated`, `adapted_dataset`, `web_forum` (public Q&A sites), `literature` (papers, guidelines, textbooks), `not_applicable` (frameworks with no items), `unknown`.
 - `venue`: `peer_reviewed` (journal or peer-reviewed proceedings), `preprint`, `grey_literature` (reports, blog posts, dataset cards only).
 
 **facets**

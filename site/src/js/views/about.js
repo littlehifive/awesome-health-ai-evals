@@ -7,7 +7,13 @@ import { REPO, esc, fmt, md, setTitle } from "../util.js";
 export function mount({ app }) {
   setTitle("About");
   const A = D.meta.about, C = D.meta.counts, R = D.meta.related;
-  const featured = D.entries.filter((e) => e.featured).sort((a, b) => b.year - a.year || a.name.localeCompare(b.name));
+  const sets = A.collections || [];
+  const grouped = new Set(sets.flatMap((c) => c.entries));
+  const featured = D.entries.filter((e) => e.featured && !grouped.has(e.id)).sort((a, b) => b.year - a.year || a.name.localeCompare(b.name));
+  const startItem = (e) => `<li><a href="#/e/${e.id}">${esc(e.name)}</a><span class="yr num">${e.year}</span>. ${esc(e.summary)}</li>`;
+  const setBlock = (c) => `<h3 id="${esc(c.id)}">${esc(c.title)}</h3>
+      <p>${md(c.text)} <a href="${esc(c.url)}">${esc(c.link_text || c.url)}</a></p>
+      <ul class="start">${c.entries.map((id) => D.byId.get(id)).filter(Boolean).map(startItem).join("")}</ul>`;
   const reading = (items) => `<ul class="reading">${items.map((it) => `<li><a href="${esc(it.url)}">${esc(it.title)}</a>${it.year ? ` (${it.year})` : ""}${it.by ? `. ${esc(it.by)}` : ""}.</li>`).join("")}</ul>`;
 
   const sections = [
@@ -21,7 +27,7 @@ export function mount({ app }) {
       <p style="margin-top:14px">${md(A.built.outro)}</p>` },
     { id: "start", title: "Start here", body: `
       <p>Widely used benchmarks and ones built in low- and middle-income countries. Everything else is in the <a href="#/catalog">catalog</a>.</p>
-      <ul class="start">${featured.map((e) => `<li><a href="#/e/${e.id}">${esc(e.name)}</a><span class="yr num">${e.year}</span>. ${esc(e.summary)}</li>`).join("")}</ul>` },
+      <ul class="start">${featured.map(startItem).join("")}</ul>${sets.map(setBlock).join("")}` },
     { id: "use", title: "Use it", body: `
       <ul class="plain">${A.use.map((u) => `<li><b>${esc(u.title)}.</b> ${md(u.text)}${u.code ? `<div class="code"><span id="code-${esc(u.title).replace(/\W+/g, "-")}">${u.code.map(esc).join("\n")}</span><button class="icon-btn copy" type="button" data-copy="#code-${esc(u.title).replace(/\W+/g, "-")}" aria-label="Copy"><i class="ph ph-copy" aria-hidden="true"></i><span class="vh">Copy</span></button></div>` : ""}</li>`).join("")}</ul>` },
     { id: "layout", title: "Repository layout", body: `

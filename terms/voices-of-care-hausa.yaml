@@ -1,0 +1,41 @@
+entry: voices-of-care-hausa
+sources:
+- https://globalhealthbench.org/ehealth_africa/
+- https://globalhealthbench.org/reports/ehealth_africa.pdf
+extracted: '2026-11-25'
+terms:
+- term: Word Error Rate
+  level: metric
+  definition: out of every 100 words in the sentence the speaker read, how many the model gets wrong. Lower is better.
+  definition_verbatim: true
+  location: What was judged
+  scale: '%, lower is better'
+- term: Character Error Rate
+  level: metric
+  definition: out of every 100 letters, how many are wrong. In Hausa a single letter can change the meaning of a
+    word, so this is scored on its own.
+  definition_verbatim: true
+  location: What was judged
+  scale: '%, lower is better'
+- term: Accuracy
+  level: metric
+  definition: out of every 100 sentences, how many the model put in the right one of the 11 groups.
+  definition_verbatim: true
+  location: What was judged
+  scale: '%, higher is better'
+- term: Macro-F1
+  level: metric
+  definition: the same test scored again so that a rare group counts for as much as a common one.
+  definition_verbatim: true
+  location: What was judged
+  scale: '%, higher is better'
+- term: Whether the error rate is the same for every speaker
+  level: other
+  definition: Does the model do as well for women as for men, for each of the 4 dialects, and for older speakers
+    as for younger ones? This has to be broken out and published rather than reported as one average.
+  definition_verbatim: true
+  location: What was judged
+  scale: word error rate by gender, dialect and age band
+notes: The 11 intent groups are information seeking, clinical assessment, prevention and counselling, symptom reporting,
+  risk / history / context disclosure, treatment, follow-up / status update, vaccine recommendation / administration,
+  referral, diagnosis / results communication, and medication concern.

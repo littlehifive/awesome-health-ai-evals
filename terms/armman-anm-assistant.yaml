@@ -1,0 +1,27 @@
+entry: armman-anm-assistant
+sources:
+- https://globalhealthbench.org/armman/
+- https://globalhealthbench.org/reports/armman.pdf
+extracted: '2026-11-25'
+terms:
+- term: Factual correctness
+  level: dimension
+  definition: Is the response factually and medically correct, with no incorrect or misleading information?
+  definition_verbatim: true
+  location: What was judged
+  scale: Yes / No
+- term: Completeness
+  level: dimension
+  definition: Does the response provide all the important information needed to answer the question appropriately?
+  definition_verbatim: true
+  location: What was judged
+  scale: Yes / No
+- term: Clarity
+  level: dimension
+  definition: Is the response clear, understandable, and appropriately phrased for the intended user, the nurse
+    midwife?
+  definition_verbatim: true
+  location: What was judged
+  scale: Yes / No
+notes: Each question also has its own checklist of what a satisfactory answer must contain, written by the judge
+  model from clinician-marked answers; completeness is judged against it.

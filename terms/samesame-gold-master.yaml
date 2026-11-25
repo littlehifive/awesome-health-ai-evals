@@ -1,0 +1,47 @@
+entry: samesame-gold-master
+sources:
+- https://globalhealthbench.org/samesame/
+- https://globalhealthbench.org/reports/samesame.pdf
+- https://github.com/samesameinc/ai-benchmarking
+extracted: '2026-11-25'
+terms:
+- term: Risk Accuracy
+  level: metric
+  definition: Risk Accuracy is how often the model picked the exact level, 0 to 8.
+  definition_verbatim: true
+  location: Evaluation results
+  scale: '% exact match on 9 levels'
+- term: Severity Accuracy
+  level: metric
+  definition: Severity Accuracy is how often it picked the right band of Low, Moderate, High or Critical.
+  definition_verbatim: true
+  location: Evaluation results
+  scale: '% exact match on 4 bands'
+- term: Cohen's Kappa
+  level: metric
+  definition: Agreement with the Gold Master labels adjusted for the class imbalance in the dataset, computed separately
+    for risk level and severity band.
+  definition_verbatim: false
+  location: Evaluation results
+  scale: kappa
+- term: Weighted Kappa
+  level: metric
+  definition: Agreement with the Gold Master labels that accounts for the magnitude of an error, computed separately
+    for risk level and severity band.
+  definition_verbatim: false
+  location: Evaluation results
+  scale: quadratic weighted kappa
+- term: Average latency per message
+  level: metric
+  definition: Average time the model takes to grade one message.
+  definition_verbatim: false
+  location: Evaluation results
+  scale: seconds
+- term: Total cost (USD)
+  level: metric
+  definition: What a run over the messages cost in US dollars.
+  definition_verbatim: false
+  location: Evaluation results
+  scale: USD per run
+notes: There is one judgement per message, a risk level from 0 to 8 on a scale built from the Columbia Suicide Severity
+  Rating Scale. The metrics above compare a model's level with the Gold Master label.

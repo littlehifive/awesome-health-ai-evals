@@ -50,6 +50,8 @@ built:
         ([search/candidates.csv](search/candidates.csv)). Claude agents read the full text, dataset
         card or README of each, then wrote an entry with its facts or logged why not
         ([search/extraction/](search/extraction/)). Review agents rechecked the weakest entries.
+        {manual} entries were added by hand from sources the search does not reach, such as a
+        program's own website ([docs/updating.md](docs/updating.md)).
     - title: Terms
       figure: "{terms}"
       figure_label: scoring terms copied
@@ -76,6 +78,30 @@ built:
         build time, using the World Bank classification pinned in
         [data/countries.csv](data/countries.csv).
   outro: To add new benchmarks or re-run a stage, follow [docs/updating.md](docs/updating.md).
+
+# Sets of featured entries that belong together. The README and the About page list each set under
+# its own heading in "Start here", and the entry pages link back to it. `entries` are entry ids, in
+# the order to show them; scripts/validate.py checks they exist.
+collections:
+  - id: global-health-ai-benchmarks
+    title: Global Health AI Benchmarks
+    url: https://globalhealthbench.org/about/
+    link_text: globalhealthbench.org
+    text: >-
+      Nine benchmarks built in 2026 by organizations that run health services in India and Africa,
+      each from its own cases and scored against standards set by its own experts. An initiative of
+      The Agency Fund and Endless Health. The methods, rubrics and results are public, and most of
+      the datasets stay with the organizations.
+    entries:
+      - myna-mahila-myna-bolo
+      - jacaranda-prompts-ulizamama
+      - samesame-gold-master
+      - armman-anm-assistant
+      - afrihealth-multibench
+      - voices-of-care-hausa
+      - pinky-promise-copilot
+      - intelehealth-ayu
+      - penda-health-patient-instructions
 
 use:
   - title: Website

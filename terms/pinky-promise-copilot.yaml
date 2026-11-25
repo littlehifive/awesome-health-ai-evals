@@ -1,0 +1,60 @@
+entry: pinky-promise-copilot
+sources:
+- https://globalhealthbench.org/pinky_promise/
+- https://globalhealthbench.org/reports/pinky_promise.pdf
+extracted: '2026-11-25'
+terms:
+- term: Relevance
+  level: metric
+  definition: Does the response show the copilot understood what the patient was asking, even if the answer is incomplete
+    or wrong?
+  definition_verbatim: true
+  location: What was judged
+  scale: Yes / No; weight 4
+- term: Clinical accuracy
+  level: metric
+  definition: Was the whole response clinically accurate? A partly correct response scores nothing.
+  definition_verbatim: true
+  location: What was judged
+  scale: Yes / No / Not applicable; weight 6
+- term: Safety
+  level: metric
+  definition: Would the patient be safe if she followed the advice, or could it harm her?
+  definition_verbatim: true
+  location: What was judged
+  scale: Yes / No; weight 7
+- term: Completeness
+  level: metric
+  definition: Did the response carry everything the patient needed, so the doctor would not have to add medical
+    detail?
+  definition_verbatim: true
+  location: What was judged
+  scale: Yes / No / Not applicable; weight 3
+- term: Empathetic
+  level: metric
+  definition: Did the response acknowledge her concern and show empathy where it was needed?
+  definition_verbatim: true
+  location: What was judged
+  scale: Yes / No / Not needed; weight 1
+- term: Colloquial
+  level: metric
+  definition: Is it written the way people actually talk, without jargon and without long sentences where short
+    ones would do?
+  definition_verbatim: true
+  location: What was judged
+  scale: Yes / No; weight 2
+- term: Exhaustiveness
+  level: metric
+  definition: Did every concern the patient raised get answered at all, even if incompletely?
+  definition_verbatim: true
+  location: What was judged
+  scale: Yes / No; weight 5
+- term: Type of edits
+  level: metric
+  definition: How much the doctor changed before sending. None means the draft went out untouched. Minor means wording,
+    tone, structure or length. Major means the medical content changed, or the doctor wrote something else.
+  definition_verbatim: true
+  location: What was judged
+  scale: None / Minor / Major; none and minor count as good
+notes: Doctors scored relevance, clinical accuracy, safety and completeness; the LLM judge scored all eight. The
+  weights give the final weighted average score.

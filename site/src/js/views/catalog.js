@@ -22,7 +22,7 @@ const FROM = {
 let S; // state while mounted
 const hayCache = new Map();
 const hay = (e) => {
-  if (!hayCache.has(e.id)) hayCache.set(e.id, `${e.name} ${e.summary} ${e.id} ${e.languages.join(" ")} ${e.country_names.join(" ")}`.toLowerCase());
+  if (!hayCache.has(e.id)) hayCache.set(e.id, `${e.name} ${e.summary} ${e.id} ${e.languages.join(" ")} ${e.country_names.join(" ")} ${e.collection ? e.collection.title : ""}`.toLowerCase());
   return hayCache.get(e.id);
 };
 

@@ -1,0 +1,106 @@
+id: afrihealth-multibench
+name: AfriHealth MultiBench (Intron Health)
+kind: benchmark
+year: 2026
+featured: true
+summary: 'About 5,200 audio clips of African health workers in 20 languages for three tasks: speech to text, speech
+  translation into English, and answering 385 spoken clinical questions from Nigerian community health extension
+  workers; scored by error rates, translation metrics and a 13-item expert rating.'
+readme_section: voice
+links:
+  paper: https://globalhealthbench.org/reports/intron_health.pdf
+  website: https://globalhealthbench.org/intron_health/
+license: null
+open_data: gated
+geography:
+  item_languages: [English, Afrikaans, Akan, Amharic, Arabic, French, Hausa, Igbo, Kinyarwanda, Luganda, Nigerian
+      Pidgin, Sepedi, Sesotho, Shona, Swahili, Setswana, Twi, Xhosa, Yoruba, Zulu]
+  item_origin_countries: [NGA, GHA, KEN, UGA, RWA, ZAF]
+  item_origin_note: Speech-to-text and translation recordings come from health workers in 10 or more African countries;
+    the site names Nigeria, Ghana, Kenya, Uganda, Rwanda and South Africa. All 398 spoken-question recordings are
+    from Nigeria. English is spoken in more than 40 African accents.
+  rater_countries: [NGA]
+  localization: native
+  lead_institution_countries: [NGA]
+  subsets:
+  - name: Spoken questions (398 recordings)
+    languages: [English, Hausa, Yoruba, Nigerian Pidgin]
+    countries: [NGA]
+    localization: native
+origin:
+  builder_types: [industry_lab, implementer_ngo]
+  item_provenance: [real_user_queries, adapted_dataset]
+  venue: grey_literature
+facets:
+  health_areas: [primary_care, general_medicine]
+  intended_users: [chw, clinician]
+  eval_methods: [automatic_metric, expert_human_rating]
+  modality: [voice]
+  size: 'About 5,200 audio clips: 3,200 for speech to text, 1,600 for translation, and 398 recordings of 385 spoken
+    questions'
+card:
+  task: 'Three tasks on audio from African health workers: write clinical speech down as text, translate speech
+    in an African language into English, and answer a clinical question asked out loud.'
+  items_built: Every recording is real speech from a working health worker. The 3,200 speech-to-text clips (about
+    10 hours, 250 speakers) come from Intron's production monitoring, Afrispeech Dialogue and Med-Conv-Nig. The
+    1,600 translation clips (about 5 hours, 120 speakers) come from AfriVox Translate. The 398 spoken-question recordings
+    (385 questions, about 15.6 hours) were sent by Nigerian community health extension workers through Intron's
+    app, and a health worker wrote a reference answer for each. Native-speaking medical professionals wrote the
+    reference transcripts and translations, and every translation was reviewed twice. Personal details were removed
+    by an automatic filter and then checked by hand.
+  example: A woman brought in her child of two years with the complaint of ear pain. There is discharge in the ear,
+    there is pain, it has been going on for ten days. The child cannot sleep at night and the mother is worried.
+    She has not given any medication to the child. What is the diagnosis and what prescription should I give to
+    the mother?
+  scoring: Speech to text is scored by word error rate and character error rate, each with and without text normalisation.
+    Translation is scored by BLEU, chrF and AfriCOMET against the English a person wrote. Answers to spoken questions
+    are rated by a human panel on 13 items from 1 to 5, including factuality, appropriateness for a community health
+    worker in Africa, adequacy, clinical reasoning, empathy, uncertainty, hallucination, local relevance and harm.
+  judge: Automatic metrics for speech to text and translation. For spoken questions, a panel of Nigerian community
+    health extension workers and medical professionals, all native speakers with clinical training. No LLM judge
+    is used.
+  scale: Error rates from 0% upward (lower is better, and above 100% is possible); BLEU and chrF from 0 to 100;
+    AfriCOMET from -1 to 1; panel ratings from 1 to 5, where higher is better on 9 items and lower is better on
+    4 (hallucination, local relevance, harm and poor question quality).
+  validation: The panel also scored the health worker's reference answers and a set of deliberately poor answers.
+    The poor answers scored 1.89 on factuality, against 4.18 for the health worker's answers and 4.77 for the best
+    model, so the scale separates bad answers from good ones. The initiative's summary reports 47 raters giving
+    14,739 ratings, with exact agreement 47% of the time on whether advice suited a rural clinic and 95% on whether
+    it could cause harm.
+  score_meaning: 'On factuality a 5 means the facts are right; a model loses marks by, for example, getting the
+    diagnosis wrong. On hallucination, local relevance and harm a 1 is the best score: no made-up clinical claims,
+    no care that is unavailable locally, and no advice that could do harm.'
+  annotation_process: Each labeller had a written checklist saying what every score means and went through training
+    sessions before scoring. They scored each model's answer and the health worker's answer on the same 13 scales.
+    Model scores are published for 9 of the 13 items, on the 172 of 385 questions whose details were recorded.
+  results: On speech to text across 17 languages, Intron Sahara (24.4% word error rate) and Meta OmniLLM (26.8%)
+    were strongest; Azure Speech averaged 21.2% but only on the 7 languages it supports. The best word error rate
+    was 5.5% in French and 6.8% in Swahili but 47.7% in Akan. Gemini-3-Flash led translation, with the top BLEU
+    in all 16 languages (19.27 on average). On spoken questions, Claude 4 Sonnet, DeepSeek-R1 and GPT-4.1 scored
+    4.69 to 4.77 on factuality, above the health worker's reference answers at 4.18.
+  limitations: Every spoken question came from Nigerian community health extension workers and covers Nigerian languages
+    only. More recordings come from English-speaking West and East Africa than elsewhere. Language switching mid-sentence
+    was written down inconsistently, error rates count spelling differences as mistakes in languages without settled
+    spelling, BLEU is harsh on languages that build long words, and the human checking does not cover all languages
+    evenly.
+  sources:
+  - https://globalhealthbench.org/intron_health/
+  - https://globalhealthbench.org/reports/intron_health.pdf
+  extracted: '2026-11-25'
+provenance:
+  records: []
+  extracted: '2026-11-25'
+  read_full_text: true
+  confidence: high
+  notes: 'Added by hand on 2026-11-25 from the Global Health AI Benchmarks site, an initiative of The Agency Fund
+    and Endless Health, so it has no screening record. Facts come from the benchmark''s page on that site and the
+    team''s report PDF. The site says the complete datasets stay with each organisation. The report names the benchmark
+    Intron AfriHealth MultiBench. The site counts 19 languages and its list omits Yoruba, although Yoruba appears
+    in the speech-to-text and translation tables and in 100 spoken questions; 20 are listed here, with Pedi and
+    Tswana written as Sepedi and Setswana to match other entries. Access: the site says translation data is open,
+    speech-to-text data partly open and spoken questions private; the report gives the licence only as ''CC 4.0''
+    and says approved subsets will go on Hugging Face. The source corpora on Hugging Face (intronhealth/afrivox-translate
+    and intronhealth/med-convo-nig, both gated; intronhealth/afrispeech-dialog, open) are not listed as links because
+    the benchmark subset itself was not found, so open_data is gated and license is null. The spoken questions come
+    from Intron''s CHEW question collection in Nigeria, which the nigbench entry also draws on; the sources do not
+    say how the two sets overlap. The rater-agreement figures are from the initiative''s about page.'

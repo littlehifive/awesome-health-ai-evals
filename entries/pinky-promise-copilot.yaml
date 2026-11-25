@@ -1,0 +1,83 @@
+id: pinky-promise-copilot
+name: Pinky Promise copilot benchmark
+kind: benchmark
+year: 2026
+featured: true
+summary: 996 AI-drafted replies to patients' follow-up questions at an Indian online gynaecology clinic, in English
+  and Hindi, scored on eight metrics by two doctors and an LLM judge; in the service a doctor edits each draft before
+  it is sent.
+readme_section: multilingual_regional
+links:
+  paper: https://globalhealthbench.org/reports/pinky_promise.pdf
+  website: https://globalhealthbench.org/pinky_promise/
+license: null
+open_data: closed
+geography:
+  item_languages: [English, Hindi]
+  item_origin_countries: [IND]
+  item_origin_note: Real follow-up chats on the Pinky Promise app, mid-April to mid-June 2026; 822 replies in English
+    and 174 in Hindi, with some patients mixing the two.
+  rater_countries: [IND]
+  localization: native
+  lead_institution_countries: [IND]
+origin:
+  builder_types: [implementer_ngo]
+  item_provenance: [real_user_queries]
+  venue: grey_literature
+facets:
+  health_areas: [srh]
+  intended_users: [clinician]
+  eval_methods: [expert_human_rating, rubric_llm_judge, real_user_data]
+  modality: [text]
+  size: 996 copilot replies from 832 patients (822 English, 174 Hindi); 582 scored by doctors
+card:
+  task: Draft a reply to a patient's follow-up question after an online gynaecology consultation, from the consultation
+    details and the chat so far, for the doctor to edit and send.
+  items_built: 996 copilot replies to real follow-up questions were sampled from the Pinky Promise app between mid-April
+    and mid-June 2026, in groups built from language, patient age group and medical issue. Where possible only one
+    reply per patient was kept (832 patients), and the sample was spread across doctors. The copilot writes 3 candidate
+    replies; the one scored is the reply the doctor chose, or the first where the doctor chose none.
+  example: I started the tablets you prescribed 3 days back and I have been feeling nauseous since. I am quite worried
+    about it. Should I stop them? Also my period still has not come, when should I do the test again? (A made-up
+    chat from the site's worked example, not a patient's message.)
+  scoring: Each reply is scored yes or no on relevance, clinical accuracy, safety, completeness, empathy, colloquial
+    tone and exhaustiveness, with clinical accuracy all or nothing, plus a label for how much the doctor edited
+    the draft (none, minor or major). The seven yes-or-no metrics are combined into a weighted average, with weights
+    from 7 for safety and 6 for clinical accuracy down to 1 for empathy.
+  judge: Two gynaecologists scored 582 replies between them on relevance, clinical accuracy, safety and completeness.
+    GPT-5.4-mini, with a separate set of instructions for each metric, scored all 996 replies on all 8 metrics and
+    gives a sentence or two of reasoning when it marks a reply down.
+  scale: Yes or no, with 'not applicable' for clinical accuracy and completeness and 'not needed' for empathy on
+    the doctors' scale; none, minor or major for type of edits.
+  validation: Both doctors scored 49 replies and agreed 97.96% of the time on safety, 87.76% on relevance, 73.47%
+    on clinical accuracy and 65.31% on completeness. The judge agreed with the doctors 96.56% on safety, 95.35%
+    on relevance, 81.93% on clinical accuracy and 61.62% on completeness. On empathy (97.10%) and colloquial tone
+    (52.17%) the check rests on the first 10 replies each doctor scored.
+  score_meaning: A yes on clinical accuracy means the whole reply was accurate; a partly correct reply scores nothing.
+    Completeness asks whether what the copilot did answer was complete, and exhaustiveness asks whether every question
+    the patient raised was answered at all. No edits and minor edits both count as a good reply; a major edit means
+    the doctor changed the medical content or wrote something else.
+  annotation_process: Doctor 1 scored 293 replies, Doctor 2 scored 338, and 49 were scored by both. They worked
+    from written guidelines and wrote down the reason for a low score unless it was obvious, which was later used
+    to align the judge.
+  results: The final weighted average was 83.35%. Doctors marked 97% of drafts safe, 96% relevant, 92% clinically
+    accurate and 73% complete. The judge marked 58% exhaustive and 55% colloquial, and the team says it is too harsh
+    on the second. Doctors sent 40% of drafts untouched or with only minor edits.
+  limitations: Doctor scoring is slow, so the team needs a better way to choose which replies doctors see. Doctors
+    and the judge both mix up completeness and exhaustiveness. Only 1 of the copilot's 3 candidate replies was scored,
+    and doctors often look only at the first.
+  sources:
+  - https://globalhealthbench.org/pinky_promise/
+  - https://globalhealthbench.org/reports/pinky_promise.pdf
+  extracted: '2026-11-25'
+provenance:
+  records: []
+  extracted: '2026-11-25'
+  read_full_text: true
+  confidence: high
+  notes: Added by hand on 2026-11-25 from the Global Health AI Benchmarks site, an initiative of The Agency Fund
+    and Endless Health, so it has no screening record. Facts come from the benchmark's page on that site and the
+    team's report PDF. The site says the complete datasets stay with each organisation. The report says the team
+    does not plan to make the dataset public, so open_data is closed. Samples scored only by the LLM judge may still
+    contain a patient's first name or date of birth. The copilot model is not named on the site. Lead institution
+    and rater countries are taken from where the clinic and its doctors work.

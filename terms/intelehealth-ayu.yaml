@@ -1,0 +1,157 @@
+entry: intelehealth-ayu
+sources:
+- https://globalhealthbench.org/intelehealth/
+- https://globalhealthbench.org/reports/intelehealth.pdf
+extracted: '2026-11-25'
+terms:
+- term: Top-1 accuracy
+  level: metric
+  definition: The share of cases in which the confirmed diagnosis is the first one the model names. Higher is better.
+  definition_verbatim: true
+  location: What was judged
+  scale: 0% never first; 100% always first
+- term: Top-5 accuracy
+  level: metric
+  definition: The share of cases in which the confirmed diagnosis appears anywhere in the 5 diagnoses the model
+    names. Higher is better.
+  definition_verbatim: true
+  location: What was judged
+  scale: 0% never in the 5; 100% always in the 5
+- term: Mean reciprocal rank
+  level: metric
+  definition: One score for where the confirmed diagnosis sits in the list. A case where it is first counts 1, second
+    counts a half, third counts a third, and a case where it is missing counts 0. Higher is better.
+  definition_verbatim: true
+  location: What was judged
+  scale: 0 never in the list; 1 always first
+- term: Quality of case history
+  level: criterion
+  definition: How complete and reliable is the case record as something for the model to read?
+  definition_verbatim: true
+  location: What was judged
+  scale: 5 Exemplary / 4 High Quality / 3 Acceptable / 2 Requires Improvement / 1 Unacceptable
+- term: Appropriateness of AI-generated DDx
+  level: criterion
+  definition: How appropriate is the list of diagnoses the model wrote for this patient?
+  definition_verbatim: true
+  location: What was judged
+  scale: 5 Very appropriate / 4 Appropriate / 3 Neutral / 2 Inappropriate / 0 Very inappropriate
+- term: Comprehensiveness of AI-generated DDx
+  level: criterion
+  definition: Does the list include the confirmed diagnosis, or come close to it?
+  definition_verbatim: true
+  location: What was judged
+  scale: 5 The confirmed diagnosis is in the list / 4 Very close but not exact / 3 Closely related and might help
+    / 2 Related but unlikely to help / 0 Nothing in the list is related to it
+- term: Clinical Depth
+  level: criterion
+  definition: How much clinical depth does the model’s whole output have, scored from 1 to 5?
+  definition_verbatim: true
+  location: What was judged
+  scale: 1-5
+- term: Medication Appropriateness Index
+  level: metric
+  definition: Every medicine is scored on 10 questions, each carrying its own weight in the total. Each answer is
+    0 appropriate, 1 marginally appropriate or 2 inappropriate. This is the one measure here where a low score is
+    the good one.
+  definition_verbatim: false
+  location: What was judged
+  scale: 0 appropriate / 1 marginally appropriate / 2 inappropriate per question, weighted; lower is better
+- term: Indication
+  level: criterion
+  parent: Medication Appropriateness Index
+  definition: Is there an indication for the drug?
+  definition_verbatim: false
+  location: What was judged
+  scale: 0-2, weight 3
+- term: Effectiveness
+  level: criterion
+  parent: Medication Appropriateness Index
+  definition: Is the medication effective for the condition?
+  definition_verbatim: false
+  location: What was judged
+  scale: 0-2, weight 3
+- term: Dosage
+  level: criterion
+  parent: Medication Appropriateness Index
+  definition: Is the dosage correct?
+  definition_verbatim: false
+  location: What was judged
+  scale: 0-2, weight 2
+- term: Correct directions
+  level: criterion
+  parent: Medication Appropriateness Index
+  definition: Are the directions correct?
+  definition_verbatim: false
+  location: What was judged
+  scale: 0-2, weight 2
+- term: Practical directions
+  level: criterion
+  parent: Medication Appropriateness Index
+  definition: Are the directions practical?
+  definition_verbatim: false
+  location: What was judged
+  scale: 0-2, weight 1
+- term: Drug-drug interactions
+  level: criterion
+  parent: Medication Appropriateness Index
+  definition: Is there a clinically significant interaction with another drug?
+  definition_verbatim: false
+  location: What was judged
+  scale: 0-2, weight 2
+- term: Drug-disease interactions
+  level: criterion
+  parent: Medication Appropriateness Index
+  definition: Is there a clinically significant interaction with the patient’s condition?
+  definition_verbatim: false
+  location: What was judged
+  scale: 0-2, weight 2
+- term: Duplication
+  level: criterion
+  parent: Medication Appropriateness Index
+  definition: Is there unnecessary duplication with another drug?
+  definition_verbatim: false
+  location: What was judged
+  scale: 0-2, weight 1
+- term: Duration
+  level: criterion
+  parent: Medication Appropriateness Index
+  definition: Is the duration of therapy acceptable?
+  definition_verbatim: false
+  location: What was judged
+  scale: 0-2, weight 1
+- term: Expense
+  level: criterion
+  parent: Medication Appropriateness Index
+  definition: Is this drug the least expensive alternative compared with others of equal use?
+  definition_verbatim: false
+  location: What was judged
+  scale: 0-2, weight 1
+- term: Completeness of medication list
+  level: criterion
+  definition: Does the treatment plan include every medicine the patient needed?
+  definition_verbatim: true
+  location: What was judged
+  scale: 5 Includes all / 4 Almost all / 3 About half / 2 Only one / 0 Not at all
+- term: Appropriateness of medical test
+  level: criterion
+  definition: Is the medical test in the plan appropriate? It is scored from 1 to 5, even when no test was ordered.
+  definition_verbatim: true
+  location: What was judged
+  scale: 1-5
+- term: Appropriateness of medical advice
+  level: criterion
+  definition: Is the advice in the plan clinically appropriate? It is scored from 1 to 5.
+  definition_verbatim: true
+  location: What was judged
+  scale: 1-5
+- term: Appropriateness of referral advice
+  level: criterion
+  definition: Was the referral, or the decision not to refer, appropriate for this patient? It is scored from 1
+    to 5.
+  definition_verbatim: true
+  location: What was judged
+  scale: 1-5
+notes: The confirmed diagnosis is the single diagnosis set for a case by one doctor and checked by a second. DDx
+  is the list of diagnoses the model writes. The ten Medication Appropriateness Index questions are named here by
+  their subject; the site lists them as questions with weights.

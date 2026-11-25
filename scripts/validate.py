@@ -76,6 +76,13 @@ def main() -> int:
     warnings = [f"warning: {', '.join(stems)} share {link}; merge them if they are one benchmark"
                 for link, stems in sorted(owners.items()) if len(stems) > 1]
 
+    # Featured sets in data/about.yaml must name entries that exist.
+    about = load_yaml((ROOT / "data" / "about.yaml").read_text()) or {}
+    for c in about.get("collections") or []:
+        for eid in c.get("entries") or []:
+            if eid not in entries:
+                errors.append(f"data/about.yaml: collection {c.get('id')!r} names {eid!r}, which is not an entry")
+
     # Pass-2 term files.
     terms_validator = Draft202012Validator(json.loads((ROOT / "schema" / "terms.schema.json").read_text()))
     term_files = sorted((ROOT / "terms").glob("*.yaml"))

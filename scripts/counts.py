@@ -44,6 +44,7 @@ def catalog_counts(entries: dict[str, dict] | None = None, terms: dict[str, dict
         "low": sum(1 for e in rows if "low" in income_groups(codes[e["id"]])),
         "terms": n_terms,
         "entries_with_terms": sum(1 for t in terms.values() if t["terms"]),
+        "manual": sum(1 for e in rows if not e["provenance"]["records"]),
         "constructs": len(taxonomy.get("constructs", [])),
         "domains": len(taxonomy.get("domains", [])),
         "queries": stats["queries"], "records": stats["records"], "screened": stats["screened"],
